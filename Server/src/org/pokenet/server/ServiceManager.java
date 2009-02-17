@@ -19,8 +19,8 @@ public class ServiceManager {
 	 */
 	public ServiceManager() {
 		m_networkService = new NetworkService();
-		m_movementService = new MovementService[3];
-		m_battleService = new BattleService[2];
+		m_movementService = new MovementService[GameServer.getMovementThreadAmount()];
+		m_battleService = new BattleService[GameServer.getBattleThreadAmount()];
 	}
 	
 	/**
@@ -36,7 +36,14 @@ public class ServiceManager {
 	 * @return
 	 */
 	public MovementService getMovementService() {
-		return null;
+		int smallest = 0;
+		for(int i = 0; i < m_movementService.length; i++) {
+			synchronized(m_movementService[i]) {
+				if(m_movementService[i].getPlayerAmount() < m_movementService[smallest].getPlayerAmount())
+					smallest = i;
+			}
+		}
+		return m_movementService[smallest];
 	}
 	
 	/**
@@ -51,7 +58,15 @@ public class ServiceManager {
 	 * Starts all services
 	 */
 	public void start() {
-		//Start all threads here
+		/*
+		 * Start the network service first as it needs to bind the address/port to the game server.
+		 * Then start all other services with TimeService last.
+		 */
+		m_networkService.start();
+		for(int i = 0; i < m_movementService.length; i++)
+			m_movementService[i].start();
+		for(int i = 0; i < m_battleService.length; i++)
+			m_battleService[i].start();
 		System.out.println("INFO: Service Manager startup completed.");
 	}
 	
@@ -59,6 +74,15 @@ public class ServiceManager {
 	 * Stops all services
 	 */
 	public void stop() {
-		
+		/*
+		 * Stopping services is very delicate and must be done in the following order to avoid
+		 * leaving player objects in a non-concurrent state.
+		 */
+		for(int i = 0; i < m_movementService.length; i++)
+			m_movementService[i].stop();
+		for(int i = 0; i < m_battleService.length; i++)
+			m_battleService[i].stop();
+		m_networkService.stop();
+		System.out.println("INFO: Service Manager stopped.");
 	}
 }

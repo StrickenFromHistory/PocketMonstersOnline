@@ -30,15 +30,30 @@ public class MovementService implements Runnable {
 	}
 	
 	/**
-	 * Removes a player from this movement service
-	 * @param player
+	 * Returns how many players are in this thread
 	 */
-	public void removePlayer(PlayerChar player) {
-		
+	public int getPlayerAmount() {
+		return m_players.size();
 	}
 	
 	/**
-	 * Called by m_thread.start(). Loops through all players calling PlayerChar.move() if they need to be moved.
+	 * Removes a player from this movement service, returns true if the player was in the thread and was removed.
+	 * Otherwise, returns false.
+	 * @param player
+	 */
+	public boolean removePlayer(String player) {
+		for(int i = 0; i < m_players.size(); i++) {
+			if(m_players.get(i).getName().equalsIgnoreCase(player)) {
+				m_players.remove(i);
+				m_players.trimToSize();
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Called by m_thread.start(). Loops through all players calling PlayerChar.move() if the player requested to be moved.
 	 */
 	public void run() {
 		while(true) {
@@ -53,7 +68,7 @@ public class MovementService implements Runnable {
 	}
 	
 	/**
-	 * Starts the movementservice
+	 * Starts the movement thread
 	 */
 	public void start() {
 		m_thread.start();
