@@ -1,85 +1,61 @@
 package org.pokenet.server.backend;
 
-import java.util.ArrayList;
-
-import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.GameServer;
 
 /**
- * Loops through all players and moves them if they request to be moved
+ * Stores the map matrix and movement managers.
  * @author shadowkanji
  *
  */
-public class MovementService implements Runnable {
-	private ArrayList<PlayerChar> m_players;
-	private Thread m_thread;
+public class MovementService {
+	private MovementManager [] m_movementManager;
+	private ServerMapMatrix m_mapMatrix;
+	private ServerMap m_tempMap;
 	
 	/**
-	 * Default constructor.
+	 * Default constructor
 	 */
 	public MovementService() {
-		m_players = new ArrayList<PlayerChar>();
-		m_thread = new Thread(this);
+		m_movementManager = new MovementManager[GameServer.getMovementThreadAmount()];
+		m_mapMatrix = new ServerMapMatrix();
 	}
 	
 	/**
-	 * Adds a player to this movement service
-	 * @param player
+	 * Returns the movement manager with the smallest processing load
+	 * @return
 	 */
-	public void addPlayer(PlayerChar player) {
-		m_players.add(player);
-	}
-	
-	/**
-	 * Returns how many players are in this thread
-	 */
-	public int getPlayerAmount() {
-		return m_players.size();
-	}
-	
-	/**
-	 * Removes a player from this movement service, returns true if the player was in the thread and was removed.
-	 * Otherwise, returns false.
-	 * @param player
-	 */
-	public boolean removePlayer(String player) {
-		for(int i = 0; i < m_players.size(); i++) {
-			if(m_players.get(i).getName().equalsIgnoreCase(player)) {
-				m_players.remove(i);
-				m_players.trimToSize();
-				return true;
+	public MovementManager getMovementManager() {
+		int smallest = 0;
+		if(m_movementManager.length > 1) {
+			for(int i = 0; i < m_movementManager.length; i++) {
+				if(m_movementManager[i].getProcessingLoad() < m_movementManager[smallest].getProcessingLoad())
+					smallest = i;
 			}
 		}
-		return false;
+		return m_movementManager[smallest];
 	}
 	
 	/**
-	 * Called by m_thread.start(). Loops through all players calling PlayerChar.move() if the player requested to be moved.
+	 * Reloads all maps while the server is running. Puts all players in m_tempMap.
+	 * An NPC is there to allow them to return to where they last where when they are ready.
 	 */
-	public void run() {
-		while(true) {
-			for(int i = 0; i < m_players.size(); i++) {
-				if(m_players.get(i).isMovementRequested())
-					m_players.get(i).move();
-			}
-			try {
-				Thread.sleep(200);
-			} catch (Exception e) { e.printStackTrace(); }
-		}
+	public void reloadMap() {
+		//TODO: Call map loading script and move players to m_tempMap
 	}
 	
 	/**
-	 * Starts the movement thread
+	 * Starts the movement service
 	 */
 	public void start() {
-		m_thread.start();
-		System.out.println("INFO: Movement Service started");
+		for(int i = 0; i < m_movementManager.length; i++)
+			m_movementManager[i].start();
+		//TODO: Load all maps here
 	}
 	
 	/**
-	 * Stops the movement thread
+	 * Stops the movement service
 	 */
 	public void stop() {
 		
 	}
-
 }

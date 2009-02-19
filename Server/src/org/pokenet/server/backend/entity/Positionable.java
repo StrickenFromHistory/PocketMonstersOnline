@@ -33,11 +33,13 @@ public interface Positionable {
 	public enum Direction { Up, Down, Left, Right }
 	public int getX();
 	public int getY();
+	public void setId(int id);
+	public int getId();
 
 	public String getName();
+	public void setName(String name);
 	public int getSprite();
 
-	public boolean isMovementRequested();
 	public void move();
 	public void setNextMovement(Direction dir);
 	public Direction getFacing();

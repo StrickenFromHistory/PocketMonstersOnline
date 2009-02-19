@@ -1,6 +1,8 @@
 package org.pokenet.server;
 
 import org.pokenet.server.backend.MovementService;
+import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.BattleService;
 import org.pokenet.server.network.NetworkService;
 
@@ -11,7 +13,7 @@ import org.pokenet.server.network.NetworkService;
  */
 public class ServiceManager {
 	private NetworkService m_networkService;
-	private MovementService [] m_movementService;
+	private MovementService m_movementService;
 	private BattleService [] m_battleService;
 	
 	/**
@@ -19,7 +21,7 @@ public class ServiceManager {
 	 */
 	public ServiceManager() {
 		m_networkService = new NetworkService();
-		m_movementService = new MovementService[GameServer.getMovementThreadAmount()];
+		m_movementService = new MovementService();
 		m_battleService = new BattleService[GameServer.getBattleThreadAmount()];
 	}
 	
@@ -28,22 +30,37 @@ public class ServiceManager {
 	 * @return
 	 */
 	public BattleService getBattleService() {
+		int smallest = 0;
+		if(m_battleService.length > 1) {
+			for(int i = 0; i < m_battleService.length; i++) {
+				if(m_battleService[i].getProcessingLoad() < m_battleService[smallest].getProcessingLoad())
+					smallest = i;
+			}
+		}
+		return m_battleService[smallest];
+	}
+	
+	/**
+	 * Locates the battle service that a player is in and returns the battlefield they are on
+	 * @param player
+	 * @return
+	 */
+	public BattleField getBattleFieldForPlayer(PlayerChar player) {
+		int location = -1;
+		for(int i = 0; i < m_battleService.length; i++) {
+			location = m_battleService[i].containsPlayer(player);
+			if(location > -1)
+				return m_battleService[i].getBattleField(location);
+		}
 		return null;
 	}
 	
 	/**
-	 * Returns the movement service with the smallest amount of players stored in it
+	 * Returns the movement service
 	 * @return
 	 */
 	public MovementService getMovementService() {
-		int smallest = 0;
-		for(int i = 0; i < m_movementService.length; i++) {
-			synchronized(m_movementService[i]) {
-				if(m_movementService[i].getPlayerAmount() < m_movementService[smallest].getPlayerAmount())
-					smallest = i;
-			}
-		}
-		return m_movementService[smallest];
+		return m_movementService;
 	}
 	
 	/**
@@ -63,8 +80,7 @@ public class ServiceManager {
 		 * Then start all other services with TimeService last.
 		 */
 		m_networkService.start();
-		for(int i = 0; i < m_movementService.length; i++)
-			m_movementService[i].start();
+		m_movementService.start();
 		for(int i = 0; i < m_battleService.length; i++)
 			m_battleService[i].start();
 		System.out.println("INFO: Service Manager startup completed.");
@@ -78,8 +94,7 @@ public class ServiceManager {
 		 * Stopping services is very delicate and must be done in the following order to avoid
 		 * leaving player objects in a non-concurrent state.
 		 */
-		for(int i = 0; i < m_movementService.length; i++)
-			m_movementService[i].stop();
+		m_movementService.stop();
 		for(int i = 0; i < m_battleService.length; i++)
 			m_battleService[i].stop();
 		m_networkService.stop();

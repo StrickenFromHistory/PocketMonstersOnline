@@ -38,9 +38,7 @@ public interface Battleable {
 	public int getBattleID();
 	
 	public Battleable getOpponent();
-	public BattleField getField();
-	
-	public void setName(String name);
+	public BattleField getBattleField();
 	public void setParty(Pokemon[] team);
 	public void setBattleID(int battleID);
 }

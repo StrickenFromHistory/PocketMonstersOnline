@@ -56,6 +56,7 @@ public abstract class BattleField {
      */
     protected final int m_participants = 2;
 	private ArrayList<PlayerChar> m_spectators = new ArrayList<PlayerChar>();
+	private ArrayList<PlayerChar> m_players = new ArrayList<PlayerChar>();
     protected ArrayList m_effects = new ArrayList();
     protected Pokemon[][] m_pokemon;
     protected int[] m_active = { 0, 0 };
@@ -718,6 +719,22 @@ public abstract class BattleField {
     }
 
 	public void clearQueue() {
+	}
+	
+	/**
+	 * Adds a trainer to the battlefield
+	 * @param p
+	 */
+	public void addTrainer(PlayerChar p) {
+		m_players.add(p);
+	}
+	
+	/**
+	 * Returns true if p is participating in this match
+	 * @param p
+	 */
+	public boolean isParticipating(PlayerChar p) {
+		return m_players.contains(p);
 	}
     
 }
