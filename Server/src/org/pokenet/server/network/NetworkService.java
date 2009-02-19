@@ -13,6 +13,7 @@ import org.apache.mina.filter.executor.ExecutorFilter;
 import org.apache.mina.transport.socket.nio.SocketAcceptor;
 import org.apache.mina.transport.socket.nio.SocketAcceptorConfig;
 import org.apache.mina.transport.socket.nio.SocketSessionConfig;
+import org.pokenet.server.network.codec.PokenetCodecFactory;
 import org.simpleframework.xml.core.Persister;
 
 /**
@@ -47,7 +48,7 @@ public class NetworkService {
 		ByteBuffer.setUseDirectBuffers(false);
 		ByteBuffer.setAllocator(new SimpleByteBufferAllocator());
 
-		m_acceptor = new SocketAcceptor(4, Executors
+		m_acceptor = new SocketAcceptor(5, Executors
 				.newCachedThreadPool());
 
 		SocketAcceptorConfig cfg = new SocketAcceptorConfig();
@@ -55,16 +56,10 @@ public class NetworkService {
 		cfg.getSessionConfig().setReuseAddress(true);
 		cfg.getFilterChain().addLast(
 				"codec",
-				new ProtocolCodecFilter(new TextLineCodecFactory(Charset
-						.forName("US-ASCII"))));
+				new ProtocolCodecFilter(new PokenetCodecFactory()));
 		cfg.getFilterChain().addLast("threadPool", new ExecutorFilter(Executors
 				.newCachedThreadPool()));
 		try {
-			Persister stream = new Persister();
-
-			/*
-			 * Should all databases (movelists, species data, etc.) be loaded here like the old game server?
-			 */
 			m_acceptor.bind(new InetSocketAddress(3128), m_connectionManager, cfg);
 			System.out.println("INFO: Networking Service started");
 		} catch (Exception ex) {

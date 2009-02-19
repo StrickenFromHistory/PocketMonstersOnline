@@ -1,5 +1,9 @@
 package org.pokenet.server.network;
 
+import java.util.Iterator;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 import org.pokenet.server.backend.entity.PlayerChar;
 
 /**
@@ -8,12 +12,14 @@ import org.pokenet.server.backend.entity.PlayerChar;
  *
  */
 public class LogoutManager implements Runnable {
+	private Queue<PlayerChar> m_logoutQueue;
 	private Thread m_thread;
 	
 	/**
 	 * Default constructor
 	 */
 	public LogoutManager() {
+		m_logoutQueue = new ConcurrentLinkedQueue<PlayerChar>();
 		m_thread = new Thread(this);
 	}
 	
@@ -23,6 +29,24 @@ public class LogoutManager implements Runnable {
 	 */
 	public boolean attemptLogout(PlayerChar player) {
 		return true;
+	}
+	
+	/**
+	 * Returns true if a user is being logged out
+	 * This is used during login. If a player is in the logout queue,
+	 * the player must wait to be logged out before being logged back in again.
+	 * @param username
+	 * @return
+	 */
+	public boolean containsPlayer(String username) {
+		Iterator<PlayerChar> it = m_logoutQueue.iterator();
+		PlayerChar p;
+		while(it.hasNext()) {
+			p = it.next();
+			if(p.getName().equalsIgnoreCase(username))
+				return true;
+		}
+		return false;
 	}
 	
 	/**

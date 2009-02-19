@@ -81,4 +81,12 @@ public class PlayerChar extends Char implements Battleable {
 	public IoSession getSession() {
 		return m_session;
 	}
+	
+	/**
+	 * Sends an error code to the client. -128 to 127
+	 * @param error
+	 */
+	public void sendErrorCode(String error) {
+		
+	}
 }

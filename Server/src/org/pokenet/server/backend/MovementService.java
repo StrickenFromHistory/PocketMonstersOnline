@@ -47,8 +47,10 @@ public class MovementService {
 	 * Starts the movement service
 	 */
 	public void start() {
-		for(int i = 0; i < m_movementManager.length; i++)
+		for(int i = 0; i < m_movementManager.length; i++) {
+			m_movementManager[i] = new MovementManager();
 			m_movementManager[i].start();
+		}
 		//TODO: Load all maps here
 	}
 	

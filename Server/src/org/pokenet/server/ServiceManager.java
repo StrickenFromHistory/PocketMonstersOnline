@@ -4,6 +4,7 @@ import org.pokenet.server.backend.MovementService;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.BattleService;
+import org.pokenet.server.battle.DataService;
 import org.pokenet.server.network.NetworkService;
 
 /**
@@ -15,6 +16,7 @@ public class ServiceManager {
 	private NetworkService m_networkService;
 	private MovementService m_movementService;
 	private BattleService [] m_battleService;
+	private DataService m_dataService;
 	
 	/**
 	 * Default constructor
@@ -23,6 +25,7 @@ public class ServiceManager {
 		m_networkService = new NetworkService();
 		m_movementService = new MovementService();
 		m_battleService = new BattleService[GameServer.getBattleThreadAmount()];
+		m_dataService = new DataService();
 	}
 	
 	/**
@@ -56,6 +59,14 @@ public class ServiceManager {
 	}
 	
 	/**
+	 * Returns the data service (contains battle mechanics, polrdb, etc.)
+	 * @return
+	 */
+	public DataService getDataService() {
+		return m_dataService;
+	}
+	
+	/**
 	 * Returns the movement service
 	 * @return
 	 */
@@ -81,8 +92,10 @@ public class ServiceManager {
 		 */
 		m_networkService.start();
 		m_movementService.start();
-		for(int i = 0; i < m_battleService.length; i++)
+		for(int i = 0; i < m_battleService.length; i++) {
+			m_battleService[i] = new BattleService();
 			m_battleService[i].start();
+		}
 		System.out.println("INFO: Service Manager startup completed.");
 	}
 	

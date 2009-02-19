@@ -6,10 +6,20 @@ package org.pokenet.server;
  * Starting a server requires a parameter to be passed in, i.e. java GameServer -low
  * Here are the different settings:
  * -low
- * 
+ * 		< 1.86ghz
+ * 		< 512MB Ram
+ * 		< 1mbps Up/Down Connection
+ * 		75 Playeys
  * -medium
- * 
+ * 		< 2ghz
+ * 		1GB Ram
+ * 		1mbps Up/Down Connection
+ * 		200 Players
  * -high
+ * 		> 1.86ghz
+ * 		> 1GB Ram
+ * 		> 1mbps Up/Down Connection
+ * 		> 500 Players
  * @author shadowkanji
  *
  */
@@ -22,23 +32,23 @@ public class GameServer {
 	 * @param args
 	 */
 	public static void main(String [] args) {
-		if(args.length > 1) {
+		if(args.length > 0) {
 			/*
 			 * The following sets the server's settings based on the
 			 * computing ability of the server specified by the server owner.
 			 */
 			if(args[0].equalsIgnoreCase("-low")) {
-				m_maxPlayers = 50;
-				m_movementThreads = 1;
+				m_maxPlayers = 75;
+				m_movementThreads = 2;
 				m_battleThreads = 1;
 			} else if(args[0].equalsIgnoreCase("-medium")) {
 				m_maxPlayers = 200;
-				m_movementThreads = 2;
+				m_movementThreads = 4;
 				m_battleThreads = 2;
 			} else if(args[0].equalsIgnoreCase("-high")) {
 				m_maxPlayers = 500;
-				m_movementThreads = 3;
-				m_battleThreads = 3;
+				m_movementThreads = 8;
+				m_battleThreads = 4;
 			} else {
 				System.err.println("Server requires a settings parameter, e.g. java GameServer -medium");
 				System.exit(0);
