@@ -7,6 +7,7 @@ import org.pokenet.server.backend.entity.Char;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
+import org.pokenet.server.battle.Pokemon;
 
 import tiled.core.TileLayer;
 
@@ -18,8 +19,13 @@ import tiled.core.TileLayer;
 public class ServerMap {
 	public enum PvPType { DISABLE, ENABLED, ENFORCED }
 	
+	//Stores the width, heigth, x, y and offsets of this map
+	private int m_width;
+	private int m_heigth;
 	private int m_x;
 	private int m_y;
+	private int m_xOffsetModifier;
+	private int m_yOffsetModifier;
 	private PvPType m_pvpType = PvPType.ENABLED;
 	//Players and NPCs
 	private ArrayList<PlayerChar> m_players;
@@ -57,6 +63,19 @@ public class ServerMap {
 	}
 	
 	/**
+	 * Adds a char and sets their x y based on a 32 by 32 pixel grid.
+	 * Allows easier adding of NPCs as the x,y can easily be counted via Tiled
+	 * @param c
+	 * @param tileX
+	 * @param tileY
+	 */
+	public void addChar(Char c, int tileX, int tileY) {
+		this.addChar(c);
+		c.setX(tileX * 32);
+		c.setY((tileY * 32) - 8);
+	}
+	
+	/**
 	 * Returns the x co-ordinate of this servermap in the map matrix
 	 * @return
 	 */
@@ -70,6 +89,38 @@ public class ServerMap {
 	 */
 	public int getY() {
 		return m_y;
+	}
+	
+	/**
+	 * Returns the width of this map
+	 * @return
+	 */
+	public int getWidth() {
+		return m_width;
+	}
+	
+	/**
+	 * Returns the height of this map
+	 * @return
+	 */
+	public int getHeight() {
+		return m_heigth;
+	}
+	
+	/**
+	 * Returns the x offset of this map
+	 * @return
+	 */
+	public int getXOffsetModifier() {
+		return m_xOffsetModifier;
+	}
+	
+	/**
+	 * Returns the y offset of this map
+	 * @return
+	 */
+	public int getYOffsetModifier() {
+		return m_yOffsetModifier;
 	}
 	
 	/**
@@ -97,5 +148,22 @@ public class ServerMap {
 	public boolean moveChar(Char c, Direction d) {
 		//TODO: Check if the character can move, if so send the movement info to everyone and return true
 		return false;
+	}
+	
+	/**
+	 * Returns true if a wild pokemon was encountered.
+	 * @return
+	 */
+	public boolean isWildBattle() {
+		return false;
+	}
+	
+	/**
+	 * Returns a wild pokemon.
+	 * Different players have different chances of encountering rarer Pokemon.
+	 * @return
+	 */
+	public Pokemon getWildPokemon(PlayerChar p) {
+		return null;
 	}
 }

@@ -38,6 +38,38 @@ public class NetworkService {
 	}
 	
 	/**
+	 * Returns the login manager
+	 * @return
+	 */
+	public LoginManager getLoginManager() {
+		return m_loginManager;
+	}
+	
+	/**
+	 * Returns the logout manager
+	 * @return
+	 */
+	public LogoutManager getLogoutManager() {
+		return m_logoutManager;
+	}
+	
+	/**
+	 * Returns the chat manager
+	 * @return
+	 */
+	public ChatManager getChatManager() {
+		return m_chatManager;
+	}
+	
+	/**
+	 * Returns the connection manager (packet handler)
+	 * @return
+	 */
+	public ConnectionManager getConnectionManager() {
+		return m_connectionManager;
+	}
+	
+	/**
 	 * Start this network service by starting all threads.
 	 */
 	public void start() {
@@ -73,5 +105,7 @@ public class NetworkService {
 	public void stop() {
 		//Stop all threads (do not use thread.stop() )
 		//Unbind network address
+		m_acceptor.unbindAll();
+		m_connectionManager.logoutAll();
 	}
 }

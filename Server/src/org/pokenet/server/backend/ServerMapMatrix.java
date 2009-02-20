@@ -43,7 +43,22 @@ public class ServerMapMatrix {
 	 * @param origin
 	 * @param destination
 	 */
-	public void moveBetweenMaps(Char c, ServerMap origin, ServerMap destination) {
-		
+	public void moveBetweenMaps(Char c, ServerMap origin, ServerMap dest) {
+		// reposition player so they're on the correct edge
+		origin.removeChar(c);
+		if (origin.getX() > dest.getX()) { // dest. map is to the left
+			c.setX(dest.getWidth() * 32 - 32);
+			c.setY(c.getY() + origin.getYOffsetModifier() - dest.getYOffsetModifier());
+		} else if (origin.getX() < dest.getX()) { // to the right
+			c.setX(0);
+			c.setY(c.getY() + origin.getYOffsetModifier() - dest.getYOffsetModifier());
+		} else if (origin.getY() > dest.getY()) {// up
+			c.setY(dest.getHeight() * 32 - 40);
+			c.setX((c.getX() + origin.getXOffsetModifier()) - dest.getXOffsetModifier());
+		} else if (origin.getY() < dest.getY()) {// down
+			c.setY(-8);
+			c.setX((c.getX() - dest.getXOffsetModifier()) + origin.getXOffsetModifier());
+		}
+		dest.addChar(c);
 	}
 }

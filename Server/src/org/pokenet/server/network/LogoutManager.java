@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
 
 /**
@@ -14,11 +15,14 @@ import org.pokenet.server.backend.entity.PlayerChar;
 public class LogoutManager implements Runnable {
 	private Queue<PlayerChar> m_logoutQueue;
 	private Thread m_thread;
+	private boolean m_isRunning;
+	private MySqlManager m_database;
 	
 	/**
 	 * Default constructor
 	 */
 	public LogoutManager() {
+		m_database = new MySqlManager();
 		m_logoutQueue = new ConcurrentLinkedQueue<PlayerChar>();
 		m_thread = new Thread(this);
 	}
@@ -27,7 +31,13 @@ public class LogoutManager implements Runnable {
 	 * Attempts to logout a player by saving their data. Returns true on success
 	 * @param player
 	 */
-	public boolean attemptLogout(PlayerChar player) {
+	private boolean attemptLogout(PlayerChar player) {
+		m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword());
+		//TODO: Store all player information
+		m_database.close();
+		//Close the session fully if its not closed already
+		if(player.getSession() != null && player.getSession().isConnected())
+			player.getSession().close();
 		return true;
 	}
 	
@@ -61,13 +71,27 @@ public class LogoutManager implements Runnable {
 	 * Called by m_thread.start()
 	 */
 	public void run() {
-		
+		PlayerChar p;
+		while(m_isRunning) {
+			synchronized(m_logoutQueue) {
+				if(m_logoutQueue.peek() != null) {
+					p = m_logoutQueue.poll();
+					if(!attemptLogout(p)) {
+						m_logoutQueue.add(p);
+					}
+				}
+			}
+			try {
+				Thread.sleep(500);
+			} catch (Exception e) {}
+		}
 	}
 	
 	/**
 	 * Start this logout manager
 	 */
 	public void start() {
+		m_isRunning = true;
 		m_thread.start();
 	}
 	
@@ -75,6 +99,16 @@ public class LogoutManager implements Runnable {
 	 * Stop this logout manager
 	 */
 	public void stop() {
-		
+		//Stop the thread
+		m_isRunning = false;
+		//Save all players
+		PlayerChar p;
+		while(m_logoutQueue.peek() != null) {
+			p = m_logoutQueue.poll();
+			if(!attemptLogout(p)) {
+				m_logoutQueue.add(p);
+			}
+		}
+		System.out.println("INFO: All player data saved successfully.");
 	}
 }

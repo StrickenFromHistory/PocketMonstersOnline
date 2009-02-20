@@ -26,6 +26,7 @@ package org.pokenet.server;
 public class GameServer {
 	private static ServiceManager m_serviceManager;
 	private static int m_maxPlayers, m_movementThreads, m_battleThreads;
+	private static String m_dbServer, m_dbUsername, m_dbPassword;
 	
 	/**
 	 * If you don't know what this method does, you clearly don't know enough Java to be working on this.
@@ -96,5 +97,29 @@ public class GameServer {
 	 */
 	public static int getMovementThreadAmount() {
 		return m_movementThreads;
+	}
+	
+	/**
+	 * Returns the database host
+	 * @return
+	 */
+	public static String getDatabaseHost() {
+		return m_dbServer;
+	}
+	
+	/**
+	 * Returns the database username
+	 * @return
+	 */
+	public static String getDatabaseUsername() {
+		return m_dbUsername;
+	}
+	
+	/**
+	 * Returns the database password
+	 * @return
+	 */
+	public static String getDatabasePassword() {
+		return m_dbPassword;
 	}
 }

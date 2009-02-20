@@ -195,4 +195,18 @@ public class Char implements Positionable {
 	public boolean equals(Char c) {
 		return m_id == c.getId();
 	}
+
+	/**
+	 * Sets the x co-ordinate of this character on the map
+	 */
+	public void setX(int x) {
+		m_x = x;
+	}
+
+	/**
+	 * Sets the y co-ordinate of this character on the map
+	 */
+	public void setY(int y) {
+		m_y = y;
+	}
 }

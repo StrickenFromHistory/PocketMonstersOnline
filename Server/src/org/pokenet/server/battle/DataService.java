@@ -1,6 +1,5 @@
 package org.pokenet.server.battle;
 
-import org.pokenet.server.GameServer;
 import org.pokenet.server.battle.mechanics.JewelMechanics;
 import org.pokenet.server.battle.mechanics.moves.MoveList;
 import org.pokenet.server.battle.mechanics.moves.MoveSetData;

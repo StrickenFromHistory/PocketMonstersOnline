@@ -4,6 +4,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.mina.common.IoSession;
+import org.pokenet.server.GameServer;
 
 /**
  * Handles logging players in
@@ -14,9 +15,8 @@ public class LoginManager implements Runnable {
 	private Queue<Object []> m_loginQueue;
 	private LogoutManager m_logoutManager;
 	private Thread m_thread;
-	private boolean m_isRunning = true;
-	private byte m_loginError;
-	private byte m_errorCode;
+	private boolean m_isRunning;
+	private MySqlManager m_database;
 	
 	/**
 	 * Default constructor. Requires a logout manager to be passed in so the server
@@ -24,9 +24,8 @@ public class LoginManager implements Runnable {
 	 * @param manager
 	 */
 	public LoginManager(LogoutManager manager) {
+		m_database = new MySqlManager();
 		m_logoutManager = manager;
-		m_loginError = 0;
-		m_errorCode = -128;
 		m_loginQueue = new ConcurrentLinkedQueue<Object []>();
 		m_thread = new Thread(this);
 	}
@@ -38,7 +37,11 @@ public class LoginManager implements Runnable {
 	 * @param password
 	 */
 	private void attemptLogin(IoSession session, String username, String password) {
-
+		m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword());
+		//TODO: Check if username/password are valid
+		//TODO: Read all player information and attach it to the session
+		//TODO: Send login success packet to client
+		m_database.close();
 	}
 	
 	/**
@@ -66,11 +69,13 @@ public class LoginManager implements Runnable {
 		while(m_isRunning) {
 			synchronized(m_loginQueue) {
 				try {
-					o = m_loginQueue.poll();
-					session = (IoSession) o[0];
-					username = (String) o[1];
-					password = (String) o[2];
-					this.attemptLogin(session, username, password);
+					if(m_loginQueue.peek() != null) {
+						o = m_loginQueue.poll();
+						session = (IoSession) o[0];
+						username = (String) o[1];
+						password = (String) o[2];
+						this.attemptLogin(session, username, password);
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -85,6 +90,7 @@ public class LoginManager implements Runnable {
 	 * Starts the login manager
 	 */
 	public void start() {
+		m_isRunning = true;
 		m_thread.start();
 	}
 	

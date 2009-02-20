@@ -61,7 +61,7 @@ public class MovementManager implements Runnable {
 					m_players.get(i).move();
 			}
 			try {
-				Thread.sleep(200);
+				Thread.sleep(250);
 			} catch (Exception e) { e.printStackTrace(); }
 		}
 	}

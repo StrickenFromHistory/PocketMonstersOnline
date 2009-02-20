@@ -12,8 +12,38 @@ import org.pokenet.server.battle.Pokemon;
  */
 public class PlayerChar extends Char implements Battleable {
 	private Pokemon[] m_pokemon;
-	private boolean m_isBattling;
+	private boolean m_isBattling = false;
 	private IoSession m_session;
+	/*
+	 * Badges are stored as bytes. 0 = not obtained, 1 = obtained
+	 * Stored as following:
+	 * 0 - 7   Kanto Badges
+	 * 8 - 15  Johto Badges
+	 * 16 - 23 Hoenn Badges
+	 * 24 - 31 Sinnoh Badges
+	 * 32 - 35 Orange Islands
+	 * 36 - 41
+	 */
+	private byte [] m_badges;
+	
+	/**
+	 * Creates a new PlayerChar
+	 */
+	public void createNewPlayer() {
+		//Set up all badges.
+		m_badges = new byte[42];
+		for(int i = 0; i < m_badges.length; i++) {
+			m_badges[i] = 0;
+		}
+	}
+	
+	/**
+	 * Sets the badges this player has
+	 * @param badges
+	 */
+	public void setBadges(byte [] badges) {
+		m_badges = badges;
+	}
 	
 	/**
 	 * Returns the battlefield this player is on.
@@ -83,10 +113,22 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
-	 * Sends an error code to the client. -128 to 127
+	 * Sends an error code to the client. Must be between -128 to 127.
+	 * See the wiki page of error codes @ http://pokenetonline.googlecode.com
 	 * @param error
 	 */
 	public void sendErrorCode(String error) {
 		
+	}
+	
+	/**
+	 * Overrides char's move method.
+	 * Adds a check for wild battles and clears battle/trade request lists
+	 */
+	public void move() {
+		super.move();
+		if(this.getMap().isWildBattle())
+			GameServer.getServiceManager().getBattleService().startWildBattle(this, this.getMap().getWildPokemon(this));
+		//TODO: Clear requests list
 	}
 }

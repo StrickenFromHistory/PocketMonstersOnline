@@ -33,6 +33,8 @@ public interface Positionable {
 	public enum Direction { Up, Down, Left, Right }
 	public int getX();
 	public int getY();
+	public void setX(int x);
+	public void setY(int y);
 	public void setId(int id);
 	public int getId();
 
