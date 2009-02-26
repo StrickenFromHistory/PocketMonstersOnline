@@ -28,6 +28,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -73,6 +74,7 @@ public class Pokemon extends PokemonSpecies {
     
     // Transient statistics.
     @Element
+    transient private String m_dateCaught;
     transient private int m_hp;
     @ElementArray
     transient private int[] m_stat;
@@ -93,7 +95,7 @@ public class Pokemon extends PokemonSpecies {
     @Element
     private double m_exp;
     @Element
-    private double m_baseExp;
+    private int m_baseExp;
     @Element
     transient private int m_id;
     transient private IntrinsicAbility m_originalAbility;
@@ -135,12 +137,12 @@ public class Pokemon extends PokemonSpecies {
     @ElementArray
     private int m_ev[];
     
-    @ElementArray
-    private String [] m_moveNames;
     @Element
     private String m_originalTrainer;
     @Element
     private long m_originalNo;
+    
+    private int m_databaseID = -1;
     
     // Battle mechanics.
     private BattleMechanics m_mech;
@@ -157,6 +159,30 @@ public class Pokemon extends PokemonSpecies {
     
     public enum ExpTypes {
         MEDIUM, ERRATIC, FLUCTUATING, PARABOLIC, FAST, SLOW
+    }
+    
+    /**
+     * Sets if this pokemon is fainted
+     * @param b
+     */
+    public void setIsFainted(boolean b) {
+    	m_fainted = b;
+    }
+    
+    /**
+     * Sets the database id
+     * @param id
+     */
+    public void setDatabaseID(int id) {
+    	m_databaseID = id;
+    }
+    
+    /**
+     * Returns the database id
+     * @return
+     */
+    public int getDatabaseID() {
+    	return m_databaseID;
     }
     
     /**
@@ -299,7 +325,6 @@ public class Pokemon extends PokemonSpecies {
         m_abilityName = ability;
         m_itemName = item;
         m_ppUp = ppUps;
-        m_nickname = getSpeciesName();
         initialise();
     }
     
@@ -343,11 +368,6 @@ public class Pokemon extends PokemonSpecies {
         m_gender = p.getGender();
         m_level = p.getLevel();
         m_move = p.getMoves();
-        m_moveNames = new String[4];
-        for (int i = 0; i < 4; i++) {
-                if (p.getMoves()[i] != null)
-                        m_moveNames[i] = p.getMoves()[i].getName();
-        }
         m_abilityName = getAbilityName();
         m_itemName = p.getItemName();
         m_ppUp = new int[] { 0, 0, 0, 0 };
@@ -761,6 +781,28 @@ public class Pokemon extends PokemonSpecies {
         if ((i < 0) || (i >= m_move.length) || (m_move[i] == null))
             return -1;
         return m_maxPp[i];
+    }
+    
+    /**
+     * Sets the max pp of a move
+     * @param index
+     * @param value
+     */
+    public void setMaxPP(int i, int value) {
+    	 if ((i < 0) || (i >= m_maxPp.length))
+             return;
+         m_maxPp[i] = value;
+    }
+    
+    /**
+     * Sets a pp up
+     * @param i
+     * @param value
+     */
+    public void setPpUp(int i, int value) {
+    	if ((i < 0) || (i >= m_ppUp.length))
+            return;
+        m_ppUp[i] = value;
     }
     
     /**
@@ -1635,12 +1677,7 @@ public class Pokemon extends PokemonSpecies {
      * 
      * @param b
      */
-	public void reinitialise(BattleMechanics b) {
-		m_move = new MoveListEntry[4];
-        for (int i = 0; i < 4; i++) {
-                m_move[i] = MoveList.getDefaultData().getMove(
-                                m_moveNames[i]);
-        }
+	public void reinitialise() {
         // Ryan really screwed up the EV check,
         // so we'll just 0 them out if there's a negative
         boolean hasNeg = false;
@@ -1656,7 +1693,9 @@ public class Pokemon extends PokemonSpecies {
         m_evasion = new StatMultiplier(true);
         m_statuses = new ArrayList<StatusEffect>();
         m_movesLearning = new ArrayList<String>();
-        m_mech = b;
+        m_pp = new int[4];
+        m_maxPp = new int[4];
+        m_ppUp = new int[4];
 	}
 	
 
@@ -1675,7 +1714,7 @@ public class Pokemon extends PokemonSpecies {
 		m_originalTrainer = name;
 	}
 
-	public void setOriginalNo(long m_no) {
+	public void setOriginalNo(int m_no) {
 		m_originalNo = m_no;
 	}
 
@@ -1696,8 +1735,13 @@ public class Pokemon extends PokemonSpecies {
 		m_happiness = happiness;
 	}
 
-	public void setExp(double expForLevel) {
-		m_exp = expForLevel;
+	public void setExp(double exp) {
+		DecimalFormat form = new DecimalFormat("#.##");
+		if (exp > 100000000) {
+			m_exp = 100000000;
+			return;
+		}
+		m_exp = Double.valueOf(form.format(exp));
 	}
 
 	public int getHappiness() {
@@ -1716,7 +1760,7 @@ public class Pokemon extends PokemonSpecies {
 		return m_expType;
 	}
 
-	public double getBaseExp() {
+	public int getBaseExp() {
 		return m_baseExp;
 	}
 
@@ -1728,7 +1772,6 @@ public class Pokemon extends PokemonSpecies {
 	 */
 	public void learnMove(int idx, String moveName) {
 		if (idx >= 0 && idx <= 3) {
-            m_moveNames[idx] = moveName;
             m_move[idx] = MoveList.getDefaultData().getMove(moveName);
             m_maxPp[idx] = m_move[idx].getMove().getPp();
             setPp(idx, m_move[idx].getMove().getPp());
@@ -1739,5 +1782,27 @@ public class Pokemon extends PokemonSpecies {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-    
+	
+	/**
+	 * Get the date this pokemon was caught
+	 */
+	public String getDateCaught() {
+		return m_dateCaught;
+	}
+	
+	/**
+	 * Set the date this pokemon was caught
+	 * @param date
+	 */
+	public void setDateCaught(String date) {
+		m_dateCaught = date;
+	}
+	
+	/**
+	 * Returns the original trainer's name
+	 * @return
+	 */
+	public String getOriginalTrainer() {
+		return m_originalTrainer;
+	}
 }

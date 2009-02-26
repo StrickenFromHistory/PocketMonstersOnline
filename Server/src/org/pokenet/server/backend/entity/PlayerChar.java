@@ -1,5 +1,10 @@
 package org.pokenet.server.backend.entity;
 
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.battle.BattleField;
@@ -12,8 +17,19 @@ import org.pokenet.server.battle.Pokemon;
  */
 public class PlayerChar extends Char implements Battleable {
 	private Pokemon[] m_pokemon;
+	private PokemonBox [] m_boxes;
 	private boolean m_isBattling = false;
 	private IoSession m_session;
+	private int m_money;
+	private ResultSet m_databasePokemon;
+	private ArrayList<String> m_friends;
+	private double m_npcMultiplier;
+	private int m_skillHerb = 0;
+	private int m_skillCraft = 0;
+	private int m_skillFish = 0;
+	private int m_skillTraining = 0;
+	private int m_skillCoord = 0;
+	private int  m_skillBreed = 0;
 	/*
 	 * Badges are stored as bytes. 0 = not obtained, 1 = obtained
 	 * Stored as following:
@@ -130,5 +146,174 @@ public class PlayerChar extends Char implements Battleable {
 		if(this.getMap().isWildBattle())
 			GameServer.getServiceManager().getBattleService().startWildBattle(this, this.getMap().getWildPokemon(this));
 		//TODO: Clear requests list
+	}
+	
+	/**
+	 * Sets how much money this player has
+	 * @param money
+	 */
+	public void setMoney(int money) {
+		m_money = money;
+	}
+	
+	/**
+	 * Returns how much money this player has
+	 * @return
+	 */
+	public int getMoney() {
+		return m_money;
+	}
+	
+	/**
+	 * Sets the npc multiplier. Used for exp gain for NPC battles.
+	 * @param m
+	 */
+	public void setNpcMultiplier(double m) {
+		m_npcMultiplier = m;
+	}
+	
+	/**
+	 * Returns the npc multiplier
+	 * @return
+	 */
+	public double getNpcMultiplier() {
+		return m_npcMultiplier;
+	}
+	
+	/**
+	 * Sets the herbalism skill's exp points
+	 * @param exp
+	 */
+	public void setHerbalismExp(int exp) {
+		m_skillHerb = exp;
+	}
+	
+	/**
+	 * Returns the herbalism skill exp points
+	 * @return
+	 */
+	public int getHerbalismExp() {
+		return m_skillHerb;
+	}
+	
+	/**
+	 * Sets the crafting skill exp points
+	 * @param exp
+	 */
+	public void setCraftingExp(int exp) {
+		m_skillCraft = exp;
+	}
+	
+	/**
+	 * Returns the crafting skill exp points
+	 * @return
+	 */
+	public int getCraftingExp() {
+		return m_skillCraft;
+	}
+	
+	/**
+	 * Sets the fishing skill exp points 
+	 * @param exp
+	 */
+	public void setFishingExp(int exp) {
+		m_skillFish = exp;
+	}
+	
+	/**
+	 * Returns the fishing skill exp points
+	 * @return
+	 */
+	public int getFishingExp() {
+		return m_skillFish;
+	}
+	
+	/**
+	 * Set the training skill exp points
+	 * @param exp
+	 */
+	public void setTrainingExp(int exp) {
+		m_skillTraining = exp;
+	}
+	
+	/**
+	 * Return the training skill exp points
+	 * @return
+	 */
+	public int getTrainingExp() {
+		return m_skillTraining;
+	}
+	
+	/**
+	 * Sets the co-ordinating skill exp points
+	 * @param exp
+	 */
+	public void setCoordinatingExp(int exp) {
+		m_skillCoord = exp;
+	}
+	
+	/**
+	 * Returns the co-ordinating skill exp points
+	 * @return
+	 */
+	public int getCoordinatingExp() {
+		return m_skillCoord;
+	}
+	
+	/**
+	 * Sets the breeding skill exp points
+	 * @param exp
+	 */
+	public void setBreedingExp(int exp) {
+		m_skillBreed = exp;
+	}
+	
+	/**
+	 * Returns the breeding skill exp
+	 * @return
+	 */
+	public int getBreedingExp() {
+		return m_skillBreed;
+	}
+	
+	/**
+	 * Sets this player's boxes
+	 * @param boxes
+	 */
+	public void setBoxes(PokemonBox [] boxes) {
+		m_boxes = boxes;
+	}
+	
+	/**
+	 * Returns this player's boxes
+	 * @return
+	 */
+	public PokemonBox[] getBoxes() {
+		return m_boxes;
+	}
+	
+	/**
+	 * Stores the id of this player's party and boxes in the database
+	 * @param r
+	 */
+	public void setDatabasePokemon(ResultSet r) {
+		m_databasePokemon = r;
+	}
+	
+	/**
+	 * Returns the result set of the party and box ids in the database
+	 * @return
+	 */
+	public ResultSet getDatabasePokemon() {
+		return m_databasePokemon;
+	}
+	
+	public void catchPokemon(Pokemon p) {
+		Date d = new Date();
+		String date = new SimpleDateFormat ("yyyy-MM-dd:HH-mm-ss").format (d);
+		p.setDateCaught(date);
+		p.setOriginalTrainer(this.getName());
+		p.setOriginalNo(this.getId());
+		//TODO: Add the pokemon to the party/box
 	}
 }

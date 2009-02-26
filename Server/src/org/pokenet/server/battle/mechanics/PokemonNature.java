@@ -127,6 +127,22 @@ public class PokemonNature implements Serializable {
     }
     
     /**
+     * Returns a pokemon nature based on its name
+     * @param nature
+     * @return
+     */
+    public static PokemonNature getNatureByName(String nature) {
+    	Iterator i = m_natures.iterator();
+    	PokemonNature result;
+    	while(i.hasNext()) {
+    		result = (PokemonNature) i.next();
+    		if(result.getName().equalsIgnoreCase(nature))
+    			return result;
+    	}
+    	return N_MODEST;
+    }
+    
+    /**
      * Get a textual representation of the nature.
      */
     public String getName() {

@@ -209,4 +209,20 @@ public class Char implements Positionable {
 	public void setY(int y) {
 		m_y = y;
 	}
+	
+	/**
+	 * Sets the map x co-ordinate
+	 * @param x
+	 */
+	public void setMapX(int x) {
+		m_mapX = x;
+	}
+	
+	/**
+	 * Sets the map y co-ordinate
+	 * @param y
+	 */
+	public void setMapY(int y) {
+		m_mapY = y;
+	}
 }
