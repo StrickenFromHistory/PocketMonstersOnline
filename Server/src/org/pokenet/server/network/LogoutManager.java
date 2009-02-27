@@ -39,7 +39,7 @@ public class LogoutManager implements Runnable {
 		if(!savePlayer(player))
 			return false;
 		//Finally, store that the player is logged out and close connection
-		m_database.query("UPDATE pn_members SET lastLoginServer='null' WHERE username='" + player.getName() + "'");
+		m_database.query("UPDATE pn_members SET lastLoginServer='null' WHERE id='" + player.getId() + "'");
 		m_database.close();
 		//Close the session fully if its not closed already
 		if(player.getSession() != null && player.getSession().isConnected())
@@ -127,91 +127,100 @@ public class LogoutManager implements Runnable {
 	private boolean savePlayer(PlayerChar p) {
 		try {
 			/*
-			 * First, update the player row
+			 * First, check if they have logged in somewhere else.
+			 * This is useful for when as server loses its internet connection
 			 */
-			m_database.query("UPDATE pn_members SET " +
-					"sprite='" + p.getSprite() + "', " +
-					"money='" + p.getMoney() + "', " +
-					"npcMul='" + (String.valueOf(p.getNpcMultiplier()).length() > 20 ?
-							String.valueOf(p.getNpcMultiplier()).substring(0, 20) :
-								String.valueOf(p.getNpcMultiplier())) + "', " +
-					"skHerb='" + p.getHerbalismExp() + "', " +
-					"skCraft='" + p.getCraftingExp() + "', " +
-					"skFish='" + p.getFishingExp() + "', " +
-					"skTrain='" + p.getTrainingExp() + "', " +
-					"skCoord='" + p.getCoordinatingExp() + "', " +
-					"skBreed='" + p.getBreedingExp() + "', " +
-					"x='" + p.getX() + "', " +
-					"y='" + p.getY() + "', " +
-					"mapX='" + p.getMapX() + "', " +
-					"mapY='" + p.getMapY() + "' " +
-					"WHERE username='" + p.getName() + "' AND id='" + p.getId() + "'");
-			/*
-			 * Second, update the party
-			 */
-			//Save all the Pokemon
-			for(int i = 0; i < 6; i++) {
-				if(p.getParty()[i] != null) {
-					if(p.getParty()[i].getDatabaseID() == -1) {
-						//This is a new Pokemon, add it to the database
-						if(!saveNewPokemon(p.getParty()[i]))
-							return false;
-					} else {
-						//Old Pokemon, just update
-						if(!savePokemon(p.getParty()[i]))
-							return false;
-					}
-				}
-			}
-			//Save all the Pokemon id's in the player's party
-			m_database.query("UPDATE pn_party SET " +
-					"pokemon0='" + (p.getParty()[0] != null ? p.getParty()[0].getDatabaseID() : -1) + "', " +
-					"pokemon1='" + (p.getParty()[1] != null ? p.getParty()[1].getDatabaseID() : -1) + "', " +
-					"pokemon2='" + (p.getParty()[2] != null ? p.getParty()[2].getDatabaseID() : -1) + "', " +
-					"pokemon3='" + (p.getParty()[3] != null ? p.getParty()[3].getDatabaseID() : -1) + "', " +
-					"pokemon4='" + (p.getParty()[4] != null ? p.getParty()[4].getDatabaseID() : -1) + "', " +
-					"pokemon5='" + (p.getParty()[5] != null ? p.getParty()[5].getDatabaseID() : -1) + "', " +
-					"WHERE id='" + p.getDatabasePokemon().getInt("party") + "' AND member='" + p.getId() + "'");
-			/*
-			 * Finally, update all the boxes
-			 */
-			for(int i = 0; i < 9; i++) {
-				if(p.getBoxes()[i] != null) {
-					if(p.getBoxes()[i].getDatabaseId() == -1) {
-						//New box
-						m_database.query("INSERT INTO pn_box(member, pokemon0, pokemon1, pokemon2, " +
-								"pokemon3, pokemon4, pokemon5, pokemon 6, pokemon7, pokemon8, pokemon9, " +
-								"pokemon10, pokemon11, pokemon12, pokemon13, pokemon14, pokemon15, pokemon16, " +
-								"pokemon17, pokemon18, pokemon19, pokemon20, pokemon21, pokemon22, pokemon23, " +
-								"pokemon24, pokemon25, pokemon26, pokemon27, pokemon28, pokemon29, pokemon30) " +
-								"VALUES ('" + p.getId() + "'," +
-								"'-1','-1','-1','-1','-1'," +
-								"'-1','-1','-1','-1','-1'," +
-								"'-1','-1','-1','-1','-1'," +
-								"'-1','-1','-1','-1','-1'," +
-								"'-1','-1','-1','-1','-1'," +
-								"'-1','-1','-1','-1','-1')");
-						ResultSet result = m_database.query("SELECT * FROM pn_box WHERE member='" + p.getId() + "'");
-						result.last();
-						p.getBoxes()[i].setDatabaseId(result.getInt("id"));
-					}
-					//Save all pokemon first
-					for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
-						if(p.getBoxes()[i].getPokemon(j).getId() == -1) {
-							if(!saveNewPokemon(p.getBoxes()[i].getPokemon(j)))
+			ResultSet data = m_database.query("SELECT * FROM pn_members WHERE id='" + p.getId() +  "'");
+			data.first();
+			if(data.getLong("lastLoginTime") == p.getLastLoginTime()) {
+				/*
+				 * Update the player row
+				 */
+				m_database.query("UPDATE pn_members SET " +
+						"sprite='" + p.getSprite() + "', " +
+						"money='" + p.getMoney() + "', " +
+						"npcMul='" + (String.valueOf(p.getNpcMultiplier()).length() > 20 ?
+								String.valueOf(p.getNpcMultiplier()).substring(0, 20) :
+									String.valueOf(p.getNpcMultiplier())) + "', " +
+						"skHerb='" + p.getHerbalismExp() + "', " +
+						"skCraft='" + p.getCraftingExp() + "', " +
+						"skFish='" + p.getFishingExp() + "', " +
+						"skTrain='" + p.getTrainingExp() + "', " +
+						"skCoord='" + p.getCoordinatingExp() + "', " +
+						"skBreed='" + p.getBreedingExp() + "', " +
+						"x='" + p.getX() + "', " +
+						"y='" + p.getY() + "', " +
+						"mapX='" + p.getMapX() + "', " +
+						"mapY='" + p.getMapY() + "' " +
+						"WHERE username='" + p.getName() + "' AND id='" + p.getId() + "'");
+				/*
+				 * Second, update the party
+				 */
+				//Save all the Pokemon
+				for(int i = 0; i < 6; i++) {
+					if(p.getParty()[i] != null) {
+						if(p.getParty()[i].getDatabaseID() == -1) {
+							//This is a new Pokemon, add it to the database
+							if(!saveNewPokemon(p.getParty()[i]))
 								return false;
 						} else {
-							if(!savePokemon(p.getBoxes()[i].getPokemon(j)))
+							//Old Pokemon, just update
+							if(!savePokemon(p.getParty()[i]))
 								return false;
 						}
 					}
-					//Now save all references to the box
-					for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
-						m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "'");
+				}
+				//Save all the Pokemon id's in the player's party
+				m_database.query("UPDATE pn_party SET " +
+						"pokemon0='" + (p.getParty()[0] != null ? p.getParty()[0].getDatabaseID() : -1) + "', " +
+						"pokemon1='" + (p.getParty()[1] != null ? p.getParty()[1].getDatabaseID() : -1) + "', " +
+						"pokemon2='" + (p.getParty()[2] != null ? p.getParty()[2].getDatabaseID() : -1) + "', " +
+						"pokemon3='" + (p.getParty()[3] != null ? p.getParty()[3].getDatabaseID() : -1) + "', " +
+						"pokemon4='" + (p.getParty()[4] != null ? p.getParty()[4].getDatabaseID() : -1) + "', " +
+						"pokemon5='" + (p.getParty()[5] != null ? p.getParty()[5].getDatabaseID() : -1) + "', " +
+						"WHERE id='" + p.getDatabasePokemon().getInt("party") + "' AND member='" + p.getId() + "'");
+				/*
+				 * Finally, update all the boxes
+				 */
+				for(int i = 0; i < 9; i++) {
+					if(p.getBoxes()[i] != null) {
+						if(p.getBoxes()[i].getDatabaseId() == -1) {
+							//New box
+							m_database.query("INSERT INTO pn_box(member, pokemon0, pokemon1, pokemon2, " +
+									"pokemon3, pokemon4, pokemon5, pokemon 6, pokemon7, pokemon8, pokemon9, " +
+									"pokemon10, pokemon11, pokemon12, pokemon13, pokemon14, pokemon15, pokemon16, " +
+									"pokemon17, pokemon18, pokemon19, pokemon20, pokemon21, pokemon22, pokemon23, " +
+									"pokemon24, pokemon25, pokemon26, pokemon27, pokemon28, pokemon29, pokemon30) " +
+									"VALUES ('" + p.getId() + "'," +
+									"'-1','-1','-1','-1','-1'," +
+									"'-1','-1','-1','-1','-1'," +
+									"'-1','-1','-1','-1','-1'," +
+									"'-1','-1','-1','-1','-1'," +
+									"'-1','-1','-1','-1','-1'," +
+									"'-1','-1','-1','-1','-1')");
+							ResultSet result = m_database.query("SELECT * FROM pn_box WHERE member='" + p.getId() + "'");
+							result.last();
+							p.getBoxes()[i].setDatabaseId(result.getInt("id"));
+						}
+						//Save all pokemon first
+						for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
+							if(p.getBoxes()[i].getPokemon(j).getId() == -1) {
+								if(!saveNewPokemon(p.getBoxes()[i].getPokemon(j)))
+									return false;
+							} else {
+								if(!savePokemon(p.getBoxes()[i].getPokemon(j)))
+									return false;
+							}
+						}
+						//Now save all references to the box
+						for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
+							m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "'");
+						}
 					}
 				}
-			}
-			return true;
+				return true;
+			} else
+				return false;
 		} catch (Exception e) {
 			return false;
 		}

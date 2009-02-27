@@ -1,5 +1,6 @@
 package org.pokenet.server.network;
 
+import java.net.InetAddress;
 import java.sql.ResultSet;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -53,19 +54,39 @@ public class LoginManager implements Runnable {
 			result.first();
 			//Check if the password is correct
 			if(result.getString("password").compareTo(password) == 0) {
+				long time = System.currentTimeMillis();
 				//Now check if they are logged in anywhere else
 				if(result.getString("lastLoginServer").equalsIgnoreCase(GameServer.getServerName())) {
-					//They are logged in on this server
+					/*
+					 * They are already logged in on this server.
+					 * Attach the session to the existing player if they exist, if not, just log them in
+					 */
+					if(ConnectionManager.getPlayers().containsKey(username)) {
+						p = ConnectionManager.getPlayers().get(username);
+						p.setLastLoginTime(time);
+						p.getSession().close();
+						p.setSession(session);
+						m_database.query("UPDATE pn_members SET lastLoginServer='" + GameServer.getServerName() + "', lastLogimTime='" + time + "' WHERE username='" + username + "'");
+						m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getRemoteAddress() + "' WHERE username='" + username + "'");
+						session.setAttribute("player", p);
+					} else
+						this.login(username, session, result);
 				} else if(result.getString("lastLoginServer").equalsIgnoreCase("null")) {
-					//They are not logged in elsewhere, set the current login to the current server
-					m_database.query("UPDATE pn_members SET lastLoginServer='" + GameServer.getServerName() + "'WHERE username='" + username + "'");
-					m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getRemoteAddress() + "' WHERE username='" + username + "'");
-					p = getPlayerObject(result);
-					p.setSession(session);
-					session.setAttribute("player", p);
+					/*
+					 * They are not logged in elsewhere, log them in
+					 */
+					this.login(username, session, result);
 				} else {
-					//They are logged in somewhere else, do not log them in
-					return;
+					/*
+					 * They are logged in somewhere else.
+					 * Check if the server is up, if it is, don't log them in. If not, log them in
+					 */
+					if(InetAddress.getByName(result.getString("lastLoginServer")).isReachable(5000))
+						return;
+					else {
+						//The server they were on went down and they are trying to login elsewhere
+						this.login(username, session, result);
+					}
 				}
 			} else {
 				//Password is wrong, say so.
@@ -73,7 +94,10 @@ public class LoginManager implements Runnable {
 			}
 			m_database.close();
 		} catch (Exception e) {
-			//TODO: Do something if login failed
+			/*
+			 * Something went wrong so make sure the player is registered as logged out
+			 */
+			m_database.query("UPDATE pn_members SET lastLoginServer='null' WHERE username='" + username + "'");
 		}
 
 	}
@@ -133,6 +157,32 @@ public class LoginManager implements Runnable {
 	 */
 	public void stop() {
 		m_isRunning = false;
+	}
+	
+	/**
+	 * Logs in a player
+	 * @param username
+	 * @param session
+	 * @param result
+	 */
+	private void login(String username, IoSession session, ResultSet result) {
+		//They are not logged in elsewhere, set the current login to the current server
+		long time = System.currentTimeMillis();
+		/*
+		 * Attempt to log the player in
+		 */
+		PlayerChar p = getPlayerObject(result);
+		p.setLastLoginTime(time);
+		p.setSession(session);
+		/*
+		 * Update the database with login information
+		 */
+		m_database.query("UPDATE pn_members SET lastLoginServer='" + GameServer.getServerName() + "', lastLogimTime='" + time + "' WHERE username='" + username + "'");
+		m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getRemoteAddress() + "' WHERE username='" + username + "'");
+		session.setAttribute("player", p);
+		/*
+		 * Send success packet to player
+		 */
 	}
 
 	/**

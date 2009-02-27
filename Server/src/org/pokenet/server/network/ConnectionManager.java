@@ -15,7 +15,7 @@ import org.pokenet.server.backend.entity.PlayerChar;
  *
  */
 public class ConnectionManager extends IoHandlerAdapter {
-	private static Map<String, PlayerChar> m_players;
+	private static HashMap<String, PlayerChar> m_players;
 	
 	static {
 		m_players = new HashMap<String, PlayerChar>();
@@ -66,7 +66,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 		}
 	}
 	
-	//Logs out all players
+	/**
+	 * Logs out all players
+	 */
 	public void logoutAll() {
 		LogoutManager l = GameServer.getServiceManager().getNetworkService().getLogoutManager();
 		Iterator<PlayerChar> it = m_players.values().iterator();
@@ -75,5 +77,13 @@ public class ConnectionManager extends IoHandlerAdapter {
 			p = it.next();
 			l.queuePlayer(p);
 		}
+	}
+	
+	/**
+	 * Returns the list of players
+	 * @return
+	 */
+	public static HashMap<String, PlayerChar> getPlayers() {
+		return m_players;
 	}
 }

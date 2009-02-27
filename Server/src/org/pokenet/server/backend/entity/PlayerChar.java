@@ -23,6 +23,7 @@ public class PlayerChar extends Char implements Battleable {
 	private int m_money;
 	private ResultSet m_databasePokemon;
 	private ArrayList<String> m_friends;
+	private long m_lastLogin;
 	private double m_npcMultiplier;
 	private int m_skillHerb = 0;
 	private int m_skillCraft = 0;
@@ -308,6 +309,10 @@ public class PlayerChar extends Char implements Battleable {
 		return m_databasePokemon;
 	}
 	
+	/**
+	 * Catches a Pokemon
+	 * @param p
+	 */
 	public void catchPokemon(Pokemon p) {
 		Date d = new Date();
 		String date = new SimpleDateFormat ("yyyy-MM-dd:HH-mm-ss").format (d);
@@ -315,5 +320,21 @@ public class PlayerChar extends Char implements Battleable {
 		p.setOriginalTrainer(this.getName());
 		p.setOriginalNo(this.getId());
 		//TODO: Add the pokemon to the party/box
+	}
+	
+	/**
+	 * Sets the last login time (used for connection downtimes)
+	 * @param t
+	 */
+	public void setLastLoginTime(long t) {
+		m_lastLogin = t;
+	}
+	
+	/**
+	 * Returns the last login time
+	 * @return
+	 */
+	public long getLastLoginTime() {
+		return m_lastLogin;
 	}
 }
