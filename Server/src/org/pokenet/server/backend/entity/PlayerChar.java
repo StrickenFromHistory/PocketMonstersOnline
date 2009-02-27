@@ -16,6 +16,7 @@ import org.pokenet.server.battle.Pokemon;
  *
  */
 public class PlayerChar extends Char implements Battleable {
+	private Bag m_bag;
 	private Pokemon[] m_pokemon;
 	private PokemonBox [] m_boxes;
 	private boolean m_isBattling = false;
@@ -336,5 +337,21 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public long getLastLoginTime() {
 		return m_lastLogin;
+	}
+	
+	/**
+	 * Returns the player's bag
+	 * @return
+	 */
+	public Bag getBag() {
+		return m_bag;
+	}
+	
+	/**
+	 * Sets the player's bag
+	 * @param b
+	 */
+	public void setBag(Bag b) {
+		m_bag = b;
 	}
 }

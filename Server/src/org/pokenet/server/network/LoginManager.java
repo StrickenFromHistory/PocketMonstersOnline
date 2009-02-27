@@ -7,6 +7,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
+import org.pokenet.server.backend.entity.Bag;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.PokemonBox;
 import org.pokenet.server.battle.Pokemon;
@@ -252,6 +253,8 @@ public class LoginManager implements Runnable {
 				}
 			}
 			p.setBoxes(boxes);
+			//Attach bag
+			p.setBag(getBagObject(m_database.query("SELECT * FROM pn_bag WHERE id='" + result.getInt("bag") + "'")));
 			return p;
 		} catch (Exception e) {
 			return null;
@@ -360,5 +363,26 @@ public class LoginManager implements Runnable {
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * Returns a bag object
+	 * @param data
+	 * @return
+	 */
+	private Bag getBagObject(ResultSet data) {
+		try {
+			data.first();
+			Bag b = new Bag();
+			b.setDatabaseId(data.getInt("id"));
+			for(int i = 0; i < 20; i++) {
+				if(data.getInt("item" + i) > -1)
+					b.addItem(data.getInt("item" + i), data.getInt("quantity" + i));
+			}
+			return b;
+		} catch (Exception e) {
+			return null;
+		}
+		
 	}
 }

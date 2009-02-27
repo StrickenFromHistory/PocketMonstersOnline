@@ -6,6 +6,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.pokenet.server.GameServer;
+import org.pokenet.server.backend.entity.Bag;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.Pokemon;
 
@@ -179,6 +180,11 @@ public class LogoutManager implements Runnable {
 						"pokemon4='" + (p.getParty()[4] != null ? p.getParty()[4].getDatabaseID() : -1) + "', " +
 						"pokemon5='" + (p.getParty()[5] != null ? p.getParty()[5].getDatabaseID() : -1) + "', " +
 						"WHERE id='" + p.getDatabasePokemon().getInt("party") + "' AND member='" + p.getId() + "'");
+				/*
+				 * Save the player's bag
+				 */
+				if(!saveBag(p.getBag()))
+					return false;
 				/*
 				 * Finally, update all the boxes
 				 */
@@ -363,6 +369,28 @@ public class LogoutManager implements Runnable {
 					"move2='" + p.getMoveName(2) +"', " +
 					"move3='" + p.getMoveName(3) +"', " +
 					"WHERE id='" + p.getDatabaseID() + "'");
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	/**
+	 * Saves a bag to the database.
+	 * @param b
+	 * @return
+	 */
+	private boolean saveBag(Bag b) {
+		try {
+			for(int i = 0; i < b.getItems().length; i++) {
+				if(b.getItems()[i] != null) {
+					m_database.query("UPDATE pn_bag SET item" + i + "='" 
+							+ (b.getItems()[i].getItemNumber() > -1 ? b.getItems()[i].getItemNumber() : -1) +
+							", quantity" + i + "='" +
+							(b.getItems()[i].getQuantity() > 0 ? b.getItems()[i].getQuantity() : 0) +
+							"' WHERE id='" + b.getDatabaseId() + "'");
+				}
+			}
 			return true;
 		} catch (Exception e) {
 			return false;
