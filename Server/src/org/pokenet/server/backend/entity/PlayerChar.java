@@ -7,6 +7,7 @@ import java.util.Date;
 
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
+import org.pokenet.server.backend.ServerMap;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.Pokemon;
 
@@ -20,6 +21,7 @@ public class PlayerChar extends Char implements Battleable {
 	private Pokemon[] m_pokemon;
 	private PokemonBox [] m_boxes;
 	private boolean m_isBattling = false;
+	private boolean m_isShopping = false;
 	private IoSession m_session;
 	private int m_money;
 	private ResultSet m_databasePokemon;
@@ -32,6 +34,8 @@ public class PlayerChar extends Char implements Battleable {
 	private int m_skillTraining = 0;
 	private int m_skillCoord = 0;
 	private int  m_skillBreed = 0;
+	private BattleField m_battleField = null;
+	private int m_healX, m_healY, m_healMapX, m_healMapY;
 	/*
 	 * Badges are stored as bytes. 0 = not obtained, 1 = obtained
 	 * Stored as following:
@@ -67,7 +71,9 @@ public class PlayerChar extends Char implements Battleable {
 	 * Returns the battlefield this player is on.
 	 */
 	public BattleField getBattleField() {
-		return GameServer.getServiceManager().getBattleFieldForPlayer(this);
+		if(m_battleField == null)
+			m_battleField = GameServer.getServiceManager().getBattleFieldForPlayer(this);
+		return m_battleField;
 	}
 
 	/**
@@ -145,7 +151,7 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void move() {
 		super.move();
-		if(this.getMap().isWildBattle())
+		if(this.getMap().isWildBattle(m_x, m_y))
 			GameServer.getServiceManager().getBattleService().startWildBattle(this, this.getMap().getWildPokemon(this));
 		//TODO: Clear requests list
 	}
@@ -353,5 +359,104 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void setBag(Bag b) {
 		m_bag = b;
+	}
+	
+	/**
+	 * Sets the map for this player
+	 */
+	public void setMap(ServerMap map) {
+		super.setMap(map);
+		//Send the map switch packet to the client
+		m_session.write("ms" + map.getX() + "," + map.getY());
+		Char c;
+		//Send all player information to the client
+		for(int i = 0; i < map.getPlayers().size(); i++) {
+			c = map.getPlayers().get(i);
+			m_session.write("ma" + c.getName() + "," + 
+						c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + c.getFacing());
+		}
+		//Send all npc information to the client
+		for(int i = 0; i < map.getNpcs().size(); i++) {
+			c = map.getPlayers().get(i);
+			m_session.write("ma" + c.getName() + "," + 
+						c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + c.getFacing());
+		}
+	}
+	
+	/**
+	 * Disposes of this player char
+	 */
+	public void dispose() {
+		super.dispose();
+		m_pokemon = null;
+		m_boxes = null;
+		m_databasePokemon = null;
+		m_friends = null;
+		m_bag = null;
+		m_battleField = null;
+	}
+	
+	/**
+	 * Sets if this player is interacting with a shop npc
+	 * @param b
+	 */
+	public void setShopping(boolean b) {
+		m_isShopping = b;
+	}
+	
+	/**
+	 * Returns true if this player is shopping
+	 * @return
+	 */
+	public boolean isShopping() {
+		return m_isShopping;
+	}
+	
+	/**
+	 * Generates the player's badges from a string
+	 * @param badges
+	 */
+	public void generateBadges(String badges) {
+		for(int i = 0; i < 42; i++) {
+			m_badges[i] = Byte.valueOf("" + badges.charAt(i));
+		}
+	}
+	
+	/**
+	 * Returns the badges of this player
+	 * @return
+	 */
+	public byte[] getBadges() {
+		return m_badges;
+	}
+	
+	/**
+	 * Sets the location this player was last healed at
+	 * @param x
+	 * @param y
+	 * @param mapX
+	 * @param mapY
+	 */
+	public void setLastHeal(int x, int y, int mapX, int mapY) {
+		m_healX = x;
+		m_healY = y;
+		m_healMapX = mapX;
+		m_healMapY = mapY;
+	}
+	
+	public int getHealX() {
+		return m_healX;
+	}
+	
+	public int getHealY() {
+		return m_healY;
+	}
+	
+	public int getHealMapX() {
+		return m_healMapX;
+	}
+	
+	public int getHealMapY() {
+		return m_healMapY;
 	}
 }

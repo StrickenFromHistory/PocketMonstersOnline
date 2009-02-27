@@ -137,6 +137,7 @@ public class LogoutManager implements Runnable {
 				/*
 				 * Update the player row
 				 */
+				String badges = new String(p.getBadges());
 				m_database.query("UPDATE pn_members SET " +
 						"sprite='" + p.getSprite() + "', " +
 						"money='" + p.getMoney() + "', " +
@@ -152,7 +153,13 @@ public class LogoutManager implements Runnable {
 						"x='" + p.getX() + "', " +
 						"y='" + p.getY() + "', " +
 						"mapX='" + p.getMapX() + "', " +
-						"mapY='" + p.getMapY() + "' " +
+						"mapY='" + p.getMapY() + "', " +
+						"healX='" + p.getHealX() + "', " +
+						"healY='" + p.getHealY() + "', " +
+						"healMapX='" + p.getHealMapX() + "', " +
+						"healMapY='" + p.getHealMapY() + "', " +
+						"isSurfing='" + String.valueOf(p.isSurfing()) + "', " +
+						"badges='" + badges + "' " +
 						"WHERE username='" + p.getName() + "' AND id='" + p.getId() + "'");
 				/*
 				 * Second, update the party
@@ -224,6 +231,8 @@ public class LogoutManager implements Runnable {
 						}
 					}
 				}
+				//Dispose of the player object
+				p.dispose();
 				return true;
 			} else
 				return false;

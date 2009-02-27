@@ -12,6 +12,7 @@ import org.pokenet.server.backend.entity.PlayerChar;
 public class MovementManager implements Runnable {
 	private ArrayList<PlayerChar> m_players;
 	private Thread m_thread;
+	private boolean m_isRunning;
 	
 	/**
 	 * Default constructor.
@@ -56,13 +57,13 @@ public class MovementManager implements Runnable {
 	 * Called by m_thread.start(). Loops through all players calling PlayerChar.move() if the player requested to be moved.
 	 */
 	public void run() {
-		while(true) {
+		while(m_isRunning) {
 			for(int i = 0; i < m_players.size(); i++) {
 					m_players.get(i).move();
 			}
 			try {
 				Thread.sleep(250);
-			} catch (Exception e) { e.printStackTrace(); }
+			} catch (Exception e) {}
 		}
 	}
 	
@@ -70,15 +71,15 @@ public class MovementManager implements Runnable {
 	 * Starts the movement thread
 	 */
 	public void start() {
+		m_isRunning = true;
 		m_thread.start();
-		System.out.println("INFO: Movement Service started");
 	}
 	
 	/**
 	 * Stops the movement thread
 	 */
 	public void stop() {
-		
+		m_isRunning = false;
 	}
 
 }

@@ -61,4 +61,14 @@ public class ServerMapMatrix {
 		}
 		dest.addChar(c);
 	}
+	
+	/**
+	 * Sets a map to the map matrixs
+	 * @param map
+	 * @param x
+	 * @param y
+	 */
+	public void setMap(ServerMap map, int x, int y) {
+		m_mapMatrix[x][y] = map;
+	}
 }

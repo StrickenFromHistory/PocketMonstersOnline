@@ -11,8 +11,8 @@ public class Char implements Positionable {
 	private Direction m_nextMovement = null;
 	private Direction m_facing = Direction.Down;
 	private long m_lastMovement = System.currentTimeMillis();
-	private int m_sprite, m_mapX, m_mapY, m_x, m_y, m_id;
-	private boolean m_isVisible;
+	protected int m_sprite, m_mapX, m_mapY, m_x, m_y, m_id;
+	private boolean m_isVisible, m_isSurfing;
 	private String m_name;
 	private ServerMap m_map;
 	
@@ -45,10 +45,10 @@ public class Char implements Positionable {
 	}
 
 	/**
-	 * Returns the sprite of this char.
+	 * Returns the sprite of this char. Will return the surf sprite if the char is surfing
 	 */
 	public int getSprite() {
-		return m_sprite;
+		return m_isSurfing ? 0 : m_sprite;
 	}
 
 	/**
@@ -76,12 +76,14 @@ public class Char implements Positionable {
 	 * Sets the map this player is and handles all networking to client that is involved with it
 	 */
 	public void setMap(ServerMap map) {
-		//TODO: Notify old map that char has left
+		//Remove the char from their old map
+		m_map.removeChar(this);
+		//Set their current map to the new map
 		m_map = map;
 		m_mapX = map.getX();
 		m_mapY = map.getY();
-		//TODO: Notify new map of new player
-		//TODO: Send map information to player
+		//Add the char to the map
+		m_map.addChar(this);
 	}
 
 	/**
@@ -119,22 +121,25 @@ public class Char implements Positionable {
 	 * Moves the char if m_nextMovement != null
 	 */
 	public void move() {
-		if(m_nextMovement != null) {
+		if(m_nextMovement != null && m_map != null) {
 			//Move the player
 			if(m_facing != m_nextMovement) {
-				//TODO: Send change direction packet to everyone on map
 				switch(m_nextMovement) {
 				case Up:
 					m_facing = Direction.Up;
+					m_map.sendToAll("cU" + m_id);
 					break;
 				case Down:
 					m_facing = Direction.Down;
+					m_map.sendToAll("cD" + m_id);
 					break;
 				case Left:
 					m_facing = Direction.Left;
+					m_map.sendToAll("cL" + m_id);
 					break;
 				case Right:
 					m_facing = Direction.Right;
+					m_map.sendToAll("cR" + m_id);
 					break;
 				}
 			} else if(m_map.moveChar(this, m_nextMovement)) {
@@ -142,21 +147,24 @@ public class Char implements Positionable {
 				case Up:
 					m_y -= 32;
 					m_facing = Direction.Up;
+					m_map.sendToAll("U" + m_id);
 					break;
 				case Down:
 					m_y += 32;
 					m_facing = Direction.Down;
+					m_map.sendToAll("D" + m_id);
 					break;
 				case Left:
 					m_x -= 32;
 					m_facing = Direction.Left;
+					m_map.sendToAll("L" + m_id);
 					break;
 				case Right:
 					m_x += 32;
 					m_facing = Direction.Right;
+					m_map.sendToAll("R" + m_id);
 					break;
 				}
-				//Check if a wild battle occurred
 			}
 			m_nextMovement = null;
 			m_lastMovement = System.currentTimeMillis();
@@ -224,5 +232,30 @@ public class Char implements Positionable {
 	 */
 	public void setMapY(int y) {
 		m_mapY = y;
+	}
+	
+	/**
+	 * Sets if this char is surfing or not and sends the sprite change information to everyone
+	 * @param b
+	 */
+	public void setSurfing(boolean b) {
+		m_isSurfing = b;
+		if(m_map != null)
+			m_map.sendToAll("ms" + m_id + "," + this.getSprite());
+	}
+	
+	/**
+	 * Returns true if this char is surfing
+	 * @return
+	 */
+	public boolean isSurfing() {
+		return m_isSurfing;
+	}
+	
+	/**
+	 * Disposes of this char
+	 */
+	public void dispose() {
+		m_map = null;
 	}
 }

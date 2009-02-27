@@ -2,13 +2,16 @@ package org.pokenet.server.backend;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
+import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.Char;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.Pokemon;
 
+import tiled.core.Map;
 import tiled.core.TileLayer;
 
 /**
@@ -37,13 +40,47 @@ public class ServerMap {
 	private HashMap<String, Integer> m_nightPokemonChances;
 	private HashMap<String, int[]> m_waterPokemonLevels;
 	private HashMap<String, Integer> m_waterPokemonChances;
+	private int m_wildProbability;
 	//The following stores collision information
-	private TileLayer blocked = null;
-	private TileLayer surf = null;
-	private TileLayer grass = null;
-	private TileLayer ledgesDown = null;
-	private TileLayer ledgesLeft = null;
-	private TileLayer ledgesRight = null;
+	private TileLayer m_blocked = null;
+	private TileLayer m_surf = null;
+	private TileLayer m_grass = null;
+	private TileLayer m_ledgesDown = null;
+	private TileLayer m_ledgesLeft = null;
+	private TileLayer m_ledgesRight = null;
+	//Misc
+	private Random m_random = GameServer.getServiceManager().getDataService().getBattleMechanics().getRandom();
+	
+	/**
+	 * Default constructor
+	 * @param map
+	 * @param x
+	 * @param y
+	 */
+	public ServerMap(Map map, int x, int y) {
+		m_x = x;
+		m_y = y;
+		m_heigth = map.getHeight();
+		m_width = map.getWidth();
+		/*
+		 * Store all the map layers
+		 */
+		for(int i = 0; i < map.getTotalLayers(); i++) {
+			if(map.getLayer(i).getName().equalsIgnoreCase("Grass")) {
+				m_grass = (TileLayer) map.getLayer(i);
+			} else if(map.getLayer(i).getName().equalsIgnoreCase("Collisions")) {
+				m_blocked = (TileLayer) map.getLayer(i);
+			} else if(map.getLayer(i).getName().equalsIgnoreCase("LedgesLeft")) {
+				m_ledgesLeft = (TileLayer) map.getLayer(i);
+			} else if(map.getLayer(i).getName().equalsIgnoreCase("LedgesRight")) {
+				m_ledgesRight = (TileLayer) map.getLayer(i);
+			} else if(map.getLayer(i).getName().equalsIgnoreCase("LedgesDown")) {
+				m_ledgesDown = (TileLayer) map.getLayer(i);
+			} else if(map.getLayer(i).getName().equalsIgnoreCase("Water")) {
+				m_surf = (TileLayer) map.getLayer(i);
+			}
+		}
+	}
 	
 	/**
 	 * Adds a player to this map and notifies all other clients on the map.
@@ -58,7 +95,9 @@ public class ServerMap {
 			m_npcs.add((NonPlayerChar) c);
 		}
 		for(int i = 0; i < m_players.size(); i++) {
-			//TODO: Send information of new player to clients on map
+			if(c.getId() != m_players.get(i).getId())
+				m_players.get(i).getSession().write("ma" + c.getName() + "," + 
+					c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + c.getFacing());
 		}
 	}
 	
@@ -136,7 +175,7 @@ public class ServerMap {
 			m_npcs.trimToSize();
 		}
 		for(int i = 0; i < m_players.size(); i++) {
-			//TODO: Send information to all clients on map
+			m_players.get(i).getSession().write("mr" + c.getId());
 		}
 	}
 	
@@ -154,7 +193,10 @@ public class ServerMap {
 	 * Returns true if a wild pokemon was encountered.
 	 * @return
 	 */
-	public boolean isWildBattle() {
+	public boolean isWildBattle(int x, int y) {
+		if (m_random.nextInt(2874) < m_wildProbability * 16)
+			if (m_grass != null && m_grass.getTileAt(x / 32, y / 32) != null)
+				return true;
 		return false;
 	}
 	
@@ -165,5 +207,31 @@ public class ServerMap {
 	 */
 	public Pokemon getWildPokemon(PlayerChar p) {
 		return null;
+	}
+	
+	/**
+	 * Sends a packet to all players on the map
+	 * @param message
+	 */
+	public void sendToAll(String message) {
+		for(int i = 0; i < m_players.size(); i++) {
+			m_players.get(i).getSession().write(message);
+		}
+	}
+	
+	/**
+	 * Returns the arraylist of players
+	 * @return
+	 */
+	public ArrayList<PlayerChar> getPlayers() {
+		return m_players;
+	}
+	
+	/**
+	 * Returns the arraylist of npcs
+	 * @return
+	 */
+	public ArrayList<NonPlayerChar> getNpcs() {
+		return m_npcs;
 	}
 }

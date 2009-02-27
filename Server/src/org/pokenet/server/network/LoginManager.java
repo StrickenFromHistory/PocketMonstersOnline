@@ -182,8 +182,11 @@ public class LoginManager implements Runnable {
 		m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getRemoteAddress() + "' WHERE username='" + username + "'");
 		session.setAttribute("player", p);
 		/*
-		 * Send success packet to player
+		 * Send success packet to player, set their map and add them to a movement service
 		 */
+		session.write("ls" + p.getId());
+		p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().getMapByGamePosition(p.getMapX(), p.getMapY()));
+		GameServer.getServiceManager().getMovementService().getMovementManager().addPlayer(p);
 	}
 
 	/**
@@ -204,6 +207,8 @@ public class LoginManager implements Runnable {
 			p.setMapX(result.getInt("mapX"));
 			p.setMapY(result.getInt("mapY"));
 			p.setId(result.getInt("id"));
+			p.setLastHeal(result.getInt("healX"), result.getInt("healY"), result.getInt("healMapX"), result.getInt("healMapY"));
+			p.setSurfing(Boolean.parseBoolean(result.getString("isSurfing")));
 			//Set money and skills
 			p.setSprite(result.getInt("sprite"));
 			p.setMoney(result.getInt("money"));
@@ -255,6 +260,8 @@ public class LoginManager implements Runnable {
 			p.setBoxes(boxes);
 			//Attach bag
 			p.setBag(getBagObject(m_database.query("SELECT * FROM pn_bag WHERE id='" + result.getInt("bag") + "'")));
+			//Attach badges
+			p.generateBadges(result.getString("badges"));
 			return p;
 		} catch (Exception e) {
 			return null;
