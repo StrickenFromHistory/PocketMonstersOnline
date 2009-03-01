@@ -41,6 +41,22 @@ public class MySqlManager {
     }
     
     /**
+     * Selects the current database. Returns true on success
+     * @param database
+     * @return
+     */
+    public boolean selectDatabase(String database) {
+    	try {
+        	Statement stm = mysql_connection.createStatement();
+        	stm.executeQuery("USE " + database);
+        	return true;
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    		return false;
+    	}
+    }
+    
+    /**
      * Closes the connection to the mysql server. Returns true on success.
      * @return
      */

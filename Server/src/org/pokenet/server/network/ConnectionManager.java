@@ -8,6 +8,7 @@ import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.backend.entity.Positionable.Direction;
 
 /**
  * Handles packets recieved from the player
@@ -16,6 +17,13 @@ import org.pokenet.server.backend.entity.PlayerChar;
  */
 public class ConnectionManager extends IoHandlerAdapter {
 	private static HashMap<String, PlayerChar> m_players;
+	private LoginManager m_loginManager;
+	private LogoutManager m_logoutManager;
+	
+	public ConnectionManager(LoginManager login, LogoutManager logout) {
+		m_loginManager = login;
+		m_logoutManager = logout;
+	}
 	
 	static {
 		m_players = new HashMap<String, PlayerChar>();
@@ -45,7 +53,69 @@ public class ConnectionManager extends IoHandlerAdapter {
 	    * @param Object msg - The packet received from the client
 		*/
 	public void messageReceived(IoSession session, Object msg) throws Exception {
-		
+		String [] message;
+		if(session.getAttribute("player") == null) {
+			/*
+			 * The player hasn't been logged in, only allow login and registration packets
+			 */
+			switch(((String) msg).charAt(0)) {
+			case 'l':
+				//Login packet
+				message = ((String) msg).substring(1).split(",");
+				m_loginManager.queuePlayer(session, message[0], message[1]);
+				break;
+			case 'r':
+				//Registration packet
+				break;
+			}
+		} else {
+			/*
+			 * Player is logged in, allow interaction with their player object
+			 */
+			PlayerChar p = (PlayerChar) session.getAttribute("player");
+			switch(((String) msg).charAt(0)) {
+			case 'U':
+				//Move up
+				p.setNextMovement(Direction.Up);
+				break;
+			case 'D':
+				//Move down
+				p.setNextMovement(Direction.Down);
+				break;
+			case 'L':
+				//Move left
+				p.setNextMovement(Direction.Left);
+				break;
+			case 'R':
+				//Move right
+				p.setNextMovement(Direction.Right);
+				break;
+			case 'F':
+				//Friend list
+				switch(((String) msg).charAt(1)) {
+				case 'a':
+					//Add a friend
+					break;
+				case 'r':
+					//Remove a friend
+					break;
+				}
+			case 'C':
+				//Chat/Interact
+				switch(((String) msg).charAt(1)) {
+				case 'l':
+					//Local chat
+					break;
+				case 'p':
+					//Private chat
+					break;
+				case 't':
+					//Talk
+					break;
+				}
+				break;
+			}
+		}
 	}
 	
 	/**

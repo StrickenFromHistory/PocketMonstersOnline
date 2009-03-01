@@ -22,10 +22,10 @@ public class ServiceManager {
 	 * Default constructor
 	 */
 	public ServiceManager() {
+		m_dataService = new DataService();
 		m_networkService = new NetworkService();
 		m_movementService = new MovementService();
 		m_battleService = new BattleService[GameServer.getBattleThreadAmount()];
-		m_dataService = new DataService();
 	}
 	
 	/**
@@ -96,6 +96,7 @@ public class ServiceManager {
 			m_battleService[i] = new BattleService();
 			m_battleService[i].start();
 		}
+		System.out.println("INFO: Battle Service started");
 		System.out.println("INFO: Service Manager startup completed.");
 	}
 	

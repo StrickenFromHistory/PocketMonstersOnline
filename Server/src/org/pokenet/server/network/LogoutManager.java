@@ -1,14 +1,21 @@
 package org.pokenet.server.network;
 
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Queue;
+import java.util.Random;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.Bag;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.battle.PokemonSpecies;
+import org.pokenet.server.battle.mechanics.PokemonNature;
+import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
 
 /**
  * Handles logging players out
@@ -35,7 +42,9 @@ public class LogoutManager implements Runnable {
 	 * @param player
 	 */
 	private boolean attemptLogout(PlayerChar player) {
-		m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword());
+		if(!m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword()))
+			return false;
+		m_database.selectDatabase(GameServer.getDatabaseName());
 		//TODO: Store all player information
 		if(!savePlayer(player))
 			return false;
@@ -120,8 +129,84 @@ public class LogoutManager implements Runnable {
 		System.out.println("INFO: All player data saved successfully.");
 	}
 	
+	public boolean register(String username, String password, String email, String dob, int starter, int sprite) {
+		try {
+			MySqlManager mysql = new MySqlManager();
+			if(mysql.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword())) {
+				mysql.selectDatabase(GameServer.getDatabaseName());
+				/*
+				 * Check if the user exists
+				 */
+				ResultSet data = mysql.query("SELECT * FROM pn_members WHERE username='" + username + "'");
+				data.first();
+				if(data != null && data.getString("username") != null && data.getString("username").equalsIgnoreCase(username))
+					return false;
+				/*
+				 * Create the player in the database
+				 */
+				String badges = "";
+				for(int i = 0; i < 50; i++)
+					badges = badges + "0";
+				mysql.query("INSERT INTO pn_members (username, password, dob, email, lastLoginTime, " +
+						"sprite, money, npcMul, skHerb, skCraft, skFish, skTrain, skCoord, skBreed, " +
+						"x, y, mapX, mapY, badges, healX, healY, healMapX, healMapY, isSurfing) VALUE " +
+						"('" + username + "', '" + password + "', '" + dob + "', " + "', " + email + "', " +
+								"'0', '" + sprite + "', '0', '1.5', '0', '0', '0', '0', '0', '0', '256', '256', " +
+										"'-50', '-50', '" + badges + "', '256', '256', '-50', '-50', 'false')");
+				/*
+				 * Retrieve the player's unique id
+				 */
+				data = mysql.query("SELECT * FROM pn_members WHERE username='" + username + "'");
+				data.first();
+				int playerId = data.getInt("id");
+				/*
+				 * Create the player's bag
+				 */
+				String bagBuilder = "";
+				for(int i = 0; i < 39; i++)
+					bagBuilder = bagBuilder + "'-1', ";
+				mysql.query("INSERT INTO pn_bag (member) VALUE ('" + playerId + "')");
+				data = mysql.query("SELECT * FROM pn_bag WHERE member='" + playerId + "'");
+				data.first();
+				mysql.query("UPDATE pn_members SET bag='" + data.getInt("id") + "' WHERE id='" + playerId + "'");
+				/*
+				 * Create the players party
+				 */
+				Pokemon p = this.createStarter(starter);
+				p.setOriginalTrainer(username);
+				p.setDateCaught(new SimpleDateFormat("yyyy-MM-dd:HH-mm-ss").format(new Date()));
+				this.saveNewPokemon(p, mysql);
+				
+				mysql.query("INSERT INTO pn_party (member, pokemon0, pokemon1, pokemon2, pokemon3, pokemon4, pokemon5) VALUES ('" +
+						+ playerId + "','" + p.getDatabaseID() + "','-1','-1','-1','-1','-1')");
+				data = mysql.query("SELECT * FROM pn_party WHERE member='" + playerId + "'");
+				data.first();
+				/*
+				 * Create the players pokemon storage
+				 */
+				mysql.query("INSERT INTO pn_mypokes (member, party, box0, box1, box2, box3, box4, box5, box6, box7, box8) VALUES ('" +
+						+ playerId + "','" + data.getInt("id") + "','-1','-1','-1','-1','-1','-1','-1','-1','-1')");
+				data = mysql.query("SELECT * FROM pn_mypokes WHERE member='" + playerId + "'");
+				data.first();
+				/*
+				 * Attach pokemon to the player
+				 */
+				mysql.query("UPDATE pn_members SET pokemons='" + data.getInt("id") + "' WHERE id='" + playerId + "'");
+				/*
+				 * Finish
+				 */
+				mysql.close();
+				return true;
+			} else
+				return false;	
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}		
+	}
+	
 	/**
-	 * Saves a player object to the database
+	 * Saves a player object to the database (Updates an existing player)
 	 * @param p
 	 * @return
 	 */
@@ -169,7 +254,7 @@ public class LogoutManager implements Runnable {
 					if(p.getParty()[i] != null) {
 						if(p.getParty()[i].getDatabaseID() == -1) {
 							//This is a new Pokemon, add it to the database
-							if(!saveNewPokemon(p.getParty()[i]))
+							if(!saveNewPokemon(p.getParty()[i], m_database))
 								return false;
 						} else {
 							//Old Pokemon, just update
@@ -218,7 +303,7 @@ public class LogoutManager implements Runnable {
 						//Save all pokemon first
 						for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
 							if(p.getBoxes()[i].getPokemon(j).getId() == -1) {
-								if(!saveNewPokemon(p.getBoxes()[i].getPokemon(j)))
+								if(!saveNewPokemon(p.getBoxes()[i].getPokemon(j), m_database))
 									return false;
 							} else {
 								if(!savePokemon(p.getBoxes()[i].getPokemon(j)))
@@ -245,17 +330,14 @@ public class LogoutManager implements Runnable {
 	 * Saves a pokemon to the database that didn't exist in it before
 	 * @param p
 	 */
-	private boolean saveNewPokemon(Pokemon p) {
+	private boolean saveNewPokemon(Pokemon p, MySqlManager db) {
 		try {
 			/*
 			 * Insert the Pokemon into the database
 			 */
-			m_database.query("INSERT INTO pn_pokemon" +
+			db.query("INSERT INTO pn_pokemon" +
 					"(name, speciesName, exp, baseExp, expType, isFainted, level, happiness, " +
-					"gender, nature, abilityName, itemName, isShiny, originalTrainerName, " +
-					"move0, move1, move2, move3, hp, atk, def, speed, spATK, spDEF, " +
-					"evHP, evATK, evDEF, evSPD, evSPATK, evSPDEF, ivHP, ivATK, ivDEF, ivSPD, ivSPATK, ivSPDEF, " +
-					"pp0, pp1, pp2, pp3, maxpp0, maxpp1, maxpp2, maxpp3, maxpp4, ppUp0, ppUp1, ppUp2, ppUp3, date) " +
+					"gender, nature, abilityName, itemName, isShiny, originalTrainerName, date)" +
 					"VALUES (" +
 					"'" + p.getName() +"', " +
 					"'" + p.getSpeciesName() +"', " +
@@ -270,52 +352,55 @@ public class LogoutManager implements Runnable {
 					"'" + p.getAbilityName() +"', " +
 					"'" + p.getItemName() +"', " +
 					"'" + String.valueOf(p.isShiny()) +"', " +
-					"'" + p.getTrainerName() + "', " +
-					"'" + p.getMoveName(0) +"', " +
-					"'" + p.getMoveName(1) +"', " +
-					"'" + p.getMoveName(2) +"', " +
-					"'" + p.getMoveName(3) +"', " +
-					"'" + p.getHealth() +"', " +
-					"'" + p.getStat(1) +"', " +
-					"'" + p.getStat(2) +"', " +
-					"'" + p.getStat(3) +"', " +
-					"'" + p.getStat(4) +"', " +
-					"'" + p.getStat(5) +"', " +
-					"'" + p.getEv(0) +"', " +
-					"'" + p.getEv(1) +"', " +
-					"'" + p.getEv(2) +"', " +
-					"'" + p.getEv(3) +"', " +
-					"'" + p.getEv(4) +"', " +
-					"'" + p.getEv(5) +"', " +
-					"'" + p.getIv(0) +"', " +
-					"'" + p.getIv(1) +"', " +
-					"'" + p.getIv(2) +"', " +
-					"'" + p.getIv(3) +"', " +
-					"'" + p.getIv(4) +"', " +
-					"'" + p.getIv(5) +"', " +
-					"'" + p.getPp(0) +"', " +
-					"'" + p.getPp(1) +"', " +
-					"'" + p.getPp(2) +"', " +
-					"'" + p.getPp(3) +"', " +
-					"'" + p.getMaxPp(0) +"', " +
-					"'" + p.getMaxPp(1) +"', " +
-					"'" + p.getMaxPp(2) +"', " +
-					"'" + p.getMaxPp(3) +"', " +
-					"'" + p.getPpUpCount(0) +"', " +
-					"'" + p.getPpUpCount(1) +"', " +
-					"'" + p.getPpUpCount(2) +"', " +
-					"'" + p.getPpUpCount(3) +"', " +
+					"'" + p.getOriginalTrainer() + "', " +
 					"'" + p.getDateCaught() + "')");
 			/*
 			 * Get the pokemon's database id and attach it to the pokemon.
 			 * This needs to be done so it can be attached to the player in the database later.
 			 */
-			ResultSet result = m_database.query("SELECT * FROM pn_pokemon WHERE originalTrainerName='"  + p.getOriginalTrainer() + 
+			ResultSet result = db.query("SELECT * FROM pn_pokemon WHERE originalTrainerName='"  + p.getOriginalTrainer() + 
 					"' AND date='" + p.getDateCaught() + "'");
 			result.first();
 			p.setDatabaseID(result.getInt("id"));
+			db.query("UPDATE pn_pokemon SET move0='" + p.getMove(0).getName() +
+					"', move1='" + p.getMove(1).getName() +
+					"', move2='" + p.getMove(2).getName() +
+					"', move3='" + p.getMove(3).getName() +
+					"', hp='" + p.getHealth() +
+					"', atk='" + p.getStat(1) +
+					"', def='" + p.getStat(2) +
+					"', speed='" + p.getStat(3) +
+					"', spATK='" + p.getStat(4) +
+					"', spDEF='" + p.getStat(5) +
+					"', evHP='" + p.getEv(0) +
+					"', evATK='" + p.getEv(1) +
+					"', evDEF='" + p.getEv(2) +
+					"', evSPD='" + p.getEv(3) +
+					"', evSPATK='" + p.getEv(4) +
+					"', evSPDEF='" + p.getEv(5) +
+					"' WHERE id='" + p.getDatabaseID() + "'");
+			db.query("UPDATE pn_pokemon SET ivHP='" + p.getIv(0) +
+					"', ivATK='" + p.getIv(1) +
+					"', ivDEF='" + p.getIv(2) +
+					"', ivSPD='" + p.getIv(3) +
+					"', ivSPATK='" + p.getIv(4) +
+					"', ivSPDEF='" + p.getIv(5) +
+					"', pp0='" + p.getPp(0) +
+					"', pp1='" + p.getPp(1) +
+					"', pp2='" + p.getPp(2) +
+					"', pp3='" + p.getPp(3) +
+					"', maxpp0='" + p.getMaxPp(0) +
+					"', maxpp1='" + p.getMaxPp(1) +
+					"', maxpp2='" + p.getMaxPp(2) +
+					"', maxpp3='" + p.getMaxPp(3) +
+					"', ppUp0='" + p.getPpUpCount(0) +
+					"', ppUp1='" + p.getPpUpCount(1) +
+					"', ppUp2='" + p.getPpUpCount(2) +
+					"', ppUp3='" + p.getPpUpCount(3) +
+					"' WHERE id='" + p.getDatabaseID() + "'");
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -343,41 +428,43 @@ public class LogoutManager implements Runnable {
 					"abilityName='" + p.getAbilityName() +"', " +
 					"itemName='" + p.getItemName() +"', " +
 					"isShiny='" + String.valueOf(p.isShiny()) +"', " +
-					"hp='" + p.getHealth() +"', " +
-					"atk='" + p.getStat(1) +"', " +
-					"def='" + p.getStat(2) +"', " +
-					"speed='" + p.getStat(3) +"', " +
-					"spATK='" + p.getStat(4) +"', " +
-					"spDEF='" + p.getStat(5) +"', " +
-					"evHP='" + p.getEv(0) +"', " +
-					"evATK='" + p.getEv(1) +"', " +
-					"evDEF='" + p.getEv(2) +"', " +
-					"evSPD='" + p.getEv(3) +"', " +
-					"evSPATK='" + p.getEv(4) +"', " +
-					"evSPDEF='" + p.getEv(5) +"', " +
-					"ivHP='" + p.getIv(0) +"', " +
-					"ivATK='" + p.getIv(1) +"', " +
-					"ivDEF='" + p.getIv(2) +"', " +
-					"ivSPD='" + p.getIv(3) +"', " +
-					"ivSPATK='" + p.getIv(4) +"', " +
-					"ivSPDEF='" + p.getIv(5) +"', " +
-					"pp0='" + p.getPp(0) +"', " +
-					"pp1='" + p.getPp(1) +"', " +
-					"pp2='" + p.getPp(2) +"', " +
-					"pp3='" + p.getPp(3) +"', " +
-					"maxpp0='" + p.getMaxPp(0) +"', " +
-					"maxpp1='" + p.getMaxPp(1) +"', " +
-					"maxpp2='" + p.getMaxPp(2) +"', " +
-					"maxpp3='" + p.getMaxPp(3) +"', " +
-					"ppUp0='" + p.getPpUpCount(0) +"', " +
-					"ppUp1='" + p.getPpUpCount(1) +"', " +
-					"ppUp2='" + p.getPpUpCount(2) +"', " +
-					"ppUp3='" + p.getPpUpCount(3) +"', " +
-					"move0='" + p.getMoveName(0) +"', " +
-					"move1='" + p.getMoveName(1) +"', " +
-					"move2='" + p.getMoveName(2) +"', " +
-					"move3='" + p.getMoveName(3) +"', " +
 					"WHERE id='" + p.getDatabaseID() + "'");
+			m_database.query("UPDATE pn_pokemon SET move0='" + p.getMove(0).getName() +
+					"', move1='" + p.getMove(1).getName() +
+					"', move2='" + p.getMove(2).getName() +
+					"', move3='" + p.getMove(3).getName() +
+					"', hp='" + p.getHealth() +
+					"', atk='" + p.getStat(1) +
+					"', def='" + p.getStat(2) +
+					"', speed='" + p.getStat(3) +
+					"', spATK='" + p.getStat(4) +
+					"', spDEF=', " + p.getStat(5) +
+					"', evHP='" + p.getEv(0) +
+					"', evATK='" + p.getEv(1) +
+					"', evDEF='" + p.getEv(2) +
+					"', evSPD='" + p.getEv(3) +
+					"', evSPATK='" + p.getEv(4) +
+					"', evSPDEF='" + p.getEv(5) +
+					"' WHERE id='" + p.getDatabaseID() + "'");
+			m_database.query("UPDATE pn_pokemon SET ivHP='" + p.getIv(0) +
+					"', ivATK='" + p.getIv(1) +
+					"', ivDEF='" + p.getIv(2) +
+					"', ivSPD='" + p.getIv(3) +
+					"', ivSPATK='" + p.getIv(4) +
+					"', ivSPDEF='" + p.getIv(5) +
+					"', pp0='" + p.getPp(0) +
+					"', pp1='" + p.getPp(1) +
+					"', pp2='" + p.getPp(2) +
+					"', pp3='" + p.getPp(3) +
+					"', maxpp0='" + p.getMaxPp(0) +
+					"', maxpp1='" + p.getMaxPp(1) +
+					"', maxpp2='" + p.getMaxPp(2) +
+					"', maxpp3='" + p.getMaxPp(3) +
+					"', ppUp0='" + p.getPpUpCount(0) +
+					"', ppUp1='" + p.getPpUpCount(1) +
+					"', ppUp2='" + p.getPpUpCount(2) +
+					"', ppUp3='" + p.getPpUpCount(3) +
+					"' WHERE id='" + p.getDatabaseID() + "'");
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -393,8 +480,11 @@ public class LogoutManager implements Runnable {
 		try {
 			for(int i = 0; i < b.getItems().length; i++) {
 				if(b.getItems()[i] != null) {
+					/*
+					 * NOTE: Items are stored as values 1 - 999
+					 */
 					m_database.query("UPDATE pn_bag SET item" + i + "='" 
-							+ (b.getItems()[i].getItemNumber() > -1 ? b.getItems()[i].getItemNumber() : -1) +
+							+ (b.getItems()[i].getItemNumber() > 0 ? b.getItems()[i].getItemNumber() : 0) +
 							", quantity" + i + "='" +
 							(b.getItems()[i].getQuantity() > 0 ? b.getItems()[i].getQuantity() : 0) +
 							"' WHERE id='" + b.getDatabaseId() + "'");
@@ -405,4 +495,64 @@ public class LogoutManager implements Runnable {
 			return false;
 		}
 	}
+	
+	/**
+	 * Creates a starter Pokemon
+	 * @param speciesIndex
+	 * @return
+	 * @throws Exception
+	 */
+	private Pokemon createStarter(int speciesIndex) throws Exception {
+        PokemonSpecies species = GameServer.getServiceManager().getDataService().getSpeciesDatabase().getSpecies(speciesIndex);
+        ArrayList<MoveListEntry> possibleMoves = new ArrayList<MoveListEntry>();
+        MoveListEntry[] moves = new MoveListEntry[4];
+        Random random = GameServer.getServiceManager().getDataService().getBattleMechanics().getRandom();
+
+        for (int i = 0; i < GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(speciesIndex)
+                        .getStarterMoves().size(); i++) {
+                possibleMoves.add(GameServer.getServiceManager().getDataService().getMovesList().getMove(
+                		GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(
+                                speciesIndex).getStarterMoves().get(i)));
+        }
+        for (int i = 1; i <= 5; i++) {
+                if (GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(speciesIndex).getMoves().containsKey(i)) {
+                        possibleMoves.add(GameServer.getServiceManager().getDataService().getMovesList().getMove(
+                        		GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(
+                                        speciesIndex).getMoves().get(i)));
+                }
+        }
+        if (possibleMoves.size() <= 4) {
+                for (int i = 0; i < possibleMoves.size(); i++) {
+                        moves[i] = possibleMoves.get(i);
+                }
+        } else {
+                for (int i = 0; i < moves.length; i++) {
+                        if (possibleMoves.size() == 0)
+                                moves[i] = null;
+                        moves[i] = possibleMoves.get(random.nextInt(possibleMoves
+                                        .size()));
+                        possibleMoves.remove(moves[i]);
+                }
+        }
+        String [] abilities = GameServer.getServiceManager().getDataService().getSpeciesDatabase().getPossibleAbilities(species.getName());
+        Pokemon starter = new Pokemon(
+                        GameServer.getServiceManager().getDataService().getBattleMechanics(),
+                        species,
+                        PokemonNature.getNature(random.nextInt(PokemonNature.getNatureNames().length)),
+                                        abilities[random.nextInt(abilities.length)],
+                        null, (random.nextInt(100) > 87 ? Pokemon.GENDER_FEMALE
+                                        : Pokemon.GENDER_MALE), 5, new int[] {
+                                        random.nextInt(32), // IVs
+                                        random.nextInt(32), random.nextInt(32),
+                                        random.nextInt(32), random.nextInt(32),
+                                        random.nextInt(32) }, new int[] { 0, 0, 0, 0, 0, 0 }, //EVs
+                        moves, new int[] { 0, 0, 0, 0 });
+        starter.setExpType(GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(speciesIndex)
+                        .getGrowthRate());
+        starter.setBaseExp(GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(speciesIndex).getBaseEXP());
+        starter.setExp(GameServer.getServiceManager().getDataService().getBattleMechanics().getExpForLevel(starter, 5));
+        starter.setHappiness(GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(speciesIndex).getHappiness());
+        return starter;
+	}
+
 }

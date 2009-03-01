@@ -12,6 +12,7 @@ import org.pokenet.server.backend.entity.PlayerChar;
 public class BattleService implements Runnable {	
 	private ArrayList<BattleField> m_battleFields;
 	private Thread m_thread;
+	private boolean m_isRunning;
 	
 	/**
 	 * Default constructor
@@ -84,22 +85,33 @@ public class BattleService implements Runnable {
 	 * if both participants have selected their moves.
 	 */
 	public void run() {
-		
+		while(m_isRunning) {
+			synchronized(m_battleFields) {
+				for(int i = 0; i < m_battleFields.size(); i++) {
+					if(m_battleFields.get(i).isReady()) {
+						m_battleFields.get(i).executeTurn(m_battleFields.get(i).getQueuedTurns());
+					}
+				}
+			}
+			try {
+				Thread.sleep(350);
+			} catch (Exception e) {}
+		}
 	}
 	
 	/**
 	 * Starts this battle service
 	 */
 	public void start() {
+		m_isRunning = true;
 		m_thread.start();
-		System.out.println("INFO: Battle Service started");
 	}
 	
 	/**
 	 * Stops this battle service
 	 */
 	public void stop() {
-		
+		m_isRunning = false;
 	}
 
 }

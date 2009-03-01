@@ -431,6 +431,18 @@ public abstract class BattleField {
     public abstract void informVictory(int winner);
     
     /**
+     * Returns true if both player's have selected their moves
+     * @return
+     */
+    public abstract boolean isReady();
+    
+    /**
+     * Returns the queued battle turns
+     * @return
+     */
+    public abstract BattleTurn[] getQueuedTurns();
+    
+    /**
      * Queue a move.
      */
     public abstract void queueMove(int trainer, BattleTurn move)

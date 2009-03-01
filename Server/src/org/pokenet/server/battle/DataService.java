@@ -1,5 +1,7 @@
 package org.pokenet.server.battle;
 
+import java.io.File;
+
 import org.pokenet.server.battle.mechanics.JewelMechanics;
 import org.pokenet.server.battle.mechanics.moves.MoveList;
 import org.pokenet.server.battle.mechanics.moves.MoveSetData;
@@ -12,11 +14,11 @@ import org.simpleframework.xml.core.Persister;
  *
  */
 public class DataService {
-	private PokemonSpeciesData m_speciesData;
-	private POLRDatabase m_polrData;
-	private JewelMechanics m_mechanics;
-	private MoveList m_moveList;
-	private MoveSetData m_moveSetData;
+	private static PokemonSpeciesData m_speciesData;
+	private static POLRDatabase m_polrData;
+	private static JewelMechanics m_mechanics;
+	private static MoveList m_moveList;
+	private static MoveSetData m_moveSetData;
 	
 	/**
 	 * Default constructor. Loads data immediately.
@@ -29,9 +31,10 @@ public class DataService {
 			m_speciesData = new PokemonSpeciesData();
 			m_mechanics = new JewelMechanics(5);
 			JewelMechanics.loadMoveTypes("res/movetypes.txt");
-			m_moveSetData = stream.read(MoveSetData.class, "res/movesets.xml");
-			m_speciesData = stream.read(PokemonSpeciesData.class, "res/species.xml");
-			m_polrData = stream.read(POLRDatabase.class, "res/polrdb.xml");
+			File f = new File(".");
+			m_moveSetData = stream.read(MoveSetData.class, new File(f.getCanonicalPath() + "/res/movesets.xml"));
+			m_speciesData = stream.read(PokemonSpeciesData.class, new File(f.getCanonicalPath() + "/res/species.xml"));
+			m_polrData = stream.read(POLRDatabase.class, new File(f.getCanonicalPath() + "/res/polrdb.xml"));
 			System.out.println("INFO: Databases loaded.");
 		} catch (Exception e) {
 			e.printStackTrace();

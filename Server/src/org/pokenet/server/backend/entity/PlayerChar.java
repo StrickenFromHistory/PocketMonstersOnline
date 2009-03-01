@@ -325,7 +325,6 @@ public class PlayerChar extends Char implements Battleable {
 		String date = new SimpleDateFormat ("yyyy-MM-dd:HH-mm-ss").format (d);
 		p.setDateCaught(date);
 		p.setOriginalTrainer(this.getName());
-		p.setOriginalNo(this.getId());
 		//TODO: Add the pokemon to the party/box
 	}
 	

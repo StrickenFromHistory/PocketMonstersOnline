@@ -26,7 +26,7 @@ package org.pokenet.server;
 public class GameServer {
 	private static ServiceManager m_serviceManager;
 	private static int m_maxPlayers, m_movementThreads, m_battleThreads;
-	private static String m_dbServer, m_dbUsername, m_dbPassword, m_serverName;
+	private static String m_dbServer, m_dbName, m_dbUsername, m_dbPassword, m_serverName;
 	
 	/**
 	 * If you don't know what this method does, you clearly don't know enough Java to be working on this.
@@ -41,19 +41,27 @@ public class GameServer {
 			if(args[0].equalsIgnoreCase("-low")) {
 				m_maxPlayers = 75;
 				m_movementThreads = 2;
-				m_battleThreads = 1;
+				m_battleThreads = 2;
 			} else if(args[0].equalsIgnoreCase("-medium")) {
 				m_maxPlayers = 200;
 				m_movementThreads = 4;
-				m_battleThreads = 2;
+				m_battleThreads = 4;
 			} else if(args[0].equalsIgnoreCase("-high")) {
 				m_maxPlayers = 500;
 				m_movementThreads = 8;
-				m_battleThreads = 4;
+				m_battleThreads = 8;
 			} else {
 				System.err.println("Server requires a settings parameter, e.g. java GameServer -medium");
 				System.exit(0);
 			}
+			/*
+			 * Testing purposes only
+			 */
+			m_dbServer = "";
+			m_dbName = "";
+			m_dbUsername = "";
+			m_dbPassword = "";
+			m_serverName = "";
 			/*
 			 * For the moment we'll just start the service manager but
 			 * we'll make it open a gui which can start/shutdown the server.
@@ -129,5 +137,13 @@ public class GameServer {
 	 */
 	public static String getServerName() {
 		return m_serverName;
+	}
+	
+	/**
+	 * Returns the database selected
+	 * @return
+	 */
+	public static String getDatabaseName() {
+		return m_dbName;
 	}
 }

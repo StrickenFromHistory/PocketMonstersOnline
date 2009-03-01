@@ -1,20 +1,17 @@
 package org.pokenet.server.network;
 
 import java.net.InetSocketAddress;
-import java.nio.charset.Charset;
 import java.util.concurrent.Executors;
 
 import org.apache.mina.common.ByteBuffer;
 import org.apache.mina.common.IoAcceptor;
 import org.apache.mina.common.SimpleByteBufferAllocator;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
-import org.apache.mina.filter.codec.textline.TextLineCodecFactory;
 import org.apache.mina.filter.executor.ExecutorFilter;
 import org.apache.mina.transport.socket.nio.SocketAcceptor;
 import org.apache.mina.transport.socket.nio.SocketAcceptorConfig;
 import org.apache.mina.transport.socket.nio.SocketSessionConfig;
 import org.pokenet.server.network.codec.PokenetCodecFactory;
-import org.simpleframework.xml.core.Persister;
 
 /**
  * Handles all networking
@@ -31,10 +28,10 @@ public class NetworkService {
 	 * Default constructor
 	 */
 	public NetworkService() {
-		m_connectionManager = new ConnectionManager();
 		m_logoutManager = new LogoutManager();
 		m_loginManager = new LoginManager(m_logoutManager);
 		m_chatManager = new ChatManager();
+		m_connectionManager = new ConnectionManager(m_loginManager, m_logoutManager);
 	}
 	
 	/**

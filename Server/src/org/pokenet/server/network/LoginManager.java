@@ -49,7 +49,10 @@ public class LoginManager implements Runnable {
 		PlayerChar p;
 		try {
 			//First connect to the database
-			m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword());
+			if(!m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword())) {
+				return;
+			}
+			m_database.selectDatabase(GameServer.getDatabaseName());
 			//Then find the member's information
 			ResultSet result = m_database.query("SELECT * FROM pn_members WHERE username='" + username + "'");
 			result.first();
@@ -383,7 +386,7 @@ public class LoginManager implements Runnable {
 			Bag b = new Bag();
 			b.setDatabaseId(data.getInt("id"));
 			for(int i = 0; i < 20; i++) {
-				if(data.getInt("item" + i) > -1)
+				if(data.getInt("item" + i) > 0)
 					b.addItem(data.getInt("item" + i), data.getInt("quantity" + i));
 			}
 			return b;
