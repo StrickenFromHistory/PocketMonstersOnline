@@ -1,14 +1,35 @@
 package org.pokenet.client;
 
+import java.net.InetSocketAddress;
+import java.nio.charset.Charset;
+import java.util.concurrent.Executors;
+
+import javax.swing.JOptionPane;
+
+import mdes.slick.sui.Display;
+import mdes.slick.sui.Sui;
+
+import org.apache.mina.common.ConnectFuture;
+import org.apache.mina.filter.codec.ProtocolCodecFilter;
+import org.apache.mina.filter.codec.textline.TextLineCodecFactory;
+import org.apache.mina.filter.executor.ExecutorFilter;
+import org.apache.mina.transport.socket.nio.SocketConnector;
+import org.apache.mina.transport.socket.nio.SocketConnectorConfig;
+import org.apache.mina.transport.socket.nio.SocketSessionConfig;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
+import org.newdawn.slick.Font;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
 import org.pokenet.client.backend.entity.OurPlayer;
+import org.pokenet.client.network.ConnectionManager;
+import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.LoadingScreen;
+import org.pokenet.client.ui.LoginScreen;
+import org.pokenet.client.ui.PokenetTheme;
 
 /**
  * The game client
@@ -16,12 +37,23 @@ import org.pokenet.client.ui.LoadingScreen;
  *
  */
 public class GameClient extends BasicGame {
+	//Some variables needed
+	private static GameClient m_instance;
 	private ClientMapMatrix m_mapMatrix;
-	private OurPlayer m_ourPlayer;
-	private boolean m_isPlaying = false;
+	private OurPlayer m_ourPlayer = null;
 	private boolean m_isNewMap = false;
+	private int m_mapX, m_mapY;
+	//Static variables
+	private static Font m_fontLarge, m_fontSmall;
+	private static String m_host;
+	private PacketGenerator m_packetGen;
+	//UI
 	private LoadingScreen m_loading;
-
+	private LoginScreen m_login;
+	//The gui display layer
+	private Display m_display;
+	private Font m_dpFontLarge, m_dpFontSmall;
+	
 	/**
 	 * Default constructor
 	 * @param title
@@ -36,8 +68,14 @@ public class GameClient extends BasicGame {
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		gc.setShowFPS(false);
+		m_display = new Display(gc);
+		
+		m_login = new LoginScreen();
+		m_display.add(m_login);
 		
 		m_mapMatrix = new ClientMapMatrix();
+		
+		m_instance = this;
 	}
 
 	/**
@@ -45,11 +83,31 @@ public class GameClient extends BasicGame {
 	 */
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
-		if(m_isNewMap && m_isPlaying) {
-			/*
-			 * Load the maps
-			 */
+		/*
+		 * Update the gui layer
+		 */
+		try {
+			synchronized (m_display) {
+				m_display.update(gc, delta);
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		/*
+		 * Check if we need to connect to a selected server
+		 */
+		if(m_host != null && !m_host.equalsIgnoreCase("") && m_packetGen == null) {
+			this.connect();
 		}
+		/*
+		 * Check if we need to loads maps
+		 */
+		if(m_isNewMap && m_loading.isVisible()) {
+			m_mapMatrix.loadMaps(m_mapX, m_mapY);
+			m_isNewMap = false;
+			m_loading.setVisible(false);
+		}
+		/*
+		 * Check if we need to update daylight
+		 */
 	}
 
 	/**
@@ -63,7 +121,7 @@ public class GameClient extends BasicGame {
 		 *  other layers are rendered directly to the screen.
 		 *  All other maps are simply rendered directly to the screen.
 		 */
-		if(m_isPlaying && !m_isNewMap && m_ourPlayer != null) {
+		if(!m_isNewMap && m_ourPlayer != null) {
 			ClientMap thisMap;
 			//g.setFont(getDPFont());
 			g.scale(2, 2);
@@ -93,6 +151,49 @@ public class GameClient extends BasicGame {
             }
             g.resetTransform();
 		}
+		/*
+		 * Update the UI layer
+		 */
+		try {
+			synchronized(m_display) {
+				m_display.render(gc, g);
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+	}
+	
+	/**
+	 * Connects to a selected server
+	 */
+	public void connect() {
+		SocketConnector connector = new SocketConnector();
+        SocketConnectorConfig cfg = new SocketConnectorConfig();
+        ((SocketSessionConfig) cfg.getSessionConfig()).setTcpNoDelay(true);
+        cfg.getFilterChain().addLast(
+              "codec",
+              new ProtocolCodecFilter(
+                      new TextLineCodecFactory(Charset.forName("US-ASCII"))));
+        cfg.getFilterChain().addLast("threadPool", new ExecutorFilter(Executors
+				.newCachedThreadPool()));
+        // Start communication.
+       ConnectFuture cf = connector.connect(new InetSocketAddress(
+                m_host, 3128), new ConnectionManager(this), cfg);
+        // Wait for the connection attempt to be finished
+        cf.join();
+        int i = 0;
+        while(!cf.isConnected()) {
+        	i++;
+        	//Connection attempt times out and a dialog appears
+        	if(i >= 10000) {
+        		JOptionPane.showMessageDialog(null,
+						"Connection timed out.\n"
+						+ "The server may be offline.\n"
+						+ "Contact an administrator for assistance.");
+				m_host = "";
+				return;
+        	}
+        }
+        m_packetGen = new PacketGenerator(cf.getSession());
+        m_login.showLogin();
 	}
 	
 	/**
@@ -117,4 +218,51 @@ public class GameClient extends BasicGame {
 		}
 	}
 
+	/**
+	 * Returns the font in large
+	 * @return
+	 */
+	public static Font getFontLarge() {
+		return m_fontLarge;
+	}
+	
+	/**
+	 * Returns the font in small
+	 * @return
+	 */
+	public static Font getFontSmall() {
+		return m_fontSmall;
+	}
+	
+	/**
+	 * Sets the server host. The server will connect once m_host is not equal to ""
+	 * @param s
+	 */
+	public static void setHost(String s) {
+		m_host = s;
+	}
+	
+	/**
+	 * Returns this instance of game client
+	 * @return
+	 */
+	public static GameClient getInstance() {
+		return m_instance;
+	}
+	
+	/**
+	 * Returns the packet generator
+	 * @return
+	 */
+	public PacketGenerator getPacketGenerator() {
+		return m_packetGen;
+	}
+	
+	/**
+	 * Returns the login screen
+	 * @return
+	 */
+	public LoginScreen getLoginScreen() {
+		return m_login;
+	}
 }
