@@ -35,6 +35,22 @@ public class ConnectionManager extends IoHandlerAdapter {
 	 * Once a message is received, this method is called
 	 */
 	public void messageReceived(IoSession session, Object m) {
-		
+		String message = (String) m;
+		String [] details;
+		switch(message.charAt(0)) {
+		case 'l':
+			//Login Information
+			switch(message.charAt(1)) {
+			case 's':
+				//Sucessful login
+				details = message.substring(2).split(",");
+				m_game.getLoginScreen().setVisible(true);
+				m_game.getLoadingScreen().setVisible(true);
+				break;
+			}
+			break;
+		case 'r':
+			break;
+		}
 	}
 }

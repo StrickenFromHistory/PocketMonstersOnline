@@ -66,6 +66,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'r':
 				//Registration packet
+				message = ((String) msg).substring(1).split(",");
+				m_logoutManager.register(message[0], message[1], message[2], message[3], Integer.parseInt(message[4]), Integer.parseInt(message[5]));
 				break;
 			}
 		} else {
@@ -142,13 +144,21 @@ public class ConnectionManager extends IoHandlerAdapter {
 	 * Logs out all players
 	 */
 	public void logoutAll() {
-		LogoutManager l = GameServer.getServiceManager().getNetworkService().getLogoutManager();
+		m_loginManager.stop();
+		/*
+		 * Queue all players to be saved
+		 */
 		Iterator<PlayerChar> it = m_players.values().iterator();
 		PlayerChar p;
 		while(it.hasNext()) {
 			p = it.next();
-			l.queuePlayer(p);
+			m_logoutManager.queuePlayer(p);
 		}
+		/*
+		 * Since the method is called during a server shutdown, wait for all players to be logged out
+		 */
+		while(m_logoutManager.getPlayerAmount() > 0);
+		m_logoutManager.stop();
 	}
 	
 	/**
@@ -157,5 +167,13 @@ public class ConnectionManager extends IoHandlerAdapter {
 	 */
 	public static HashMap<String, PlayerChar> getPlayers() {
 		return m_players;
+	}
+	
+	/**
+	 * Returns how many players are logged in
+	 * @return
+	 */
+	public static int getPlayerCount() {
+		return m_players.keySet().size();
 	}
 }

@@ -443,19 +443,56 @@ public class PlayerChar extends Char implements Battleable {
 		m_healMapY = mapY;
 	}
 	
+	/**
+	 * Returns the x co-ordinate of this player's last heal point
+	 * @return
+	 */
 	public int getHealX() {
 		return m_healX;
 	}
 	
+	/**
+	 * Returns the y co-ordinate of this player's last heal point
+	 * @return
+	 */
 	public int getHealY() {
 		return m_healY;
 	}
 	
+	/**
+	 * Returns the map x of this player's last heal point
+	 * @return
+	 */
 	public int getHealMapX() {
 		return m_healMapX;
 	}
 	
+	/**
+	 * Returns the map y of this player's last heal point
+	 * @return
+	 */
 	public int getHealMapY() {
 		return m_healMapY;
+	}
+	
+	/**
+	 * Returns true if this player can surf
+	 * @return
+	 */
+	public boolean canSurf() {
+		return m_skillTraining >= 4;
+	}
+	
+	/**
+	 * Returns how many badges this player has
+	 * @return
+	 */
+	public int getBadgeCount() {
+		int result = 0;
+		for(int i = 0; i < m_badges.length; i++) {
+			if(m_badges[i] == 1)
+				result++;
+		}
+		return result;
 	}
 }

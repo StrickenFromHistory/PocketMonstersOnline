@@ -2,6 +2,7 @@ package org.pokenet.server.network;
 
 import java.net.InetAddress;
 import java.sql.ResultSet;
+import java.util.HashMap;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -26,6 +27,7 @@ public class LoginManager implements Runnable {
 	private Thread m_thread;
 	private boolean m_isRunning;
 	private MySqlManager m_database;
+	private HashMap<String, PlayerChar> m_players;
 	
 	/**
 	 * Default constructor. Requires a logout manager to be passed in so the server
@@ -190,6 +192,14 @@ public class LoginManager implements Runnable {
 		session.write("ls" + p.getId());
 		p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().getMapByGamePosition(p.getMapX(), p.getMapY()));
 		GameServer.getServiceManager().getMovementService().getMovementManager().addPlayer(p);
+		/*
+		 * Add them to the list of players
+		 */
+		if(m_players == null) {
+			m_players = ConnectionManager.getPlayers();
+		}
+		m_players.put(username, p);
+		GameServer.getInstance().updatePlayerCount();
 	}
 
 	/**

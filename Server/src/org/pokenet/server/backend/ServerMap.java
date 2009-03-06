@@ -30,6 +30,7 @@ public class ServerMap {
 	private int m_xOffsetModifier;
 	private int m_yOffsetModifier;
 	private PvPType m_pvpType = PvPType.ENABLED;
+	private ServerMapMatrix m_mapMatrix;
 	//Players and NPCs
 	private ArrayList<PlayerChar> m_players;
 	private ArrayList<NonPlayerChar> m_npcs;
@@ -180,12 +181,176 @@ public class ServerMap {
 	}
 	
 	/**
+	 * Returns true if there is an obstacle
+	 * @param x
+	 * @param y
+	 * @param d
+	 * @return
+	 */
+	private boolean isBlocked(int x, int y, Direction d) {
+		if (m_blocked.getTileAt(x, y) != null)
+			return true;
+		//TODO: Npc check
+		if(m_ledgesRight != null && m_ledgesRight.getTileAt(x, y) != null) {
+			if(d == Direction.Left || d == Direction.Up || d == Direction.Down)
+				return true;
+		}
+		if(m_ledgesLeft != null && m_ledgesLeft.getTileAt(x, y) != null) {
+			if(d == Direction.Right || d == Direction.Up || d == Direction.Down)
+				return true;
+		}
+		if(m_ledgesDown != null && m_ledgesDown.getTileAt(x, y) != null) {
+			if(d == Direction.Left || d == Direction.Up || d == Direction.Right)
+				return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * Attempts to move a char and sends the movement to everyone, returns true on success
 	 * @param c
 	 * @param d
 	 */
 	public boolean moveChar(Char c, Direction d) {
-		//TODO: Check if the character can move, if so send the movement info to everyone and return true
+		int playerX = c.getX();
+		int playerY = c.getY();
+		int newX;
+		int newY;
+
+		switch(d) {
+		case Up:
+			newX = playerX / 32;
+			newY = ((playerY + 8) - 32) / 32;
+			if (playerY >= 1) {
+				if (!isBlocked(newX, newY, Direction.Up)) {
+					if(m_surf != null && m_surf.getTileAt(newX, newY) != null) {
+						if(c.isSurfing()) {
+							return true;
+						} else {
+							if(c instanceof PlayerChar) {
+								PlayerChar p = (PlayerChar) c;
+								if(p.canSurf()) {
+									p.setSurfing(true);
+									return true;
+								} else {
+									return false;
+								}
+							}
+						}
+					} else {
+						if(c.isSurfing())
+							c.setSurfing(false);
+						//TODO: Add warp check
+						return true;
+					}
+				}
+			} else {
+				ServerMap newMap = m_mapMatrix.getMapByGamePosition(m_x, m_y - 1);
+				if (newMap != null) {
+					m_mapMatrix.moveBetweenMaps(c, this, newMap);
+				}
+			}
+			break;
+		case Down:
+			newX = playerX / 32;
+			newY = ((playerY + 8) + 32) / 32;
+			if (playerY + 40 < m_heigth * 32) {
+				if (!isBlocked(newX, newY, Direction.Down)) {
+					if(m_surf != null && m_surf.getTileAt(newX, newY) != null) {
+						if(c.isSurfing()) {
+							return true;
+						} else {
+							if(c instanceof PlayerChar) {
+								PlayerChar p = (PlayerChar) c;
+								if(p.canSurf()) {
+									p.setSurfing(true);
+									return true;
+								} else {
+									return false;
+								}
+							}
+						}
+					} else {
+						if(c.isSurfing())
+							c.setSurfing(false);
+						//TODO: Warp check
+						return true;
+					}
+				}
+			} else {
+				ServerMap newMap = m_mapMatrix.getMapByGamePosition(m_x, m_y + 1);
+				if (newMap != null) {
+					m_mapMatrix.moveBetweenMaps(c, this, newMap);
+				}
+			}
+			break;
+		case Left:
+			newX = (playerX - 32) / 32;
+			newY = (playerY + 8) / 32;
+			if (playerX >= 32) {
+				if (!isBlocked(newX, newY, Direction.Left)) {
+					if(m_surf != null && m_surf.getTileAt(newX, newY) != null) {
+						if(c.isSurfing()) {
+							return true;
+						} else {
+							if(c instanceof PlayerChar) {
+								PlayerChar p = (PlayerChar) c;
+								if(p.canSurf()) {
+									p.setSurfing(true);
+									return true;
+								} else {
+									return false;
+								}
+							}
+						}
+					} else {
+						if(c.isSurfing())
+							c.setSurfing(false);
+						//TODO: Warp check
+						return true;
+					}
+				}
+			} else {
+				ServerMap newMap = m_mapMatrix.getMapByGamePosition(m_x - 1, m_y);
+				if (newMap != null) {
+					m_mapMatrix.moveBetweenMaps(c, this, newMap);
+				}
+			}
+			break;
+		case Right:
+			newX = (playerX + 32) / 32;
+			newY = (playerY + 8) / 32;
+			if (playerX + 32 < m_width * 32) {
+				if (!isBlocked(newX, newY, Direction.Right)) {
+					if(m_surf != null && m_surf.getTileAt(newX, newY) != null) {
+						if(c.isSurfing()) {
+							return true;
+						} else {
+							if(c instanceof PlayerChar) {
+								PlayerChar p = (PlayerChar) c;
+								if(p.canSurf()) {
+									p.setSurfing(true);
+									return true;
+								} else {
+									return false;
+								}
+							}
+						}
+					} else {
+						if(c.isSurfing())
+							c.setSurfing(false);
+						//TODO: Warp check
+						return true;
+					}
+				}
+			} else {
+				ServerMap newMap = m_mapMatrix.getMapByGamePosition(m_x + 1, m_y);
+				if (newMap != null) {
+					m_mapMatrix.moveBetweenMaps(c, this, newMap);
+				}
+			}
+			break;
+		}
 		return false;
 	}
 	

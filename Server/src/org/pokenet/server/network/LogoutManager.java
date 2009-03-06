@@ -38,6 +38,14 @@ public class LogoutManager implements Runnable {
 	}
 	
 	/**
+	 * Returns how many players are in the save queue
+	 * @return
+	 */
+	public int getPlayerAmount() {
+		return m_logoutQueue.size();
+	}
+	
+	/**
 	 * Attempts to logout a player by saving their data. Returns true on success
 	 * @param player
 	 */
@@ -95,6 +103,9 @@ public class LogoutManager implements Runnable {
 					p = m_logoutQueue.poll();
 					if(!attemptLogout(p)) {
 						m_logoutQueue.add(p);
+					} else {
+						ConnectionManager.getPlayers().remove(p);
+						GameServer.getInstance().updatePlayerCount();
 					}
 				}
 			}

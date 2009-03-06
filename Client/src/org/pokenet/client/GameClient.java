@@ -16,6 +16,7 @@ import org.apache.mina.filter.executor.ExecutorFilter;
 import org.apache.mina.transport.socket.nio.SocketConnector;
 import org.apache.mina.transport.socket.nio.SocketConnectorConfig;
 import org.apache.mina.transport.socket.nio.SocketSessionConfig;
+import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.Font;
@@ -70,6 +71,17 @@ public class GameClient extends BasicGame {
 		gc.setShowFPS(false);
 		m_display = new Display(gc);
 		
+		/*
+		 * Setup variables
+		 */
+		m_fontLarge = new AngelCodeFont("res/fonts/dp.fnt",
+		"res/fonts/dp.png");	
+		m_fontSmall = new AngelCodeFont("res/fonts/dp-small.fnt",
+		"res/fonts/dp-small.png");
+		
+		/*
+		 * Add the ui components
+		 */
 		m_login = new LoginScreen();
 		m_display.add(m_login);
 		
@@ -264,5 +276,13 @@ public class GameClient extends BasicGame {
 	 */
 	public LoginScreen getLoginScreen() {
 		return m_login;
+	}
+	
+	/**
+	 * Returns the loading screen
+	 * @return
+	 */
+	public LoadingScreen getLoadingScreen() {
+		return m_loading;
 	}
 }
