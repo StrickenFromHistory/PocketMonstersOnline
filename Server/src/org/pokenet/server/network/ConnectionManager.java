@@ -129,8 +129,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 		try {
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
 			//TODO: If player is battling, end the battle with them losing 
-			GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(p);
-			session.close();
+			if(p != null) {
+				GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(p);
+				session.close();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

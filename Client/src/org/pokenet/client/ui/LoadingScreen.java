@@ -1,5 +1,7 @@
 package org.pokenet.client.ui;
 
-public class LoadingScreen {
+import mdes.slick.sui.Frame;
+
+public class LoadingScreen extends Frame {
 
 }
