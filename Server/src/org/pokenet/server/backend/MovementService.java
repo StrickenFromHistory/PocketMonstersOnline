@@ -86,7 +86,10 @@ public class MovementService {
 				if(nextMap.exists()) {
 					try {
 						m_mapMatrix.setMap(new ServerMap(loader.readMap(nextMap.getCanonicalPath()), x, y), x + 50, y + 50);
+						m_mapMatrix.getMapByGamePosition(x, y).setMapMatrix(m_mapMatrix);
+						System.out.println(x + "." + y + ".tmx loaded");
 					} catch (Exception e) {
+						e.printStackTrace();
 						m_mapMatrix.setMap(null, x + 50, y + 50);
 					}
 				}

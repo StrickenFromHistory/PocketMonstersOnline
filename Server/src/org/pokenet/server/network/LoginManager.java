@@ -73,7 +73,7 @@ public class LoginManager implements Runnable {
 						p.getSession().close();
 						p.setSession(session);
 						m_database.query("UPDATE pn_members SET lastLoginServer='" + GameServer.getServerName() + "', lastLogimTime='" + time + "' WHERE username='" + username + "'");
-						m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getRemoteAddress() + "' WHERE username='" + username + "'");
+						m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getLocalAddress() + "' WHERE username='" + username + "'");
 						session.setAttribute("player", p);
 					} else
 						this.login(username, session, result);
@@ -183,15 +183,18 @@ public class LoginManager implements Runnable {
 		/*
 		 * Update the database with login information
 		 */
-		m_database.query("UPDATE pn_members SET lastLoginServer='" + GameServer.getServerName() + "', lastLogimTime='" + time + "' WHERE username='" + username + "'");
+		m_database.query("UPDATE pn_members SET lastLoginServer='" + GameServer.getServerName() + "', lastLoginTime='" + time + "' WHERE username='" + username + "'");
 		m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getRemoteAddress() + "' WHERE username='" + username + "'");
 		session.setAttribute("player", p);
 		/*
 		 * Send success packet to player, set their map and add them to a movement service
 		 */
-		session.write("ls" + p.getId());
+		session.write("ls" + p.getId() + ",0000");
+		System.out.println("Sent login packet");
 		p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().getMapByGamePosition(p.getMapX(), p.getMapY()));
+		System.out.println(username + " added to map");
 		GameServer.getServiceManager().getMovementService().getMovementManager().addPlayer(p);
+		System.out.println(username + " added to movement service");
 		/*
 		 * Add them to the list of players
 		 */
@@ -200,6 +203,7 @@ public class LoginManager implements Runnable {
 		}
 		m_players.put(username, p);
 		GameServer.getInstance().updatePlayerCount();
+		System.out.println(username + " logged in.");
 	}
 
 	/**
@@ -277,6 +281,7 @@ public class LoginManager implements Runnable {
 			p.generateBadges(result.getString("badges"));
 			return p;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -401,6 +406,7 @@ public class LoginManager implements Runnable {
 			}
 			return b;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 		

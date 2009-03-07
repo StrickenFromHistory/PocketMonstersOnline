@@ -150,8 +150,10 @@ public class LogoutManager implements Runnable {
 				 */
 				ResultSet data = mysql.query("SELECT * FROM pn_members WHERE username='" + username + "'");
 				data.first();
-				if(data != null && data.getString("username") != null && data.getString("username").equalsIgnoreCase(username))
+				try {				
+					if(data != null && data.getString("username") != null && data.getString("username").equalsIgnoreCase(username))
 					return false;
+				} catch (Exception e) {}
 				/*
 				 * Create the player in the database
 				 */
@@ -161,7 +163,7 @@ public class LogoutManager implements Runnable {
 				mysql.query("INSERT INTO pn_members (username, password, dob, email, lastLoginTime, " +
 						"sprite, money, npcMul, skHerb, skCraft, skFish, skTrain, skCoord, skBreed, " +
 						"x, y, mapX, mapY, badges, healX, healY, healMapX, healMapY, isSurfing) VALUE " +
-						"('" + username + "', '" + password + "', '" + dob + "', " + "', " + email + "', " +
+						"('" + username + "', '" + password + "', '" + dob + "', '" + email + "', " +
 								"'0', '" + sprite + "', '0', '1.5', '0', '0', '0', '0', '0', '0', '256', '256', " +
 										"'-50', '-50', '" + badges + "', '256', '256', '-50', '-50', 'false')");
 				/*
@@ -233,7 +235,13 @@ public class LogoutManager implements Runnable {
 				/*
 				 * Update the player row
 				 */
-				String badges = new String(p.getBadges());
+				String badges = "";
+				for(int i = 0; i < 42; i++) {
+					if(p.getBadges()[i] == 1)
+						badges = badges + "1";
+					else
+						badges = badges + "0";
+				}
 				m_database.query("UPDATE pn_members SET " +
 						"sprite='" + p.getSprite() + "', " +
 						"money='" + p.getMoney() + "', " +
@@ -331,7 +339,7 @@ public class LogoutManager implements Runnable {
 				p.dispose();
 				return true;
 			} else
-				return false;
+				return true;
 		} catch (Exception e) {
 			return false;
 		}
@@ -374,9 +382,9 @@ public class LogoutManager implements Runnable {
 			result.first();
 			p.setDatabaseID(result.getInt("id"));
 			db.query("UPDATE pn_pokemon SET move0='" + p.getMove(0).getName() +
-					"', move1='" + p.getMove(1).getName() +
-					"', move2='" + p.getMove(2).getName() +
-					"', move3='" + p.getMove(3).getName() +
+					"', move1='" + (p.getMove(1).getName() == null ? "null" : p.getMove(1).getName()) +
+					"', move2='" + (p.getMove(2).getName() == null ? "null" : p.getMove(2).getName()) +
+					"', move3='" + (p.getMove(3).getName() == null ? "null" : p.getMove(3).getName()) +
 					"', hp='" + p.getHealth() +
 					"', atk='" + p.getStat(1) +
 					"', def='" + p.getStat(2) +
@@ -438,12 +446,12 @@ public class LogoutManager implements Runnable {
 					"nature='" + p.getNature().getName() +"', " +
 					"abilityName='" + p.getAbilityName() +"', " +
 					"itemName='" + p.getItemName() +"', " +
-					"isShiny='" + String.valueOf(p.isShiny()) +"', " +
+					"isShiny='" + String.valueOf(p.isShiny()) +"' " +
 					"WHERE id='" + p.getDatabaseID() + "'");
 			m_database.query("UPDATE pn_pokemon SET move0='" + p.getMove(0).getName() +
-					"', move1='" + p.getMove(1).getName() +
-					"', move2='" + p.getMove(2).getName() +
-					"', move3='" + p.getMove(3).getName() +
+					"', move1='" + (p.getMove(1).getName() == null ? "null" : p.getMove(1).getName()) +
+					"', move2='" + (p.getMove(2).getName() == null ? "null" : p.getMove(2).getName()) +
+					"', move3='" + (p.getMove(3).getName() == null ? "null" : p.getMove(3).getName()) +
 					"', hp='" + p.getHealth() +
 					"', atk='" + p.getStat(1) +
 					"', def='" + p.getStat(2) +

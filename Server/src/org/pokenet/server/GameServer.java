@@ -2,8 +2,11 @@ package org.pokenet.server;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -101,11 +104,7 @@ public class GameServer extends JFrame {
 		m_set.setLocation(4, 100);
 		m_set.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				m_dbServer = m_dbS.getText();
-				m_dbName = m_dbN.getText();
-				m_dbUsername = m_dbU.getText();
-				m_dbPassword = new String(m_dbP.getPassword());
-				m_serverName = m_name.getText();
+				saveSettings();
 			}
 		});
 		this.getContentPane().add(m_set);
@@ -153,6 +152,23 @@ public class GameServer extends JFrame {
 		m_name.setLocation(4, 260);
 		this.getContentPane().add(m_name);
 		
+		/*
+		 * Load pre-existing settings if any
+		 */
+		File f = new File("res/settings.txt");
+		if(f.exists()) {
+			try {
+				Scanner s = new Scanner(f);
+				m_dbS.setText(s.nextLine());
+				m_dbN.setText(s.nextLine());
+				m_dbU.setText(s.nextLine());
+				m_name.setText(s.nextLine());
+				s.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 		m_instance = this;
 		this.setVisible(true);
 	}
@@ -184,6 +200,39 @@ public class GameServer extends JFrame {
 			JOptionPane.showMessageDialog(null, "You must stop the server before exiting.");
 		} else {
 			System.exit(0);
+		}
+	}
+	
+	/**
+	 * Writes server settings to a file
+	 * NOTE: It never stores the database password
+	 */
+	private void saveSettings() {
+		try {
+			/*
+			 * Store locally
+			 */
+			m_dbServer = m_dbS.getText();
+			m_dbName = m_dbN.getText();
+			m_dbUsername = m_dbU.getText();
+			m_dbPassword = new String(m_dbP.getPassword());
+			m_serverName = m_name.getText();
+			
+			/*
+			 * Write to file
+			 */
+			File f = new File("res/settings.txt");
+			if(f.exists())
+				f.delete();
+			PrintWriter w = new PrintWriter(f);
+			w.println(m_dbS.getText());
+			w.println(m_dbN.getText());
+			w.println(m_dbU.getText());
+			w.println(m_name.getText());
+			w.flush();
+			w.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -234,6 +283,9 @@ public class GameServer extends JFrame {
 				System.err.println("Server requires a settings parameter, e.g. java GameServer -medium");
 				System.exit(0);
 			}
+			/*
+			 * Create the server gui
+			 */
 			GameServer gs = new GameServer();
 		} else {
 			System.err.println("Server requires a settings parameter, e.g. java GameServer -medium");

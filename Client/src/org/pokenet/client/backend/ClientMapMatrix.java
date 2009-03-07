@@ -1,5 +1,6 @@
 package org.pokenet.client.backend;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import org.pokenet.client.backend.entity.Player;
@@ -26,8 +27,23 @@ public class ClientMapMatrix {
 	 * @param x
 	 * @param y
 	 */
-	public void loadMaps(int x, int y) {
-		
+	public void loadMaps(int mapX, int mapY) {
+		File f;
+		for(int x = -1; x < 2; x++) {
+			for(int y = -1; y < 2; y++) {
+				f = new File("res/maps/" + mapX + "." + mapY + ".tmx");
+				if(f.exists()) {
+					try {
+						m_mapMatrix[x + 1][y + 1] = new ClientMap("res/maps/" + String.valueOf((mapX + x))
+								+ "." + String.valueOf((mapY + y)) + ".tmx","res/maps");	
+					} catch (Exception e) {
+						m_mapMatrix[x + 1][y + 1] = null;
+					}
+				} else {
+					m_mapMatrix[x + 1][y + 1] = null;
+				}
+			}
+		}
 	}
 	
 	/**

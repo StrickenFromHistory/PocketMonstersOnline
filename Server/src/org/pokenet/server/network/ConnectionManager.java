@@ -67,7 +67,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 			case 'r':
 				//Registration packet
 				message = ((String) msg).substring(1).split(",");
-				m_logoutManager.register(message[0], message[1], message[2], message[3], Integer.parseInt(message[4]), Integer.parseInt(message[5]));
+				if(m_logoutManager.register(message[0], message[1], message[2], 
+						message[3], Integer.parseInt(message[4]), Integer.parseInt(message[5]))) {
+					session.write("rs");
+				} else {
+					session.write("re");
+				}
 				break;
 			}
 		} else {

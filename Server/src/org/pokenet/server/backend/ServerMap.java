@@ -81,6 +81,17 @@ public class ServerMap {
 				m_surf = (TileLayer) map.getLayer(i);
 			}
 		}
+		
+		m_players = new ArrayList<PlayerChar>();
+		m_npcs = new ArrayList<NonPlayerChar>();
+	}
+	
+	/**
+	 * Sets the map matrix
+	 * @param matrix
+	 */
+	public void setMapMatrix(ServerMapMatrix matrix) {
+		m_mapMatrix = matrix;
 	}
 	
 	/**
@@ -98,7 +109,11 @@ public class ServerMap {
 		for(int i = 0; i < m_players.size(); i++) {
 			if(c.getId() != m_players.get(i).getId())
 				m_players.get(i).getSession().write("ma" + c.getName() + "," + 
-					c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + c.getFacing());
+					c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
+					(c.getFacing() == Direction.Down ? "D" : 
+						c.getFacing() == Direction.Up ? "U" :
+							c.getFacing() == Direction.Left ? "L" :
+								"R"));
 		}
 	}
 	

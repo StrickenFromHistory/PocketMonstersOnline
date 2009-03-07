@@ -101,6 +101,7 @@ public class LoginDialog extends Frame {
 	 */
 	private void login() {
 		GameClient.getInstance().getPacketGenerator().login(m_username.getText(), m_password.getText());
+		GameClient.getInstance().getLoadingScreen().setVisible(true);
 	}
 	
 	/**

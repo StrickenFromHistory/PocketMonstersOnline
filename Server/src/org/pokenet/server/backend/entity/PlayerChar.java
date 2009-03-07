@@ -8,6 +8,7 @@ import java.util.Date;
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.ServerMap;
+import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.Pokemon;
 
@@ -363,23 +364,39 @@ public class PlayerChar extends Char implements Battleable {
 	/**
 	 * Sets the map for this player
 	 */
+	@Override
 	public void setMap(ServerMap map) {
 		super.setMap(map);
+		System.out.println("Sending map packet.");
 		//Send the map switch packet to the client
 		m_session.write("ms" + map.getX() + "," + map.getY());
 		Char c;
+		String packet = "mi";
 		//Send all player information to the client
 		for(int i = 0; i < map.getPlayers().size(); i++) {
 			c = map.getPlayers().get(i);
-			m_session.write("ma" + c.getName() + "," + 
-						c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + c.getFacing());
+			packet = packet + c.getName() + "," + 
+						c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
+						(c.getFacing() == Direction.Down ? "D" : 
+							c.getFacing() == Direction.Up ? "U" :
+								c.getFacing() == Direction.Left ? "L" :
+									"R") + ",";
 		}
 		//Send all npc information to the client
 		for(int i = 0; i < map.getNpcs().size(); i++) {
-			c = map.getPlayers().get(i);
-			m_session.write("ma" + c.getName() + "," + 
-						c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + c.getFacing());
+			c = map.getNpcs().get(i);
+			packet = packet + c.getName() + "," + 
+				c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
+				(c.getFacing() == Direction.Down ? "D" : 
+				c.getFacing() == Direction.Up ? "U" :
+					c.getFacing() == Direction.Left ? "L" :
+						"R") + ",";
 		}
+		/*
+		 * Only send the packet if there were players on the map
+		 */
+		if(packet.length() > 2)
+			m_session.write(packet);
 	}
 	
 	/**
@@ -416,8 +433,17 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param badges
 	 */
 	public void generateBadges(String badges) {
-		for(int i = 0; i < 42; i++) {
-			m_badges[i] = Byte.valueOf("" + badges.charAt(i));
+		m_badges = new byte[42];
+		if(badges == null || badges.equalsIgnoreCase("")) {
+			for(int i = 0; i < 42; i++)
+				m_badges[i] = 0;
+		} else {
+			for(int i = 0; i < 42; i++) {
+				if(badges.charAt(i) == '1')
+					m_badges[i] = 1;
+				else
+					m_badges[i] = 0;
+			}
 		}
 	}
 	
