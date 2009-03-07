@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <layer name="Walkable" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNmYGBgJgIjA2LUDza9pJoxUHqHKt7EOPBuGKoYANxEFxSEAwAA
+  </data>
+ </layer>
+ <layer name="Grass" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYOCBIhIeaXoBtFcu4YQDAAA=
+  </data>
+ </layer>
+ <layer name="LedgesDown" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGLngKRMCj4JRMFAAAM8r+2CEAwAA
+  </data>
+ </layer>
+ <layer name="LedgesRight" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoD5YwUS+3hMDpHcUjIKBAgDVS+l2hAMAAA==
+  </data>
+ </layer>
+ <layer name="LedgesLeft" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoBwsZyJf7/EB0jsKRsFgAQAawaxlhAMAAA==
+  </data>
+ </layer>
+ <layer name="Water" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgIA64MTMwuAOxBzORGpBAGlBPOhBnDJDeFWS4HaY3nQz724Bq25FwBxluHwUjBwAA4fGCPYQDAAA=
+  </data>
+ </layer>
+ <layer name="Collisions" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGJngCRMq/xkTdnVDCRQyMjAUAXExEJcAcSkj8XonAtVOAuLJQDwFiKei6VUFYjUkGhlshKrdDKS3APFWNL2uQOyGRGMzg1gAM2M4AQAwog7YhAMAAA==
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWDCQQyMjAEAXEwEIcAcSgj9cxmB2IOJJoaZo0CygEAlbas3YQDAAA=
+  </data>
+ </layer>
+</map>

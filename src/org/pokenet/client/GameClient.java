@@ -43,7 +43,7 @@ public class GameClient extends BasicGame {
 	private ClientMapMatrix m_mapMatrix;
 	private OurPlayer m_ourPlayer = null;
 	private boolean m_isNewMap = false;
-	private int m_mapX, m_mapY;
+	private int m_mapX, m_mapY, m_playerId;
 	//Static variables
 	private static Font m_fontLarge, m_fontSmall;
 	private static String m_host;
@@ -84,6 +84,9 @@ public class GameClient extends BasicGame {
 		 */
 		m_login = new LoginScreen();
 		m_display.add(m_login);
+		
+		m_loading = new LoadingScreen();
+		m_display.add(m_loading);
 		
 		m_mapMatrix = new ClientMapMatrix();
 		
@@ -284,5 +287,42 @@ public class GameClient extends BasicGame {
 	 */
 	public LoadingScreen getLoadingScreen() {
 		return m_loading;
+	}
+	
+	/**
+	 * Stores the player's id
+	 * @param id
+	 */
+	public void setPlayerId(int id) {
+		m_playerId = id;
+	}
+	
+	/**
+	 * Returns this player's id
+	 * @return
+	 */
+	public int getPlayerId() {
+		return m_playerId;
+	}
+	
+	/**
+	 * Resets the client back to the start
+	 */
+	public void reset() {
+		m_packetGen = null;
+		m_host = "";
+		m_login.setVisible(true);
+		m_login.showServerSelect();
+	}
+	
+	/**
+	 * Sets the map and loads them on next update() call
+	 * @param x
+	 * @param y
+	 */
+	public void setMap(int x, int y) {
+		m_mapX = x;
+		m_mapY = y;
+		m_isNewMap = true;
 	}
 }

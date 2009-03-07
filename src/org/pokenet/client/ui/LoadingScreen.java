@@ -22,6 +22,9 @@ public class LoadingScreen extends Frame {
 			this.setSize(800, 600);
 			this.setBackground(new Color(255, 255, 255, 70));
 			this.setLocation(0, 0);
+			this.setBorderRendered(false);
+			this.setResizable(false);
+			this.getTitleBar().setVisible(false);
 			
 			m_bg = new Label(new Image("res/ui/loading.png"));
 			m_bg.pack();
