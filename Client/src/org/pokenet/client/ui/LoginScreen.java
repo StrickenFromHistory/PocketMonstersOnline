@@ -106,6 +106,7 @@ public class LoginScreen extends Window {
 		m_login.setVisible(true);
 		m_openAbout.setVisible(true);
 		m_openToS.setVisible(true);
+		m_login.getLoginButton().setEnabled(true);
 	}
 	
 	/**
@@ -142,5 +143,12 @@ public class LoginScreen extends Window {
 	 */
 	public void showToS() {
 		m_terms.setVisible(true);
+	}
+	
+	/**
+	 * Enables the login button
+	 */
+	public void enableLogin() {
+		m_login.getLoginButton().setEnabled(true);
 	}
 }

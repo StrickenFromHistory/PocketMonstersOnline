@@ -27,6 +27,18 @@ public class MovementService {
 	}
 	
 	/**
+	 * Removes a player from the movement service
+	 * @param username
+	 */
+	public void removePlayer(String username) {
+		for(int i = 0; i < m_movementManager.length; i++) {
+			if(m_movementManager[i].removePlayer(username)) {
+				return;
+			}
+		}
+	}
+	
+	/**
 	 * Returns the movement manager with the smallest processing load
 	 * @return
 	 */

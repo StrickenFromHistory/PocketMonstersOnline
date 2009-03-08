@@ -58,8 +58,10 @@ public class MovementManager implements Runnable {
 	 */
 	public void run() {
 		while(m_isRunning) {
-			for(int i = 0; i < m_players.size(); i++) {
+			synchronized(m_players) {
+				for(int i = 0; i < m_players.size(); i++) {
 					m_players.get(i).move();
+			}
 			}
 			try {
 				Thread.sleep(250);

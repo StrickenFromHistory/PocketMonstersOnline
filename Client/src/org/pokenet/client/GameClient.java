@@ -22,15 +22,18 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.Font;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.pokenet.client.backend.Animator;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
 import org.pokenet.client.backend.entity.OurPlayer;
+import org.pokenet.client.backend.entity.Player;
+import org.pokenet.client.backend.entity.Player.Direction;
 import org.pokenet.client.network.ConnectionManager;
 import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
-import org.pokenet.client.ui.PokenetTheme;
 
 /**
  * The game client
@@ -44,10 +47,11 @@ public class GameClient extends BasicGame {
 	private OurPlayer m_ourPlayer = null;
 	private boolean m_isNewMap = false;
 	private int m_mapX, m_mapY, m_playerId;
+	private PacketGenerator m_packetGen;
+	private Animator m_animator;
 	//Static variables
 	private static Font m_fontLarge, m_fontSmall;
 	private static String m_host;
-	private PacketGenerator m_packetGen;
 	//UI
 	private LoadingScreen m_loading;
 	private LoginScreen m_login;
@@ -78,19 +82,25 @@ public class GameClient extends BasicGame {
 		"res/fonts/dp.png");	
 		m_fontSmall = new AngelCodeFont("res/fonts/dp-small.fnt",
 		"res/fonts/dp-small.png");
+		Player.loadSpriteFactory();
 		
 		/*
 		 * Add the ui components
 		 */
-		m_login = new LoginScreen();
-		m_display.add(m_login);
-		
 		m_loading = new LoadingScreen();
 		m_display.add(m_loading);
 		
+		m_login = new LoginScreen();
+		m_display.add(m_login);
+		
+		/*
+		 * The animator and map matrix
+		 */
 		m_mapMatrix = new ClientMapMatrix();
+		m_animator = new Animator(m_mapMatrix);
 		
 		m_instance = this;
+		gc.getInput().enableKeyRepeat(50, 300);
 	}
 
 	/**
@@ -116,9 +126,19 @@ public class GameClient extends BasicGame {
 		 * Check if we need to loads maps
 		 */
 		if(m_isNewMap && m_loading.isVisible()) {
-			m_mapMatrix.loadMaps(m_mapX, m_mapY);
+			m_mapMatrix.loadMaps(m_mapX, m_mapY, gc.getGraphics());
+			while(m_ourPlayer == null);
+			m_mapMatrix.getCurrentMap().setXOffset(400 - m_ourPlayer.getX(), false);
+			m_mapMatrix.getCurrentMap().setYOffset(300 - m_ourPlayer.getY(), false);
+			m_mapMatrix.recalibrate();
 			m_isNewMap = false;
 			m_loading.setVisible(false);
+		}
+		/*
+		 * Animate the player
+		 */
+		if(m_ourPlayer != null) {
+			m_animator.animate();
 		}
 		/*
 		 * Check if we need to update daylight
@@ -138,13 +158,13 @@ public class GameClient extends BasicGame {
 		 */
 		if(!m_isNewMap && m_ourPlayer != null) {
 			ClientMap thisMap;
-			//g.setFont(getDPFont());
+			g.setFont(m_fontLarge);
 			g.scale(2, 2);
             for (int x = 0; x <= 2; x++) {
                      for (int y = 0; y <= 2; y++) {
                     		 thisMap = m_mapMatrix.getMap(x, y);
                              if (thisMap != null && thisMap.isRendering()) {
-                            	 if(!(x == 1 && y == 1))
+                            	 if(!thisMap.isCurrent())
                         			 thisMap.render(thisMap.getXOffset() / 2,
                                              thisMap.getYOffset() / 2, 0, 0,
                                              (gc.getScreenWidth() - thisMap.getXOffset()) / 32,
@@ -174,6 +194,51 @@ public class GameClient extends BasicGame {
 				m_display.render(gc, g);
 			}
 		} catch (Exception e) { e.printStackTrace(); }
+	}
+	
+	/**
+	 * Accepts the user input.
+	 * @param key The integer representing the key pressed.
+	 * @param c ???
+	 */
+	@Override
+	public void keyPressed(int key, char c) {
+		if (key == (Input.KEY_ESCAPE)) {
+			try {
+				System.exit(0);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(m_ourPlayer != null && !m_isNewMap
+				/*&& m_loading != null && !m_loading.isVisible()*/
+				&& m_ourPlayer.getX() == m_ourPlayer.getServerX()
+				&& m_ourPlayer.getY() == m_ourPlayer.getServerY()) {
+			if (key == (Input.KEY_DOWN)) {
+				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Down)) {
+					m_packetGen.move(Direction.Down);
+				} else if(m_ourPlayer.getDirection() != Direction.Down) {
+					m_packetGen.move(Direction.Down);
+				}
+			} else if (key == (Input.KEY_UP)) {
+				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Up)) {
+					m_packetGen.move(Direction.Up);
+				} else if(m_ourPlayer.getDirection() != Direction.Up) {
+					m_packetGen.move(Direction.Up);
+				}
+			} else if (key == (Input.KEY_LEFT)) {
+				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Left)) {
+					m_packetGen.move(Direction.Left);
+				} else if(m_ourPlayer.getDirection() != Direction.Left) {
+					m_packetGen.move(Direction.Left);
+				}
+			} else if (key == (Input.KEY_RIGHT)) {
+				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Right)) {
+					m_packetGen.move(Direction.Right);
+				} else if(m_ourPlayer.getDirection() != Direction.Right) {
+					m_packetGen.move(Direction.Right);
+				}
+			}
+		}
 	}
 	
 	/**
@@ -225,7 +290,7 @@ public class GameClient extends BasicGame {
 	 */
 	public static void main(String [] args) {
 		try {
-			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet (Beta 1)"), 800, 600, false);
+			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet: Fearless Feebas"), 800, 600, false);
 			gc.setTargetFrameRate(50);
 			gc.start();
 		} catch (Exception e) {
@@ -324,5 +389,22 @@ public class GameClient extends BasicGame {
 		m_mapX = x;
 		m_mapY = y;
 		m_isNewMap = true;
+		m_loading.setVisible(true);
+	}
+	
+	/**
+	 * Returns our player
+	 * @return
+	 */
+	public OurPlayer getOurPlayer() {
+		return m_ourPlayer;
+	}
+	
+	/**
+	 * Sets our player
+	 * @param pl
+	 */
+	public void setOurPlayer(OurPlayer pl) {
+		m_ourPlayer = pl;
 	}
 }

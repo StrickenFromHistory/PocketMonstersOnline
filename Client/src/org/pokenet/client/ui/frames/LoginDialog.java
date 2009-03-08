@@ -100,8 +100,9 @@ public class LoginDialog extends Frame {
 	 * Sends login information to packet generator to be sent to server
 	 */
 	private void login() {
-		GameClient.getInstance().getPacketGenerator().login(m_username.getText(), m_password.getText());
+		m_login.setEnabled(false);
 		GameClient.getInstance().getLoadingScreen().setVisible(true);
+		GameClient.getInstance().getPacketGenerator().login(m_username.getText(), m_password.getText());
 	}
 	
 	/**
@@ -109,5 +110,13 @@ public class LoginDialog extends Frame {
 	 */
 	private void register() {
 		GameClient.getInstance().getLoginScreen().showRegistration();
+	}
+	
+	/**
+	 * Returns the login button
+	 * @return
+	 */
+	public Button getLoginButton() {
+		return m_login;
 	}
 }

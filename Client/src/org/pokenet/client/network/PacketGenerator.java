@@ -1,6 +1,7 @@
 package org.pokenet.client.network;
 
 import org.apache.mina.common.IoSession;
+import org.pokenet.client.backend.entity.Player.Direction;
 
 /**
  * Generates packets and sends them to the server
@@ -45,6 +46,27 @@ public class PacketGenerator {
 	 */
 	public void register(String username, String password, String email, String dob, int starter, int sprite) {
         m_session.write("r" + username + "," + (getPasswordHash(password)) + "," + email + "," + dob + "," + starter + "," + sprite);
+	}
+	
+	/**
+	 * Sends a movement packet
+	 * @param d
+	 */
+	public void move(Direction d) {
+		switch(d) {
+		case Down:
+			m_session.write("D");
+			break;
+		case Up:
+			m_session.write("U");
+			break;
+		case Left:
+			m_session.write("L");
+			break;
+		case Right:
+			m_session.write("R");
+			break;
+		}
 	}
 	
 	/**

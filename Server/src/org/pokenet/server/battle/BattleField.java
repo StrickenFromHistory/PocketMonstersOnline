@@ -43,6 +43,7 @@ import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.battle.mechanics.moves.MoveList.SpeedSwapEffect;
 import org.pokenet.server.battle.mechanics.statuses.StatusEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
+import org.pokenet.server.feature.TimeService;
 
 /**
  *
@@ -122,7 +123,12 @@ public abstract class BattleField {
     public BattleField(BattleMechanics mech, Pokemon[][] pokemon) {
         m_mechanics = mech;
         setPokemon(pokemon);
-        //TODO: Set field effect based on weather
+        /*
+         * Apply a field effect based on the weather
+         */
+        FieldEffect f = TimeService.getWeatherEffect();
+        if(f != null)
+        	this.applyEffect(f);
     }
     
     protected BattleField(BattleMechanics mech) {

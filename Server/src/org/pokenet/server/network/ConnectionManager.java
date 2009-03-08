@@ -54,6 +54,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 		*/
 	public void messageReceived(IoSession session, Object msg) throws Exception {
 		String [] message;
+		System.out.println(((String) msg));
 		if(session.getAttribute("player") == null) {
 			/*
 			 * The player hasn't been logged in, only allow login and registration packets
@@ -138,6 +139,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 			//TODO: If player is battling, end the battle with them losing 
 			if(p != null) {
 				GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(p);
+				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
+				m_players.remove(p);
 				session.close();
 			}
 		} catch (Exception e) {

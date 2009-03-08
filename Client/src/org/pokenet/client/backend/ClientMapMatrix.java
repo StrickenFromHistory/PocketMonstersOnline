@@ -3,6 +3,7 @@ package org.pokenet.client.backend;
 import java.io.File;
 import java.util.ArrayList;
 
+import org.newdawn.slick.Graphics;
 import org.pokenet.client.backend.entity.Player;
 
 /**
@@ -27,15 +28,25 @@ public class ClientMapMatrix {
 	 * @param x
 	 * @param y
 	 */
-	public void loadMaps(int mapX, int mapY) {
+	public void loadMaps(int mapX, int mapY, Graphics g) {
 		File f;
+		/*
+		 * Loads the main map and surrounding maps
+		 */
 		for(int x = -1; x < 2; x++) {
 			for(int y = -1; y < 2; y++) {
-				f = new File("res/maps/" + mapX + "." + mapY + ".tmx");
+				f = new File("res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
 				if(f.exists()) {
 					try {
 						m_mapMatrix[x + 1][y + 1] = new ClientMap("res/maps/" + String.valueOf((mapX + x))
-								+ "." + String.valueOf((mapY + y)) + ".tmx","res/maps");	
+								+ "." + String.valueOf((mapY + y)) + ".tmx","res/maps");
+						m_mapMatrix[x + 1][y + 1].setMapMatrix(this);
+						m_mapMatrix[x + 1][y + 1].setGraphics(g);
+						m_mapMatrix[x + 1][y + 1].setMapX(x + 1);
+						m_mapMatrix[x + 1][y + 1].setMapY(y + 1);
+						m_mapMatrix[x + 1][y + 1].setCurrent(x == 0 && y == 0);
+						System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
+								"to MapMatrix[" + (x + 1) + "][" + (y + 1) + "]");
 					} catch (Exception e) {
 						m_mapMatrix[x + 1][y + 1] = null;
 					}
@@ -44,6 +55,18 @@ public class ClientMapMatrix {
 				}
 			}
 		}
+		/*
+		 * Recalibrate the offsets
+		 */
+		this.recalibrate();
+	}
+	
+	/**
+	 * Recalibrates the offsets of this map
+	 */
+	public void recalibrate() {
+		m_mapMatrix[1][1].setXOffset(m_mapMatrix[1][1].getXOffset(), true);
+		m_mapMatrix[1][1].setYOffset(m_mapMatrix[1][1].getYOffset(), true);
 	}
 	
 	/**
@@ -60,6 +83,14 @@ public class ClientMapMatrix {
 	 */
 	public ArrayList<Player> getPlayers() {
 		return m_players;
+	}
+	
+	public Player getPlayer(int id) {
+		for(int i = 0; i < m_players.size(); i++) {
+			if(m_players.get(i).getId() == id)
+				return m_players.get(i);
+		}
+		return null;
 	}
 	
 	/**
@@ -90,6 +121,9 @@ public class ClientMapMatrix {
 	 * @return
 	 */
 	public ClientMap getMap(int x, int y) {
-		return m_mapMatrix[x][y];
+		if(x >= 0 && x <= 2 && y >= 0 && y <= 2)
+			return m_mapMatrix[x][y];
+		else
+			return null;
 	}
 }

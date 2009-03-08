@@ -105,7 +105,9 @@ public class LogoutManager implements Runnable {
 						m_logoutQueue.add(p);
 					} else {
 						ConnectionManager.getPlayers().remove(p);
+						p.getMap().removeChar(p);
 						GameServer.getInstance().updatePlayerCount();
+						System.out.println("INFO: " + p.getName() + " logged out.");
 					}
 				}
 			}
@@ -131,10 +133,12 @@ public class LogoutManager implements Runnable {
 		m_isRunning = false;
 		//Save all players
 		PlayerChar p;
-		while(m_logoutQueue.peek() != null) {
-			p = m_logoutQueue.poll();
-			if(!attemptLogout(p)) {
-				m_logoutQueue.add(p);
+		synchronized(m_logoutQueue) {
+			while(m_logoutQueue.peek() != null) {
+				p = m_logoutQueue.poll();
+				if(!attemptLogout(p)) {
+					m_logoutQueue.add(p);
+				}
 			}
 		}
 		System.out.println("INFO: All player data saved successfully.");
@@ -160,12 +164,12 @@ public class LogoutManager implements Runnable {
 				String badges = "";
 				for(int i = 0; i < 50; i++)
 					badges = badges + "0";
-				mysql.query("INSERT INTO pn_members (username, password, dob, email, lastLoginTime, " +
+				mysql.query("INSERT INTO pn_members (username, password, dob, email, lastLoginTime, lastLoginServer, " +
 						"sprite, money, npcMul, skHerb, skCraft, skFish, skTrain, skCoord, skBreed, " +
 						"x, y, mapX, mapY, badges, healX, healY, healMapX, healMapY, isSurfing) VALUE " +
 						"('" + username + "', '" + password + "', '" + dob + "', '" + email + "', " +
-								"'0', '" + sprite + "', '0', '1.5', '0', '0', '0', '0', '0', '0', '256', '256', " +
-										"'-50', '-50', '" + badges + "', '256', '256', '-50', '-50', 'false')");
+								"'0', 'null', '" + sprite + "', '0', '1.5', '0', '0', '0', '0', '0', '0', '256', '248', " +
+										"'0', '0', '" + badges + "', '256', '248', '-50', '-50', 'false')");
 				/*
 				 * Retrieve the player's unique id
 				 */
@@ -289,8 +293,8 @@ public class LogoutManager implements Runnable {
 						"pokemon2='" + (p.getParty()[2] != null ? p.getParty()[2].getDatabaseID() : -1) + "', " +
 						"pokemon3='" + (p.getParty()[3] != null ? p.getParty()[3].getDatabaseID() : -1) + "', " +
 						"pokemon4='" + (p.getParty()[4] != null ? p.getParty()[4].getDatabaseID() : -1) + "', " +
-						"pokemon5='" + (p.getParty()[5] != null ? p.getParty()[5].getDatabaseID() : -1) + "', " +
-						"WHERE id='" + p.getDatabasePokemon().getInt("party") + "' AND member='" + p.getId() + "'");
+						"pokemon5='" + (p.getParty()[5] != null ? p.getParty()[5].getDatabaseID() : -1) + "' " +
+						"WHERE member='" + p.getId() + "'");
 				/*
 				 * Save the player's bag
 				 */
@@ -331,7 +335,8 @@ public class LogoutManager implements Runnable {
 						}
 						//Now save all references to the box
 						for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
-							m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "'");
+							m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "' " +
+									"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
 						}
 					}
 				}
@@ -341,6 +346,7 @@ public class LogoutManager implements Runnable {
 			} else
 				return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -382,9 +388,9 @@ public class LogoutManager implements Runnable {
 			result.first();
 			p.setDatabaseID(result.getInt("id"));
 			db.query("UPDATE pn_pokemon SET move0='" + p.getMove(0).getName() +
-					"', move1='" + (p.getMove(1).getName() == null ? "null" : p.getMove(1).getName()) +
-					"', move2='" + (p.getMove(2).getName() == null ? "null" : p.getMove(2).getName()) +
-					"', move3='" + (p.getMove(3).getName() == null ? "null" : p.getMove(3).getName()) +
+					"', move1='" + (p.getMove(1) == null ? "null" : p.getMove(1).getName()) +
+					"', move2='" + (p.getMove(2) == null ? "null" : p.getMove(2).getName()) +
+					"', move3='" + (p.getMove(3) == null ? "null" : p.getMove(3).getName()) +
 					"', hp='" + p.getHealth() +
 					"', atk='" + p.getStat(1) +
 					"', def='" + p.getStat(2) +
@@ -449,15 +455,15 @@ public class LogoutManager implements Runnable {
 					"isShiny='" + String.valueOf(p.isShiny()) +"' " +
 					"WHERE id='" + p.getDatabaseID() + "'");
 			m_database.query("UPDATE pn_pokemon SET move0='" + p.getMove(0).getName() +
-					"', move1='" + (p.getMove(1).getName() == null ? "null" : p.getMove(1).getName()) +
-					"', move2='" + (p.getMove(2).getName() == null ? "null" : p.getMove(2).getName()) +
-					"', move3='" + (p.getMove(3).getName() == null ? "null" : p.getMove(3).getName()) +
+					"', move1='" + (p.getMove(1) == null ? "null" : p.getMove(1).getName()) +
+					"', move2='" + (p.getMove(2) == null ? "null" : p.getMove(2).getName()) +
+					"', move3='" + (p.getMove(3) == null ? "null" : p.getMove(3).getName()) +
 					"', hp='" + p.getHealth() +
 					"', atk='" + p.getStat(1) +
 					"', def='" + p.getStat(2) +
 					"', speed='" + p.getStat(3) +
 					"', spATK='" + p.getStat(4) +
-					"', spDEF=', " + p.getStat(5) +
+					"', spDEF='" + p.getStat(5) +
 					"', evHP='" + p.getEv(0) +
 					"', evATK='" + p.getEv(1) +
 					"', evDEF='" + p.getEv(2) +

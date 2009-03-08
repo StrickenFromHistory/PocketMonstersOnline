@@ -5,6 +5,8 @@ import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.BattleService;
 import org.pokenet.server.battle.DataService;
+import org.pokenet.server.feature.JythonService;
+import org.pokenet.server.feature.TimeService;
 import org.pokenet.server.network.NetworkService;
 
 /**
@@ -17,11 +19,18 @@ public class ServiceManager {
 	private MovementService m_movementService;
 	private BattleService [] m_battleService;
 	private DataService m_dataService;
+	private TimeService m_timeService;
+	private JythonService m_jythonService;
 	
 	/**
 	 * Default constructor
 	 */
 	public ServiceManager() {
+		/*
+		 * Initialise all the services
+		 */
+		m_jythonService = new JythonService();
+		m_timeService = new TimeService();
 		m_dataService = new DataService();
 		m_networkService = new NetworkService();
 		m_movementService = new MovementService();
@@ -83,6 +92,22 @@ public class ServiceManager {
 	}
 	
 	/**
+	 * Returns the time service
+	 * @return
+	 */
+	public TimeService getTimeService() {
+		return m_timeService;
+	}
+	
+	/**
+	 * Returns the jython service
+	 * @return
+	 */
+	public JythonService getJythonService() {
+		return m_jythonService;
+	}
+	
+	/**
 	 * Starts all services
 	 */
 	public void start() {
@@ -108,6 +133,7 @@ public class ServiceManager {
 		 * Stopping services is very delicate and must be done in the following order to avoid
 		 * leaving player objects in a non-concurrent state.
 		 */
+		m_timeService.stop();
 		m_movementService.stop();
 		for(int i = 0; i < m_battleService.length; i++)
 			m_battleService[i].stop();

@@ -152,7 +152,7 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void move() {
 		super.move();
-		if(this.getMap().isWildBattle(m_x, m_y))
+		if(this.getMap() != null && this.getMap().isWildBattle(m_x, m_y))
 			GameServer.getServiceManager().getBattleService().startWildBattle(this, this.getMap().getWildPokemon(this));
 		//TODO: Clear requests list
 	}
@@ -367,7 +367,6 @@ public class PlayerChar extends Char implements Battleable {
 	@Override
 	public void setMap(ServerMap map) {
 		super.setMap(map);
-		System.out.println("Sending map packet.");
 		//Send the map switch packet to the client
 		m_session.write("ms" + map.getX() + "," + map.getY());
 		Char c;

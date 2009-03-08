@@ -79,7 +79,6 @@ public class Char implements Positionable {
 		//Remove the char from their old map
 		if(m_map != null)
 			m_map.removeChar(this);
-		System.out.println("Setting map variables");
 		//Set their current map to the new map
 		m_map = map;
 		m_mapX = map.getX();

@@ -402,7 +402,7 @@ public class RegisterDialog extends Frame{
 	 */
 	private void register() {
 		if(m_username.getText() != null
-				&& m_username.getText().length() > 4 && m_username.getText().length() < 12) {
+				&& m_username.getText().length() >= 4 && m_username.getText().length() <= 12) {
 			if(m_password.getText() != null & !m_password.getText().equalsIgnoreCase("")
 					&& m_confirmPass.getText() != null && !m_confirmPass.getText().equalsIgnoreCase("") &&
 					m_password.getText().compareTo(m_confirmPass.getText()) == 0) {
@@ -412,6 +412,8 @@ public class RegisterDialog extends Frame{
 							&& m_month.getText() != null && m_month.getText().length() > 0 && m_month.getText().length() < 3
 							&& m_year.getText() != null && m_year.getText().length() == 4) {
 						if(!m_terms.isEnabled()) {
+							m_register.setEnabled(false);
+							GameClient.getInstance().getLoadingScreen().setVisible(true);
 							String bday = m_day.getText() + "/" + m_month.getText() + "/" + m_year.getText();
 							GameClient.getInstance().getPacketGenerator().register(m_username.getText(),
 									m_password.getText(), m_email.getText(), bday, m_starter, (m_gender == 0 ? 11: 20));

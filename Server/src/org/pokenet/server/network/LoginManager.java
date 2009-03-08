@@ -15,6 +15,7 @@ import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.Pokemon.ExpTypes;
 import org.pokenet.server.battle.mechanics.PokemonNature;
 import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
+import org.pokenet.server.feature.TimeService;
 
 /**
  * Handles logging players in
@@ -189,12 +190,9 @@ public class LoginManager implements Runnable {
 		/*
 		 * Send success packet to player, set their map and add them to a movement service
 		 */
-		session.write("ls" + p.getId() + ",0000");
-		System.out.println("Sent login packet");
+		session.write("ls" + p.getId() + "," + TimeService.getTime());
 		p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().getMapByGamePosition(p.getMapX(), p.getMapY()));
-		System.out.println(username + " added to map");
 		GameServer.getServiceManager().getMovementService().getMovementManager().addPlayer(p);
-		System.out.println(username + " added to movement service");
 		/*
 		 * Add them to the list of players
 		 */
@@ -203,7 +201,7 @@ public class LoginManager implements Runnable {
 		}
 		m_players.put(username, p);
 		GameServer.getInstance().updatePlayerCount();
-		System.out.println(username + " logged in.");
+		System.out.println("INFO: " + username + " logged in.");
 	}
 
 	/**
