@@ -19,9 +19,60 @@ public class Player {
 	protected int m_sprite;
 	protected Direction m_direction = Direction.Down;
 	protected boolean m_isAnimating = false;
+	//Handles animating footsteps
+	protected boolean m_leftOrRight = false;
 	protected Image m_currentImage;
+	protected boolean m_ours = false;
 	
 	public enum Direction {Up, Down, Left, Right}
+	
+	public static void loadSpriteFactory() {
+		m_spriteFactory = new SpriteFactory();
+	}
+	
+	/**
+	 * Moves this player right
+	 */
+	public void moveRight() {
+		m_svrX += 32;
+		m_direction = Direction.Right;
+		m_leftOrRight = !m_leftOrRight;
+		m_currentImage = Player.getSpriteFactory().getSprite(Direction.Right, true, m_leftOrRight, m_sprite);
+		m_isAnimating = true;
+	}
+	
+	/**
+	 * Moves this player left
+	 */
+	public void moveLeft() {
+		m_svrX -= 32;
+		m_direction = Direction.Left;
+		m_leftOrRight = !m_leftOrRight;
+		m_currentImage = Player.getSpriteFactory().getSprite(Direction.Left, true, m_leftOrRight, m_sprite);
+		m_isAnimating = true;
+	}
+	
+	/**
+	 * Moves this player down
+	 */
+	public void moveDown() {
+		m_svrY += 32;
+		m_direction = Direction.Down;
+		m_leftOrRight = !m_leftOrRight;
+		m_currentImage = Player.getSpriteFactory().getSprite(Direction.Down, true, m_leftOrRight, m_sprite);
+		m_isAnimating = true;
+	}
+	
+	/**
+	 * Moves this player up
+	 */
+	public void moveUp() {
+		m_svrY -= 32;
+		m_direction = Direction.Up;
+		m_leftOrRight = !m_leftOrRight;
+		m_currentImage = Player.getSpriteFactory().getSprite(Direction.Up, true, m_leftOrRight, m_sprite);
+		m_isAnimating = true;
+	}
 	
 	/**
 	 * Sets this player's x co-ordinate
@@ -112,6 +163,13 @@ public class Player {
 	}
 	
 	/**
+	 * Loads the player's sprite image
+	 */
+	public void loadSpriteImage() {
+		m_currentImage = Player.getSpriteFactory().getSprite(m_direction, false, m_leftOrRight, m_sprite);
+	}
+	
+	/**
 	 * Returns this player's sprite
 	 * @return
 	 */
@@ -133,6 +191,14 @@ public class Player {
 	 */
 	public boolean isAnimating() {
 		return m_isAnimating;
+	}
+	
+	/**
+	 * Sets if this player is animating
+	 * @param a
+	 */
+	public void setAnimating(boolean a) {
+		m_isAnimating = a;
 	}
 	
 	/**
@@ -181,5 +247,21 @@ public class Player {
 	 */
 	public void setCurrentImage(Image i) {
 		m_currentImage = i;
+	}
+	
+	/**
+	 * Sets if this is our player
+	 * @param b
+	 */
+	public void setOurPlayer(boolean b) {
+		m_ours = b;
+	}
+	
+	/**
+	 * Returns true if this is our player
+	 * @return
+	 */
+	public boolean isOurPlayer() {
+		return m_ours;
 	}
 }

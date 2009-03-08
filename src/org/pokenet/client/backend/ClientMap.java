@@ -7,6 +7,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 import org.pokenet.client.backend.entity.Player;
+import org.pokenet.client.backend.entity.Player.Direction;
 
 /**
  * Represents a map to be rendered on screen
@@ -19,8 +20,9 @@ public class ClientMap extends TiledMap {
 	private int m_yOffsetModifier;
 	private int m_xOffset;
 	private int m_yOffset;
+	private int m_mapX;
+	private int m_mapY;
 	private boolean m_isCurrent = false;
-	private boolean m_isRendering;
 	private ClientMapMatrix m_mapMatrix;
 	private int m_walkableLayer, m_lastRendered;
 	
@@ -34,7 +36,14 @@ public class ClientMap extends TiledMap {
 	 */
 	public ClientMap(String ref, String tileSetsLocation) throws SlickException {
 		super(ref, tileSetsLocation);
-		// TODO Auto-generated constructor stub
+		m_xOffsetModifier = Integer.parseInt(getMapProperty("xOffsetModifier",
+		"0").trim());
+		m_yOffsetModifier = Integer.parseInt(getMapProperty("yOffsetModifier",
+		"0").trim());
+		m_xOffset = m_xOffsetModifier;
+		m_yOffset = m_yOffsetModifier;
+		m_walkableLayer = getLayerCount() - 2;
+		m_lastRendered = 0;
 	}
 	
 	@Override
@@ -69,17 +78,16 @@ public class ClientMap extends TiledMap {
 	 * @return
 	 */
 	public boolean isRendering() {
-		if (m_isRendering) {
-			int drawWidth = getXOffset() + getWidth() * 32;
-			int drawHeight = getYOffset() + getHeight() * 32;
-			
-			if (!(drawWidth < -32 && getXOffset() < -32 ||
-					drawWidth > 832 && getXOffset() > 832) &&
-					!(drawHeight < -32 && getYOffset() < -32 ||
-							drawHeight > 632 && getYOffset() > 632)) {
-				return true;
-			}
-		} return false;
+		int drawWidth = getXOffset() + getWidth() * 32;
+		int drawHeight = getYOffset() + getHeight() * 32;
+		
+		if (!(drawWidth < -32 && getXOffset() < -32 ||
+				drawWidth > 832 && getXOffset() > 832) &&
+				!(drawHeight < -32 && getYOffset() < -32 ||
+						drawHeight > 632 && getYOffset() > 632)) {
+			return true;
+		}
+		return false;
 	}
 	
 	/**
@@ -128,5 +136,169 @@ public class ClientMap extends TiledMap {
 	 */
 	public void setLastLayerRendered(int l) {
 		m_lastRendered = l;
+	}
+	
+	/**
+	 * Set to true if this is at 1,1 in the map matrix
+	 * @param b
+	 */
+	public void setCurrent(boolean b) {
+		m_isCurrent = b;
+	}
+	
+	/**
+	 * Returns true if this is 1,1 in the map matrix
+	 * @return
+	 */
+	public boolean isCurrent() {
+		return m_isCurrent;
+	}
+	
+	/**
+	 * Sets the map matrix
+	 * @param m
+	 */
+	public void setMapMatrix(ClientMapMatrix m) {
+		m_mapMatrix = m;
+	}
+	
+	/**
+	 * Sets the map x
+	 * @param x
+	 */
+	public void setMapX(int x) {
+		m_mapX = x;
+	}
+	
+	/**
+	 * Sets the map y
+	 * @param y
+	 */
+	public void setMapY(int y) {
+		m_mapY = y;
+	}
+	
+	/**
+	 * Returns the x offset modifier
+	 * @return
+	 */
+	public int getXOffsetModifier() {
+		return m_xOffsetModifier;
+	}
+	
+	/**
+	 * Returns the y offset modifier
+	 * @return
+	 */
+	public int getYOffsetModifier() {
+		return m_yOffsetModifier;
+	}
+	
+	/**
+	 * Returns true if the player is colliding with an object
+	 * @param p
+	 * @param d
+	 * @return
+	 */
+	public boolean isColliding(Player p, Direction d) {
+		return false;
+	}
+	
+	/**
+	 * Sets the y offset and recalibrates surrounding maps if calibrate is true
+	 * @param offset
+	 * @param calibrate
+	 */
+	public void setYOffset(int offset, boolean calibrate) {
+		m_yOffset = offset;
+		
+		if(calibrate) {
+			ClientMap map = m_mapMatrix.getMap(m_mapX - 1, m_mapY);
+			if (map != null)
+				map.setYOffset(offset - getYOffsetModifier()
+						+ map.getYOffsetModifier(), false);
+
+			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY);
+			if (map != null)
+				map.setYOffset(offset - getYOffsetModifier()
+						+ map.getYOffsetModifier(), false);
+
+			map = m_mapMatrix.getMap(m_mapX, m_mapY - 1);
+			if (map != null)
+				map.setYOffset(offset - map.getHeight() * 32, false);
+
+			map = m_mapMatrix.getMap(m_mapX, m_mapY + 1);
+			if (map != null) {
+				map.setYOffset(offset + getHeight() * 32, false);
+			}
+			
+			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY - 1);
+			if (map != null)
+				map.setYOffset(offset - map.getHeight() * 32
+						+ map.getYOffsetModifier(), false);
+			
+			map = m_mapMatrix.getMap(m_mapX - 1, m_mapY - 1);
+			if (map != null)
+				map.setYOffset(offset - map.getHeight() * 32, false);
+			
+			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY + 1);
+			if (map != null)
+				map.setYOffset(offset + getHeight() * 32, false);
+			
+			map = m_mapMatrix.getMap(m_mapX - 1, m_mapY + 1);
+			if (map != null)
+				map.setYOffset(offset + getHeight() * 32, false);
+		}
+	}
+	
+	/**
+	 * Sets the x offset and recalibrates surrounding maps if calibrate is set to true
+	 * @param offset
+	 * @param calibrate
+	 */
+	public void setXOffset(int offset, boolean calibrate) {
+		m_xOffset = offset;
+
+		if(calibrate) {
+			ClientMap map = m_mapMatrix.getMap(m_mapX - 1, m_mapY);
+			if (map != null)
+				map.setXOffset(offset - map.getWidth() * 32 - m_xOffsetModifier
+						+ map.getXOffsetModifier(), false);
+
+			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY);
+			if (map != null)
+				map.setXOffset(offset + getWidth() * 32 - getXOffsetModifier()
+						+ map.getXOffsetModifier(), false);
+
+			map = m_mapMatrix.getMap(m_mapX, m_mapY - 1);
+			if (map != null)
+				map.setXOffset(offset - getXOffsetModifier()
+						+ map.getXOffsetModifier(), false);
+
+			map = m_mapMatrix.getMap(m_mapX, m_mapY + 1);
+			if (map != null)
+				map.setXOffset(offset - getXOffsetModifier()
+						+ map.getXOffsetModifier(), false);
+			
+			map = m_mapMatrix.getMap(m_mapX - 1, m_mapY - 1);
+			if (map != null)
+				map.setXOffset(offset - map.getWidth() * 32 - getXOffsetModifier()
+						+ map.getXOffsetModifier(), false);
+			
+			map = m_mapMatrix.getMap(m_mapX - 1, m_mapY + 1);
+			if (map != null)
+				map.setXOffset(offset - map.getWidth() * 32 - getXOffsetModifier()
+						+ map.getXOffsetModifier(), false);
+			
+			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY + 1);
+			if (map != null)
+				map.setXOffset(offset + getWidth() * 32 - getXOffsetModifier()
+						+ map.getXOffsetModifier(), false);
+			
+			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY - 1);
+			if (map != null)
+				map.setXOffset(offset + getWidth() * 32 - getXOffsetModifier()
+						+ map.getXOffsetModifier(), false);
+		}
 	}
 }

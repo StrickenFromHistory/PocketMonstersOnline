@@ -29,6 +29,18 @@ public class OurPlayer extends Player {
 		m_isAnimating = original.isAnimating();
 	}
 	
+	public void set(Player p) {
+		m_x = p.getX();
+		m_y = p.getY();
+		m_svrX = p.getServerX();
+		m_svrY = p.getServerY();
+		m_sprite = p.getSprite();
+		m_direction = p.getDirection();
+		m_username = p.getUsername();
+		m_id = p.getId();
+		m_ours = p.isOurPlayer();
+	}
+	
 	/**
 	 * Returns our player's party
 	 * @return

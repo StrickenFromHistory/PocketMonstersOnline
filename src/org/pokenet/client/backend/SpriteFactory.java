@@ -71,7 +71,7 @@ public class SpriteFactory {
 	public SpriteFactory() {
 		spriteSheets = new HashMap<Integer, SpriteSheet>();	
 		try {
-			File location = new File("res/sprites/players");
+			File location = new File("res/characters");
 			String loc = location.getAbsolutePath();
 			location = new File(loc);
 			for(int i = 0; i < location.list().length; i++) {
