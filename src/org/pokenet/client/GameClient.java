@@ -72,6 +72,7 @@ public class GameClient extends BasicGame {
 	 */
 	@Override
 	public void init(GameContainer gc) throws SlickException {
+		gc.getGraphics().setWorldClip(-32, -32, 832, 832);
 		gc.setShowFPS(false);
 		m_display = new Display(gc);
 		
