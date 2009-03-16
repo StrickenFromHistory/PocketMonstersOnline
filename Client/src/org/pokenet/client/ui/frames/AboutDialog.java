@@ -33,7 +33,7 @@ public class AboutDialog extends Frame {
 		m_info.setWrapEnabled(true);
 		m_info.setText("Pokenet is a free, non-profit, open-source Pokemon MMORPG. " +
 				"Pokenet is in no way affiliated with or officially supported by Nintendo. " +
-				"Pokèmon is a registered trademark of Nintendo (1995 - Present).\n \n" +
+				"Pokemon is a registered trademark of Nintendo (1995 - Present).\n \n" +
 				"Contributors:\n" +
 				"Fshy, ZombieBear, Ryan, Pivot/Ilentcape, Sienide, TMKCodes, Drawing, LordAdmiral, Psycho, Dragina, " +
 				"Oblivion, Lastplacer, Firefly17, Gama, Jacobe, Latias, Callagan, xkendrickx, Mewtwo, PheonixClaw, " +
