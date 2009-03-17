@@ -22,7 +22,7 @@ public class NetworkService {
 	private LoginManager m_loginManager;
 	private LogoutManager m_logoutManager;
 	private IoAcceptor m_acceptor;
-	private ChatManager m_chatManager;
+	private ChatManager [] m_chatManager;
 	
 	/**
 	 * Default constructor
@@ -30,7 +30,7 @@ public class NetworkService {
 	public NetworkService() {
 		m_logoutManager = new LogoutManager();
 		m_loginManager = new LoginManager(m_logoutManager);
-		m_chatManager = new ChatManager();
+		m_chatManager = new ChatManager[3];
 		m_connectionManager = new ConnectionManager(m_loginManager, m_logoutManager);
 	}
 	
@@ -51,11 +51,16 @@ public class NetworkService {
 	}
 	
 	/**
-	 * Returns the chat manager
+	 * Returns the chat manager with the least amount of processing to be done
 	 * @return
 	 */
 	public ChatManager getChatManager() {
-		return m_chatManager;
+		int smallest = 0;
+		for(int i = 1; i < m_chatManager.length; i++) {
+			if(m_chatManager[i].getProcessingLoad() < m_chatManager[smallest].getProcessingLoad())
+				smallest = i;
+		}
+		return m_chatManager[smallest];
 	}
 	
 	/**
@@ -72,7 +77,10 @@ public class NetworkService {
 	public void start() {
 		m_logoutManager.start();
 		m_loginManager.start();
-		m_chatManager.start();
+		for(int i = 0; i < m_chatManager.length; i++) {
+			m_chatManager[i] = new ChatManager();
+			m_chatManager[i].start();
+		}
 		//Bind network address and start connection manager
 		ByteBuffer.setUseDirectBuffers(false);
 		ByteBuffer.setAllocator(new SimpleByteBufferAllocator());
@@ -102,6 +110,8 @@ public class NetworkService {
 	public void stop() {
 		//Stop all threads (do not use thread.stop() )
 		//Unbind network address
+		for(int i = 0; i < m_chatManager.length; i++)
+			m_chatManager[i].stop();
 		m_acceptor.unbindAll();
 		m_connectionManager.logoutAll();
 	}

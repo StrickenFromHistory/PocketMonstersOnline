@@ -115,9 +115,14 @@ public class ConnectionManager extends IoHandlerAdapter {
 				switch(((String) msg).charAt(1)) {
 				case 'l':
 					//Local chat
+					GameServer.getServiceManager().getNetworkService().getChatManager().
+						queueLocalChatMessage("<" + p.getName() + "> " + ((String) msg).substring(2), p.getMapX(), p.getMapY());
 					break;
 				case 'p':
 					//Private chat
+					message = ((String) msg).substring(2).split(",");
+					GameServer.getServiceManager().getNetworkService().getChatManager().
+						queuePrivateMessage(message[1], m_players.get(message[0]).getSession(), p.getName());
 					break;
 				case 't':
 					//Talk

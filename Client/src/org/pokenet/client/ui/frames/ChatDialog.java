@@ -23,7 +23,7 @@ import org.pokenet.client.network.PacketGenerator;
 public class ChatDialog extends Frame {
         static final long serialVersionUID = 8126828445828668638L;
 
-        private String packet;
+        private String m_packet;
         private TextArea m_chatList;
         private TextField m_chatType;
         private Font m_dpFont;
@@ -37,7 +37,7 @@ public class ChatDialog extends Frame {
          */
         public ChatDialog(String packet) {
                 super();
-
+                m_packet = packet;
                 initGUI();
         }
         
@@ -92,7 +92,7 @@ public class ChatDialog extends Frame {
          */
         private void chatTypeActionPerformed(ActionEvent evt) {
                 if (m_chatType.getText() != null && m_chatType.getText().length() != 0) {
-                        GameClient.getInstance().getPacketGenerator().write(packet + m_chatType.getText() + "\r");
+                        GameClient.getInstance().getPacketGenerator().write(m_packet + m_chatType.getText() + "\r");
                 }
                 m_chatType.setText("");
                 m_chatType.grabFocus();
