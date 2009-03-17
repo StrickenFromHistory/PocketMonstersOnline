@@ -223,7 +223,9 @@ public class GameClient extends BasicGame {
             if(m_weather.isEnabled() && m_weather.getWeather() != Weather.NORMAL)
             	m_weather.getParticleSystem().render();
             //Render the current daylight
-            if(m_time.getDaylight() > 0 || m_weather.getWeather() != Weather.NORMAL) {
+            if(m_time.getDaylight() > 0 || 
+            		(m_weather.getWeather() != Weather.NORMAL && 
+            				m_weather.getWeather() != Weather.SANDSTORM)) {
             	g.setColor(m_daylight);
             	g.fillRect(0, 0, 800, 600);
             }
@@ -456,13 +458,6 @@ public class GameClient extends BasicGame {
 	 */
 	public OurPlayer getOurPlayer() {
 		return m_ourPlayer;
-	}
-	
-	/**
-	 *  Enables the chat window
-	 */
-	public void showChat(){
-		
 	}
 	
 	/**

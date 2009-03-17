@@ -87,4 +87,12 @@ public class Ui extends Frame {
 		this.setVisible(b);
 		m_localChat.setVisible(b);
 	}
+	
+	/**
+	 * Returns the local chat
+	 * @return
+	 */
+	public ChatDialog getLocalChat() {
+		return m_localChat;
+	}
 }

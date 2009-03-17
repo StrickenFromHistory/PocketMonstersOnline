@@ -57,6 +57,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 		System.out.println("INFO: " + message);
 		String [] details;
 		switch(message.charAt(0)) {
+		case 'C':
+			//Chat packet
+			m_game.getUi().messageReceived(message.substring(1));
+			break;
 		case 'c':
 			//A player changed something
 			p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
@@ -237,7 +241,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoginScreen().setVisible(false);
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.setPlayerId(Integer.parseInt(details[0]));
-				m_game.showChat();
+				m_game.getUi().getLocalChat().setVisible(true);
 				m_game.getTimeService().setTime(Integer.parseInt(details[1].substring(0, 2)), 
 						Integer.parseInt(details[1].substring(2)));
 				break;
