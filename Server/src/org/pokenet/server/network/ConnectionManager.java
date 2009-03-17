@@ -19,10 +19,18 @@ public class ConnectionManager extends IoHandlerAdapter {
 	private static HashMap<String, PlayerChar> m_players;
 	private LoginManager m_loginManager;
 	private LogoutManager m_logoutManager;
+	private RegistrationManager m_regManager;
 	
+	/**
+	 * Constructor
+	 * @param login
+	 * @param logout
+	 */
 	public ConnectionManager(LoginManager login, LogoutManager logout) {
 		m_loginManager = login;
 		m_logoutManager = logout;
+		m_regManager = new RegistrationManager();
+		m_regManager.start();
 	}
 	
 	static {
@@ -67,13 +75,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'r':
 				//Registration packet
-				message = ((String) msg).substring(1).split(",");
-				if(m_logoutManager.register(message[0], message[1], message[2], 
-						message[3], Integer.parseInt(message[4]), Integer.parseInt(message[5]))) {
-					session.write("rs");
-				} else {
-					session.write("re");
-				}
+				m_regManager.queueRegistration(session, ((String) msg).substring(1));
 				break;
 			}
 		} else {
@@ -149,9 +151,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 	}
 	
 	/**
-	 * Logs out all players
+	 * Logs out all players and stops login/logout/registration managers
 	 */
 	public void logoutAll() {
+		m_regManager.stop();
 		m_loginManager.stop();
 		/*
 		 * Queue all players to be saved

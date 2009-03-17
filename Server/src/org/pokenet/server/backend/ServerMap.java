@@ -10,6 +10,7 @@ import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.feature.TimeService.Weather;
 
 import tiled.core.Map;
 import tiled.core.TileLayer;
@@ -31,6 +32,7 @@ public class ServerMap {
 	private int m_yOffsetModifier;
 	private PvPType m_pvpType = PvPType.ENABLED;
 	private ServerMapMatrix m_mapMatrix;
+	private Weather m_forcedWeather = null;
 	//Players and NPCs
 	private ArrayList<PlayerChar> m_players;
 	private ArrayList<NonPlayerChar> m_npcs;
@@ -84,6 +86,58 @@ public class ServerMap {
 		
 		m_players = new ArrayList<PlayerChar>();
 		m_npcs = new ArrayList<NonPlayerChar>();
+		
+		/*
+		 * Add enforced weather if any
+		 */
+		try {
+			if(map.getProperties().getProperty("forcedWeather") != null && 
+					!map.getProperties().getProperty("forcedWeather").equalsIgnoreCase("")) {
+				m_forcedWeather = Weather.valueOf(map.getProperties().getProperty("forcedWeather"));
+			}
+		} catch (Exception e) {
+			m_forcedWeather = null;
+		}
+	}
+	
+	/**
+	 * Returns true if this map has a forced weather
+	 * @return
+	 */
+	public boolean isWeatherForced() {
+		return m_forcedWeather != null;
+	}
+	
+	/**
+	 * Returns the enforced weather on this map
+	 * @return
+	 */
+	public Weather getWeather() {
+		return m_forcedWeather;
+	}
+	
+	/**
+	 * Returns the weather id for the enforced weather on this map
+	 * @return
+	 */
+	public int getWeatherId() {
+		if(m_forcedWeather != null) {
+			switch(m_forcedWeather) {
+			case NORMAL:
+				return 0;
+			case RAIN:
+				return 1;
+			case HAIL:
+				return 2;
+			case SANDSTORM:
+				return 3;
+			case FOG:
+				return 4;
+			default:
+				return 0;
+			}
+		} else
+			return 0;
 	}
 	
 	/**

@@ -11,6 +11,7 @@ import org.pokenet.server.backend.ServerMap;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.feature.TimeService;
 
 /**
  * Represents a player
@@ -368,7 +369,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setMap(ServerMap map) {
 		super.setMap(map);
 		//Send the map switch packet to the client
-		m_session.write("ms" + map.getX() + "," + map.getY());
+		m_session.write("ms" + map.getX() + "," + map.getY() + "," + (map.isWeatherForced() ? map.getWeatherId() : TimeService.getWeatherId()));
 		Char c;
 		String packet = "mi";
 		//Send all player information to the client

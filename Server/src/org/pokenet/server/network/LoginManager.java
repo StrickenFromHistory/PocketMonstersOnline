@@ -76,6 +76,8 @@ public class LoginManager implements Runnable {
 						m_database.query("UPDATE pn_members SET lastLoginServer='" + GameServer.getServerName() + "', lastLogimTime='" + time + "' WHERE username='" + username + "'");
 						m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getLocalAddress() + "' WHERE username='" + username + "'");
 						session.setAttribute("player", p);
+						GameServer.getServiceManager().getMovementService().removePlayer(username);
+						this.initialiseClient(p, session);
 					} else
 						this.login(username, session, result);
 				} else if(result.getString("lastLoginServer").equalsIgnoreCase("null")) {
@@ -185,14 +187,12 @@ public class LoginManager implements Runnable {
 		 * Update the database with login information
 		 */
 		m_database.query("UPDATE pn_members SET lastLoginServer='" + GameServer.getServerName() + "', lastLoginTime='" + time + "' WHERE username='" + username + "'");
-		m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getRemoteAddress() + "' WHERE username='" + username + "'");
+		m_database.query("UPDATE pn_members SET lastLoginIP='" + "0' WHERE username='" + username + "'");
 		session.setAttribute("player", p);
 		/*
 		 * Send success packet to player, set their map and add them to a movement service
 		 */
-		session.write("ls" + p.getId() + "," + TimeService.getTime());
-		p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().getMapByGamePosition(p.getMapX(), p.getMapY()));
-		GameServer.getServiceManager().getMovementService().getMovementManager().addPlayer(p);
+		this.initialiseClient(p, session);
 		/*
 		 * Add them to the list of players
 		 */
@@ -202,6 +202,30 @@ public class LoginManager implements Runnable {
 		m_players.put(username, p);
 		GameServer.getInstance().updatePlayerCount();
 		System.out.println("INFO: " + username + " logged in.");
+	}
+	
+	/**
+	 * Sends initial information to the client
+	 * @param p
+	 * @param session
+	 */
+	private void initialiseClient(PlayerChar p, IoSession session) {
+		session.write("ls" + p.getId() + "," + TimeService.getTime());
+		//Add them to the map
+		p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().getMapByGamePosition(p.getMapX(), p.getMapY()));
+		//Add them to a movement service
+		GameServer.getServiceManager().getMovementService().getMovementManager().addPlayer(p);
+		//Send their Pokemon information to them
+		for(int i = 0; i < p.getParty().length; i++) {
+			if(p.getParty()[i] != null) {
+				//p.getSession().write("");
+			}
+		}
+		//Send bag to them
+		for(int i = 0; i < p.getBag().getItems().length; i++) {
+			
+		}
+		//Send their friend list to them
 	}
 
 	/**

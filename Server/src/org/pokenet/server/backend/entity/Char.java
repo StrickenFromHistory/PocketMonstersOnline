@@ -92,7 +92,9 @@ public class Char implements Positionable {
 	 */
 	public void setSprite(int sprite) {
 		m_sprite = sprite;
-		//TODO: Send sprite change update to player
+		//Inform everyone of sprite change
+		if(m_map != null)
+			m_map.sendToAll("cS" + m_id + "," + this.getSprite());
 	}
 
 	/**
@@ -242,7 +244,7 @@ public class Char implements Positionable {
 	public void setSurfing(boolean b) {
 		m_isSurfing = b;
 		if(m_map != null)
-			m_map.sendToAll("ms" + m_id + "," + this.getSprite());
+			m_map.sendToAll("cS" + m_id + "," + this.getSprite());
 	}
 	
 	/**

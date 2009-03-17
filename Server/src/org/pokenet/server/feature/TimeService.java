@@ -6,6 +6,7 @@ import org.pokenet.server.GameServer;
 import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.HailEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.RainEffect;
+import org.pokenet.server.battle.mechanics.statuses.field.SandstormEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.SunEffect;
 
 /**
@@ -21,7 +22,10 @@ public class TimeService implements Runnable {
 	private static int m_minutes;
 	private static Weather m_weather;
 	
-	public enum Weather { NORMAL, RAIN, HAIL, SUN }
+	/*
+	 * NOTE: HAIL = SNOW
+	 */
+	public enum Weather { NORMAL, RAIN, HAIL, SANDSTORM, FOG }
 	
 	/**
 	 * Default constructor
@@ -75,16 +79,16 @@ public class TimeService implements Runnable {
 	private void generateWeather() {
 		switch(GameServer.getServiceManager().getDataService().getBattleMechanics().getRandom().nextInt(4)) {
 		case 0:
-			m_weather = Weather.SUN;
+			m_weather = Weather.NORMAL;
 			break;
 		case 1:
-			m_weather = Weather.NORMAL;
+			m_weather = Weather.RAIN;
 			break;
 		case 2:
 			m_weather = Weather.HAIL;
 			break;
 		case 3:
-			m_weather = Weather.RAIN;
+			m_weather = Weather.FOG;
 			break;
 		default:
 			m_weather = Weather.NORMAL;
@@ -103,8 +107,10 @@ public class TimeService implements Runnable {
 			return new RainEffect();
 		case HAIL:
 			return new HailEffect();
-		case SUN:
-			return new SunEffect();
+		case SANDSTORM:
+			return new SandstormEffect();
+		case FOG:
+			return null;
 		default:
 			return null;
 		}
@@ -140,5 +146,26 @@ public class TimeService implements Runnable {
 	 */
 	public static boolean isNight() {
 		return m_hour >= 20 || m_hour < 6;
+	}
+	
+	/**
+	 * Returns the id of the weather
+	 * @return
+	 */
+	public static int getWeatherId() {
+		switch(m_weather) {
+		case NORMAL:
+			return 0;
+		case RAIN:
+			return 1;
+		case HAIL:
+			return 2;
+		case SANDSTORM:
+			return 3;
+		case FOG:
+			return 4;
+		default:
+			return 0;
+		}
 	}
 }

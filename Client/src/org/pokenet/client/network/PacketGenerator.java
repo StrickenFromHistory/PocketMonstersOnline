@@ -28,6 +28,14 @@ public class PacketGenerator {
 	}
 	
 	/**
+	 * Sends a packet
+	 * @param message
+	 */
+	public void write(String message) {
+		m_session.write(message);
+	}
+	
+	/**
 	 * Sends a login packet
 	 * @param username
 	 * @param password
@@ -73,14 +81,6 @@ public class PacketGenerator {
 			m_session.write("R");
 			break;
 		}
-	}
-	
-	/**
-	 * Sends a chat packet
-	 * @param line
-	 */
-	public void chat(String line){
-		m_session.write("Ct" + line);
 	}
 	
 	/**

@@ -123,17 +123,26 @@ public abstract class BattleField {
     public BattleField(BattleMechanics mech, Pokemon[][] pokemon) {
         m_mechanics = mech;
         setPokemon(pokemon);
+        applyWeather();
         /*
-         * Apply a field effect based on the weather
-         */
-        FieldEffect f = TimeService.getWeatherEffect();
-        if(f != null)
+         	FieldEffect f = TimeService.getWeatherEffect();
+        	if(f != null)
         	this.applyEffect(f);
+        */
     }
     
+    /**
+     * Must be implemented by children classes
+     */
+    public abstract void applyWeather();
+    
+    /**
+     * Allows children to construct without pokemon.
+     * @param mech
+     */
     protected BattleField(BattleMechanics mech) {
-        // Allows children to construct without pokemon.
         m_mechanics = mech;
+        applyWeather();
     }
     
     /**

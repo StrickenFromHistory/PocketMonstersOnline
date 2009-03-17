@@ -4,6 +4,7 @@
  <properties>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
+  <property name="forcedWeather" value="RAIN"/>
  </properties>
  <tileset firstgid="1" source="normal1.tsx"/>
  <layer name="Walkable" width="20" height="20">
