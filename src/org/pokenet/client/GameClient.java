@@ -7,7 +7,6 @@ import java.util.concurrent.Executors;
 import javax.swing.JOptionPane;
 
 import mdes.slick.sui.Display;
-import mdes.slick.sui.Sui;
 
 import org.apache.mina.common.ConnectFuture;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
@@ -34,6 +33,7 @@ import org.pokenet.client.network.ConnectionManager;
 import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
+import org.pokenet.client.ui.frames.ChatDialog;
 
 /**
  * The game client
@@ -58,6 +58,8 @@ public class GameClient extends BasicGame {
 	//The gui display layer
 	private Display m_display;
 	private Font m_dpFontLarge, m_dpFontSmall;
+	//HUD
+	private ChatDialog m_chatWindow;
 	
 	/**
 	 * Default constructor
@@ -93,12 +95,19 @@ public class GameClient extends BasicGame {
 		
 		m_login = new LoginScreen();
 		m_display.add(m_login);
-		
+
 		/*
 		 * The animator and map matrix
 		 */
 		m_mapMatrix = new ClientMapMatrix();
 		m_animator = new Animator(m_mapMatrix);
+
+		// our chat window, gets shown on login
+        m_chatWindow = new ChatDialog(m_packetGen);
+        m_chatWindow.setLocation(594, 1);
+        m_chatWindow.setVisible(false);
+        m_chatWindow.setAlwaysOnTop(true);
+        m_display.add(m_chatWindow);
 		
 		m_instance = this;
 		gc.getInput().enableKeyRepeat(50, 300);
@@ -399,6 +408,14 @@ public class GameClient extends BasicGame {
 	 */
 	public OurPlayer getOurPlayer() {
 		return m_ourPlayer;
+	}
+	
+	/**
+	 *  Enables the chat window
+	 */
+	public void showChat(){
+		m_chatWindow.setVisible(true);
+		m_chatWindow.setPacketGenerator(m_packetGen);
 	}
 	
 	/**

@@ -203,6 +203,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoginScreen().setVisible(false);
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.setPlayerId(Integer.parseInt(details[0]));
+				m_game.showChat();
 				break;
 			case 'e':
 				//Error

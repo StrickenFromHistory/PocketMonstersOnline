@@ -44,7 +44,13 @@ public class PacketGenerator {
 	 * @param dob
 	 * @param starter
 	 */
-	public void register(String username, String password, String email, String dob, int starter, int sprite) {
+	public void register(
+			String username,
+			String password,
+			String email,
+			String dob,
+			int starter,
+			int sprite) {
         m_session.write("r" + username + "," + (getPasswordHash(password)) + "," + email + "," + dob + "," + starter + "," + sprite);
 	}
 	
@@ -67,6 +73,14 @@ public class PacketGenerator {
 			m_session.write("R");
 			break;
 		}
+	}
+	
+	/**
+	 * Sends a chat packet
+	 * @param line
+	 */
+	public void chat(String line){
+		m_session.write("Ct" + line);
 	}
 	
 	/**
