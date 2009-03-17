@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<system additive="true" points="false">
+<emitter imageName="/res/effects/sandstorm/emitter.png" name="NewEmitter_1237322709874" renderType="inherit" useAdditive="true" useOriented="false">
+<spawnInterval enabled="false" max="100.0" min="100.0"/>
+<spawnCount enabled="true" max="100.0" min="100.0"/>
+<initialLife enabled="true" max="5000.0" min="5000.0"/>
+<initialSize enabled="true" max="6.0" min="6.0"/>
+<xOffset enabled="true" max="0.0" min="0.0"/>
+<yOffset enabled="true" max="0.0" min="0.0"/>
+<initialDistance enabled="true" max="550.0" min="500.0"/>
+<speed enabled="true" max="200.0" min="200.0"/>
+<length enabled="false" max="1000.0" min="1000.0"/>
+<emitCount enabled="false" max="1000.0" min="1000.0"/>
+<spread type="random" value="157.0"/>
+<angularOffset type="simple" value="109.0"/>
+<growthFactor type="simple" value="3.0"/>
+<gravityFactor type="simple" value="-41.0"/>
+<windFactor type="simple" value="-101.0"/>
+<startAlpha type="simple" value="137.0"/>
+<endAlpha type="simple" value="81.0"/>
+<alpha active="false" max="255" min="0" type="linear">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="255.0"/>
+</alpha>
+<size active="false" max="255" min="0" type="linear">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="255.0"/>
+</size>
+<velocity active="false" max="1" min="0" type="linear">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="1.0"/>
+</velocity>
+<scaleY active="false" max="1" min="0" type="linear">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="1.0"/>
+</scaleY>
+<color>
+<step b="1.0" g="1.0" offset="0.0" r="1.0"/>
+<step b="0.0" g="0.0" offset="1.0" r="1.0"/>
+</color>
+</emitter>
+</system>

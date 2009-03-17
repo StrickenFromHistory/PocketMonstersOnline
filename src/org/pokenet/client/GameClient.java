@@ -18,6 +18,7 @@ import org.apache.mina.transport.socket.nio.SocketSessionConfig;
 import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.Font;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -29,10 +30,14 @@ import org.pokenet.client.backend.ClientMapMatrix;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
+import org.pokenet.client.backend.time.TimeService;
+import org.pokenet.client.backend.time.WeatherService;
+import org.pokenet.client.backend.time.WeatherService.Weather;
 import org.pokenet.client.network.ConnectionManager;
 import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
+import org.pokenet.client.ui.Ui;
 import org.pokenet.client.ui.frames.ChatDialog;
 
 /**
@@ -58,8 +63,10 @@ public class GameClient extends BasicGame {
 	//The gui display layer
 	private Display m_display;
 	private Font m_dpFontLarge, m_dpFontSmall;
-	//HUD
-	private ChatDialog m_chatWindow;
+	private WeatherService m_weather;
+	private TimeService m_time;
+	private Ui m_ui;
+	private Color m_daylight;
 	
 	/**
 	 * Default constructor
@@ -88,6 +95,12 @@ public class GameClient extends BasicGame {
 		Player.loadSpriteFactory();
 		
 		/*
+		 * Time/Weather Services
+		 */
+		m_time = new TimeService();
+		m_weather = new WeatherService();
+		
+		/*
 		 * Add the ui components
 		 */
 		m_loading = new LoadingScreen();
@@ -95,19 +108,15 @@ public class GameClient extends BasicGame {
 		
 		m_login = new LoginScreen();
 		m_display.add(m_login);
+		
+		m_ui = new Ui(m_display);
+		m_ui.setAllVisible(false);
 
 		/*
 		 * The animator and map matrix
 		 */
 		m_mapMatrix = new ClientMapMatrix();
 		m_animator = new Animator(m_mapMatrix);
-
-		// our chat window, gets shown on login
-        m_chatWindow = new ChatDialog(m_packetGen);
-        m_chatWindow.setLocation(594, 1);
-        m_chatWindow.setVisible(false);
-        m_chatWindow.setAlwaysOnTop(true);
-        m_display.add(m_chatWindow);
 		
 		m_instance = this;
 		gc.getInput().enableKeyRepeat(50, 300);
@@ -151,8 +160,22 @@ public class GameClient extends BasicGame {
 			m_animator.animate();
 		}
 		/*
-		 * Check if we need to update daylight
+		 * Update weather and daylight
 		 */
+		if(!m_isNewMap) {
+			int a = 0;
+			//Daylight
+			if(m_time.isNight()) {
+				m_time.updateDaylight();
+				a = m_time.getDaylight();
+			}
+			//Weather
+			if(m_weather.isEnabled() && m_weather.getWeather() != Weather.NORMAL) {
+				m_weather.getParticleSystem().update(delta);
+				a = a < 100 ? a + 60 : a;
+			}
+			m_daylight = new Color(0, 0, 0, a);
+		}
 	}
 
 	/**
@@ -195,9 +218,18 @@ public class GameClient extends BasicGame {
                      }
             }
             g.resetTransform();
+            
+            //Render the current weather
+            if(m_weather.isEnabled() && m_weather.getWeather() != Weather.NORMAL)
+            	m_weather.getParticleSystem().render();
+            //Render the current daylight
+            if(m_time.getDaylight() > 0 || m_weather.getWeather() != Weather.NORMAL) {
+            	g.setColor(m_daylight);
+            	g.fillRect(0, 0, 800, 600);
+            }
 		}
 		/*
-		 * Update the UI layer
+		 * Render the UI layer
 		 */
 		try {
 			synchronized(m_display) {
@@ -365,6 +397,22 @@ public class GameClient extends BasicGame {
 	}
 	
 	/**
+	 * Returns the weather service
+	 * @return
+	 */
+	public WeatherService getWeatherService() {
+		return m_weather;
+	}
+	
+	/**
+	 * Returns the time service
+	 * @return
+	 */
+	public TimeService getTimeService() {
+		return m_time;
+	}
+	
+	/**
 	 * Stores the player's id
 	 * @param id
 	 */
@@ -414,8 +462,7 @@ public class GameClient extends BasicGame {
 	 *  Enables the chat window
 	 */
 	public void showChat(){
-		m_chatWindow.setVisible(true);
-		m_chatWindow.setPacketGenerator(m_packetGen);
+		
 	}
 	
 	/**
@@ -424,5 +471,12 @@ public class GameClient extends BasicGame {
 	 */
 	public void setOurPlayer(OurPlayer pl) {
 		m_ourPlayer = pl;
+	}
+	
+	/**
+	 * Returns the user interface
+	 */
+	public Ui getUi() {
+		return m_ui;
 	}
 }

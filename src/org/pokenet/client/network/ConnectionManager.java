@@ -8,6 +8,7 @@ import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
+import org.pokenet.client.backend.time.WeatherService.Weather;
 
 /**
  * Handles packets received from the server
@@ -34,9 +35,18 @@ public class ConnectionManager extends IoHandlerAdapter {
 				"from the game server.");
 	}
 	
+	/**
+	 * Called when connected is made to the server
+	 */
 	public void sessionOpened(IoSession session) {
 		System.out.println("Connected to game server.");
 	}
+	
+	/**
+	 * Catches networking exceptions
+	 * @param session
+	 */
+	public void exceptionCaught(IoSession session, Throwable cause) {}
 
 	/**
 	 * Once a message is received, this method is called
@@ -63,6 +73,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 					break;
 				case 'U':
 					p.setDirection(Direction.Up);
+					break;
+				case 'S':
+					//Sprite change
+					p.setSprite(Integer.parseInt(message.substring(2)));
 					break;
 				}
 				p.loadSpriteImage();
@@ -188,9 +202,29 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getMapMatrix().removePlayer(Integer.parseInt(message.substring(2)));
 				break;
 			case 's':
-				//Set the map
+				//Set the map and weather
 				details = message.substring(2).split(",");
 				m_game.setMap(Integer.parseInt(details[0]), Integer.parseInt(details[1]));
+				switch(Integer.parseInt(details[2])) {
+				case 0:
+					m_game.getWeatherService().setWeather(Weather.NORMAL);
+					break;
+				case 1:
+					m_game.getWeatherService().setWeather(Weather.RAIN);
+					break;
+				case 2:
+					m_game.getWeatherService().setWeather(Weather.HAIL);
+					break;
+				case 3:
+					m_game.getWeatherService().setWeather(Weather.SANDSTORM);
+					break;
+				case 4:
+					m_game.getWeatherService().setWeather(Weather.FOG);
+					break;
+				default:
+					m_game.getWeatherService().setWeather(Weather.NORMAL);
+					break;
+				}
 				break;
 			}
 			break;
@@ -204,6 +238,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.setPlayerId(Integer.parseInt(details[0]));
 				m_game.showChat();
+				m_game.getTimeService().setTime(Integer.parseInt(details[1].substring(0, 2)), 
+						Integer.parseInt(details[1].substring(2)));
 				break;
 			case 'e':
 				//Error
@@ -222,10 +258,18 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().showLogin();
 				break;
-			case 'e':
-				//Error
-				JOptionPane.showMessageDialog(null, "An error occurred.\n " +
-						"Either the username already exists or the account server is offline.");
+			case '1':
+				//Account server offline
+				JOptionPane.showMessageDialog(null, "The account server is currently offline.\n" +
+						"Please try again later.");
+				m_game.getLoadingScreen().setVisible(false);
+				break;
+			case '2':
+				JOptionPane.showMessageDialog(null, "Username already taken.");
+				m_game.getLoadingScreen().setVisible(false);
+				break;
+			case '3':
+				JOptionPane.showMessageDialog(null, "Unkown error occurred. Please try again later.");
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			}
