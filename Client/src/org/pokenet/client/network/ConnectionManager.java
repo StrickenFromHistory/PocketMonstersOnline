@@ -1,7 +1,5 @@
 package org.pokenet.client.network;
 
-import javax.swing.JOptionPane;
-
 import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
 import org.pokenet.client.GameClient;
@@ -31,8 +29,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 	 */
 	public void sessionClosed(IoSession session) {
 		m_game.reset();
-		JOptionPane.showMessageDialog(null, "You have been disconnected\n" +
-				"from the game server.");
+		GameClient.getInstance().messageDialog("You have been disconnected\n" +
+				"from the game server.", GameClient.getInstance().getDisplay());
 	}
 	
 	/**
@@ -248,8 +246,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'e':
 				//Error
-				JOptionPane.showMessageDialog(null, "An error occurred.\n " +
-				"Make sure the username and password are correct.");
+				GameClient.getInstance().messageDialog("An error occurred.\n " +
+				"Make sure the username and password are correct.", GameClient.getInstance().getDisplay());
+				
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().enableLogin();
 				break;
@@ -259,22 +258,22 @@ public class ConnectionManager extends IoHandlerAdapter {
 			switch(message.charAt(1)) {
 			case 's':
 				//Sucessful registration
-				JOptionPane.showMessageDialog(null, "Successful registration. You may now login on any server.");
+				GameClient.getInstance().messageDialog("Successful registration. You may now login on any server.", GameClient.getInstance().getDisplay());
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().showLogin();
 				break;
 			case '1':
 				//Account server offline
-				JOptionPane.showMessageDialog(null, "The account server is currently offline.\n" +
-						"Please try again later.");
+				GameClient.getInstance().messageDialog("The account server is currently offline.\n" +
+						"Please try again later.", GameClient.getInstance().getDisplay());
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			case '2':
-				JOptionPane.showMessageDialog(null, "Username already taken.");
+				GameClient.getInstance().messageDialog("Username already taken.", GameClient.getInstance().getDisplay());
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			case '3':
-				JOptionPane.showMessageDialog(null, "Unkown error occurred. Please try again later.");
+				GameClient.getInstance().messageDialog("Unkown error occurred. Please try again later.", GameClient.getInstance().getDisplay());
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			}
