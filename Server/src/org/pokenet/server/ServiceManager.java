@@ -117,6 +117,7 @@ public class ServiceManager {
 		 */
 		m_networkService.start();
 		m_movementService.start();
+		m_timeService.start();
 		for(int i = 0; i < m_battleService.length; i++) {
 			m_battleService[i] = new BattleService();
 			m_battleService[i].start();
