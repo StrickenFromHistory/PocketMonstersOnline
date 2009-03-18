@@ -1,11 +1,14 @@
 package org.pokenet.client;
 
+import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
+import java.util.HashMap;
 import java.util.concurrent.Executors;
 
 import javax.swing.JOptionPane;
 
+import mdes.slick.sui.Container;
 import mdes.slick.sui.Display;
 
 import org.apache.mina.common.ConnectFuture;
@@ -24,6 +27,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.backend.Animator;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
@@ -38,7 +42,7 @@ import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
 import org.pokenet.client.ui.Ui;
-import org.pokenet.client.ui.frames.ChatDialog;
+import org.pokenet.client.ui.frames.messageDialog;
 
 /**
  * The game client
@@ -54,6 +58,7 @@ public class GameClient extends BasicGame {
 	private int m_mapX, m_mapY, m_playerId;
 	private PacketGenerator m_packetGen;
 	private Animator m_animator;
+	private static HashMap<String, String> options;
 	//Static variables
 	private static Font m_fontLarge, m_fontSmall;
 	private static String m_host;
@@ -68,6 +73,24 @@ public class GameClient extends BasicGame {
 	private Ui m_ui;
 	private Color m_daylight;
 	
+	/**
+	 * Load options
+	 */
+	static {
+		try {
+			options = new FileMuffin().loadFile("options.dat");
+			if (options == null) {
+				options = new HashMap<String,String>();
+				options.put("soundMuted", String.valueOf(false));
+			}
+			//soundPlayer = new SoundManager();
+			//soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
+			m_instance = new GameClient("Pokenet: Fearless Feebas");
+		} catch (IOException e) { 
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * Default constructor
 	 * @param title
@@ -332,7 +355,7 @@ public class GameClient extends BasicGame {
 	 */
 	public static void main(String [] args) {
 		try {
-			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet: Fearless Feebas"), 800, 600, false);
+			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet: Fearless Feebas"), 800, 600, Boolean.parseBoolean(options.get("fullScreen")));
 			gc.setTargetFrameRate(50);
 			gc.start();
 		} catch (Exception e) {
@@ -472,4 +495,38 @@ public class GameClient extends BasicGame {
 	public Ui getUi() {
 		return m_ui;
 	}
+	
+	/**
+	 * Returns the options
+	 */
+    public static HashMap<String, String> getOptions() {
+        return options;
+    }
+
+    /**
+     * Reloads options
+     */
+    public static void reloadOptions() {
+        try {
+        options = new FileMuffin().loadFile("options.dat");
+        if (options == null) options = new HashMap<String,String>();
+        } catch (Exception e) {
+                e.printStackTrace();
+                System.exit(32);
+        }
+    }
+    
+    /**
+     * Creates a message Box
+     */
+    public static void messageDialog(String message, Container container) {
+        new messageDialog(message.replace('~','\n'), container);
+    }
+    
+    /**
+     * Returns the display
+     */
+    public Display getDisplay(){
+    	return m_display;
+    }
 }
