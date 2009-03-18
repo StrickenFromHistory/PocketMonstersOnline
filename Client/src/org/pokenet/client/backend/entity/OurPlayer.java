@@ -8,6 +8,8 @@ package org.pokenet.client.backend.entity;
 public class OurPlayer extends Player {
 	private OurPokemon [] m_pokemon;
 	private Item [] m_items;
+    private String[] m_badges = new String[0];
+	private int m_money;
 	
 	/**
 	 * Default constructor
@@ -15,6 +17,8 @@ public class OurPlayer extends Player {
 	public OurPlayer() {
 		m_pokemon = new OurPokemon[6];
 		m_items = new Item[6];
+		m_badges = new String[0];
+		m_money = 0;
 	}
 	
 	/**
@@ -98,5 +102,27 @@ public class OurPlayer extends Player {
 	 */
 	public void setPokemon(int i, String [] information) {
 		
+	}
+	
+	/**
+	 * Returns the player's money
+	 * @return
+	 */
+	public int getMoney(){
+		return m_money;
+	}
+	
+	/**
+	 * Returns the player's pokemon team
+	 */
+	public OurPokemon [] getPokes(){
+		return m_pokemon;
+	}
+	
+	/**
+	 * Returns the player's badges
+	 */
+	public String [] getBadges(){
+		return m_badges;
 	}
 }

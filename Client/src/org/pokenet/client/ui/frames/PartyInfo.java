@@ -16,6 +16,7 @@ import org.newdawn.slick.Font;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.OurPokemon;
 import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.base.ProgressBar;
@@ -40,8 +41,8 @@ public class PartyInfo extends Frame {
          * @param ourPokes
          * @param out
          */
-        public PartyInfo(OurPokemon[] ourPokes, PacketGenerator out){
-                packetGen = out;
+        public PartyInfo(OurPokemon[] ourPokes){
+                packetGen = GameClient.getInstance().getPacketGenerator();
                 m_pokes = ourPokes;
                 loadImages(ourPokes);
                 initGUI();
