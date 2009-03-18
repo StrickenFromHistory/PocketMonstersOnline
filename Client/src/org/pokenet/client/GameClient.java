@@ -81,6 +81,7 @@ public class GameClient extends BasicGame {
 	 */
 	@Override
 	public void init(GameContainer gc) throws SlickException {
+		m_instance = this;
 		gc.getGraphics().setWorldClip(-32, -32, 832, 832);
 		gc.setShowFPS(false);
 		m_display = new Display(gc);
@@ -118,7 +119,6 @@ public class GameClient extends BasicGame {
 		m_mapMatrix = new ClientMapMatrix();
 		m_animator = new Animator(m_mapMatrix);
 		
-		m_instance = this;
 		gc.getInput().enableKeyRepeat(50, 300);
 	}
 

@@ -8,11 +8,9 @@ import mdes.slick.sui.event.ActionListener;
 import mdes.slick.sui.event.MouseAdapter;
 import mdes.slick.sui.event.MouseEvent;
 
-import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Font;
 import org.pokenet.client.GameClient;
-import org.pokenet.client.network.PacketGenerator;
 
 
 /**
@@ -35,8 +33,10 @@ public class ChatDialog extends Frame {
          * Default constructor
          * @param packet
          */
-        public ChatDialog(String packet) {
+        public ChatDialog(String packet, String name) {
                 super();
+                this.setTitle(name);
+                this.setName(name);
                 m_packet = packet;
                 initGUI();
         }
@@ -45,10 +45,10 @@ public class ChatDialog extends Frame {
          * Initializes the user interface
          */
         private void initGUI() {
-                this.setMinimumSize(206, 200);
+                this.setMinimumSize(206, 160);
+                this.setLocation(48, 0);
                 try {
-                        m_dpFont = new AngelCodeFont("/res/fonts/dp-small.fnt", "/res/fonts/dp-small.png");
-                        setTitle("Chat");
+                        m_dpFont = GameClient.getFontSmall();
                         this.setBackground(new Color(0, 0, 0, 85));
                         this.setForeground(new Color(255, 255, 255));
                         {
@@ -78,7 +78,7 @@ public class ChatDialog extends Frame {
                                         repositionUI();
                                 }
                         });
-                        setSize(206, 500);
+                        setSize(206, 320);
                         repositionUI();
                         m_chatType.grabFocus();
                 } catch (Exception e) {
@@ -129,7 +129,7 @@ public class ChatDialog extends Frame {
         
         
         /**
-         * Not sure what it does? Someone who understands it better doc it!
+         * Autoscrolls if window is full
          */
         private void checkChatWindow() {
                 try {
@@ -148,6 +148,5 @@ public class ChatDialog extends Frame {
                 catch ( Exception e) { 
                         e.printStackTrace();
                 }
-                
         }
 }
