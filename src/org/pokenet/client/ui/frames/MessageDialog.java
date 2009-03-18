@@ -8,8 +8,8 @@ import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
 
-public class messageDialog extends Frame{
-        public messageDialog(String message, Container container){
+public class MessageDialog extends Frame{
+        public MessageDialog(String message, Container container){
                 Container label = new Container();
                 String[] lines = message.split("\n");
                 
