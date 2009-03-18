@@ -165,10 +165,8 @@ public class GameClient extends BasicGame {
 		if(!m_isNewMap) {
 			int a = 0;
 			//Daylight
-			if(m_time.isNight()) {
-				m_time.updateDaylight();
-				a = m_time.getDaylight();
-			}
+			m_time.updateDaylight();
+			a = m_time.getDaylight();
 			//Weather
 			if(m_weather.isEnabled() && m_weather.getWeather() != Weather.NORMAL) {
 				m_weather.getParticleSystem().update(delta);
