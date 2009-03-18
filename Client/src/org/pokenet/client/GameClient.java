@@ -42,7 +42,7 @@ import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
 import org.pokenet.client.ui.Ui;
-import org.pokenet.client.ui.frames.messageDialog;
+import org.pokenet.client.ui.frames.MessageDialog;
 
 /**
  * The game client
@@ -520,7 +520,7 @@ public class GameClient extends BasicGame {
      * Creates a message Box
      */
     public static void messageDialog(String message, Container container) {
-        new messageDialog(message.replace('~','\n'), container);
+        new MessageDialog(message.replace('~','\n'), container);
     }
     
     /**
