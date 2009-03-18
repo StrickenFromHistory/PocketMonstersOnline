@@ -241,6 +241,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoginScreen().setVisible(false);
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.setPlayerId(Integer.parseInt(details[0]));
+				m_game.getUi().setVisible(true);
 				m_game.getUi().getLocalChat().setVisible(true);
 				m_game.getTimeService().setTime(Integer.parseInt(details[1].substring(0, 2)), 
 						Integer.parseInt(details[1].substring(2)));

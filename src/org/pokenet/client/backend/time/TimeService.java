@@ -1,5 +1,8 @@
 package org.pokenet.client.backend.time;
 
+import org.newdawn.slick.Color;
+import org.pokenet.client.GameClient;
+
 import mdes.slick.sui.Label;
 
 /**
@@ -16,6 +19,11 @@ public class TimeService extends Label implements Runnable {
 	 */
 	public TimeService() {
 		super("00:00");
+		this.pack();
+		this.setLocation(4, 4);
+		this.setVisible(true);
+		this.setFont(GameClient.getFontSmall());
+		this.setForeground(new Color(255, 255, 255));
 		m_thread = new Thread(this);
 	}
 	

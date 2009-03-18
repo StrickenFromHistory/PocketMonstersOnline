@@ -2,6 +2,8 @@ package org.pokenet.client.ui;
 
 import java.util.ArrayList;
 
+import org.newdawn.slick.Color;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.base.ImageButton;
 import org.pokenet.client.ui.frames.ChatDialog;
 import org.pokenet.client.ui.frames.FriendListDialog;
@@ -26,12 +28,15 @@ public class Ui extends Frame {
 	 * Default constructor
 	 */
 	public Ui(Display display) {
-		this.setSize(48, 160);
-		this.setLocation(0, 0);
+		this.setSize(48, 256);
+		this.setLocation(0, -24);
+		this.setBackground(new Color(0, 0, 0, 75));
+		this.setResizable(false);
+		this.setDraggable(false);
 		
 		m_display = display;
 		
-		m_localChat = new ChatDialog("Cl");
+		m_localChat = new ChatDialog("Cl", "Chat: Local");
 		m_privateChat = new ArrayList<ChatDialog>();
 		
 		m_buttons = new ImageButton[6];
@@ -40,6 +45,7 @@ public class Ui extends Frame {
 			m_buttons[i].setSize(32, 32);
 			m_buttons[i].setLocation(8, (32 * i + 1) + 4);
 		}
+		this.add(GameClient.getInstance().getTimeService());
 		
 		this.getTitleBar().setVisible(false);
 		
@@ -70,11 +76,16 @@ public class Ui extends Frame {
 					 */
 					if(m_privateChat.get(i).isVisible())
 						return;
-					else
-						break;
+					else {
+						NotificationManager.addNotification("Message from " + details[0]);
+						return;
+					}
 				}
 			}
-			NotificationManager.addNotification("Message from " + details[0]);
+			//If not found, open up a new chat window
+			ChatDialog c = new ChatDialog("Cp" + details[0] + ",", "Chat: " + details[0]);
+			m_privateChat.add(c);
+			m_display.add(c);
 			break;
 		}
 	}
@@ -86,6 +97,18 @@ public class Ui extends Frame {
 	public void setAllVisible(boolean b) {
 		this.setVisible(b);
 		m_localChat.setVisible(b);
+		for(int i = 0; i < m_privateChat.size(); i++) {
+			m_privateChat.get(i).setVisible(b);
+		}
+	}
+	
+	/**
+	 * Opens up all private chats
+	 */
+	public void showPrivateChatWindows() {
+		for(int i = 0; i < m_privateChat.size(); i++) {
+			m_privateChat.get(i).setVisible(true);
+		}
 	}
 	
 	/**

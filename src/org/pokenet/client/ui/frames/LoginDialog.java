@@ -19,7 +19,7 @@ public class LoginDialog extends Frame {
 	private TextField m_username, m_password;
 	private Label m_userLabel, m_passLabel;
 	private Button m_login, m_register;
-	private Color m_bg, m_white;
+	private Color m_white;
 	
 	/**
 	 * Default constructor
