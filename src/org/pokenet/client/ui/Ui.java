@@ -2,15 +2,15 @@ package org.pokenet.client.ui;
 
 import java.util.ArrayList;
 
+import mdes.slick.sui.Display;
+import mdes.slick.sui.Frame;
+
 import org.newdawn.slick.Color;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.base.ImageButton;
 import org.pokenet.client.ui.frames.ChatDialog;
 import org.pokenet.client.ui.frames.FriendListDialog;
-
-import mdes.slick.sui.Button;
-import mdes.slick.sui.Display;
-import mdes.slick.sui.Frame;
+import org.pokenet.client.ui.frames.MainHUD;
 
 /**
  * The main ui on screen
@@ -23,6 +23,7 @@ public class Ui extends Frame {
 	private ArrayList<ChatDialog> m_privateChat;
 	private ImageButton [] m_buttons;
 	private Display m_display;
+	private MainHUD m_hud;
 	
 	/**
 	 * Default constructor
@@ -117,5 +118,16 @@ public class Ui extends Frame {
 	 */
 	public ChatDialog getLocalChat() {
 		return m_localChat;
+	}
+	
+	/**
+	 * Starts the HUD
+	 */
+	public void startHUD() {
+		System.out.println("HUD Started");
+		m_hud = new MainHUD();
+		m_hud.setAlwaysOnTop(true);
+		m_hud.setVisible(true);
+		m_display.add(m_hud);
 	}
 }
