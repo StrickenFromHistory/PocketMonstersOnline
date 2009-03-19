@@ -4,13 +4,23 @@ import java.util.ArrayList;
 
 import mdes.slick.sui.Display;
 import mdes.slick.sui.Frame;
+import mdes.slick.sui.Label;
+import mdes.slick.sui.event.ActionEvent;
+import mdes.slick.sui.event.ActionListener;
 
 import org.newdawn.slick.Color;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.entity.Item;
+import org.pokenet.client.ui.base.HUDButtonFactory;
 import org.pokenet.client.ui.base.ImageButton;
+import org.pokenet.client.ui.base.ListBox;
+import org.pokenet.client.ui.frames.BagDialog;
 import org.pokenet.client.ui.frames.ChatDialog;
 import org.pokenet.client.ui.frames.FriendListDialog;
-import org.pokenet.client.ui.frames.MainHUD;
+import org.pokenet.client.ui.frames.HelpWindow;
+import org.pokenet.client.ui.frames.OptionsDialog;
+import org.pokenet.client.ui.frames.PartyInfo;
+import org.pokenet.client.ui.frames.RequestWindow;
 
 /**
  * The main ui on screen
@@ -23,7 +33,14 @@ public class Ui extends Frame {
 	private ArrayList<ChatDialog> m_privateChat;
 	private ImageButton [] m_buttons;
 	private Display m_display;
-	private MainHUD m_hud;
+	private Label m_moneyLabel = new Label();
+    private OptionsDialog m_optionsForm;
+    private RequestWindow m_requestsForm;
+    private HelpWindow m_helpForm;
+    private Frame m_bagForm;
+    private PartyInfo m_teamInfo;
+    private boolean m_isOption;
+    private static final int UI_WIDTH = 32*7;
 	
 	/**
 	 * Default constructor
@@ -40,18 +57,145 @@ public class Ui extends Frame {
 		m_localChat = new ChatDialog("Cl", "Chat: Local");
 		m_privateChat = new ArrayList<ChatDialog>();
 		
-		m_buttons = new ImageButton[6];
-		for(int i = 0; i < m_buttons.length; i++) {
-			m_buttons[i] = new ImageButton();
-			m_buttons[i].setSize(32, 32);
-			m_buttons[i].setLocation(8, (32 * i + 1) + 4);
-		}
+		startButtons();
+
+        m_moneyLabel.setFont(GameClient.getFontSmall());
+        m_moneyLabel.setLocation(7, 175);
+        m_moneyLabel.setVisible(true);
+        m_moneyLabel.setForeground(Color.white);
+		
 		this.add(GameClient.getInstance().getTimeService());
 		
 		this.getTitleBar().setVisible(false);
-		
+
+		m_localChat.setLocation(GameClient.getInstance().getDisplay().getWidth()
+				- m_localChat.getWidth(), 0);
 		m_display.add(m_localChat);
 		m_display.add(this);
+	}
+	
+	public void startButtons(){
+		m_buttons = new ImageButton[5];
+		
+		m_buttons[0] = HUDButtonFactory.getButton("requests");
+		m_buttons[0].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (getDisplay().containsChild(m_requestsForm)) {
+					getDisplay().remove(m_requestsForm);      
+					hideHUD();
+				} else {
+					hideHUD();
+					m_requestsForm = new RequestWindow();
+					m_requestsForm.setWidth(UI_WIDTH);
+					m_requestsForm.setLocation(48, 0);
+					m_requestsForm.setPokeData(GameClient.getInstance().getOurPlayer()
+							.getPokemon());
+					getDisplay().add(m_requestsForm);
+				}
+			}
+		});
+
+		m_buttons[1] = HUDButtonFactory.getButton("bag");
+        m_buttons[1].addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if (m_bagForm != null) {
+        			getDisplay().remove(m_bagForm);
+        			hideHUD();
+        		} else {
+        			hideHUD();
+        			m_bagForm = new Frame();
+        			BagDialog pane = new BagDialog(
+        					GameClient.getInstance().getOurPlayer().getItems()) {
+        				public void itemClicked(Item item) {
+        					GameClient.getInstance().getPacketGenerator().write("u" + 
+        							item.getName());
+        				}
+        				public void cancelled() {
+        					m_bagForm.setVisible(false);
+        				}
+        			};
+        			pane.setSize(UI_WIDTH, 300);
+        			pane.pack();
+        			
+        			ListBox badges = new ListBox(
+        					GameClient.getInstance().getOurPlayer().getBadges());
+        			badges.setSize(UI_WIDTH, 200);
+        			badges.pack();
+        			m_bagForm.getTitleBar().getCloseButton().setVisible(false);
+        			m_bagForm.getContentPane().add(badges);
+        			m_bagForm.getContentPane().add(pane);
+        			badges.setLocation(0, 300);
+        			m_bagForm.setSize(pane.getWidth(), 
+        					pane.getHeight() + badges.getHeight() + m_bagForm.getTitleBar().getHeight());
+        			getDisplay().add(m_bagForm);
+        			m_bagForm.setLocation(48, 0);
+        		}
+        	}
+        });
+        getContentPane().add(m_buttons[1]);
+        
+        m_buttons[2] = HUDButtonFactory.getButton("pokemon");
+        m_buttons[2].addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if (m_teamInfo != null) {
+        			getDisplay().remove(m_teamInfo);
+        			hideHUD();
+        		} else {
+        			hideHUD();
+        			m_teamInfo = new PartyInfo(GameClient.getInstance().getOurPlayer()
+        					.getPokes());
+        			m_teamInfo.setWidth(UI_WIDTH);
+        			m_teamInfo.setLocation(48, 0);
+        			getDisplay().add(m_teamInfo);
+        		}
+        	}
+        });
+        
+        m_buttons[3] = HUDButtonFactory.getButton("options");
+        m_buttons[3].addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if (m_optionsForm != null) {
+        			m_isOption = false;
+        			getDisplay().remove(m_optionsForm);
+        			hideHUD();
+        		} else {
+        			hideHUD();
+        			m_isOption = true;
+        			m_optionsForm = new OptionsDialog();
+        			m_optionsForm.setWidth(UI_WIDTH);
+        			m_optionsForm.setLocation(48, 0);
+        			getDisplay().add(m_optionsForm);
+        		}
+        	}
+        });
+        
+        m_buttons[4] = HUDButtonFactory.getButton("help");
+        m_buttons[4].addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if (m_helpForm != null) { // if we're on help, then just hide all
+        			getDisplay().remove(m_helpForm);
+        			hideHUD();
+        		} else {
+        			hideHUD();
+        			m_helpForm = new HelpWindow();
+        			m_helpForm.setWidth(UI_WIDTH);
+        			m_helpForm.setHeight(300);
+        			m_helpForm.setLocation(48, 0);
+        			getDisplay().add(m_helpForm);
+        		}
+        	}
+        });
+        
+        for (int i = 0; i < m_buttons.length; i++){
+        	m_buttons[i].pack();
+        	getContentPane().add(m_buttons[i]);
+        }
+        
+		m_buttons[0].setLocation(7, 22);
+		m_buttons[1].setLocation(7, 22 + 32 + 5);
+		m_buttons[2].setLocation(7, 22 + 64 + 10);
+		m_buttons[3].setLocation(7, 22 + 96 + 15);
+		m_buttons[4].setLocation(7, 22 + 128 + 20);
 	}
 	
 	/**
@@ -120,14 +264,63 @@ public class Ui extends Frame {
 		return m_localChat;
 	}
 	
-	/**
-	 * Starts the HUD
-	 */
-	public void startHUD() {
-		System.out.println("HUD Started");
-		m_hud = new MainHUD();
-		m_hud.setAlwaysOnTop(true);
-		m_hud.setVisible(true);
-		m_display.add(m_hud);
-	}
+    /**
+     * Updates the data
+     * @param p
+     */
+    public void update(){
+            m_moneyLabel.setText("$" + GameClient.getInstance().getOurPlayer().getMoney());
+            m_moneyLabel.pack();
+            m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokes());
+    }
+    
+    /**
+     * Returns true if a pane is being shown
+     * @return
+     */
+    public boolean isOccupied() {
+                    return ( (m_optionsForm != null && m_optionsForm.isVisible())
+                                    || (m_bagForm != null && m_bagForm.isVisible()) ||
+                                    (m_teamInfo != null && m_teamInfo.isVisible()));
+    }
+    
+    /**
+     * ????
+     * @return
+     */
+    public boolean isOption() {
+            return m_isOption;
+    }
+    
+    /**
+     * Returns the options form
+     * @return
+     */
+    public OptionsDialog getOptionPane() {
+            return m_optionsForm;
+    }
+    
+    /**
+     * Returns the request window
+     * @return
+     */
+    public RequestWindow getReqWindow() {
+            return m_requestsForm;
+    }
+    
+    /**
+     * Hides all HUD elements
+     */
+    private void hideHUD() {
+            if (m_requestsForm != null) m_requestsForm.setVisible(false);
+            m_requestsForm = null;
+            if (m_bagForm != null) m_bagForm.setVisible(false);
+            m_bagForm = null;
+            if (m_teamInfo != null) m_teamInfo.setVisible(false);
+            m_teamInfo = null;
+            if (m_optionsForm != null) m_optionsForm.setVisible(false);
+            m_optionsForm = null;
+            if (m_helpForm != null) m_helpForm.setVisible(false);
+            m_helpForm = null;
+    }
 }
