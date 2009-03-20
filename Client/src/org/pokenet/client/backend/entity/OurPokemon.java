@@ -81,18 +81,18 @@ public class OurPokemon extends Pokemon {
                                 gender = 3;
 
                         try {
-                                path = "/res/sprites/back/" + isShiny + index + "-"
+                                path = "/res/pokemon/back/" + isShiny + index + "-"
                                 + String.valueOf(gender) + ".gif";
                                 System.out.println(path);
                                 m_backSprite = new Image(path.toString()).getSubImage(0, 0, 80, 80);
                         }
                         catch (Exception e) {
                                 if (gender == 3) {
-                                        path = "/res/sprites/back/" + isShiny + index + "-2"
+                                        path = "/res/pokemon/back/" + isShiny + index + "-2"
                                         + ".gif";
                                 }
                                 else {
-                                        path = "/res/sprites/back/" + isShiny + index + "-3"
+                                        path = "/res/pokemon/back/" + isShiny + index + "-3"
                                         + ".gif";
                                 }
                                 m_backSprite = new Image(path.toString()).getSubImage(0, 0, 80, 80);
