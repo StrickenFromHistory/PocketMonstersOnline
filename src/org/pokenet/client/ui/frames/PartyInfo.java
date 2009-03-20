@@ -21,6 +21,11 @@ import org.pokenet.client.backend.entity.OurPokemon;
 import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.base.ProgressBar;
 
+/**
+ * Party information frame
+ * @author ZombieBear
+ *
+ */
 public class PartyInfo extends Frame {
 	Container[] m_container = new Container[6];
 	Label[] m_pokeBall = new Label[6];
@@ -30,7 +35,6 @@ public class PartyInfo extends Frame {
 	ProgressBar[] m_hp = new ProgressBar[6];
 	Button[] m_switchUp = new Button[6];
 	Button[] m_switchDown = new Button[6];
-	Font m_dpFont;
 
 	OurPokemon[] m_pokes;
 
@@ -51,13 +55,8 @@ public class PartyInfo extends Frame {
 	 */
 	public void initGUI() {
 		int y = 0;
-		try {
-			m_dpFont = GameClient.getFontSmall();
-		} catch (Exception e) {
-			System.out.println("Could not load TeamInfo font");
-		}
 		this.getTitleBar().getCloseButton().setVisible(false);
-		this.setFont(m_dpFont);
+		this.setFont(GameClient.getFontSmall());
 		this.setBackground(new Color(0, 0, 0, 85));
 		this.setForeground(new Color(255, 255, 255));
 		for (int i = 0; i < 6; i++) {
@@ -70,10 +69,10 @@ public class PartyInfo extends Frame {
 			y += 41;
 			getContentPane().add(m_container[i]);
 			m_container[i].setOpaque(true);
-			try {
+/*			try {
 				m_container[i].add(m_pokeBall[i]);
 				m_pokeBall[i].setLocation(4, 4);
-				m_pokeName[i].setFont(m_dpFont);
+				m_pokeName[i].setFont(GameClient.getFontSmall());
 				m_pokeName[i].setForeground(new Color(255, 255, 255));
 				m_pokeName[i].addMouseListener(new MouseAdapter() {
 
@@ -104,7 +103,7 @@ public class PartyInfo extends Frame {
 				m_container[i].add(m_pokeName[i]);
 				m_pokeName[i].setLocation(42, 5);
 				m_container[i].add(m_level[i]);
-				m_level[i].setFont(m_dpFont);
+				m_level[i].setFont(GameClient.getFontSmall());
 				m_level[i].setForeground(new Color(255, 255, 255));
 				m_level[i].setLocation(m_pokeName[i].getX()
 						+ m_pokeName[i].getWidth() + 10, m_pokeName[i].getY());
@@ -142,9 +141,10 @@ public class PartyInfo extends Frame {
 
 				}
 			} catch (NullPointerException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
-		}
+*/		}
+		
 		this.getTitleBar().setGlassPane(true);
 		this.setResizable(false);
 		this.setSize(170, 288);
@@ -176,6 +176,7 @@ public class PartyInfo extends Frame {
 				m_pokeBall[i].setImage(new Image("/res/ui/Pokeball.gif"));
 				m_pokeBall[i].setSize(30, 30);
 			} catch (SlickException e) {
+				System.out.println("Couldn't load pokeball");
 			}
 			try {
 				if (pokes[i] != null) {
