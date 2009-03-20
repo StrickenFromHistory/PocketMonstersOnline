@@ -59,10 +59,13 @@ public class Ui extends Frame {
 		
 		startButtons();
 
-        m_moneyLabel.setFont(GameClient.getFontSmall());
-        m_moneyLabel.setLocation(7, 175);
-        m_moneyLabel.setVisible(true);
-        m_moneyLabel.setForeground(Color.white);
+		m_moneyLabel.setText("$100");
+		m_moneyLabel.pack();
+		m_moneyLabel.setLocation(4, 205);
+		m_moneyLabel.setVisible(true);
+		m_moneyLabel.setFont(GameClient.getFontSmall());
+		m_moneyLabel.setForeground(new Color(255, 255, 255));
+		this.add(m_moneyLabel);
 		
 		this.add(GameClient.getInstance().getTimeService());
 		
@@ -90,6 +93,7 @@ public class Ui extends Frame {
 					m_requestsForm.setLocation(48, 0);
 					m_requestsForm.setPokeData(GameClient.getInstance().getOurPlayer()
 							.getPokemon());
+					m_requestsForm.setDraggable(false);
 					getDisplay().add(m_requestsForm);
 				}
 			}
@@ -104,6 +108,9 @@ public class Ui extends Frame {
         		} else {
         			hideHUD();
         			m_bagForm = new Frame();
+        			m_bagForm.setBackground(new Color(0, 0, 0, 70));
+        			m_bagForm.setResizable(false);
+        			m_bagForm.setDraggable(false);
         			BagDialog pane = new BagDialog(
         					GameClient.getInstance().getOurPlayer().getItems()) {
         				public void itemClicked(Item item) {
@@ -129,6 +136,7 @@ public class Ui extends Frame {
         					pane.getHeight() + badges.getHeight() + m_bagForm.getTitleBar().getHeight());
         			getDisplay().add(m_bagForm);
         			m_bagForm.setLocation(48, 0);
+        			m_bagForm.setDraggable(false);
         		}
         	}
         });
@@ -146,6 +154,7 @@ public class Ui extends Frame {
         					.getPokes());
         			m_teamInfo.setWidth(UI_WIDTH);
         			m_teamInfo.setLocation(48, 0);
+        			m_teamInfo.setDraggable(false);
         			getDisplay().add(m_teamInfo);
         		}
         	}
@@ -164,6 +173,7 @@ public class Ui extends Frame {
         			m_optionsForm = new OptionsDialog();
         			m_optionsForm.setWidth(UI_WIDTH);
         			m_optionsForm.setLocation(48, 0);
+        			m_optionsForm.setDraggable(false);
         			getDisplay().add(m_optionsForm);
         		}
         	}
@@ -269,7 +279,8 @@ public class Ui extends Frame {
      * @param p
      */
     public void update(){
-            m_moneyLabel.setText("$" + GameClient.getInstance().getOurPlayer().getMoney());
+            m_moneyLabel.setText("$" + String.valueOf(GameClient.getInstance()
+            		.getOurPlayer().getMoney()));
             m_moneyLabel.pack();
             m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokes());
     }

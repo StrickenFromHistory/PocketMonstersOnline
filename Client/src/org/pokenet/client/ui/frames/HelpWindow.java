@@ -50,7 +50,7 @@ public class HelpWindow extends Frame{
             helptext.setWrapEnabled(true);
             this.setSize(360, 460);
             this.add(helptext);
-           
+            setDraggable(false);
     }
        
     /**
