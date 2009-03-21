@@ -31,7 +31,6 @@ public class TimeService extends Label implements Runnable {
 	 * Called by thread.start()
 	 */
 	public void run() {
-		System.out.println("Running");
 		String min;
 		String hour;
 		while(true) {
