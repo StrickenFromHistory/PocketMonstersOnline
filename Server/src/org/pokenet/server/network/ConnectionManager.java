@@ -11,7 +11,7 @@ import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 
 /**
- * Handles packets recieved from the player
+ * Handles packets received from the player
  * @author shadowkanji
  *
  */
