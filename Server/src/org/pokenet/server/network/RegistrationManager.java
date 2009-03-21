@@ -30,6 +30,7 @@ public class RegistrationManager implements Runnable {
 	 * Constructor
 	 */
 	public RegistrationManager() {
+		m_database = new MySqlManager();
 		m_thread = new Thread(this);
 		m_queue = new ConcurrentLinkedQueue<IoSession>();
 	}

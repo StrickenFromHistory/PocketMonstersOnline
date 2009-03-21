@@ -5,7 +5,7 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset firstgid="1" source="../../../PokenetServer/res/maps/normal1.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
  <layer name="Walkable" width="20" height="20">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAGNiYGBgGsWjeBSP4lE8iknEAC9MrVpABgAA

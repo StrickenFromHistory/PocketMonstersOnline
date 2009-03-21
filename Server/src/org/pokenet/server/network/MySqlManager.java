@@ -77,7 +77,7 @@ public class MySqlManager {
      * @return
      */
     public ResultSet query(String query){
-        //Create Stament object
+        //Create Statement object
         Statement stmt;
         
         /*
@@ -88,13 +88,13 @@ public class MySqlManager {
          *
          * Or...
          * 
-         * Detect whether this is a SELECT statment and use the executeQuery()
+         * Detect whether this is a SELECT statement and use the executeQuery()
          * Function. 
          * 
         */  
         
         if (query.startsWith("SELECT")) {
-            //Use the "executeQuery" function becuase we have to retrive data
+            //Use the "executeQuery" function because we have to retrieve data
             //Return the data as a resultset
             try{
                 //Execute Query
