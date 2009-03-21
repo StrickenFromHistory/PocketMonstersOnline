@@ -31,6 +31,7 @@ public class TimeService extends Label implements Runnable {
 	 * Called by thread.start()
 	 */
 	public void run() {
+		System.out.println("Running");
 		String min;
 		String hour;
 		while(true) {
@@ -132,12 +133,11 @@ public class TimeService extends Label implements Runnable {
 			m_daylight = 175;
 			m_targetDaylight = 175;
 		}
+		this.setText(hour + ":" + minutes);
 		
-		//If the clock is running, stop it and start again
-		try {
-			//Not supposed to use stop() but it doesn't effect much here
-			m_thread.stop();
-		} catch (Exception e) {}
+		// Stop was causing this next part not to work for some reason...
+		// hopefully this doesn't cause any problems if setTime gets called
+		// in the future
 		m_thread.start();
 	}
 	
