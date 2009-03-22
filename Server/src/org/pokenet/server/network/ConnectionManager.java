@@ -115,8 +115,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 				switch(((String) msg).charAt(1)) {
 				case 'l':
 					//Local chat
-					GameServer.getServiceManager().getNetworkService().getChatManager().
-						queueLocalChatMessage("<" + p.getName() + "> " + ((String) msg).substring(2), p.getMapX(), p.getMapY());
+					// See if there are any Moderator commands to deal with
+					if (!GameServer.getServiceManager().getNetworkService().getModerationManager().
+						processModeratorCommands(((String) msg).substring(2), p))
+							// No commands, just chat
+							GameServer.getServiceManager().getNetworkService().getChatManager().
+								queueLocalChatMessage("<" + p.getName() + "> " + ((String) msg).substring(2), p.getMapX(), p.getMapY());
 					break;
 				case 'p':
 					//Private chat

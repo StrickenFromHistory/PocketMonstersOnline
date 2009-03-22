@@ -27,7 +27,7 @@ public class ServiceManager {
 	 */
 	public ServiceManager() {
 		/*
-		 * Initialise all the services
+		 * Initialize all the services
 		 */
 		m_jythonService = new JythonService();
 		m_timeService = new TimeService();

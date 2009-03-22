@@ -23,6 +23,7 @@ public class NetworkService {
 	private LogoutManager m_logoutManager;
 	private IoAcceptor m_acceptor;
 	private ChatManager [] m_chatManager;
+	private ModerationManager m_moderationManager;
 	
 	/**
 	 * Default constructor
@@ -31,6 +32,7 @@ public class NetworkService {
 		m_logoutManager = new LogoutManager();
 		m_loginManager = new LoginManager(m_logoutManager);
 		m_chatManager = new ChatManager[3];
+		m_moderationManager = new ModerationManager();
 		m_connectionManager = new ConnectionManager(m_loginManager, m_logoutManager);
 	}
 	
@@ -61,6 +63,14 @@ public class NetworkService {
 				smallest = i;
 		}
 		return m_chatManager[smallest];
+	}
+	
+	/**
+	 * Returns the moderation manager
+	 * @return
+	 */
+	public ModerationManager getModerationManager() {
+		return m_moderationManager;
 	}
 	
 	/**
