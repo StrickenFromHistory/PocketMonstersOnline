@@ -22,7 +22,40 @@ import org.pokenet.client.ui.base.ProgressBar;
 public class BattleWindow extends Frame {
 	static final long serialVersionUID = -4351471892179339349L;
 
-	private Button cancel;
+	public Container confirmPane;
+//	public Container battleBG;
+	public Container endPane;
+	public Container attackPane;
+	public Container pokesContainer;
+	public Button move1;
+	public Button move2;
+	public Button move3;
+	public Button move4;
+	public Label info1;
+	public Label info2;
+	public Label info3;
+	public Label info4;
+	public Label info5;
+	public Label info6;
+	public Label pp1;
+	public Label pp2;
+	public Label pp3;
+	public Label pp4;
+	public Button pokeCancelBtn;
+	public Button pokeBtn1;
+	public Button pokeBtn2;
+	public Button pokeBtn3;
+	public Button pokeBtn4;
+	public Button pokeBtn5;
+	public Button pokeBtn6;
+	public Button jBtnPoke;
+	public Button jBtnBag;
+	public Button jBtnRun;
+	public Label shouldReplace;
+	public Button yes;
+	public Button no;
+	public Button cancel;
+	public Button close;
 	private boolean isWild;
 
 	/**
@@ -45,7 +78,7 @@ public class BattleWindow extends Frame {
 		this.setBackground(new Color(0, 0, 0, 0));
 		Label bg = null;
 		try {
-			bg = new Label(new Image("pokeglobal/client/res/battle/bg.png"));
+			bg = new Label(new Image("/res/ui/bg.png"));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
@@ -54,7 +87,7 @@ public class BattleWindow extends Frame {
 		bg.setLocation(0, 150);
 		getContentPane().add(bg);
 
-		battleBG = new Container();
+		//battleBG = new Container();
 
 		attackPane = new Container();
 		attackPane.setBackground(new Color(0, 0, 0, 0));
@@ -90,10 +123,10 @@ public class BattleWindow extends Frame {
 
 		setResizable(false);
 
-		getContentPane().add(battleBG);
-		battleBG.setBounds(0, 1, 257, 105);
-		battleBG.setSize(257, 144);
-		battleBG.setVisible(true);
+		//getContentPane().add(battleBG);
+		//battleBG.setBounds(0, 1, 257, 105);
+		//battleBG.setSize(257, 144);
+		//battleBG.setVisible(true);
 
 		this.getTitleBar().setVisible(false);
 
@@ -380,38 +413,110 @@ public class BattleWindow extends Frame {
 		int y = (height / 2) - 238;
 		this.setBounds(x, y, 259, 475);
 	}
+	
+	/**
+	 * Switches to attack pane
+	 */
+	public void setAttackPane(){
+		
+	}
+	
+	/**
+	 * Disables moves
+	 */
+	public void disableMoves(){
+		move1.setEnabled(false);
+		move2.setEnabled(false);
+		move3.setEnabled(false);
+		move4.setEnabled(false);
+		
+	    pp1.setEnabled(false);
+	    pp2.setEnabled(false);
+	    pp3.setEnabled(false);
+	    pp4.setEnabled(false);
+		
+        jBtnPoke.setEnabled(false);
+        jBtnBag.setEnabled(false);
+        jBtnRun.setEnabled(false);
+        
+        cancel.setVisible(false);
+	}
+	
+	/**
+	 * Enables moves
+	 */
+	public void enableMoves(){
+        if (!move1.getText().equals("")) {
+            move1.setEnabled(true);
+            pp1.setEnabled(true);
+        }
+        if (!move2.getText().equals("")) {
+            move2.setEnabled(true);
+            pp2.setEnabled(true);
+        }       
+        if (!move3.getText().equals("")) {
+                move3.setEnabled(true);
+                pp3.setEnabled(true);
+        }
+        if (!move4.getText().equals("")) {
+                move4.setEnabled(true);
+                pp4.setEnabled(true);
+        }
+        cancel.setVisible(false);
+        
+        jBtnPoke.setEnabled(true);
+        jBtnBag.setEnabled(true);
+        if(!isWild) {
+                jBtnRun.setEnabled(false);
+        }
+        else {
+                jBtnRun.setEnabled(true);
+        }
 
-	private Container confirmPane;
-	private Container battleBG;
-	private Button close;
-	private Container endPane;
-	private Container attackPane;
-	private Button move1;
-	private Button move2;
-	private Label info6;
-	private Label info5;
-	private Label info3;
-	private Label info4;
-	private Label info2;
-	private Label info1;
-	private Label pp1;
-	private Label pp2;
-	private Label pp3;
-	private Label pp4;
-	private Button pokeCancelBtn;
-	private Button pokeBtn6;
-	private Button pokeBtn5;
-	private Button pokeBtn4;
-	private Button pokeBtn3;
-	private Button pokeBtn2;
-	private Button pokeBtn1;
-	private Container pokesContainer;
-	private Button jBtnPoke;
-	private Button jBtnBag;
-	private Button jBtnRun;
-	private Button move3;
-	private Button move4;
-	private Label shouldReplace;
-	private Button yes;
-	private Button no;
+        pokeCancelBtn.setEnabled(true);
+	}
+	
+	/**
+	 * Shows the attack Pane
+	 */
+    public void showAttack() {
+        pokesContainer.setVisible(false);
+        //bagPane.setVisible(false);
+        attackPane.setVisible(true);
+        endPane.setVisible(false);
+    }
+
+	/**
+	 * Shows the Bag Pane
+	 */
+    public void showBag() {
+        attackPane.setVisible(false);
+        endPane.setVisible(false);
+        pokesContainer.setVisible(false);
+        //bagPane.setVisible(true);
+    }
+
+	/**
+	 * Shows the pokemon Pane
+	 */
+    public void switchPoke(boolean isForced) {
+        attackPane.setVisible(false);
+        //bagPane.setVisible(false);
+        pokesContainer.setVisible(true);
+        endPane.setVisible(false);
+        pokeCancelBtn.setEnabled(isForced);
+        //displayPokeData();
+    }
+    
+    /**
+     * Sets the move learning interface
+     */
+    public void setUIToLearn(String moveName) {
+        showAttack();
+        
+        move1.setEnabled(true);
+        move2.setEnabled(true);
+        move3.setEnabled(true);
+        move4.setEnabled(true);
+    }
 }
