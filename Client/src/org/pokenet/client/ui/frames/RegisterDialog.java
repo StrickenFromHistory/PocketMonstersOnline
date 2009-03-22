@@ -28,7 +28,7 @@ public class RegisterDialog extends Frame{
 	private int m_starter = 1;
 	private int m_gender = 0;
 	private Color m_white = new Color(255, 255, 255);
-
+	
 	/**
 	 * Default constructor
 	 */

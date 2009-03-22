@@ -78,10 +78,10 @@ public class RegistrationManager implements Runnable {
 				badges = badges + "0";
 			m_database.query("INSERT INTO pn_members (username, password, dob, email, lastLoginTime, lastLoginServer, " +
 					"sprite, money, npcMul, skHerb, skCraft, skFish, skTrain, skCoord, skBreed, " +
-					"x, y, mapX, mapY, badges, healX, healY, healMapX, healMapY, isSurfing) VALUE " +
+					"x, y, mapX, mapY, badges, healX, healY, healMapX, healMapY, isSurfing, adminLevel) VALUE " +
 					"('" + info[0] + "', '" + info[1] + "', '" + info[3] + "', '" + info[2] + "', " +
 							"'0', 'null', '" + info[5] + "', '0', '1.5', '0', '0', '0', '0', '0', '0', '256', '248', " +
-									"'0', '0', '" + badges + "', '256', '248', '-50', '-50', 'false')");
+									"'0', '0', '" + badges + "', '256', '248', '-50', '-50', 'false', '0')");
 			/*
 			 * Retrieve the player's unique id
 			 */

@@ -246,6 +246,7 @@ public class LoginManager implements Runnable {
 			p.setMapX(result.getInt("mapX"));
 			p.setMapY(result.getInt("mapY"));
 			p.setId(result.getInt("id"));
+			p.setAdminLevel(result.getInt("adminLevel"));
 			p.setLastHeal(result.getInt("healX"), result.getInt("healY"), result.getInt("healMapX"), result.getInt("healMapY"));
 			p.setSurfing(Boolean.parseBoolean(result.getString("isSurfing")));
 			//Set money and skills

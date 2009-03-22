@@ -38,6 +38,7 @@ public class PlayerChar extends Char implements Battleable {
 	private int  m_skillBreed = 0;
 	private BattleField m_battleField = null;
 	private int m_healX, m_healY, m_healMapX, m_healMapY;
+	private int m_adminLevel = 0;
 	/*
 	 * Badges are stored as bytes. 0 = not obtained, 1 = obtained
 	 * Stored as following:
@@ -453,6 +454,22 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public byte[] getBadges() {
 		return m_badges;
+	}
+	
+	/**
+	 * Sets the admin level for this player
+	 * @param adminLevel
+	 */
+	public void setAdminLevel(int adminLevel) {
+		m_adminLevel = adminLevel;
+	}
+	
+	/**
+	 * Returns the admin level of this player
+	 * @return
+	 */
+	public int getAdminLevel() {
+		return m_adminLevel;
 	}
 	
 	/**
