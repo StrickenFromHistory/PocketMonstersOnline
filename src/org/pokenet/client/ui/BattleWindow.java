@@ -16,14 +16,15 @@ import org.pokenet.client.ui.base.ProgressBar;
 
 /**
  * Battle window interface
+ * 
  * @author ZombieBear
- *
+ * 
  */
 public class BattleWindow extends Frame {
 	static final long serialVersionUID = -4351471892179339349L;
 
 	public Container confirmPane;
-//	public Container battleBG;
+	// public Container battleBG;
 	public Container endPane;
 	public Container attackPane;
 	public Container pokesContainer;
@@ -60,6 +61,7 @@ public class BattleWindow extends Frame {
 
 	/**
 	 * Default constructor
+	 * 
 	 * @param title
 	 * @param wild
 	 */
@@ -87,13 +89,14 @@ public class BattleWindow extends Frame {
 		bg.setLocation(0, 150);
 		getContentPane().add(bg);
 
-		//battleBG = new Container();
+		// battleBG = new Container();
 
 		attackPane = new Container();
 		attackPane.setBackground(new Color(0, 0, 0, 0));
 		move1 = BattleButtonFactory.getButton("");
 		move2 = BattleButtonFactory.getButton("");
 		move3 = BattleButtonFactory.getButton("");
+		move4 = BattleButtonFactory.getButton("");
 
 		confirmPane = new Container();
 		confirmPane.setBackground(new Color(0, 0, 0, 0));
@@ -123,10 +126,10 @@ public class BattleWindow extends Frame {
 
 		setResizable(false);
 
-		//getContentPane().add(battleBG);
-		//battleBG.setBounds(0, 1, 257, 105);
-		//battleBG.setSize(257, 144);
-		//battleBG.setVisible(true);
+		// getContentPane().add(battleBG);
+		// battleBG.setBounds(0, 1, 257, 105);
+		// battleBG.setSize(257, 144);
+		// battleBG.setVisible(true);
 
 		this.getTitleBar().setVisible(false);
 
@@ -170,12 +173,10 @@ public class BattleWindow extends Frame {
 		pp3.setBounds(7, 85, 110, 20);
 		attackPane.add(pp3);
 
-		{
-			move4 = BattleButtonFactory.getButton("");
-			attackPane.add(move4);
-			move4.setLocation(130, 55);
-			move4.pack();
-		}
+		attackPane.add(move4);
+		move4.setLocation(130, 55);
+		move4.pack();
+
 		move4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 
@@ -186,21 +187,19 @@ public class BattleWindow extends Frame {
 		pp4.setBounds(130, 85, 110, 20);
 		attackPane.add(pp4);
 
-		{
-			jBtnRun = BattleButtonFactory.getSmallButton("Run");
-			attackPane.add(jBtnRun);
+		jBtnRun = BattleButtonFactory.getSmallButton("Run");
+		attackPane.add(jBtnRun);
 
-			if (!isWild) {
-				jBtnRun.setEnabled(false);
-			} else {
-				jBtnRun.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent evt) {
+		if (!isWild) {
+			jBtnRun.setEnabled(false);
+		} else {
+			jBtnRun.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
 
-					}
-				});
-			}
-			jBtnRun.setBounds(97, 132, 60, 47);
+				}
+			});
 		}
+		jBtnRun.setBounds(97, 132, 60, 47);
 
 		jBtnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -208,12 +207,10 @@ public class BattleWindow extends Frame {
 			}
 		});
 
-		{
-			jBtnBag = BattleButtonFactory.getSmallButton("Bag");
-			attackPane.add(jBtnBag);
-			jBtnBag.setLocation(3, 110);
-			jBtnBag.pack();
-		}
+		jBtnBag = BattleButtonFactory.getSmallButton("Bag");
+		attackPane.add(jBtnBag);
+		jBtnBag.setLocation(3, 110);
+		jBtnBag.pack();
 
 		jBtnBag.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -221,12 +218,10 @@ public class BattleWindow extends Frame {
 			}
 		});
 
-		{
-			jBtnPoke = BattleButtonFactory.getSmallButton("Pokemon");
-			attackPane.add(jBtnPoke);
-			jBtnPoke.setLocation(168, 110);
-			jBtnPoke.pack();
-		}
+		jBtnPoke = BattleButtonFactory.getSmallButton("Pokemon");
+		attackPane.add(jBtnPoke);
+		jBtnPoke.setLocation(168, 110);
+		jBtnPoke.pack();
 
 		jBtnPoke.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -234,12 +229,10 @@ public class BattleWindow extends Frame {
 			}
 		});
 
-		{
-			cancel = BattleButtonFactory.getSmallButton("Cancel");
-			attackPane.add(cancel);
-			cancel.setLocation(162, 110);
-			cancel.pack();
-		}
+		cancel = BattleButtonFactory.getSmallButton("Cancel");
+		attackPane.add(cancel);
+		cancel.setLocation(162, 110);
+		cancel.pack();
 
 		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -253,152 +246,130 @@ public class BattleWindow extends Frame {
 		// end attackPane
 
 		// start pokesContainer
-		{
-			pokesContainer = new Container();
-			pokesContainer.setBackground(new Color(0, 0, 0, 0));
-			getContentPane().add(pokesContainer);
-			pokesContainer.setBounds(0, 154, 253, 192);
-			{
-				pokeBtn1 = BattleButtonFactory.getButton("");
-				pokesContainer.add(pokeBtn1);
-				pokeBtn1.setBounds(8, 8, 112, 26);
+
+		pokesContainer = new Container();
+		pokesContainer.setBackground(new Color(0, 0, 0, 0));
+		getContentPane().add(pokesContainer);
+		pokesContainer.setBounds(0, 154, 253, 192);
+
+		pokeBtn1 = BattleButtonFactory.getButton("");
+		pokesContainer.add(pokeBtn1);
+		pokeBtn1.setBounds(8, 8, 112, 26);
+
+		pokeBtn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+
 			}
+		});
 
-			pokeBtn1.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
+		pokeBtn2 = BattleButtonFactory.getButton("");
+		pokesContainer.add(pokeBtn2);
+		pokeBtn2.setBounds(128, 8, 112, 26);
 
-				}
-			});
+		pokeBtn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 
-			{
-				pokeBtn2 = BattleButtonFactory.getButton("");
-				pokesContainer.add(pokeBtn2);
-				pokeBtn2.setBounds(128, 8, 112, 26);
 			}
+		});
 
-			pokeBtn2.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
+		pokeBtn3 = BattleButtonFactory.getButton("");
+		pokesContainer.add(pokeBtn3);
+		pokeBtn3.setBounds(8, 57, 112, 26);
 
-				}
-			});
+		pokeBtn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 
-			{
-				pokeBtn3 = BattleButtonFactory.getButton("");
-				pokesContainer.add(pokeBtn3);
-				pokeBtn3.setBounds(8, 57, 112, 26);
 			}
+		});
 
-			pokeBtn3.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
+		pokeBtn4 = BattleButtonFactory.getButton("");
+		pokesContainer.add(pokeBtn4);
+		pokeBtn4.setBounds(128, 57, 112, 26);
 
-				}
-			});
+		pokeBtn4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 
-			{
-				pokeBtn4 = BattleButtonFactory.getButton("");
-				pokesContainer.add(pokeBtn4);
-				pokeBtn4.setBounds(128, 57, 112, 26);
 			}
+		});
 
-			pokeBtn4.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
+		pokeBtn5 = BattleButtonFactory.getButton("");
+		pokesContainer.add(pokeBtn5);
+		pokeBtn5.setBounds(8, 107, 112, 26);
 
-				}
-			});
+		pokeBtn5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 
-			{
-				pokeBtn5 = BattleButtonFactory.getButton("");
-				pokesContainer.add(pokeBtn5);
-				pokeBtn5.setBounds(8, 107, 112, 26);
 			}
+		});
 
-			pokeBtn5.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
+		pokeBtn6 = BattleButtonFactory.getButton("");
+		pokesContainer.add(pokeBtn6);
+		pokeBtn6.setBounds(128, 107, 112, 26);
 
-				}
-			});
+		pokeBtn6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 
-			{
-				pokeBtn6 = BattleButtonFactory.getButton("");
-				pokesContainer.add(pokeBtn6);
-				pokeBtn6.setBounds(128, 107, 112, 26);
 			}
+		});
 
-			pokeBtn6.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
+		pokeCancelBtn = BattleButtonFactory.getSmallButton("Cancel");
+		pokesContainer.add(pokeCancelBtn);
+		pokeCancelBtn.setLocation(128, 140);
+		pokeCancelBtn.pack();
 
-				}
-			});
+		info1 = new Label();
+		pokesContainer.add(info1);
+		info1.setText("                               ");
+		info1.setBounds(8, 37, 107, 14);
 
-			{
-				pokeCancelBtn = BattleButtonFactory.getSmallButton("Cancel");
-				pokesContainer.add(pokeCancelBtn);
-				pokeCancelBtn.setLocation(128, 140);
-				pokeCancelBtn.pack();
-			}
-			{
-				info1 = new Label();
-				pokesContainer.add(info1);
-				info1.setText("                               ");
-				info1.setBounds(8, 37, 107, 14);
-			}
-			{
-				info2 = new Label();
-				pokesContainer.add(info2);
-				info2.setText("                               ");
-				info2.setBounds(128, 37, 107, 14);
-			}
-			{
-				info3 = new Label();
-				pokesContainer.add(info3);
-				info3.setText("                               ");
-				info3.setBounds(8, 88, 107, 14);
-			}
-			{
-				info4 = new Label();
-				pokesContainer.add(info4);
-				info4.setText("                               ");
-				info4.setBounds(128, 88, 107, 14);
-			}
-			{
-				info5 = new Label();
-				pokesContainer.add(info5);
-				info5.setText("                               ");
-				info5.setBounds(8, 139, 107, 14);
-			}
-			{
-				info6 = new Label();
-				pokesContainer.add(info6);
-				info6.setText("                               ");
-				info6.setBounds(128, 139, 107, 14);
-			}
+		info2 = new Label();
+		pokesContainer.add(info2);
+		info2.setText("                               ");
+		info2.setBounds(128, 37, 107, 14);
 
-			pokeCancelBtn.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
+		info3 = new Label();
+		pokesContainer.add(info3);
+		info3.setText("                               ");
+		info3.setBounds(8, 88, 107, 14);
 
-				}
-			});
+		info4 = new Label();
+		pokesContainer.add(info4);
+		info4.setText("                               ");
+		info4.setBounds(128, 88, 107, 14);
 
-		}
-		{
-			endPane = new Container();
-			endPane.setBackground(new Color(0, 0, 0, 0));
-			getContentPane().add(endPane);
-			endPane.setBounds(0, 154, 253, 192);
-			{
-				close = new Button();
-				close.setVisible(true);
-				endPane.add(close);
-				close.setText("Close");
-				close.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent evt) {
+		info5 = new Label();
+		pokesContainer.add(info5);
+		info5.setText("                               ");
+		info5.setBounds(8, 139, 107, 14);
 
-						setVisible(false);
+		info6 = new Label();
+		pokesContainer.add(info6);
+		info6.setText("                               ");
+		info6.setBounds(128, 139, 107, 14);
 
-					}
-				});
+		pokeCancelBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+
 			}
-		}
+		});
+
+		endPane = new Container();
+		endPane.setBackground(new Color(0, 0, 0, 0));
+		getContentPane().add(endPane);
+		endPane.setBounds(0, 154, 253, 192);
+
+		close = new Button();
+		close.setVisible(true);
+		endPane.add(close);
+		close.setText("Close");
+		close.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+
+				setVisible(false);
+
+			}
+		});
+
 		endPane.setVisible(false);
 		pokesContainer.setVisible(false);
 	}
@@ -413,110 +384,102 @@ public class BattleWindow extends Frame {
 		int y = (height / 2) - 238;
 		this.setBounds(x, y, 259, 475);
 	}
-	
-	/**
-	 * Switches to attack pane
-	 */
-	public void setAttackPane(){
-		
-	}
-	
+
 	/**
 	 * Disables moves
 	 */
-	public void disableMoves(){
+	public void disableMoves() {
 		move1.setEnabled(false);
 		move2.setEnabled(false);
 		move3.setEnabled(false);
 		move4.setEnabled(false);
-		
-	    pp1.setEnabled(false);
-	    pp2.setEnabled(false);
-	    pp3.setEnabled(false);
-	    pp4.setEnabled(false);
-		
-        jBtnPoke.setEnabled(false);
-        jBtnBag.setEnabled(false);
-        jBtnRun.setEnabled(false);
-        
-        cancel.setVisible(false);
+
+		pp1.setEnabled(false);
+		pp2.setEnabled(false);
+		pp3.setEnabled(false);
+		pp4.setEnabled(false);
+
+		jBtnPoke.setEnabled(false);
+		jBtnBag.setEnabled(false);
+		jBtnRun.setEnabled(false);
+
+		cancel.setVisible(false);
 	}
-	
+
 	/**
 	 * Enables moves
 	 */
-	public void enableMoves(){
-        if (!move1.getText().equals("")) {
-            move1.setEnabled(true);
-            pp1.setEnabled(true);
-        }
-        if (!move2.getText().equals("")) {
-            move2.setEnabled(true);
-            pp2.setEnabled(true);
-        }       
-        if (!move3.getText().equals("")) {
-                move3.setEnabled(true);
-                pp3.setEnabled(true);
-        }
-        if (!move4.getText().equals("")) {
-                move4.setEnabled(true);
-                pp4.setEnabled(true);
-        }
-        cancel.setVisible(false);
-        
-        jBtnPoke.setEnabled(true);
-        jBtnBag.setEnabled(true);
-        if(!isWild) {
-                jBtnRun.setEnabled(false);
-        }
-        else {
-                jBtnRun.setEnabled(true);
-        }
+	public void enableMoves() {
+		if (!move1.getText().equals("")) {
+			move1.setEnabled(true);
+			pp1.setEnabled(true);
+		}
+		if (!move2.getText().equals("")) {
+			move2.setEnabled(true);
+			pp2.setEnabled(true);
+		}
+		if (!move3.getText().equals("")) {
+			move3.setEnabled(true);
+			pp3.setEnabled(true);
+		}
+		if (!move4.getText().equals("")) {
+			move4.setEnabled(true);
+			pp4.setEnabled(true);
+		}
+		cancel.setVisible(false);
 
-        pokeCancelBtn.setEnabled(true);
+		jBtnPoke.setEnabled(true);
+		jBtnBag.setEnabled(true);
+		if (!isWild) {
+			jBtnRun.setEnabled(false);
+		} else {
+			jBtnRun.setEnabled(true);
+		}
+
+		pokeCancelBtn.setEnabled(true);
 	}
-	
+
 	/**
 	 * Shows the attack Pane
 	 */
-    public void showAttack() {
-        pokesContainer.setVisible(false);
-        //bagPane.setVisible(false);
-        attackPane.setVisible(true);
-        endPane.setVisible(false);
-    }
+	public void showAttack() {
+		pokesContainer.setVisible(false);
+		// bagPane.setVisible(false);
+		attackPane.setVisible(true);
+		endPane.setVisible(false);
+	}
 
 	/**
 	 * Shows the Bag Pane
 	 */
-    public void showBag() {
-        attackPane.setVisible(false);
-        endPane.setVisible(false);
-        pokesContainer.setVisible(false);
-        //bagPane.setVisible(true);
-    }
+	public void showBag() {
+		attackPane.setVisible(false);
+		endPane.setVisible(false);
+		pokesContainer.setVisible(false);
+		// bagPane.setVisible(true);
+	}
 
 	/**
 	 * Shows the pokemon Pane
 	 */
-    public void switchPoke(boolean isForced) {
-        attackPane.setVisible(false);
-        //bagPane.setVisible(false);
-        pokesContainer.setVisible(true);
-        endPane.setVisible(false);
-        pokeCancelBtn.setEnabled(isForced);
-        //displayPokeData();
-    }
-    
-    /**
-     * Sets the move learning interface
-     */
-    public void setUIToLearn(String moveName) {
-        showAttack();
-        
-        move1.setEnabled(true);
-        move2.setEnabled(true);
-        move3.setEnabled(true);
-        move4.setEnabled(true);
-    }
+	public void switchPoke(boolean isForced) {
+		attackPane.setVisible(false);
+		// bagPane.setVisible(false);
+		pokesContainer.setVisible(true);
+		endPane.setVisible(false);
+		pokeCancelBtn.setEnabled(isForced);
+		// displayPokeData();
+	}
+
+	/**
+	 * Sets the move learning interface
+	 */
+	public void setUIToLearn(String moveName) {
+		showAttack();
+
+		move1.setEnabled(true);
+		move2.setEnabled(true);
+		move3.setEnabled(true);
+		move4.setEnabled(true);
+	}
 }
