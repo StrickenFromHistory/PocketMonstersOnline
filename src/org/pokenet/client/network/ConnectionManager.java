@@ -55,6 +55,16 @@ public class ConnectionManager extends IoHandlerAdapter {
 		System.out.println("INFO: " + message);
 		String [] details;
 		switch(message.charAt(0)) {
+		case 'P':
+			//Pokemon information
+			switch(message.charAt(1)) {
+			case 'i':
+				//Initialise a pokemon
+				details = message.substring(3).split(",");
+				m_game.getOurPlayer().setPokemon(Integer.parseInt(message.substring(2, 3)), details);
+				break;
+			}
+			break;
 		case 'C':
 			//Chat packet
 			m_game.getUi().messageReceived(message.substring(1));
