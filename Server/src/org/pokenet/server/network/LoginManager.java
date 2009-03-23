@@ -218,7 +218,23 @@ public class LoginManager implements Runnable {
 		//Send their Pokemon information to them
 		for(int i = 0; i < p.getParty().length; i++) {
 			if(p.getParty()[i] != null) {
-				//p.getSession().write("");
+				p.getSession().write("Pi" + i + p.getParty()[i].getId() + "," + 
+								p.getParty()[i].getHealth() + "," +
+								p.getParty()[i].getGender() + "," +
+								(p.getParty()[i].isShiny() ? 1 : 0) + "," +
+								p.getParty()[i].getStat(0) + "," +
+								p.getParty()[i].getStat(1) + "," +
+								p.getParty()[i].getStat(2) + "," +
+								p.getParty()[i].getStat(3) + "," +
+								p.getParty()[i].getStat(4) + "," +
+								p.getParty()[i].getStat(5) + "," +
+								p.getParty()[i].getTypes()[0] + "," +
+								(p.getParty()[i].getTypes()[1] != null ? p.getParty()[i].getTypes()[1] : "") + "," +
+								p.getParty()[i].getExp() + "," +
+								p.getParty()[i].getLevel() + "," +
+								p.getParty()[i].getAbilityName() + "," +
+								p.getParty()[i].getNature().getName()
+						);
 			}
 		}
 		//Send bag to them

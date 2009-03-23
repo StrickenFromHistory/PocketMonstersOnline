@@ -94,6 +94,28 @@ public class PlayerChar extends Char implements Battleable {
 		//DO WE REALLY NEED THIS?
 		return null;
 	}
+	
+	/**
+	 * Returns the amount of Pokemon in this player's party
+	 * @return
+	 */
+	public int getPartyCount() {
+		int r = 0;
+		for(int i = 0; i < m_pokemon.length; i++) {
+			if(m_pokemon[i] != null)
+				r++;
+		}
+		return r;
+	}
+	
+	public int getHighestLevel() {
+		int h = 0;
+		for(int i = 0; i < m_pokemon.length; i++) {
+			if(m_pokemon[i] != null && h < m_pokemon[i].getLevel())
+				h = m_pokemon[i].getLevel();
+		}
+		return h;
+	}
 
 	/**
 	 * Returns the Pokemon party of this player

@@ -446,6 +446,16 @@ public class Pokemon extends PokemonSpecies {
     }
     
     /**
+     * Returns a random Pokemon based on a species name and a level
+     * @param speciesName
+     * @param level
+     * @return
+     */
+    public static Pokemon getRandomPokemon(String speciesName, int level) {
+    	return null;
+    }
+    
+    /**
      * Load a team from a file and return the ModData used by the team.
      */
     public static ModData loadTeam(File f, Pokemon[] team) {

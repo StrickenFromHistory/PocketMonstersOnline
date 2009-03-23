@@ -1,5 +1,7 @@
 package org.pokenet.client.backend.entity;
 
+import org.pokenet.client.backend.entity.Enums.Poketype;
+
 /**
  * Represents our player
  * @author shadowkanji
@@ -100,8 +102,32 @@ public class OurPlayer extends Player {
 	 * @param i
 	 * @param information
 	 */
-	public void setPokemon(int i, String [] information) {
-		
+	public void setPokemon(int i, String [] info) {
+		m_pokemon[i] = new OurPokemon();
+		m_pokemon[i].setSpriteNumber(Integer.parseInt(info[0]));
+		m_pokemon[i].setCurHP(Integer.parseInt(info[1]));
+		m_pokemon[i].setGender(Integer.parseInt(info[2]));
+		if(info[3].equalsIgnoreCase("0"))
+			m_pokemon[i].setShiny(false);
+		else
+			m_pokemon[i].setShiny(true);
+		m_pokemon[i].setMaxHP(Integer.parseInt(info[4]));
+		m_pokemon[i].setAtk(Integer.parseInt(info[5]));
+		m_pokemon[i].setDef(Integer.parseInt(info[6]));
+		m_pokemon[i].setSpeed(Integer.parseInt(info[7]));
+		m_pokemon[i].setSpatk(Integer.parseInt(info[8]));
+		m_pokemon[i].setSpdef(Integer.parseInt(info[9]));
+		m_pokemon[i].setType1(Poketype.valueOf(info[10]));
+		if(info[11] != null && !info[12].equalsIgnoreCase("")) {
+			m_pokemon[i].setType2(Poketype.valueOf(info[11]));
+		}
+		m_pokemon[i].setExp(Integer.parseInt(info[12]));
+		m_pokemon[i].setLevel(Integer.parseInt(info[13]));
+		m_pokemon[i].setAbility(info[14]);
+		m_pokemon[i].setNature(info[15]);
+		m_pokemon[i].setSprite();
+		m_pokemon[i].setBackSprite();
+		m_pokemon[i].setIcon();
 	}
 	
 	/**
