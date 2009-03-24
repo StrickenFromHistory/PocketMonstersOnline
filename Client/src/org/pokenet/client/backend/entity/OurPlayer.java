@@ -104,6 +104,8 @@ public class OurPlayer extends Player {
 	 */
 	public void setPokemon(int i, String [] info) {
 		m_pokemon[i] = new OurPokemon();
+		//TEMP HACK FOR UI PURPOSES
+		m_pokemon[i].setName("MISSINGNO");
 		m_pokemon[i].setSpriteNumber(Integer.parseInt(info[0]));
 		m_pokemon[i].setCurHP(Integer.parseInt(info[1]));
 		m_pokemon[i].setGender(Integer.parseInt(info[2]));
