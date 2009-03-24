@@ -10,6 +10,7 @@ public class Pokemon {
         //load sprite and icon
         private Image m_sprite;
         private Image m_icon;
+        private int m_spriteNum;
        
         //load trainer data
         private int m_trainerID;
@@ -57,16 +58,14 @@ public class Pokemon {
                                 isShiny = "shiny/";
                         }
                        
-                        int pokeNum = setSpriteNumber(this.m_species.ordinal());
-                       
-                        if (pokeNum < 10) {
-                                index = "00" + String.valueOf(pokeNum);
+                        if (m_spriteNum < 10) {
+                                index = "00" + String.valueOf(m_spriteNum);
                         }
-                        else if (pokeNum < 100){
-                                index = "0" + String.valueOf(pokeNum);
+                        else if (m_spriteNum < 100){
+                                index = "0" + String.valueOf(m_spriteNum);
                         }
                         else{
-                                index = String.valueOf(pokeNum);
+                                index = String.valueOf(m_spriteNum);
                         }
                         int pathGender;
                         if (getGender() == 1)
@@ -111,16 +110,15 @@ public class Pokemon {
                         LoadingList.setDeferredLoading(true);
                         String path = new String();
                         String index = new String();
-                        int pokeNum = setSpriteNumber(this.m_species.ordinal());
                        
-                        if (pokeNum < 10) {
-                                index = "00" + String.valueOf(pokeNum);
+                        if (m_spriteNum < 10) {
+                                index = "00" + String.valueOf(m_spriteNum);
                         }
-                        else if (pokeNum < 100){
-                                index = "0" + String.valueOf(pokeNum);
+                        else if (m_spriteNum < 100){
+                                index = "0" + String.valueOf(m_spriteNum);
                         }
                         else{
-                                index = String.valueOf(pokeNum);
+                                index = String.valueOf(m_spriteNum);
                         }
                        
                         path = "/res/pokemon/icons/" + index + ".gif";
@@ -175,7 +173,7 @@ public class Pokemon {
          * @param name
          */
         public void setName(String name) {
-                this.m_name = name;
+        		this.m_name = name;
         }
         
         /**
@@ -367,7 +365,7 @@ public class Pokemon {
          * @param x
          * @return
          */
-        public int setSpriteNumber(int x) {
+        public void setSpriteNumber(int x) {
                 int i = 0;
                 if (x <= 385) {
                         i = x + 1;
@@ -380,7 +378,15 @@ public class Pokemon {
                 } else {
                         i = x - 4;
                 }
-                return i;
+                m_spriteNum = i;
+        }
+        
+        /**
+         * Returns the sprite number
+         * @return
+         */
+        public int getSpriteNumber(){
+        	return m_spriteNum;
         }
 }
 

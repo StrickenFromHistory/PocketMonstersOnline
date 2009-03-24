@@ -62,16 +62,14 @@ public class OurPokemon extends Pokemon {
                                 isShiny = "shiny/";
                         }
                         
-                        int pokeNum = setSpriteNumber(getSpecies().ordinal());
-                        
-                        if (pokeNum < 9) {
-                                index = "00" + String.valueOf(pokeNum + 1);
+                        if (getSpriteNumber() < 9) {
+                                index = "00" + String.valueOf(getSpriteNumber() + 1);
                         }
-                        else if (pokeNum < 99){
-                                index = "0" + String.valueOf(pokeNum + 1);
+                        else if (getSpriteNumber() < 99){
+                                index = "0" + String.valueOf(getSpriteNumber() + 1);
                         }
                         else{
-                                index = String.valueOf(pokeNum + 1);
+                                index = String.valueOf(getSpriteNumber() + 1);
                         }
                         
                         int gender;
