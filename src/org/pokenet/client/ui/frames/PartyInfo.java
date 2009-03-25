@@ -64,12 +64,12 @@ public class PartyInfo extends Frame {
 			m_container[i] = new Container();
 			m_container[i].setSize(170, 42);
 			m_container[i].setVisible(true);
-			m_container[i].setLocation(0, y);
+			m_container[i].setLocation(0, y+10);
 			m_container[i].setBackground(new Color(0, 0, 0, 0));
 			y += 41;
 			getContentPane().add(m_container[i]);
 			m_container[i].setOpaque(true);
-/*			try {
+			try {
 				m_container[i].add(m_pokeBall[i]);
 				m_pokeBall[i].setLocation(4, 4);
 				m_pokeName[i].setFont(GameClient.getFontSmall());
@@ -143,7 +143,7 @@ public class PartyInfo extends Frame {
 			} catch (NullPointerException e) {
 				//e.printStackTrace();
 			}
-*/		}
+		}
 		
 		this.getTitleBar().setGlassPane(true);
 		this.setResizable(false);
@@ -173,9 +173,9 @@ public class PartyInfo extends Frame {
 			m_pokeName[i].pack();
 
 			try {
-				m_pokeBall[i].setImage(new Image("/res/ui/Pokeball.gif"));
+				//m_pokeBall[i].setImage(new Image("/PokenetClient/res/ui/Pokeball.gif"));
 				m_pokeBall[i].setSize(30, 30);
-			} catch (SlickException e) {
+			} catch (/*Slick*/Exception e) {
 				System.out.println("Couldn't load pokeball");
 			}
 			try {
