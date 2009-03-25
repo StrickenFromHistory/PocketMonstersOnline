@@ -1,9 +1,9 @@
 Snowpoint Temple
-localhost
+pokeglobal.dyndns.org
 Newmoon
 -
 New Island
--
+127.0.0.1
 Sky Pillar
 -
 Burned Tower
