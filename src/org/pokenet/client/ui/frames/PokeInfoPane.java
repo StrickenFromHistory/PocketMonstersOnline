@@ -13,7 +13,6 @@ public class PokeInfoPane extends Frame{
         private Label labels[] = new Label[14];
        
         public PokeInfoPane(OurPokemon poke){
-                loadImage(poke);
                 initGUI(poke);
         }
        
