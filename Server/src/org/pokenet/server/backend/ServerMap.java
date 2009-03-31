@@ -1,5 +1,6 @@
 package org.pokenet.server.backend;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -36,6 +37,7 @@ public class ServerMap {
 	//Players and NPCs
 	private ArrayList<PlayerChar> m_players;
 	private ArrayList<NonPlayerChar> m_npcs;
+	private ArrayList<WarpTile> m_warps;
 	//The following stores information for day, night and water wild pokemon
 	private HashMap<String, int[]> m_dayPokemonLevels;
 	private HashMap<String, Integer> m_dayPokemonChances;
@@ -98,6 +100,24 @@ public class ServerMap {
 		} catch (Exception e) {
 			m_forcedWeather = null;
 		}
+		
+		/*
+		 * Load all npcs
+		 */
+		File f = new File("res/npc/" + x + "." + y + ".txt");
+		if(f.exists()) {
+			DataLoader d = new DataLoader(f, this);
+		}
+	}
+	
+	/**
+	 * Adds a warp tile to the map
+	 * @param w
+	 */
+	public void addWarp(WarpTile w) {
+		if(m_warps == null)
+			m_warps = new ArrayList<WarpTile>();
+		m_warps.add(w);
 	}
 	
 	/**
@@ -276,6 +296,25 @@ public class ServerMap {
 	}
 	
 	/**
+	 * Returns true if the char was warped
+	 * @param x
+	 * @param y
+	 * @param c
+	 * @return
+	 */
+	private boolean isWarped(int x, int y, Char c) {
+		if(m_warps != null) {
+			for(int i = 0; i < m_warps.size(); i++) {
+				if(m_warps.get(i).getX() == x && m_warps.get(i).getY() == y) {
+					m_warps.get(i).warp(c);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	/**
 	 * Attempts to move a char and sends the movement to everyone, returns true on success
 	 * @param c
 	 * @param d
@@ -309,8 +348,8 @@ public class ServerMap {
 					} else {
 						if(c.isSurfing())
 							c.setSurfing(false);
-						//TODO: Add warp check
-						return true;
+						if(!isWarped(newX, newY, c))
+							return true;
 					}
 				}
 			} else {
@@ -342,8 +381,8 @@ public class ServerMap {
 					} else {
 						if(c.isSurfing())
 							c.setSurfing(false);
-						//TODO: Warp check
-						return true;
+						if(!isWarped(newX, newY, c))
+							return true;
 					}
 				}
 			} else {
@@ -375,8 +414,8 @@ public class ServerMap {
 					} else {
 						if(c.isSurfing())
 							c.setSurfing(false);
-						//TODO: Warp check
-						return true;
+						if(!isWarped(newX, newY, c))
+							return true;
 					}
 				}
 			} else {
@@ -408,8 +447,8 @@ public class ServerMap {
 					} else {
 						if(c.isSurfing())
 							c.setSurfing(false);
-						//TODO: Warp check
-						return true;
+						if(!isWarped(newX, newY, c))
+							return true;
 					}
 				}
 			} else {

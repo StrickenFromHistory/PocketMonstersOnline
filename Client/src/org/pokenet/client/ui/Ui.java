@@ -214,6 +214,9 @@ public class Ui extends Frame {
 	 */
 	public void messageReceived(String m) {
 		switch(m.charAt(0)) {
+		case 'n':
+			//NPC speech
+			break;
 		case 'l':
 			//Local Chat
 			m_localChat.appendText(m.substring(1));

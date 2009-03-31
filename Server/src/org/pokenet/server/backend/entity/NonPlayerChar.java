@@ -1,5 +1,6 @@
 package org.pokenet.server.backend.entity;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -21,6 +22,11 @@ public class NonPlayerChar extends Char {
 	 */
 	private HashMap<String, Integer> m_possiblePokemon;
 	private int m_minPartySize = 1;
+	private boolean m_isBox = false;
+	private boolean m_isHeal = false;
+	private boolean m_isShop = false;
+	private int m_badge = -1;
+	private ArrayList<Integer> m_speech;
 	
 	/**
 	 * Constructor
@@ -28,11 +34,106 @@ public class NonPlayerChar extends Char {
 	public NonPlayerChar() {}
 	
 	/**
+	 * Speaks to the player
+	 * @param p
+	 */
+	public void speakTo(PlayerChar p) {
+		if(m_speech != null) {
+			for(int i = 0; i < m_speech.size(); i++) {
+				p.getSession().write("Cn" + m_speech.get(i));
+			}
+		}
+		if(m_isBox) {
+			//TODO: Send box packet
+		}
+		if(m_isHeal) {
+			//TODO: Heal player's pokemon
+		}
+		if(m_isShop) {
+			//TODO: Send shop packet
+		}
+	}
+	
+	/**
+	 * Adds speech to this npc
+	 * @param id
+	 */
+	public void addSpeech(int id) {
+		if(m_speech == null)
+			m_speech = new ArrayList<Integer>();
+		m_speech.add(id);
+	}
+	
+	/**
+	 * Return true if this npc heals your pokemon
+	 * @return
+	 */
+	public boolean isHealer() {
+		return m_isHeal;
+	}
+	
+	/**
+	 * Sets if this npc is a healer or not
+	 * @param b
+	 */
+	public void setHealer(boolean b) {
+		m_isHeal = b;
+	}
+	
+	/**
+	 * Returns true if this npc is a shop keeper
+	 * @return
+	 */
+	public boolean isShopKeeper() {
+		return m_isShop;
+	}
+	
+	/**
+	 * Returns true if this npc allows box access
+	 * @return
+	 */
+	public boolean isBox() {
+		return m_isBox;
+	}
+	
+	/**
+	 * Sets if this npc allows box access
+	 * @param b
+	 */
+	public void setBox(boolean b) {
+		m_isBox = b;
+	}
+	
+	/**
+	 * Sets if this npc is a shop keeper
+	 * @param b
+	 */
+	public void setShopKeeper(boolean b) {
+		m_isShop = b;
+	}
+	
+	/**
 	 * Sets the possible Pokemon this trainer can have
 	 * @param pokes
 	 */
 	public void setPossiblePokemon(HashMap<String, Integer> pokes) {
 		m_possiblePokemon = pokes;
+	}
+	
+	/**
+	 * Sets the badge this npc gives, if any
+	 * @param i
+	 */
+	public void setBadge(int i) {
+		m_badge = i;
+	}
+	
+	/**
+	 * Returns the number of the badge this npc gives. -1 if no badge.
+	 * @return
+	 */
+	public int getBadge() {
+		return m_badge;
 	}
 	
 	/**

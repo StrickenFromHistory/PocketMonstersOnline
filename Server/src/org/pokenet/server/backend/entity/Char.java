@@ -261,4 +261,12 @@ public class Char implements Positionable {
 	public void dispose() {
 		m_map = null;
 	}
+	
+	/**
+	 * Changes the direction of the npc
+	 * @param d
+	 */
+	public void setFacing(Direction d) {
+		m_facing = d;
+	}
 }
