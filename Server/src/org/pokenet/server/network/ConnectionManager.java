@@ -86,19 +86,23 @@ public class ConnectionManager extends IoHandlerAdapter {
 			switch(((String) msg).charAt(0)) {
 			case 'U':
 				//Move up
-				p.setNextMovement(Direction.Up);
+				if(!p.isBattling() && !p.isShopping())
+					p.setNextMovement(Direction.Up);
 				break;
 			case 'D':
 				//Move down
-				p.setNextMovement(Direction.Down);
+				if(!p.isBattling() && !p.isShopping())
+					p.setNextMovement(Direction.Down);
 				break;
 			case 'L':
 				//Move left
-				p.setNextMovement(Direction.Left);
+				if(!p.isBattling() && !p.isShopping())
+					p.setNextMovement(Direction.Left);
 				break;
 			case 'R':
 				//Move right
-				p.setNextMovement(Direction.Right);
+				if(!p.isBattling() && !p.isShopping())
+					p.setNextMovement(Direction.Right);
 				break;
 			case 'F':
 				//Friend list

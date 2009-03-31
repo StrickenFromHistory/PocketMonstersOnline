@@ -130,6 +130,14 @@ public class PlayerChar extends Char implements Battleable {
 	public boolean isBattling() {
 		return m_isBattling;
 	}
+	
+	/**
+	 * Sets if this player is battling
+	 * @param b
+	 */
+	public void setBattling(boolean b) {
+		m_isBattling = b;
+	}
 
 	/**
 	 * Sets this player's battle id on a battlefield

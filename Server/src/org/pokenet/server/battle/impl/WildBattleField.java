@@ -122,6 +122,7 @@ public class WildBattleField extends BattleField {
 		} else {
 			m_player.getSession().write("b@l");
 		}
+		m_player.setBattling(false);
 	}
 
 	/**
