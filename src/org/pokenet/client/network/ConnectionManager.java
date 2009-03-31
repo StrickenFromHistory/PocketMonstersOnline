@@ -55,6 +55,73 @@ public class ConnectionManager extends IoHandlerAdapter {
 		System.out.println("INFO: " + message);
 		String [] details;
 		switch(message.charAt(0)) {
+		case 'b':
+			//Battle information
+			switch(message.charAt(1)) {
+			case 'i':
+				//Battle started
+				break;
+			case 'p':
+				//No PP left for move -> bpMOVENAME
+				break;
+			case '!':
+				//Other battle message not specified by packets below
+				break;
+			case '@':
+				//Victory condition
+				switch(message.charAt(2)) {
+				case 'w':
+					//Our player won
+					break;
+				case 'l':
+					//Our player lost
+					break;
+				}
+				break;
+			case 'F':
+				//A pokemon fainted -> bFPOKEMON
+				break;
+			case 'M':
+				//A move was used -> bMPOKEMON,MOVENAME
+				break;
+			case 'm':
+				//Move requested
+				break;
+			case '.':
+				//Exp gain -> b.POKEMON,EXPAMOUNT
+				break;
+			case 'e':
+				//A Pokemon received a status effect -> bePOKEMON,EFFECT
+				break;
+			case 'E':
+				//A Pokemon had a status effect removed -> bEPOKEMON,EFFECT
+				break;
+			case 's':
+				//Switch in Pokemon requested
+				break;
+			case 'S':
+				//A switch occured -> bSTRAINERNAME,NEWPOKEMON
+				break;
+			case 'h':
+				/*
+				 * Receiving health info (health value, not health lost)
+				 * (don't ask why there's two methods for this, shoddy needs em for some reason)
+				 * NOTE: 0 is always our player
+				 */
+				switch(message.charAt(2)) {
+				case '0':
+					//Our pokemon's health
+					break;
+				case '1':
+					//Enemy pokemon's health
+					break;
+				}
+				break;
+			case 'H':
+				//A Pokemon lost health (a battle message) -> bHPOKEMON,CHANGE
+				break;
+			}
+			break;
 		case 'P':
 			//Pokemon information
 			switch(message.charAt(1)) {
