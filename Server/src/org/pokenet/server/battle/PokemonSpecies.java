@@ -75,6 +75,14 @@ public class PokemonSpecies implements Serializable {
     private static PokemonSpeciesData m_default = new PokemonSpeciesData();
     
     /**
+     * Returns the pokedex number
+     * @return
+     */
+    public int getSpeciesNumber() {
+    	return m_species;
+    }
+    
+    /**
      * Return the possible genders for this species.
      */
     public int getPossibleGenders() {

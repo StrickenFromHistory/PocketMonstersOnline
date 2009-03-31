@@ -63,12 +63,29 @@ public abstract class BattleField {
     protected int[] m_active = { 0, 0 };
     private BattleMechanics m_mechanics;
     private boolean m_narration = true;
+    private boolean m_isFinished = false;
         
     // Cache of Struggle.
     private static final MoveListEntry m_struggle = MoveList.getDefaultData().getMove("Struggle");
     
     public static MoveListEntry getStruggle() {
         return m_struggle;
+    }
+    
+    /**
+     * Returns true if this battle is finished
+     * @return
+     */
+    public boolean isFinished() {
+    	return m_isFinished;
+    }
+    
+    /**
+     * Sets if this battle is finished
+     * @param b
+     */
+    public void setFinished(boolean b) {
+    	m_isFinished = b;
     }
     
     /**
@@ -123,7 +140,6 @@ public abstract class BattleField {
     public BattleField(BattleMechanics mech, Pokemon[][] pokemon) {
         m_mechanics = mech;
         setPokemon(pokemon);
-        applyWeather();
         /*
          	FieldEffect f = TimeService.getWeatherEffect();
         	if(f != null)
@@ -132,7 +148,8 @@ public abstract class BattleField {
     }
     
     /**
-     * Must be implemented by children classes
+     * Applies weather to the battlefield.
+     * Must be implemented by children classes.
      */
     public abstract void applyWeather();
     
@@ -745,8 +762,7 @@ public abstract class BattleField {
         }
     }
 
-	public void clearQueue() {
-	}
+	public abstract void clearQueue();
 	
 	/**
 	 * Adds a trainer to the battlefield

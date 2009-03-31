@@ -2,8 +2,10 @@ package org.pokenet.server.battle;
 
 import java.util.ArrayList;
 
+import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.battle.impl.WildBattleField;
 
 /**
  * Handles battles
@@ -77,7 +79,9 @@ public class BattleService implements Runnable {
 	 * @param pokemon
 	 */
 	public void startWildBattle(PlayerChar player, Pokemon pokemon) {
-		
+		m_battleFields.add(new WildBattleField(
+				GameServer.getServiceManager().getDataService().getBattleMechanics(),
+				player, pokemon));
 	}
 	
 	/**
@@ -88,7 +92,10 @@ public class BattleService implements Runnable {
 		while(m_isRunning) {
 			synchronized(m_battleFields) {
 				for(int i = 0; i < m_battleFields.size(); i++) {
-					if(m_battleFields.get(i).isReady()) {
+					if(m_battleFields.get(i).isFinished()) {
+						m_battleFields.remove(i);
+						m_battleFields.trimToSize();
+					} else if(m_battleFields.get(i).isReady()) {
 						m_battleFields.get(i).executeTurn(m_battleFields.get(i).getQueuedTurns());
 					}
 				}

@@ -408,12 +408,14 @@ public class PlayerChar extends Char implements Battleable {
 		//Send all npc information to the client
 		for(int i = 0; i < map.getNpcs().size(); i++) {
 			c = map.getNpcs().get(i);
-			packet = packet + c.getName() + "," + 
+			if(!c.getName().equalsIgnoreCase("NULL")) {
+				packet = packet + c.getName() + "," + 
 				c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
 				(c.getFacing() == Direction.Down ? "D" : 
 				c.getFacing() == Direction.Up ? "U" :
 					c.getFacing() == Direction.Left ? "L" :
 						"R") + ",";
+			}
 		}
 		/*
 		 * Only send the packet if there were players on the map

@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
+import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.PokemonSpecies;
 import org.pokenet.server.battle.mechanics.PokemonNature;
@@ -261,21 +262,21 @@ public class RegistrationManager implements Runnable {
 	 * @throws Exception
 	 */
 	private Pokemon createStarter(int speciesIndex) throws Exception {
-        PokemonSpecies species = GameServer.getServiceManager().getDataService().getSpeciesDatabase().getSpecies(speciesIndex);
+        PokemonSpecies species = DataService.getSpeciesDatabase().getSpecies(speciesIndex - 1);
         ArrayList<MoveListEntry> possibleMoves = new ArrayList<MoveListEntry>();
         MoveListEntry[] moves = new MoveListEntry[4];
-        Random random = GameServer.getServiceManager().getDataService().getBattleMechanics().getRandom();
+        Random random = DataService.getBattleMechanics().getRandom();
 
-        for (int i = 0; i < GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(speciesIndex)
+        for (int i = 0; i < DataService.getPOLRDatabase().getPokemonData(speciesIndex)
                         .getStarterMoves().size(); i++) {
-                possibleMoves.add(GameServer.getServiceManager().getDataService().getMovesList().getMove(
-                		GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(
+                possibleMoves.add(DataService.getMovesList().getMove(
+                		DataService.getPOLRDatabase().getPokemonData(
                                 speciesIndex).getStarterMoves().get(i)));
         }
         for (int i = 1; i <= 5; i++) {
-                if (GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(speciesIndex).getMoves().containsKey(i)) {
-                        possibleMoves.add(GameServer.getServiceManager().getDataService().getMovesList().getMove(
-                        		GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(
+                if (DataService.getPOLRDatabase().getPokemonData(speciesIndex).getMoves().containsKey(i)) {
+                        possibleMoves.add(DataService.getMovesList().getMove(
+                        		DataService.getPOLRDatabase().getPokemonData(
                                         speciesIndex).getMoves().get(i)));
                 }
         }
@@ -292,9 +293,9 @@ public class RegistrationManager implements Runnable {
                         possibleMoves.remove(moves[i]);
                 }
         }
-        String [] abilities = GameServer.getServiceManager().getDataService().getSpeciesDatabase().getPossibleAbilities(species.getName());
+        String [] abilities = PokemonSpecies.getDefaultData().getPossibleAbilities(species.getName());
         Pokemon starter = new Pokemon(
-                        GameServer.getServiceManager().getDataService().getBattleMechanics(),
+        		DataService.getBattleMechanics(),
                         species,
                         PokemonNature.getNature(random.nextInt(PokemonNature.getNatureNames().length)),
                                         abilities[random.nextInt(abilities.length)],
@@ -305,11 +306,12 @@ public class RegistrationManager implements Runnable {
                                         random.nextInt(32), random.nextInt(32),
                                         random.nextInt(32) }, new int[] { 0, 0, 0, 0, 0, 0 }, //EVs
                         moves, new int[] { 0, 0, 0, 0 });
-        starter.setExpType(GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(speciesIndex)
+        starter.setExpType(DataService.getPOLRDatabase().getPokemonData(speciesIndex)
                         .getGrowthRate());
-        starter.setBaseExp(GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(speciesIndex).getBaseEXP());
-        starter.setExp(GameServer.getServiceManager().getDataService().getBattleMechanics().getExpForLevel(starter, 5));
-        starter.setHappiness(GameServer.getServiceManager().getDataService().getPOLRDatabase().getPokemonData(speciesIndex).getHappiness());
+        starter.setBaseExp(DataService.getPOLRDatabase().getPokemonData(speciesIndex).getBaseEXP());
+        starter.setExp(DataService.getBattleMechanics().getExpForLevel(starter, 5));
+        starter.setHappiness(DataService.getPOLRDatabase().getPokemonData(speciesIndex).getHappiness());
+        starter.setName(starter.getSpeciesName());
         return starter;
 	}
 }

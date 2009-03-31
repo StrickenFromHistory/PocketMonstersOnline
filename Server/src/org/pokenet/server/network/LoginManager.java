@@ -11,7 +11,9 @@ import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.Bag;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.PokemonBox;
+import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.battle.PokemonSpecies;
 import org.pokenet.server.battle.Pokemon.ExpTypes;
 import org.pokenet.server.battle.mechanics.PokemonNature;
 import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
@@ -218,7 +220,8 @@ public class LoginManager implements Runnable {
 		//Send their Pokemon information to them
 		for(int i = 0; i < p.getParty().length; i++) {
 			if(p.getParty()[i] != null) {
-				p.getSession().write("Pi" + i + p.getParty()[i].getId() + "," + 
+				p.getSession().write("Pi" + i + p.getParty()[i].getSpeciesNumber() + "," +
+								p.getParty()[i].getSpeciesName() + "," +
 								p.getParty()[i].getHealth() + "," +
 								p.getParty()[i].getGender() + "," +
 								(p.getParty()[i].isShiny() ? 1 : 0) + "," +
@@ -339,24 +342,24 @@ public class LoginManager implements Runnable {
 				 */
 				MoveListEntry [] moves = new MoveListEntry[4];
 				moves[0] = (data.getString("move0") != null && !data.getString("move0").equalsIgnoreCase("null") ?
-						GameServer.getServiceManager().getDataService().getMovesList().getMove(data.getString("move0")) :
+						DataService.getMovesList().getMove(data.getString("move0")) :
 							null);
 				moves[1] = (data.getString("move1") != null && !data.getString("move1").equalsIgnoreCase("null") ?
-						GameServer.getServiceManager().getDataService().getMovesList().getMove(data.getString("move1")) :
+						DataService.getMovesList().getMove(data.getString("move1")) :
 							null);
 				moves[2] = (data.getString("move2") != null && !data.getString("move2").equalsIgnoreCase("null") ?
-						GameServer.getServiceManager().getDataService().getMovesList().getMove(data.getString("move2")) :
+						DataService.getMovesList().getMove(data.getString("move2")) :
 							null);
 				moves[3] = (data.getString("move3") != null && !data.getString("move3").equalsIgnoreCase("null") ?
-						GameServer.getServiceManager().getDataService().getMovesList().getMove(data.getString("move3")) :
+						DataService.getMovesList().getMove(data.getString("move3")) :
 							null);
 				/*
 				 * Create the new Pokemon
 				 */
 				Pokemon p = new Pokemon(
-						GameServer.getServiceManager().getDataService().getBattleMechanics(),
-						GameServer.getServiceManager().getDataService().getSpeciesDatabase().getSpecies(
-								GameServer.getServiceManager().getDataService().getSpeciesDatabase().getPokemonByName(data.getString("speciesName")))
+						DataService.getBattleMechanics(),
+						PokemonSpecies.getDefaultData().getSpecies(
+								DataService.getSpeciesDatabase().getPokemonByName(data.getString("speciesName")))
 						,
 						PokemonNature.getNatureByName(data.getString("nature")),
 						data.getString("abilityName"),

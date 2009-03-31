@@ -45,7 +45,7 @@ public class DataService {
 	 * Returns the shoddybattle species database
 	 * @return
 	 */
-	public PokemonSpeciesData getSpeciesDatabase() {
+	public static PokemonSpeciesData getSpeciesDatabase() {
 		return m_speciesData;
 	}
 	
@@ -53,7 +53,7 @@ public class DataService {
 	 * Returns the polr database (contains evolution, move learning, etc.)
 	 * @return
 	 */
-	public POLRDatabase getPOLRDatabase() {
+	public static POLRDatabase getPOLRDatabase() {
 		return m_polrData;
 	}
 	
@@ -61,7 +61,7 @@ public class DataService {
 	 * Returns shoddybattle battle mechanics
 	 * @return
 	 */
-	public JewelMechanics getBattleMechanics() {
+	public static JewelMechanics getBattleMechanics() {
 		return m_mechanics;
 	}
 	
@@ -69,7 +69,7 @@ public class DataService {
 	 * Returns the move list
 	 * @return
 	 */
-	public MoveList getMovesList() {
+	public static MoveList getMovesList() {
 		return m_moveList;
 	}
 	
@@ -77,7 +77,7 @@ public class DataService {
 	 * Returns move set data
 	 * @return
 	 */
-	public MoveSetData getMoveSetData() {
+	public static MoveSetData getMoveSetData() {
 		return m_moveSetData;
 	}
 }
