@@ -149,6 +149,7 @@ public class RegistrationManager implements Runnable {
 					try {
 						this.register(session);
 					} catch (Exception e) {
+						e.printStackTrace();
 						session.resumeRead();
 						session.resumeWrite();
 						session.write("r3");
@@ -262,7 +263,7 @@ public class RegistrationManager implements Runnable {
 	 * @throws Exception
 	 */
 	private Pokemon createStarter(int speciesIndex) throws Exception {
-        PokemonSpecies species = DataService.getSpeciesDatabase().getSpecies(speciesIndex - 1);
+        PokemonSpecies species = PokemonSpecies.getDefaultData().getSpecies(speciesIndex - 1);
         ArrayList<MoveListEntry> possibleMoves = new ArrayList<MoveListEntry>();
         MoveListEntry[] moves = new MoveListEntry[4];
         Random random = DataService.getBattleMechanics().getRandom();

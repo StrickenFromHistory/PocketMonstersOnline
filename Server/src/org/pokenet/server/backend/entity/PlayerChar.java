@@ -24,7 +24,7 @@ public class PlayerChar extends Char implements Battleable {
 	private PokemonBox [] m_boxes;
 	private boolean m_isBattling = false;
 	private boolean m_isShopping = false;
-	private IoSession m_session;
+	private IoSession m_session = null;
 	private int m_money;
 	private ResultSet m_databasePokemon;
 	private ArrayList<String> m_friends;
@@ -167,15 +167,6 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public IoSession getSession() {
 		return m_session;
-	}
-	
-	/**
-	 * Sends an error code to the client. Must be between -128 to 127.
-	 * See the wiki page of error codes @ http://pokenetonline.googlecode.com
-	 * @param error
-	 */
-	public void sendErrorCode(String error) {
-		
 	}
 	
 	/**

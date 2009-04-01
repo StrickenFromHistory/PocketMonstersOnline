@@ -695,6 +695,7 @@ public class Pokemon extends PokemonSpecies {
         m_fainted = false;
         m_field = null;
         m_substitute = 0;
+        m_ability = IntrinsicAbility.getInstance(m_abilityName);
         
         calculateStats(true);
         

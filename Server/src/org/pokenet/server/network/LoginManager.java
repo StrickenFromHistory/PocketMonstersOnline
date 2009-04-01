@@ -220,8 +220,8 @@ public class LoginManager implements Runnable {
 		//Send their Pokemon information to them
 		for(int i = 0; i < p.getParty().length; i++) {
 			if(p.getParty()[i] != null) {
-				p.getSession().write("Pi" + i + p.getParty()[i].getSpeciesNumber() + "," +
-								p.getParty()[i].getSpeciesName() + "," +
+				p.getSession().write("Pi" + i + PokemonSpecies.getDefaultData().getPokemonByName(p.getParty()[i].getSpeciesName()) + "," +
+								/*p.getParty()[i].getName() + "," +*/
 								p.getParty()[i].getHealth() + "," +
 								p.getParty()[i].getGender() + "," +
 								(p.getParty()[i].isShiny() ? 1 : 0) + "," +
@@ -359,7 +359,7 @@ public class LoginManager implements Runnable {
 				Pokemon p = new Pokemon(
 						DataService.getBattleMechanics(),
 						PokemonSpecies.getDefaultData().getSpecies(
-								DataService.getSpeciesDatabase().getPokemonByName(data.getString("speciesName")))
+								PokemonSpecies.getDefaultData().getPokemonByName(data.getString("speciesName")))
 						,
 						PokemonNature.getNatureByName(data.getString("nature")),
 						data.getString("abilityName"),
