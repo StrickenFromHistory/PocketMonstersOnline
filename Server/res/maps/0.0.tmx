@@ -2,9 +2,12 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="16" tileheight="16">
  <properties>
+  <property name="forcedWeather" value="RAIN"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
-  <property name="forcedWeather" value="RAIN"/>
+  <property name="wildLevels" value="2-3;2-3;2-3;3-3;2-3"/>
+  <property name="wildProbability" value="28"/>
+  <property name="wildSpecies" value="Pidgey,50;Rattata,45;Sentret,40;Hoppip,5;Hoothoot,55"/>
  </properties>
  <tileset firstgid="1" source="normal1.tsx"/>
  <layer name="Walkable" width="20" height="20">
@@ -20,6 +23,11 @@
  <layer name="WalkBehind" width="20" height="20">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAGNgGAWjYBSMglFATcAOxBwU0EMFAABJRGsxQAYAAA==
+  </data>
+ </layer>
+ <layer name="Grass" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYOQARSQ8EswbBaOAlgAAc/4a4EAGAAA=
   </data>
  </layer>
 </map>
