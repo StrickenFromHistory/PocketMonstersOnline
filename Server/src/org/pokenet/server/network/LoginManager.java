@@ -221,7 +221,7 @@ public class LoginManager implements Runnable {
 		for(int i = 0; i < p.getParty().length; i++) {
 			if(p.getParty()[i] != null) {
 				p.getSession().write("Pi" + i + PokemonSpecies.getDefaultData().getPokemonByName(p.getParty()[i].getSpeciesName()) + "," +
-								/*p.getParty()[i].getName() + "," +*/
+								p.getParty()[i].getName() + "," +
 								p.getParty()[i].getHealth() + "," +
 								p.getParty()[i].getGender() + "," +
 								(p.getParty()[i].isShiny() ? 1 : 0) + "," +
@@ -232,7 +232,8 @@ public class LoginManager implements Runnable {
 								p.getParty()[i].getStat(4) + "," +
 								p.getParty()[i].getStat(5) + "," +
 								p.getParty()[i].getTypes()[0] + "," +
-								(p.getParty()[i].getTypes()[1] != null ? p.getParty()[i].getTypes()[1] : "") + "," +
+								/*Hack till we fix type issue*/"," +
+								//(p.getParty()[i].getTypes()[1] != null ? p.getParty()[i].getTypes()[1] : "") + "," +
 								p.getParty()[i].getExp() + "," +
 								p.getParty()[i].getLevel() + "," +
 								p.getParty()[i].getAbilityName() + "," +
