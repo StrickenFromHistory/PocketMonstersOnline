@@ -232,8 +232,8 @@ public class LoginManager implements Runnable {
 								p.getParty()[i].getStat(4) + "," +
 								p.getParty()[i].getStat(5) + "," +
 								p.getParty()[i].getTypes()[0] + "," +
-								/*Hack till we fix type issue*/"," +
-								//(p.getParty()[i].getTypes()[1] != null ? p.getParty()[i].getTypes()[1] : "") + "," +
+								(p.getParty()[i].getTypes().length > 1 &&
+										p.getParty()[i].getTypes()[1] != null ? p.getParty()[i].getTypes()[1] + "," : ",") +
 								p.getParty()[i].getExp() + "," +
 								p.getParty()[i].getLevel() + "," +
 								p.getParty()[i].getAbilityName() + "," +

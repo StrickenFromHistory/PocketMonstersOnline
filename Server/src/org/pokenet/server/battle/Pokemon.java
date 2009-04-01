@@ -451,8 +451,67 @@ public class Pokemon extends PokemonSpecies {
      * @param level
      * @return
      */
-    public static Pokemon getRandomPokemon(String speciesName, int level) {
-    	return null;
+    public static Pokemon getRandomPokemon(String species, int level) {
+    	Pokemon p;
+    	Random random = DataService.getBattleMechanics().getRandom();
+    	/*
+    	 * First obtain species data
+    	 */
+    	int speciesNo = PokemonSpecies.getDefaultData().getPokemonByName(species);
+    	PokemonSpecies ps = PokemonSpecies.getDefaultData().getSpecies(speciesNo);
+    	MoveListEntry[] moves = new MoveListEntry[4];
+    	/*
+    	 * Generate a list of possible moves this Pokemon could have at this level
+    	 */
+		ArrayList<MoveListEntry> possibleMoves = new ArrayList<MoveListEntry>();
+		MoveList moveList = MoveList.getDefaultData();
+		for(int i = 0; i < DataService.getPOLRDatabase().
+				getPokemonData(speciesNo).getStarterMoves().size(); i++) {
+			possibleMoves.add(moveList.getMove(DataService.getPOLRDatabase().getPokemonData(
+					speciesNo).getStarterMoves().get(i)));
+		}
+		for (int i = 1; i <= level; i++) {
+			if (DataService.getPOLRDatabase().getPokemonData(speciesNo).getMoves().containsKey(i)) {
+				possibleMoves.add(moveList.getMove(DataService.getPOLRDatabase().getPokemonData(
+						speciesNo).getMoves().get(i)));
+			}
+		}
+		/*
+		 * Now that we have an arraylist of possible moves, lets pick them randomly
+		 */
+		if (possibleMoves.size() <= 4) {
+			for (int i = 0; i < possibleMoves.size(); i++) {
+				moves[i] = possibleMoves.get(i);
+			}
+		} else {
+			for (int i = 0; i < moves.length; i++) {
+				if (possibleMoves.size() == 0)
+					moves[i] = null;
+				moves[i] = possibleMoves.get(random.nextInt(possibleMoves.size()));
+				possibleMoves.remove(moves[i]);
+				possibleMoves.trimToSize();
+			}
+		}
+		/*
+		 * Now lets create the pokemon itself
+		 */
+		p = new Pokemon(DataService.getBattleMechanics(), 
+				ps, 
+				PokemonNature.getNature(random.nextInt(PokemonNature.getNatureNames().length)),
+				ps.getPossibleAbilities(PokemonSpecies.getDefaultData())[random
+				     .nextInt(ps.getPossibleAbilities(PokemonSpecies.getDefaultData()).length)],
+				     null, Pokemon.generateGender(ps.getPossibleGenders()),
+						level, new int[] {
+								random.nextInt(32), // IVs
+								random.nextInt(32), random.nextInt(32),
+								random.nextInt(32), random.nextInt(32),
+								random.nextInt(32) }, new int[] { 0, 0, 0, 0, 0, 0 }, // EVs
+						moves, new int[] { 0, 0, 0, 0 });
+		p.setBaseExp(DataService.getPOLRDatabase().getPokemonData(speciesNo).getBaseEXP());
+		p.setExpType(DataService.getPOLRDatabase().getPokemonData(speciesNo).getGrowthRate());
+		p.setExp(DataService.getBattleMechanics().getExpForLevel(p, level));
+		p.setHappiness(DataService.getPOLRDatabase().getPokemonData(speciesNo).getHappiness());
+    	return p;
     }
     
     /**
@@ -1689,8 +1748,6 @@ public class Pokemon extends PokemonSpecies {
      * @param b
      */
 	public void reinitialise() {
-        // Ryan really screwed up the EV check,
-        // so we'll just 0 them out if there's a negative
         boolean hasNeg = false;
         for (int i = 0; i < 6; i++) {
                 if (getEv(i) < 0) hasNeg = true;

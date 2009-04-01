@@ -10,7 +10,9 @@ import org.pokenet.server.backend.entity.Char;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
+import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.feature.TimeService;
 import org.pokenet.server.feature.TimeService.Weather;
 
 import tiled.core.Map;
@@ -54,7 +56,7 @@ public class ServerMap {
 	private TileLayer m_ledgesLeft = null;
 	private TileLayer m_ledgesRight = null;
 	//Misc
-	private Random m_random = GameServer.getServiceManager().getDataService().getBattleMechanics().getRandom();
+	private Random m_random = DataService.getBattleMechanics().getRandom();
 	
 	/**
 	 * Default constructor
@@ -107,6 +109,86 @@ public class ServerMap {
 		File f = new File("res/npc/" + x + "." + y + ".txt");
 		if(f.exists()) {
 			DataLoader d = new DataLoader(f, this);
+		}
+		
+		/*
+		 * Load offsets
+		 */
+		m_xOffsetModifier = Integer.parseInt(map.getProperties().getProperty("xOffsetModifier"));
+		m_yOffsetModifier = Integer.parseInt(map.getProperties().getProperty("yOffsetModifier"));
+		
+		/*
+		 * Load wild pokemon
+		 */
+		m_wildProbability = Integer.parseInt(map.getProperties().getProperty("wildProbabilty"));
+		
+		String[] species;
+		String[] levels;
+		//Daytime Pokemon
+		try {
+			species = map.getProperties().getProperty("daySpecies").split(";");
+			levels = map.getProperties().getProperty("dayLevels").split(";");
+			if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
+				m_dayPokemonChances = new HashMap<String, Integer>();
+				m_dayPokemonLevels = new HashMap<String, int[]> ();
+					for (int i = 0; i < species.length; i++) {
+						String[] speciesInfo = species[i].split(",");
+						m_dayPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
+						String[] levelInfo = levels[i].split("-");
+						m_dayPokemonLevels.put(speciesInfo[0], new int[] {
+								Integer.parseInt(levelInfo[0]),
+								Integer.parseInt(levelInfo[1]) });
+					}
+			}
+		} catch (Exception e) {
+			m_dayPokemonChances = null;
+			m_dayPokemonLevels = null;
+			species = new String[] { "" };
+			levels = new String[] { "" };
+		}
+		//Nocturnal Pokemon
+		try {
+			species = map.getProperties().getProperty("nightSpecies").split(";");
+			levels = map.getProperties().getProperty("nightLevels").split(";");
+			if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
+				m_nightPokemonChances = new HashMap<String, Integer>();
+				m_nightPokemonLevels = new HashMap<String, int[]> ();
+					for (int i = 0; i < species.length; i++) {
+						String[] speciesInfo = species[i].split(",");
+						m_nightPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
+						String[] levelInfo = levels[i].split("-");
+						m_nightPokemonLevels.put(speciesInfo[0], new int[] {
+								Integer.parseInt(levelInfo[0]),
+								Integer.parseInt(levelInfo[1]) });
+					}
+			}
+		} catch (Exception e) {
+			m_nightPokemonChances = null;
+			m_nightPokemonLevels = null;
+			species = new String[] { "" };
+			levels = new String[] { "" };
+		}
+		//Surf Pokemon
+		try {
+			species = map.getProperties().getProperty("waterSpecies").split(";");
+			levels = map.getProperties().getProperty("waterLevels").split(";");
+			if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
+				m_waterPokemonChances = new HashMap<String, Integer>();
+				m_waterPokemonLevels = new HashMap<String, int[]> ();
+					for (int i = 0; i < species.length; i++) {
+						String[] speciesInfo = species[i].split(",");
+						m_waterPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
+						String[] levelInfo = levels[i].split("-");
+						m_waterPokemonLevels.put(speciesInfo[0], new int[] {
+								Integer.parseInt(levelInfo[0]),
+								Integer.parseInt(levelInfo[1]) });
+					}
+			}
+		} catch (Exception e) {
+			m_waterPokemonChances = null;
+			m_waterPokemonLevels = null;
+			species = new String[] { "" };
+			levels = new String[] { "" };
 		}
 	}
 	
@@ -466,10 +548,18 @@ public class ServerMap {
 	 * Returns true if a wild pokemon was encountered.
 	 * @return
 	 */
-	public boolean isWildBattle(int x, int y) {
-		if (m_random.nextInt(2874) < m_wildProbability * 16)
-			if (m_grass != null && m_grass.getTileAt(x / 32, y / 32) != null)
-				return true;
+	public boolean isWildBattle(int x, int y, PlayerChar p) {
+		if (m_random.nextInt(2874) < m_wildProbability * 16) {
+			if(p.isSurfing()) {
+				if(m_waterPokemonChances != null && m_waterPokemonLevels != null)
+					return true;
+			} else {
+				if (m_grass != null && m_grass.getTileAt(x / 32, y / 32) != null)
+					if(m_dayPokemonChances != null && m_dayPokemonLevels != null &&
+							m_nightPokemonChances != null && m_nightPokemonLevels != null)
+						return true;
+			}
+		}
 		return false;
 	}
 	
@@ -478,8 +568,72 @@ public class ServerMap {
 	 * Different players have different chances of encountering rarer Pokemon.
 	 * @return
 	 */
-	public Pokemon getWildPokemon(PlayerChar p) {
-		return null;
+	public Pokemon getWildPokemon(PlayerChar player) {
+		int [] range;
+		String species;
+		if(player.isSurfing()) {
+			//Generate a Pokemon from the water
+			species = getWildSpeciesWater();
+			range = m_waterPokemonLevels.get(species);
+			return Pokemon.getRandomPokemon(species, (m_random.nextInt((range[1] - range[0]) + 1)) + range[0]);
+		} else {
+			if(TimeService.isNight()) {
+				//Generate a nocturnal Pokemon
+				species = getWildSpeciesNight();
+				range = m_nightPokemonLevels.get(species);
+				return Pokemon.getRandomPokemon(species, (m_random.nextInt((range[1] - range[0]) + 1)) + range[0]);
+			} else {
+				//Generate a day Pokemon
+				species = getWildSpeciesDay();
+				range = m_dayPokemonLevels.get(species);
+				return Pokemon.getRandomPokemon(species, (m_random.nextInt((range[1] - range[0]) + 1)) + range[0]);
+			}
+		}
+	}
+	
+	/**
+	 * Returns a wild species for day
+	 * @return
+	 */
+	private String getWildSpeciesDay() {
+		ArrayList<String> potentialSpecies = new ArrayList<String>();
+		do {
+			for (String species : m_dayPokemonChances.keySet()) {
+				if (m_random.nextInt(101) < m_dayPokemonChances.get(species))
+					potentialSpecies.add(species);
+			}
+		} while (potentialSpecies.size() <= 0);
+		return potentialSpecies.get(m_random.nextInt(potentialSpecies.size()));
+	}
+	
+	/**
+	 * Returns a wild species for night
+	 * @return
+	 */
+	private String getWildSpeciesNight() {
+		ArrayList<String> potentialSpecies = new ArrayList<String>();
+		do {
+			for (String species : m_nightPokemonChances.keySet()) {
+				if (m_random.nextInt(101) < m_nightPokemonChances.get(species))
+					potentialSpecies.add(species);
+			}
+		} while (potentialSpecies.size() <= 0);
+		return potentialSpecies.get(m_random.nextInt(potentialSpecies.size()));
+	}
+	
+	/**
+	 * Returns a wild species for water
+	 * @return
+	 */
+	private String getWildSpeciesWater() {
+		ArrayList<String> potentialSpecies = new ArrayList<String>();
+		do {
+			for (String species : m_waterPokemonChances.keySet()) {
+				if (m_random.nextInt(101) < m_waterPokemonChances.get(species))
+					potentialSpecies.add(species);
+			}
+		} while (potentialSpecies.size() <= 0);
+		return potentialSpecies.get(m_random.nextInt(potentialSpecies.size()));
 	}
 	
 	/**
