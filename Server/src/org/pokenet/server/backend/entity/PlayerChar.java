@@ -20,6 +20,7 @@ import org.pokenet.server.feature.TimeService;
  */
 public class PlayerChar extends Char implements Battleable {
 	private Bag m_bag;
+	private int m_battleId;
 	private Pokemon[] m_pokemon;
 	private PokemonBox [] m_boxes;
 	private boolean m_isBattling = false;
@@ -63,6 +64,31 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
+	 * Adds a friend to the friend list
+	 * @param username
+	 */
+	public void addFriend(String username) {
+		if(m_friends.size() < 10) {
+			m_friends.add(username);
+			m_session.write("Fa" + username);
+		}
+	}
+	
+	/**
+	 * Removes a friend from the friends list
+	 * @param username
+	 */
+	public void removeFriend(String username) {
+		for(int i = 0; i < m_friends.size(); i++) {
+			if(m_friends.get(i).equalsIgnoreCase(username)) {
+				m_friends.remove(i);
+				m_session.write("Fr" + username);
+				return;
+			}
+		}
+	}
+	
+	/**
 	 * Sets the badges this player has
 	 * @param badges
 	 */
@@ -82,9 +108,8 @@ public class PlayerChar extends Char implements Battleable {
 	/**
 	 * Returns the battle id of this player on the battlefield
 	 */
-	public int getBattleID() {
-		//NOTE: I HAVE NO IDEA WHAT THIS DOES? IS IT THE TRAINER INDEX ON THE BATTLEFIELD?
-		return 0;
+	public int getBattleId() {
+		return m_battleId;
 	}
 
 	/**
@@ -142,8 +167,8 @@ public class PlayerChar extends Char implements Battleable {
 	/**
 	 * Sets this player's battle id on a battlefield
 	 */
-	public void setBattleID(int battleID) {
-	
+	public void setBattleId(int battleID) {
+		m_battleId = battleID;
 	}
 
 	/**

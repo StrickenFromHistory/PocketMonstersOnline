@@ -9,6 +9,8 @@ import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
+import org.pokenet.server.battle.BattleTurn;
+import org.pokenet.server.battle.impl.WildBattleField;
 
 /**
  * Handles packets received from the player
@@ -61,21 +63,22 @@ public class ConnectionManager extends IoHandlerAdapter {
 	    * @param Object msg - The packet received from the client
 		*/
 	public void messageReceived(IoSession session, Object msg) throws Exception {
-		String [] message;
-		System.out.println(((String) msg));
+		String message = (String) msg;
+		String [] details;
+		System.out.println(message);
 		if(session.getAttribute("player") == null) {
 			/*
 			 * The player hasn't been logged in, only allow login and registration packets
 			 */
-			switch(((String) msg).charAt(0)) {
+			switch(message.charAt(0)) {
 			case 'l':
 				//Login packet
-				message = ((String) msg).substring(1).split(",");
-				m_loginManager.queuePlayer(session, message[0], message[1]);
+				details = message.substring(1).split(",");
+				m_loginManager.queuePlayer(session, details[0], details[1]);
 				break;
 			case 'r':
 				//Registration packet
-				m_regManager.queueRegistration(session, ((String) msg).substring(1));
+				m_regManager.queueRegistration(session, message.substring(1));
 				break;
 			}
 		} else {
@@ -83,7 +86,39 @@ public class ConnectionManager extends IoHandlerAdapter {
 			 * Player is logged in, allow interaction with their player object
 			 */
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
-			switch(((String) msg).charAt(0)) {
+			switch(message.charAt(0)) {
+			case 'b':
+				//Battle information
+				if(p.isBattling()) {
+					BattleTurn turn;
+					switch(message.charAt(1)) {
+					case 'm':
+						//Move selected (bmINDEXOFMOVE)
+						turn = BattleTurn.getMoveTurn(Integer.parseInt(message.substring(1)));
+						p.getBattleField().queueMove(p.getBattleId(), turn);
+						break;
+					case 's':
+						//Pokemon switch (bsPARTYINDEX)
+						int pIndex = Integer.parseInt(message.substring(2));
+						if(p.getParty()[pIndex] != null) {
+							if(!p.getParty()[pIndex].isFainted()) {
+								turn = BattleTurn.getSwitchTurn(pIndex);
+								p.getBattleField().queueMove(p.getBattleId(), turn);
+							}
+						}
+						break;
+					case 'r':
+						//Run
+						if(p.getBattleField() instanceof WildBattleField) {
+							((WildBattleField) p.getBattleField()).run();
+						}
+						break;
+					case 'i':
+						//Item
+						break;
+					}
+				}
+				break;
 			case 'U':
 				//Move up
 				if(!p.isBattling() && !p.isShopping())
@@ -106,27 +141,30 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'F':
 				//Friend list
-				switch(((String) msg).charAt(1)) {
+				switch(message.charAt(1)) {
 				case 'a':
 					//Add a friend
+					p.addFriend(message.substring(2));
 					break;
 				case 'r':
 					//Remove a friend
+					p.removeFriend(message.substring(2));
 					break;
 				}
+				break;
 			case 'C':
 				//Chat/Interact
-				switch(((String) msg).charAt(1)) {
+				switch(message.charAt(1)) {
 				case 'l':
 					//Local chat
 					GameServer.getServiceManager().getNetworkService().getChatManager().
-								queueLocalChatMessage("<" + p.getName() + "> " + ((String) msg).substring(2), p.getMapX(), p.getMapY());
+								queueLocalChatMessage("<" + p.getName() + "> " + message.substring(2), p.getMapX(), p.getMapY());
 					break;
 				case 'p':
 					//Private chat
-					message = ((String) msg).substring(2).split(",");
+					details = message.substring(2).split(",");
 					GameServer.getServiceManager().getNetworkService().getChatManager().
-						queuePrivateMessage(message[1], m_players.get(message[0]).getSession(), p.getName());
+						queuePrivateMessage(details[1], m_players.get(details[0]).getSession(), p.getName());
 					break;
 				case 't':
 					//Talk

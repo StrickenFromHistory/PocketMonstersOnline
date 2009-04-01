@@ -277,6 +277,20 @@ public class ConnectionManager extends IoHandlerAdapter {
 				}
 				m_game.getMapMatrix().addPlayer(p);
 				break;
+			case 'F':
+				//Friends list
+				switch(message.charAt(1)) {
+				case 'i':
+					//Initialise
+					break;
+				case 'a':
+					//A friend was added
+					break;
+				case 'r':
+					//A friend was removed
+					break;
+				}
+				break;
 			case 'r':
 				//Remove player
 				m_game.getMapMatrix().removePlayer(Integer.parseInt(message.substring(2)));
@@ -324,7 +338,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'e':
 				//Error
-				GameClient.getInstance().messageDialog("An error occurred.\n " +
+				GameClient.messageDialog("An error occurred.\n " +
 				"Make sure the username and password are correct.", GameClient.getInstance().getDisplay());
 				
 				m_game.getLoadingScreen().setVisible(false);
@@ -336,22 +350,22 @@ public class ConnectionManager extends IoHandlerAdapter {
 			switch(message.charAt(1)) {
 			case 's':
 				//Sucessful registration
-				GameClient.getInstance().messageDialog("Successful registration. You may now login on any server.", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog("Successful registration. You may now login on any server.", GameClient.getInstance().getDisplay());
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().showLogin();
 				break;
 			case '1':
 				//Account server offline
-				GameClient.getInstance().messageDialog("The account server is currently offline.\n" +
+				GameClient.messageDialog("The account server is currently offline.\n" +
 						"Please try again later.", GameClient.getInstance().getDisplay());
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			case '2':
-				GameClient.getInstance().messageDialog("Username already taken.", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog("Username already taken.", GameClient.getInstance().getDisplay());
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			case '3':
-				GameClient.getInstance().messageDialog("Unkown error occurred. Please try again later.", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog("Unkown error occurred. Please try again later.", GameClient.getInstance().getDisplay());
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			}
