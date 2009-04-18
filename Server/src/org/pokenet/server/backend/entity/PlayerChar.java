@@ -40,6 +40,7 @@ public class PlayerChar extends Char implements Battleable {
 	private BattleField m_battleField = null;
 	private int m_healX, m_healY, m_healMapX, m_healMapY;
 	private int m_adminLevel = 0;
+	private boolean m_isMuted;
 	/*
 	 * Badges are stored as bytes. 0 = not obtained, 1 = obtained
 	 * Stored as following:
@@ -61,6 +62,23 @@ public class PlayerChar extends Char implements Battleable {
 		for(int i = 0; i < m_badges.length; i++) {
 			m_badges[i] = 0;
 		}
+		m_isMuted = false;
+	}
+	
+	/**
+	 * Returns true if this player is muted
+	 * @return
+	 */
+	public boolean isMuted() {
+		return m_isMuted;
+	}
+	
+	/**
+	 * Sets if this player is muted
+	 * @param b
+	 */
+	public void setMuted(boolean b) {
+		m_isMuted = b;
 	}
 	
 	/**
@@ -198,11 +216,21 @@ public class PlayerChar extends Char implements Battleable {
 	 * Overrides char's move method.
 	 * Adds a check for wild battles and clears battle/trade request lists
 	 */
-	public void move() {
-		super.move();
-		if(this.getMap() != null && this.getMap().isWildBattle(m_x, m_y, this))
-			GameServer.getServiceManager().getBattleService().startWildBattle(this, this.getMap().getWildPokemon(this));
-		//TODO: Clear requests list
+	@Override
+	public boolean move() {
+		if(!m_isBattling && !m_isShopping) {
+			if(super.move()) {
+				//If the player moved
+				if(this.getMap() != null && this.getMap().isWildBattle(m_x, m_y, this))
+					GameServer.getServiceManager().getBattleService().startWildBattle(this, this.getMap().getWildPokemon(this));
+				//TODO: Clear requests list
+				return true;
+			}
+		} else {
+			//Ignore any movement request if the player can't move
+			this.setNextMovement(null);
+		}
+		return false;
 	}
 	
 	/**

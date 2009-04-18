@@ -11,6 +11,7 @@ import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.impl.WildBattleField;
+import org.pokenet.server.feature.TimeService.Weather;
 
 /**
  * Handles packets received from the player
@@ -87,6 +88,31 @@ public class ConnectionManager extends IoHandlerAdapter {
 			 */
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
 			switch(message.charAt(0)) {
+			case 'M':
+				//Moderation
+				if(p.getAdminLevel() > 0) {
+					try {
+						switch(message.charAt(1)) {
+						case 'm':
+							//Mute player
+							m_players.get(message.substring(2)).setMuted(true);
+							break;
+						case 'u':
+							//Unmute player
+							m_players.get(message.substring(2)).setMuted(false);
+							break;
+						case 'w':
+							//Change weather on current map
+							switch(message.charAt(2)) {
+							case 'n':
+								//Normal
+								p.getMap().setWeather(Weather.NORMAL);
+								break;
+							}
+						}
+					} catch (Exception e) {}
+				}
+				break;
 			case 'b':
 				//Battle information
 				if(p.isBattling()) {

@@ -139,12 +139,8 @@ public abstract class BattleField {
     /** Creates a new instance of BattleField */
     public BattleField(BattleMechanics mech, Pokemon[][] pokemon) {
         m_mechanics = mech;
+        System.out.println("Set mechanics.");
         setPokemon(pokemon);
-        /*
-         	FieldEffect f = TimeService.getWeatherEffect();
-        	if(f != null)
-        	this.applyEffect(f);
-        */
     }
     
     /**
@@ -159,7 +155,6 @@ public abstract class BattleField {
      */
     protected BattleField(BattleMechanics mech) {
         m_mechanics = mech;
-        applyWeather();
     }
     
     /**
@@ -551,9 +546,10 @@ public abstract class BattleField {
     /**
      * Determine the order in which pokemon attack, etc.
      */
-    private void sortBySpeed(Pokemon[] active) {
+    @SuppressWarnings("unchecked")
+	private void sortBySpeed(Pokemon[] active) {
         // Sort pokemon by speed.
-        ArrayList list = new ArrayList(Arrays.asList(active));
+        ArrayList<Pokemon> list = new ArrayList<Pokemon>(Arrays.asList(active));
         Collections.sort(list, new Comparator() {
                 public int compare(Object o1, Object o2) {
                     return PokemonWrapper.compareSpeed((Pokemon)o1, (Pokemon)o2);
@@ -649,9 +645,9 @@ public abstract class BattleField {
 
             // Note: shoddy.
             if (comp != 0) {
-                if (p1.getField().getEffectByType(SpeedSwapEffect.class) != null) {
+                /*if (p1.getField().getEffectByType(SpeedSwapEffect.class) != null) {
                     return -comp;
-                }
+                }*/
                 return comp;
             }
             

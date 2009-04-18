@@ -8,7 +8,7 @@ import org.pokenet.server.backend.ServerMap;
  *
  */
 public class Char implements Positionable {
-	private Direction m_nextMovement = null;
+	protected Direction m_nextMovement = null;
 	private Direction m_facing = Direction.Down;
 	private long m_lastMovement = System.currentTimeMillis();
 	protected int m_sprite, m_mapX, m_mapY, m_x, m_y, m_id;
@@ -123,7 +123,7 @@ public class Char implements Positionable {
 	/**
 	 * Moves the char if m_nextMovement != null
 	 */
-	public void move() {
+	public boolean move() {
 		if(m_nextMovement != null && m_map != null) {
 			//Move the player
 			if(m_facing != m_nextMovement) {
@@ -171,7 +171,9 @@ public class Char implements Positionable {
 			}
 			m_nextMovement = null;
 			m_lastMovement = System.currentTimeMillis();
+			return true;
 		}
+		return false;
 	}
 
 	/**

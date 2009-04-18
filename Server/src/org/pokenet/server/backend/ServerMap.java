@@ -120,7 +120,11 @@ public class ServerMap {
 		/*
 		 * Load wild pokemon
 		 */
-		m_wildProbability = Integer.parseInt(map.getProperties().getProperty("wildProbabilty"));
+		try {
+			m_wildProbability = Integer.parseInt(map.getProperties().getProperty("wildProbabilty"));
+		} catch (Exception e) {
+			m_wildProbability = 28;
+		}
 		
 		String[] species;
 		String[] levels;
@@ -216,6 +220,21 @@ public class ServerMap {
 	 */
 	public Weather getWeather() {
 		return m_forcedWeather;
+	}
+	
+	/**
+	 * Sets forced weather
+	 * @param w
+	 */
+	public void setWeather(Weather w) {
+		m_forcedWeather = w;
+	}
+	
+	/**
+	 * Removes forced weather
+	 */
+	public void removeWeather() {
+		m_forcedWeather = null;
 	}
 	
 	/**
@@ -554,9 +573,9 @@ public class ServerMap {
 				if(m_waterPokemonChances != null && m_waterPokemonLevels != null)
 					return true;
 			} else {
-				if (m_grass != null && m_grass.getTileAt(x / 32, y / 32) != null)
-					if(m_dayPokemonChances != null && m_dayPokemonLevels != null &&
-							m_nightPokemonChances != null && m_nightPokemonLevels != null)
+				if (m_grass != null && m_grass.getTileAt(x / 32, (y + 8) / 32) != null)
+					if((m_dayPokemonChances != null && m_dayPokemonLevels != null) ||
+							(m_nightPokemonChances != null && m_nightPokemonLevels != null))
 						return true;
 			}
 		}

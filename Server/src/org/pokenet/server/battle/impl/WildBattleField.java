@@ -38,9 +38,9 @@ public class WildBattleField extends BattleField {
 	public WildBattleField(BattleMechanics m, PlayerChar p, Pokemon wild) {
 		super(m, new Pokemon[][] { p.getParty(), new Pokemon[] { wild }});
 		p.setBattleId(0);
+		p.getSession().write("bi");
 		m_player = p;
 		applyWeather();
-		m_player.getSession().write("bi");
 	}
 
 	/**
@@ -85,34 +85,39 @@ public class WildBattleField extends BattleField {
 
 	@Override
 	public void informPokemonFainted(int trainer, int idx) {
-		m_player.getSession().write("bF" + this.getParty(trainer)[idx].getSpeciesName());
+		if(m_player != null)
+			m_player.getSession().write("bF" + this.getParty(trainer)[idx].getSpeciesName());
 	}
 
 	@Override
 	public void informPokemonHealthChanged(Pokemon poke, int change) {
-		m_player.getSession().write("bH" + poke.getSpeciesName() + "," + change);
+		if(m_player != null)
+			m_player.getSession().write("bH" + poke.getSpeciesName() + "," + change);
 	}
 
 	@Override
 	public void informStatusApplied(Pokemon poke, StatusEffect eff) {
-		m_player.getSession().write("be" + poke.getSpeciesName() + "," + eff.getName());
+		if(m_player != null)
+			m_player.getSession().write("be" + poke.getSpeciesName() + "," + eff.getName());
 	}
 
 	@Override
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
-		m_player.getSession().write("bE" + poke.getSpeciesName() + "," + eff.getName());
+		if(m_player != null)
+			m_player.getSession().write("bE" + poke.getSpeciesName() + "," + eff.getName());
 	}
 
 	@Override
 	public void informSwitchInPokemon(int trainer, Pokemon poke) {
-		if(trainer == 0) {
+		if(trainer == 0 && m_player != null) {
 			m_player.getSession().write("bS" + m_player.getName() + "," + poke.getSpeciesName());
 		}
 	}
 
 	@Override
 	public void informUseMove(Pokemon poke, String name) {
-		m_player.getSession().write("bM" + poke.getSpeciesName() + "," + name);
+		if(m_player != null)
+			m_player.getSession().write("bM" + poke.getSpeciesName() + "," + name);
 	}
 
 	@Override

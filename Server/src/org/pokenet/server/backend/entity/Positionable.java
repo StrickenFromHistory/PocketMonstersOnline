@@ -42,7 +42,7 @@ public interface Positionable {
 	public void setName(String name);
 	public int getSprite();
 
-	public void move();
+	public boolean move();
 	public void setNextMovement(Direction dir);
 	public Direction getFacing();
 	public ServerMap getMap();

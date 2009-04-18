@@ -79,9 +79,10 @@ public class BattleService implements Runnable {
 	 * @param pokemon
 	 */
 	public void startWildBattle(PlayerChar player, Pokemon pokemon) {
-		m_battleFields.add(new WildBattleField(
+		WildBattleField b = new WildBattleField(
 				DataService.getBattleMechanics(),
-				player, pokemon));
+				player, pokemon);
+		m_battleFields.add(b);
 		player.setBattling(true);
 	}
 	
