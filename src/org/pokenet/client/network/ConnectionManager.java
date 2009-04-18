@@ -55,6 +55,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 		System.out.println("INFO: " + message);
 		String [] details;
 		switch(message.charAt(0)) {
+		case '!':
+			//Server notification
+			break;
 		case 'b':
 			//Battle information
 			switch(message.charAt(1)) {
