@@ -105,19 +105,7 @@ public class Ui extends Frame {
         m_buttons[3] = HUDButtonFactory.getButton("options");
         m_buttons[3].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		if (m_optionsForm != null) {
-        			m_isOption = false;
-        			getDisplay().remove(m_optionsForm);
-        			hideHUD();
-        		} else {
-        			hideHUD();
-        			m_isOption = true;
-        			m_optionsForm = new OptionsDialog();
-        			m_optionsForm.setWidth(UI_WIDTH);
-        			m_optionsForm.setLocation(48, 0);
-        			m_optionsForm.setDraggable(false);
-        			getDisplay().add(m_optionsForm);
-        		}
+        		toggleOptions();
         	}
         });
         
@@ -343,20 +331,37 @@ public class Ui extends Frame {
     }
     
     /**
-     * Toggles the Help Pane
+     * Toggles the Options Pane
      */
-    public void toggleHelp(){
-    	if (m_teamInfo != null) {
-			getDisplay().remove(m_teamInfo);
+    public void toggleOptions(){
+    	if (m_optionsForm != null) {
+			getDisplay().remove(m_optionsForm);
 			hideHUD();
 		} else {
 			hideHUD();
-			m_teamInfo = new PartyInfo(GameClient.getInstance().getOurPlayer()
-					.getPokes());
-			m_teamInfo.setWidth(UI_WIDTH);
-			m_teamInfo.setLocation(48, 0);
-			m_teamInfo.setDraggable(false);
-			getDisplay().add(m_teamInfo);
+			m_isOption = true;
+			m_optionsForm = new OptionsDialog();
+			m_optionsForm.setWidth(UI_WIDTH);
+			m_optionsForm.setLocation(48, 0);
+			m_optionsForm.setDraggable(false);
+			getDisplay().add(m_optionsForm);
+		}
+    }
+    
+    /**
+     * Toggles the Help Pane
+     */
+    public void toggleHelp(){
+    	if (m_helpForm != null) {
+			getDisplay().remove(m_helpForm);
+			hideHUD();
+		} else {
+			hideHUD();
+			m_helpForm = new HelpWindow();
+			m_helpForm.setWidth(UI_WIDTH);
+			m_helpForm.setHeight(300);
+			m_helpForm.setLocation(48, 0);
+			getDisplay().add(m_helpForm);
 		}
     }
     

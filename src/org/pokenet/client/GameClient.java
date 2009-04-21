@@ -303,7 +303,18 @@ public class GameClient extends BasicGame {
 				} else if(m_ourPlayer.getDirection() != Direction.Right) {
 					m_packetGen.move(Direction.Right);
 				}
+			}else if (key == (Input.KEY_1)) {
+				m_ui.toggleRequests();
+			}else if (key == (Input.KEY_2)) {
+				m_ui.toggleBag();
+			}else if (key == (Input.KEY_3)) {
+				m_ui.togglePokemon();
+			}else if (key == (Input.KEY_4)) {
+				m_ui.toggleOptions();
+			}else if (key == (Input.KEY_5)) {
+				m_ui.toggleHelp();
 			}
+			
 		}
 	}
 	
