@@ -347,7 +347,15 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().enableLogin();
 				break;
+			case '1':
+				//Account server offline
+				GameClient.messageDialog("The account server is currently offline.\n" +
+						"Please try again later.", GameClient.getInstance().getDisplay());
+				m_game.getLoadingScreen().setVisible(false);
+				m_game.getLoginScreen().showLogin();
+				break;
 			}
+		
 			break;
 		case 'r':
 			switch(message.charAt(1)) {
@@ -361,14 +369,17 @@ public class ConnectionManager extends IoHandlerAdapter {
 				//Account server offline
 				GameClient.messageDialog("The account server is currently offline.\n" +
 						"Please try again later.", GameClient.getInstance().getDisplay());
+				m_game.getLoginScreen().getRegistration().enableRegistration();
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			case '2':
 				GameClient.messageDialog("Username already taken.", GameClient.getInstance().getDisplay());
+				m_game.getLoginScreen().getRegistration().enableRegistration();
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			case '3':
 				GameClient.messageDialog("Unkown error occurred. Please try again later.", GameClient.getInstance().getDisplay());
+				m_game.getLoginScreen().getRegistration().enableRegistration();
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			}

@@ -55,6 +55,7 @@ public class LoginManager implements Runnable {
 		try {
 			//First connect to the database
 			if(!m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword())) {
+				session.write("l1");
 				return;
 			}
 			m_database.selectDatabase(GameServer.getDatabaseName());
