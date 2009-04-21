@@ -439,6 +439,14 @@ public class RegisterDialog extends Frame{
 	 */
 	private void cancel() {
 		GameClient.getInstance().getLoginScreen().showLogin();
+		m_register.setEnabled(true);
+	}
+	
+	/**
+	 * Enables the registration
+	 */
+	public void enableRegistration() {
+		m_register.setEnabled(true);
 	}
 	
 	/**

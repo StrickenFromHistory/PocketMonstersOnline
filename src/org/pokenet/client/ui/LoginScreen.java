@@ -151,4 +151,11 @@ public class LoginScreen extends Window {
 	public void enableLogin() {
 		m_login.getLoginButton().setEnabled(true);
 	}
+	 /**
+     * Returns the register screen
+     * @return
+     */
+	public RegisterDialog getRegistration() {
+		return m_register;
+	}
 }
