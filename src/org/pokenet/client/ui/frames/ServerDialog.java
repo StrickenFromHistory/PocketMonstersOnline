@@ -1,6 +1,9 @@
 package org.pokenet.client.ui.frames;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.Scanner;
 
 import org.newdawn.slick.Color;
@@ -53,9 +56,11 @@ public class ServerDialog extends Frame {
 		try {
 			m_servers = new Button[5];
 			m_host = new String[5];
-			Scanner reader = new Scanner(new File("res/servers.txt"));
+			URL url = new URL("http://pokenetonline.googlecode.com/svn/trunk/Client/res/servers.txt");
+	        BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+
 			
-			m_servers[0] = new Button(reader.nextLine());
+			m_servers[0] = new Button(in.readLine());
 			m_servers[0].setSize(280, 24);
 			m_servers[0].setLocation(16, 32);
 			m_servers[0].setVisible(true);
@@ -65,9 +70,9 @@ public class ServerDialog extends Frame {
 				}
 			});
 			this.add(m_servers[0]);
-			m_host[0] = reader.nextLine();
+			m_host[0] = in.readLine();
 			
-			m_servers[1] = new Button(reader.nextLine());
+			m_servers[1] = new Button(in.readLine());
 			m_servers[1].setSize(280, 24);
 			m_servers[1].setLocation(16, 64);
 			m_servers[1].setVisible(true);
@@ -77,9 +82,9 @@ public class ServerDialog extends Frame {
 				}
 			});
 			this.add(m_servers[1]);
-			m_host[1] = reader.nextLine();
+			m_host[1] = in.readLine();
 			
-			m_servers[2] = new Button(reader.nextLine());
+			m_servers[2] = new Button(in.readLine());
 			m_servers[2].setSize(280, 24);
 			m_servers[2].setLocation(16, 96);
 			m_servers[2].setVisible(true);
@@ -89,9 +94,9 @@ public class ServerDialog extends Frame {
 				}
 			});
 			this.add(m_servers[2]);
-			m_host[2] = reader.nextLine();
+			m_host[2] = in.readLine();
 			
-			m_servers[3] = new Button(reader.nextLine());
+			m_servers[3] = new Button(in.readLine());
 			m_servers[3].setSize(280, 24);
 			m_servers[3].setLocation(16, 128);
 			m_servers[3].setVisible(true);
@@ -101,9 +106,9 @@ public class ServerDialog extends Frame {
 				}
 			});
 			this.add(m_servers[3]);
-			m_host[3] = reader.nextLine();
+			m_host[3] = in.readLine();
 			
-			m_servers[4] = new Button(reader.nextLine());
+			m_servers[4] = new Button(in.readLine());
 			m_servers[4].setSize(280, 24);
 			m_servers[4].setLocation(16, 160);
 			m_servers[4].setVisible(true);
@@ -113,7 +118,7 @@ public class ServerDialog extends Frame {
 				}
 			});
 			this.add(m_servers[4]);
-			m_host[4] = reader.nextLine();
+			m_host[4] = in.readLine();
 			
 			/*
 			 * Finally, check which servers don't exist and disable their buttons
