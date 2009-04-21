@@ -2,8 +2,10 @@ package org.pokenet.client.backend;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import org.newdawn.slick.Graphics;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Player;
 
 /**
@@ -14,6 +16,7 @@ import org.pokenet.client.backend.entity.Player;
 public class ClientMapMatrix {
 	private ClientMap [][] m_mapMatrix;
 	private ArrayList<Player> m_players;
+	private ArrayList<String> m_speech;
 	
 	/**
 	 * Default constructor
@@ -21,6 +24,7 @@ public class ClientMapMatrix {
 	public ClientMapMatrix() {
 		m_mapMatrix = new ClientMap[3][3];
 		m_players = new ArrayList<Player>();
+		m_speech = new ArrayList<String>();
 	}
 	
 	/**
@@ -56,9 +60,32 @@ public class ClientMapMatrix {
 			}
 		}
 		/*
+		 * Load speech for current map
+		 */
+		if(m_speech.size() > 0)
+			m_speech.clear();
+		f = new File("/res/language/" + GameClient.getLanguage() + "/" + mapX + "." + mapY + ".tmx");
+		if(f.exists()) {
+			try {
+				Scanner reader = new Scanner(f);
+				while(reader.hasNextLine()) {
+					m_speech.add(reader.nextLine());
+				}
+			} catch (Exception e) {}
+		}
+		/*
 		 * Recalibrate the offsets
 		 */
 		this.recalibrate();
+	}
+	
+	/**
+	 * Returns the speech of line index or an empty string if it does not exist
+	 * @param index
+	 * @return
+	 */
+	public String getSpeech(int index) {
+		return m_speech.size() > index ? m_speech.get(index) : "";
 	}
 	
 	/**
