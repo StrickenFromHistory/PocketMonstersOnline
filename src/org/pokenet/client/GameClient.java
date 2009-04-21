@@ -279,25 +279,25 @@ public class GameClient extends BasicGame {
 				/*&& m_loading != null && !m_loading.isVisible()*/
 				&& m_ourPlayer.getX() == m_ourPlayer.getServerX()
 				&& m_ourPlayer.getY() == m_ourPlayer.getServerY()) {
-			if (key == (Input.KEY_DOWN)) {
+			if (key == (Input.KEY_DOWN) || key == (Input.KEY_S)) {
 				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Down)) {
 					m_packetGen.move(Direction.Down);
 				} else if(m_ourPlayer.getDirection() != Direction.Down) {
 					m_packetGen.move(Direction.Down);
 				}
-			} else if (key == (Input.KEY_UP)) {
+			} else if (key == (Input.KEY_UP) || key == (Input.KEY_W)) {
 				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Up)) {
 					m_packetGen.move(Direction.Up);
 				} else if(m_ourPlayer.getDirection() != Direction.Up) {
 					m_packetGen.move(Direction.Up);
 				}
-			} else if (key == (Input.KEY_LEFT)) {
+			} else if (key == (Input.KEY_LEFT) || key == (Input.KEY_A)) {
 				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Left)) {
 					m_packetGen.move(Direction.Left);
 				} else if(m_ourPlayer.getDirection() != Direction.Left) {
 					m_packetGen.move(Direction.Left);
 				}
-			} else if (key == (Input.KEY_RIGHT)) {
+			} else if (key == (Input.KEY_RIGHT) || key == (Input.KEY_D)) {
 				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Right)) {
 					m_packetGen.move(Direction.Right);
 				} else if(m_ourPlayer.getDirection() != Direction.Right) {
