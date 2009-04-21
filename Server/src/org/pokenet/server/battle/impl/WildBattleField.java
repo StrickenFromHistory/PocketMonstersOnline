@@ -38,7 +38,7 @@ public class WildBattleField extends BattleField {
 	public WildBattleField(BattleMechanics m, PlayerChar p, Pokemon wild) {
 		super(m, new Pokemon[][] { p.getParty(), new Pokemon[] { wild }});
 		p.setBattleId(0);
-		p.getSession().write("bi" + wild.getSpeciesNumber());
+		p.getSession().write("bi1" + wild.getSpeciesNumber());
 		m_player = p;
 		applyWeather();
 	}
