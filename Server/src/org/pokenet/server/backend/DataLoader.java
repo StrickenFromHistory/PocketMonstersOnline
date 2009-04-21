@@ -22,6 +22,7 @@ public class DataLoader implements Runnable {
 	 */
 	public DataLoader(File f, ServerMap m) {
 		m_file = f;
+		m_map = m;
 		new Thread(this).start();
 	}
 
@@ -40,10 +41,14 @@ public class DataLoader implements Runnable {
 				if(line.equalsIgnoreCase("[npc]")) {
 					npc = new NonPlayerChar();
 					npc.setName(reader.nextLine());
-					npc.setFacing(Direction.valueOf(reader.nextLine()));
+					try {
+						npc.setFacing(Direction.valueOf(reader.nextLine()));
+					} catch (Exception e) {
+						npc.setFacing(Direction.Down);
+					}
 					npc.setSprite(Integer.parseInt(reader.nextLine()));
-					npc.setX(Integer.parseInt(reader.nextLine()) / 32);
-					npc.setY((Integer.parseInt(reader.nextLine()) / 32) - 8);
+					npc.setX((Integer.parseInt(reader.nextLine())) * 32);
+					npc.setY(((Integer.parseInt(reader.nextLine())) * 32) - 8);
 					//Load possible Pokemons
 					line = reader.nextLine();
 					if(!line.equalsIgnoreCase("NULL")) {
@@ -65,9 +70,9 @@ public class DataLoader implements Runnable {
 							npc.addSpeech(Integer.parseInt(details[i]));
 						}
 					}
-					npc.setHealer(Boolean.parseBoolean(reader.nextLine()));
-					npc.setBox(Boolean.parseBoolean(reader.nextLine()));
-					npc.setShopKeeper(Boolean.parseBoolean(reader.nextLine()));
+					npc.setHealer(Boolean.parseBoolean(reader.nextLine().toLowerCase()));
+					npc.setBox(Boolean.parseBoolean(reader.nextLine().toLowerCase()));
+					npc.setShopKeeper(Boolean.parseBoolean(reader.nextLine().toLowerCase()));
 				} else if(line.equalsIgnoreCase("[/npc]")) {
 					m_map.addChar(npc);
 				} else if(line.equalsIgnoreCase("[warp]")) {

@@ -380,7 +380,6 @@ public class ServerMap {
 	private boolean isBlocked(int x, int y, Direction d) {
 		if (m_blocked.getTileAt(x, y) != null)
 			return true;
-		//TODO: Npc check
 		if(m_ledgesRight != null && m_ledgesRight.getTileAt(x, y) != null) {
 			if(d == Direction.Left || d == Direction.Up || d == Direction.Down)
 				return true;
@@ -391,6 +390,10 @@ public class ServerMap {
 		}
 		if(m_ledgesDown != null && m_ledgesDown.getTileAt(x, y) != null) {
 			if(d == Direction.Left || d == Direction.Up || d == Direction.Right)
+				return true;
+		}
+		for(int i = 0; i < m_npcs.size(); i++) {
+			if(m_npcs.get(i).getX() == (x * 32) && m_npcs.get(i).getY() == ((y * 32) - 8))
 				return true;
 		}
 		return false;
