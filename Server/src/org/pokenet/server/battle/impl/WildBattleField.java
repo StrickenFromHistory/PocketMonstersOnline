@@ -38,7 +38,7 @@ public class WildBattleField extends BattleField {
 	public WildBattleField(BattleMechanics m, PlayerChar p, Pokemon wild) {
 		super(m, new Pokemon[][] { p.getParty(), new Pokemon[] { wild }});
 		p.setBattleId(0);
-		p.getSession().write("bi");
+		p.getSession().write("bi" + wild.getSpeciesNumber());
 		m_player = p;
 		applyWeather();
 	}
@@ -54,10 +54,13 @@ public class WildBattleField extends BattleField {
 				return;
 			case RAIN:
 				this.applyEffect(new RainEffect());
+				return;
 			case HAIL:
 				this.applyEffect(new HailEffect());
+				return;
 			case SANDSTORM:
 				this.applyEffect(new SandstormEffect());
+				return;
 			default:
 				return;
 			}

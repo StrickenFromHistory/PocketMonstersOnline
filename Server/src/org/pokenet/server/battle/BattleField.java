@@ -139,8 +139,8 @@ public abstract class BattleField {
     /** Creates a new instance of BattleField */
     public BattleField(BattleMechanics mech, Pokemon[][] pokemon) {
         m_mechanics = mech;
-        System.out.println("Set mechanics.");
         setPokemon(pokemon);
+        attachField();
     }
     
     /**
@@ -204,7 +204,8 @@ public abstract class BattleField {
     public void attachField(int i) {
         Pokemon[] team = m_pokemon[i];
         for (int j = 0; j < team.length; ++j) {
-            team[j].attachToField(this, i, j);
+        	if(team[j] != null)
+        		team[j].attachToField(this, i, j);
         }
     }
     

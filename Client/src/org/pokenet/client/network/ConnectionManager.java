@@ -62,7 +62,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 			//Battle information
 			switch(message.charAt(1)) {
 			case 'i':
-				//Battle started
+				//Battle started -> biPOKEDEXNUMBER
 				break;
 			case 'p':
 				//No PP left for move -> bpMOVENAME
