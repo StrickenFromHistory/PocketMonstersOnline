@@ -371,6 +371,21 @@ public class ServerMap {
 	}
 	
 	/**
+	 * Gets the speech for the npc at x, y
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public String getNpcSpeech(int x, int y) {
+		for(int i = 0; i < m_npcs.size(); i++) {
+			if(m_npcs.get(i).getX() == x && m_npcs.get(i).getY() == y) {
+				return m_npcs.get(i).getSpeech();
+			}
+		}
+		return "";
+	}
+	
+	/**
 	 * Returns true if there is an obstacle
 	 * @param x
 	 * @param y

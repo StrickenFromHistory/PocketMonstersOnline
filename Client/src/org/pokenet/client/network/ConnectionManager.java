@@ -29,7 +29,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 	 */
 	public void sessionClosed(IoSession session) {
 		m_game.reset();
-		GameClient.getInstance().messageDialog("You have been disconnected\n" +
+		GameClient.messageDialog("You have been disconnected\n" +
 				"from the game server.", GameClient.getInstance().getDisplay());
 	}
 	

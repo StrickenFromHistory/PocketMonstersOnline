@@ -34,24 +34,15 @@ public class NonPlayerChar extends Char {
 	public NonPlayerChar() {}
 	
 	/**
-	 * Speaks to the player
+	 * Returns a string of this npcs speech ids
 	 * @param p
 	 */
-	public void speakTo(PlayerChar p) {
-		if(m_speech != null) {
-			for(int i = 0; i < m_speech.size(); i++) {
-				p.getSession().write("Cn" + m_speech.get(i));
-			}
+	public String getSpeech() {
+		String result = "";
+		for(int i = 0; i < m_speech.size(); i++) {
+			result = m_speech.get(i) + ",";
 		}
-		if(m_isBox) {
-			//TODO: Send box packet
-		}
-		if(m_isHeal) {
-			//TODO: Heal player's pokemon
-		}
-		if(m_isShop) {
-			//TODO: Send shop packet
-		}
+		return result;
 	}
 	
 	/**

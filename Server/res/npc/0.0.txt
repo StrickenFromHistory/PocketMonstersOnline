@@ -7,7 +7,7 @@ Up
 Bulbasaur,6,Charmander,7
 2
 -1
-24,25,26
+0,1,2
 false
 false
 false

@@ -194,6 +194,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 					break;
 				case 't':
 					//Talk
+					p.talkToNpc();
 					break;
 				}
 				break;
