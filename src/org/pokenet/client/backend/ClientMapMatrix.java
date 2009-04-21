@@ -64,14 +64,17 @@ public class ClientMapMatrix {
 		 */
 		if(m_speech.size() > 0)
 			m_speech.clear();
-		f = new File("/res/language/" + GameClient.getLanguage() + "/" + mapX + "." + mapY + ".tmx");
-		if(f.exists()) {
-			try {
+		f = new File(".");
+		try {
+			f = new File(f.getCanonicalPath() + "/res/language/" + GameClient.getLanguage() + "/" + mapX + "." + mapY + ".txt");
+			if(f.exists()) {
 				Scanner reader = new Scanner(f);
 				while(reader.hasNextLine()) {
 					m_speech.add(reader.nextLine());
 				}
-			} catch (Exception e) {}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		/*
 		 * Recalibrate the offsets
