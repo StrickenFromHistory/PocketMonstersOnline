@@ -72,6 +72,7 @@ public class GameClient extends BasicGame {
 	private TimeService m_time;
 	private Ui m_ui;
 	private Color m_daylight;
+	private static String m_language = "english";
 	
 	/**
 	 * Load options
@@ -528,5 +529,13 @@ public class GameClient extends BasicGame {
      */
     public Display getDisplay(){
     	return m_display;
+    }
+    
+    /**
+     * Returns the language selection
+     * @return
+     */
+    public static String getLanguage() {
+    	return m_language;
     }
 }

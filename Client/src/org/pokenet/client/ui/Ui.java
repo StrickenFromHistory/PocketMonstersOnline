@@ -216,7 +216,8 @@ public class Ui extends Frame {
 		switch(m.charAt(0)) {
 		case 'n':
 			//NPC speech
-			//TODO: Get speech and show npc speech box
+			String speech = GameClient.getInstance().getMapMatrix().getSpeech(Integer.parseInt(m.substring(1)));
+			//TODO: Display npc speech in speech box
 			break;
 		case 'l':
 			//Local Chat
