@@ -622,23 +622,23 @@ public class PlayerChar extends Char implements Battleable {
 		String s = "";
 		switch(this.getFacing()) {
 		case Up:
-			s = this.getMap().getNpcSpeech(m_x, m_y - 32);
-			if(s.equalsIgnoreCase(""))
+			s = this.getMap().getNpcSpeech(m_x, ((m_y + 8) - 32) - 8);
+			if(!s.equalsIgnoreCase(""))
 				m_session.write("Cn" + s);
 			return;
 		case Down:
-			s = this.getMap().getNpcSpeech(m_x, m_y + 32);
-			if(s != null && s.equalsIgnoreCase(""))
+			s = this.getMap().getNpcSpeech(m_x, ((m_y + 8) + 32) - 8);
+			if(!s.equalsIgnoreCase(""))
 				m_session.write("Cn" + s);
 			return;
 		case Left:
 			s = this.getMap().getNpcSpeech(m_x - 32, m_y);
-			if(s != null && s.equalsIgnoreCase(""))
+			if(!s.equalsIgnoreCase(""))
 				m_session.write("Cn" + s);
 			return;
 		case Right:
 			s = this.getMap().getNpcSpeech(m_x + 32, m_y);
-			if(s != null && s.equalsIgnoreCase(""))
+			if(!s.equalsIgnoreCase(""))
 				m_session.write("Cn" + s);
 			return;
 		default:

@@ -40,7 +40,7 @@ public class NonPlayerChar extends Char {
 	public String getSpeech() {
 		String result = "";
 		for(int i = 0; i < m_speech.size(); i++) {
-			result = m_speech.get(i) + ",";
+			result = result + m_speech.get(i) + ",";
 		}
 		return result;
 	}
