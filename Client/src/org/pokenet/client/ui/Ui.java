@@ -83,61 +83,14 @@ public class Ui extends Frame {
 		m_buttons[0] = HUDButtonFactory.getButton("requests");
 		m_buttons[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (getDisplay().containsChild(m_requestsForm)) {
-					getDisplay().remove(m_requestsForm);      
-					hideHUD();
-				} else {
-					hideHUD();
-					m_requestsForm = new RequestWindow();
-					m_requestsForm.setWidth(UI_WIDTH);
-					m_requestsForm.setLocation(48, 0);
-					m_requestsForm.setPokeData(GameClient.getInstance().getOurPlayer()
-							.getPokemon());
-					m_requestsForm.setDraggable(false);
-					getDisplay().add(m_requestsForm);
-				}
+				toggleRequests();
 			}
 		});
 
 		m_buttons[1] = HUDButtonFactory.getButton("bag");
         m_buttons[1].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		if (m_bagForm != null) {
-        			getDisplay().remove(m_bagForm);
-        			hideHUD();
-        		} else {
-        			hideHUD();
-        			m_bagForm = new Frame();
-        			m_bagForm.setBackground(new Color(0, 0, 0, 70));
-        			m_bagForm.setResizable(false);
-        			m_bagForm.setDraggable(false);
-        			BagDialog pane = new BagDialog(
-        					GameClient.getInstance().getOurPlayer().getItems()) {
-        				public void itemClicked(Item item) {
-        					GameClient.getInstance().getPacketGenerator().write("u" + 
-        							item.getName());
-        				}
-        				public void cancelled() {
-        					m_bagForm.setVisible(false);
-        				}
-        			};
-        			pane.setSize(UI_WIDTH, 300);
-        			pane.pack();
-        			
-        			ListBox badges = new ListBox(
-        					GameClient.getInstance().getOurPlayer().getBadges());
-        			badges.setSize(UI_WIDTH, 200);
-        			badges.pack();
-        			m_bagForm.getTitleBar().getCloseButton().setVisible(false);
-        			m_bagForm.getContentPane().add(badges);
-        			m_bagForm.getContentPane().add(pane);
-        			badges.setLocation(0, 300);
-        			m_bagForm.setSize(pane.getWidth(), 
-        					pane.getHeight() + badges.getHeight() + m_bagForm.getTitleBar().getHeight());
-        			getDisplay().add(m_bagForm);
-        			m_bagForm.setLocation(48, 0);
-        			m_bagForm.setDraggable(false);
-        		}
+        		toggleBag();
         	}
         });
         getContentPane().add(m_buttons[1]);
@@ -145,18 +98,7 @@ public class Ui extends Frame {
         m_buttons[2] = HUDButtonFactory.getButton("pokemon");
         m_buttons[2].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		if (m_teamInfo != null) {
-        			getDisplay().remove(m_teamInfo);
-        			hideHUD();
-        		} else {
-        			hideHUD();
-        			m_teamInfo = new PartyInfo(GameClient.getInstance().getOurPlayer()
-        					.getPokes());
-        			m_teamInfo.setWidth(UI_WIDTH);
-        			m_teamInfo.setLocation(48, 0);
-        			m_teamInfo.setDraggable(false);
-        			getDisplay().add(m_teamInfo);
-        		}
+        		togglePokemon();
         	}
         });
         
@@ -182,17 +124,7 @@ public class Ui extends Frame {
         m_buttons[4] = HUDButtonFactory.getButton("help");
         m_buttons[4].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		if (m_helpForm != null) { // if we're on help, then just hide all
-        			getDisplay().remove(m_helpForm);
-        			hideHUD();
-        		} else {
-        			hideHUD();
-        			m_helpForm = new HelpWindow();
-        			m_helpForm.setWidth(UI_WIDTH);
-        			m_helpForm.setHeight(300);
-        			m_helpForm.setLocation(48, 0);
-        			getDisplay().add(m_helpForm);
-        		}
+        		toggleHelp();
         	}
         });
         
@@ -291,10 +223,10 @@ public class Ui extends Frame {
      * @param p
      */
     public void update(){
-            m_moneyLabel.setText("$" + String.valueOf(GameClient.getInstance()
-            		.getOurPlayer().getMoney()));
-            m_moneyLabel.pack();
-            m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokes());
+    	m_moneyLabel.setText("$" + String.valueOf(GameClient.getInstance()
+    			.getOurPlayer().getMoney()));
+    	m_moneyLabel.pack();
+    	m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokes());
     }
     
     /**
@@ -302,9 +234,9 @@ public class Ui extends Frame {
      * @return
      */
     public boolean isOccupied() {
-                    return ( (m_optionsForm != null && m_optionsForm.isVisible())
-                                    || (m_bagForm != null && m_bagForm.isVisible()) ||
-                                    (m_teamInfo != null && m_teamInfo.isVisible()));
+    	return ( (m_optionsForm != null && m_optionsForm.isVisible())
+    			|| (m_bagForm != null && m_bagForm.isVisible()) ||
+    			(m_teamInfo != null && m_teamInfo.isVisible()));
     }
     
     /**
@@ -329,6 +261,103 @@ public class Ui extends Frame {
      */
     public RequestWindow getReqWindow() {
             return m_requestsForm;
+    }
+    
+    /**
+     * Toggles the Request Pane
+     */
+    public void toggleRequests(){
+    	if (getDisplay().containsChild(m_requestsForm)) {
+			getDisplay().remove(m_requestsForm);      
+			hideHUD();
+		} else {
+			hideHUD();
+			m_requestsForm = new RequestWindow();
+			m_requestsForm.setWidth(UI_WIDTH);
+			m_requestsForm.setLocation(48, 0);
+			m_requestsForm.setPokeData(GameClient.getInstance().getOurPlayer()
+					.getPokemon());
+			m_requestsForm.setDraggable(false);
+			getDisplay().add(m_requestsForm);
+		}
+    }
+    
+    /**
+     * Toggles the Bag Pane
+     */
+    public void toggleBag(){
+    	if (m_bagForm != null) {
+			getDisplay().remove(m_bagForm);
+			hideHUD();
+		} else {
+			hideHUD();
+			m_bagForm = new Frame();
+			m_bagForm.setBackground(new Color(0, 0, 0, 70));
+			m_bagForm.setResizable(false);
+			m_bagForm.setDraggable(false);
+			BagDialog pane = new BagDialog(
+					GameClient.getInstance().getOurPlayer().getItems()) {
+				public void itemClicked(Item item) {
+					GameClient.getInstance().getPacketGenerator().write("u" + 
+							item.getName());
+				}
+				public void cancelled() {
+					m_bagForm.setVisible(false);
+				}
+			};
+			pane.setSize(UI_WIDTH, 300);
+			pane.pack();
+			
+			ListBox badges = new ListBox(
+					GameClient.getInstance().getOurPlayer().getBadges());
+			badges.setSize(UI_WIDTH, 200);
+			badges.pack();
+			m_bagForm.getTitleBar().getCloseButton().setVisible(false);
+			m_bagForm.getContentPane().add(badges);
+			m_bagForm.getContentPane().add(pane);
+			badges.setLocation(0, 300);
+			m_bagForm.setSize(pane.getWidth(), 
+					pane.getHeight() + badges.getHeight() + m_bagForm.getTitleBar().getHeight());
+			getDisplay().add(m_bagForm);
+			m_bagForm.setLocation(48, 0);
+			m_bagForm.setDraggable(false);
+		}
+    }
+
+    /**
+     * Toggles the Pokemon Pane
+     */
+    public void togglePokemon(){
+    	if (m_teamInfo != null) {
+			getDisplay().remove(m_teamInfo);
+			hideHUD();
+		} else {
+			hideHUD();
+			m_teamInfo = new PartyInfo(GameClient.getInstance().getOurPlayer()
+					.getPokes());
+			m_teamInfo.setWidth(UI_WIDTH);
+			m_teamInfo.setLocation(48, 0);
+			m_teamInfo.setDraggable(false);
+			getDisplay().add(m_teamInfo);
+		}
+    }
+    
+    /**
+     * Toggles the Help Pane
+     */
+    public void toggleHelp(){
+    	if (m_teamInfo != null) {
+			getDisplay().remove(m_teamInfo);
+			hideHUD();
+		} else {
+			hideHUD();
+			m_teamInfo = new PartyInfo(GameClient.getInstance().getOurPlayer()
+					.getPokes());
+			m_teamInfo.setWidth(UI_WIDTH);
+			m_teamInfo.setLocation(48, 0);
+			m_teamInfo.setDraggable(false);
+			getDisplay().add(m_teamInfo);
+		}
     }
     
     /**
