@@ -22,7 +22,6 @@ public class BattleManager {
 	 * Default Constructor
 	 */
 	public BattleManager() {
-		startBattle();
 	}
 
 	/**
@@ -46,6 +45,7 @@ public class BattleManager {
 	 */
 	public void startBattle() {
 		m_battle = new BattleWindow("Battle!", true);
+		GameClient.getInstance().getDisplay().add(m_battle);
 	}
 
 	/**
