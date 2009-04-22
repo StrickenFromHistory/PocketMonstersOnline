@@ -18,6 +18,7 @@ import org.pokenet.client.ui.frames.BagDialog;
 import org.pokenet.client.ui.frames.ChatDialog;
 import org.pokenet.client.ui.frames.FriendListDialog;
 import org.pokenet.client.ui.frames.HelpWindow;
+import org.pokenet.client.ui.frames.NPCSpeechFrame;
 import org.pokenet.client.ui.frames.OptionsDialog;
 import org.pokenet.client.ui.frames.PartyInfo;
 import org.pokenet.client.ui.frames.RequestWindow;
@@ -379,5 +380,14 @@ public class Ui extends Frame {
             m_optionsForm = null;
             if (m_helpForm != null) m_helpForm.setVisible(false);
             m_helpForm = null;
+    }
+    
+    /**
+     * Adds an NPC Speech Frame
+     */
+    public void talkToNPC(String text){
+    	NPCSpeechFrame m_speechFrame = new NPCSpeechFrame(text);
+    	m_speechFrame.setVisible(true);
+    	getDisplay().add(m_speechFrame);
     }
 }
