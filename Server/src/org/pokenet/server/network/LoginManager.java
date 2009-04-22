@@ -61,7 +61,11 @@ public class LoginManager implements Runnable {
 			m_database.selectDatabase(GameServer.getDatabaseName());
 			//Then find the member's information
 			ResultSet result = m_database.query("SELECT * FROM pn_members WHERE username='" + username + "'");
-			result.first();
+			if(!result.first()){
+				//Member doesn't exist, say user or pass wrong. We don't want someone to guess usernames. 
+				session.write("le");
+				return;
+			}
 			//Check if the password is correct
 			if(result.getString("password").compareTo(password) == 0) {
 				long time = System.currentTimeMillis();

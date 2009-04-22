@@ -353,8 +353,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'e':
 				//Error
-				GameClient.messageDialog("An error occurred.\n " +
-				"Make sure the username and password are correct.", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog("User or password are incorrect" +
+				"Verify you typed user and password correctly.", GameClient.getInstance().getDisplay());
 				
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().enableLogin();
