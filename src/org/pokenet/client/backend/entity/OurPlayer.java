@@ -122,7 +122,7 @@ public class OurPlayer extends Player {
 		if(info[12] != null && !info[12].equalsIgnoreCase("")) {
 			m_pokemon[i].setType2(Poketype.valueOf(info[12]));
 		}
-		m_pokemon[i].setExp(Integer.parseInt(info[13]));
+		m_pokemon[i].setExp(Integer.parseInt(info[13].substring(0, info[13].indexOf('.'))));
 		m_pokemon[i].setLevel(Integer.parseInt(info[14]));
 		m_pokemon[i].setAbility(info[15]);
 		m_pokemon[i].setNature(info[16]);
