@@ -37,7 +37,7 @@ public class AboutDialog extends Frame {
 				"Contributors:\n" +
 				"Fshy, ZombieBear, Ryan, Pivot/Ilentcape, Sienide, TMKCodes, Drawing, LordAdmiral, Psycho, Dragina, " +
 				"Oblivion, Lastplacer, Firefly17, Gama, Jacobe, Latias, Callagan, xkendrickx, Mewtwo, PheonixClaw, " +
-				"JayJay, May");
+				"JayJay, May, Nushio");
 		m_info.setFont(GameClient.getFontSmall());
 		m_info.setBackground(m_bg);
 		m_info.setForeground(m_white);

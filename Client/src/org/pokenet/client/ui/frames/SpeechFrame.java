@@ -64,7 +64,7 @@ public class SpeechFrame extends Frame {
     public void initGUI() {
     	LoadingList.setDeferredLoading(true);
     	try {
-    		bg = new Image("/res/ui/textbackground.png");
+    		bg = new Image("res/ui/textbackground.png");
     	} catch (SlickException e) {
     		e.printStackTrace();
     	}

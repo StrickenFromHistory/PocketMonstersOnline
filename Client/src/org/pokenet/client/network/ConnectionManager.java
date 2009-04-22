@@ -7,6 +7,7 @@ import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
 import org.pokenet.client.backend.time.WeatherService.Weather;
+import org.pokenet.client.ui.frames.NPCSpeechFrame;
 
 /**
  * Handles packets received from the server
@@ -137,8 +138,18 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 'C':
 			//Chat packet
-			m_game.getUi().messageReceived(message.substring(1));
-			break;
+				switch(message.charAt(1)) {
+				case 'n':
+					String text = "";
+					details = message.substring(2).split(",");
+					for(int i=0;i<details.length;i++){
+						text +=GameClient.getInstance().getMapMatrix().getSpeech(i)+"\n";	
+					}
+					new NPCSpeechFrame(text);
+					break;
+				}
+			
+			//
 		case 'c':
 			//A player changed something
 			p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
