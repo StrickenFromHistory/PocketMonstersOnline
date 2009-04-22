@@ -29,6 +29,7 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.backend.Animator;
+import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
 import org.pokenet.client.backend.entity.OurPlayer;
@@ -73,6 +74,7 @@ public class GameClient extends BasicGame {
 	private Ui m_ui;
 	private Color m_daylight;
 	private static String m_language = "english";
+	private BattleManager m_battleManager;
 	
 	/**
 	 * Load options
@@ -142,6 +144,11 @@ public class GameClient extends BasicGame {
 		 */
 		m_mapMatrix = new ClientMapMatrix();
 		m_animator = new Animator(m_mapMatrix);
+		
+		/*
+		 * The battle manager
+		 */
+		m_battleManager = new BattleManager();
 		
 		gc.getInput().enableKeyRepeat(50, 300);
 	}
@@ -551,5 +558,13 @@ public class GameClient extends BasicGame {
      */
     public static String getLanguage() {
     	return m_language;
+    }
+    
+    /**
+     * Returns the Battle Manager
+     * @return
+     */
+    public BattleManager getBattleManager(){
+    	return m_battleManager;
     }
 }
