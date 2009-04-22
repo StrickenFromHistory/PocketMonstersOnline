@@ -145,7 +145,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 					for(int i=0;i<details.length;i++){
 						text +=GameClient.getInstance().getMapMatrix().getSpeech(i)+"\n";	
 					}
-					new NPCSpeechFrame(text);
+					GameClient.getInstance().getUi().talkToNPC(text);
 					break;
 				}
 			
