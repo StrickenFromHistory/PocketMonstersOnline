@@ -193,8 +193,13 @@ public class ConnectionManager extends IoHandlerAdapter {
 						queuePrivateMessage(details[1], m_players.get(details[0]).getSession(), p.getName());
 					break;
 				case 't':
-					//Talk
+					//Start talking
+					p.setTalking(true);
 					p.talkToNpc();
+					break;
+				case 'f':
+					//Finish talking
+					p.setTalking(false);
 					break;
 				}
 				break;

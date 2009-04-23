@@ -25,6 +25,7 @@ public class PlayerChar extends Char implements Battleable {
 	private PokemonBox [] m_boxes;
 	private boolean m_isBattling = false;
 	private boolean m_isShopping = false;
+	private boolean m_isTalking = false;
 	private IoSession m_session = null;
 	private int m_money;
 	private ResultSet m_databasePokemon;
@@ -79,6 +80,22 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void setMuted(boolean b) {
 		m_isMuted = b;
+	}
+	
+	/**
+	 * Returns true if this player is talking to an npc
+	 * @return
+	 */
+	public boolean isTalking() {
+		return m_isTalking;
+	}
+	
+	/**
+	 * Sets if this player is talking to an npc
+	 * @param b
+	 */
+	public void setTalking(boolean b) {
+		m_isTalking = b;
 	}
 	
 	/**
@@ -218,7 +235,7 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	@Override
 	public boolean move() {
-		if(!m_isBattling && !m_isShopping) {
+		if(!m_isBattling && !m_isTalking && !m_isShopping) {
 			if(super.move()) {
 				//If the player moved
 				if(this.getMap() != null && this.getMap().isWildBattle(m_x, m_y, this))
@@ -619,30 +636,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * This player talks to the npc in front of them
 	 */
 	public void talkToNpc() {
-		String s = "";
-		switch(this.getFacing()) {
-		case Up:
-			s = this.getMap().getNpcSpeech(m_x, ((m_y + 8) - 32) - 8);
-			if(!s.equalsIgnoreCase(""))
-				m_session.write("Cn" + s);
-			return;
-		case Down:
-			s = this.getMap().getNpcSpeech(m_x, ((m_y + 8) + 32) - 8);
-			if(!s.equalsIgnoreCase(""))
-				m_session.write("Cn" + s);
-			return;
-		case Left:
-			s = this.getMap().getNpcSpeech(m_x - 32, m_y);
-			if(!s.equalsIgnoreCase(""))
-				m_session.write("Cn" + s);
-			return;
-		case Right:
-			s = this.getMap().getNpcSpeech(m_x + 32, m_y);
-			if(!s.equalsIgnoreCase(""))
-				m_session.write("Cn" + s);
-			return;
-		default:
-			return;
-		}
+		if(m_map != null)
+			this.getMap().talkToNpc(this);
 	}
 }

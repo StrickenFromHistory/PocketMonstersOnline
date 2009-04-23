@@ -371,18 +371,38 @@ public class ServerMap {
 	}
 	
 	/**
-	 * Gets the speech for the npc at x, y
-	 * @param x
-	 * @param y
-	 * @return
+	 * Allows a player to talk to the npc in front of them, if any
+	 * @param p
 	 */
-	public String getNpcSpeech(int x, int y) {
+	public void talkToNpc(PlayerChar p) {
+		p.setTalking(true);
+		int x = 0, y = 0;
+		switch(p.getFacing()) {
+		case Up:
+			x = p.getX();
+			y = p.getY() - 32;
+			break;
+		case Down:
+			x = p.getX();
+			y = p.getY() + 32;
+			break;
+		case Left:
+			x = p.getX() - 32;
+			y = p.getY();
+			break;
+		case Right:
+			x = p.getX() + 32;
+			y = p.getY();
+			break;
+		default:
+			break;
+		}
 		for(int i = 0; i < m_npcs.size(); i++) {
 			if(m_npcs.get(i).getX() == x && m_npcs.get(i).getY() == y) {
-				return m_npcs.get(i).getSpeech();
+				m_npcs.get(i).talkToPlayer(p);
+				break;
 			}
 		}
-		return "";
 	}
 	
 	/**

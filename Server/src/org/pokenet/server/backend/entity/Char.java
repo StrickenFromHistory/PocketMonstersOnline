@@ -14,7 +14,7 @@ public class Char implements Positionable {
 	protected int m_sprite, m_mapX, m_mapY, m_x, m_y, m_id;
 	private boolean m_isVisible, m_isSurfing;
 	private String m_name;
-	private ServerMap m_map;
+	protected ServerMap m_map;
 	
 	/**
 	 * Returns the direction this char is facing
