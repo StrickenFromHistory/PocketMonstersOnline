@@ -119,4 +119,27 @@ public class LoginDialog extends Frame {
 	public Button getLoginButton() {
 		return m_login;
 	}
+	
+	/**
+	 * Tab to pass
+	 * @return
+	 */
+	public void goToPass() {
+		if(m_username.hasFocus()){
+			m_username.releaseFocus();
+			m_password.grabFocus();	
+		}else{
+			m_password.releaseFocus();
+			m_username.grabFocus();
+		}
+		
+	}
+	
+	/**
+	 * Enter to login
+	 * @return
+	 */
+	public void goLogin() {
+		login();		
+	}
 }
