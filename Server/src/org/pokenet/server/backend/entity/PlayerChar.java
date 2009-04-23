@@ -26,6 +26,7 @@ public class PlayerChar extends Char implements Battleable {
 	private boolean m_isBattling = false;
 	private boolean m_isShopping = false;
 	private boolean m_isTalking = false;
+	private boolean m_isBoxing = false;
 	private IoSession m_session = null;
 	private int m_money;
 	private ResultSet m_databasePokemon;
@@ -64,6 +65,31 @@ public class PlayerChar extends Char implements Battleable {
 			m_badges[i] = 0;
 		}
 		m_isMuted = false;
+	}
+	
+	/**
+	 * Heals the player's pokemon
+	 */
+	public void healPokemon() {
+		//TODO: Heal all player's pokemon
+		this.setLastHeal(m_x, m_y, m_mapX, m_mapY);
+		m_session.write("cH");
+	}
+	
+	/**
+	 * Returns true if this player is accessing their box
+	 * @return
+	 */
+	public boolean isBoxing() {
+		return m_isBoxing;
+	}
+	
+	/**
+	 * Sets if this player has box access at the moment
+	 * @param b
+	 */
+	public void setBoxing(boolean b) {
+		m_isBoxing = b;
 	}
 	
 	/**
@@ -235,7 +261,7 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	@Override
 	public boolean move() {
-		if(!m_isBattling && !m_isTalking && !m_isShopping) {
+		if(!m_isBattling && !m_isTalking && !m_isShopping && !m_isBoxing) {
 			if(super.move()) {
 				//If the player moved
 				if(this.getMap() != null && this.getMap().isWildBattle(m_x, m_y, this))
@@ -638,5 +664,20 @@ public class PlayerChar extends Char implements Battleable {
 	public void talkToNpc() {
 		if(m_map != null)
 			this.getMap().talkToNpc(this);
+	}
+	
+	/**
+	 * Sends box information to client
+	 * @param i - Box number
+	 */
+	public void sendBoxInfo(int j) {
+		if(m_boxes[j] != null) {
+			String packet = "";
+			for(int i = 0; i < m_boxes[j].getPokemon().length; i++) {
+				packet = packet + m_boxes[j].getPokemon(i).getSpeciesNumber() + ",";
+			}
+			if(!packet.equalsIgnoreCase(""))
+				m_session.write("B" + packet);
+		}
 	}
 }

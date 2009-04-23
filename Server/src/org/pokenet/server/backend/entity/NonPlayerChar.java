@@ -55,13 +55,16 @@ public class NonPlayerChar extends Char {
 			p.getSession().write("Cn" + speech);
 		}
 		if(m_isBox) {
-			//TODO: Send box packet
+			//Send the data for the player's first box, they may change this later
+			p.setBoxing(true);
+			p.sendBoxInfo(0);
 		}
 		if(m_isHeal) {
-			//TODO: Heal player's pokemon
+			p.healPokemon();
 		}
 		if(m_isShop) {
-			//TODO: Send shop packet
+			//Send shop packet to display shop window clientside
+			p.getSession().write("S");
 		}
 		if(m_possiblePokemon != null && m_minPartySize > 0) {
 			GameServer.getServiceManager().getBattleService().startNpcBattle(p, this);

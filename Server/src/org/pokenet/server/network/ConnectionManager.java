@@ -88,6 +88,26 @@ public class ConnectionManager extends IoHandlerAdapter {
 			 */
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
 			switch(message.charAt(0)) {
+			case 'B':
+				//Box interaction
+				if(p.isBoxing()) {
+					switch(message.charAt(1)) {
+					case 'r':
+						//Requesting info for box number - e.g. Br0
+						int boxNum = Integer.parseInt("" + message.charAt(2));
+						if(boxNum >= 0 && boxNum < 9)
+							p.sendBoxInfo(boxNum);
+						break;
+					case 's':
+						//Swap pokemon between box and party - sent as BsBOXNUM,BOXSLOT,PARTYSLOT, e.g.Bs0,1,0
+						break;
+					case 'f':
+						//Finished with box interfaction
+						p.setBoxing(false);
+						break;
+					}
+				}
+				break;
 			case 'M':
 				//Moderation
 				if(p.getAdminLevel() > 0) {

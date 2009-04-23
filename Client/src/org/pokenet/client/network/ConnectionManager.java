@@ -60,6 +60,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 		case '!':
 			//Server notification
 			break;
+		case 'S':
+			//Shop
+			break;
+		case 'B':
+			//Box access - receiving a string of pokedex numbers, e.g. B15,23,24,
+			break;
 		case 'b':
 			//Battle information
 			switch(message.charAt(1)) {
@@ -158,10 +164,11 @@ public class ConnectionManager extends IoHandlerAdapter {
 			
 			//
 		case 'c':
-			//A player changed something
+			//Something changed
 			p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
 			if(p != null) {
 				switch(message.charAt(1)) {
+				//Directional changes
 				case 'D':
 					p.setDirection(Direction.Down);
 					break;
@@ -177,6 +184,11 @@ public class ConnectionManager extends IoHandlerAdapter {
 				case 'S':
 					//Sprite change
 					p.setSprite(Integer.parseInt(message.substring(2)));
+					break;
+				case 'H':
+					//Player's pokemon were healed
+					break;
+				default:
 					break;
 				}
 				p.loadSpriteImage();
