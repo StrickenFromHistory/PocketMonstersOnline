@@ -83,6 +83,7 @@ public class DataLoader implements Runnable {
 					warp.setWarpY(Integer.parseInt(reader.nextLine()));
 					warp.setWarpMapX(Integer.parseInt(reader.nextLine()));
 					warp.setWarpMapY(Integer.parseInt(reader.nextLine()));
+					warp.setBadgeRequirement(Integer.parseInt(reader.nextLine()));
 				} else if(line.equalsIgnoreCase("[/warp]")) {
 					m_map.addWarp(warp);
 				}

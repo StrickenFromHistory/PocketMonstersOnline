@@ -11,6 +11,15 @@ import org.pokenet.server.backend.entity.PlayerChar;
  */
 public class WarpTile {
 	private int m_x, m_y, m_warpMapX, m_warpMapY, m_warpX, m_warpY;
+	private int m_reqBadges = 0;
+	
+	/**
+	 * Sets the required amount of badges to use this warp tile
+	 * @param amount
+	 */
+	public void setBadgeRequirement(int amount) {
+		m_reqBadges = amount;
+	}
 	
 	/**
 	 * Sets the x co-ordinate of this tile
@@ -83,10 +92,12 @@ public class WarpTile {
 	public void warp(Char c) {
 		if(c instanceof PlayerChar) {
 			PlayerChar p = (PlayerChar) c;
-			p.setX(m_warpX);
-			p.setY(m_warpY);
-			p.setMap(GameServer.getServiceManager().getMovementService().
-					getMapMatrix().getMapByGamePosition(m_warpMapX, m_warpMapY));
+			if(p.getBadgeCount() >= m_reqBadges) {
+				p.setX(m_warpX);
+				p.setY(m_warpY);
+				p.setMap(GameServer.getServiceManager().getMovementService().
+						getMapMatrix().getMapByGamePosition(m_warpMapX, m_warpMapY));
+			}
 		}
 	}
 }
