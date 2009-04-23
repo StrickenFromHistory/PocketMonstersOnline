@@ -12,6 +12,7 @@ import org.pokenet.client.GameClient;
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
+import mdes.slick.sui.TextField;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
@@ -25,15 +26,16 @@ public class ServerDialog extends Frame {
 	private String [] m_host;
 	private Label m_info;
 	private Color m_black;
-	
+	private Button privateServer;
+	private TextField privateIP;
 	/**
 	 * Default constructor
 	 */
 	public ServerDialog() {
 		m_black = new Color(0, 0, 0);
 		
-		this.setSize(316, 220);
-		this.setLocation(400 - 160, 340);
+		this.setSize(316, 280);
+		this.setLocation(400 - 160, 280);
 		this.setTitle("Pokenet Server Select");
 		this.setBackground(new Color(0, 0, 0, 70));
 		this.getTitleBar().setForeground(m_black);
@@ -130,10 +132,35 @@ public class ServerDialog extends Frame {
 				}
 				m_servers[i].setForeground(m_black);
 			}
+			privateIP = new TextField();
+			privateIP.setLocation(16, 204);
+			privateIP.setSize(128, 24);
+			this.add(privateIP);
+			
+			privateServer = new Button();
+			privateServer.setText("Private Server");
+			privateServer.setSize(128, 24);
+			privateServer.setLocation(168, 204);
+			privateServer.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					GameClient.setHost(getPrivateServer());
+				}
+			});
+			this.add(privateServer);
+		
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	
 		
 		this.setVisible(true);
+	}
+	
+	public String getPrivateServer() {
+		if(privateIP.getText().length() > 0)
+			return privateIP.getText();
+		else
+			return "localhost";
 	}
 }
