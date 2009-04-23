@@ -2,6 +2,7 @@ package org.pokenet.client.network;
 
 import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
+import org.newdawn.slick.SlickException;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
@@ -141,12 +142,17 @@ public class ConnectionManager extends IoHandlerAdapter {
 			//Chat packet
 				switch(message.charAt(1)) {
 				case 'n':
-					String text = "";
+					String speech = "";
 					details = message.substring(2).split(",");
 					for(int i=0;i<details.length;i++){
-						text +=GameClient.getInstance().getMapMatrix().getSpeech(i)+"\n";	
+						speech +=GameClient.getInstance().getMapMatrix().getSpeech(i)+"\n";	
 					}
-					GameClient.getInstance().getUi().talkToNPC(text);
+					try {
+						GameClient.getInstance().talkToNPC(speech);
+					} catch (SlickException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					break;
 				}
 			

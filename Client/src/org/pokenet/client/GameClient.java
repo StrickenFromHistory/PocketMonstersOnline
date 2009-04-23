@@ -44,6 +44,7 @@ import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
 import org.pokenet.client.ui.Ui;
 import org.pokenet.client.ui.frames.MessageDialog;
+import org.pokenet.client.ui.frames.NPCSpeechFrame;
 
 /**
  * The game client
@@ -75,7 +76,7 @@ public class GameClient extends BasicGame {
 	private Color m_daylight;
 	private static String m_language = "english";
 	private BattleManager m_battleManager;
-	
+	private NPCSpeechFrame m_speechFrame;
 	/**
 	 * Load options
 	 */
@@ -290,49 +291,67 @@ public class GameClient extends BasicGame {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(m_ourPlayer != null && !m_isNewMap
-				/*&& m_loading != null && !m_loading.isVisible()*/
-				&& m_ourPlayer.getX() == m_ourPlayer.getServerX()
-				&& m_ourPlayer.getY() == m_ourPlayer.getServerY()) {
-			if (key == (Input.KEY_DOWN) || key == (Input.KEY_S)) {
-				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Down)) {
-					m_packetGen.move(Direction.Down);
-				} else if(m_ourPlayer.getDirection() != Direction.Down) {
-					m_packetGen.move(Direction.Down);
-				}
-			} else if (key == (Input.KEY_UP) || key == (Input.KEY_W)) {
-				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Up)) {
-					m_packetGen.move(Direction.Up);
-				} else if(m_ourPlayer.getDirection() != Direction.Up) {
-					m_packetGen.move(Direction.Up);
-				}
-			} else if (key == (Input.KEY_LEFT) || key == (Input.KEY_A)) {
-				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Left)) {
-					m_packetGen.move(Direction.Left);
-				} else if(m_ourPlayer.getDirection() != Direction.Left) {
-					m_packetGen.move(Direction.Left);
-				}
-			} else if (key == (Input.KEY_RIGHT) || key == (Input.KEY_D)) {
-				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Right)) {
-					m_packetGen.move(Direction.Right);
-				} else if(m_ourPlayer.getDirection() != Direction.Right) {
-					m_packetGen.move(Direction.Right);
-				}
-			} else if (key == (Input.KEY_1)) {
-				m_ui.toggleRequests();
-			} else if (key == (Input.KEY_2)) {
-				m_ui.toggleBag();
-			} else if (key == (Input.KEY_3)) {
-				m_ui.togglePokemon();
-			} else if (key == (Input.KEY_4)) {
-				m_ui.toggleOptions();
-			} else if (key == (Input.KEY_5)) {
-				m_ui.toggleHelp();
-			} else if (key == (Input.KEY_SPACE) || key == (Input.KEY_E)) {
-				m_packetGen.write("Ct");
-				
+		}
+		if(m_speechFrame == null){
+			if(m_ourPlayer != null && !m_isNewMap
+					/*&& m_loading != null && !m_loading.isVisible()*/
+					&& m_ourPlayer.getX() == m_ourPlayer.getServerX()
+					&& m_ourPlayer.getY() == m_ourPlayer.getServerY()) {
+				if (key == (Input.KEY_DOWN) || key == (Input.KEY_S)) {
+					if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Down)) {
+						m_packetGen.move(Direction.Down);
+					} else if(m_ourPlayer.getDirection() != Direction.Down) {
+						m_packetGen.move(Direction.Down);
+					}
+				} else if (key == (Input.KEY_UP) || key == (Input.KEY_W)) {
+					if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Up)) {
+						m_packetGen.move(Direction.Up);
+					} else if(m_ourPlayer.getDirection() != Direction.Up) {
+						m_packetGen.move(Direction.Up);
+					}
+				} else if (key == (Input.KEY_LEFT) || key == (Input.KEY_A)) {
+					if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Left)) {
+						m_packetGen.move(Direction.Left);
+					} else if(m_ourPlayer.getDirection() != Direction.Left) {
+						m_packetGen.move(Direction.Left);
+					}
+				} else if (key == (Input.KEY_RIGHT) || key == (Input.KEY_D)) {
+					if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Right)) {
+						m_packetGen.move(Direction.Right);
+					} else if(m_ourPlayer.getDirection() != Direction.Right) {
+						m_packetGen.move(Direction.Right);
+					}
+				} else if (key == (Input.KEY_1)) {
+					m_ui.toggleRequests();
+				} else if (key == (Input.KEY_2)) {
+					m_ui.toggleBag();
+				} else if (key == (Input.KEY_3)) {
+					m_ui.togglePokemon();
+				} else if (key == (Input.KEY_4)) {
+					m_ui.toggleOptions();
+				} else if (key == (Input.KEY_5)) {
+					m_ui.toggleHelp();
+				} 
 			}
+		}
+		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) ) {
+			if(m_speechFrame == null)
+				m_packetGen.write("Ct");
+			else{
+			try {
+				m_speechFrame.advance();
+			} catch (Exception e) { 
+				getDisplay().remove(m_speechFrame);
+				m_speechFrame = null;
+//				m_packetGen.write("F"); 
+				}
+			/*} else if (getLogin().getSpeechy() != null) {
+				getLogin().getSpeechy().advance();*/
+//			else if (battle != null && battle.getBattleSpeech() != null) {
+//				battle.getBattleSpeech().advance();
+//			}
 			
+			}
 		}
 	}
 	
@@ -575,4 +594,23 @@ public class GameClient extends BasicGame {
     public BattleManager getBattleManager(){
     	return m_battleManager;
     }
+    
+    /**
+     * Starts to talkToNPC. 
+     * 
+     */
+    public void talkToNPC(String speech) throws SlickException {
+		m_speechFrame = new NPCSpeechFrame(speech);
+		getDisplay().add(m_speechFrame);
+//		if (speech.startsWith("*"))
+//			usePokeStorageBox("");
+	}
+    
+    /**
+	 * Nulls m_speechFrame
+	 * @return
+	 */
+	public void nullSpeechFrame() {
+		m_speechFrame = null;
+	}
 }

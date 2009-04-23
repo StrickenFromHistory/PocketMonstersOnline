@@ -23,7 +23,8 @@ public class NPCSpeechFrame extends SpeechFrame {
             if (speechQueue.peek() == null) {
                     triangle = null;
                     setVisible(false);
-                    GameClient.getInstance().getPacketGenerator().write("F");
+                    GameClient.getInstance().nullSpeechFrame();
+//                    GameClient.getInstance().getPacketGenerator().write("F");
             }
     }
 }
