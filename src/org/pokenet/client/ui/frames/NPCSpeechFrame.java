@@ -24,7 +24,7 @@ public class NPCSpeechFrame extends SpeechFrame {
                     triangle = null;
                     setVisible(false);
                     GameClient.getInstance().nullSpeechFrame();
-//                    GameClient.getInstance().getPacketGenerator().write("F");
+                    GameClient.getInstance().getPacketGenerator().write("Cf");
             }
     }
 }
