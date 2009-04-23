@@ -276,6 +276,14 @@ public class GameClient extends BasicGame {
 	 */
 	@Override
 	public void keyPressed(int key, char c) {
+		
+		if (m_login.isVisible()){
+			if (key == (Input.KEY_ENTER))
+				m_login.enterKeyDefault();
+			if (key == (Input.KEY_TAB))
+				m_login.tabKeyDefault();
+		}
+		
 		if (key == (Input.KEY_ESCAPE)) {
 			try {
 				System.exit(0);

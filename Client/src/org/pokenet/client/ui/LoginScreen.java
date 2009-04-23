@@ -2,6 +2,7 @@ package org.pokenet.client.ui;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.frames.AboutDialog;
 import org.pokenet.client.ui.frames.LoginDialog;
 import org.pokenet.client.ui.frames.RegisterDialog;
@@ -158,4 +159,22 @@ public class LoginScreen extends Window {
 	public RegisterDialog getRegistration() {
 		return m_register;
 	}
+	/**
+	 * Logs the user with current user and pass, this way they don't have to click "Login". 
+	 * @return
+	 */
+	public void enterKeyDefault() {
+		m_login.goLogin();
+	}
+	
+	/**
+     * Tabs on Login for easy login. Redundant?
+     * @return
+     */
+	public void tabKeyDefault() {
+		m_login.goToPass();
+	}
+	
+	
+	
 }
