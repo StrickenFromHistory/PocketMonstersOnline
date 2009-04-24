@@ -173,9 +173,9 @@ public class PartyInfo extends Frame {
 			m_pokeName[i].pack();
 
 			try {
-				//m_pokeBall[i].setImage(new Image("/PokenetClient/res/ui/Pokeball.gif"));
+				m_pokeBall[i].setImage(new Image("/res/ui/Pokeball.gif"));
 				m_pokeBall[i].setSize(30, 30);
-			} catch (/*Slick*/Exception e) {
+			} catch (SlickException e) {
 				System.out.println("Couldn't load pokeball");
 			}
 			try {
