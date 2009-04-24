@@ -76,7 +76,6 @@ public class GameClient extends BasicGame {
 	private Color m_daylight;
 	private static String m_language = "english";
 	private BattleManager m_battleManager;
-	private NPCSpeechFrame m_speechFrame;
 	/**
 	 * Load options
 	 */
@@ -292,7 +291,7 @@ public class GameClient extends BasicGame {
 				e.printStackTrace();
 			}
 		}
-		if(m_speechFrame == null){
+		if(m_ui.getNPCSpeech() == null){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
 					&& m_ourPlayer.getX() == m_ourPlayer.getServerX()
@@ -335,14 +334,13 @@ public class GameClient extends BasicGame {
 			}
 		}
 		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) ) {
-			if(m_speechFrame == null)
+			if(m_ui.getNPCSpeech() == null)
 				m_packetGen.write("Ct");
 			else{
 			try {
-				m_speechFrame.advance();
+				m_ui.getNPCSpeech().advance();
 			} catch (Exception e) { 
-				getDisplay().remove(m_speechFrame);
-				m_speechFrame = null;
+				m_ui.nullSpeechFrame();
 //				m_packetGen.write("F"); 
 				}
 			/*} else if (getLogin().getSpeechy() != null) {
@@ -594,23 +592,4 @@ public class GameClient extends BasicGame {
     public BattleManager getBattleManager(){
     	return m_battleManager;
     }
-    
-    /**
-     * Starts to talkToNPC. 
-     * 
-     */
-    public void talkToNPC(String speech) throws SlickException {
-		m_speechFrame = new NPCSpeechFrame(speech);
-		getDisplay().add(m_speechFrame);
-//		if (speech.startsWith("*"))
-//			usePokeStorageBox("");
-	}
-    
-    /**
-	 * Nulls m_speechFrame
-	 * @return
-	 */
-	public void nullSpeechFrame() {
-		m_speechFrame = null;
-	}
 }

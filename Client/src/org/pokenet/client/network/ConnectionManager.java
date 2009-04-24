@@ -154,7 +154,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 						speech +=GameClient.getInstance().getMapMatrix().getSpeech(i)+"\n";	
 					}
 					try {
-						GameClient.getInstance().talkToNPC(speech);
+						GameClient.getInstance().getUi().talkToNPC(speech);
 					} catch (SlickException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
