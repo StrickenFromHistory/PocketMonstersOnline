@@ -9,6 +9,7 @@ import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
 import org.newdawn.slick.Color;
+import org.newdawn.slick.SlickException;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Item;
 import org.pokenet.client.ui.base.HUDButtonFactory;
@@ -26,6 +27,7 @@ import org.pokenet.client.ui.frames.RequestWindow;
 /**
  * The main ui on screen
  * @author shadowkanji
+ * @author ZombieBear
  *
  */
 public class Ui extends Frame {
@@ -40,6 +42,7 @@ public class Ui extends Frame {
     private HelpWindow m_helpForm;
     private Frame m_bagForm;
     private PartyInfo m_teamInfo;
+	private NPCSpeechFrame m_speechFrame;
     private boolean m_isOption;
     private static final int UI_WIDTH = 32*7;
 	
@@ -383,11 +386,31 @@ public class Ui extends Frame {
     }
     
     /**
-     * Adds an NPC Speech Frame
+     * Starts to talk to an NPC
+     * @param speech
+     * @throws SlickException
      */
-    public void talkToNPC(String text){
-    	NPCSpeechFrame m_speechFrame = new NPCSpeechFrame(text);
-    	m_speechFrame.setVisible(true);
-    	getDisplay().add(m_speechFrame);
-    }
+    public void talkToNPC(String speech) throws SlickException {
+		m_speechFrame = new NPCSpeechFrame(speech);
+		getDisplay().add(m_speechFrame);
+//		if (speech.startsWith("*"))
+//			usePokeStorageBox("");
+	}
+    
+    /**
+	 * Nulls m_speechFrame
+	 * @return
+	 */
+	public void nullSpeechFrame() {
+		getDisplay().remove(m_speechFrame);
+		m_speechFrame = null;
+	}
+	
+	/**
+	 * Returns the NPC Speech Frame
+	 * @return
+	 */
+	public NPCSpeechFrame getNPCSpeech(){
+		return m_speechFrame;
+	}
 }
