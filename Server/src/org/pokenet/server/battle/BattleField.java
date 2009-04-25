@@ -139,8 +139,9 @@ public abstract class BattleField {
     /** Creates a new instance of BattleField */
     public BattleField(BattleMechanics mech, Pokemon[][] pokemon) {
         m_mechanics = mech;
-        setPokemon(pokemon);
+        m_pokemon = pokemon;
         attachField();
+        setPokemon(pokemon);
     }
     
     /**
@@ -172,7 +173,6 @@ public abstract class BattleField {
     }
     
     protected void setPokemon(Pokemon[][] pokemon) {
-        m_pokemon = pokemon;
         Pokemon[] active = getActivePokemon();
         sortBySpeed(active);
         for (int i = 0; i < active.length; ++i) {
