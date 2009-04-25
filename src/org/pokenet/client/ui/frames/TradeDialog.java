@@ -8,7 +8,11 @@ import mdes.slick.sui.ToggleButton;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.entity.Pokemon;
 
 /**
  * The trade interface
@@ -18,6 +22,7 @@ import org.pokenet.client.GameClient;
 public class TradeDialog extends Frame {
 	private ToggleButton[] m_ourPokes;
 	private ToggleButton[] m_theirPokes;
+	private int[] m_pokes;
 	private Button m_makeOfferBtn;
 	private Button m_tradeBtn;
 	private Button m_cancelBtn;
@@ -30,6 +35,7 @@ public class TradeDialog extends Frame {
 	 * Default constructor
 	 */
 	public TradeDialog(int[] pokes, String trainerName){
+		m_pokes = pokes;
 		initGUI();
 		setVisible(true);
 		setTitle("Trade with " + trainerName);
@@ -74,7 +80,7 @@ public class TradeDialog extends Frame {
 	/**
 	 * Performs the trade
 	 */
-	private void trade(){
+	private void performTrade(){
 		//TODO: Make the proper packet
 		//GameClient.getInstance().getPacketGenerator().write("PACKET GOES HERE");
 		System.out.println("Trade complete");
@@ -143,6 +149,7 @@ public class TradeDialog extends Frame {
 			m_ourPokes[i].setSize(32, 32);
 			m_ourPokes[i].setVisible(true);
 			try {
+				GameClient.getInstance().getOurPlayer().getPokemon()[i].setIcon();
 				m_ourPokes[i].setImage(GameClient.getInstance().getOurPlayer().getPokemon()[i].getIcon());
 			} catch (NullPointerException e){
 				m_ourPokes[i].setGlassPane(true);
@@ -166,11 +173,15 @@ public class TradeDialog extends Frame {
 			m_theirPokes[i] = new ToggleButton();
 			m_theirPokes[i].setSize(32, 32);
 			m_theirPokes[i].setVisible(true);
-			try {
-				m_theirPokes[i].setImage(GameClient.getInstance().getOurPlayer().getPokemon()[i].getIcon());
-			} catch (NullPointerException e){
-				System.out.println("NO OTHER POKE: " + i);
+            LoadingList.setDeferredLoading(true);
+            if (i < m_pokes.length){
+            	try {
+            		m_theirPokes[i].setImage(new Image(Pokemon.getIconPathByIndex(m_pokes[i])));
+            	} catch (SlickException e){
+            		System.out.println("CAN'T LOAD OTHER POKE IMAGE: " + i);
+            	}
 			}
+            LoadingList.setDeferredLoading(false);
 			m_theirPokes[i].setGlassPane(true);
 			getContentPane().add(m_theirPokes[i]);
 
@@ -199,7 +210,7 @@ public class TradeDialog extends Frame {
 		m_tradeBtn.setLocation(90, 50);
 		m_tradeBtn.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent evt) {
-				trade();
+				performTrade();
 			};
 		});
 		getContentPane().add(m_tradeBtn);

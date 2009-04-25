@@ -388,5 +388,26 @@ public class Pokemon {
         public int getSpriteNumber(){
         	return m_spriteNum;
         }
+        
+        /**
+         * Ststic method to get the file path for a pokemon's icon by it's index number
+         * @param i
+         * @return
+         */
+        public static String getIconPathByIndex(int i){
+        	String path = new String();
+        	String index = new String();
+
+        	if (i < 10) {
+        		index = "00" + String.valueOf(i);
+        	} else if (i < 100){
+        		index = "0" + String.valueOf(i);
+        	} else {
+        		index = String.valueOf(i);
+        	}
+               
+                path = "/res/pokemon/icons/" + index + ".gif";
+                return path;
+        }
 }
 
