@@ -6,8 +6,10 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
   <property name="dayLevels" value="2-3;2-3;2-3;3-3;2-3"/>
+  <property name="nightLevels" value="2-3;2-3;2-3;3-3;2-3"/>
   <property name="wildProbability" value="28"/>
   <property name="daySpecies" value="Pidgey,50;Rattata,45;Sentret,40;Hoppip,5;Hoothoot,55"/>
+  <property name="nightSpecies" value="Pidgey,50;Rattata,45;Sentret,40;Hoppip,5;Hoothoot,55"/>
  </properties>
  <tileset firstgid="1" source="normal1.tsx"/>
  <layer name="Walkable" width="20" height="20">
