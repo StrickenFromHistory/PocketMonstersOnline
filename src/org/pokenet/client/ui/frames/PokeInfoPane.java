@@ -21,7 +21,7 @@ public class PokeInfoPane extends Frame{
                 poke.setSprite();
                 icon.setImage(poke.getSprite());
                 icon.setSize(60,60);
-                icon.setLocation(5, 5);
+                icon.setLocation(-48, 5);
                 this.add(icon);
                 LoadingList.setDeferredLoading(false);
         }
