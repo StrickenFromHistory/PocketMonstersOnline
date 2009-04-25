@@ -58,6 +58,7 @@ public class RegistrationManager implements Runnable {
 		String [] info = ((String) session.getAttribute("reg")).split(",");
 		if(m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword())) {
 			m_database.selectDatabase(GameServer.getDatabaseName());
+			int s = Integer.parseInt(info[4]);
 			/*
 			 * Check if the user exists
 			 */
@@ -71,6 +72,14 @@ public class RegistrationManager implements Runnable {
 					return;
 				}
 			} catch (Exception e) {}
+			/*
+			 * Check if user is not trying to register their starter as a non-starter Pokemon
+			 */
+			if(!(s == 1 || s == 4 || s == 7 || s == 152 || s == 155 || s == 158 || s == 252 || s == 255 || s == 258
+					|| s == 387 || s == 390 || s == 393)) {
+				session.write("r4");
+				return;
+			}
 			/*
 			 * Create the player in the database
 			 */
@@ -102,7 +111,7 @@ public class RegistrationManager implements Runnable {
 			/*
 			 * Create the players party
 			 */
-			Pokemon p = this.createStarter(Integer.parseInt(info[4]));
+			Pokemon p = this.createStarter(s);
 			p.setOriginalTrainer(info[0]);
 			p.setDateCaught(new SimpleDateFormat("yyyy-MM-dd:HH-mm-ss").format(new Date()));
 			this.saveNewPokemon(p, m_database);
@@ -263,7 +272,65 @@ public class RegistrationManager implements Runnable {
 	 * @throws Exception
 	 */
 	private Pokemon createStarter(int speciesIndex) throws Exception {
-        PokemonSpecies species = PokemonSpecies.getDefaultData().getSpecies(speciesIndex - 1);
+		/*
+		 * Get the Pokemon species. Use getPokemonByName as once the 
+		 * species array gets to gen 3 it loses the pokedex numbering
+		 */
+		PokemonSpecies species = null;
+		switch(speciesIndex) {
+		case 1:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Bulbasaur"));
+			break;
+		case 4:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Charmander"));
+			break;
+		case 7:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Squirtle"));
+			break;
+		case 152:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Chikorita"));
+			break;
+		case 155:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Cyndaquil"));
+			break;
+		case 158:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Totodile"));
+			break;
+		case 252:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Treecko"));
+			break;
+		case 255:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Torchic"));
+			break;
+		case 258:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Mudkip"));
+			break;
+		case 387:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Turtwig"));
+			break;
+		case 390:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Chimchar"));
+			break;
+		case 393:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Piplup"));
+			break;
+		default:
+			species = PokemonSpecies.getDefaultData().getSpecies
+			(PokemonSpecies.getDefaultData().getPokemonByName("Mudkip"));
+		}
+        
         ArrayList<MoveListEntry> possibleMoves = new ArrayList<MoveListEntry>();
         MoveListEntry[] moves = new MoveListEntry[4];
         Random random = DataService.getBattleMechanics().getRandom();

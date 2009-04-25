@@ -412,6 +412,11 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoginScreen().getRegistration().enableRegistration();
 				m_game.getLoadingScreen().setVisible(false);
 				break;
+			case '4':
+				GameClient.messageDialog("Invalid data.", GameClient.getInstance().getDisplay());
+				m_game.getLoginScreen().getRegistration().enableRegistration();
+				m_game.getLoadingScreen().setVisible(false);
+				break;
 			}
 			break;
 		}
