@@ -23,6 +23,7 @@ import org.pokenet.client.ui.frames.NPCSpeechFrame;
 import org.pokenet.client.ui.frames.OptionsDialog;
 import org.pokenet.client.ui.frames.PartyInfo;
 import org.pokenet.client.ui.frames.RequestWindow;
+import org.pokenet.client.ui.frames.TradeDialog;
 
 /**
  * The main ui on screen
@@ -412,5 +413,14 @@ public class Ui extends Frame {
 	 */
 	public NPCSpeechFrame getNPCSpeech(){
 		return m_speechFrame;
+	}
+	
+	/**
+	 * Pops up the trade dialog
+	 * @param pokes
+	 * @param player
+	 */
+	public void openTrade(int[] pokes, String player){
+		new TradeDialog(pokes, player);
 	}
 }
