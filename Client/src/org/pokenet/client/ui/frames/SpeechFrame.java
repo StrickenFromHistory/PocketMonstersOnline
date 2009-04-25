@@ -62,14 +62,13 @@ public class SpeechFrame extends Frame {
      * Initializes the interface
      */
     public void initGUI() {
-    	/*
+    	
     	LoadingList.setDeferredLoading(true);
     	try {
-    		bg = new Image("/res/ui/textbackground.png");
-    	} catch (SlickException e) {
+    		bg = new Image("/res/ui/speechbox.png");
+    	} catch (Exception e) {
     		e.printStackTrace();
     	}
-		*/
     	LoadingList.setDeferredLoading(false);
 
     	Label bg = new Label(this.bg);
