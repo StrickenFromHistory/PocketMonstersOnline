@@ -20,7 +20,8 @@ public class BattleManager {
 	private Pokemon[] m_enemyPokes;
 	private BattleTimeLine m_timeLine;
 	private OurPokemon m_curPoke;
-
+	private Pokemon m_curEnemyPoke;
+	
 	/**
 	 * Default Constructor
 	 */
@@ -34,10 +35,16 @@ public class BattleManager {
 		m_player = GameClient.getInstance().getOurPlayer();
 		m_ourPokes = m_player.getPokemon();
 		m_curPoke = m_ourPokes[0];
-		m_curPoke.setBackSprite();
-		System.out.println("BS LOADED");
 	}
 
+	/**
+	 * 
+	 */
+	private void getEnemyData() {
+		m_enemyPokes = m_player.getPokemon();
+		m_curEnemyPoke = m_enemyPokes[0];
+	}
+	
 	/**
 	 * Retrieves enemy data
 	 */
@@ -51,6 +58,7 @@ public class BattleManager {
 	 */
 	public void startBattle() {
 		getPlayerData();
+		getEnemyData();
 		m_battle = new BattleWindow("Battle!", true);
 		updateMoves(0);
 		updatePokePane();
@@ -226,5 +234,12 @@ public class BattleManager {
 	 */
 	public OurPokemon getCurPoke(){
 		return m_curPoke;
+	}
+	
+	/**
+	 * Returns the enemy's active pokemon or the wild pokemon
+	 */
+	public Pokemon getCurEnemyPoke(){
+		return m_curEnemyPoke;
 	}
 }

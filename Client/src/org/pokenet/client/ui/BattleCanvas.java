@@ -3,6 +3,7 @@ package org.pokenet.client.ui;
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Label;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
@@ -40,6 +41,8 @@ public class BattleCanvas extends Container {
 		drawBackground();
 		drawOurPoke();
 		drawEnemyPoke();
+		drawOurInfo();
+		drawEnemyInfo();
 		positionCanvas();
 	}
 	
@@ -62,6 +65,121 @@ public class BattleCanvas extends Container {
 	public void drawEnemyPoke(){
 		//TODO: Animate!
 	}
+	
+	/**
+	 * Draw our poke's information
+	 */
+	public void drawOurInfo(){
+		// display player's data
+		String info = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getName() 
+			+ "  Lv:" + GameClient.getInstance().getUi().getBattleManager().getCurPoke().getLevel();
+		playerInfo.setText(info);
+        
+		playerInfo.setForeground(Color.white);
+        playerInfo.setBounds(152, 109, 94, 12);
+		
+		// show hp bar
+        playerHP = new ProgressBar(0, (int)GameClient.getInstance().getUi().getBattleManager()
+        		.getCurPoke().getMaxHP());
+        playerHP.setBounds(150, 126, 95, 10);
+
+        if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
+        		> GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 2){
+                playerHP.setForeground(Color.green);
+        }
+        else if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
+        		< GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 2 
+        		&& GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
+        		> GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 3){
+                playerHP.setForeground(Color.orange);
+        }
+        else if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
+        		< GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 3){
+                playerHP.setForeground(Color.red);
+        }
+
+        updatePlayerHP(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP());
+        add(playerInfo);
+        add(playerHP);
+	}
+	
+	/**
+	 * Draw our enemy poke's information
+	 */
+	public void drawEnemyInfo(){
+        //display enemy's data
+		enemyInfo.setText(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getName()
+        		+ "  Lv:" + GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getLevel());
+        enemyInfo.setForeground(Color.white);
+        enemyInfo.setBounds(12, 12, 96, 12);
+        
+        // show enemy hp bar
+        enemyHP = new ProgressBar(0, (int)GameClient.getInstance().getUi().getBattleManager()
+        		.getCurEnemyPoke().getMaxHP());
+        enemyHP.setBounds(11, 27, 95, 10);
+        
+        if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
+        		> GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 2){
+                enemyHP.setForeground(Color.green);
+        }
+        else if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
+        		< GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 2 
+        		&& GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
+        		> GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 3){
+                enemyHP.setForeground(Color.orange);
+        }
+        else if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
+        		< GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 3){
+                enemyHP.setForeground(Color.red);
+        }
+        updateEnemyHP(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP());
+
+        add(enemyInfo);
+        add(enemyHP);
+	}
+	
+	/**
+	 * Updates the HP bar for the player's poke
+	 * @param newValue
+	 */
+	public void updatePlayerHP(int newValue) {              
+        playerHP.setValue(newValue);
+        
+        if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
+        		> GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 2){
+                playerHP.setForeground(Color.green);
+        }
+        else if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
+        		< GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 2 
+        		&& GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
+        		> GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 3){
+                playerHP.setForeground(Color.orange);
+        }
+        else if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
+        		< GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 3){
+                playerHP.setForeground(Color.red);
+        }
+	}
+
+	public void updateEnemyHP(int newValue) {
+		enemyHP.setValue(newValue);
+
+		if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
+				> GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 2){
+			enemyHP.setForeground(Color.green);
+		}
+		else if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
+				< GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 2 
+				&& GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
+				> GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 3){
+			enemyHP.setForeground(Color.orange);
+		}
+		else if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
+				< GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 3){
+			enemyHP.setForeground(Color.red);
+		}
+	}
+
 	
 	/**
 	 * Draws the background
