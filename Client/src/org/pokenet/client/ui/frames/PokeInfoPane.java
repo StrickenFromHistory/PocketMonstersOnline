@@ -19,9 +19,9 @@ public class PokeInfoPane extends Frame{
         public void loadImage(OurPokemon poke){
                 LoadingList.setDeferredLoading(true);
                 poke.setSprite();
-                icon.setImage(poke.getSprite());
+                icon.setImage(poke.getSprite().getSubImage(0, 0, 80, 80));
                 icon.setSize(60,60);
-                icon.setLocation(-48, 5);
+                icon.setLocation(5, 5);
                 this.add(icon);
                 LoadingList.setDeferredLoading(false);
         }
