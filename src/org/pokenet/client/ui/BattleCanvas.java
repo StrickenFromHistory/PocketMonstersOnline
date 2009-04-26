@@ -49,11 +49,8 @@ public class BattleCanvas extends Container {
 	public void drawOurPoke(){
 		//TODO: Animate!
 		LoadingList.setDeferredLoading(true);
-		System.out.println("MAGIC!");
 		playerPoke = new Label(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getBackSprite());
-		System.out.println("MAGIC 2!");
 		playerPoke.setSize(80, 80);
-		System.out.println("MAGIC 3!");
 		LoadingList.setDeferredLoading(false);
 		playerPoke.setLocation(10, 0);
 		add(playerPoke);
