@@ -235,101 +235,121 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[0]);
 			
-			m_starters[1].setImage(new Image("res/pokemon/icons/004.gif"));
+//			m_starters[1].setImage(new Image("res/pokemon/icons/004.gif"));
+			m_starters[1].setImage(new Image("res/pokemon/icons/152.gif"));
 			m_starters[1].setLocation(192, 24);
 			m_starters[1].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					m_starter = 4;
+//					m_starter = 4;
+					m_starter = 152;
 					selectStarter(m_starter);
 				}
 			});
 			this.add(m_starters[1]);
 			
-			m_starters[2].setImage(new Image("res/pokemon/icons/007.gif"));
+//			m_starters[2].setImage(new Image("res/pokemon/icons/007.gif"));
+			m_starters[2].setImage(new Image("res/pokemon/icons/252.gif"));
 			m_starters[2].setLocation(224, 24);
 			m_starters[2].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					m_starter = 7;
+//					m_starter = 7;
+					m_starter = 252;
 					selectStarter(m_starter);
 				}
 			});
 			this.add(m_starters[2]);
 			
-			m_starters[3].setImage(new Image("res/pokemon/icons/152.gif"));
+//			m_starters[3].setImage(new Image("res/pokemon/icons/152.gif"));
+			m_starters[3].setImage(new Image("res/pokemon/icons/387.gif"));
 			m_starters[3].setLocation(256, 24);
 			m_starters[3].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					m_starter = 152;
+//					m_starter = 152;
+					m_starter = 387;
 					selectStarter(m_starter);
 				}
 			});
 			this.add(m_starters[3]);
 			
-			m_starters[4].setImage(new Image("res/pokemon/icons/155.gif"));
+//			m_starters[4].setImage(new Image("res/pokemon/icons/155.gif"));
+			m_starters[4].setImage(new Image("res/pokemon/icons/004.gif"));
 			m_starters[4].setLocation(160, 56);
 			m_starters[4].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					m_starter = 155;
+//					m_starter = 155;
+					m_starter = 4;
 					selectStarter(m_starter);
 				}
 			});
 			this.add(m_starters[4]);
 			
-			m_starters[5].setImage(new Image("res/pokemon/icons/158.gif"));
+//			m_starters[5].setImage(new Image("res/pokemon/icons/158.gif"));
+			m_starters[5].setImage(new Image("res/pokemon/icons/155.gif"));
 			m_starters[5].setLocation(192, 56);
 			m_starters[5].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					m_starter = 158;
+					m_starter = 155;
 					selectStarter(m_starter);
 				}
 			});
 			this.add(m_starters[5]);
 			
-			m_starters[6].setImage(new Image("res/pokemon/icons/252.gif"));
+//			m_starters[6].setImage(new Image("res/pokemon/icons/252.gif"));
+			m_starters[6].setImage(new Image("res/pokemon/icons/255.gif"));
 			m_starters[6].setLocation(224, 56);
 			m_starters[6].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					m_starter = 252;
+//					m_starter = 252;
+					m_starter = 255;
 					selectStarter(m_starter);
 				}
 			});
 			this.add(m_starters[6]);
 			
-			m_starters[7].setImage(new Image("res/pokemon/icons/255.gif"));
+//			m_starters[7].setImage(new Image("res/pokemon/icons/255.gif"));
+			m_starters[7].setImage(new Image("res/pokemon/icons/390.gif"));
 			m_starters[7].setLocation(256, 56);
 			m_starters[7].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					m_starter = 255;
+//					m_starter = 255;
+					m_starter = 390;
 					selectStarter(m_starter);
 				}
 			});
 			this.add(m_starters[7]);
 			
-			m_starters[8].setImage(new Image("res/pokemon/icons/258.gif"));
+//			m_starters[8].setImage(new Image("res/pokemon/icons/258.gif"));
+			m_starters[8].setImage(new Image("res/pokemon/icons/007.gif"));
 			m_starters[8].setLocation(160, 88);
 			m_starters[8].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					m_starter = 258;
+//					m_starter = 258;
+					m_starter = 7;
 					selectStarter(m_starter);
 				}
 			});
 			this.add(m_starters[8]);
 			
-			m_starters[9].setImage(new Image("res/pokemon/icons/387.gif"));
+//			m_starters[9].setImage(new Image("res/pokemon/icons/387.gif"));
+			m_starters[9].setImage(new Image("res/pokemon/icons/158.gif"));
 			m_starters[9].setLocation(192, 88);
 			m_starters[9].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					m_starter = 387;
+//					m_starter = 387;
+					m_starter = 158;
 					selectStarter(m_starter);
 				}
 			});
 			this.add(m_starters[9]);
 			
-			m_starters[10].setImage(new Image("res/pokemon/icons/390.gif"));
+//			m_starters[10].setImage(new Image("res/pokemon/icons/390.gif"));
+			m_starters[10].setImage(new Image("res/pokemon/icons/258.gif"));
 			m_starters[10].setLocation(224, 88);
 			m_starters[10].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					m_starter = 390;
+					m_starter = 258;
 					selectStarter(m_starter);
 				}
 			});
