@@ -44,11 +44,11 @@ import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
 import org.pokenet.client.ui.Ui;
 import org.pokenet.client.ui.frames.MessageDialog;
-import org.pokenet.client.ui.frames.NPCSpeechFrame;
 
 /**
  * The game client
  * @author shadowkanji
+ * @ZombieBear
  *
  */
 public class GameClient extends BasicGame {
@@ -75,7 +75,7 @@ public class GameClient extends BasicGame {
 	private Ui m_ui;
 	private Color m_daylight;
 	private static String m_language = "english";
-	private BattleManager m_battleManager;
+
 	/**
 	 * Load options
 	 */
@@ -144,11 +144,6 @@ public class GameClient extends BasicGame {
 		 */
 		m_mapMatrix = new ClientMapMatrix();
 		m_animator = new Animator(m_mapMatrix);
-		
-		/*
-		 * The battle manager
-		 */
-		m_battleManager = new BattleManager();
 		
 		gc.getInput().enableKeyRepeat(50, 300);
 	}
@@ -583,13 +578,5 @@ public class GameClient extends BasicGame {
      */
     public static String getLanguage() {
     	return m_language;
-    }
-    
-    /**
-     * Returns the Battle Manager
-     * @return
-     */
-    public BattleManager getBattleManager(){
-    	return m_battleManager;
     }
 }

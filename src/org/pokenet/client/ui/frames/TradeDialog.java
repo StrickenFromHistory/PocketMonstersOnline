@@ -39,6 +39,7 @@ public class TradeDialog extends Frame {
 		initGUI();
 		setVisible(true);
 		setTitle("Trade with " + trainerName);
+		setCenter();
 		GameClient.getInstance().getDisplay().add(this);
 	}
 
@@ -244,5 +245,16 @@ public class TradeDialog extends Frame {
 		getTitleBar().remove(getCloseButton());
 		setSize(270,178);
 		setResizable(false);
+	}
+	
+	/**
+	 * Centers the frame
+	 */
+	public void setCenter() {
+		int height = (int) GameClient.getInstance().getDisplay().getHeight();
+		int width = (int) GameClient.getInstance().getDisplay().getWidth();
+		int x = (width / 2) - 130;
+		int y = (height / 2) - 238;
+		this.setBounds(x, y, 259, 475);
 	}
 }

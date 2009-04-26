@@ -11,6 +11,7 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.entity.Item;
 import org.pokenet.client.ui.base.HUDButtonFactory;
 import org.pokenet.client.ui.base.ImageButton;
@@ -44,6 +45,7 @@ public class Ui extends Frame {
     private Frame m_bagForm;
     private PartyInfo m_teamInfo;
 	private NPCSpeechFrame m_speechFrame;
+	private BattleManager m_battleManager;
     private boolean m_isOption;
     private static final int UI_WIDTH = 32*7;
 	
@@ -56,6 +58,8 @@ public class Ui extends Frame {
 		this.setBackground(new Color(0, 0, 0, 75));
 		this.setResizable(false);
 		this.setDraggable(false);
+		
+		m_battleManager = new BattleManager();
 		
 		m_display = display;
 		
@@ -423,4 +427,13 @@ public class Ui extends Frame {
 	public void openTrade(int[] pokes, String player){
 		new TradeDialog(pokes, player);
 	}
+	
+    
+    /**
+     * Returns the Battle Manager
+     * @return
+     */
+    public BattleManager getBattleManager(){
+    	return m_battleManager;
+    }
 }

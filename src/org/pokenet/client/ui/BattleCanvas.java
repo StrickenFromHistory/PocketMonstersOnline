@@ -4,6 +4,9 @@ import mdes.slick.sui.Container;
 import mdes.slick.sui.Label;
 
 import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.loading.LoadingList;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.base.ProgressBar;
 
 /**
@@ -32,22 +35,60 @@ public class BattleCanvas extends Container {
 	 * Default constructor
 	 */
 	public BattleCanvas(){
-		setBounds(0, 1, 257, 105);
 		setSize(257, 144);
-		setVisible(true);	
+		setVisible(true);
+		drawBackground();
+		drawOurPoke();
+		drawEnemyPoke();
+		positionCanvas();
 	}
 	
 	/**
 	 * Draws our Pokemon
 	 */
 	public void drawOurPoke(){
-		
+		//TODO: Animate!
+		LoadingList.setDeferredLoading(true);
+		System.out.println("MAGIC!");
+		playerPoke = new Label(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getBackSprite());
+		System.out.println("MAGIC 2!");
+		playerPoke.setSize(80, 80);
+		System.out.println("MAGIC 3!");
+		LoadingList.setDeferredLoading(false);
+		playerPoke.setLocation(10, 0);
+		add(playerPoke);
 	}
 	
 	/**
-	 * Draws the enemie's Pokemon
+	 * Draws the enemy's Pokemon
 	 */
 	public void drawEnemyPoke(){
-		
+		//TODO: Animate!
+	}
+	
+	/**
+	 * Draws the background
+	 */
+	public void drawBackground(){
+		bgPic = new Label();
+		LoadingList.setDeferredLoading(true);
+		try{
+			bgPic = new Label(new Image("/res/ui/DP_darkgrass.png"));
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
+		LoadingList.setDeferredLoading(false);
+		add(bgPic);
+		bgPic.setBounds(0, 0, 256, 144);
+		bgPic.setVisible(true);
+	}
+	
+	/**
+	 * Centers the battle window
+	 */
+	public void positionCanvas() {
+		float y = GameClient.getInstance().getUi().getBattleManager().getBattleWindow().getY() + 20;
+		float x = GameClient.getInstance().getUi().getBattleManager().getBattleWindow().getX() + 1;
+		setLocation(x, y);
 	}
 }
