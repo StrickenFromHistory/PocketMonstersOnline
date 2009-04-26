@@ -10,6 +10,7 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.base.BattleButtonFactory;
 import org.pokenet.client.ui.base.ProgressBar;
@@ -24,7 +25,6 @@ public class BattleWindow extends Frame {
 	static final long serialVersionUID = -4351471892179339349L;
 
 	public Container confirmPane;
-	// public Container battleBG;
 	public Container endPane;
 	public Container attackPane;
 	public Container pokesContainer;
@@ -69,8 +69,8 @@ public class BattleWindow extends Frame {
 		setTitle(title);
 		isWild = wild;
 		initComponents();
-		this.setCenter();
-		this.setSize(259, 381);
+		setCenter();
+		setSize(259, 369);
 	}
 
 	/**
@@ -81,18 +81,17 @@ public class BattleWindow extends Frame {
 		Label bg = null;
 		try {
 			bg = new Label(new Image("/res/ui/bg.png"));
+			bg.setSize(256,203);
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
 
-		bg.pack();
-		bg.setLocation(0, 150);
+		bg.setLocation(0, 142);
 		getContentPane().add(bg);
-
-		// battleBG = new Container();
 
 		attackPane = new Container();
 		attackPane.setBackground(new Color(0, 0, 0, 0));
+
 		move1 = BattleButtonFactory.getButton("");
 		move2 = BattleButtonFactory.getButton("");
 		move3 = BattleButtonFactory.getButton("");
@@ -108,7 +107,7 @@ public class BattleWindow extends Frame {
 
 			}
 		});
-		yes.pack();
+		yes.setSize(82, 48);
 		yes.setLocation(0, 30);
 		no = BattleButtonFactory.getButton("Don't Replace");
 		no.addActionListener(new ActionListener() {
@@ -116,7 +115,7 @@ public class BattleWindow extends Frame {
 
 			}
 		});
-		no.pack();
+		no.setSize(82, 48);
 		no.setLocation(0, 83);
 		confirmPane.add(shouldReplace);
 		confirmPane.add(yes);
@@ -126,65 +125,60 @@ public class BattleWindow extends Frame {
 
 		setResizable(false);
 
-		// getContentPane().add(battleBG);
-		// battleBG.setBounds(0, 1, 257, 105);
-		// battleBG.setSize(257, 144);
-		// battleBG.setVisible(true);
-
 		this.getTitleBar().setVisible(false);
 
 		// start attackPane
 		attackPane.add(move1);
-		move1.setLocation(7, 0);
-		move1.pack();
+		move1.setLocation(7, 10);
+		move1.setSize(116, 51);
 		move1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				useMove(0);
 			}
 		});
 		pp1 = new Label();
 		pp1.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-		pp1.setBounds(7, 30, 110, 20);
+		pp1.setBounds(7, 40, 110, 20);
 		attackPane.add(pp1);
 
 		attackPane.add(move2);
-		move2.setLocation(130, 0);
-		move2.pack();
+		move2.setLocation(130, 10);
+		move2.setSize(116, 51);
 		move2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				useMove(1);
 			}
 		});
 		pp2 = new Label();
 		pp2.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-		pp2.setBounds(130, 30, 110, 20);
+		pp2.setBounds(130, 40, 110, 20);
 		attackPane.add(pp2);
 
 		attackPane.add(move3);
-		move3.setLocation(7, 55);
-		move3.pack();
+		move3.setLocation(7, 65);
+		move3.setSize(116, 51);
 		move3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				useMove(2);
 			}
 		});
 		pp3 = new Label();
 		pp3.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-		pp3.setBounds(7, 85, 110, 20);
+		pp3.setBounds(7, 95, 110, 20);
 		attackPane.add(pp3);
 
 		attackPane.add(move4);
-		move4.setLocation(130, 55);
-		move4.pack();
+		move4.setLocation(130, 65);
+		move4.setSize(116, 51);
 
 		move4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				useMove(3);
 			}
 		});
 		pp4 = new Label();
 		pp4.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-		pp4.setBounds(130, 85, 110, 20);
+		pp4.setBounds(130, 95, 110, 20);
 		attackPane.add(pp4);
 
 		jBtnRun = BattleButtonFactory.getSmallButton("Run");
@@ -195,127 +189,119 @@ public class BattleWindow extends Frame {
 		} else {
 			jBtnRun.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-
+					run();
 				}
 			});
 		}
-		jBtnRun.setBounds(97, 132, 60, 47);
-
-		jBtnRun.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-
-			}
-		});
+		jBtnRun.setBounds(97, 148, 60, 47);
 
 		jBtnBag = BattleButtonFactory.getSmallButton("Bag");
 		attackPane.add(jBtnBag);
-		jBtnBag.setLocation(3, 110);
-		jBtnBag.pack();
+		jBtnBag.setLocation(3, 122);
+		jBtnBag.setSize(82, 48);
 
 		jBtnBag.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				
 			}
 		});
 
 		jBtnPoke = BattleButtonFactory.getSmallButton("Pokemon");
 		attackPane.add(jBtnPoke);
-		jBtnPoke.setLocation(168, 110);
-		jBtnPoke.pack();
+		jBtnPoke.setLocation(168, 122);
+		jBtnPoke.setSize(82, 48);
 
 		jBtnPoke.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				showPokePane(false);
 			}
 		});
 
-		cancel = BattleButtonFactory.getSmallButton("Cancel");
+		/*cancel = BattleButtonFactory.getSmallButton("Cancel");
 		attackPane.add(cancel);
 		cancel.setLocation(162, 110);
-		cancel.pack();
+		cancel.setSize(82, 48);
 
 		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 
 			}
 		});
-
-		confirmPane.setBounds(0, 154, 257, 181);
-		attackPane.setBounds(0, 154, 257, 181);
+		*/
+		confirmPane.setBounds(2, 140, 257, 201);
+		attackPane.setBounds(2, 140, 257, 201);
 		getContentPane().add(attackPane);
 		// end attackPane
 
 		// start pokesContainer
-
 		pokesContainer = new Container();
 		pokesContainer.setBackground(new Color(0, 0, 0, 0));
-		getContentPane().add(pokesContainer);
-		pokesContainer.setBounds(0, 154, 253, 192);
+		pokesContainer.setBounds(2, 140, 257, 201);
 
-		pokeBtn1 = BattleButtonFactory.getButton("");
+		pokeBtn1 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn1);
 		pokeBtn1.setBounds(8, 8, 112, 26);
 
 		pokeBtn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				switchPoke(0);
 			}
 		});
 
-		pokeBtn2 = BattleButtonFactory.getButton("");
+		pokeBtn2 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn2);
 		pokeBtn2.setBounds(128, 8, 112, 26);
 
 		pokeBtn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				switchPoke(1);
 			}
 		});
 
-		pokeBtn3 = BattleButtonFactory.getButton("");
+		pokeBtn3 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn3);
 		pokeBtn3.setBounds(8, 57, 112, 26);
 
 		pokeBtn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				switchPoke(2);
 			}
 		});
 
-		pokeBtn4 = BattleButtonFactory.getButton("");
+		pokeBtn4 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn4);
 		pokeBtn4.setBounds(128, 57, 112, 26);
 
 		pokeBtn4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				switchPoke(3);
 			}
 		});
 
-		pokeBtn5 = BattleButtonFactory.getButton("");
+		pokeBtn5 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn5);
 		pokeBtn5.setBounds(8, 107, 112, 26);
 
 		pokeBtn5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				switchPoke(4);
 			}
 		});
 
-		pokeBtn6 = BattleButtonFactory.getButton("");
+		pokeBtn6 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn6);
 		pokeBtn6.setBounds(128, 107, 112, 26);
 
 		pokeBtn6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				switchPoke(5);
 			}
 		});
 
 		pokeCancelBtn = BattleButtonFactory.getSmallButton("Cancel");
 		pokesContainer.add(pokeCancelBtn);
 		pokeCancelBtn.setLocation(128, 140);
-		pokeCancelBtn.pack();
+		pokeCancelBtn.setSize(82, 48);
 
 		info1 = new Label();
 		pokesContainer.add(info1);
@@ -349,10 +335,13 @@ public class BattleWindow extends Frame {
 
 		pokeCancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				showAttack();
 			}
 		});
-
+		pokesContainer.setVisible(false);
+		getContentPane().add(pokesContainer);
+		//End pokesContainer
+		
 		endPane = new Container();
 		endPane.setBackground(new Color(0, 0, 0, 0));
 		getContentPane().add(endPane);
@@ -364,14 +353,11 @@ public class BattleWindow extends Frame {
 		close.setText("Close");
 		close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
 				setVisible(false);
-
 			}
 		});
 
 		endPane.setVisible(false);
-		pokesContainer.setVisible(false);
 	}
 
 	/**
@@ -462,13 +448,16 @@ public class BattleWindow extends Frame {
 	/**
 	 * Shows the pokemon Pane
 	 */
-	public void switchPoke(boolean isForced) {
+	public void showPokePane(boolean isForced) {
+		GameClient.getInstance().getUi().getBattleManager().updatePokePane();
 		attackPane.setVisible(false);
 		// bagPane.setVisible(false);
 		pokesContainer.setVisible(true);
 		endPane.setVisible(false);
-		pokeCancelBtn.setEnabled(isForced);
-		// displayPokeData();
+		if (isForced)
+			pokeCancelBtn.setEnabled(false);
+		else
+			pokeCancelBtn.setEnabled(true);
 	}
 
 	/**
@@ -481,5 +470,17 @@ public class BattleWindow extends Frame {
 		move2.setEnabled(true);
 		move3.setEnabled(true);
 		move4.setEnabled(true);
+	}
+	
+	private void useMove(int i){
+		//TODO: Add code
+	}
+	
+	private void run(){
+		//TODO: Add code
+	}
+	
+	private void switchPoke(int i){
+		//TODO: Add code
 	}
 }

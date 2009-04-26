@@ -1,5 +1,6 @@
 package org.pokenet.client.backend;
 
+import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.OurPokemon;
@@ -17,6 +18,8 @@ public class BattleManager {
 	private BattleWindow m_battle;
 	private OurPokemon[] m_ourPokes;
 	private Pokemon[] m_enemyPokes;
+	private BattleTimeLine m_timeLine;
+	private OurPokemon m_curPoke;
 
 	/**
 	 * Default Constructor
@@ -30,6 +33,9 @@ public class BattleManager {
 	private void getPlayerData() {
 		m_player = GameClient.getInstance().getOurPlayer();
 		m_ourPokes = m_player.getPokemon();
+		m_curPoke = m_ourPokes[0];
+		m_curPoke.setBackSprite();
+		System.out.println("BS LOADED");
 	}
 
 	/**
@@ -44,8 +50,13 @@ public class BattleManager {
 	 * Starts a new BattleWindow and BattleCanvas
 	 */
 	public void startBattle() {
+		getPlayerData();
 		m_battle = new BattleWindow("Battle!", true);
+		updateMoves(0);
+		updatePokePane();
+		System.out.println("BattleWindow Loaded");
 		GameClient.getInstance().getDisplay().add(m_battle);
+		m_timeLine = new BattleTimeLine();
 	}
 
 	/**
@@ -62,7 +73,7 @@ public class BattleManager {
 			m_battle.pp1.setText("");
 		}
 
-		if (m_ourPokes[i].getMoves()[0] != null) {
+		if (m_ourPokes[i].getMoves()[1] != null) {
 			m_battle.move2.setText(m_ourPokes[i].getMoves()[1]);
 			m_battle.pp2.setText(m_ourPokes[i].getMovecurPP()[1] + "/"
 					+ m_ourPokes[i].getMovemaxPP()[1]);
@@ -71,7 +82,7 @@ public class BattleManager {
 			m_battle.pp2.setText("");
 		}
 
-		if (m_ourPokes[i].getMoves()[0] != null) {
+		if (m_ourPokes[i].getMoves()[2] != null) {
 			m_battle.move3.setText(m_ourPokes[i].getMoves()[2]);
 			m_battle.pp3.setText(m_ourPokes[i].getMovecurPP()[2] + "/"
 					+ m_ourPokes[i].getMovemaxPP()[2]);
@@ -79,7 +90,7 @@ public class BattleManager {
 			m_battle.move3.setText("");
 			m_battle.pp3.setText("");
 		}
-		if (m_ourPokes[i].getMoves()[0] != null) {
+		if (m_ourPokes[i].getMoves()[3] != null) {
 			m_battle.move4.setText(m_ourPokes[i].getMoves()[3]);
 			m_battle.pp4.setText(m_ourPokes[i].getMovecurPP()[3] + "/"
 					+ m_ourPokes[i].getMovemaxPP()[3]);
@@ -181,7 +192,7 @@ public class BattleManager {
 		if (trainerIndex == 0) {
 			// TODO: Draw our poke
 			updateMoves(pokeIndex);
-			m_battle.switchPoke(isForced);
+			m_battle.showPokePane(isForced);
 		} else {
 			// TODO: Draw enemy poke
 		}
@@ -192,5 +203,20 @@ public class BattleManager {
 	 */
 	public void requestMoves() {
 		m_battle.showAttack();
+	}
+	
+	/**
+	 * Gets the BattleWindow
+	 * @return
+	 */
+	public BattleWindow getBattleWindow(){
+		return m_battle;
+	}
+	
+	/**
+	 * Returns the player's active pokemon
+	 */
+	public OurPokemon getCurPoke(){
+		return m_curPoke;
 	}
 }

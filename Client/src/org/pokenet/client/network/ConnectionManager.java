@@ -71,7 +71,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 			switch(message.charAt(1)) {
 			case 'i':
 				//Battle started -> biPOKEDEXNUMBER
-				GameClient.getInstance().getBattleManager().startBattle();
+				GameClient.getInstance().getUi().getBattleManager().startBattle();
 				break;
 			case 'p':
 				//No PP left for move -> bpMOVENAME
@@ -98,6 +98,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'm':
 				//Move requested
+				GameClient.getInstance().getUi().getBattleManager().requestMoves();
 				break;
 			case '.':
 				//Exp gain -> b.POKEMON,EXPAMOUNT
@@ -110,6 +111,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 's':
 				//Switch in Pokemon requested
+				GameClient.getInstance().getUi().getBattleManager().getBattleWindow().showPokePane(true);
 				break;
 			case 'S':
 				//A switch occured -> bSTRAINERNAME,NEWPOKEMON
