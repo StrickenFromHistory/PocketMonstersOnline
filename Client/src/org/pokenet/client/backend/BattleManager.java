@@ -60,6 +60,14 @@ public class BattleManager {
 	}
 
 	/**
+	 * Returns the TimeLine
+	 * @return
+	 */
+	public BattleTimeLine getTimeLine(){
+		return m_timeLine;
+	}
+	
+	/**
 	 * Retrieves a pokemon's moves and updates the BattleWindow
 	 * @param int i
 	 */

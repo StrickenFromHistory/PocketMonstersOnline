@@ -78,23 +78,28 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case '!':
 				//Other battle message not specified by packets below
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().showMessage(message.substring(2));
 				break;
 			case '@':
 				//Victory condition
 				switch(message.charAt(2)) {
 				case 'w':
 					//Our player won
+					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informVictory();
 					break;
 				case 'l':
 					//Our player lost
+					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informLoss();
 					break;
 				}
 				break;
 			case 'F':
 				//A pokemon fainted -> bFPOKEMON
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informFaintedPoke(message.substring(2));
 				break;
 			case 'M':
 				//A move was used -> bMPOKEMON,MOVENAME
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informMoveUsed(message.substring(2).split(","));
 				break;
 			case 'm':
 				//Move requested
@@ -102,12 +107,15 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case '.':
 				//Exp gain -> b.POKEMON,EXPAMOUNT
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informExperienceGained(message.substring(2).split(","));
 				break;
 			case 'e':
 				//A Pokemon received a status effect -> bePOKEMON,EFFECT
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusChanged(message.substring(2).split(","));
 				break;
 			case 'E':
 				//A Pokemon had a status effect removed -> bEPOKEMON,EFFECT
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusHealed(message.substring(2).split(",")[0]);
 				break;
 			case 's':
 				//Switch in Pokemon requested
@@ -115,6 +123,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'S':
 				//A switch occured -> bSTRAINERNAME,NEWPOKEMON
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informSwitch(message.substring(2).split(","));
 				break;
 			case 'h':
 				/*
@@ -125,14 +134,17 @@ public class ConnectionManager extends IoHandlerAdapter {
 				switch(message.charAt(2)) {
 				case '0':
 					//Our pokemon's health
+					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informHealthChanged(message.substring(2).split(","), 0);
 					break;
 				case '1':
 					//Enemy pokemon's health
+					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informHealthChanged(message.substring(2).split(","), 1);
 					break;
 				}
 				break;
 			case 'H':
 				//A Pokemon lost health (a battle message) -> bHPOKEMON,CHANGE
+				//Deprecated
 				break;
 			}
 			break;
