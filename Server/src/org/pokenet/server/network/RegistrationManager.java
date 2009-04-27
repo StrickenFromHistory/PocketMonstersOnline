@@ -62,10 +62,10 @@ public class RegistrationManager implements Runnable {
 			/*
 			 * Check if the user exists
 			 */
-			ResultSet data = m_database.query("SELECT * FROM pn_members WHERE username='" + info[0] + "'");
+			ResultSet data = m_database.query("SELECT * FROM pn_members WHERE username='" + MySqlManager.parseSQL(info[0]) + "'");
 			data.first();
 			try {				
-				if(data != null && data.getString("username") != null && data.getString("username").equalsIgnoreCase(info[0])) {
+				if(data != null && data.getString("username") != null && data.getString("username").equalsIgnoreCase(MySqlManager.parseSQL(info[0]))) {
 					session.resumeRead();
 					session.resumeWrite();
 					session.write("r2");
@@ -89,13 +89,13 @@ public class RegistrationManager implements Runnable {
 			m_database.query("INSERT INTO pn_members (username, password, dob, email, lastLoginTime, lastLoginServer, " +
 					"sprite, money, npcMul, skHerb, skCraft, skFish, skTrain, skCoord, skBreed, " +
 					"x, y, mapX, mapY, badges, healX, healY, healMapX, healMapY, isSurfing, adminLevel) VALUE " +
-					"('" + info[0] + "', '" + info[1] + "', '" + info[3] + "', '" + info[2] + "', " +
-							"'0', 'null', '" + info[5] + "', '0', '1.5', '0', '0', '0', '0', '0', '0', '256', '248', " +
+					"('" + MySqlManager.parseSQL(info[0]) + "', '" + MySqlManager.parseSQL(info[1]) + "', '" + MySqlManager.parseSQL(info[3]) + "', '" + MySqlManager.parseSQL(info[2]) + "', " +
+							"'0', 'null', '" + MySqlManager.parseSQL(info[5]) + "', '0', '1.5', '0', '0', '0', '0', '0', '0', '256', '248', " +
 									"'0', '0', '" + badges + "', '256', '248', '-50', '-50', 'false', '0')");
 			/*
 			 * Retrieve the player's unique id
 			 */
-			data = m_database.query("SELECT * FROM pn_members WHERE username='" + info[0] + "'");
+			data = m_database.query("SELECT * FROM pn_members WHERE username='" + MySqlManager.parseSQL(info[0]) + "'");
 			data.first();
 			int playerId = data.getInt("id");
 			/*
@@ -199,33 +199,33 @@ public class RegistrationManager implements Runnable {
 					"(name, speciesName, exp, baseExp, expType, isFainted, level, happiness, " +
 					"gender, nature, abilityName, itemName, isShiny, originalTrainerName, date)" +
 					"VALUES (" +
-					"'" + p.getName() +"', " +
-					"'" + p.getSpeciesName() +"', " +
+					"'" + MySqlManager.parseSQL(p.getName()) +"', " +
+					"'" + MySqlManager.parseSQL(p.getSpeciesName()) +"', " +
 					"'" + String.valueOf(p.getExp()) +"', " +
 					"'" + p.getBaseExp() +"', " +
-					"'" + p.getExpType().name() +"', " +
+					"'" + MySqlManager.parseSQL(p.getExpType().name()) +"', " +
 					"'" + String.valueOf(p.isFainted()) +"', " +
 					"'" + p.getLevel() +"', " +
 					"'" + p.getHappiness() +"', " +
 					"'" + p.getGender() +"', " +
-					"'" + p.getNature().getName() +"', " +
-					"'" + p.getAbilityName() +"', " +
-					"'" + p.getItemName() +"', " +
+					"'" + MySqlManager.parseSQL(p.getNature().getName()) +"', " +
+					"'" + MySqlManager.parseSQL(p.getAbilityName()) +"', " +
+					"'" + MySqlManager.parseSQL(p.getItemName()) +"', " +
 					"'" + String.valueOf(p.isShiny()) +"', " +
-					"'" + p.getOriginalTrainer() + "', " +
-					"'" + p.getDateCaught() + "')");
+					"'" + MySqlManager.parseSQL(p.getOriginalTrainer()) + "', " +
+					"'" + MySqlManager.parseSQL(p.getDateCaught()) + "')");
 			/*
 			 * Get the pokemon's database id and attach it to the pokemon.
 			 * This needs to be done so it can be attached to the player in the database later.
 			 */
-			ResultSet result = db.query("SELECT * FROM pn_pokemon WHERE originalTrainerName='"  + p.getOriginalTrainer() + 
-					"' AND date='" + p.getDateCaught() + "'");
+			ResultSet result = db.query("SELECT * FROM pn_pokemon WHERE originalTrainerName='"  + MySqlManager.parseSQL(p.getOriginalTrainer()) + 
+					"' AND date='" + MySqlManager.parseSQL(p.getDateCaught()) + "'");
 			result.first();
 			p.setDatabaseID(result.getInt("id"));
-			db.query("UPDATE pn_pokemon SET move0='" + p.getMove(0).getName() +
-					"', move1='" + (p.getMove(1) == null ? "null" : p.getMove(1).getName()) +
-					"', move2='" + (p.getMove(2) == null ? "null" : p.getMove(2).getName()) +
-					"', move3='" + (p.getMove(3) == null ? "null" : p.getMove(3).getName()) +
+			db.query("UPDATE pn_pokemon SET move0='" + MySqlManager.parseSQL(p.getMove(0).getName()) +
+					"', move1='" + (p.getMove(1) == null ? "null" : MySqlManager.parseSQL(p.getMove(1).getName())) +
+					"', move2='" + (p.getMove(2) == null ? "null" : MySqlManager.parseSQL(p.getMove(2).getName())) +
+					"', move3='" + (p.getMove(3) == null ? "null" : MySqlManager.parseSQL(p.getMove(3).getName())) +
 					"', hp='" + p.getHealth() +
 					"', atk='" + p.getStat(1) +
 					"', def='" + p.getStat(2) +

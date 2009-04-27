@@ -124,4 +124,14 @@ public class MySqlManager {
             return null;
         }
     }    
+    
+    public static String parseSQL(String text)
+	{
+		try {
+			if(text == null) text = "";
+			text = text.replace("'", "''");
+			text = text.replace("\\", "\\\\");
+		} catch (Exception e) {}
+		return  text;
+	}
 }

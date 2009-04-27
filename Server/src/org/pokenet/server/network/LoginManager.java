@@ -60,7 +60,7 @@ public class LoginManager implements Runnable {
 			}
 			m_database.selectDatabase(GameServer.getDatabaseName());
 			//Then find the member's information
-			ResultSet result = m_database.query("SELECT * FROM pn_members WHERE username='" + username + "'");
+			ResultSet result = m_database.query("SELECT * FROM pn_members WHERE username='" + MySqlManager.parseSQL(username) + "'");
 			if(!result.first()){
 				//Member doesn't exist, say user or pass wrong. We don't want someone to guess usernames. 
 				session.write("le");
@@ -80,8 +80,8 @@ public class LoginManager implements Runnable {
 						p.setLastLoginTime(time);
 						p.getSession().close();
 						p.setSession(session);
-						m_database.query("UPDATE pn_members SET lastLoginServer='" + GameServer.getServerName() + "', lastLoginTime='" + time + "' WHERE username='" + username + "'");
-						m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getLocalAddress() + "' WHERE username='" + username + "'");
+						m_database.query("UPDATE pn_members SET lastLoginServer='" + MySqlManager.parseSQL(GameServer.getServerName()) + "', lastLoginTime='" + time + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
+						m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getLocalAddress() + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 						session.setAttribute("player", p);
 						GameServer.getServiceManager().getMovementService().removePlayer(username);
 						this.initialiseClient(p, session);
@@ -113,7 +113,7 @@ public class LoginManager implements Runnable {
 			/*
 			 * Something went wrong so make sure the player is registered as logged out
 			 */
-			m_database.query("UPDATE pn_members SET lastLoginServer='null' WHERE username='" + username + "'");
+			m_database.query("UPDATE pn_members SET lastLoginServer='null' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 		}
 
 	}
@@ -193,8 +193,8 @@ public class LoginManager implements Runnable {
 		/*
 		 * Update the database with login information
 		 */
-		m_database.query("UPDATE pn_members SET lastLoginServer='" + GameServer.getServerName() + "', lastLoginTime='" + time + "' WHERE username='" + username + "'");
-		m_database.query("UPDATE pn_members SET lastLoginIP='" + "0' WHERE username='" + username + "'");
+		m_database.query("UPDATE pn_members SET lastLoginServer='" + MySqlManager.parseSQL(GameServer.getServerName()) + "', lastLoginTime='" + time + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
+		m_database.query("UPDATE pn_members SET lastLoginIP='" + "0' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 		session.setAttribute("player", p);
 		/*
 		 * Send success packet to player, set their map and add them to a movement service
