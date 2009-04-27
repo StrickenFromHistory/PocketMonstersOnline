@@ -40,6 +40,7 @@ public class WildBattleField extends BattleField {
 		p.setBattleId(0);
 		p.getSession().write("bi1" + wild.getSpeciesNumber());
 		m_player = p;
+		addParticipant(m_player);
 		applyWeather();
 	}
 

@@ -73,6 +73,14 @@ public abstract class BattleField {
      * Tells battle threadlets if the player forced to switch, has switched
      */
     protected boolean [] m_hasSwitched;
+    
+    /**
+     * Adds a player as a participant
+     * @param p
+     */
+    public void addParticipant(PlayerChar p) {
+    	m_players.add(p);
+    }
         
     // Cache of Struggle.
     private static final MoveListEntry m_struggle = MoveList.getDefaultData().getMove("Struggle");
@@ -810,7 +818,14 @@ public abstract class BattleField {
 	 * @param p
 	 */
 	public boolean isParticipating(PlayerChar p) {
-		return m_players.contains(p);
+		boolean result = false;
+		for(int i = 0; i < m_players.size(); i++) {
+			if(m_players.get(i).getName().equalsIgnoreCase(p.getName())) {
+				result = true;
+				break;
+			}
+		}
+		return result;
 	}
 
 	/**
