@@ -220,6 +220,7 @@ public class BattleManager {
 	 * Requests a move from the player
 	 */
 	public void requestMoves() {
+		m_battle.enableMoves();
 		m_battle.showAttack();
 	}
 	
