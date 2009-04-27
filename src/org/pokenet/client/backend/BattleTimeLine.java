@@ -27,6 +27,7 @@ public class BattleTimeLine {
 		m_canvas = new BattleCanvas();
 		m_narrator = new BattleSpeechFrame();
 		GameClient.getInstance().getDisplay().add(m_canvas);
+		GameClient.getInstance().getDisplay().add(m_narrator);
 	}
 	
 	/**
@@ -116,5 +117,26 @@ public class BattleTimeLine {
 	 */
 	public void showMessage(String msg){
 		m_narrator.addSpeech(msg);
+	}
+	
+	/**
+	 * Informs if a run was successful
+	 * @param canRun
+	 */
+	public void informRun(boolean canRun){
+		if (canRun){
+			m_narrator.addSpeech("You got away succesfully.");
+			//TODO: End Battle
+		} else {
+			m_narrator.addSpeech("You failed to run away.");
+		}
+	}
+	
+	/**
+	 * Returns the battle speech
+	 * @return
+	 */
+	public BattleSpeechFrame getBattleSpeech(){
+		return m_narrator;
 	}
 }

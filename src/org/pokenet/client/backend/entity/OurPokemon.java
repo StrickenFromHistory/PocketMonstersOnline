@@ -51,60 +51,60 @@ public class OurPokemon extends Pokemon {
          * Sets back sprite
          */
         public void setBackSprite() {
-                try{
-                        LoadingList.setDeferredLoading(true);
-                        String path = new String();
-                        String index, isShiny = new String();
-                        
-                        if (!isShiny()){
-                                isShiny = "normal/";
-                        }else{
-                                isShiny = "shiny/";
-                        }
-                        
-                        if (getSpriteNumber() < 9) {
-                                index = "00" + String.valueOf(getSpriteNumber() + 1);
-                        }
-                        else if (getSpriteNumber() < 99){
-                                index = "0" + String.valueOf(getSpriteNumber() + 1);
-                        }
-                        else{
-                                index = String.valueOf(getSpriteNumber() + 1);
-                        }
-                        
-                        int gender;
-                        if (getGender() == 1)
-                                gender = 2;
-                        else
-                                gender = 3;
+        	try{
+        		LoadingList.setDeferredLoading(true);
+        		String path = new String();
+        		String index, isShiny = new String();
 
-                        try {
-                                path = "/res/pokemon/back/" + isShiny + index + "-"
-                                + String.valueOf(gender) + ".gif";
-                                System.out.println(path);
-                                m_backSprite = new Image(path.toString()).getSubImage(0, 0, 80, 80);
-                        }
-                        catch (Exception e) {
-                                if (gender == 3) {
-                                        path = "/res/pokemon/back/" + isShiny + index + "-2"
-                                        + ".gif";
-                                }
-                                else {
-                                        path = "/res/pokemon/back/" + isShiny + index + "-3"
-                                        + ".gif";
-                                }
-                                m_backSprite = new Image(path.toString()).getSubImage(0, 0, 80, 80);
-                                e.printStackTrace();
-                        }
-                        LoadingList.setDeferredLoading(false);
-                }catch (SlickException e){e.printStackTrace();}
+        		if (!isShiny()){
+        			isShiny = "normal/";
+        		}else{
+        			isShiny = "shiny/";
+        		}
+
+        		if (getSpriteNumber() < 9) {
+        			index = "00" + String.valueOf(getSpriteNumber() + 1);
+        		}
+        		else if (getSpriteNumber() < 99){
+        			index = "0" + String.valueOf(getSpriteNumber() + 1);
+        		}
+        		else{
+        			index = String.valueOf(getSpriteNumber() + 1);
+        		}
+
+        		int gender;
+        		if (getGender() == 1)
+        			gender = 2;
+        		else
+        			gender = 3;
+
+        		try {
+        			path = "/res/pokemon/back/" + isShiny + index + "-"
+        			+ String.valueOf(gender) + ".gif";
+        			System.out.println(path);
+        			m_backSprite = new Image(path.toString()).getSubImage(0, 0, 80, 80);
+        		}
+        		catch (Exception e) {
+        			if (gender == 3) {
+        				path = "/res/pokemon/back/" + isShiny + index + "-2"
+        				+ ".gif";
+        			}
+        			else {
+        				path = "/res/pokemon/back/" + isShiny + index + "-3"
+        				+ ".gif";
+        			}
+        			m_backSprite = new Image(path.toString()).getSubImage(0, 0, 80, 80);
+        			e.printStackTrace();
+        		}
+        		LoadingList.setDeferredLoading(false);
+        	}catch (SlickException e){e.printStackTrace();}
         }
         
         /**
          * Returns ATK
          */
         public int getAtk() {
-                return m_atk;
+        	return m_atk;
         }
 
         /**

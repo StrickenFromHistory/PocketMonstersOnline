@@ -140,13 +140,6 @@ public class OurPlayer extends Player {
 	}
 	
 	/**
-	 * Returns the player's pokemon team
-	 */
-	public OurPokemon [] getPokes(){
-		return m_pokemon;
-	}
-	
-	/**
 	 * Returns the player's badges
 	 */
 	public String [] getBadges(){

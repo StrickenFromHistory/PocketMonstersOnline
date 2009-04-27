@@ -8,6 +8,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.entity.Pokemon;
 import org.pokenet.client.ui.base.ProgressBar;
 
 /**
@@ -19,18 +20,18 @@ import org.pokenet.client.ui.base.ProgressBar;
 public class BattleCanvas extends Container {
 	private ProgressBar playerHP;
 	private ProgressBar enemyHP;
-	private String ourSpritePath;
+/*	private String ourSpritePath;
 	private String enemySpritePath;
 	private String checkOurShiny;
-	private String checkEnemyShiny;
+	private String checkEnemyShiny;*/
 	private Label bgPic = new Label();
 	private Label playerPoke = new Label();
 	private Label enemyPoke = new Label();
 	private Label playerInfo = new Label();
 	private Label enemyInfo = new Label();
-	private Image pic;
-	private Image playerPokeImage;
-	private Image enemyPokeImage;
+//	private Image pic;
+//	private Image playerPokeImage;
+//	private Image enemyPokeImage;
 
 	/**
 	 * Default constructor
@@ -51,11 +52,10 @@ public class BattleCanvas extends Container {
 	 */
 	public void drawOurPoke(){
 		//TODO: Animate!
-		LoadingList.setDeferredLoading(true);
-		playerPoke = new Label(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getBackSprite());
+		playerPoke = new Label(GameClient.getInstance().getOurPlayer().getPokemon()
+				[GameClient.getInstance().getUi().getBattleManager().getCurPokeIndex()].getBackSprite());
 		playerPoke.setSize(80, 80);
-		LoadingList.setDeferredLoading(false);
-		playerPoke.setLocation(10, 0);
+		playerPoke.setLocation(0, 76);
 		add(playerPoke);
 	}
 	
@@ -64,6 +64,12 @@ public class BattleCanvas extends Container {
 	 */
 	public void drawEnemyPoke(){
 		//TODO: Animate!
+		enemyPoke = new Label("POKE");
+		LoadingList.setDeferredLoading(true);
+		enemyPoke.setSize(80, 80);
+		enemyPoke.setLocation(150, 21);
+		LoadingList.setDeferredLoading(false);
+		add(enemyPoke);
 	}
 	
 	/**

@@ -104,7 +104,7 @@ public class BattleWindow extends Frame {
 		yes = BattleButtonFactory.getButton("Replace");
 		yes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				//TODO: Add code
 			}
 		});
 		yes.setSize(82, 48);
@@ -112,7 +112,7 @@ public class BattleWindow extends Frame {
 		no = BattleButtonFactory.getButton("Don't Replace");
 		no.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				//TODO: Add code
 			}
 		});
 		no.setSize(82, 48);
@@ -202,7 +202,7 @@ public class BattleWindow extends Frame {
 
 		jBtnBag.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				
+				//TODO: Show bag
 			}
 		});
 
@@ -389,7 +389,7 @@ public class BattleWindow extends Frame {
 		jBtnBag.setEnabled(false);
 		jBtnRun.setEnabled(false);
 
-		cancel.setVisible(false);
+		//cancel.setVisible(false);
 	}
 
 	/**
@@ -472,15 +472,27 @@ public class BattleWindow extends Frame {
 		move4.setEnabled(true);
 	}
 	
+	/**
+	 * Sends a move packet
+	 * @param i
+	 */
 	private void useMove(int i){
-		//TODO: Add code
+        disableMoves();
+        GameClient.getInstance().getPacketGenerator().write("bm" + i);
 	}
 	
+	/**
+	 * Sends the run packer
+	 */
 	private void run(){
-		//TODO: Add code
+        GameClient.getInstance().getPacketGenerator().write("br");
 	}
 	
+	/**
+	 * Sends the pokemon switch packet
+	 * @param i
+	 */
 	private void switchPoke(int i){
-		//TODO: Add code
+        GameClient.getInstance().getPacketGenerator().write("bs" + i);
 	}
 }
