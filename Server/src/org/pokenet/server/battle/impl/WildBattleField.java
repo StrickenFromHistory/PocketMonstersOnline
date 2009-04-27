@@ -140,7 +140,7 @@ public class WildBattleField extends BattleField {
 	 */
 	@Override
 	public boolean isReady() {
-		return m_queuedTurns[0] != null && m_queuedTurns[1] != null;
+		return (m_queuedTurns[0] != null && m_queuedTurns[1] != null) || m_forceExecute;
 	}
 	
 	/**
