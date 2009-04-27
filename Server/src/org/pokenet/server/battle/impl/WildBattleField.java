@@ -285,7 +285,10 @@ public class WildBattleField extends BattleField {
 	 * Attempts to run from this battle
 	 */
 	public void run() {
-		
+		if(canRun())
+			m_player.getSession().write("br1");
+		else
+			m_player.getSession().write("br2");
 	}
 
 	/**
