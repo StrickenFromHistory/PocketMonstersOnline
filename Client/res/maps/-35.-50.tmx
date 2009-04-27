@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="47" height="22" tilewidth="16" tileheight="16">
+ <tileset name="Untitled" firstgid="1" tilewidth="16" tileheight="16">
+ <properties>
+ <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="dayPokemonChances" value=""/>
+  <property name="wildProbability" value=""/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+  </properties>
+  <image source="PGTileseti.png" trans="000000"/>
+ </tileset>
+ <tileset name="Untitled" firstgid="1025" tilewidth="16" tileheight="16">
+  <image source="PGTilesetiv.png" trans="000000"/>
+ </tileset>
+ <tileset name="Untitled" firstgid="2049" tilewidth="16" tileheight="16">
+  <image source="PGTilesetvi.png" trans="000000"/>
+ </tileset>
+ <tileset name="Untitled" firstgid="3073" tilewidth="16" tileheight="16">
+  <image source="PGTilesetvii.png" trans="000000"/>
+ </tileset>
+ <tileset name="Untitled" firstgid="4097" tilewidth="16" tileheight="16">
+  <image source="PGTilesetiv.png" trans="000000"/>
+ </tileset>
+ <tileset name="Untitled" firstgid="5121" tilewidth="16" tileheight="16">
+  <image source="PGTilesetv.png" trans="000000"/>
+ </tileset>
+ <tileset name="Untitled" firstgid="6145" tilewidth="16" tileheight="16">
+  <image source="PGTilesetiii.png" trans="000000"/>
+ </tileset>
+ <tileset name="Untitled" firstgid="7169" tilewidth="16" tileheight="16">
+  <image source="PGTilesetX.png" trans="000000"/>
+ </tileset>
+ <layer name="Walkable" width="47" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAADvKzMBwdBTTHDfT0GxSATnm09N9lAB0uw/TOWxHotsPYrGb1m6nlp9Jdbs7IyqmpttJ9cOo20fdTqrbSc2Ho24fdTupbkcH6O4H8WnpdkLhRo0wGXU7frcTwrRwOyX5BVnvLXEEppXbSQkbcsId2Q8wf1Ar3dDa7cSaS477ybWDVHxJkvg8Sy+7KMEAbN/uuigQAAA=
+  </data>
+ </layer>
+ <layer name="Grass" width="47" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OQQ0AMAgAMVzMvy3UYIG9YFmb3P8iAAAA7uXptZH3GS+//6QAmQW2VygQAAA=
+  </data>
+ </layer>
+ <layer name="Water" width="47" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2WSw7DIAxEk/YKWZKrtWdtuUY3lIuUSLFkWZAY8CiLMtJI7PzCJzPTNDSE1cth/U72DsMeHNbf5Ahin1esb8n3FcNOZ8vncG979lnyfiY/lEYod87yO450JXvveV/J3jtzsA/22pk8f/ja72tkNlmy8yyK+7o1mzS5bMle8289k8xl32ANO98jqywt9aJYYc2M4PL53COelfId+cJ3yU6gmbHxBmN2ykfJTXvackdKM4jfun/J9897Vu0dybETK6I7yvdf6oyorvoP+gHPbfmYKBAAAA==
+  </data>
+ </layer>
+ <layer name="Water" width="47" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjgLZAUICB4YkkbbGQAG3czixFG3ORASuN7Bh1+8CAUbePglEwMgAx+YVWZSSlAJ/bTQQg2JSMehW5vqd3vfxckjJzhZHcyy6Fva3BgSfcRInwLy63E6MXHxCmUP9QczssjRKbTmnldmOoG4gF5KRRWrkdBl4Q6SZy7DMWQI0rSsoWUsynlX0jEQAArWzzkygQAAA=
+  </data>
+ </layer>
+ <layer name="Collisions" width="47" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2WwQ3CMAxFo2aKbsVOMAqwB6rgjpgAinplBUBVRPmyTZ3EVaj6pX9L7Ncmduxcr8Y7dwMfvDPTO/aVyBm8IXIf/beDpmaXuLnca1ijYce9lqb+OzJq2BvDc0DdCZ5uYZ8l+/a1Zsd4r/h2LTsqhl3qTZpzS2XHPtYu7EnswzuZm116c8bsl+K0RA2WyM7VPKXS2DXzyD+zn4i1WC+dMfuq+jiVPUa52KU4j6o89rHCM8nFPhT2Cs1MIGkKdqtZjmIPdy2X5sTOzZe/fK77/Zeaf6NiY0u5LPUEuMXZFCgQAAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="47" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OwQkAIBAEsYXrvyqxkmtEa/CjQgLzn+QtXcnYzbp9cqY/fgcAAIAFkv9yZygQAAA=
+  </data>
+ </layer>
+</map>
