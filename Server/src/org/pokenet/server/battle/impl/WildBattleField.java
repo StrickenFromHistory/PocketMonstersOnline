@@ -151,9 +151,9 @@ public class WildBattleField extends BattleField {
 			throws MoveQueueException {
 		if (m_queuedTurns[trainer] == null) {
 			if (move.getId() == -1) {
-				//No idea what this does but it worked in PG
+				//Struggle
 				if (trainer == 0 && m_queuedTurns[1] != null)
-                    executeTurn(m_queuedTurns);	
+                    m_forceExecute = true;;
 			} else {
 				//Handle faints
 				if (this.getActivePokemon()[trainer].isFainted()) {
@@ -188,6 +188,8 @@ public class WildBattleField extends BattleField {
                                                         this.getActivePokemon()[trainer].getMoveName(
                                                                         move.getId()));
                                         m_player.getSession().write("bm");
+                                } else {
+                                	getWildPokemonMove();
                                 }
 							} else {
 								//Else, queue the move
@@ -201,11 +203,16 @@ public class WildBattleField extends BattleField {
 						} else {
 							if(trainer == 0)
 								m_player.getSession().write("bm");
+							else
+								getWildPokemonMove();
 						}
 					}
 				}
 			}
 		}
+		if(m_queuedTurns[1] == null)
+			getWildPokemonMove();
+		System.out.println(m_queuedTurns[0] + " " + m_queuedTurns[1]);
 	}
 
 	/**
@@ -230,24 +237,31 @@ public class WildBattleField extends BattleField {
 			while(!m_hasSwitched[party]);
 		}
 	}
+	
+	/**
+	 * Generates a wild Pokemon move
+	 */
+	protected void getWildPokemonMove() {
+		try {
+            int moveID = getMechanics().getRandom().nextInt(4);
+            while (getActivePokemon()[1].getMove(moveID) == null)
+                    moveID = getMechanics().getRandom().nextInt(4);
+            queueMove(1, BattleTurn.getMoveTurn(moveID));
+		} catch (MoveQueueException x) {
+            x.printStackTrace();
+		}
+	}
 
 	/**
 	 * Requests moves
 	 */
 	@Override
 	protected void requestMoves() {
+		m_forceExecute = false;
+		clearQueue();
 		if(this.getActivePokemon()[0].isActive() &&
                 this.getActivePokemon()[1].isActive() && !this.isFinished()) {
 			m_player.getSession().write("bm");
-	        try {
-	                int moveID = getMechanics().getRandom().nextInt(4);
-	                while (getActivePokemon()[1].getMove(moveID) == null)
-	                        moveID = getMechanics().getRandom().nextInt(4);
-	                queueMove(1, BattleTurn.getMoveTurn(
-	                                moveID));
-	        } catch (MoveQueueException x) {
-	                x.printStackTrace();
-	        }
 		}
 	}
 
@@ -311,5 +325,10 @@ public class WildBattleField extends BattleField {
 	public void executeThreadlet() {
 		m_isThreaded = true;
 		new Thread(new BattleThreadlet(this)).start();
+	}
+
+	@Override
+	public void executeTurn() {
+		executeTurn(m_queuedTurns);
 	}
 }

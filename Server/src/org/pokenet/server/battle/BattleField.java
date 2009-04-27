@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.battle.mechanics.BattleMechanics;
 import org.pokenet.server.battle.mechanics.ModData;
 import org.pokenet.server.battle.mechanics.MoveQueueException;
@@ -65,6 +66,10 @@ public abstract class BattleField {
     private boolean m_narration = true;
     private boolean m_isFinished = false;
     /*
+     * Used for struggle
+     */
+    protected boolean m_forceExecute = false;
+    /*
      * Set to true when a battle threadlet was launched for this battle
      */
     protected boolean m_isThreaded = false;
@@ -73,6 +78,14 @@ public abstract class BattleField {
      * Tells battle threadlets if the player forced to switch, has switched
      */
     protected boolean [] m_hasSwitched;
+    
+    /**
+     * Returns true if executeTurn should be called even though both parties have not selected moves
+     * @return
+     */
+    public boolean isExecuteForced() {
+    	return m_forceExecute;
+    }
     
     /**
      * Adds a player as a participant
@@ -639,7 +652,7 @@ public abstract class BattleField {
         int alive = 0;
         Pokemon[] pokemon = m_pokemon[idx];
         for (int i = 0; i < pokemon.length; ++i) {
-            if (!pokemon[i].isFainted()) {
+            if (pokemon[i] != null && !pokemon[i].isFainted()) {
                 ++alive;
             }
         }
@@ -796,7 +809,7 @@ public abstract class BattleField {
         // Synchronise FieldEffects.
         synchroniseFieldEffects();
         
-        showMessage("---");
+        //showMessage("---");
         
         if (request) {
             requestMoves();
@@ -831,8 +844,6 @@ public abstract class BattleField {
 	/**
 	 * Executes the battle turns (assumes both battle turns are selected)
 	 */
-	public void executeTurn() {
-		this.executeTurn(this.getQueuedTurns());
-	}
+	public abstract void executeTurn();
     
 }
