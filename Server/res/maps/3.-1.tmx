@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="48" height="40" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="waterPokemonLevels" value="5-5;5-7;"/>
+  <property name="waterPokemonChances" value="Magikarp,7;Magikarp,20"/>
+  <property name="nightPokemonLevels" value="5-5;5-7;"/>
+  <property name="nightPokemonChances" value="Noctowl,7;Sentret,20"/>
+  <property name="dayPokemonLevels" value="5-5;5-7;"/>
+  <property name="dayPokemonChances" value="Pikachu,7;Geodude,20"/>
+  <property name="wildProbability" value="28"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="-2912"/>
+ </properties>
+ <tileset firstgid="1" source="Tileset 1.tsx"/>
+ 
+ <tileset firstgid="1025" source="Tileset 2.tsx"/>
+ 
+ <tileset firstgid="2049" source="Tileset 3.tsx"/>
+ 
+ <tileset firstgid="3073" source="Tileset Kanto Towns 1.tsx"/>
+ 
+ <layer name="Walkable" width="48" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2XbW7CMAyG0zQcZB8XGT3Jxkk2rrIdZJt2EAb7S6+wZMXCM0nsfFRBCEuvWlEDTxLnjavUMb76o1wYlRbGoxZxCfxOOfzvnVIfVp9dO37Mk5q/sdzfVtsL5cdrJJVby1z+VFH+WI5U20L+lHxg+4nM5+6Qs9BK6YiMbscvnVdndSFtGs4/N7dOvZ6+03t+qzW/+8/OShP1hzkHbnoPYzkH/hurW6I7xE91TvUj4eeuHaqzFvwPVkuigdmzIbXgx3VCa91XP5o825vps33iQZrbg8X48TjwvSbccO+YDbpKWUt6SOn5WzPm5A/5p28tQoKcUCwZDWpaU1yjsf5r1536jwvqP7jPDtUZzgnFE6MV4oZxSHoE8B+ff0r2Cc0JxQujtWf+wZe5nivkn7F9gsci4deVJek/cZ1J+tSc85fjxHvT7UnKX1Nz8LvauEc1TfmlvX0sr6T/97UcdAzgLwu0BhL/99X/aKbaH82pT9Tkx/d4fw6F/HQMpf3nH586PQfw89j+xVw4fPyYeTRHHyrlf1T/z4FYboyfm3+oFzqGUv5nq9dM/hr+Weo//WEMcI6l8J+Df0rfIXAfHDubc5Xz/pXKP7dy+CW9dapgb9Ir97w2P/bWuTSg/0tl5/ixt86llcrn5wJ8KSTwXac3Jjek9Yz8XJ3Ts69039Tm50J6ds8RV/4rvzR+AZ1E7KgAHgAA
+  </data>
+  <tileproperties/>
+ </layer>
+ <layer name="Walkable" width="48" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OwQnAIBQD0H+xBydxsNK6iM6tpScnkNL3IARySgQA8EctRfS0buXY8wUAHmd++5p9z9S89w8AAAB80QC1z9s5AB4AAA==
+  </data>
+  <tileproperties/>
+ </layer>
+ <layer name="Ledges" width="48" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3XMQ0AIAxFwQb/OioFJ/hAAQkdGgbukm4d/voiAADoliNiFW6O14sBAAB65WUD5eGn2ln6C4BfbJeHqYgAHgAA
+  </data>
+  <tileproperties/>
+ </layer>
+ <layer name="Water" width="48" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OwQ2AIBAAwUvoTa1EqUQsW9738oWQzCT73wgAAAAAYAZbidhTR/n76ruzv16p6n+Y1f/v/tpSz0L/ADCLF/cDvn8AHgAA
+  </data>
+  <tileproperties/>
+ </layer>
+ <layer name="Collisions" width="48" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2ZW1LCMBiFo+Xi8KY7UC66DVTQV29LQNkHD7oNdbxsA2qRbQDC+Kor8MSBMf2b0L9puM14Zr75y5CGk9M2TYbAEyIADxMeJ58lXbAvhDgQ8fUQbXXKgpxSuf1xa8cL01XGII9P0OZUxFed/wYog4pSuf1x6z3JXo7BV/zT3zdVbv7c/mg15d9WsvcnY+gqtYY2dRFfTf6pD25/tJryb5P7x1fqr38mxwb/1IetOPnr/K+KbPOXKjLyL815rGnyr3rR55BWef8XLb2V0UmF0MuG26TJv8qYh0zPL0c1eK0rjMEn8c/JvwWGDvOXn7/w5Td4LgjxAl4LUf8NdHINbkAT5NB+Kxduw8nfJ8cu8t/OC7EDuvD9DnrEfz3zd3wL73fy/iHepUz59/G7gwlDch1c5H8G7+fgAlyCq7x+nHEy5U/XD1PvgaP86Xhsn3FT/gMvzNQ79T/P+YcjU/6BF0VegxEYL2j+4ciU/8iLMiZepH/O+oebP3dNomLKn6MjRv/T9U9TOY87f3Jkyn/eips/uUqTv61czp/Lyt+VTPk/eXqe5zyfJNWs/a9uD7lKa3+pWftf3Rpo1fxz1//q3pe+o2zUxgu6A3zwBoJs/Dk6cdf/ob2viO5dk46lD78DMAQfYGTpn5t/3N436T58A++uTeCBDMhq1sYc2eTvQrvwuweKoATKlv5d5b8sLSt/VzLlH6yJ/1nr/3Xwz82f7n2TquHKMBE3/3V7/+r8tzR7sGUrSf6c/10WrST5c/53WbRc55/0+qTtz3X+Sa9P2v7+81/N/H8A3XZS7wAeAAA=
+  </data>
+  <tileproperties/>
+ </layer>
+ <layer name="Collisions" width="48" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3XOQqAMBSE4YDYeA+9hwvqNVwu4nISwXs6IGIjYiEuyf/B8JoUk4QUMcYus/d2A3dtZz9xB7hZqEQnEwAA4Gmxb0yipErmv91mlwXrzDULpQyO11XqXCuN0n6o/1WdOvfKoIw/7O8ym/7sNu0FsB3vFQAAuGYBazlv/AAeAAA=
+  </data>
+  <tileproperties/>
+ </layer>
+ <layer name="WalkBehind" width="48" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3YPQqEMBCG4SlMXLyFP3jU1WvsquB19ER+jY2FIiiR+D7wkSbFQGCGiRmA2KXKZ+d8M+fM/CajC11VHCZvNivfzKxR2ix0Rdeqk9AVAIhV7P1zlWveFkqpVMxe4PWu2FF+6iV/pVN6ZQjcW9i3AAC4D/+dz3b2fY7u897AeQuzASGtAB4AAA==
+  </data>
+  <tileproperties/>
+ </layer>
+</map>
