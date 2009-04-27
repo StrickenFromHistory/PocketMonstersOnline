@@ -217,12 +217,16 @@ public class WildBattleField extends BattleField {
 	}
 
 	/**
-	 * Requests a new Pokemon (called when a Pokemon faints)
+	 * Requests a new Pokemon (called by moves that force poke switches)
 	 */
 	@Override
 	public void requestAndWaitForSwitch(int party) {
 		if(party == 0) {
 			m_player.getSession().write("bs");
+			/*
+			 * Wait for the player to switch before continuing
+			 */
+			while(!m_hasSwitched[party]);
 		}
 	}
 
@@ -252,7 +256,9 @@ public class WildBattleField extends BattleField {
 	@Override
 	protected void requestPokemonReplacement(int i) {
 		if(i == 0) {
-			//0 = our player in this case
+			/*
+			 * 0 = our player in this case
+			 */
 			m_player.getSession().write("bs");
 		}
 	}
@@ -298,5 +304,11 @@ public class WildBattleField extends BattleField {
 	public void clearQueue() {
 		m_queuedTurns[0] = null;
 		m_queuedTurns[1] = null;
+	}
+
+	@Override
+	public void executeThreadlet() {
+		m_isThreaded = true;
+		new Thread(new BattleThreadlet(this)).start();
 	}
 }

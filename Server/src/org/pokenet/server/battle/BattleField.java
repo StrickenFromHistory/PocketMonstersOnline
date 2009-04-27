@@ -64,6 +64,15 @@ public abstract class BattleField {
     private BattleMechanics m_mechanics;
     private boolean m_narration = true;
     private boolean m_isFinished = false;
+    /*
+     * Set to true when a battle threadlet was launched for this battle
+     */
+    protected boolean m_isThreaded = false;
+    /*
+     * Needed for request and wait for switch
+     * Tells battle threadlets if the player forced to switch, has switched
+     */
+    protected boolean [] m_hasSwitched;
         
     // Cache of Struggle.
     private static final MoveListEntry m_struggle = MoveList.getDefaultData().getMove("Struggle");
@@ -140,6 +149,12 @@ public abstract class BattleField {
     public BattleField(BattleMechanics mech, Pokemon[][] pokemon) {
         m_mechanics = mech;
         m_pokemon = pokemon;
+        /*
+         * Set m_hasSwitched to 4 to allow for 2 v 2 battles in future
+         */
+        m_hasSwitched = new boolean[4];
+        for(int i = 0; i < m_hasSwitched.length; i++)
+        	m_hasSwitched[i] = false;
         attachField();
         setPokemon(pokemon);
     }
@@ -149,6 +164,11 @@ public abstract class BattleField {
      * Must be implemented by children classes.
      */
     public abstract void applyWeather();
+    
+    /**
+     * Executes a threadlet
+     */
+    public abstract void executeThreadlet();
     
     /**
      * Allows children to construct without pokemon.
@@ -333,6 +353,22 @@ public abstract class BattleField {
             return null;
         }
         return (FieldEffect)list.get(0);
+    }
+    
+    /**
+     * Sets if a battle threadlet was launched for this battle
+     * @param b
+     */
+    public void setThreaded(boolean b) {
+    	m_isThreaded = b;
+    }
+    
+    /**
+     * Returns true if a battle threadlet was launched for this battle
+     * @return
+     */
+    public boolean isThreaded() {
+    	return m_isThreaded;
     }
     
     /**
@@ -775,6 +811,13 @@ public abstract class BattleField {
 	 */
 	public boolean isParticipating(PlayerChar p) {
 		return m_players.contains(p);
+	}
+
+	/**
+	 * Executes the battle turns (assumes both battle turns are selected)
+	 */
+	public void executeTurn() {
+		this.executeTurn(this.getQueuedTurns());
 	}
     
 }

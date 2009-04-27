@@ -79,26 +79,37 @@ public class BattleService implements Runnable {
 	 * @param pokemon
 	 */
 	public void startWildBattle(PlayerChar player, Pokemon pokemon) {
-		WildBattleField b = new WildBattleField(
-				DataService.getBattleMechanics(),
-				player, pokemon);
-		m_battleFields.add(b);
 		player.setBattling(true);
+		m_battleFields.add(new WildBattleField(
+				DataService.getBattleMechanics(),
+				player, pokemon));
 	}
 	
 	/**
-	 * Called by m_thread.start(). Loops through all battles and calls BattleField.executeTurns()
+	 * Called by m_thread.start(). Loops through all battles and calls BattleField.executeTurn()
 	 * if both participants have selected their moves.
 	 */
 	public void run() {
 		while(m_isRunning) {
 			synchronized(m_battleFields) {
 				for(int i = 0; i < m_battleFields.size(); i++) {
-					if(m_battleFields.get(i).isFinished()) {
-						m_battleFields.remove(i);
-						m_battleFields.trimToSize();
-					} else if(m_battleFields.get(i).isReady()) {
-						m_battleFields.get(i).executeTurn(m_battleFields.get(i).getQueuedTurns());
+					/*
+					 * If the battle is threaded, ignore it, let the thread finish
+					 */
+					if(!m_battleFields.get(i).isThreaded()) {
+						/*
+						 * If the both players have selected their moves, execute the turn
+						 */
+						if(m_battleFields.get(i).isReady()) {
+							m_battleFields.get(i).executeTurn();
+						}
+						/*
+						 * If the battle if over, remove it from the list
+						 */
+						if(m_battleFields.get(i).isFinished()) {
+							m_battleFields.remove(i);
+							m_battleFields.trimToSize();
+						}
 					}
 				}
 			}
