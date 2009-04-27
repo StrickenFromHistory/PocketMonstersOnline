@@ -146,6 +146,19 @@ public class ConnectionManager extends IoHandlerAdapter {
 				//A Pokemon lost health (a battle message) -> bHPOKEMON,CHANGE
 				//Deprecated
 				break;
+			case 'r':
+				//The player tried to run ->bHSUCCESS
+				switch(message.charAt(2)) {
+				case '1':
+					//Our pokemon's health
+					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informRun(true);
+					break;
+				case '2':
+					//Enemy pokemon's health
+					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informRun(false);
+					break;
+				}
+				break;
 			}
 			break;
 		case 'P':

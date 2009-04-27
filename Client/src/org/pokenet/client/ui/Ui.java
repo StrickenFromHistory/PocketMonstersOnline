@@ -223,7 +223,7 @@ public class Ui extends Frame {
     	m_moneyLabel.setText("$" + String.valueOf(GameClient.getInstance()
     			.getOurPlayer().getMoney()));
     	m_moneyLabel.pack();
-    	m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokes());
+    	m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokemon());
     }
     
     /**
@@ -331,7 +331,7 @@ public class Ui extends Frame {
 		} else {
 			hideHUD();
 			m_teamInfo = new PartyInfo(GameClient.getInstance().getOurPlayer()
-					.getPokes());
+					.getPokemon());
 			m_teamInfo.setWidth(UI_WIDTH);
 			m_teamInfo.setLocation(48, 0);
 			m_teamInfo.setDraggable(false);

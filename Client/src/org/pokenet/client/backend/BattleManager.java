@@ -20,6 +20,7 @@ public class BattleManager {
 	private Pokemon[] m_enemyPokes;
 	private BattleTimeLine m_timeLine;
 	private OurPokemon m_curPoke;
+	private int m_curPokeIndex;
 	private Pokemon m_curEnemyPoke;
 	
 	/**
@@ -35,6 +36,7 @@ public class BattleManager {
 		m_player = GameClient.getInstance().getOurPlayer();
 		m_ourPokes = m_player.getPokemon();
 		m_curPoke = m_ourPokes[0];
+		m_curPokeIndex = 0;
 	}
 
 	/**
@@ -234,6 +236,10 @@ public class BattleManager {
 	 */
 	public OurPokemon getCurPoke(){
 		return m_curPoke;
+	}
+	
+	public int getCurPokeIndex(){
+		return m_curPokeIndex;
 	}
 	
 	/**
