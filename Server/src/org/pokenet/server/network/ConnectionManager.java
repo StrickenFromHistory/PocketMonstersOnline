@@ -56,6 +56,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		t.printStackTrace();
 	}
 	
 	/**
@@ -140,7 +141,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 					switch(message.charAt(1)) {
 					case 'm':
 						//Move selected (bmINDEXOFMOVE)
-						turn = BattleTurn.getMoveTurn(Integer.parseInt(message.substring(1)));
+						turn = BattleTurn.getMoveTurn(Integer.parseInt(message.substring(2)));
 						p.getBattleField().queueMove(p.getBattleId(), turn);
 						break;
 					case 's':
