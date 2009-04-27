@@ -242,7 +242,11 @@ public class LoginManager implements Runnable {
 								p.getParty()[i].getExp() + "," +
 								p.getParty()[i].getLevel() + "," +
 								p.getParty()[i].getAbilityName() + "," +
-								p.getParty()[i].getNature().getName()
+								p.getParty()[i].getNature().getName() + "," +
+								(p.getParty()[i].getMoves()[0] != null ? p.getParty()[i].getMoves()[0].getName() : "") + "," +
+								(p.getParty()[i].getMoves()[1] != null ? p.getParty()[i].getMoves()[1].getName() : "") + "," +
+								(p.getParty()[i].getMoves()[2] != null ? p.getParty()[i].getMoves()[2].getName() : "") + "," +
+								(p.getParty()[i].getMoves()[3] != null ? p.getParty()[i].getMoves()[3].getName() : "")
 						);
 			}
 		}

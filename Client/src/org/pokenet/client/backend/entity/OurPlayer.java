@@ -103,6 +103,10 @@ public class OurPlayer extends Player {
 	 * @param information
 	 */
 	public void setPokemon(int i, String [] info) {
+		/*
+		 * Set sprite, name, gender and hp
+		 */
+		System.out.println(info.length);
 		m_pokemon[i] = new OurPokemon();
 		m_pokemon[i].setSpriteNumber(Integer.parseInt(info[0]));
 		m_pokemon[i].setName(info[1]);
@@ -113,6 +117,9 @@ public class OurPlayer extends Player {
 		else
 			m_pokemon[i].setShiny(true);
 		m_pokemon[i].setMaxHP(Integer.parseInt(info[5]));
+		/*
+		 * Stats
+		 */
 		m_pokemon[i].setAtk(Integer.parseInt(info[6]));
 		m_pokemon[i].setDef(Integer.parseInt(info[7]));
 		m_pokemon[i].setSpeed(Integer.parseInt(info[8]));
@@ -126,6 +133,18 @@ public class OurPlayer extends Player {
 		m_pokemon[i].setLevel(Integer.parseInt(info[14]));
 		m_pokemon[i].setAbility(info[15]);
 		m_pokemon[i].setNature(info[16]);
+		/*
+		 * Moves
+		 */
+		String [] moves = new String[4];
+		for(int j = 0; j < 4; j++) {
+			if(j < info.length - 17 && info[j + 17] != null)
+				moves[j] = info[j + 17];
+			else
+				moves[j] = "";
+		}
+		m_pokemon[i].setMoves(moves);
+		
 		m_pokemon[i].setSprite();
 		m_pokemon[i].setBackSprite();
 		m_pokemon[i].setIcon();

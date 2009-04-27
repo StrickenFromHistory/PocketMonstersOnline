@@ -284,7 +284,7 @@ public class Pokemon {
          * @param moves
          */
         public void setMoves(String[] moves) {
-                this.m_moves = moves;
+        	this.m_moves = moves;
         }
         
         /**

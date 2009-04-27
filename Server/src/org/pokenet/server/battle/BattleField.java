@@ -64,7 +64,7 @@ public abstract class BattleField {
     protected int[] m_active = { 0, 0 };
     private BattleMechanics m_mechanics;
     private boolean m_narration = true;
-    private boolean m_isFinished = false;
+    protected boolean m_isFinished = false;
     /*
      * Used for struggle
      */
@@ -160,6 +160,8 @@ public abstract class BattleField {
      * easy to the garbage collector to find and free them.
      */
     public void dispose() {
+    	m_players = null;
+    	m_spectators = null;
         m_effects = null;
         m_pokemon = null;
         m_active = null;

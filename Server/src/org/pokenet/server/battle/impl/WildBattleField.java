@@ -133,6 +133,7 @@ public class WildBattleField extends BattleField {
 			m_player.getSession().write("b@l");
 		}
 		m_player.setBattling(false);
+		m_isFinished = true;
 	}
 
 	/**
@@ -140,7 +141,7 @@ public class WildBattleField extends BattleField {
 	 */
 	@Override
 	public boolean isReady() {
-		return (m_queuedTurns[0] != null && m_queuedTurns[1] != null) || m_forceExecute;
+		return (m_queuedTurns[0] != null && m_queuedTurns[1] != null);
 	}
 	
 	/**
@@ -212,7 +213,6 @@ public class WildBattleField extends BattleField {
 		}
 		if(m_queuedTurns[1] == null)
 			getWildPokemonMove();
-		System.out.println(m_queuedTurns[0] + " " + m_queuedTurns[1]);
 	}
 
 	/**
@@ -306,9 +306,11 @@ public class WildBattleField extends BattleField {
 	 * Attempts to run from this battle
 	 */
 	public void run() {
-		if(canRun())
+		if(canRun()) {
 			m_player.getSession().write("br1");
-		else
+			m_player.setBattling(false);
+			m_isFinished = true;
+		} else
 			m_player.getSession().write("br2");
 	}
 

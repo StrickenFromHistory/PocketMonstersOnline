@@ -100,13 +100,14 @@ public class BattleService implements Runnable {
 						/*
 						 * If the both players have selected their moves, execute the turn
 						 */
-						if(m_battleFields.get(i).isReady()) {
+						if(m_battleFields.get(i).isExecuteForced() || m_battleFields.get(i).isReady()) {
 							m_battleFields.get(i).executeTurn();
 						}
 						/*
 						 * If the battle if over, remove it from the list
 						 */
 						if(m_battleFields.get(i).isFinished()) {
+							m_battleFields.get(i).dispose();
 							m_battleFields.remove(i);
 							m_battleFields.trimToSize();
 						}
