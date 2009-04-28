@@ -288,7 +288,7 @@ public class RegisterDialog extends Frame{
 			m_starters[5].setLocation(192, 56);
 			m_starters[5].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					m_starter = 158;
+//					m_starter = 158;
 					m_starter = 155;
 					selectStarter(m_starter);
 				}
@@ -348,7 +348,7 @@ public class RegisterDialog extends Frame{
 			m_starters[10].setLocation(224, 88);
 			m_starters[10].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					m_starter = 390;
+//					m_starter = 390;
 					m_starter = 258;
 					selectStarter(m_starter);
 				}
