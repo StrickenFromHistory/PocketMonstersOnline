@@ -104,24 +104,28 @@ public class ServerMap {
 		}
 		
 		/*
-		 * Load all npcs
-		 */
-		File f = new File("res/npc/" + x + "." + y + ".txt");
-		if(f.exists()) {
-			DataLoader d = new DataLoader(f, this);
-		}
-		
-		/*
 		 * Load offsets
 		 */
-		m_xOffsetModifier = Integer.parseInt(map.getProperties().getProperty("xOffsetModifier"));
-		m_yOffsetModifier = Integer.parseInt(map.getProperties().getProperty("yOffsetModifier"));
+		try {
+			m_xOffsetModifier = Integer.parseInt(map.getProperties().getProperty("xOffsetModifier"));
+		} catch (Exception e) {
+			m_xOffsetModifier = 0;
+		}
+		try {
+			m_yOffsetModifier = Integer.parseInt(map.getProperties().getProperty("yOffsetModifier"));
+		} catch (Exception e) {
+			m_yOffsetModifier = 0;
+		}
 		
 		/*
 		 * Load wild pokemon
 		 */
 		try {
-			m_wildProbability = Integer.parseInt(map.getProperties().getProperty("wildProbabilty"));
+			if(!map.getProperties().getProperty("wildProbabilty").equalsIgnoreCase("")) {
+				m_wildProbability = Integer.parseInt(map.getProperties().getProperty("wildProbabilty"));
+			} else {
+				m_wildProbability = 28;
+			}
 		} catch (Exception e) {
 			m_wildProbability = 28;
 		}
@@ -130,19 +134,21 @@ public class ServerMap {
 		String[] levels;
 		//Daytime Pokemon
 		try {
-			species = map.getProperties().getProperty("daySpecies").split(";");
-			levels = map.getProperties().getProperty("dayLevels").split(";");
-			if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
-				m_dayPokemonChances = new HashMap<String, Integer>();
-				m_dayPokemonLevels = new HashMap<String, int[]> ();
-					for (int i = 0; i < species.length; i++) {
-						String[] speciesInfo = species[i].split(",");
-						m_dayPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
-						String[] levelInfo = levels[i].split("-");
-						m_dayPokemonLevels.put(speciesInfo[0], new int[] {
-								Integer.parseInt(levelInfo[0]),
-								Integer.parseInt(levelInfo[1]) });
-					}
+			if(!map.getProperties().getProperty("dayPokemonSpecies").equalsIgnoreCase("")) {
+				species = map.getProperties().getProperty("dayPokemonSpecies").split(";");
+				levels = map.getProperties().getProperty("dayPokemonLevels").split(";");
+				if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
+					m_dayPokemonChances = new HashMap<String, Integer>();
+					m_dayPokemonLevels = new HashMap<String, int[]> ();
+						for (int i = 0; i < species.length; i++) {
+							String[] speciesInfo = species[i].split(",");
+							m_dayPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
+							String[] levelInfo = levels[i].split("-");
+							m_dayPokemonLevels.put(speciesInfo[0], new int[] {
+									Integer.parseInt(levelInfo[0]),
+									Integer.parseInt(levelInfo[1]) });
+						}
+				}
 			}
 		} catch (Exception e) {
 			m_dayPokemonChances = null;
@@ -152,19 +158,21 @@ public class ServerMap {
 		}
 		//Nocturnal Pokemon
 		try {
-			species = map.getProperties().getProperty("nightSpecies").split(";");
-			levels = map.getProperties().getProperty("nightLevels").split(";");
-			if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
-				m_nightPokemonChances = new HashMap<String, Integer>();
-				m_nightPokemonLevels = new HashMap<String, int[]> ();
-					for (int i = 0; i < species.length; i++) {
-						String[] speciesInfo = species[i].split(",");
-						m_nightPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
-						String[] levelInfo = levels[i].split("-");
-						m_nightPokemonLevels.put(speciesInfo[0], new int[] {
-								Integer.parseInt(levelInfo[0]),
-								Integer.parseInt(levelInfo[1]) });
-					}
+			if(!map.getProperties().getProperty("nightPokemonSpecies").equalsIgnoreCase("")) {
+				species = map.getProperties().getProperty("nightPokemonSpecies").split(";");
+				levels = map.getProperties().getProperty("nightPokemonLevels").split(";");
+				if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
+					m_nightPokemonChances = new HashMap<String, Integer>();
+					m_nightPokemonLevels = new HashMap<String, int[]> ();
+						for (int i = 0; i < species.length; i++) {
+							String[] speciesInfo = species[i].split(",");
+							m_nightPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
+							String[] levelInfo = levels[i].split("-");
+							m_nightPokemonLevels.put(speciesInfo[0], new int[] {
+									Integer.parseInt(levelInfo[0]),
+									Integer.parseInt(levelInfo[1]) });
+						}
+				}
 			}
 		} catch (Exception e) {
 			m_nightPokemonChances = null;
@@ -174,25 +182,44 @@ public class ServerMap {
 		}
 		//Surf Pokemon
 		try {
-			species = map.getProperties().getProperty("waterSpecies").split(";");
-			levels = map.getProperties().getProperty("waterLevels").split(";");
-			if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
-				m_waterPokemonChances = new HashMap<String, Integer>();
-				m_waterPokemonLevels = new HashMap<String, int[]> ();
-					for (int i = 0; i < species.length; i++) {
-						String[] speciesInfo = species[i].split(",");
-						m_waterPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
-						String[] levelInfo = levels[i].split("-");
-						m_waterPokemonLevels.put(speciesInfo[0], new int[] {
-								Integer.parseInt(levelInfo[0]),
-								Integer.parseInt(levelInfo[1]) });
-					}
+			if(!map.getProperties().getProperty("waterPokemonSpecies").equalsIgnoreCase("")) {
+				species = map.getProperties().getProperty("waterPokemonSpecies").split(";");
+				levels = map.getProperties().getProperty("waterPokemonLevels").split(";");
+				if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
+					m_waterPokemonChances = new HashMap<String, Integer>();
+					m_waterPokemonLevels = new HashMap<String, int[]> ();
+						for (int i = 0; i < species.length; i++) {
+							String[] speciesInfo = species[i].split(",");
+							m_waterPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
+							String[] levelInfo = levels[i].split("-");
+							m_waterPokemonLevels.put(speciesInfo[0], new int[] {
+									Integer.parseInt(levelInfo[0]),
+									Integer.parseInt(levelInfo[1]) });
+						}
+				}
 			}
 		} catch (Exception e) {
 			m_waterPokemonChances = null;
 			m_waterPokemonLevels = null;
 			species = new String[] { "" };
 			levels = new String[] { "" };
+		}
+	}
+	
+	/**
+	 * Loads all npc and warp tile data
+	 */
+	public void loadData() {
+		/*
+		 * Load all npcs and warptiles
+		 */
+		File f = new File("res/npc/" + m_x + "." + m_y + ".txt");
+		if(f.exists()) {
+			try {
+				DataLoader d = new DataLoader(f, this);
+			} catch (Exception e) {
+				
+			}
 		}
 	}
 	

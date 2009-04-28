@@ -3,6 +3,7 @@ package org.pokenet.server.feature;
 import java.util.Calendar;
 
 import org.pokenet.server.GameServer;
+import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.HailEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.RainEffect;
@@ -20,7 +21,7 @@ public class TimeService implements Runnable {
 	private Thread m_thread;
 	private static int m_hour;
 	private static int m_minutes;
-	private static Weather m_weather;
+	private static Weather m_weather = Weather.NORMAL;
 	
 	/*
 	 * NOTE: HAIL = SNOW
@@ -56,6 +57,7 @@ public class TimeService implements Runnable {
 				Thread.sleep(15000);
 			} catch (Exception e) {}
 		}
+		System.out.println("INFO: Time Service stopped");
 	}
 	
 	/**
@@ -64,6 +66,7 @@ public class TimeService implements Runnable {
 	public void start() {
 		m_isRunning = true;
 		m_thread.start();
+		System.out.println("INFO: Time Service started");
 	}
 
 	/**
@@ -77,7 +80,8 @@ public class TimeService implements Runnable {
 	 * Generates a new weather status
 	 */
 	private void generateWeather() {
-		switch(GameServer.getServiceManager().getDataService().getBattleMechanics().getRandom().nextInt(4)) {
+		GameServer.getServiceManager().getDataService();
+		switch(DataService.getBattleMechanics().getRandom().nextInt(4)) {
 		case 0:
 			m_weather = Weather.NORMAL;
 			break;

@@ -23,8 +23,8 @@ public class ServerMapMatrix {
 	 * @param y
 	 * @return
 	 */
-	public ServerMap getMapByGamePosition(int x, int y) {
-		return m_mapMatrix[x + 50][x + 50];
+	public synchronized ServerMap getMapByGamePosition(int x, int y) {
+		return m_mapMatrix[(x + 50)][(y + 50)];
 	}
 	
 	/**
@@ -33,7 +33,7 @@ public class ServerMapMatrix {
 	 * @param y
 	 * @return
 	 */
-	public ServerMap getMapByRealPosition(int x, int y) {
+	public synchronized ServerMap getMapByRealPosition(int x, int y) {
 		return m_mapMatrix[x][y];
 	}
 	
@@ -45,7 +45,7 @@ public class ServerMapMatrix {
 	 */
 	public void moveBetweenMaps(Char c, ServerMap origin, ServerMap dest) {
 		// reposition player so they're on the correct edge
-		origin.removeChar(c);
+		//origin.removeChar(c);
 		if (origin.getX() > dest.getX()) { // dest. map is to the left
 			c.setX(dest.getWidth() * 32 - 32);
 			c.setY(c.getY() + origin.getYOffsetModifier() - dest.getYOffsetModifier());
@@ -59,7 +59,8 @@ public class ServerMapMatrix {
 			c.setY(-8);
 			c.setX((c.getX() - dest.getXOffsetModifier()) + origin.getXOffsetModifier());
 		}
-		dest.addChar(c);
+		c.setMap(dest);
+		//dest.addChar(c);
 	}
 	
 	/**
@@ -70,5 +71,6 @@ public class ServerMapMatrix {
 	 */
 	public void setMap(ServerMap map, int x, int y) {
 		m_mapMatrix[x][y] = map;
+		System.out.println("Map " + x + " " + y + " = " + m_mapMatrix[x][y]);
 	}
 }

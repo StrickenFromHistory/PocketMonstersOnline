@@ -1,35 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
-<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="16" tileheight="16">
+<map version="1.0" orientation="orthogonal" width="28" height="38" tilewidth="16" tileheight="16">
  <properties>
-  <property name="forcedWeather" value="RAIN"/>
+  <property name="wildLevels" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="wildSpecies" value=""/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
-  <property name="dayLevels" value="2-3;2-3;2-3;3-3;2-3"/>
-  <property name="nightLevels" value="2-3;2-3;2-3;3-3;2-3"/>
-  <property name="wildProbability" value="28"/>
-  <property name="daySpecies" value="Pidgey,50;Rattata,45;Sentret,40;Hoppip,5;Hoothoot,55"/>
-  <property name="nightSpecies" value="Pidgey,50;Rattata,45;Sentret,40;Hoppip,5;Hoothoot,55"/>
  </properties>
- <tileset firstgid="1" source="normal1.tsx"/>
- <layer name="Walkable" width="20" height="20">
+ <tileset name="PG1" firstgid="1" tilewidth="16" tileheight="16">
+  <image source="PGTileseti.png" trans="ffffff"/>
+ </tileset>
+ <tileset name="PG2" firstgid="1025" tilewidth="16" tileheight="16">
+  <image source="PGTilesetii.png" trans="ffffff"/>
+ </tileset>
+ <tileset name="PG3" firstgid="2049" tilewidth="16" tileheight="16">
+  <image source="PGTilesetiii.png" trans="ffffff"/>
+ </tileset>
+ <tileset name="PG4" firstgid="3073" tilewidth="16" tileheight="16">
+  <image source="PGTilesetiv.png" trans="ffffff"/>
+ </tileset>
+ <layer name="Walkable" width="28" height="38">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNiYGBgGsWjeBSP4lE8iknEAC9MrVpABgAA
+   H4sIAAAAAAAAAGNiYGBgGsWjeBSP4lE8LPBX9oF3A7UxIyOQRsPMjLjVL+ejzD5FoNlKaFgZj32U+osFi32sWPxMrP9h2AkJO+PwF7GYGP8nIeFkOtjXhISbybRPFYidgNiZjPglxz5K0pEj1K0wrILkfmxYhcrpVpGAeYTkB6t9sPICl3mE5MnxFys036Pnc1hZAJOnhn3o6QYfJicfjOJRPIpHMbUxABOrc32gEAAA
   </data>
  </layer>
- <layer name="Grass" width="20" height="20">
+ <layer name="Water" width="256" height="256">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWjYOQARSQ8EswbBaOAlgAAc/4a4EAGAAA=
+   H4sIAAAAAAAAAO3TwQ2AIBBE0SX2hp1oJ9C2VAAHY0jW95J/n8tEAAAAAH9Tdg8AAAAAAAAAAAAAAAAAPlOPiHMSkNc1Pn4vAnJa/R/Iq42P90kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABvPTnc6hkAAAQA
   </data>
  </layer>
- <layer name="Collisions" width="20" height="20">
+ <layer name="Collisions" width="256" height="256">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAFNnYGDQAGJVIFajgFaHmuMOxB5A7ArEbhTQMHNg5lIK0N1HKRh1H2Vg1H2UgVH3UQaGivsoLZfRaUrLZXQaAF1dnOdABgAA
+   H4sIAAAAAAAAAO3cW0okMRSA4XpR32oT4mUjaq9EXYi3hai4Hu/rmBlGHz2iQgilbVtlk5Dvg0NoGvMWfroMtdF13WbMxpJWoBwrMatLXIFyLKv7+g/lGdvzvQVXoByvXd4esW59Y91MVqAc+g/t0n9o12/1/7PvgXLoP7TL739ol/5Du/Lf6zsxuyPW131m7/vOOv2HkuU9/3C91nU3MbcxdzH3MQ8xj2tf76f/UI+8/x/+xDn/G/Pv/bz/j/Up5jk5//t91x0kc9jrP9Tks/5/x1Gc9+OYk5jTmLNe/6Em6fP8Wfbd4Zy/PY/zfhFz2b99vurnPx8AyqHP0C59BgAAcvOeBQL1GfP/v9z6wH5T7g9Ma8r3c64P7Of9n1CuvM/72X2+1NB9v5T+Q13yPh9l9/lSQ/f9UvoPdcn7fJ7d50sN3fdL6T/UZeo+6z/UY+o+6z/UQ/+hXWPf/7XoCpRj7Ps/F12Bcug/tEv/oV36D+3Sf2iX/kO79B/apf8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/MCMpLSrAAABAA=
   </data>
  </layer>
- <layer name="WalkBehind" width="20" height="20">
+ <layer name="WalkBehind" width="256" height="256">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWjYBSMglFATcAOxBwU0EMFAABJRGsxQAYAAA==
+   H4sIAAAAAAAAAO3auw3CQBAFwM1M5LIMlVCACaAOJD514ADKY8lODiA5MLZmpKfLVpu86DYCAAAAAAAAAABYmr6J2I2yzxyaqTcDvu2YPT8VOWcumav+w+LdsufDKPfMQ/+B1LUR6yKbduqNgF/Z6jsAAAAAAAD8ldc5z6p4a8+rPR8AqK97c8/n3g8AAAAAAObp0/+9/30AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABg7p5NjRasAAAEAA==
+  </data>
+ </layer>
+ <layer name="ledgesRigth" width="28" height="38">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQwfoAAAAAC+BmbyAUigEAAA
+  </data>
+ </layer>
+ <layer name="ledgesLeft" width="28" height="38">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQwfoAAAAAC+BmbyAUigEAAA
+  </data>
+ </layer>
+ <layer name="ledgesDown" width="28" height="38">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQwfoAAAAAC+BmbyAUigEAAA
   </data>
  </layer>
 </map>

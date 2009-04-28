@@ -262,7 +262,8 @@ public class LogoutManager implements Runnable {
 					}
 				}
 				//Dispose of the player object
-				p.getMap().removeChar(p);
+				if(p.getMap() != null)
+					p.getMap().removeChar(p);
 				p.dispose();
 				return true;
 			} else

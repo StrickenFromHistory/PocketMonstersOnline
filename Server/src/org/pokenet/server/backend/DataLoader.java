@@ -89,7 +89,7 @@ public class DataLoader implements Runnable {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("Error in " + m_map.getX() + "." + m_map.getY() + ".txt - Invalid NPC or WarpTile");
 		}
 	}
 }
