@@ -215,12 +215,13 @@ public class ConnectionManager extends IoHandlerAdapter {
 					break;
 				case 't':
 					//Start talking
-					p.setTalking(true);
-					p.talkToNpc();
+					if(!p.isTalking())
+						p.talkToNpc();
 					break;
 				case 'f':
 					//Finish talking
-					p.setTalking(false);
+					if(p.isTalking())
+						p.setTalking(false);
 					break;
 				}
 				break;

@@ -402,7 +402,6 @@ public class ServerMap {
 	 * @param p
 	 */
 	public void talkToNpc(PlayerChar p) {
-		p.setTalking(true);
 		int x = 0, y = 0;
 		switch(p.getFacing()) {
 		case Up:
@@ -426,6 +425,7 @@ public class ServerMap {
 		}
 		for(int i = 0; i < m_npcs.size(); i++) {
 			if(m_npcs.get(i).getX() == x && m_npcs.get(i).getY() == y) {
+				p.setTalking(true);
 				m_npcs.get(i).talkToPlayer(p);
 				break;
 			}
