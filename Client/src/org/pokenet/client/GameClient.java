@@ -48,7 +48,8 @@ import org.pokenet.client.ui.frames.MessageDialog;
 /**
  * The game client
  * @author shadowkanji
- * @ZombieBear
+ * @author ZombieBear
+ * @author Nushio
  *
  */
 public class GameClient extends BasicGame {
@@ -286,7 +287,7 @@ public class GameClient extends BasicGame {
 				e.printStackTrace();
 			}
 		}
-		if(m_ui.getNPCSpeech() == null){
+		if(m_ui.getNPCSpeech() == null && m_ui.getLocalChat().isActive()==false){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
 					&& m_ourPlayer.getX() == m_ourPlayer.getServerX()
@@ -329,7 +330,7 @@ public class GameClient extends BasicGame {
 			}
 		}
 		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) ) {
-			if(m_ui.getNPCSpeech() == null && getUi().getBattleManager().getBattleWindow() == null){
+			if(m_ui.getNPCSpeech() == null){
 				m_packetGen.write("Ct");
 			}
 			/*} else if (getLogin().getSpeechy() != null) {
@@ -577,6 +578,14 @@ public class GameClient extends BasicGame {
      * @return
      */
     public static String getLanguage() {
+    	return m_language;
+    }
+    /**
+     * Sets the language selection
+     * @return
+     */
+    public static String setLanguage(String lang) {
+    	m_language = lang;
     	return m_language;
     }
 }

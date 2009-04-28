@@ -4,6 +4,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.frames.AboutDialog;
+import org.pokenet.client.ui.frames.LanguageDialog;
 import org.pokenet.client.ui.frames.LoginDialog;
 import org.pokenet.client.ui.frames.RegisterDialog;
 import org.pokenet.client.ui.frames.ServerDialog;
@@ -25,6 +26,7 @@ public class LoginScreen extends Window {
 	private Label m_bg;
 	private ServerDialog m_select;
 	private LoginDialog m_login;
+	private LanguageDialog m_lang;
 	private RegisterDialog m_register;
 	private AboutDialog m_about;
 	private ToSDialog m_terms;
@@ -47,6 +49,11 @@ public class LoginScreen extends Window {
 			m_bg.setVisible(true);
 			this.add(m_bg);
 			
+			/*
+			 * Create the language selector container
+			 */
+			m_lang = new LanguageDialog();
+			this.add(m_lang);
 			/*
 			 * Create the server selector container
 			 */
@@ -108,6 +115,7 @@ public class LoginScreen extends Window {
 		m_openAbout.setVisible(true);
 		m_openToS.setVisible(true);
 		m_login.getLoginButton().setEnabled(true);
+		m_lang.setVisible(false);
 	}
 	
 	/**
@@ -119,6 +127,7 @@ public class LoginScreen extends Window {
 		m_register.setVisible(true);
 		m_openAbout.setVisible(true);
 		m_openToS.setVisible(true);
+		m_lang.setVisible(false);
 	}
 	
 	/**
@@ -128,6 +137,19 @@ public class LoginScreen extends Window {
 		m_register.setVisible(false);
 		m_login.setVisible(false);
 		m_select.setVisible(true);
+		m_openAbout.setVisible(false);
+		m_openToS.setVisible(false);
+		m_lang.setVisible(false);
+	}
+	
+	/**
+	 * Shows the server selection dialog
+	 */
+	public void showLanguageSelect() {
+		m_register.setVisible(false);
+		m_login.setVisible(false);
+		m_select.setVisible(false);
+		m_lang.setVisible(true);
 		m_openAbout.setVisible(false);
 		m_openToS.setVisible(false);
 	}
