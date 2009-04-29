@@ -163,6 +163,12 @@ public class GameClient extends BasicGame {
 			}
 		} catch (Exception e) { e.printStackTrace(); }
 		/*
+		 * Check if language was chosen.
+		 */
+		if(m_language != null && !m_language.equalsIgnoreCase("")){
+			m_login.showServerSelect();
+		}
+		/*
 		 * Check if we need to connect to a selected server
 		 */
 		if(m_host != null && !m_host.equalsIgnoreCase("") && m_packetGen == null) {
@@ -501,7 +507,7 @@ public class GameClient extends BasicGame {
 		m_packetGen = null;
 		m_host = "";
 		m_login.setVisible(true);
-		m_login.showServerSelect();
+		m_login.showLanguageSelect();
 	}
 	
 	/**
