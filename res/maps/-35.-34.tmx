@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="20" height="18" tilewidth="16" tileheight="16">
+ <properties>
+   <property name="surfSpecies" value=""/>
+  <property name="surfLevels" value=""/>
+  <property name="surfProbability" value="0"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+  <property name="wildLevels" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="wildSpecies" value=""/>
+ </properties>
+ <tileset firstgid="1" source="Tileset 1.tsx"/> 
+ <tileset firstgid="1025" source="Tileset 7.tsx"/> 
+ <tileset firstgid="2049" source="Tileset 9.tsx"/> 
+ <layer name="Walkable" width="20" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNggIBFTJRhdEAt8yg1ZxSP4lE8fDC1yxdamUctAAC1UyneoAUAAA==
+  </data>
+ </layer>
+ <layer name="Walkable" width="20" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWDFexnGWgXkAfwufsACwSPglFAK7CfdaBdQD0AANMegZSgBQAA
+  </data>
+ </layer>
+ <layer name="Collisions" width="20" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNggIAoTsowOoCJ6zKQhtHNI2QPIYDLvTD7SAXo7iTkf2LdT2p4kmseqeLE6kMPT0LuJGQeIX+Nmje0zCM1H+Ayh9j8R8g89PRKyL2k+ofUcg8dwwAASnqbW6AFAAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="20" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMgoED81kH2gWDFwAAXXa7RqAFAAA=
+  </data>
+ </layer>
+</map>

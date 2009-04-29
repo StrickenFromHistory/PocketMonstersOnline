@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="47" height="22" tilewidth="16" tileheight="16">
- <tileset name="Untitled" firstgid="1" tilewidth="16" tileheight="16">
  <properties>
  <property name="waterPokemonLevels" value=""/>
   <property name="waterPokemonChances" value=""/>
@@ -13,6 +12,7 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
   </properties>
+ <tileset name="Untitled" firstgid="1" tilewidth="16" tileheight="16">
   <image source="PGTileseti.png" trans="000000"/>
  </tileset>
  <tileset name="Untitled" firstgid="1025" tilewidth="16" tileheight="16">

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="20" height="37" tilewidth="16" tileheight="16">
+<properties>
+  <property name="surfSpecies" value=""/>
+  <property name="surfLevels" value=""/>
+  <property name="surfProbability" value="0"/>
+<property name="wildLevels" value="1-1;"/>
+<property name="wildProbability" value="0"/>
+<property name="wildSpecies" value="Caterpie,0;"/> 
+<property name="xOffsetModifier" value="0"/>
+<property name="yOffsetModifier" value="0"/>
+</properties> 
+<tileset firstgid="1" source="Tileset 1.tsx"/>
+<tileset firstgid="1025" source="Tileset 2.tsx"/>
+<tileset firstgid="2049" source="Tileset 3.tsx"/>
+<tileset firstgid="3073" source="Tileset 4.tsx"/>
+<tileset firstgid="4097" source="Tileset 5.tsx"/>
+<tileset firstgid="5121" source="Tileset 6.tsx"/>
+<tileset firstgid="6145" source="Tileset 7.tsx"/>
+<tileset firstgid="7169" source="Tileset 8.tsx"/>
+ <layer name="Walkable" width="20" height="37">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoD44hIZHzRve5pGLCZlHqjsGm3nE2jNq3qh5o+aNmjdUzKMUjJo3at5wMo+aAADXaM0rkAsAAA==
+  </data>
+ </layer>
+ <layer name="Walkable" width="20" height="37">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGBpgv+RAu2AUjALqAH1OCG3ASV1zqW3eYAWj4Te8wWj8jgJygQ/vqHnDEYyU9h8AaNi/o5ALAAA=
+  </data>
+ </layer>
+ <layer name="Collisions" width="20" height="37">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAABNiYGAwF0LFQEQ2wKaXmuYlsAxu83CJDSbz0OObEG6SQqQLEA7goMBBUJDBgDAPFAfoABYv+DA2vxIyDxfAZx4I8PORbh4+d+uTaB4+e0DAnw+3HKnmYQs/UJxT4j708EOWI8c89PCj1H3o4UdJfJCT/oayeSBAav4gZN5Iyh+0iA9S5UjRg68MJtc8csGoeaPmDbR5xLRNiAUA6foAJZALAAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="20" height="37">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoA2YL0kjg0cBycCAY6BdQH/wnnegXTCwgNI4p3X4jcQ0OZjAaP4YaBeMglEwfMFo+488AAAvCi+kkAsAAA==
+  </data>
+ </layer>
+</map>

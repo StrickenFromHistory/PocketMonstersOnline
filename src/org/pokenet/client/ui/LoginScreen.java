@@ -53,7 +53,6 @@ public class LoginScreen extends Window {
 			 * Create the server selector container
 			 */
 			m_select = new ServerDialog();
-			m_select.setVisible(false);
 			this.add(m_select);
 			/*
 			 * Create the language selector container

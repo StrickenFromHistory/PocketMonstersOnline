@@ -2,6 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="20" height="108" tilewidth="16" tileheight="16">
  <properties>
+<properties>
   <property name="waterPokemonLevels" value="25-34,30-34"/>
   <property name="waterPokemonChances" value="Tentacool,90;Tentacruel,10;"/>
   <property name="nightPokemonLevels" value="28-30;28-28;32-32;30-32"/>
@@ -11,6 +12,7 @@
   <property name="wildProbability" value="28"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="-2592"/>
+ </properties>
  </properties>
  <tileset firstgid="1" source="Tileset 1.tsx"/>
  

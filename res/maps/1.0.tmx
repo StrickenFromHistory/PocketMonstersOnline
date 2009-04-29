@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="76" height="38" tilewidth="16" tileheight="16">
- <properties> 
-  <property name="waterPokemonLevels" value="15-24;20-24"/>
-  <property name="waterPokemonChances" value="Tentacool,90;Tentacruel,10"/>
-  <property name="nightPokemonLevels" value="22-25;3-5;31-34;20-25;3-7;20-25;22-26"/>
-  <property name="nightPokemonChances" value="Arbok,50;Dodrio,50;Doduo,10;Noctowl,50;Ponyta,50;Raticate,50;Sandslash,50"/>
-  <property name="dayPokemonLevels" value="22-25;3-5;31-34;20-25;3-7;20-25;22-26"/>
-  <property name="dayPokemonChances" value="Arbok,50;Dodrio,50;Doduo,10;Noctowl,50;Ponyta,50;Raticate,50;Sandslash,50"/>
+ <properties>
+  <property name="surfLevels" value="15-24;20-24"/>
+  <property name="surfProbability" value="28"/>
+  <property name="surfSpecies" value="Tentacool,90;Tentacruel,10"/>
+  <property name="wildLevels" value="22-25;3-5;31-34;20-25;3-7;20-25;22-26"/>
   <property name="wildProbability" value="28"/>
+  <property name="wildSpecies" value="Arbok,50;Dodrio,50;Doduo,10;Noctowl,50;Ponyta,50;Raticate,50;Sandslash,50;Buneary,1;"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>

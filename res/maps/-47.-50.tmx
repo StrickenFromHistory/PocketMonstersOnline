@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="18" height="10" tilewidth="16" tileheight="16">
+ <properties>
+   <property name="surfSpecies" value=""/>
+  <property name="surfLevels" value=""/>
+  <property name="surfProbability" value="0"/>
+  <property name="wildLevels" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="wildSpecies" value=""/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="Tileset 1.tsx"/> 
+ <tileset firstgid="1025" source="Tileset 2.tsx"/> 
+ <tileset firstgid="2049" source="Tileset 3.tsx"/> 
+ <tileset firstgid="3073" source="Tileset 4.tsx"/> 
+ <tileset firstgid="4097" source="Tileset 5.tsx"/> 
+ <tileset firstgid="5121" source="Tileset 6.tsx"/> 
+ <tileset firstgid="6145" source="Tileset 7.tsx"/> 
+ <tileset firstgid="7169" source="Tileset 8.tsx"/> 
+ <layer name="Walkable" width="18" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGHxgDQcEV7IyMFSxIvjEYnRzyMWj5tDXHGoAAGSKJ47QAgAA
+  </data>
+ </layer>
+ <layer name="Walkable" width="18" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGDjwnBnBDuEaOHeMguEDADxPosrQAgAA
+  </data>
+ </layer>
+ <layer name="Ledgesleft" width="18" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYPgAAKnxXv/QAgAA
+  </data>
+ </layer>
+ <layer name="LedgesRight" width="18" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYPgAAKnxXv/QAgAA
+  </data>
+ </layer>
+ <layer name="LedgesDown" width="18" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYPgAAKnxXv/QAgAA
+  </data>
+ </layer>
+ <layer name="Collisions" width="18" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNkYGBgpBJeJArBbNwQXM3CwFDDgknD1DFA9ShB2TBz0MFsoJ45LJg0LoDLHFIBLc2pYMXPB4EuoNhqJIzNnCms+Pkwc5DtocQ9yPaQ655VOPxFDQwABVCS6dACAAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="18" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGHhgyzrQLhgFwwUAAPhs7obQAgAA
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="25" height="34" tilewidth="16" tileheight="16">
+ <properties>
+   <property name="surfSpecies" value="Tentacool,90;Tentacruel,10;"/>
+  <property name="surfLevels" value="15-24;20-24;"/>
+  <property name="surfProbability" value="7"/>
+  <property name="wildLevels" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="wildSpecies" value=""/>
+  <property name="xOffsetModifier" value="-256"/>
+  <property name="yOffsetModifier" value="576"/>
+ </properties>
+ <tileset firstgid="1" source="Tileset 1.tsx"/>
+ 
+ <tileset firstgid="1025" source="Tileset 2.tsx"/>
+ 
+ <tileset firstgid="2049" source="Tileset 5.tsx"/>
+ 
+ <tileset firstgid="3073" source="Tileset 11.tsx"/>
+ 
+ <layer name="Walkable" width="25" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgIA8kQTEhwESm+fS2wwkLdoaaDcOkmEcsTh5kdpBqNil2kGs2DLcyoMYPLjvquVAxIXPR1SNjYkEcHnsSSDAHH6jD4x9q2QED2PxDbTvqsIR3A5XtGAWjYBSMglEwCkbBKKAVAADrl3VZSA0AAA==
+  </data>
+ </layer>
+ <layer name="Grass" width="25" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQZ/oAAAAHgM00ZOYEgNAAA=
+  </data>
+ </layer>
+ <layer name="Water" width="25" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAHvEw8DwCIhpCR6N2jFqxzCyAyaGjIk1hxJMDzsI2TXU7BjFo3gUj+JRPIpH8SimFQYAAbSkl0gNAAA=
+  </data>
+ </layer>
+ <layer name="Collisions" width="25" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO1V2wkCMRAcz9982YGKdqK12IetiH2Ijz7U0zrc4AUkZC8bbvwJNzAsGy47M8tBAOAyBa7CU1c1nqP+JlzJ/TX0usQXQeMufPTwmdDYyP0t9BprlNJrWJHT2AtfCb599iZPi4b3exAeC3zncsS+vd+2qywNhm+LxlDfFg0rdsbv2sT+/wH2/lNg799j4oDG6T0Dc5m3cHo/FMHzLHHGmh08/2qwcvTNYeTIzWDkyM2oIQf7nyrVL8GYw44xhx2152C+f9os5vtXe44PplYjfEgNAAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="25" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQZ/oAAAAHgM00ZOYEgNAAA=
+  </data>
+ </layer>
+</map>

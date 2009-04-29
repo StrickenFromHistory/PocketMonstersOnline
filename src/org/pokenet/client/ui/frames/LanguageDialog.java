@@ -94,7 +94,7 @@ public class LanguageDialog extends Frame {
 			});
 			this.add(m_languages[3]);
 			
-			
+			this.setVisible(true);
 		
 		} catch (Exception e) {
 			e.printStackTrace();
