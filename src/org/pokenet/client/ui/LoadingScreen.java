@@ -19,10 +19,11 @@ public class LoadingScreen extends Frame {
 	 */
 	public LoadingScreen() {
 		try {
-			this.setSize(800, 600);
+			this.setSize(800, 632);
 			this.setBackground(new Color(255, 255, 255, 70));
-			this.setLocation(0, 0);
+			this.setLocation(0, -32);
 			this.setResizable(false);
+			this.getTitleBar().setVisible(false);
 			
 			m_bg = new Label(new Image("res/ui/loading.png"));
 			m_bg.pack();
