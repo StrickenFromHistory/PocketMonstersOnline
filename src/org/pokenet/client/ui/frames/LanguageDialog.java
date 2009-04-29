@@ -15,7 +15,7 @@ import mdes.slick.sui.event.ActionListener;
  *
  */
 public class LanguageDialog extends Frame {
-	private Button [] m_languages;
+	private Button[] m_languages;
 	private Label m_info;
 	private Color m_black;
 	/**
@@ -46,7 +46,7 @@ public class LanguageDialog extends Frame {
 		 * Create all the server buttons
 		 */
 		try {
-			m_languages = new Button[3];
+			m_languages = new Button[4];
 			
 			
 			m_languages[0] = new Button("English");
