@@ -115,8 +115,8 @@ public class ServiceManager {
 		 * Start the network service first as it needs to bind the address/port to the game server.
 		 * Then start all other services with TimeService last.
 		 */
-		m_networkService.start();
 		m_movementService.start();
+		m_networkService.start();
 		m_timeService.start();
 		for(int i = 0; i < m_battleService.length; i++) {
 			m_battleService[i] = new BattleService();

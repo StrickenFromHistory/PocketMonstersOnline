@@ -4,7 +4,7 @@ right
 11
 11
 4
-Bellsprout,
+Bellsprout,7
 4
 -1
 1000

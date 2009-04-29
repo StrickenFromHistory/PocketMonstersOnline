@@ -25,7 +25,7 @@ public class LanguageDialog extends Frame {
 		m_black = new Color(0, 0, 0);
 		
 		this.setSize(340, 290);
-		this.setLocation(400 - 160, 280);
+		this.setLocation(400 - 170, 280);
 		this.setTitle("Pokenet Language Selection");
 		this.setBackground(new Color(0, 0, 0, 70));
 		this.getTitleBar().setForeground(m_black);

@@ -1,6 +1,6 @@
 [npc]
 Camper Roland
-up
+Up
 11
 9
 45

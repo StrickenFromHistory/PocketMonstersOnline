@@ -296,7 +296,7 @@ public class GameClient extends BasicGame {
 				e.printStackTrace();
 			}
 		}
-		if(m_ui.getNPCSpeech() == null && m_ui.getLocalChat().isActive()==false){
+		if(m_ui.getNPCSpeech() == null && m_ui.getLocalChat().isActive()==false && !m_login.isVisible()){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
 					&& m_ourPlayer.getX() == m_ourPlayer.getServerX()

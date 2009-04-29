@@ -1,7 +1,7 @@
 [npc]
 NULL
 down
-0
+12
 10
 20
 NULL

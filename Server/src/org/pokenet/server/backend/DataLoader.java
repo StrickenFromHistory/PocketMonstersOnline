@@ -79,8 +79,8 @@ public class DataLoader implements Runnable {
 					warp = new WarpTile();
 					warp.setX(Integer.parseInt(reader.nextLine()));
 					warp.setY(Integer.parseInt(reader.nextLine()));
-					warp.setWarpX(Integer.parseInt(reader.nextLine()));
-					warp.setWarpY(Integer.parseInt(reader.nextLine()));
+					warp.setWarpX(Integer.parseInt(reader.nextLine()) * 32);
+					warp.setWarpY((Integer.parseInt(reader.nextLine()) * 32) - 8);
 					warp.setWarpMapX(Integer.parseInt(reader.nextLine()));
 					warp.setWarpMapY(Integer.parseInt(reader.nextLine()));
 					warp.setBadgeRequirement(Integer.parseInt(reader.nextLine()));

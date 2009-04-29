@@ -1,11 +1,11 @@
 [npc]
 Schoolboy Jack
-down
+Down
 11
 25
 6
 Voltorb,12
-3
+1
 -1
 1000
 false

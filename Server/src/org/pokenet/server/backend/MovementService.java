@@ -102,8 +102,7 @@ public class MovementService {
 						s.setMapMatrix(m_mapMatrix);
 						s.loadData();
 						m_mapMatrix.setMap(s , x + 50, y + 50);
-						Thread.sleep(250);
-						System.out.println(x + "." + y + ".tmx loaded");
+						Thread.sleep(100);
 					} catch (Exception e) {
 						System.err.println("Error loading " + x + "." + y + ".tmx - Bad map file");
 						m_mapMatrix.setMap(null, x + 50, y + 50);
