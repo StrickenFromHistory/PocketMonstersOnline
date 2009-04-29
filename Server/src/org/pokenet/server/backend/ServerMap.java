@@ -633,7 +633,7 @@ public class ServerMap {
 	 * @return
 	 */
 	public boolean isWildBattle(int x, int y, PlayerChar p) {
-		if (m_random.nextInt(2874) < m_wildProbability * 16) {
+		/*if (m_random.nextInt(2874) < m_wildProbability * 16) {
 			if(p.isSurfing()) {
 				if(m_waterPokemonChances != null && m_waterPokemonLevels != null)
 					return true;
@@ -643,7 +643,7 @@ public class ServerMap {
 							(m_nightPokemonChances != null && m_nightPokemonLevels != null))
 						return true;
 			}
-		}
+		}*/
 		return false;
 	}
 	

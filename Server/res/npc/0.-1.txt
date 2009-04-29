@@ -1,0 +1,23 @@
+[npc]
+Cooltrainer Ryan
+left
+11
+20
+18
+Electabuzz,2
+3
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+5
+5
+23
+3
+-50
+-43
+0
+[/warp]

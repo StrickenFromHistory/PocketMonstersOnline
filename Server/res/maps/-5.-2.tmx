@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="38" height="19" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="surfSpecies" value=""/>
+  <property name="surfLevels" value=""/>
+  <property name="surfProbability" value="0"/>
+  <property name="wildLevels" value="10-12;10-10;10-12;10-10;10-14;12-12;12-12;14-14;11-13;10-12;12-12;10-15;14-14;13-14;13-14;"/>
+  <property name="wildProbability" value="30"/>
+  <property name="wildSpecies" value="Caterpie,50;Metapod,30;Weedle,50;Kakuna,30;Pidgey,20;Nidoran-m,30;Nidoran-f,30;Ledyba,20;Sunkern,20;Venonat,10;Psyduck,30;Hoothoot,40;Spinarak,20;Pinsir,5;Scyther,5;Buneary,1;"/>
+  <property name="xOffsetModifier" value="-320"/>
+  <property name="yOffsetModifier" value="-352"/>
+ </properties>
+ <tileset firstgid="1" source="Tileset 1.tsx"/>
+ 
+ <tileset firstgid="1025" source="Tileset 2.tsx"/>
+ 
+ <layer name="Walkable" width="38" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3U4Q2CMBCG4esJg+lmuok4CRAHEekefg1tUhsO25grfyB5/5BAnxwtTER8dBTVG6IhajS6691Rhx4/TDOaoqyyrUcDGgtMNWxbrthU2ya5tuZUwya5pDm5q4YtuJ607P1w7nLmlLpscmbT83vG+y+FLoveyOAm87JWw2W21j+71gld8f7bn9+xKbS1fm3t/eXmtpcp3V8dff9fc2waptgVKpmblinHJdk0Ta4Xmnyz4Aq29HxpmdZmJ7n2rJbrAxYZc/BICwAA
+  </data>
+ </layer>
+ <layer name="Grass" width="38" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAUjESjioMnVR6o5pNiBLqeIR45WbiPkJnLVUDO8yLWPluFFij3khi0lgJC5A+E2Ys2jVZhQah+93UWMnfSKx6GS7gnZM5jLMHq5Cd0OdLGBqIdw2UGqenqlr5ECAPP9eUpICwAA
+  </data>
+ </layer>
+ <layer name="Water" width="38" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3O0Q0AEBAE0U30hk50gk4o021ClOAi+5L5H0BERCgGIFk5vD65+DSsYk1Hb3U/nbqTL+Jbc/YkIn9akI+P3kgLAAA=
+  </data>
+ </layer>
+ <layer name="Ledges" width="38" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQZ/oAAAgNcATPmh6UgLAAA=
+  </data>
+ </layer>
+ <layer name="Collisions" width="38" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAALWWYQqDMAyFg87dwx/bPYboOfbH83kmb7IWVtC0ti8xCYSHAevXZ5t2IKJnyOGmvkK+C2o9nlTnkEtBteO1uK++xzXG3uWJvp8U9WvsiaZDXkVk+D7Otfgc65JA/fpUWGpMWjbUrxZXjUnDZuEXwiRlu+uXhEnCpvVrUzJxto3V17+i/QVZ9x5hsR89QuqX13/kPFq/vNa9Rf/y6BNW/d66r2r9WikPy3OodT9Jiu5Hq3Nbe//i8/JS9P6YlM/LS3/4Gb6ESAsAAA==
+  </data>
+ </layer>
+ <layer name="Layer 5" width="38" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMAuqC/kFmziggD9A6HtmBmINKdoyCUTDUACz9E0uTq49U80cBaQAA040fckgLAAA=
+  </data>
+ </layer>
+</map>

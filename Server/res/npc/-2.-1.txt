@@ -1,0 +1,14 @@
+[npc]
+Joey
+left
+11
+20
+32
+Rattata,5
+2
+-1
+1000
+false
+false
+false
+[/npc]

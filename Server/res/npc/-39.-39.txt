@@ -1,0 +1,23 @@
+[npc]
+Cherrygrove citizen
+down
+11
+15
+13
+NULL
+1
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+11
+16
+17
+10
+-2
+0
+0
+[/warp]

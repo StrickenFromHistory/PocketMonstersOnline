@@ -1,0 +1,14 @@
+[npc]
+Twin Anne
+down
+11
+7
+15
+Jigglypuff,1
+2
+-1
+1000
+false
+false
+false
+[/npc]

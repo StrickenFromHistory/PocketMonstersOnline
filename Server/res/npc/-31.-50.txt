@@ -1,0 +1,23 @@
+[npc]
+Ecruteak Citizen
+left
+11
+6
+5
+NULL
+1
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+4
+9
+6
+26
+-4
+-4
+0
+[/warp]

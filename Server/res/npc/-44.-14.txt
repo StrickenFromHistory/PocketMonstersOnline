@@ -5,6 +5,7 @@
 30
 3
 -2
+0
 [/warp]
 [warp]
 29
@@ -13,6 +14,7 @@
 30
 3
 -2
+0
 [/warp]
 [warp]
 5
@@ -21,6 +23,7 @@
 68
 3
 -2
+0
 [/warp]
 [warp]
 6
@@ -29,6 +32,7 @@
 68
 3
 -2
+0
 [/warp]
 [npc]
 Bug Catcher Rick
@@ -39,7 +43,7 @@ LEFT
 Weedle,6,Caterpie,6
 2
 -1
-
+1000
 FALSE
 FALSE
 FALSE
@@ -53,7 +57,7 @@ LEFT
 Weedle,7,Kakuna,7,Weedle,7
 3
 -1
-
+1000
 FALSE
 FALSE
 FALSE
@@ -67,7 +71,7 @@ LEFT
 Caterpie,7,Caterpie,8
 2
 -1
-
+1000
 FALSE
 FALSE
 FALSE
@@ -81,7 +85,7 @@ LEFT
 Metapod,7,Caterpie,7,Metapod,7
 3
 -1
-
+1000
 FALSE
 FALSE
 FALSE
@@ -95,7 +99,7 @@ LEFT
 Weedle,9
 1
 -1
-
+1000
 FALSE
 FALSE
 FALSE

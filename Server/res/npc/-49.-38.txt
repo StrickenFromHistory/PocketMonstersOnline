@@ -1,0 +1,23 @@
+[npc]
+Nurse Joy
+down
+11
+8
+2
+NULL
+1
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+8
+8
+32
+26
+-3
+-2
+0
+[/warp]

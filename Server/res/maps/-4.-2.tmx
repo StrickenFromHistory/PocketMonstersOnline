@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="56" height="19" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="surfLevels" value=""/>
+  <property name="surfProbability" value="0"/>
+  <property name="surfSpecies" value=""/>
+  <property name="wildLevels" value="12-12;12-12;5-5;13-13;13-15;13-13;13-14;5-5;4-4;13-15;4-4"/>
+  <property name="wildProbability" value="30"/>
+  <property name="wildSpecies" value="Nidoran-f,30;Nidoran-m,30;Bellsprout,20;Stantler,5;Pidgey,25;Vulpix,10;Growlithe,10;Ledyba,30;Gastly,5;Hoothoot,25;Spinarak,30;Buneary,1;"/>
+  <property name="xOffsetModifier" value="-320"/>
+  <property name="yOffsetModifier" value="-352"/>
+ </properties>
+ <tileset firstgid="1" source="Tileset 1.tsx"/>
+ <layer name="Walkable" width="56" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3WwQ2AIAwF0MJm4CTqJGrcRPe0B0mIQkRsgQiHF4/2I7aVACCZ9GhAI+M7cqol34r0qSugLup8tj99ywnNF0sBdTVNk4YmQt331ccahMCnuPe3tzbg6fuu2fLErkFhNi3o6qDOZ2aLOb894Kw5Zg/3DpZ7x6sln71j+sT0oFLyhYipMXc+147pE/P/586X6n60fG4HNQdax6AQAAA=
+  </data>
+ </layer>
+ <layer name="Grass" width="56" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3VsQ0AMAzDsLyS/5/M3rmTQAI+QJNnoGuf1dT7APij/hf6ABoOHbwYrKAQAAA=
+  </data>
+ </layer>
+ <layer name="Collisions" width="56" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAN2W2wnDMAxFTSEdoCuYPhbpY/+J6h9BOchYlqVQckBcYuK40q2Et1LKucUWrFaiz6VeW9wS1EJNPF90tT7PFq8fnfGvBpyf7R85mn/E6l8tx/CvIphjlm/3Fo+A+hBtXcuv5x/72ar8zrvFJ6BORNY1r4jmn5eef956iRKpn/Z/1Bh9z4r1963COrL/LDn/M6xfL9+9iO4/wr6XvhDkmeurZM1PwnqwL2TOiUaRNT/JqN/p38jP0fvUWb+i5xP9G/k5ep8661fUbLDW37vP619Ufqv3I6t6/Ds59kXfj6zq8W+Pe7/oBTG7/wsXyT4noBAAAA==
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="56" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3UsQoAIAhFUbf6/y+upSWQMEwD7wFpfGmSCAAA8NJm9exLBFh9ZvW751vP2zwt30uV/fnN6T1f7RVsmHOu6H8XNQ2dzlQQoBAAAA==
+  </data>
+ </layer>
+</map>

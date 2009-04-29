@@ -71,6 +71,5 @@ public class ServerMapMatrix {
 	 */
 	public void setMap(ServerMap map, int x, int y) {
 		m_mapMatrix[x][y] = map;
-		System.out.println("Map " + x + " " + y + " = " + m_mapMatrix[x][y]);
 	}
 }

@@ -100,7 +100,7 @@ public class MovementService {
 					try {
 						s = new ServerMap(loader.readMap(nextMap.getCanonicalPath()), x, y);
 						s.setMapMatrix(m_mapMatrix);
-						//s.loadData();
+						s.loadData();
 						m_mapMatrix.setMap(s , x + 50, y + 50);
 						Thread.sleep(250);
 						System.out.println(x + "." + y + ".tmx loaded");

@@ -1,0 +1,23 @@
+[npc]
+Guide Gent
+right
+11
+10
+12
+NULL
+1
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+11
+16
+25
+11
+-2
+0
+0
+[/warp]

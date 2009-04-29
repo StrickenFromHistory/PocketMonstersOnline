@@ -2,27 +2,37 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="28" height="38" tilewidth="16" tileheight="16">
  <properties>
+  <property name="surfLevels" value="15-24;20-24"/>
+  <property name="surfProbability" value="28"/>
+  <property name="surfSpecies" value="Tentacool,90;Tentacruel,10"/>
   <property name="wildLevels" value=""/>
   <property name="wildProbability" value="0"/>
   <property name="wildSpecies" value=""/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset name="PG1" firstgid="1" tilewidth="16" tileheight="16">
-  <image source="PGTileseti.png" trans="ffffff"/>
- </tileset>
- <tileset name="PG2" firstgid="1025" tilewidth="16" tileheight="16">
-  <image source="PGTilesetii.png" trans="ffffff"/>
- </tileset>
- <tileset name="PG3" firstgid="2049" tilewidth="16" tileheight="16">
-  <image source="PGTilesetiii.png" trans="ffffff"/>
- </tileset>
- <tileset name="PG4" firstgid="3073" tilewidth="16" tileheight="16">
-  <image source="PGTilesetiv.png" trans="ffffff"/>
- </tileset>
+ <tileset firstgid="1" source="Tileset 1.tsx"/>
+ <tileset firstgid="1025" source="Tileset 2.tsx"/>
+ <tileset firstgid="2049" source="Tileset 3.tsx"/>
+ <tileset firstgid="3073" source="Tileset 4.tsx"/>
  <layer name="Walkable" width="28" height="38">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNiYGBgGsWjeBSP4lE8LPBX9oF3A7UxIyOQRsPMjLjVL+ejzD5FoNlKaFgZj32U+osFi32sWPxMrP9h2AkJO+PwF7GYGP8nIeFkOtjXhISbybRPFYidgNiZjPglxz5K0pEj1K0wrILkfmxYhcrpVpGAeYTkB6t9sPICl3mE5MnxFys036Pnc1hZAJOnhn3o6QYfJicfjOJRPIpHMbUxABOrc32gEAAA
+   H4sIAAAAAAAAAGNiYGBgGsWjeBSP4lE8LPBX9oF3A7UxIyOQRsPMjLjVL+ejzD5FoNlKaFgZj32U+osFi32sWPyM7n9CwAkJO+PwF7FYmQj7kpBwMh3sa0LCzWTapwrETkDsTIR9xKQTYvxFbnpxhLoVhlWQ3I8Nq1A53SoSMI+Q/GC1D1Ze4DKPkDw5/mKF5nv0fA4rC2Dy1LAPPd3gw840KOdG8SgexaOYVAwAEU0WtaAQAAA=
+  </data>
+ </layer>
+ <layer name="LedgesDown" width="28" height="38">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQwfoAAAAAC+BmbyAUigEAAA
+  </data>
+ </layer>
+ <layer name="LedgesRight" width="28" height="38">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQwfoAAAAAC+BmbyAUigEAAA
+  </data>
+ </layer>
+ <layer name="LedgesLeft" width="28" height="38">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQwfoAAAAAC+BmbyAUigEAAA
   </data>
  </layer>
  <layer name="Water" width="256" height="256">
@@ -38,21 +48,6 @@
  <layer name="WalkBehind" width="256" height="256">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO3auw3CQBAFwM1M5LIMlVCACaAOJD514ADKY8lODiA5MLZmpKfLVpu86DYCAAAAAAAAAABYmr6J2I2yzxyaqTcDvu2YPT8VOWcumav+w+LdsufDKPfMQ/+B1LUR6yKbduqNgF/Z6jsAAAAAAAD8ldc5z6p4a8+rPR8AqK97c8/n3g8AAAAAAObp0/+9/30AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABg7p5NjRasAAAEAA==
-  </data>
- </layer>
- <layer name="ledgesRigth" width="28" height="38">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQwfoAAAAAC+BmbyAUigEAAA
-  </data>
- </layer>
- <layer name="ledgesLeft" width="28" height="38">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQwfoAAAAAC+BmbyAUigEAAA
-  </data>
- </layer>
- <layer name="ledgesDown" width="28" height="38">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQwfoAAAAAC+BmbyAUigEAAA
   </data>
  </layer>
 </map>

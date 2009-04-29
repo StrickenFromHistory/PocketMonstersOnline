@@ -1,0 +1,23 @@
+[npc]
+Sage Troy
+down
+11
+7
+11
+Hoothoot,
+3
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+11
+15
+9
+16
+-50
+-45
+0
+[/warp]

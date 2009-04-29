@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="57" height="65" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="indoors" value="0"/>
+  <property name="surfLevels" value=""/>
+  <property name="surfProbability" value="0"/>
+  <property name="surfSpecies" value=""/>
+  <property name="wildLevels" value="5-6;5-6;6-7;5-6;6-7;7-7;5-6;5-7;5-5;7-7;7-7"/>
+  <property name="wildProbability" value="28"/>
+  <property name="wildSpecies" value="Paras,5;Caterpie,40;Metapod,30;Weedle,40;Kakuna,30;Pidgey,5;Zubat,5;Oddish,60;Venonat,30;Psyduck,10;Hoothoot,5;Buneary,1;"/>
+  <property name="xOffsetModifier" value="32"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="Tileset 1.tsx"/>
+ <tileset firstgid="1025" source="Tileset 2.tsx"/>
+ <tileset firstgid="2049" source="Tileset 3.tsx"/>
+ <tileset firstgid="3073" source="Tileset 4.tsx"/>
+ <tileset name="shrine" firstgid="4097" tilewidth="16" tileheight="16">
+  <image source="shrinetile.PNG" trans="000000"/>
+ </tileset>
+ <layer name="Walkable" width="57" height="65">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2a0Q2CMBCGC/juDOok4CS6ie7hiO5gSWgCTSg92tK783/40kRT/T96vSKxM8Z0RC6NMdeJW0OfLwE46gCOOoCjDuCoA6pjO0H9njZhbi1HStbvaTnvaM/UWvWzhxxG1y7wvgbH+RwpjpSsUmtVq2OOrEc79tZrmLgXOB9rrl8taniO/dz1dDfu+QzOjntybl0rro5HocUx5MHd0e+Na/c43D22/HLk53gNcq8RN8cSdcjFce0coObjvk9Tz0wNvSjUV6U6AcAR7KU4Un+zgXj+offDsX6+nI7z1z7n5Sgd3zHWT1LP3FuTOZ7ncXcEAAAAHDHPaKSfNWN+918Tf5Tu6O7dYvykOjpPzevoWNt/vWVgQEnHh+XJgJLr+7K8GVC7zgEAAAAASvED5DzmtOQ5AAA=
+  </data>
+ </layer>
+ <layer name="Grass" width="57" height="65">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2Wyw7EIAhFm/n/j+5qEtNUBMTyuifpplWHMwJ6XQAAAAAAwIKf4MkEN/ZKrqvvGd3+rOLO6CjNu8yO0vEZalIb32y8h6ek/89im7lQv/klFnnUxfE5P5Ijl1XuSnpLNkdN34zmSO3ZznqReIspsx839zRxRrgDSM/D8Tt11ke640hqjrvX3k4jnLOAOz/Kno1EjcuSLo7V6e5YJYetHa3utJbsxCS5p0fubat9fnvX3XG1pgdSx901T6LJq+qO2rrzrMcTjtQ8D6j/XTKes141xwhnB6d+qHnUepJ5J9H2zmqOmr7ZxTFaPVYGjjXwrJOvgGMNOjpGOM8AAAAAADpyAzZEVgDkOQAA
+  </data>
+ </layer>
+ <layer name="LedgesDown" width="57" height="65">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3YMREAIAwEwUz866BGBU7wQZECJDCw2/xruAgAAIB/jKxtuT8AAAAAd5tHy+maDgAAAAAAAA9ZrWNxhuQ5AAA=
+  </data>
+ </layer>
+ <layer name="LedgesRight" width="57" height="65">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OQQkAAAgEsAPj2L+fFfwJsiVYAgAAAAAAAMAXXdcDAAAAAAAAYGsAV9/vd+Q5AAA=
+  </data>
+ </layer>
+ <layer name="LedgesLeft" width="57" height="65">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3PUREAEBRFwTekkVw0NYQw3A+7Cc6pAgAAAACAvNnSBfetDx4BeGv0dAEAAAAAAABwYgOWsNez5DkAAA==
+  </data>
+ </layer>
+ <layer name="Water" width="57" height="65">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3RwQ1AQBCG0ZXtDZWgEpSmLHvgsicHIjt5L/nv82VSAgAAAHiuzykN1cb891XvmkrPXG3R2Jy6cSvbAzcewdpu6/W7iP8D2tb9fcDHumoRaYxBIwAAAAAAANC6ExSLzQ7kOQAA
+  </data>
+ </layer>
+ <layer name="Collisions" width="57" height="65">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2ZfU7cMBDFnawK//YSpVykSIhrwk2yV4FrNBZMsd7O8zhO/JHKT7KG3cTYMz/P2Mk+OOd+re1hg0Vt7V/b3q3tx0aL2tq/ts2JC6o1p8FxcBwcv9Wa0+A4OB7F8c/annbYM3DcqzNwRL3OemM6A8ffa3sM7n+fnPuYbi1K+vXMEfPKa1l53a3tXrGoo/KyJEdN3sfU2E3QWnJk9VCEazK3NrXkaAnXJFt7LCailhwtYf9l1ufsnJ6vE/k/PXBk/cVHVpNwjlcSk5IcpQZYYnl6jeyF3kcW05ocxeK+d4R8/rHcqMlxb34y+Zjdd8YxNT+XYG1q5xuxODfcg1pwxDlo8rkX1lHtfCM2FrvY2aEkR0vCh9VRFjMtdrGzQwmOqfyEz0LqaGrMJE9rcvRzDus/1le5JmN4nuG5U8S4sTytyRH3N1Zf/40xp69x7Zwj/WpyRB/xunBlY7K6yuprC46hcubE6iqrry04evk1xfbsvXPqhaO2X2ENyZ1TTxzx+7evPJ1+florBlttbY7XmT9PzF8+4liy52DDdxpMtTmmCMdaFH/C9ny59fHl8v13TY5W7XdOX8ux5/+cmJXkaNV+8VHjqM3VihmLTUmOVg0RH1M5WjFjsSnJMWWNxd7LWPWT9WvB0fIxJ++0d8WiM3AM/dCaXNPWvtsxzz15iGOHz1gxjjkxcxnz3MPRGlt8ZBytmDHV5GiNLT5u+d4lXG/BkT0nemlnPfEhFrOF9NNiWYOjfN5ai2L3a+dZr7fK73MwrtZaRh+23B/264kjWlnT7LdvvM5sS46YP2Jz58RsC45YE1C5c2K2BUdLjG+ubcHR9PFycMuMTUmOvagkx140OHaWj5kth2Pqnn303lGzrp7N9hDnwXFwHBwHx//J9hDn0vYvT6MjPeQ5AAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="57" height="65">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3Y0QrDIAyF4a433YPvVfqe2y6EIkZddZij/wcyxjow1SS22wYAAIBeXnt6KDs+43n5/jBG6X8q1NdrZbPkXE8z1KLcvFO/eY6zV108HceoLKyPav8a5Ztzx+hJ3BTXRuscp5pz8dxb1sljbVVem6DU43rGNyJPU3vwWl9b41M959T2Gi8xWetU2zet2uolvpjXefWg3LORV9q3Sjl417mnB8bI1f6w93J7UOHZzHo/ar0nLSndM8Wcbb0n6laJf5U4vfm1TsbXe66vq7PyqOa852l9/zUH9d5YI3WenTVWz6y6ae3t0vUe8hIAANT3bC+fAABgTW9yImJR5DkAAA==
+  </data>
+ </layer>
+</map>

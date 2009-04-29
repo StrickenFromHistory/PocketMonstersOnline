@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="26" height="28" tilewidth="16" tileheight="16">
+ <properties>
+    <property name="surfSpecies" value=""/>
+  <property name="surfLevels" value=""/>
+  <property name="surfProbability" value="0"/>
+  <property name="wildLevels" value="4-6;4-4;6-7;7-7;4-4;3-3;2-4;3-4;4-4;3-3;3-3;2-4"/>
+  <property name="wildProbability" value="50"/>
+  <property name="wildSpecies" value="Rattata,75;Ekans,75;Bellsprout,50;Pidgey,12;Hoppip,5;Ledyba,30;Pidgey,40;Rattata,40;Poliwag,20;Zubat,40;Spinarak,30;Hoothoot,50;Buneary,1;"/>
+  <property name="xOffsetModifier" value="32"/>
+  <property name="yOffsetModifier" value="1376"/>
+ </properties>
+ <tileset firstgid="1" source="Tileset 1.tsx"/>
+ <tileset firstgid="1025" source="Tileset 2.tsx"/>
+ <tileset firstgid="2049" source="Tileset 13.tsx"/>
+ <layer name="Walkable" width="26" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNmYGBgGYaYeRC4YdRfgw+Pht/QC0M2Fvr5iZnK/mPGYQct3D2QcUSunU5YsDNSPGCLD3LiKAkLTsZhDz67CeEmLLiZiHCjdrqjVvyMglEwCsgHAH1+d3lgCwAA
+  </data>
+ </layer>
+ <layer name="Grass" width="26" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMgpEHFOlgNi3toKdd9PQPsYCeYUsNc4jB1DaPUntGwSgYBeQDABPEOJ1gCwAA
+  </data>
+ </layer>
+ <layer name="LedgesDown" width="26" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwXIAWM33secqEwMeY6GPnKBgFo2AUDBUAAO/s+1JgCwAA
+  </data>
+ </layer>
+ <layer name="LedgesLeft" width="26" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMgpEJljPRx57jw8yeUTAKRsEoGAX4AQBFyMbHYAsAAA==
+  </data>
+ </layer>
+ <layer name="Collisions" width="26" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO1V2w3CMAy0YBTEYxEeozBIF+G5ByKwR6F0jjpSLFlWEidNK/UDS6frR9Xz+VUzB3ggXpl4It6INQBsQGdTqLPHbxxA51KdKfqpEZ8IqgH8NOx7Pw+qgN9cP0vEqkddc/1sEbsec5Lr54rv3iN5aTpaPXh/2khemo5WD2KpS/kRh+bx63SoHpovqUv5ETds9mzwWbR1oHpovqSPhYMW1sdNINZn6SMWR/Zs63lCnB0uyvyRD6pzavC+VQn7xPvQenSamV+H+kb3Qtun0jBCJ+RnaJ0x/dRsn+T+EZcG36/YXUm9t6Wcem9L+e9n2n5C8z40y//NWNwB4v1EbmALAAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="26" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjgIGBHYg58NCjYGDBaDyMglEwCmCAUHlNKj0KRsEooD4AABkgtrlgCwAA
+  </data>
+ </layer>
+</map>

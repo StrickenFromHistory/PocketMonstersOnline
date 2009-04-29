@@ -1,0 +1,23 @@
+[npc]
+Bikeshop Owner
+left
+11
+8
+3
+NULL
+1
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+4
+8
+31
+28
+-5
+0
+0
+[/warp]

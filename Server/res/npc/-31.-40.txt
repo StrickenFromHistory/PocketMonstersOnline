@@ -1,0 +1,23 @@
+[npc]
+Name Rater
+down
+11
+3
+4
+NULL
+1
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+3
+8
+15
+8
+-5
+0
+0
+[/warp]

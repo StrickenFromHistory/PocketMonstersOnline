@@ -154,7 +154,7 @@ public class ServerDialog extends Frame {
 		}
 	
 		
-		this.setVisible(true);
+		this.setVisible(false);
 	}
 	
 	public String getPrivateServer() {

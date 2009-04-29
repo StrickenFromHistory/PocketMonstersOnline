@@ -75,7 +75,7 @@ public class GameClient extends BasicGame {
 	private TimeService m_time;
 	private Ui m_ui;
 	private Color m_daylight;
-	private static String m_language = "english";
+	private static String m_language = "";
 
 	/**
 	 * Load options
@@ -135,6 +135,7 @@ public class GameClient extends BasicGame {
 		m_display.add(m_loading);
 		
 		m_login = new LoginScreen();
+		m_login.showLanguageSelect();
 		m_display.add(m_login);
 		
 		m_ui = new Ui(m_display);
@@ -165,8 +166,10 @@ public class GameClient extends BasicGame {
 		/*
 		 * Check if language was chosen.
 		 */
-		if(m_language != null && !m_language.equalsIgnoreCase("")){
+		if(m_language != null && !m_language.equalsIgnoreCase("") && ((m_host != null && m_host.equalsIgnoreCase("")) || m_packetGen == null)){
 			m_login.showServerSelect();
+		} else if(m_language == null || m_language.equalsIgnoreCase("")){
+			m_login.showLanguageSelect();
 		}
 		/*
 		 * Check if we need to connect to a selected server

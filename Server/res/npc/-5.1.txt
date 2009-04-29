@@ -1,0 +1,14 @@
+[npc]
+Pokefan Brandon
+down
+11
+19
+22
+Snubbull,1
+2
+-1
+1000
+false
+false
+false
+[/npc]

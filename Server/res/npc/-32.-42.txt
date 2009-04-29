@@ -1,0 +1,23 @@
+[npc]
+Mahogany Citizen
+right
+11
+3
+5
+NULL
+1
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+3
+10
+20
+15
+-2
+-4
+0
+[/warp]

@@ -1,0 +1,23 @@
+[npc]
+Cianwood Citizen
+left
+11
+6
+7
+NULL
+1
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+3
+10
+14
+40
+-8
+-2
+0
+[/warp]

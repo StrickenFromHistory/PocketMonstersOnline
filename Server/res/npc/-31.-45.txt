@@ -1,0 +1,23 @@
+[npc]
+Goldenrod Citizen
+left
+11
+6
+3
+NULL
+1
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+3
+8
+35
+9
+-5
+0
+0
+[/warp]

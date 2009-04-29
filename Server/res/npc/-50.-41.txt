@@ -1,0 +1,23 @@
+[npc]
+Cooltrainer Emma
+up
+11
+4
+32
+Poliwhirl,2
+2
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+6
+6
+20
+6
+-50
+-40
+0
+[/warp]

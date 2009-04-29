@@ -1,0 +1,23 @@
+[npc]
+Cooltrainer Cara
+down
+11
+8
+8
+Seadra,3
+4
+-1
+1000
+false
+false
+false
+[/npc]
+[warp]
+19
+3
+7
+19
+-47
+-47
+0
+[/warp]
