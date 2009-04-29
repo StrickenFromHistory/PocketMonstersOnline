@@ -50,15 +50,17 @@ public class LoginScreen extends Window {
 			this.add(m_bg);
 			
 			/*
+			 * Create the server selector container
+			 */
+			m_select = new ServerDialog();
+			m_select.setVisible(false);
+			this.add(m_select);
+			/*
 			 * Create the language selector container
 			 */
 			m_lang = new LanguageDialog();
 			this.add(m_lang);
-			/*
-			 * Create the server selector container
-			 */
-			m_select = new ServerDialog();
-			this.add(m_select);
+			
 			
 			/*
 			 * Create the login container

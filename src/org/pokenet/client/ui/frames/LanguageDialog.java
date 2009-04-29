@@ -24,7 +24,7 @@ public class LanguageDialog extends Frame {
 	public LanguageDialog() {
 		m_black = new Color(0, 0, 0);
 		
-		this.setSize(316, 280);
+		this.setSize(340, 290);
 		this.setLocation(400 - 160, 280);
 		this.setTitle("Pokenet Language Selection");
 		this.setBackground(new Color(0, 0, 0, 70));
@@ -50,8 +50,8 @@ public class LanguageDialog extends Frame {
 			
 			
 			m_languages[0] = new Button("English");
-			m_languages[0].setSize(280, 24);
-			m_languages[0].setLocation(16, 32);
+			m_languages[0].setSize(280, 50);
+			m_languages[0].setLocation(30, 32);
 			m_languages[0].setVisible(true);
 			m_languages[0].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -61,8 +61,8 @@ public class LanguageDialog extends Frame {
 			this.add(m_languages[0]);
 			
 			m_languages[1] = new Button("Espanol");
-			m_languages[1].setSize(280, 24);
-			m_languages[1].setLocation(16, 32);
+			m_languages[1].setSize(280, 50);
+			m_languages[1].setLocation(30, 90);
 			m_languages[1].setVisible(true);
 			m_languages[1].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -72,8 +72,8 @@ public class LanguageDialog extends Frame {
 			this.add(m_languages[1]);
 			
 			m_languages[2] = new Button("Francais");
-			m_languages[2].setSize(280, 24);
-			m_languages[2].setLocation(16, 32);
+			m_languages[2].setSize(280, 50);
+			m_languages[2].setLocation(30, 148);
 			m_languages[2].setVisible(true);
 			m_languages[2].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -83,12 +83,13 @@ public class LanguageDialog extends Frame {
 			this.add(m_languages[2]);
 			
 			m_languages[3] = new Button("Portugues");
-			m_languages[3].setSize(280, 24);
-			m_languages[3].setLocation(16, 32);
+			m_languages[3].setSize(280, 50);
+			m_languages[3].setLocation(30, 206);
 			m_languages[3].setVisible(true);
 			m_languages[3].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					GameClient.setLanguage("portugues");
+					
 				}
 			});
 			this.add(m_languages[3]);
