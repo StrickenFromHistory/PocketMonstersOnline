@@ -36,7 +36,7 @@
   <image source="PGTilesetviii.png" trans="000000"/>
  </tileset>
  <tileset name="set9" firstgid="8193" tilewidth="16" tileheight="16">
-  <image source="PGtilesetviiii.png" trans="000000"/>
+  <image source="PGTilesetviiii.png" trans="000000"/>
  </tileset>
  <layer name="walkable" width="54" height="69">
   <data encoding="base64" compression="gzip">
