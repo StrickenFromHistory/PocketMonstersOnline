@@ -1,4 +1,3 @@
-<<<<<<< .mine
 [npc]
 Cool Trainer Megan
 DOWN
