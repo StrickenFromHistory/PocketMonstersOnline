@@ -2,22 +2,23 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="34" height="35" tilewidth="16" tileheight="16">
  <properties>
-   <property name="surfSpecies" value=""/>
-  <property name="surfLevels" value=""/>
-  <property name="surfProbability" value="0"/>
-  <property name="wildLevels" value=""/>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="dayPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
   <property name="wildProbability" value="0"/>
-  <property name="wildSpecies" value=""/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
- </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/> 
- <tileset firstgid="1025" source="Tileset 2.tsx"/> 
- <tileset firstgid="2049" source="Tileset 3.tsx"/> 
- <tileset firstgid="3073" source="Tileset 4.tsx"/> 
+ </properties> 
+ <tileset firstgid="1" source="Tileset 1.tsx"/>
+ <tileset firstgid="1025" source="Tileset 2.tsx"/>
+ <tileset firstgid="2049" source="Tileset 3.tsx"/>
+ <tileset firstgid="3073" source="Tileset 4.tsx"/>
  <layer name="Walkable" width="34" height="35">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3OsQkAMAwEsW8D8f7reoK4NAQkuP4SAIC3OnObH3fIhw8fAPCfBnF3RvKYEgAA
+   H4sIAAAAAAAAAO3OsQ0AIAwDwbRI0LD/sCwAUarQ3Emu/REAAG9r5OvsmMl06NBxt//cAkDJAT9E4w2YEgAA
   </data>
  </layer>
  <layer name="Walkable" width="34" height="35">
@@ -27,17 +28,17 @@
  </layer>
  <layer name="LedgesDown" width="34" height="35">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3UsQkAMAgAQWfI/sNmBcWgKe7ATvArIwBg30nORMeLnS4d9Rs66jtdOuo3pjp++KcAkHEB4C/CiJgSAAA=
+   H4sIAAAAAAAAAO3UsQkAMAgAQWfI/sOmT6UYtLkDO8GvjACAfSc5Ex0/drp01G/oqO906ajfmOp4/+bGPwWAjAuuHGd3mBIAAA==
   </data>
  </layer>
  <layer name="LedgesRight" width="34" height="35">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3UsQkAMAgAQWfI/sNmBcWgKe7ATvArIwBg30nORMeLnS4d9Rs66jtdOuo3pjp++KcAkHEB4C/CiJgSAAA=
+   H4sIAAAAAAAAAO3UsQkAMAgAQWfI/sOmT6UYtLkDO8GvjACAfSc5Ex0/drp01G/oqO906ajfmOp4/+bGPwWAjAuuHGd3mBIAAA==
   </data>
  </layer>
  <layer name="LedgesLeft" width="34" height="35">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3UsQkAMAgAQWfI/sNmBcWgKe7ATvArIwBg30nORMeLnS4d9Rs66jtdOuo3pjp++KcAkHEB4C/CiJgSAAA=
+   H4sIAAAAAAAAAO3UsQkAMAgAQWfI/sOmT6UYtLkDO8GvjACAfSc5Ex0/drp01G/oqO906ajfmOp4/+bGPwWAjAuuHGd3mBIAAA==
   </data>
  </layer>
  <layer name="Water" width="34" height="35">
