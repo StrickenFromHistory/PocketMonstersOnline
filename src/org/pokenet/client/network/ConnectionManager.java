@@ -180,6 +180,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 					for(int i=0;i<details.length;i++){
 						speech +=GameClient.getInstance().getMapMatrix().getSpeech(i)+"\n";	
 					}
+					if(speech.equals("\n")){
+						speech = "THIS IS JUST A PLACEHOLDER. \nYOU SHOULD NEVER SEE THIS STRING.";
+					}
 					try {
 						GameClient.getInstance().getUi().talkToNPC(speech);
 					} catch (SlickException e) {
