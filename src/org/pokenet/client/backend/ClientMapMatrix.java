@@ -72,6 +72,17 @@ public class ClientMapMatrix {
 				while(reader.hasNextLine()) {
 					m_speech.add(reader.nextLine());
 				}
+			}else{ //In case of emergencies, load english!
+				try{
+					f = new File(f.getCanonicalFile()+ "/res/language/english/" + mapX + "." + mapY + ".txt");
+					Scanner reader = new Scanner(f);
+					while(reader.hasNextLine()) {
+						m_speech.add(reader.nextLine());
+					}
+				}catch(Exception e){
+					m_speech.add("\n"); //If there's no english, display default line. 
+				}
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
