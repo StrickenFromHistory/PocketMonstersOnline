@@ -2,22 +2,23 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="38" height="35" tilewidth="16" tileheight="16">
  <properties>
-   <property name="surfSpecies" value=""/>
-  <property name="surfLevels" value=""/>
-  <property name="surfProbability" value="0"/>
-  <property name="wildLevels" value=""/>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="dayPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
   <property name="wildProbability" value="0"/>
-  <property name="wildSpecies" value=""/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
- </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/> 
- <tileset firstgid="1025" source="Tileset 2.tsx"/> 
- <tileset firstgid="2049" source="Tileset 3.tsx"/> 
- <tileset firstgid="3073" source="Tileset 4.tsx"/> 
+ </properties> 
+ <tileset firstgid="1" source="Tileset 1.tsx"/>
+ <tileset firstgid="1025" source="Tileset 2.tsx"/>
+ <tileset firstgid="2049" source="Tileset 3.tsx"/>
+ <tileset firstgid="3073" source="Tileset 4.tsx"/>
  <layer name="Walkable" width="38" height="35">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3OMQoAIAwEwbSC/v+7VumvMiAzsP1WAQDQzsqa+NpBr//Sr86Xrx++AIAZFwlZ43nIFAAA
+   H4sIAAAAAAAAAO3OMQoAIAwAsa6CLv7/sU6u0slCSeD2iwAA4FojV8XXTPT7L/t18+Wrw9fLrh4AgMYOdjMI0MgUAAA=
   </data>
  </layer>
  <layer name="Walkable" width="38" height="35">
@@ -37,7 +38,7 @@
  </layer>
  <layer name="Collisions" width="38" height="35">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWjYBSMglEwCkYBpUCEhzxMD3fBQA8XhO/Lhd3N2PTQ0l3eQHf4APEaqLtygfRaLkx32fExMNjz0c9d2UA35ADxGWg49QLps1zY1cfT0V3EggSgmxwG2F18wPDixxFmA+kuPaCb9Aehu6ithx52jHR3DcbyfhSMglEwCkbBKBgJAABXrjhkyBQAAA==
+   H4sIAAAAAAAAAO3Uzw1AMByG4Z4bqYs52AB3zMAdm7AJm7CTL8FJhfjTSnxP8kvTRONNDxWCiIiI7vKca2Oia9XIeZ9JfbPuzJtdCTpSTLd01Vh7ue0KlRCRMtdVoqHCDMs9tVhHqf8+N9h1VoGm2HKXwn25O3dms8tHU/DBrqfPmPjH37uO3nUb7z0REdEfTOShmAPIFAAA
   </data>
  </layer>
  <layer name="WalkBehind" width="38" height="35">
