@@ -24,8 +24,8 @@ public class LanguageDialog extends Frame {
 	public LanguageDialog() {
 		m_black = new Color(0, 0, 0);
 		
-		this.setSize(340, 290);
-		this.setLocation(400 - 170, 280);
+		this.setSize(350, 320);
+		this.setLocation(400 - 170, 250);
 		this.setTitle("Pokenet Language Selection");
 		this.setBackground(new Color(0, 0, 0, 70));
 		this.getTitleBar().setForeground(m_black);
@@ -36,9 +36,9 @@ public class LanguageDialog extends Frame {
 		/*
 		 * Create the info label
 		 */
-		m_info = new Label("Welcome | Bienvenido | Bienvenue | Bem-vindo");
+		m_info = new Label("  Welcome | Bienvenido | Bienvenue \n         Bem-vindo | Tervetuloa");
 		m_info.pack();
-		m_info.setLocation(24, 8);
+		m_info.setLocation(60, 8);
 		m_info.setForeground(new Color(255, 255, 255));
 		this.add(m_info);
 		
@@ -46,12 +46,12 @@ public class LanguageDialog extends Frame {
 		 * Create all the server buttons
 		 */
 		try {
-			m_languages = new Button[4];
+			m_languages = new Button[5];
 			
 			
 			m_languages[0] = new Button("English");
-			m_languages[0].setSize(280, 50);
-			m_languages[0].setLocation(30, 32);
+			m_languages[0].setSize(280, 40);
+			m_languages[0].setLocation(30, 42);
 			m_languages[0].setVisible(true);
 			m_languages[0].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -61,7 +61,7 @@ public class LanguageDialog extends Frame {
 			this.add(m_languages[0]);
 			
 			m_languages[1] = new Button("Espanol");
-			m_languages[1].setSize(280, 50);
+			m_languages[1].setSize(280, 40);
 			m_languages[1].setLocation(30, 90);
 			m_languages[1].setVisible(true);
 			m_languages[1].addActionListener(new ActionListener() {
@@ -72,8 +72,8 @@ public class LanguageDialog extends Frame {
 			this.add(m_languages[1]);
 			
 			m_languages[2] = new Button("Francais");
-			m_languages[2].setSize(280, 50);
-			m_languages[2].setLocation(30, 148);
+			m_languages[2].setSize(280, 40);
+			m_languages[2].setLocation(30, 138);
 			m_languages[2].setVisible(true);
 			m_languages[2].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -83,8 +83,8 @@ public class LanguageDialog extends Frame {
 			this.add(m_languages[2]);
 			
 			m_languages[3] = new Button("Portugues");
-			m_languages[3].setSize(280, 50);
-			m_languages[3].setLocation(30, 206);
+			m_languages[3].setSize(280, 40);
+			m_languages[3].setLocation(30, 186);
 			m_languages[3].setVisible(true);
 			m_languages[3].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -93,6 +93,18 @@ public class LanguageDialog extends Frame {
 				}
 			});
 			this.add(m_languages[3]);
+			
+			m_languages[4] = new Button("Suomi");
+			m_languages[4].setSize(280, 40);
+			m_languages[4].setLocation(30, 236);
+			m_languages[4].setVisible(true);
+			m_languages[4].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					GameClient.setLanguage("finnish");
+					
+				}
+			});
+			this.add(m_languages[4]);
 			
 			this.setVisible(true);
 		
