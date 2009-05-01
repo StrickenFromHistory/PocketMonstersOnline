@@ -9,6 +9,7 @@
   <property name="waterPokemonLevels" value=""/>
   <property name="waterPokemonChances" value=""/>
   <property name="wildProbability" value="0"/>
+  <property name="pvp" value="disabled"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties> 

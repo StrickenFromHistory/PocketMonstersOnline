@@ -2,12 +2,13 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="50" height="55" tilewidth="16" tileheight="16">
  <properties>
-  <property name="surfLevels" value="15-24;20-24"/>
-  <property name="surfProbability" value="28"/>
-  <property name="surfSpecies" value="Poliwag,90;Poliwhirl,10"/>
-  <property name="wildLevels" value="3-4;4-4;3-4;4-5;4-4;3-3;2-4;3-4;4-4;3-3;3-3;2-4"/>
-  <property name="wildProbability" value="36"/>
-  <property name="wildSpecies" value="Caterpie,50;Metapod,10;Weedle,50;Kakuna,5;Hoppip,5;Ledyba,30;Pidgey,40;Rattata,40;Poliwag,20;Zubat,40;Spinarak,30;Hoothoot,50;Buneary,1;"/>
+  <property name="dayPokemonLevels" value="3-4;4-5;3-4;4-5;2-4;3-3;4-4;"/>
+  <property name="dayPokemonChances" value="Caterpie,35;Metapod,15;Weedle,5;Kakuna,10;Pidgey,10;Ledyba,20;Hoppip,5;"/>
+  <property name="nightPokemonLevels" value="3-4;3-3;4-4;2-4;3-3;"/>
+  <property name="nightPokemonChances" value="Rattata,40;Zubat,5;Poliwag,20;Hoothoot,15;Spinarak,20;"/>
+  <property name="waterPokemonLevels" value="15-24;20-24;"/>
+  <property name="waterPokemonChances" value="Poliwag,90;Poliwhirl,10;"/>
+  <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="-64"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
