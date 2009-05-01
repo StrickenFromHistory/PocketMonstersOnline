@@ -2,12 +2,13 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="16" tileheight="16">
  <properties>
-  <property name="surfSpecies" value="Magikarp,100;"/>
-  <property name="surfLevels" value="5-15;"/>
-  <property name="surfProbability" value="7"/>
-  <property name="wildLevels" value="23-23;23-23;23-23;25-25;20-25;20-20;25-25;"/>
+  <property name="dayPokemonLevels" value="23-23;23-23;23-23;25-25;20-25;20-20;25-30;"/>
+  <property name="dayPokemonChances" value="Zubat,30;Golbat,5;Geodude,30;Graveler,10;Wobbuffet,10;Teddiursa,5;Ursaring,10;"/>
+  <property name="nightPokemonLevels" value="23-23;23-23;23-23;25-25;20-25;"/>
+  <property name="nightPokemonChances" value="Zubat,30;Golbat,5;Geodude,30;Graveler,20;Wobbuffet,15;"/>
+  <property name="waterPokemonLevels" value="5-15;"/>
+  <property name="waterPokemonChances" value="Magikarp,100;"/>
   <property name="wildProbability" value="10"/>
-  <property name="wildSpecies" value="Zubat,25;Golbat,5;Geodude,20;Graveler,20;Wobbuffet,15;Teddiursa,5;Ursaring,10;Buneary,1;"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>

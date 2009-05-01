@@ -2,12 +2,13 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="39" height="36" tilewidth="16" tileheight="16">
  <properties>
-  <property name="surfSpecies" value="Magikarp,100;"/>
-  <property name="surfLevels" value="5-15;"/>
-  <property name="surfProbability" value="7"/>
-  <property name="wildLevels" value="2-4;2-4;4-4;2-2;"/>
+  <property name="dayPokemonLevels" value="2-4;2-4;4-4;2-2;"/>
+  <property name="dayPokemonChances" value="Zubat,39;Geodude,55;Dunsparce,1;Teddiursa,5;"/>
+  <property name="nightPokemonLevels" value="2-4;2-4;4-4;"/>
+  <property name="nightPokemonChances" value="Zubat,39;Geodude,60;Dunsparce,1;"/>
+  <property name="waterPokemonLevels" value="5-15;"/>
+  <property name="waterPokemonChances" value="Magikarp,100;"/>
   <property name="wildProbability" value="10"/>
-  <property name="wildSpecies" value="Zubat,34;Geodude,60;Dunsparce,1;Teddiursa,5;Buneary,1;"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
