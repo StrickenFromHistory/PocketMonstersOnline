@@ -134,8 +134,8 @@ public class ServerMap {
 		String[] levels;
 		//Daytime Pokemon
 		try {
-			if(!map.getProperties().getProperty("dayPokemonSpecies").equalsIgnoreCase("")) {
-				species = map.getProperties().getProperty("dayPokemonSpecies").split(";");
+			if(!map.getProperties().getProperty("dayPokemonChances").equalsIgnoreCase("")) {
+				species = map.getProperties().getProperty("dayPokemonChances").split(";");
 				levels = map.getProperties().getProperty("dayPokemonLevels").split(";");
 				if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
 					m_dayPokemonChances = new HashMap<String, Integer>();
@@ -158,8 +158,8 @@ public class ServerMap {
 		}
 		//Nocturnal Pokemon
 		try {
-			if(!map.getProperties().getProperty("nightPokemonSpecies").equalsIgnoreCase("")) {
-				species = map.getProperties().getProperty("nightPokemonSpecies").split(";");
+			if(!map.getProperties().getProperty("nightPokemonChances").equalsIgnoreCase("")) {
+				species = map.getProperties().getProperty("nightPokemonChances").split(";");
 				levels = map.getProperties().getProperty("nightPokemonLevels").split(";");
 				if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
 					m_nightPokemonChances = new HashMap<String, Integer>();
@@ -182,8 +182,8 @@ public class ServerMap {
 		}
 		//Surf Pokemon
 		try {
-			if(!map.getProperties().getProperty("waterPokemonSpecies").equalsIgnoreCase("")) {
-				species = map.getProperties().getProperty("waterPokemonSpecies").split(";");
+			if(!map.getProperties().getProperty("waterPokemonChances").equalsIgnoreCase("")) {
+				species = map.getProperties().getProperty("waterPokemonChances").split(";");
 				levels = map.getProperties().getProperty("waterPokemonLevels").split(";");
 				if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
 					m_waterPokemonChances = new HashMap<String, Integer>();
@@ -633,7 +633,7 @@ public class ServerMap {
 	 * @return
 	 */
 	public boolean isWildBattle(int x, int y, PlayerChar p) {
-		/*if (m_random.nextInt(2874) < m_wildProbability * 16) {
+		if (m_random.nextInt(2874) < m_wildProbability * 16) {
 			if(p.isSurfing()) {
 				if(m_waterPokemonChances != null && m_waterPokemonLevels != null)
 					return true;
@@ -643,7 +643,7 @@ public class ServerMap {
 							(m_nightPokemonChances != null && m_nightPokemonLevels != null))
 						return true;
 			}
-		}*/
+		}
 		return false;
 	}
 	
