@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <system additive="true" points="false">
 <emitter imageName="/res/effects/fog/fog.tga" name="Default" renderType="inherit" useAdditive="false" useOriented="true">
-<spawnInterval enabled="true" max="1000.0" min="100.0"/>
-<spawnCount enabled="true" max="2.0" min="1.0"/>
+<spawnInterval enabled="true" max="2000.0" min="2000.0"/>
+<spawnCount enabled="true" max="1.0" min="1.0"/>
 <initialLife enabled="true" max="20000.0" min="20000.0"/>
 <initialSize enabled="true" max="1000.0" min="1000.0"/>
-<xOffset enabled="true" max="316.0" min="-84.0"/>
-<yOffset enabled="true" max="300.0" min="-300.0"/>
+<xOffset enabled="true" max="864.0" min="32.0"/>
+<yOffset enabled="true" max="632.0" min="256.0"/>
 <initialDistance enabled="true" max="20.0" min="0.0"/>
 <speed enabled="true" max="120.0" min="1.0"/>
 <length enabled="false" max="1000.0" min="1000.0"/>

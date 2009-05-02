@@ -1,14 +1,18 @@
 package org.pokenet.server.feature;
 
 import java.util.Calendar;
+import java.util.Iterator;
+import java.util.Random;
 
 import org.pokenet.server.GameServer;
+import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.HailEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.RainEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.SandstormEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.SunEffect;
+import org.pokenet.server.network.ConnectionManager;
 
 /**
  * Handles game time and weather
@@ -21,7 +25,7 @@ public class TimeService implements Runnable {
 	private Thread m_thread;
 	private static int m_hour;
 	private static int m_minutes;
-	private static Weather m_weather = Weather.NORMAL;
+	private static Weather m_weather;
 	
 	/*
 	 * NOTE: HAIL = SNOW
@@ -32,6 +36,26 @@ public class TimeService implements Runnable {
 	 * Default constructor
 	 */
 	public TimeService() {
+		/*
+		 * Generate random weather
+		 */
+		Random r = new Random();
+		switch(r.nextInt(4)) {
+		case 0:
+			m_weather = Weather.NORMAL;
+			break;
+		case 1:
+			m_weather = Weather.RAIN;
+			break;
+		case 2:
+			m_weather = Weather.HAIL;
+			break;
+		case 3:
+			m_weather = Weather.FOG;
+			break;
+		default:
+			m_weather = Weather.NORMAL;
+		}
 		m_lastWeatherUpdate = System.currentTimeMillis();
 		m_thread = new Thread(this);
 	}
@@ -49,7 +73,7 @@ public class TimeService implements Runnable {
 			if(m_minutes == 0)
 				m_hour = m_hour == 23 ? 0 : m_hour + 1;
 			//Check if weather should be updated
-			if(System.currentTimeMillis() - m_lastWeatherUpdate >= 10800000) {
+			if(System.currentTimeMillis() - m_lastWeatherUpdate >= 3600000) {
 				generateWeather();
 				m_lastWeatherUpdate = System.currentTimeMillis();
 			}
@@ -80,8 +104,11 @@ public class TimeService implements Runnable {
 	 * Generates a new weather status
 	 */
 	private void generateWeather() {
-		GameServer.getServiceManager().getDataService();
-		switch(DataService.getBattleMechanics().getRandom().nextInt(4)) {
+		/*
+		 * Generate random weather
+		 */
+		Random r = new Random();
+		switch(r.nextInt(4)) {
 		case 0:
 			m_weather = Weather.NORMAL;
 			break;
