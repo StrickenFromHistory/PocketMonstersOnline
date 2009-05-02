@@ -1,16 +1,16 @@
 [npc]
 Professor Elm
 down
-11
+171
 20
 17
 NULL
-1
+0
 -1
 1000
 false
 false
-false
+true
 [/npc]
 [warp]
 20
