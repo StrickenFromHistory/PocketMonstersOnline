@@ -173,26 +173,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 'C':
 			//Chat packet
-				switch(message.charAt(1)) {
-				case 'n':
-					String speech = "";
-					details = message.substring(2).split(",");
-					for(int i=0;i<details.length;i++){
-						speech +=GameClient.getInstance().getMapMatrix().getSpeech(i)+"\n";	
-					}
-					if(speech.equals("\n")){
-						speech = "THIS IS JUST A PLACEHOLDER. \nYOU SHOULD NEVER SEE THIS STRING.";
-					}
-					try {
-						GameClient.getInstance().getUi().talkToNPC(speech);
-					} catch (SlickException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					break;
-				}
-			
-			//
+			m_game.getUi().messageReceived(message.substring(1));
+			break;
 		case 'c':
 			//Something changed
 			p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
