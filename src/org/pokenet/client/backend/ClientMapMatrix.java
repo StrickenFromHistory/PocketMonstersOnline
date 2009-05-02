@@ -74,6 +74,7 @@ public class ClientMapMatrix {
 				}
 			}else{ //In case of emergencies, load english!
 				try{
+					f = new File(".");
 					f = new File(f.getCanonicalFile()+ "/res/language/english/" + mapX + "." + mapY + ".txt");
 					Scanner reader = new Scanner(f);
 					while(reader.hasNextLine()) {
