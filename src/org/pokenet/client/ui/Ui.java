@@ -144,16 +144,17 @@ public class Ui extends Frame {
 	public void messageReceived(String m) {
 		switch(m.charAt(0)) {
 		case 'n':
-			//NPC speech stored as an array of strings
+			//NPC Speeech
 			String [] speech = m.substring(1).split(",");
-			int [] sids = new int [speech.length];
+			String result = "";
 			for(int i = 0; i < speech.length; i++) {
-				sids[i] = Integer.parseInt(speech[i]);
+				result += GameClient.getInstance().getMapMatrix().getSpeech(Integer.parseInt(speech[i])) + "\n";
 			}
-			for(int i = 0; i < sids.length; i++) {
-				speech[i] = GameClient.getInstance().getMapMatrix().getSpeech(sids[i]);
+			try {
+				talkToNPC(result);
+			} catch (SlickException e) {
+				e.printStackTrace();
 			}
-			//TODO: Queue npc speech in speech box, speech stores all speech
 			break;
 		case 'l':
 			//Local Chat

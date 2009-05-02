@@ -99,7 +99,9 @@ public class ClientMapMatrix {
 	 * @return
 	 */
 	public String getSpeech(int index) {
-		return m_speech.size() > index ? m_speech.get(index) : "";
+		return m_speech.size() > index ? 
+				m_speech.get(index) != null && !m_speech.get(index).equalsIgnoreCase("") ?
+						m_speech.get(index) : "Trainer Tip: Don't eat yellow snow!" : "Trainer Tip: Don't eat yellow snow!";
 	}
 	
 	/**

@@ -382,34 +382,34 @@ public class RegisterDialog extends Frame{
 			m_starters[0].setEnabled(false);
 			break;
 		case 4:
-			m_starters[1].setEnabled(false);
-			break;
-		case 7:
-			m_starters[2].setEnabled(false);
-			break;
-		case 152:
-			m_starters[3].setEnabled(false);
-			break;
-		case 155:
 			m_starters[4].setEnabled(false);
 			break;
-		case 158:
-			m_starters[5].setEnabled(false);
-			break;
-		case 252:
-			m_starters[6].setEnabled(false);
-			break;
-		case 255:
-			m_starters[7].setEnabled(false);
-			break;
-		case 258:
+		case 7:
 			m_starters[8].setEnabled(false);
 			break;
-		case 387:
+		case 152:
+			m_starters[1].setEnabled(false);
+			break;
+		case 155:
+			m_starters[5].setEnabled(false);
+			break;
+		case 158:
 			m_starters[9].setEnabled(false);
 			break;
-		case 390:
+		case 252:
+			m_starters[2].setEnabled(false);
+			break;
+		case 255:
+			m_starters[6].setEnabled(false);
+			break;
+		case 258:
 			m_starters[10].setEnabled(false);
+			break;
+		case 387:
+			m_starters[3].setEnabled(false);
+			break;
+		case 390:
+			m_starters[7].setEnabled(false);
 			break;
 		case 393:
 			m_starters[11].setEnabled(false);
