@@ -7,7 +7,7 @@ down
 NULL
 1
 -1
-1000
+0
 false
 false
 false

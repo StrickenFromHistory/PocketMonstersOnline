@@ -1,14 +1,14 @@
 [npc]
-NULL
+Nurse Joy
 down
-0
+157
 15
 11
 NULL
 1
 -1
-1000
-false
+0
+true
 false
 false
 [/npc]

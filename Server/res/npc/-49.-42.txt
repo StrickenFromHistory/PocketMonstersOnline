@@ -4,10 +4,10 @@ down
 11
 5
 11
-Pidgeotto,12
+Pidgeotto,12,Hoothoot,11,Dodrio,12,Pidgeot,12,Noctowl,14,Skarmony,12
 3
--1
-1000
+8
+0,1,2,3
 false
 false
 false
