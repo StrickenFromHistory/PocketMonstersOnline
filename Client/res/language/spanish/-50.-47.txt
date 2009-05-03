@@ -1,0 +1,3 @@
+Bienvenido al PokeMart. 
+Toma tu tiempo y escoje lo que quieras comprar. 
+Por favor reporta este error!
