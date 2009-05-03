@@ -1,13 +1,13 @@
 [npc]
 New Bark Town citizen
 right
-11
+72
 15
 18
 NULL
-1
+0
 -1
-1000
+0,1,2,3
 false
 false
 false
