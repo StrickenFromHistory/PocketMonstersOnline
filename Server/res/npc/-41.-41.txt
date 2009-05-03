@@ -1,13 +1,27 @@
 [npc]
 Cherrygrove citizen
 left
-11
+51
 15
 13
 NULL
-1
+0
 -1
-1000
+0,1
+false
+false
+false
+[/npc]
+[npc]
+Cherrygrove citizen
+right
+96
+14
+13
+NULL
+0
+-1
+2
 false
 false
 false

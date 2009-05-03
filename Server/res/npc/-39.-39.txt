@@ -1,13 +1,27 @@
 [npc]
 Cherrygrove citizen
 down
-11
+81
 15
 13
 NULL
-1
+0
 -1
-1000
+0,1,2
+false
+false
+false
+[/npc]
+[npc]
+Cherrygrove citizen
+down
+141
+10
+12
+NULL
+0
+-1
+3,4
 false
 false
 false

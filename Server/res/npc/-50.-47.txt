@@ -5,9 +5,23 @@ down
 17
 15
 NULL
-1
+0
 -1
-1000
+0,1
+false
+false
+true
+[/npc]
+[npc]
+Shop Keeper
+right
+185
+16
+15
+NULL
+0
+-1
+2
 false
 false
 false
