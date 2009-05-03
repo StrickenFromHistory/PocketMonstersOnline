@@ -10,7 +10,9 @@ import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.ServerMap;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.BattleField;
+import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.feature.TimeService;
 
 /**
@@ -68,10 +70,32 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
+	 * Called when a player loses a battle
+	 */
+	public void lostBattle() {
+		/*
+		 * Heal the players Pokemon
+		 */
+		healPokemon();
+		/*
+		 * Now warp them to the last place they were healed
+		 */
+		m_x = m_healX;
+		m_y = m_healY;
+		this.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().
+				getMapByGamePosition(m_healMapX, m_healMapY));
+	}
+	
+	/**
 	 * Heals the player's pokemon
 	 */
 	public void healPokemon() {
-		//TODO: Heal all player's pokemon
+		for (Pokemon pokemon : getParty()) {
+            if (pokemon != null) {
+                    pokemon.calculateStats(true);
+                    pokemon.reinitialise();
+            }
+		}
 		this.setLastHeal(m_x, m_y, m_mapX, m_mapY);
 		m_session.write("cH");
 	}
@@ -161,8 +185,6 @@ public class PlayerChar extends Char implements Battleable {
 	 * Returns the battlefield this player is on.
 	 */
 	public BattleField getBattleField() {
-		if(m_battleField == null)
-			m_battleField = GameServer.getServiceManager().getBattleFieldForPlayer(this);
 		return m_battleField;
 	}
 
@@ -223,6 +245,13 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void setBattling(boolean b) {
 		m_isBattling = b;
+		if(!m_isBattling) {
+			/*
+			 * If the player has finished battling
+			 * kill their battlefield
+			 */
+			m_battleField = null;
+		}
 	}
 
 	/**
@@ -264,8 +293,13 @@ public class PlayerChar extends Char implements Battleable {
 		if(!m_isBattling && !m_isTalking && !m_isShopping && !m_isBoxing) {
 			if(super.move()) {
 				//If the player moved
-				if(this.getMap() != null && this.getMap().isWildBattle(m_x, m_y, this))
-					GameServer.getServiceManager().getBattleService().startWildBattle(this, this.getMap().getWildPokemon(this));
+				if(this.getMap() != null && this.getMap().isWildBattle(m_x, m_y, this)) {
+					GameServer.getServiceManager().getDataService();
+					m_battleField = new WildBattleField(
+							DataService.getBattleMechanics(),
+							this,
+							this.getMap().getWildPokemon(this));
+				}
 				//TODO: Clear requests list
 				return true;
 			}

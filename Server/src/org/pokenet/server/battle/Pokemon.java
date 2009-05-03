@@ -325,6 +325,7 @@ public class Pokemon extends PokemonSpecies {
         m_abilityName = ability;
         m_itemName = item;
         m_ppUp = ppUps;
+        m_name = species.getName();
         initialise();
     }
     
@@ -1112,7 +1113,7 @@ public class Pokemon extends PokemonSpecies {
      * Get the display name of this pokemon (i.e. its nickname).
      */
     public String getName() {
-        return m_nickname;
+        return super.getName();
     }
     
     /**

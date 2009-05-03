@@ -27,6 +27,7 @@ public class NonPlayerChar extends Char {
 	private boolean m_isShop = false;
 	private int m_badge = -1;
 	private ArrayList<Integer> m_speech;
+	private Shop m_shop = null;
 	
 	/**
 	 * Constructor
@@ -67,7 +68,7 @@ public class NonPlayerChar extends Char {
 			p.getSession().write("S");
 		}
 		if(m_possiblePokemon != null && m_minPartySize > 0) {
-			GameServer.getServiceManager().getBattleService().startNpcBattle(p, this);
+			
 		}
 	}
 	

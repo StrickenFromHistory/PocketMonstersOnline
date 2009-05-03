@@ -52,70 +52,38 @@ import org.pokenet.server.feature.TimeService;
  */
 public abstract class BattleField {
    
-    /**
+    /*
      * The number of people who can actually participate. This could be four
      * later, but for now it will always be two.
      */
-    protected final int m_participants = 2;
+    protected int m_participants = 2;
+    /*
+     * Store lists of spectators and effects
+     */
 	private ArrayList<PlayerChar> m_spectators = new ArrayList<PlayerChar>();
-	private ArrayList<PlayerChar> m_players = new ArrayList<PlayerChar>();
     protected ArrayList m_effects = new ArrayList();
+    /*
+     * The Pokemon in this battlefield
+     */
     protected Pokemon[][] m_pokemon;
     protected int[] m_active = { 0, 0 };
     private BattleMechanics m_mechanics;
     private boolean m_narration = true;
-    protected boolean m_isFinished = false;
-    /*
-     * Used for struggle
-     */
-    protected boolean m_forceExecute = false;
-    /*
-     * Set to true when a battle threadlet was launched for this battle
-     */
-    protected boolean m_isThreaded = false;
     /*
      * Needed for request and wait for switch
      * Tells battle threadlets if the player forced to switch, has switched
      */
-    protected boolean [] m_hasSwitched;
-    
-    /**
-     * Returns true if executeTurn should be called even though both parties have not selected moves
-     * @return
+    protected boolean [] m_replace;
+    /*
+     * The dispatch thread
      */
-    public boolean isExecuteForced() {
-    	return m_forceExecute;
-    }
-    
-    /**
-     * Adds a player as a participant
-     * @param p
-     */
-    public void addParticipant(PlayerChar p) {
-    	m_players.add(p);
-    }
+    protected Thread m_dispatch = null;
         
     // Cache of Struggle.
     private static final MoveListEntry m_struggle = MoveList.getDefaultData().getMove("Struggle");
     
     public static MoveListEntry getStruggle() {
         return m_struggle;
-    }
-    
-    /**
-     * Returns true if this battle is finished
-     * @return
-     */
-    public boolean isFinished() {
-    	return m_isFinished;
-    }
-    
-    /**
-     * Sets if this battle is finished
-     * @param b
-     */
-    public void setFinished(boolean b) {
-    	m_isFinished = b;
     }
     
     /**
@@ -160,7 +128,6 @@ public abstract class BattleField {
      * easy to the garbage collector to find and free them.
      */
     public void dispose() {
-    	m_players = null;
     	m_spectators = null;
         m_effects = null;
         m_pokemon = null;
@@ -175,9 +142,9 @@ public abstract class BattleField {
         /*
          * Set m_hasSwitched to 4 to allow for 2 v 2 battles in future
          */
-        m_hasSwitched = new boolean[4];
-        for(int i = 0; i < m_hasSwitched.length; i++)
-        	m_hasSwitched[i] = false;
+        m_replace = new boolean[4];
+        for(int i = 0; i < m_replace.length; i++)
+        	m_replace[i] = false;
         attachField();
         setPokemon(pokemon);
     }
@@ -187,11 +154,6 @@ public abstract class BattleField {
      * Must be implemented by children classes.
      */
     public abstract void applyWeather();
-    
-    /**
-     * Executes a threadlet
-     */
-    public abstract void executeThreadlet();
     
     /**
      * Allows children to construct without pokemon.
@@ -379,22 +341,6 @@ public abstract class BattleField {
     }
     
     /**
-     * Sets if a battle threadlet was launched for this battle
-     * @param b
-     */
-    public void setThreaded(boolean b) {
-    	m_isThreaded = b;
-    }
-    
-    /**
-     * Returns true if a battle threadlet was launched for this battle
-     * @return
-     */
-    public boolean isThreaded() {
-    	return m_isThreaded;
-    }
-    
-    /**
      * Returns a list of the effects of a certain class that are applied to
      * this BattleField.
      */
@@ -449,9 +395,15 @@ public abstract class BattleField {
     public abstract String getTrainerName(int idx);
     
     /**
-     * Request moves for the next turn.
+     * Request moves for the next turn from both players
      */
     protected abstract void requestMoves();
+    
+    /**
+     * Requests a move from a specific player
+     * @param trainer
+     */
+    protected abstract void requestMove(int trainer);
     
     /**
      * Inform that a pokemon's health was changed.
@@ -516,12 +468,6 @@ public abstract class BattleField {
      * Inform that a player has won.
      */
     public abstract void informVictory(int winner);
-    
-    /**
-     * Returns true if both player's have selected their moves
-     * @return
-     */
-    public abstract boolean isReady();
     
     /**
      * Returns the queued battle turns
@@ -705,9 +651,9 @@ public abstract class BattleField {
 
             // Note: shoddy.
             if (comp != 0) {
-                /*if (p1.getField().getEffectByType(SpeedSwapEffect.class) != null) {
+                if (p1.getField().getEffectByType(SpeedSwapEffect.class) != null) {
                     return -comp;
-                }*/
+                }
                 return comp;
             }
             
@@ -819,33 +765,4 @@ public abstract class BattleField {
     }
 
 	public abstract void clearQueue();
-	
-	/**
-	 * Adds a trainer to the battlefield
-	 * @param p
-	 */
-	public void addTrainer(PlayerChar p) {
-		m_players.add(p);
-	}
-	
-	/**
-	 * Returns true if p is participating in this match
-	 * @param p
-	 */
-	public boolean isParticipating(PlayerChar p) {
-		boolean result = false;
-		for(int i = 0; i < m_players.size(); i++) {
-			if(m_players.get(i).getName().equalsIgnoreCase(p.getName())) {
-				result = true;
-				break;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * Executes the battle turns (assumes both battle turns are selected)
-	 */
-	public abstract void executeTurn();
-    
 }

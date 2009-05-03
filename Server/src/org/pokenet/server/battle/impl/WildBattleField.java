@@ -25,7 +25,7 @@ import org.pokenet.server.feature.TimeService;
 public class WildBattleField extends BattleField {
 	private PlayerChar m_player;
 	private Pokemon m_wildPoke;
-	BattleTurn[] m_queuedTurns = new BattleTurn[2];
+	BattleTurn[] m_turn = new BattleTurn[2];
 	private int m_runCount;
 	Set<Pokemon> m_participatingPokemon = new LinkedHashSet<Pokemon>();
 	
@@ -37,11 +37,12 @@ public class WildBattleField extends BattleField {
 	 */
 	public WildBattleField(BattleMechanics m, PlayerChar p, Pokemon wild) {
 		super(m, new Pokemon[][] { p.getParty(), new Pokemon[] { wild }});
+		p.setBattling(true);
 		p.setBattleId(0);
 		p.getSession().write("bi1" + wild.getSpeciesNumber());
 		m_player = p;
-		addParticipant(m_player);
 		applyWeather();
+		requestMoves();
 	}
 
 	/**
@@ -75,7 +76,7 @@ public class WildBattleField extends BattleField {
 
 	@Override
 	public BattleTurn[] getQueuedTurns() {
-		return m_queuedTurns;
+		return m_turn;
 	}
 
 	@Override
@@ -131,17 +132,19 @@ public class WildBattleField extends BattleField {
 			//TODO: Exp gain
 		} else {
 			m_player.getSession().write("b@l");
+			m_player.lostBattle();
 		}
 		m_player.setBattling(false);
-		m_isFinished = true;
-	}
-
-	/**
-	 * Returns true if we are ready to execute the turn
-	 */
-	@Override
-	public boolean isReady() {
-		return (m_queuedTurns[0] != null && m_queuedTurns[1] != null);
+		if (m_dispatch != null) {
+			/*
+			 * This very bad programming but shoddy does it
+			 * and forces us to do it
+			 */
+            Thread t = m_dispatch;
+            m_dispatch = null;
+            dispose();
+            t.stop();
+		}
 	}
 	
 	/**
@@ -150,69 +153,88 @@ public class WildBattleField extends BattleField {
 	@Override
 	public void queueMove(int trainer, BattleTurn move)
 			throws MoveQueueException {
-		if (m_queuedTurns[trainer] == null) {
-			if (move.getId() == -1) {
-				//Struggle
-				if (trainer == 0 && m_queuedTurns[1] != null)
-                    m_forceExecute = true;;
-			} else {
-				//Handle faints
-				if (this.getActivePokemon()[trainer].isFainted()) {
-					 if (!move.isMoveTurn()) {
-						 /*
-						  * If it is not an actual move, 
-						  * it is assumed it was a Pokemon switch.
-						  * So switch in Pokemon and request moves
-						  */
-                         this.switchInPokemon(trainer, move.getId());
-                         requestMoves();
-					 } else {
-						 //Else, request moves from trainer
-						 if (trainer == 0) {
-                             if (m_participatingPokemon.contains(getActivePokemon()[0]))
-                                     m_participatingPokemon.remove(getActivePokemon()[0]);
-                             m_player.getSession().write("bs");
-						 }
-					 }
-				} else {
-					if (move.isMoveTurn()) {
-						//It is a proper move
-						//If struggling, struggle!
-						if (getActivePokemon()[trainer].mustStruggle())
-                            m_queuedTurns[trainer] = BattleTurn.getMoveTurn(-1);
-						else {
-							//Lets try use that move
-							//First check PP, if none, request different move
-							if (this.getActivePokemon()[trainer].getPp(move.getId()) <= 0) {
-                                if (trainer == 0) {
-                                        m_player.getSession().write("bp" +
-                                                        this.getActivePokemon()[trainer].getMoveName(
-                                                                        move.getId()));
-                                        m_player.getSession().write("bm");
-                                } else {
-                                	getWildPokemonMove();
-                                }
-							} else {
-								//Else, queue the move
-								 m_queuedTurns[trainer] = move;
-							}
-						}
-					} else {
-						/* No idea what this part does but it worked in PG */
-						if (this.m_pokemon[trainer][move.getId()].isActive()) {
-                            m_queuedTurns[trainer] = move;
-						} else {
-							if(trainer == 0)
-								m_player.getSession().write("bm");
-							else
-								getWildPokemonMove();
-						}
-					}
-				}
-			}
+		if (m_turn[trainer] == null) {
+			System.out.println("Queueing move for trainer No." + trainer);
+            if (move.getId() == -1) {
+            	if(m_dispatch == null && (trainer == 0 && m_turn[1] != null)) {
+            		m_dispatch = new Thread(new Runnable() {
+                        public void run() {
+                            executeTurn(m_turn);
+                            m_dispatch = null;
+                            System.out.println("Thread ended.");
+                        }
+                    });
+        			System.out.println("Thread created.");
+                    m_dispatch.start();
+        			System.out.println("Thread started.");
+        			return;
+            	}
+            } else {
+                    if (this.getActivePokemon()[trainer].isFainted()) {
+                            if (!move.isMoveTurn()) {
+                                    this.switchInPokemon(trainer, move.getId());
+                                    requestMoves();
+                                    return;
+                            } else {
+                                    if (trainer == 0) {
+                                            /*if (participatingPokemon.contains(getActivePokemon()[0]))
+                                                    participatingPokemon.remove(getActivePokemon()[0]);*/
+                                    	requestPokemonReplacement(0);
+                                    }
+                            }
+                    } else {
+                            if (move.isMoveTurn()) {
+                                    if (getActivePokemon()[trainer].mustStruggle())
+                                            m_turn[trainer] = BattleTurn.getMoveTurn(-1);
+                                    else {
+                                            if (this.getActivePokemon()[trainer].getPp(move.getId()) <= 0) {
+                                                    if (trainer == 0) {
+                                                    	showMessage("Sorry, the move " +
+                                                                            this.getActivePokemon()[trainer].getMoveName(
+                                                                                            move.getId()) + " has no PP left. " +
+                                                            "Select a different move.");
+                                                        requestMove(0);
+                                                        return;
+                                                    } else {
+                                                    	requestMove(1);
+                                                    	return;
+                                                    }
+                                            } else {
+                                                    m_turn[trainer] = move;
+                                            }
+                                    }
+                            } else {
+                                    if (this.m_pokemon[trainer][move.getId()].isActive()) {
+                                            m_turn[trainer] = move;
+                                    } else {
+                                            if (trainer == 0) {
+                                                requestMove(0);
+                                            } else {
+                                            	requestMove(1);
+                                            }
+                                        	return;
+                                    }
+                            }
+                    }
+            }
 		}
-		if(m_queuedTurns[1] == null)
-			getWildPokemonMove();
+		System.out.println(m_turn[trainer]);
+		if(m_dispatch != null)
+			return;
+		if(m_turn[0] != null && m_turn[1] != null) {
+         	m_dispatch = new Thread(new Runnable() {
+                 public void run() {
+                     executeTurn(m_turn);
+                     for (int i = 0; i < m_participants; ++i) {
+                         m_turn[i] = null;
+                     }
+                     m_dispatch = null;
+                 }
+             });
+			System.out.println("Thread created.");
+            m_dispatch.start();
+			System.out.println("Thread started.");
+         }
 	}
 
 	/**
@@ -230,11 +252,19 @@ public class WildBattleField extends BattleField {
 	@Override
 	public void requestAndWaitForSwitch(int party) {
 		if(party == 0) {
-			m_player.getSession().write("bs");
-			/*
-			 * Wait for the player to switch before continuing
-			 */
-			while(!m_hasSwitched[party]);
+	        requestPokemonReplacement(party);
+	        if (!m_replace[party]) {
+	            return;
+	        }
+	        do {
+	            synchronized (m_dispatch) {
+	                try {
+	                    m_dispatch.wait(1000);
+	                } catch (InterruptedException e) {
+
+	                }
+	            }
+	        } while ((m_replace != null) && m_replace[party]);
 		}
 	}
 	
@@ -257,11 +287,11 @@ public class WildBattleField extends BattleField {
 	 */
 	@Override
 	protected void requestMoves() {
-		m_forceExecute = false;
 		clearQueue();
 		if(this.getActivePokemon()[0].isActive() &&
-                this.getActivePokemon()[1].isActive() && !this.isFinished()) {
+                this.getActivePokemon()[1].isActive()) {
 			m_player.getSession().write("bm");
+			getWildPokemonMove();
 		}
 	}
 
@@ -309,7 +339,6 @@ public class WildBattleField extends BattleField {
 		if(canRun()) {
 			m_player.getSession().write("br1");
 			m_player.setBattling(false);
-			m_isFinished = true;
 		} else
 			m_player.getSession().write("br2");
 	}
@@ -319,18 +348,25 @@ public class WildBattleField extends BattleField {
 	 */
 	@Override
 	public void clearQueue() {
-		m_queuedTurns[0] = null;
-		m_queuedTurns[1] = null;
+		m_turn[0] = null;
+		m_turn[1] = null;
 	}
 
+	/**
+	 * Requests a move from a specific player
+	 */
 	@Override
-	public void executeThreadlet() {
-		m_isThreaded = true;
-		new Thread(new BattleThreadlet(this)).start();
-	}
-
-	@Override
-	public void executeTurn() {
-		executeTurn(m_queuedTurns);
+	protected void requestMove(int trainer) {
+		if(trainer == 0) {
+			/*
+			 * If its the player, send a move request packet
+			 */
+			m_player.getSession().write("bm");
+		} else {
+			/*
+			 * If its the wild Pokemon, just get the moves
+			 */
+			getWildPokemonMove();
+		}
 	}
 }
