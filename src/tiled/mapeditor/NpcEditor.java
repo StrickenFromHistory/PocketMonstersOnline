@@ -598,8 +598,13 @@ public class NpcEditor implements ActionListener, MouseListener,
 		m_selectX = e.getX();
 		m_selectY = e.getY();
 		
+		if(m_popup != null) {
+			m_popup.setVisible(false);
+			m_popup.dispose();
+		}
+		
 		m_popup = new JWindow();
-		m_popup.setLocation(e.getX(), e.getY());
+		m_popup.setLocation(e.getX() + appFrame.getX(), e.getY() + appFrame.getY());
 		m_popup.setSize(128, 64);
 		m_popup.setLayout(new GridLayout(0, 1));
 		JButton b1 = new JButton("NPC");
