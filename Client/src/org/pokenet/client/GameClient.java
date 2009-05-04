@@ -80,7 +80,7 @@ public class GameClient extends BasicGame {
 	private Color m_daylight;
 	private static String m_language = "";
 	private ConfirmationDialog m_confirm;
-
+	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
 	 * Load options
 	 */
@@ -432,6 +432,38 @@ public class GameClient extends BasicGame {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * When the close button is pressed... 
+	 * @param args
+	 */
+	public boolean closeRequested(){
+
+		ActionListener yes = new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					System.exit(0);
+					m_close = true;
+				} catch (Exception e) {
+					e.printStackTrace();
+					m_close = true;
+				}
+		
+			}
+		};
+		ActionListener no = new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				m_confirm.setVisible(false);
+				getDisplay().remove(m_confirm);
+				m_confirm = null;
+				m_close = false;
+			}
+		};
+		m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
+		getUi().getDisplay().add(m_confirm);
+		
+		return m_close;
+
+	 }
 
 	/**
 	 * Returns the font in large
@@ -520,6 +552,7 @@ public class GameClient extends BasicGame {
 	public int getPlayerId() {
 		return m_playerId;
 	}
+	 
 	
 	/**
 	 * Resets the client back to the start

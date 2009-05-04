@@ -14,7 +14,6 @@ import org.pokenet.client.GameClient;
  *
  */
 public class ConfirmationDialog extends Frame{
-	private Label m_text;
 	private Button m_yesBtn, m_noBtn;
 
 	/**

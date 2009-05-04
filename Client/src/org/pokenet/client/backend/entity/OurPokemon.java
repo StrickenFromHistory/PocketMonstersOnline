@@ -8,7 +8,7 @@ import org.newdawn.slick.Image;
  * @author ZombieBear
  * 
  */
-import org.newdawn.slick.Image;
+
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 
