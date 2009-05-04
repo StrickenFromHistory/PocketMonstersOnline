@@ -32,7 +32,7 @@ public class ConfirmationDialog extends Frame{
 		m_yesBtn.setSize(30, 20);
 		getContentPane().add(m_yesBtn);
 		
-		m_yesBtn.setText("No");
+		m_noBtn.setText("No");
 		m_noBtn.setSize(30, 20);
 		getContentPane().add(m_noBtn);
 		
@@ -65,6 +65,6 @@ public class ConfirmationDialog extends Frame{
 	 * Sets the No action
 	 */
 	public void addNoListener(ActionListener no){
-		m_yesBtn.addActionListener(no);
+		m_noBtn.addActionListener(no);
 	}
 }
