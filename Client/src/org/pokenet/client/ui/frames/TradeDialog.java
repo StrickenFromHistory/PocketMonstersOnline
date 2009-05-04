@@ -30,6 +30,7 @@ public class TradeDialog extends Frame {
 	private Label m_theirMoneyOffer;
 	private TextField m_ourMoneyOffer;
 	private ActionListener m_offerListener;
+	private ConfirmationDialog m_confirm;
 	
 	/**
 	 * Default constructor
@@ -92,10 +93,25 @@ public class TradeDialog extends Frame {
 	 * Cancels the trade
 	 */
 	private void cancelTrade(){
-		//TODO: Confirmation Dialog
-		//new ConfirmationDialog("Are you sure you want to cancel the trade?");
-		System.out.println("Trade canceled");
-		setVisible(false);
+		ActionListener yes = new ActionListener(){
+			public void actionPerformed(ActionEvent evt) {
+				//TODO: Send cancel packet
+				m_confirm.setVisible(false);
+				getDisplay().remove(m_confirm);
+				m_confirm = null;
+				setVisible(false);
+				System.out.println("Trade Cancelled");
+			}
+		
+		};
+		ActionListener no = new ActionListener(){
+			public void actionPerformed(ActionEvent evt) {
+				getDisplay().remove(m_confirm);
+				m_confirm = null;
+			}
+		
+		};
+		m_confirm = new ConfirmationDialog("Are you sure you want to cancel the trade?", yes, no);
 	}
 	
 	/**
@@ -211,8 +227,25 @@ public class TradeDialog extends Frame {
 		m_tradeBtn.setLocation(90, 50);
 		m_tradeBtn.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent evt) {
-				performTrade();
-			};
+				ActionListener yes = new ActionListener(){
+					public void actionPerformed(ActionEvent evt) {
+						performTrade();
+						setVisible(true);
+					}
+				
+				};
+				ActionListener no = new ActionListener(){
+					public void actionPerformed(ActionEvent evt) {
+						m_confirm.setVisible(false);
+						getDisplay().remove(m_confirm);
+						m_confirm = null;
+						setVisible(true);
+					}
+				
+				};
+				m_confirm = new ConfirmationDialog("Are you sure you want to trade?", yes, no);
+				setVisible(false);
+			}
 		});
 		getContentPane().add(m_tradeBtn);
 		
@@ -253,8 +286,8 @@ public class TradeDialog extends Frame {
 	public void setCenter() {
 		int height = (int) GameClient.getInstance().getDisplay().getHeight();
 		int width = (int) GameClient.getInstance().getDisplay().getWidth();
-		int x = (width / 2) - 130;
-		int y = (height / 2) - 238;
-		this.setBounds(x, y, 259, 475);
+		int x = (width / 2) - ((int)getWidth()/2);
+		int y = (height / 2) - ((int)getHeight()/2);
+		this.setLocation(x, y);
 	}
 }
