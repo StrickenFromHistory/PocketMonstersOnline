@@ -295,7 +295,6 @@ public class GameClient extends BasicGame {
 		
 		if (key == (Input.KEY_ESCAPE)) {
 			ActionListener yes = new ActionListener() {
-				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					try {
 						System.exit(0);
@@ -306,7 +305,6 @@ public class GameClient extends BasicGame {
 				}
 			};
 			ActionListener no = new ActionListener() {
-				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					m_ui.remove(m_confirm);
 					m_confirm = null;
