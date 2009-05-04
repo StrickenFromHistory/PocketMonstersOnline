@@ -3,6 +3,8 @@ package org.pokenet.client.ui.frames;
 import java.util.HashMap;
 import java.util.List;
 
+import org.newdawn.slick.Image;
+import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.network.PacketGenerator;
 
@@ -43,7 +45,14 @@ public class ShopDialog extends Frame {
 //		m_itemslist.put("Pokeball", 200);
 //		m_itemslist.put("Greatball", 600);
 		
-		m_categoryButtons[0] = new Button("Pokeballs");
+		m_categoryButtons[0] = new Button("Pokeballs\n\n\n\n\n");
+		LoadingList.setDeferredLoading(true);
+		try{
+			m_categoryButtons[0].setImage(new Image("res/ui/shop/pokeball.png"));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		LoadingList.setDeferredLoading(false);
 		m_categoryButtons[0].setSize(150, 160);
 		m_categoryButtons[0].setLocation(0,0);
 		m_categoryButtons[0].setFont(GameClient.getFontLarge());
@@ -54,7 +63,14 @@ public class ShopDialog extends Frame {
 		});
 		getContentPane().add(m_categoryButtons[0]);
 		
-		m_categoryButtons[1] = new Button("Potions");
+		m_categoryButtons[1] = new Button("Potions\n\n\n\n\n");
+		LoadingList.setDeferredLoading(true);
+		try{
+			m_categoryButtons[1].setImage(new Image("res/ui/shop/potion.png"));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		LoadingList.setDeferredLoading(false);
 		m_categoryButtons[1].setSize(150, 160);
 		m_categoryButtons[1].setLocation(151, 0);
 		m_categoryButtons[1].setFont(GameClient.getFontLarge());
@@ -65,7 +81,14 @@ public class ShopDialog extends Frame {
 		});
 		getContentPane().add(m_categoryButtons[1]);
 		
-		m_categoryButtons[2] = new Button("Status Healers");
+		m_categoryButtons[2] = new Button("Status Healers\n\n\n\n\n");
+		LoadingList.setDeferredLoading(true);
+		try{
+			m_categoryButtons[2].setImage(new Image("res/ui/shop/status.png"));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		LoadingList.setDeferredLoading(false);
 		m_categoryButtons[2].setSize(150, 160);
 		m_categoryButtons[2].setLocation(0,161);
 		m_categoryButtons[2].setFont(GameClient.getFontLarge());
@@ -76,7 +99,14 @@ public class ShopDialog extends Frame {
 		});
 		getContentPane().add(m_categoryButtons[2]);
 		
-		m_categoryButtons[3] = new Button("Field Tools");
+		m_categoryButtons[3] = new Button("Field Tools\n\n\n\n\n");
+		LoadingList.setDeferredLoading(true);
+		try{
+			m_categoryButtons[3].setImage(new Image("res/ui/shop/field.png"));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		LoadingList.setDeferredLoading(false);
 		m_categoryButtons[3].setSize(150, 160);
 		m_categoryButtons[3].setLocation(151,161);
 		m_categoryButtons[3].setFont(GameClient.getFontLarge());
