@@ -96,8 +96,13 @@ public class WildBattleField extends BattleField {
 
 	@Override
 	public void informPokemonHealthChanged(Pokemon poke, int change) {
-		if(m_player != null)
-			m_player.getSession().write("bH" + poke.getSpeciesName() + "," + change);
+		if(m_player != null) {
+			if(getActivePokemon()[0] == poke) {
+				m_player.getSession().write("bh0," + change);
+			} else {
+				m_player.getSession().write("bh1," + change);
+			}
+		}
 	}
 
 	@Override
@@ -161,12 +166,9 @@ public class WildBattleField extends BattleField {
                         public void run() {
                             executeTurn(m_turn);
                             m_dispatch = null;
-                            System.out.println("Thread ended.");
                         }
                     });
-        			System.out.println("Thread created.");
                     m_dispatch.start();
-        			System.out.println("Thread started.");
         			return;
             	}
             } else {
@@ -209,8 +211,6 @@ public class WildBattleField extends BattleField {
                                     } else {
                                             if (trainer == 0) {
                                                 requestMove(0);
-                                            } else {
-                                            	requestMove(1);
                                             }
                                         	return;
                                     }
@@ -218,7 +218,10 @@ public class WildBattleField extends BattleField {
                     }
             }
 		}
-		System.out.println(m_turn[trainer]);
+		/*if(trainer == 0 && m_turn[1] == null) {
+			requestMove(1);
+			return;
+		}*/
 		if(m_dispatch != null)
 			return;
 		if(m_turn[0] != null && m_turn[1] != null) {
@@ -231,9 +234,7 @@ public class WildBattleField extends BattleField {
                      m_dispatch = null;
                  }
              });
-			System.out.println("Thread created.");
             m_dispatch.start();
-			System.out.println("Thread started.");
          }
 	}
 
