@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Display;
+import mdes.slick.sui.event.ActionEvent;
+import mdes.slick.sui.event.ActionListener;
 
 import org.apache.mina.common.ConnectFuture;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
@@ -43,6 +45,7 @@ import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
 import org.pokenet.client.ui.Ui;
+import org.pokenet.client.ui.frames.ConfirmationDialog;
 import org.pokenet.client.ui.frames.MessageDialog;
 
 /**
@@ -76,6 +79,7 @@ public class GameClient extends BasicGame {
 	private Ui m_ui;
 	private Color m_daylight;
 	private static String m_language = "";
+	private ConfirmationDialog m_confirm;
 
 	/**
 	 * Load options
@@ -290,11 +294,29 @@ public class GameClient extends BasicGame {
 		}
 		
 		if (key == (Input.KEY_ESCAPE)) {
-			try {
-				System.exit(0);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			ActionListener yes = new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					try {
+						System.exit(0);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+			
+				}
+			};
+			ActionListener no = new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					m_ui.remove(m_confirm);
+					m_confirm = null;
+					
+				}
+			};
+			m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
+			m_ui.add(m_confirm);
+			
+			
 		}
 		if(m_ui.getNPCSpeech() == null && m_ui.getLocalChat().isActive()==false && !m_login.isVisible()){
 			if(m_ourPlayer != null && !m_isNewMap

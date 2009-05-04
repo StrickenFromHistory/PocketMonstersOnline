@@ -117,17 +117,6 @@ public class ShopDialog extends Frame {
 		});
 		getContentPane().add(m_categoryButtons[3]);
 		
-//		m_categoryButtons[4] = new Button("Cancel");
-//		m_categoryButtons[4].setSize(5,5);
-//		m_categoryButtons[4].setLocation(0,325);
-//		m_categoryButtons[4].setFont(GameClient.getFontLarge());
-//		m_categoryButtons[4].addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				cancelled();
-//			}
-//		});
-//		getContentPane().add(m_categoryButtons[4]);
-		
 		m_cancel = new Button("Cancel");
 		m_cancel.setSize(300,56);
 		m_cancel.setLocation(0,321);
