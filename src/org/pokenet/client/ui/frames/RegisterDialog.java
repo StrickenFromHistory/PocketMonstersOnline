@@ -4,16 +4,17 @@ import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
-import org.newdawn.slick.Color;
-import org.newdawn.slick.Image;
-import org.pokenet.client.GameClient;
-
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
 import mdes.slick.sui.TextField;
+import mdes.slick.sui.ToggleButton;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
+
+import org.newdawn.slick.Color;
+import org.newdawn.slick.Image;
+import org.pokenet.client.GameClient;
 
 /**
  * Handles registration dialog
@@ -22,7 +23,7 @@ import mdes.slick.sui.event.ActionListener;
  */
 public class RegisterDialog extends Frame{
 	private TextField m_username, m_password, m_confirmPass, m_email, m_confirmEmail, m_day, m_month, m_year;
-	private Button [] m_starters;
+	private ToggleButton [] m_starters;
 	private Label m_u, m_p, m_cp, m_d, m_e, m_ce, m_s, m_g, m_tos;
 	private Button m_register, m_cancel, m_male, m_female, m_terms;
 	private int m_starter = 1;
@@ -219,9 +220,9 @@ public class RegisterDialog extends Frame{
 	 */
 	private void generateStarters() {
 		try {
-			m_starters = new Button[12];
+			m_starters = new ToggleButton[12];
 			for(int i = 0; i < m_starters.length; i++) {
-				m_starters[i] = new Button();
+				m_starters[i] = new ToggleButton();
 				m_starters[i].setSize(32, 32);
 				m_starters[i].setVisible(true);
 			}
@@ -375,44 +376,44 @@ public class RegisterDialog extends Frame{
 	 */
 	private void selectStarter(int m_starter) {
 		for(int i = 0; i < m_starters.length; i++) {
-			m_starters[i].setEnabled(true);
+			m_starters[i].setSelected(false);
 		}
 		switch(m_starter) {
 		case 1:
-			m_starters[0].setEnabled(false);
+			m_starters[0].setSelected(true);
 			break;
 		case 4:
-			m_starters[4].setEnabled(false);
+			m_starters[4].setSelected(true);
 			break;
 		case 7:
-			m_starters[8].setEnabled(false);
+			m_starters[8].setSelected(true);
 			break;
 		case 152:
-			m_starters[1].setEnabled(false);
+			m_starters[1].setSelected(true);
 			break;
 		case 155:
-			m_starters[5].setEnabled(false);
+			m_starters[5].setSelected(true);
 			break;
 		case 158:
-			m_starters[9].setEnabled(false);
+			m_starters[9].setSelected(true);
 			break;
 		case 252:
-			m_starters[2].setEnabled(false);
+			m_starters[2].setSelected(true);
 			break;
 		case 255:
-			m_starters[6].setEnabled(false);
+			m_starters[6].setSelected(true);
 			break;
 		case 258:
-			m_starters[10].setEnabled(false);
+			m_starters[10].setSelected(true);
 			break;
 		case 387:
-			m_starters[3].setEnabled(false);
+			m_starters[3].setSelected(true);
 			break;
 		case 390:
-			m_starters[7].setEnabled(false);
+			m_starters[7].setSelected(true);
 			break;
 		case 393:
-			m_starters[11].setEnabled(false);
+			m_starters[11].setSelected(true);
 			break;
 		}
 	}
