@@ -218,10 +218,10 @@ public class WildBattleField extends BattleField {
                     }
             }
 		}
-		/*if(trainer == 0 && m_turn[1] == null) {
+		if(trainer == 0 && m_turn[1] == null) {
 			requestMove(1);
 			return;
-		}*/
+		}
 		if(m_dispatch != null)
 			return;
 		if(m_turn[0] != null && m_turn[1] != null) {
