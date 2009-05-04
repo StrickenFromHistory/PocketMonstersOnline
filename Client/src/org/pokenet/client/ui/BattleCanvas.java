@@ -39,12 +39,12 @@ public class BattleCanvas extends Container {
 	public BattleCanvas(){
 		setSize(257, 144);
 		setVisible(true);
+		positionCanvas();
 		drawBackground();
 		drawOurPoke();
 		drawEnemyPoke();
 		drawOurInfo();
 		drawEnemyInfo();
-		positionCanvas();
 	}
 	
 	/**
