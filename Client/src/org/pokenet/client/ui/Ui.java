@@ -148,7 +148,7 @@ public class Ui extends Frame {
 			String [] speech = m.substring(1).split(",");
 			String result = "";
 			for(int i = 0; i < speech.length; i++) {
-				result += GameClient.getInstance().getMapMatrix().getSpeech(Integer.parseInt(speech[i])) + "\n";
+				result += GameClient.getInstance().getMapMatrix().getSpeech(Integer.parseInt(speech[i])) + "/n";
 			}
 			try {
 				talkToNPC(result);
