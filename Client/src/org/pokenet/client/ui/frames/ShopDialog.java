@@ -1,15 +1,18 @@
 package org.pokenet.client.ui.frames;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.beans.Item;
 import org.pokenet.client.network.PacketGenerator;
 
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Button;
+import mdes.slick.sui.Label;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
@@ -21,7 +24,8 @@ import mdes.slick.sui.event.ActionListener;
 public class ShopDialog extends Frame {
 	private Button[] m_categoryButtons;
 	private Button[] m_itemButtons;
-
+	private Label[] m_itemPics;
+	List<Item> m_items;
 	private Button m_cancel;
 	// string being the item name and integer being item quantity
 //	private List<Integer> m_merch;
@@ -35,15 +39,27 @@ public class ShopDialog extends Frame {
 		initGUI();
 	}
 	
-	public void itemClicked(int name) {
+	public void categoryClicked(int name) {
 //		packetGen.write("x" + name);
+		m_items = new ArrayList<Item>();
 		switch(name){
 		case 0:
-			initPokeballs();
+			m_items = Item.generatePokeballs();
+			initItems();
+			break;
+		case 1:
+			m_items = Item.generatePotions();
+			initItems();
+			break;
+		case 2:
+			m_items = Item.generateStatusHeals();
+			initItems();
+			break;
+		case 3:
+			m_items = Item.generateFieldItems();
+			initItems();
 			break;
 		}
-		
-		
 	}
 	
 	public void initGUI() {
@@ -62,7 +78,7 @@ public class ShopDialog extends Frame {
 		m_categoryButtons[0].setFont(GameClient.getFontLarge());
 		m_categoryButtons[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				itemClicked(0);
+				categoryClicked(0);
 			}
 		});
 		getContentPane().add(m_categoryButtons[0]);
@@ -80,7 +96,7 @@ public class ShopDialog extends Frame {
 		m_categoryButtons[1].setFont(GameClient.getFontLarge());
 		m_categoryButtons[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				itemClicked(1);
+				categoryClicked(1);
 			}
 		});
 		getContentPane().add(m_categoryButtons[1]);
@@ -98,7 +114,7 @@ public class ShopDialog extends Frame {
 		m_categoryButtons[2].setFont(GameClient.getFontLarge());
 		m_categoryButtons[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				itemClicked(2);
+				categoryClicked(2);
 			}
 		});
 		getContentPane().add(m_categoryButtons[2]);
@@ -116,7 +132,7 @@ public class ShopDialog extends Frame {
 		m_categoryButtons[3].setFont(GameClient.getFontLarge());
 		m_categoryButtons[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				itemClicked(3);
+				categoryClicked(3);
 			}
 		});
 		getContentPane().add(m_categoryButtons[3]);
@@ -147,77 +163,58 @@ public class ShopDialog extends Frame {
 		setVisible(true);
 	}
 	
-	private void initPokeballs() {
-//		cancelled();
+	private void initItems() {
 		setCenter();
 		for(int i=0;i<m_categoryButtons.length;i++){
 			getContentPane().remove(m_categoryButtons[i]);
 		}
-		m_itemButtons = new Button[3];
-		
-		m_itemButtons[0] = new Button("Pokeball - $200\n\n\n     200 left");
-		LoadingList.setDeferredLoading(true);
-		try{
-			m_itemButtons[0].setImage(new Image("res/items/pokeball.png"));
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		LoadingList.setDeferredLoading(false);
-//		m_itemButtons[0].setSize(300, 50);
-//		m_itemButtons[0].setLocation(0,0);
-		m_itemButtons[0].setFont(GameClient.getFontLarge());
-		m_itemButtons[0].addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				itemClicked("Pokeballs");
+		getContentPane().remove(m_cancel);
+		m_itemButtons = new Button[m_items.size()];
+		m_itemPics = new Label[m_items.size()];
+		for(int i = 0;i<m_items.size();i++){
+			m_itemButtons[i] = new Button("    "+m_items.get(i).getName()+" - $"+m_items.get(i).getCost()+"     "+m_items.get(i).getAvailable()+" left");
+			m_itemButtons[i].setSize(300, 50);
+			if(i>0)
+				m_itemButtons[i].setLocation(0,(m_itemButtons[i-1].getY()+51));
+			else
+				m_itemButtons[i].setLocation(0,0);
+			m_itemButtons[i].setZIndex(0);
+			m_itemButtons[i].setFont(GameClient.getFontLarge());
+			m_itemButtons[i].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+//					itemClicked("Pokeballs");
+				}
+			});
+			getContentPane().add(m_itemButtons[i]);
+			LoadingList.setDeferredLoading(true);
+			try{
+				m_itemPics[i] = new Label(new Image("/res/items/"+m_items.get(i).getPicname()+".png"));
+				m_itemPics[i].setGlassPane(true);
+				m_itemPics[i].setSize(32,32);
+				if(i>0)
+					m_itemPics[i].setLocation(0,(m_itemPics[i-1].getY()+51));
+				else
+					m_itemPics[i].setLocation(0,12);
+				m_itemPics[i].setZIndex(1000);
+				getContentPane().add(m_itemPics[i]);
+			}catch(Exception e){
+				e.printStackTrace();
 			}
-		});
-		getContentPane().add(m_itemButtons[0]);
-		
-		m_itemButtons[1] = new Button("Greatball - $600\n\n\n     150 left");
-		LoadingList.setDeferredLoading(true);
-		try{
-			m_itemButtons[1].setImage(new Image("res/items/pokeball.png"));
-		}catch(Exception e){
-			e.printStackTrace();
 		}
-		LoadingList.setDeferredLoading(false);
-//		m_itemButtons[1].setSize(300, 50);
-//		m_itemButtons[1].setLocation(0,51);
-		m_itemButtons[1].setFont(GameClient.getFontLarge());
-		m_itemButtons[1].addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				itemClicked("Pokeballs");
-			}
-		});
-		getContentPane().add(m_itemButtons[1]);
-		
-		m_itemButtons[2] = new Button("Ultraball - $1000\n\n\n      20 left");
-		LoadingList.setDeferredLoading(true);
-		try{
-			m_itemButtons[2].setImage(new Image("res/items/pokeball.png"));
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		LoadingList.setDeferredLoading(false);
-//		m_itemButtons[2].setSize(300, 50);
-//		m_itemButtons[2].setLocation(0,51);
-		m_itemButtons[2].setFont(GameClient.getFontLarge());
-		m_itemButtons[2].addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				itemClicked("Pokeballs");
-			}
-		});
-		getContentPane().add(m_itemButtons[2]);
 		
 		m_cancel = new Button("Cancel");
 		m_cancel.setSize(300,40);
-		m_cancel.setLocation(0,341);
+		m_cancel.setLocation(0,336);
 		m_cancel.setFont(GameClient.getFontLarge());
 		m_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for(int i=0;i<m_itemButtons.length;i++){
 					getContentPane().remove(m_itemButtons[i]);
 				}
+				for(int i=0;i<m_itemPics.length;i++){
+					getContentPane().remove(m_itemPics[i]);
+				}
+				getContentPane().remove(m_cancel);
 				initGUI();
 			}
 		});
@@ -231,19 +228,19 @@ public class ShopDialog extends Frame {
 					}
 				});
 		
-		setTitle("Pokeballs");
+		setTitle("Potions");
 		setResizable(false);
 		setHeight(400);
 		setWidth(300);
 		pack();
-		for (int i = 0; i < m_itemButtons.length; i++) {
-			if (i > 0)
-				m_itemButtons[i].setLocation(0,m_itemButtons[i-1].getY() + m_itemButtons[i-1].getHeight());
-			m_itemButtons[i].setSize(getWidth(),(getHeight() - 60)/ m_itemButtons.length);
-		}
+//		for (int i = 0; i < m_itemButtons.length; i++) {
+//			if (i > 0)
+//				m_itemButtons[i].setLocation(0,m_itemButtons[i-1].getY() + m_itemButtons[i-1].getHeight());
+//			m_itemButtons[i].setSize(getWidth(),(getHeight() - 60)/ m_itemButtons.length);
+//		}
 		setVisible(true);
 	}
-
+	
 	public void cancelled() {
 //		packetGen.write("F");
 		setVisible(false);
