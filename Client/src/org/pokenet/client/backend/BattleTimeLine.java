@@ -108,18 +108,25 @@ public class BattleTimeLine {
 	 */
 	public void informHealthChanged(String[] data, int i){
 		if (i == 0){
-			m_canvas.updatePlayerHP(Integer.parseInt(data[1]));
+			GameClient.getInstance().getUi().getBattleManager().getCurPoke().setCurHP(GameClient
+					.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() + 
+					Integer.parseInt(data[1]));
+			m_canvas.updatePlayerHP(GameClient.getInstance().getUi().getBattleManager().getCurPoke()
+					.getCurHP());
 			data[0] = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getName();
 		} else {
-			m_canvas.updateEnemyHP(Integer.parseInt(data[1]));
+			GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().setCurHP(GameClient
+					.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() + 
+					Integer.parseInt(data[1]));
+			m_canvas.updateEnemyHP(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke()
+					.getCurHP());
 			data[0] = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getName();
 		}
 		
-		if (Integer.parseInt(data[2]) >= 0){
-			m_narrator.addSpeech(data[0] + " took " + data[1] + " damage.");
+		if (Integer.parseInt(data[1]) <= 0){
+			addSpeech(data[0] + " took " + data[1].substring(1) + " damage.");
 		} else {
-			
-			m_narrator.addSpeech(data[0] + " recovered " + data[1] + " HP.");
+			addSpeech(data[0] + " recovered " + data[1] + " HP.");
 		}
 	}
 	
