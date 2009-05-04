@@ -107,12 +107,15 @@ public class BattleTimeLine {
 	 * @param i
 	 */
 	public void informHealthChanged(String[] data, int i){
-		if (i == 0)
+		if (i == 0){
 			m_canvas.updatePlayerHP(Integer.parseInt(data[1]));
-		else
+			data[0] = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getName();
+		} else {
 			m_canvas.updateEnemyHP(Integer.parseInt(data[1]));
+			data[0] = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getName();
+		}
 		
-		if (Integer.parseInt(data[1]) >= 0){
+		if (Integer.parseInt(data[2]) >= 0){
 			m_narrator.addSpeech(data[0] + " took " + data[1] + " damage.");
 		} else {
 			
@@ -125,6 +128,7 @@ public class BattleTimeLine {
 	 */
 	public void informVictory(){
 		m_narrator.addSpeech(GameClient.getInstance().getOurPlayer().getUsername() + " won the battle!");
+		GameClient.getInstance().getUi().getBattleManager().endBattle();
 	}
 	
 	/**

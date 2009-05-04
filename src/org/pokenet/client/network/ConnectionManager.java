@@ -157,10 +157,6 @@ public class ConnectionManager extends IoHandlerAdapter {
 					break;
 				}
 				break;
-			case 'H':
-				//A Pokemon lost health (a battle message) -> bHPOKEMON,CHANGE
-				//Deprecated
-				break;
 			case 'r':
 				//The player tried to run ->bHSUCCESS
 				switch(message.charAt(2)) {
