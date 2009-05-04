@@ -68,6 +68,16 @@ public class BattleManager {
 		GameClient.getInstance().getDisplay().add(m_battle);
 		m_timeLine = new BattleTimeLine();
 	}
+	
+	/**
+	 * Ends the battle
+	 */
+	public void endBattle() {
+		GameClient.getInstance().getDisplay().remove(m_battle);
+		m_battle = null;
+		m_timeLine.stop();
+		m_timeLine = null;	
+	}
 
 	/**
 	 * Returns the TimeLine

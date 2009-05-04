@@ -1,5 +1,6 @@
 package org.pokenet.client;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
@@ -29,7 +30,6 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.backend.Animator;
-import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
 import org.pokenet.client.backend.entity.OurPlayer;
@@ -339,7 +339,7 @@ public class GameClient extends BasicGame {
 			}
 		}
 		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) ) {
-			if(m_ui.getNPCSpeech() == null){
+			if(m_ui.getNPCSpeech() == null && getUi().getBattleManager().getBattleWindow() == null){
 				m_packetGen.write("Ct");
 			}
 			/*} else if (getLogin().getSpeechy() != null) {
@@ -597,4 +597,34 @@ public class GameClient extends BasicGame {
     	m_language = lang;
     	return m_language;
     }
+    
+    /**
+    * Slick Native library finder.
+    */
+    /*static {
+		String s = File.separator;
+      	// Modify this to point to the location of the native libraries.
+      	String newLibPath = System.getProperty("user.dir") + s + "lib" + s + "native";
+      	System.setProperty("java.library.path", newLibPath);
+
+      	Field fieldSysPath = null;
+      	try {
+        	fieldSysPath = ClassLoader.class.getDeclaredField("sys_paths");
+      	} catch (SecurityException e) {
+        	e.printStackTrace();
+      	} catch (NoSuchFieldException e) {
+        	e.printStackTrace();
+      	}
+
+      	if (fieldSysPath != null) {
+        	try {
+          		fieldSysPath.setAccessible(true);
+          		fieldSysPath.set(System.class.getClassLoader(), null);
+        	} catch (IllegalArgumentException e) {
+          		e.printStackTrace();
+        	} catch (IllegalAccessException e) {
+          		e.printStackTrace();
+        	}
+      	}
+    }*/
 }

@@ -84,8 +84,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 			//Battle information
 			switch(message.charAt(1)) {
 			case 'i':
-				//Battle started -> biPOKEDEXNUMBER
+				//Battle started -> biISWILD,POKEDEXNUMBER
 				GameClient.getInstance().getUi().getBattleManager().startBattle();
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informMoveRequested();
 				break;
 			case 'p':
 				//No PP left for move -> bpMOVENAME
@@ -117,7 +118,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'm':
 				//Move requested
-				GameClient.getInstance().getUi().getBattleManager().requestMoves();
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informMoveRequested();
 				break;
 			case '.':
 				//Exp gain -> b.POKEMON,EXPAMOUNT
@@ -164,11 +165,11 @@ public class ConnectionManager extends IoHandlerAdapter {
 				//The player tried to run ->bHSUCCESS
 				switch(message.charAt(2)) {
 				case '1':
-					//Our pokemon's health
+					//Successfully ran away
 					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informRun(true);
 					break;
 				case '2':
-					//Enemy pokemon's health
+					//Failed to run away
 					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informRun(false);
 					break;
 				}
