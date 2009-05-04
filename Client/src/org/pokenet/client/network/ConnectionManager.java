@@ -209,6 +209,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 					break;
 				case 'H':
 					//Player's pokemon were healed
+					for (int i = 0; i < GameClient.getInstance().getOurPlayer().getPokemon().length; i++){
+						GameClient.getInstance().getOurPlayer().getPokemon()[i].setCurHP(
+								GameClient.getInstance().getOurPlayer().getPokemon()[i].getMaxHP());
+					}
 					break;
 				default:
 					break;
