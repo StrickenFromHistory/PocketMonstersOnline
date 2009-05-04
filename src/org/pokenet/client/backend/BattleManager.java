@@ -62,6 +62,7 @@ public class BattleManager {
 		getPlayerData();
 		getEnemyData();
 		m_battle = new BattleWindow("Battle!", true);
+		m_battle.disableMoves();
 		updateMoves(0);
 		updatePokePane();
 		System.out.println("BattleWindow Loaded");

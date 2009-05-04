@@ -167,6 +167,10 @@ public class BattleCanvas extends Container {
         }
 	}
 
+	/**
+	 * Updates the HP bar for the opponent's poke
+	 * @param newValue
+	 */
 	public void updateEnemyHP(int newValue) {
 		enemyHP.setValue(newValue);
 
