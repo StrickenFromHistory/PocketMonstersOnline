@@ -43,7 +43,7 @@ public class SpeechFrame extends Frame {
      */
     public SpeechFrame(String speech) {
             speechQueue = new LinkedList<String>();
-            for (String line : speech.split("\n")) {
+            for (String line : speech.split("/n")) {
                     speechQueue.add(line);
             }
             triangulate();

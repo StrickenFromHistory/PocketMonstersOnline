@@ -1,5 +1,9 @@
 package org.pokenet.client.network;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
 import org.newdawn.slick.SlickException;
@@ -9,6 +13,7 @@ import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
 import org.pokenet.client.backend.time.WeatherService.Weather;
 import org.pokenet.client.ui.frames.NPCSpeechFrame;
+import org.pokenet.client.ui.frames.ShopDialog;
 
 /**
  * Handles packets received from the server
@@ -62,6 +67,15 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 'S':
 			//Shop
+			List<Integer> merch = new ArrayList<Integer>();
+			String items = "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1";
+			String[] merchData = items.split(",");
+			
+			for (int i = 1; i < merchData.length; i++) {
+				merch.add(Integer.parseInt(merchData[i]));
+			}
+			GameClient.getInstance().getDisplay().add(new ShopDialog(merch, GameClient.getInstance().getPacketGenerator()));
+
 			break;
 		case 'B':
 			//Box access - receiving a string of pokedex numbers, e.g. B15,23,24,
