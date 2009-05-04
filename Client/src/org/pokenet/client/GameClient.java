@@ -306,15 +306,13 @@ public class GameClient extends BasicGame {
 			};
 			ActionListener no = new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					m_ui.remove(m_confirm);
+					m_confirm.setVisible(false);
+					getDisplay().remove(m_confirm);
 					m_confirm = null;
-					
 				}
 			};
 			m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
-			m_ui.add(m_confirm);
-			
-			
+			getUi().getDisplay().add(m_confirm);
 		}
 		if(m_ui.getNPCSpeech() == null && m_ui.getLocalChat().isActive()==false && !m_login.isVisible()){
 			if(m_ourPlayer != null && !m_isNewMap
