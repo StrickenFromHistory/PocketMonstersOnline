@@ -429,6 +429,7 @@ public class BattleWindow extends Frame {
 	 * Shows the attack Pane
 	 */
 	public void showAttack() {
+		enableMoves();
 		pokesContainer.setVisible(false);
 		// bagPane.setVisible(false);
 		attackPane.setVisible(true);

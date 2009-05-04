@@ -35,7 +35,18 @@ public class BattleTimeLine {
 	 * @param poke
 	 */
 	public void informFaintedPoke(String poke){
-		m_narrator.addSpeech(poke + " fainted.");
+		addSpeech(poke + " fainted.");
+		for (int i = 0; i < GameClient.getInstance().getOurPlayer().getPokemon().length; i++){
+			int counter = 0;
+			if (GameClient.getInstance().getOurPlayer().getPokemon()[i].getCurHP() <= 0){
+				counter++;
+			}
+			if (counter < i){
+				GameClient.getInstance().getUi().getBattleManager().getBattleWindow().showPokePane(true);
+				addSpeech("Please select a new Pokemon");
+				break;
+			}
+		}
 	}
 	
 	/**
@@ -43,13 +54,14 @@ public class BattleTimeLine {
 	 * @param data
 	 */
 	public void informMoveUsed(String[] data){
-		m_narrator.addSpeech(data[0] + " used " + data[1]);
+		addSpeech(data[0] + " used " + data[1]);
 	}
 	
 	/**
 	 * Informs that a move is requested
 	 */
 	public void informMoveRequested(){
+		GameClient.getInstance().getUi().getBattleManager().requestMoves();
 		m_narrator.addSpeech("Waiting on your move.");
 	}
 	
@@ -82,6 +94,10 @@ public class BattleTimeLine {
 	 * @param data
 	 */
 	public void informSwitch(String[] data){
+		m_canvas.drawOurPoke();
+		m_canvas.drawOurInfo();
+		m_canvas.drawEnemyPoke();
+		m_canvas.drawEnemyInfo();
 		m_narrator.addSpeech(data[0] + " sent out " + data[1]);
 	}
 	
@@ -91,10 +107,17 @@ public class BattleTimeLine {
 	 * @param i
 	 */
 	public void informHealthChanged(String[] data, int i){
-		if (Integer.parseInt(data[1]) >= 0)
-			m_narrator.addSpeech(data[0] + " took " + data[1] + " damage.");
+		if (i == 0)
+			m_canvas.updatePlayerHP(Integer.parseInt(data[1]));
 		else
+			m_canvas.updateEnemyHP(Integer.parseInt(data[1]));
+		
+		if (Integer.parseInt(data[1]) >= 0){
+			m_narrator.addSpeech(data[0] + " took " + data[1] + " damage.");
+		} else {
+			
 			m_narrator.addSpeech(data[0] + " recovered " + data[1] + " HP.");
+		}
 	}
 	
 	/**
@@ -109,6 +132,7 @@ public class BattleTimeLine {
 	 */
 	public void informLoss(){
 		m_narrator.addSpeech(GameClient.getInstance().getOurPlayer().getUsername() + " was defeated!");
+		GameClient.getInstance().getUi().getBattleManager().endBattle();
 	}
 	
 	/**
@@ -116,7 +140,7 @@ public class BattleTimeLine {
 	 * @param msg
 	 */
 	public void showMessage(String msg){
-		m_narrator.addSpeech(msg);
+		addSpeech(msg);
 	}
 	
 	/**
@@ -125,11 +149,22 @@ public class BattleTimeLine {
 	 */
 	public void informRun(boolean canRun){
 		if (canRun){
-			m_narrator.addSpeech("You got away succesfully.");
-			//TODO: End Battle
+			addSpeech("You got away succesfully.");
+			GameClient.getInstance().getUi().getBattleManager().endBattle();
 		} else {
-			m_narrator.addSpeech("You failed to run away.");
+			addSpeech("You failed to run away.");
+			informMoveRequested();
 		}
+	}
+	
+	/**
+	 * Adds speech to the narrator and waits for it to be read before the next action is taken
+	 * @param msg
+	 */
+	public void addSpeech(String msg){
+		m_narrator.addSpeech(msg);
+		while (!m_narrator.getCurrentLine().equalsIgnoreCase(msg));
+		while (!m_narrator.getAdvancedLine().equalsIgnoreCase(msg));
 	}
 	
 	/**
@@ -138,5 +173,15 @@ public class BattleTimeLine {
 	 */
 	public BattleSpeechFrame getBattleSpeech(){
 		return m_narrator;
+	}
+	
+	/**
+	 * Stops the timeline
+	 */
+	public void stop(){
+		GameClient.getInstance().getDisplay().remove(m_canvas);
+		GameClient.getInstance().getDisplay().remove(m_narrator);
+		m_canvas = null;
+		m_narrator = null;
 	}
 }
