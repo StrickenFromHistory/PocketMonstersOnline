@@ -217,8 +217,9 @@ public class BattleWindow extends Frame {
 			}
 		});
 
-		/*cancel = BattleButtonFactory.getSmallButton("Cancel");
+		cancel = BattleButtonFactory.getSmallButton("Cancel");
 		attackPane.add(cancel);
+		cancel.setVisible(false);
 		cancel.setLocation(162, 110);
 		cancel.setSize(82, 48);
 
@@ -227,7 +228,7 @@ public class BattleWindow extends Frame {
 
 			}
 		});
-		*/
+		
 		confirmPane.setBounds(2, 140, 257, 201);
 		attackPane.setBounds(2, 140, 257, 201);
 		getContentPane().add(attackPane);
@@ -396,6 +397,15 @@ public class BattleWindow extends Frame {
 	 * Enables moves
 	 */
 	public void enableMoves() {
+		jBtnPoke.setEnabled(true);
+		jBtnBag.setEnabled(true);
+		if (!isWild) {
+			jBtnRun.setEnabled(false);
+		} else {
+			jBtnRun.setEnabled(true);
+		}
+
+		pokeCancelBtn.setEnabled(true);
 		if (!move1.getText().equals("")) {
 			move1.setEnabled(true);
 			pp1.setEnabled(true);
@@ -413,23 +423,12 @@ public class BattleWindow extends Frame {
 			pp4.setEnabled(true);
 		}
 		cancel.setVisible(false);
-
-		jBtnPoke.setEnabled(true);
-		jBtnBag.setEnabled(true);
-		if (!isWild) {
-			jBtnRun.setEnabled(false);
-		} else {
-			jBtnRun.setEnabled(true);
-		}
-
-		pokeCancelBtn.setEnabled(true);
 	}
 
 	/**
 	 * Shows the attack Pane
 	 */
 	public void showAttack() {
-		enableMoves();
 		pokesContainer.setVisible(false);
 		// bagPane.setVisible(false);
 		attackPane.setVisible(true);
@@ -471,6 +470,8 @@ public class BattleWindow extends Frame {
 		move2.setEnabled(true);
 		move3.setEnabled(true);
 		move4.setEnabled(true);
+		cancel.setVisible(true);
+		cancel.setEnabled(true);
 	}
 	
 	/**

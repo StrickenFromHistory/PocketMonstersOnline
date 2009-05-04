@@ -62,7 +62,7 @@ public class BattleTimeLine {
 	 */
 	public void informMoveRequested(){
 		GameClient.getInstance().getUi().getBattleManager().requestMoves();
-		m_narrator.addSpeech("Waiting on your move.");
+		m_narrator.addSpeech("Awaiting your move.");
 	}
 	
 	/**
