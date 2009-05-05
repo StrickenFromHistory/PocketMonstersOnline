@@ -62,12 +62,12 @@ public class OurPokemon extends Pokemon {
         			isShiny = "shiny/";
         		}
 
-        		if (getSpriteNumber() < 9) {
-        			index = "00" + String.valueOf(getSpriteNumber() + 1);
-        		} else if (getSpriteNumber() < 99) {
-        			index = "0" + String.valueOf(getSpriteNumber() + 1);
+        		if (getSpriteNumber() <= 9) {
+        			index = "00" + String.valueOf(getSpriteNumber());
+        		} else if (getSpriteNumber() <= 99) {
+        			index = "0" + String.valueOf(getSpriteNumber());
         		} else {
-        			index = String.valueOf(getSpriteNumber() + 1);
+        			index = String.valueOf(getSpriteNumber());
         		}
         		
         		int gender;
@@ -80,7 +80,7 @@ public class OurPokemon extends Pokemon {
         			path = "/res/pokemon/back/" + isShiny + index + "-"
         				+ String.valueOf(gender) + ".png";
         			System.out.println(path);
-        			m_backSprite = new Image(path.toString()).getSubImage(0, 0, 80, 80);
+        			m_backSprite = new Image(path.toString());
         		} catch (Exception e) {
         			if (gender == 3) {
         				path = "/res/pokemon/back/" + isShiny + index + "-1.png";
@@ -88,7 +88,7 @@ public class OurPokemon extends Pokemon {
         			else {
         				path = "/res/pokemon/back/" + isShiny + index + "-0.png";
         			}
-        			m_backSprite = new Image(path.toString()).getSubImage(0, 0, 80, 80);
+        			m_backSprite = new Image(path.toString());
         			e.printStackTrace();
         		}
         		LoadingList.setDeferredLoading(false);

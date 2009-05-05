@@ -8,7 +8,6 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
-import org.pokenet.client.backend.entity.Pokemon;
 import org.pokenet.client.ui.base.ProgressBar;
 
 /**
@@ -37,14 +36,12 @@ public class BattleCanvas extends Container {
 	 * Default constructor
 	 */
 	public BattleCanvas(){
-		System.out.println("Magic");
 		setSize(257, 144);
 		setVisible(true);
 		positionCanvas();
 		drawBackground();
 		drawOurPoke();
 		drawOurInfo();
-		System.out.println("Magic2");
 	}
 	
 	/**
@@ -52,10 +49,11 @@ public class BattleCanvas extends Container {
 	 */
 	public void drawOurPoke(){
 		//TODO: Animate!
-		playerPoke = new Label(GameClient.getInstance().getOurPlayer().getPokemon()
-				[GameClient.getInstance().getUi().getBattleManager().getCurPokeIndex()].getBackSprite());
+		playerPoke = new Label();
+		GameClient.getInstance().getUi().getBattleManager().getCurPoke().setBackSprite();
+		playerPoke = new Label(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getBackSprite());
 		playerPoke.setSize(80, 80);
-		playerPoke.setLocation(0, 76);
+		playerPoke.setLocation(40, 76);
 		add(playerPoke);
 	}
 	
