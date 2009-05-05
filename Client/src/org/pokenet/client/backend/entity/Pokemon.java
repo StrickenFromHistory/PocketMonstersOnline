@@ -47,53 +47,51 @@ public class Pokemon {
          * Loads the sprite
          */
         public void setSprite() {
-                try{
-                        LoadingList.setDeferredLoading(true);
-                        String path = new String();
-                        String index, isShiny = new String();
-                       
-                        if (!isShiny()){
-                                isShiny = "normal/";
-                        }else{
-                                isShiny = "shiny/";
-                        }
-                       
-                        if (m_spriteNum < 10) {
-                                index = "00" + String.valueOf(m_spriteNum);
-                        }
-                        else if (m_spriteNum < 100){
-                                index = "0" + String.valueOf(m_spriteNum);
-                        }
-                        else{
-                                index = String.valueOf(m_spriteNum);
-                        }
-                        int pathGender;
-                        if (getGender() == 1)
-                                pathGender = 2;
-                        else
-                                pathGender = 3;
-                       
-                        try {
-                                path = "/res/pokemon/front/" + isShiny + index + "-"
-                                + pathGender + ".png";
-                                System.out.println(path);
-                                m_sprite = new Image(path.toString());
-                        }
-                        catch (Exception e) {
-                                if(pathGender == 3)
-                                        pathGender = 2;
-                                else
-                                        pathGender = 3;
-                                path = "/res/pokemon/front/" + isShiny + index + "-"
-                                + pathGender + ".png";
-                                System.out.println(path);
-                                m_sprite = new Image(path.toString());
-                                e.printStackTrace();
-                        }
-                        LoadingList.setDeferredLoading(false);
-                }catch (SlickException e){e.printStackTrace();}
+        	try{
+        		LoadingList.setDeferredLoading(true);
+        		String path = new String();
+        		String index, isShiny = new String();
+
+        		if (!isShiny()){
+        			isShiny = "normal/";
+        		} else {
+        			isShiny = "shiny/";
+        		}
+
+        		if (m_spriteNum < 10) {
+        			index = "00" + String.valueOf(m_spriteNum);
+        		} else if (m_spriteNum < 100) {
+        			index = "0" + String.valueOf(m_spriteNum);
+        		} else {
+        			index = String.valueOf(m_spriteNum);
+        		}
+        		
+        		int pathGender;
+        		if (getGender() == 1)
+        			pathGender = 2;
+        		else
+        			pathGender = 3;
+
+        		try {
+        			path = "/res/pokemon/front/" + isShiny + index + "-"
+        				+ pathGender + ".png";
+        			System.out.println(path);
+        			m_sprite = new Image(path.toString());
+        		} catch (Exception e) {
+        			if(pathGender == 3)
+        				pathGender = 2;
+        			else
+        				pathGender = 3;
+        			path = "/res/pokemon/front/" + isShiny + index + "-"
+        				+ pathGender + ".png";
+        			System.out.println(path);
+        			m_sprite = new Image(path.toString());
+        			e.printStackTrace();
+        		}
+        		LoadingList.setDeferredLoading(false);
+        	}catch (SlickException e){e.printStackTrace();}
         }
-        
+
         /**
          * Returns the icon
          * @return
@@ -379,6 +377,14 @@ public class Pokemon {
                         i = x - 4;
                 }
                 m_spriteNum = i;
+        }
+        
+        /**
+         * Sets a specific sprite number
+         * @param x
+         */
+        public void setSpriteNum(int x){
+        	m_spriteNum = x;
         }
         
         /**
