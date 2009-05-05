@@ -10,10 +10,8 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.base.BattleButtonFactory;
-import org.pokenet.client.ui.base.ProgressBar;
 
 /**
  * Battle window interface

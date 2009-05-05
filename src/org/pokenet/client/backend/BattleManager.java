@@ -67,7 +67,7 @@ public class BattleManager {
 			setWild(true);
 		}
 		getPlayerData();
-		m_battle = new BattleWindow("Battle!", true);
+		m_battle = new BattleWindow("Battle!", m_isWild);
 		m_battle.disableMoves();
 		updateMoves(0);
 		updatePokePane();
