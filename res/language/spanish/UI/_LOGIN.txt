@@ -1,0 +1,41 @@
+Seleccion de Servidor Pokenet
+Nota: Tu cuenta funciona en todos los servidores
+Servidor Privado
+Acerca de
+Terminos de Servicio
+Usuario:
+Clave:
+Ingresar
+Registrarse
+Registro Pokenet
+Confirmar Clave:
+F.D.N. (dd/mm/aaaa):
+Correo Electronico:
+Confirmar Correo-E:
+Pokemon Inicial:
+Genero:
+Hombre
+Mujer
+Terminos de Servicio
+Acepto los TdS
+Cancelar
+Usuario o Clave Incorrecto/nVerifica que escribiste correctamente tu nombre de usuario y clave
+El servidor de la cuenta esta actualmente desconectado./nPor favor intenta de nuevo mas tarde.
+Registro exitoso. /nAhora puedes ingresar en cualquier servidor.
+El servidor de la cuenta está actualmente desconectado./nPor favor intenta de nuevo mas tarde.
+El nombre de usuario ya ha sido tomado.
+Ha ocurrido un error desconocido. /nPor favor intenta de nuevo mas tarde.
+Datos invalidos. 
+Debes aceptar los Terminos de Servicio (TdS) para poder registrarte. 
+Fecha de Nacimiento invalida. 
+El Correo no es valido. 
+Las claves no coinciden. 
+El Nombre de Usuario debe tener por lo menos 4 letras, y no mas de 12. 
+TerminosDeServicioAqui
+Sobre Pokenet
+Pokenet es un juego masivo online libre, gratuito y sin fines lucrativos.
+Pokenet no esta afiliado a Nintendo, ni es apoyado por el mismo. 
+Pokemon es una marca registrada de Nintendo (1995 - Presente). /n/n
+Contribuidores:
+Fshy, ZombieBear, Ryan, Pivot/nIlentcape, Sienide, TMKCodes, Drawing,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, Kiwii
+Haz sido desconectado del servidor. 
