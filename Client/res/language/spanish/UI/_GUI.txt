@@ -1,0 +1,27 @@
+Equipo Pokemón
+Nivel:
+Nombre:
+HP:
+Ataque:
+Defensa:
+Ataque Esp.
+Defensa Esp.
+Velocidad:
+Habilidad:
+Exp:
+Naturaleza:
+Tipo uno:
+Tipo dos:
+Genero:
+Opciones
+Vista de Pantalla Completa
+Mudo
+Guardar
+Ayuda En linea Pokenet!
+Los botones de movimiento son las/nteclas de flecha y/o las teclas W,A,S,D.
+La tecla C Oculta/Muestra la ventana/npara conversar.
+Usa la barra espaciadora para hablarle a un NPC (Personaje /nno jugador) y para continuar/nen la ventana de discurso.
+Usa el comando /w USERNAME TEXT/npara mensajes privados con otros /njugadores.
+Usa el comando /playercount para /nver cuántos jugadores están en línea.
+Si tienes cuatro medallas, presiona /nShift para surfear en el agua.
+Chat: Local
