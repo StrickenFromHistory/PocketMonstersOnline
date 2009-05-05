@@ -22,6 +22,8 @@ public class BattleManager {
 	private OurPokemon m_curPoke;
 	private int m_curPokeIndex;
 	private Pokemon m_curEnemyPoke;
+	private String m_enemy;
+	private boolean m_isWild;
 	
 	/**
 	 * Default Constructor
@@ -40,10 +42,10 @@ public class BattleManager {
 	}
 
 	/**
-	 * 
+	 * Sets the enemy's data 
 	 */
-	private void getEnemyData() {
-		m_enemyPokes = m_player.getPokemon();
+	private void setEnemyData() {
+		m_enemyPokes = new Pokemon[6];
 		m_curEnemyPoke = m_enemyPokes[0];
 	}
 	
@@ -58,9 +60,9 @@ public class BattleManager {
 	/**
 	 * Starts a new BattleWindow and BattleCanvas
 	 */
-	public void startBattle() {
+	public void startBattle(char isWild) {
 		getPlayerData();
-		getEnemyData();
+		setEnemyData();
 		m_battle = new BattleWindow("Battle!", true);
 		m_battle.disableMoves();
 		updateMoves(0);
@@ -68,16 +70,21 @@ public class BattleManager {
 		System.out.println("BattleWindow Loaded");
 		GameClient.getInstance().getDisplay().add(m_battle);
 		m_timeLine = new BattleTimeLine();
+		if (isWild == '0'){
+			m_isWild = false;
+		} else {
+			m_isWild = true;
+		}
 	}
 	
 	/**
 	 * Ends the battle
 	 */
 	public void endBattle() {
+		m_timeLine.stop();
+		m_timeLine = null;
 		GameClient.getInstance().getDisplay().remove(m_battle);
 		m_battle = null;
-		m_timeLine.stop();
-		m_timeLine = null;	
 	}
 
 	/**
@@ -250,6 +257,10 @@ public class BattleManager {
 		return m_curPoke;
 	}
 	
+	/**
+	 * Returns the active pokemon's index in party
+	 * @return
+	 */
 	public int getCurPokeIndex(){
 		return m_curPokeIndex;
 	}
@@ -259,5 +270,22 @@ public class BattleManager {
 	 */
 	public Pokemon getCurEnemyPoke(){
 		return m_curEnemyPoke;
+	}
+	
+	/**
+	 * Adds an enemy poke
+	 * @param index
+	 * @param name
+	 * @param gender
+	 * @param maxHP
+	 * @param curHP
+	 * @param spriteNum
+	 */
+	public void setEnemyPoke(int index, String name, int gender, int maxHP, int curHP, int spriteNum){
+		m_enemyPokes[index] = new Pokemon();
+		m_enemyPokes[index].setName(name);
+		m_enemyPokes[index].setGender(gender);
+		m_enemyPokes[index].setMaxHP(maxHP);
+		m_enemyPokes[index].setCurHP(curHP);
 	}
 }
