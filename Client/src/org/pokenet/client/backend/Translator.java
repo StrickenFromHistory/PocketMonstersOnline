@@ -13,7 +13,7 @@ public class Translator {
 		File f = new File(".");
 		List<String> translated = new ArrayList<String>();
 		try {
-			f = new File(f.getCanonicalPath() + "/res/language/" + GameClient.getLanguage() + "/" + filename + ".txt");
+			f = new File(f.getCanonicalPath() + "/res/language/" + GameClient.getLanguage() + "/UI/" + filename + ".txt");
 			if(f.exists()) {
 				Scanner reader = new Scanner(f);
 				while(reader.hasNextLine()) {
@@ -22,7 +22,7 @@ public class Translator {
 			}else{ //In case of emergencies, load english!
 				try{
 					f = new File(".");
-					f = new File(f.getCanonicalFile()+ "/res/language/english/" + filename + ".txt");
+					f = new File(f.getCanonicalFile()+ "/res/language/english/UI/" + filename + ".txt");
 					Scanner reader = new Scanner(f);
 					while(reader.hasNextLine()) {
 						translated.add(reader.nextLine().replaceAll("/n", "\n"));

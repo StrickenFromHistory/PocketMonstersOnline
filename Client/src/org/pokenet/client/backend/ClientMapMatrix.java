@@ -66,7 +66,7 @@ public class ClientMapMatrix {
 			m_speech.clear();
 		f = new File(".");
 		try {
-			f = new File(f.getCanonicalPath() + "/res/language/" + GameClient.getLanguage() + "/" + mapX + "." + mapY + ".txt");
+			f = new File(f.getCanonicalPath() + "/res/language/" + GameClient.getLanguage() + "/NPC/" + mapX + "." + mapY + ".txt");
 			if(f.exists()) {
 				Scanner reader = new Scanner(f);
 				while(reader.hasNextLine()) {
@@ -75,7 +75,7 @@ public class ClientMapMatrix {
 			}else{ //In case of emergencies, load english!
 				try{
 					f = new File(".");
-					f = new File(f.getCanonicalFile()+ "/res/language/english/" + mapX + "." + mapY + ".txt");
+					f = new File(f.getCanonicalFile()+ "/res/language/english/NPC/" + mapX + "." + mapY + ".txt");
 					Scanner reader = new Scanner(f);
 					while(reader.hasNextLine()) {
 						m_speech.add(reader.nextLine());
