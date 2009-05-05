@@ -1,8 +1,10 @@
 package org.pokenet.client.ui;
 
-import org.newdawn.slick.Color;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.newdawn.slick.Image;
-import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 import org.pokenet.client.ui.frames.AboutDialog;
 import org.pokenet.client.ui.frames.LanguageDialog;
 import org.pokenet.client.ui.frames.LoginDialog;
@@ -11,7 +13,6 @@ import org.pokenet.client.ui.frames.ServerDialog;
 import org.pokenet.client.ui.frames.ToSDialog;
 
 import mdes.slick.sui.Button;
-import mdes.slick.sui.Container;
 import mdes.slick.sui.Label;
 import mdes.slick.sui.Window;
 import mdes.slick.sui.event.ActionEvent;
@@ -31,15 +32,15 @@ public class LoginScreen extends Window {
 	private AboutDialog m_about;
 	private ToSDialog m_terms;
 	private Button m_openAbout, m_openToS;
-	private Color m_bgColor;
 
 	/**
 	 * Default constructor
 	 */
 	public LoginScreen() {
 		try {
-			m_bgColor = new Color(255, 255, 255, 70);
-			
+//			m_bgColor = new Color(255, 255, 255, 70);
+			List<String> translated = new ArrayList<String>();
+			translated = Translator.translate("_LOGIN");
 			/*
 			 * Load the background image
 			 */
@@ -76,7 +77,7 @@ public class LoginScreen extends Window {
 			m_terms = new ToSDialog();
 			this.add(m_terms);
 			
-			m_openAbout = new Button("About");
+			m_openAbout = new Button(translated.get(3));
 			m_openAbout.setSize(64, 32);
 			m_openAbout.setLocation(800 - 64 - 8, 8);
 			m_openAbout.setVisible(false);
@@ -87,7 +88,7 @@ public class LoginScreen extends Window {
 			});
 			this.add(m_openAbout);
 			
-			m_openToS = new Button("ToS");
+			m_openToS = new Button(translated.get(4));
 			m_openToS.setSize(64, 32);
 			m_openToS.setLocation(800 - 64 - 8, 40);
 			m_openToS.setVisible(false);

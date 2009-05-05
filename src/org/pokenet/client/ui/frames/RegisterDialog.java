@@ -1,5 +1,7 @@
 package org.pokenet.client.ui.frames;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
@@ -15,6 +17,7 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 
 /**
  * Handles registration dialog
@@ -34,16 +37,18 @@ public class RegisterDialog extends Frame{
 	 * Default constructor
 	 */
 	public RegisterDialog() {
+		List<String> translated = new ArrayList<String>();
+		translated = Translator.translate("_LOGIN");
 		this.setVisible(false);
 		this.setSize(320, 320);
 		this.setBackground(new Color(0, 0, 0, 120));
-		this.setTitle("Pokenet Registraion");
+		this.setTitle(translated.get(9));
 		this.getTitleBar().getCloseButton().setVisible(false);
 		this.setLocation(420, 220);
 		this.setResizable(false);
 		this.setDraggable(false);
 		
-		m_u = new Label("Username:");
+		m_u = new Label(translated.get(5));
 		m_u.pack();
 		m_u.setLocation(4, 4);
 		m_u.setFont(GameClient.getFontSmall());
@@ -56,7 +61,7 @@ public class RegisterDialog extends Frame{
 		m_username.setVisible(true);
 		this.add(m_username);
 		
-		m_p = new Label("Password:");
+		m_p = new Label(translated.get(6));
 		m_p.pack();
 		m_p.setLocation(4, 52);
 		m_p.setFont(GameClient.getFontSmall());
@@ -71,7 +76,7 @@ public class RegisterDialog extends Frame{
 		m_password.setVisible(true);
 		this.add(m_password);
 		
-		m_cp = new Label("Confirm Password:");
+		m_cp = new Label(translated.get(10));
 		m_cp.pack();
 		m_cp.setLocation(4, 100);
 		m_cp.setFont(GameClient.getFontSmall());
@@ -86,7 +91,7 @@ public class RegisterDialog extends Frame{
 		m_confirmPass.setVisible(true);
 		this.add(m_confirmPass);
 		
-		m_d = new Label("D.O.B (dd/mm/yyyy):");
+		m_d = new Label(translated.get(11));
 		m_d.pack();
 		m_d.setLocation(4, 152);
 		m_d.setFont(GameClient.getFontSmall());
@@ -111,7 +116,7 @@ public class RegisterDialog extends Frame{
 		m_year.setVisible(true);
 		this.add(m_year);
 		
-		m_e = new Label("Email:");
+		m_e = new Label(translated.get(12));
 		m_e.pack();
 		m_e.setLocation(4, 202);
 		m_e.setFont(GameClient.getFontSmall());
@@ -124,7 +129,7 @@ public class RegisterDialog extends Frame{
 		m_email.setVisible(true);
 		this.add(m_email);
 		
-		m_ce = new Label("Confirm Email:");
+		m_ce = new Label(translated.get(13));
 		m_ce.pack();
 		m_ce.setLocation(4, 248);
 		m_ce.setFont(GameClient.getFontSmall());
@@ -137,7 +142,7 @@ public class RegisterDialog extends Frame{
 		m_confirmEmail.setVisible(true);
 		this.add(m_confirmEmail);
 		
-		m_s = new Label("Starter Pokemon:");
+		m_s = new Label(translated.get(14));
 		m_s.pack();
 		m_s.setLocation(170, 4);
 		m_s.setFont(GameClient.getFontSmall());
@@ -146,14 +151,14 @@ public class RegisterDialog extends Frame{
 		
 		this.generateStarters();
 		
-		m_g = new Label("Gender:");
+		m_g = new Label(translated.get(15));
 		m_g.pack();
 		m_g.setLocation(170, 128);
 		m_g.setFont(GameClient.getFontSmall());
 		m_g.setForeground(m_white);
 		this.add(m_g);
 		
-		m_male = new Button("Male");
+		m_male = new Button(translated.get(16));
 		m_male.setSize(64, 24);
 		m_male.setLocation(170, 150);
 		m_male.addActionListener(new ActionListener() {
@@ -165,7 +170,7 @@ public class RegisterDialog extends Frame{
 		});
 		this.add(m_male);
 		
-		m_female = new Button("Female");
+		m_female = new Button(translated.get(17));
 		m_female.setSize(64, 24);
 		m_female.setLocation(234, 150);
 		m_female.addActionListener(new ActionListener() {
@@ -177,14 +182,14 @@ public class RegisterDialog extends Frame{
 		});
 		this.add(m_female);
 		
-		m_tos = new Label("Terms of Service:");
+		m_tos = new Label(translated.get(18));
 		m_tos.pack();
 		m_tos.setLocation(170, 182);
 		m_tos.setFont(GameClient.getFontSmall());
 		m_tos.setForeground(m_white);
 		this.add(m_tos);
 		
-		m_terms = new Button("I agree to the ToS");
+		m_terms = new Button(translated.get(19));
 		m_terms.setSize(128, 24);
 		m_terms.setLocation(170, 204);
 		m_terms.addActionListener(new ActionListener() {
@@ -194,7 +199,7 @@ public class RegisterDialog extends Frame{
 		});
 		this.add(m_terms);
 		
-		m_register = new Button("Register");
+		m_register = new Button(translated.get(8));
 		m_register.setSize(64, 32);
 		m_register.setLocation(188, 254);
 		m_register.addActionListener(new ActionListener() {
@@ -204,7 +209,7 @@ public class RegisterDialog extends Frame{
 		});
 		this.add(m_register);
 		
-		m_cancel = new Button("Cancel");
+		m_cancel = new Button(translated.get(20));
 		m_cancel.setSize(64, 32);
 		m_cancel.setLocation(252, 254);
 		m_cancel.addActionListener(new ActionListener() {
@@ -422,6 +427,8 @@ public class RegisterDialog extends Frame{
 	 * Registers the player
 	 */
 	private void register() {
+		List<String> translated = new ArrayList<String>();
+		translated = Translator.translate("_LOGIN");
 		if(m_username.getText() != null
 				&& m_username.getText().length() >= 4 && m_username.getText().length() <= 12) {
 			if(m_password.getText() != null & !m_password.getText().equalsIgnoreCase("")
@@ -439,19 +446,19 @@ public class RegisterDialog extends Frame{
 							GameClient.getInstance().getPacketGenerator().register(m_username.getText(),
 									m_password.getText(), m_email.getText(), bday, m_starter, (m_gender == 0 ? 11: 20));
 						} else {
-							JOptionPane.showMessageDialog(null, "You must accept Terms of Service (ToS) before registering.");
+							JOptionPane.showMessageDialog(null, translated.get(28));
 						}
 					} else {
-						JOptionPane.showMessageDialog(null, "Date of birth invalid.");
+						JOptionPane.showMessageDialog(null, translated.get(29));
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, "Not a valid email.");
+					JOptionPane.showMessageDialog(null, translated.get(30));
 				}
 			} else {
-				JOptionPane.showMessageDialog(null, "Passwords do not match.");
+				JOptionPane.showMessageDialog(null, translated.get(31));
 			}
 		} else {
-			JOptionPane.showMessageDialog(null, "Username must have at least 4 characters and no more than 12.");
+			JOptionPane.showMessageDialog(null, translated.get(32));
 		}
 	}
 	

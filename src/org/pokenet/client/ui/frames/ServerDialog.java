@@ -1,13 +1,13 @@
 package org.pokenet.client.ui.frames;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Scanner;
+import java.util.List;
 
 import org.newdawn.slick.Color;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
@@ -33,10 +33,11 @@ public class ServerDialog extends Frame {
 	 */
 	public ServerDialog() {
 		m_black = new Color(0, 0, 0);
+		List<String> translate = Translator.translate("_LOGIN");
 		
 		this.setSize(316, 280);
 		this.setLocation(400 - 160, 280);
-		this.setTitle("Pokenet Server Select");
+		this.setTitle(translate.get(0));
 		this.setBackground(new Color(0, 0, 0, 70));
 		this.getTitleBar().setForeground(m_black);
 		this.setDraggable(false);
@@ -46,7 +47,7 @@ public class ServerDialog extends Frame {
 		/*
 		 * Create the info label
 		 */
-		m_info = new Label("Note: Your account will work on all servers");
+		m_info = new Label(translate.get(1));
 		m_info.pack();
 		m_info.setLocation(24, 8);
 		m_info.setForeground(new Color(255, 255, 255));
@@ -138,7 +139,7 @@ public class ServerDialog extends Frame {
 			this.add(privateIP);
 			
 			privateServer = new Button();
-			privateServer.setText("Private Server");
+			privateServer.setText(translate.get(2));
 			privateServer.setSize(128, 24);
 			privateServer.setLocation(168, 204);
 			privateServer.addActionListener(new ActionListener() {
