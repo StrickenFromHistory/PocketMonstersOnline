@@ -22,7 +22,7 @@ import org.pokenet.client.ui.frames.FriendListDialog;
 import org.pokenet.client.ui.frames.HelpWindow;
 import org.pokenet.client.ui.frames.NPCSpeechFrame;
 import org.pokenet.client.ui.frames.OptionsDialog;
-import org.pokenet.client.ui.frames.PartyInfo;
+import org.pokenet.client.ui.frames.PartyInfoDialog;
 import org.pokenet.client.ui.frames.RequestWindow;
 import org.pokenet.client.ui.frames.TradeDialog;
 
@@ -43,7 +43,7 @@ public class Ui extends Frame {
     private RequestWindow m_requestsForm;
     private HelpWindow m_helpForm;
     private Frame m_bagForm;
-    private PartyInfo m_teamInfo;
+    private PartyInfoDialog m_teamInfo;
 	private NPCSpeechFrame m_speechFrame;
 	private BattleManager m_battleManager;
     private boolean m_isOption;
@@ -331,7 +331,7 @@ public class Ui extends Frame {
 			hideHUD();
 		} else {
 			hideHUD();
-			m_teamInfo = new PartyInfo(GameClient.getInstance().getOurPlayer()
+			m_teamInfo = new PartyInfoDialog(GameClient.getInstance().getOurPlayer()
 					.getPokemon());
 			m_teamInfo.setWidth(UI_WIDTH);
 			m_teamInfo.setLocation(48, 0);

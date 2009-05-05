@@ -260,7 +260,7 @@ public class RequestWindow extends Frame {
      * @param requestedPokemon
      */
     public void showOffer(int pokedollars2, OurPokemon requestedPokemon) {
-            getDisplay().add(new PokeInfoPane(requestedPokemon));
+            getDisplay().add(new PokemonInfoDialog(requestedPokemon));
             m_status.setText("PD: " + pokedollars2);
             m_tradeAccept.setEnabled(true);
             m_tradeDecline.setEnabled(true);
