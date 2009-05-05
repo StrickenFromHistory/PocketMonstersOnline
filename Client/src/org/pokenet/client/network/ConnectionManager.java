@@ -82,17 +82,18 @@ public class ConnectionManager extends IoHandlerAdapter {
 			switch(message.charAt(1)) {
 			case 'i':
 				//Battle started -> biISWILD
-				GameClient.getInstance().getUi().getBattleManager().startBattle(message.charAt(2));
+				GameClient.getInstance().getUi().getBattleManager().startBattle(message.charAt(2), 1);
 				break;
 			case 'p':
 				//No PP left for move -> bpMOVENAME
 				break;
 			case 'P':
-				//Recieve enemy poke data -> bPINDEX,NAME,GENDER,MAXHP,CURHP,SPRITENUM
+				//Recieve enemy poke data -> bPINDEX,NAME,LEVEL,GENDER,MAXHP,CURHP,SPRITENUM,ISSHINY
 				String[] data = message.substring(2).split(",");
 				GameClient.getInstance().getUi().getBattleManager().setEnemyPoke(Integer.parseInt(data[0]),
 						data[1], Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(
-								data[4]), Integer.parseInt(data[5]));
+								data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), 
+								Boolean.valueOf(data[7]));
 				break;
 			case '!':
 				//Other battle message not specified by packets below

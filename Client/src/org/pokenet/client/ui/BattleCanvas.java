@@ -37,14 +37,14 @@ public class BattleCanvas extends Container {
 	 * Default constructor
 	 */
 	public BattleCanvas(){
+		System.out.println("Magic");
 		setSize(257, 144);
 		setVisible(true);
 		positionCanvas();
 		drawBackground();
 		drawOurPoke();
-		drawEnemyPoke();
 		drawOurInfo();
-		drawEnemyInfo();
+		System.out.println("Magic2");
 	}
 	
 	/**
@@ -65,10 +65,10 @@ public class BattleCanvas extends Container {
 	public void drawEnemyPoke(){
 		//TODO: Animate!
 		enemyPoke = new Label("POKE");
-		LoadingList.setDeferredLoading(true);
+		enemyPoke = new Label (GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke()
+				.getSprite());
 		enemyPoke.setSize(80, 80);
-		enemyPoke.setLocation(150, 21);
-		LoadingList.setDeferredLoading(false);
+		enemyPoke.setLocation(190, 21);
 		add(enemyPoke);
 	}
 	

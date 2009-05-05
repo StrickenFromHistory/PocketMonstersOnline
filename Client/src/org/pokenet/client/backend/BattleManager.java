@@ -45,36 +45,38 @@ public class BattleManager {
 	 * Sets the enemy's data 
 	 */
 	private void setEnemyData() {
-		m_enemyPokes = new Pokemon[6];
 		m_curEnemyPoke = m_enemyPokes[0];
-	}
-	
-	/**
-	 * Retrieves enemy data
-	 */
-	private void getEnemyData(Pokemon[] info) {
-		m_enemyPokes = info;
-		// TODO: Draw pokeballs equal to the enemy's pokemon count
+		System.out.println(m_curEnemyPoke.getName());
+		m_timeLine.getBattleCanvas().drawEnemyPoke();
+		m_timeLine.getBattleCanvas().drawEnemyInfo();
+		if(!m_isWild){
+			// TODO: Draw pokeballs equal to the enemy's pokemon count
+			m_timeLine.addSpeech(m_enemy + " sent out " + m_curEnemyPoke.getName());
+		} else{
+			m_timeLine.addSpeech("A wild " + m_curEnemyPoke.getName() + " attacked!");
+		}
 	}
 
 	/**
 	 * Starts a new BattleWindow and BattleCanvas
 	 */
-	public void startBattle(char isWild) {
+	public void startBattle(char isWild, int pokeAmount) {
+		if (isWild == '0'){
+			setWild(false);
+		} else {
+			setWild(true);
+		}
 		getPlayerData();
-		setEnemyData();
 		m_battle = new BattleWindow("Battle!", true);
 		m_battle.disableMoves();
 		updateMoves(0);
 		updatePokePane();
 		System.out.println("BattleWindow Loaded");
 		GameClient.getInstance().getDisplay().add(m_battle);
+		System.out.println("Works");
 		m_timeLine = new BattleTimeLine();
-		if (isWild == '0'){
-			m_isWild = false;
-		} else {
-			m_isWild = true;
-		}
+		System.out.println("Still works");
+		m_enemyPokes = new Pokemon[pokeAmount];
 	}
 	
 	/**
@@ -276,16 +278,46 @@ public class BattleManager {
 	 * Adds an enemy poke
 	 * @param index
 	 * @param name
+	 * @param level
 	 * @param gender
 	 * @param maxHP
 	 * @param curHP
 	 * @param spriteNum
+	 * @param isShiny
 	 */
-	public void setEnemyPoke(int index, String name, int gender, int maxHP, int curHP, int spriteNum){
+	public void setEnemyPoke(int index,
+			String name,
+			int level,
+			int gender,
+			int maxHP,
+			int curHP,
+			int spriteNum,
+			boolean isShiny){
 		m_enemyPokes[index] = new Pokemon();
 		m_enemyPokes[index].setName(name);
+		m_enemyPokes[index].setLevel(level);
 		m_enemyPokes[index].setGender(gender);
 		m_enemyPokes[index].setMaxHP(maxHP);
 		m_enemyPokes[index].setCurHP(curHP);
+		m_enemyPokes[index].setSpriteNumber(spriteNum);
+		m_enemyPokes[index].setShiny(isShiny);
+		m_enemyPokes[index].setSprite();
+	
+		System.out.println((index + 1) + " pogey added");
+		
+		if ((index + 1) == m_enemyPokes.length)
+			setEnemyData();
+	}
+
+	/**
+	 * Sets wild battle
+	 * @param m_isWild
+	 */
+	public void setWild(boolean m_isWild) {
+		this.m_isWild = m_isWild;
+	}
+	
+	public boolean isWild() {
+		return m_isWild;
 	}
 }

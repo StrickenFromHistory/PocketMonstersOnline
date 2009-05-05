@@ -160,10 +160,10 @@ public class BattleTimeLine {
 	 */
 	public void informRun(boolean canRun){
 		if (canRun){
-			addSpeech("You got away succesfully.");
+			addSpeech("You got away safely.");
 			GameClient.getInstance().getUi().getBattleManager().endBattle();
 		} else {
-			addSpeech("You failed to run away.");
+			addSpeech("You couldn't run away.");
 			informMoveRequested();
 		}
 	}
@@ -184,6 +184,14 @@ public class BattleTimeLine {
 	 */
 	public BattleSpeechFrame getBattleSpeech(){
 		return m_narrator;
+	}
+
+	/**
+	 * Returns the battle canvas
+	 * @return
+	 */
+	public BattleCanvas getBattleCanvas(){
+		return m_canvas;
 	}
 	
 	/**
