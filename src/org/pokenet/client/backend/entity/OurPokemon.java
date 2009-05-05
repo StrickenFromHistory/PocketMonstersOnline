@@ -58,17 +58,15 @@ public class OurPokemon extends Pokemon {
 
         		if (!isShiny()){
         			isShiny = "normal/";
-        		}else{
+        		} else {
         			isShiny = "shiny/";
         		}
 
         		if (getSpriteNumber() < 9) {
         			index = "00" + String.valueOf(getSpriteNumber() + 1);
-        		}
-        		else if (getSpriteNumber() < 99){
+        		} else if (getSpriteNumber() < 99) {
         			index = "0" + String.valueOf(getSpriteNumber() + 1);
-        		}
-        		else{
+        		} else {
         			index = String.valueOf(getSpriteNumber() + 1);
         		}
 
@@ -80,18 +78,15 @@ public class OurPokemon extends Pokemon {
 
         		try {
         			path = "/res/pokemon/back/" + isShiny + index + "-"
-        			+ String.valueOf(gender) + ".gif";
-        			System.out.println(path);
+        				+ String.valueOf(gender) + ".gif";
+        			System.out.println(path + "TEST");
         			m_backSprite = new Image(path.toString()).getSubImage(0, 0, 80, 80);
-        		}
-        		catch (Exception e) {
+        		} catch (Exception e) {
         			if (gender == 3) {
-        				path = "/res/pokemon/back/" + isShiny + index + "-2"
-        				+ ".gif";
+        				path = "/res/pokemon/back/" + isShiny + index + "-2.gif";
         			}
         			else {
-        				path = "/res/pokemon/back/" + isShiny + index + "-3"
-        				+ ".gif";
+        				path = "/res/pokemon/back/" + isShiny + index + "-3.gif";
         			}
         			m_backSprite = new Image(path.toString()).getSubImage(0, 0, 80, 80);
         			e.printStackTrace();
