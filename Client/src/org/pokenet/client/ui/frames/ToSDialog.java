@@ -1,7 +1,11 @@
 package org.pokenet.client.ui.frames;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.newdawn.slick.Color;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.TextArea;
@@ -21,8 +25,9 @@ public class ToSDialog extends Frame {
 	public ToSDialog() {
 		m_bg = new Color(0, 0, 0, 70);
 		m_white = new Color(255, 255, 255);
-		
-		this.setTitle("Terms of Service");
+		List<String> translated = new ArrayList<String>();
+		translated = Translator.translate("_LOGIN");
+		this.setTitle(translated.get(18));
 		this.setLocation(128, 256);
 		this.setBackground(m_bg);
 		this.setResizable(false);
@@ -31,7 +36,7 @@ public class ToSDialog extends Frame {
 		m_info.setSize(280, 320);
 		m_info.setLocation(4, 4);
 		m_info.setWrapEnabled(true);
-		m_info.setText("");
+		m_info.setText(translated.get(33));
 		m_info.setFont(GameClient.getFontSmall());
 		m_info.setBackground(m_bg);
 		m_info.setForeground(m_white);

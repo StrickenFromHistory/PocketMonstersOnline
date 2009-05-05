@@ -1,7 +1,11 @@
 package org.pokenet.client.ui.frames;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.newdawn.slick.Color;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
@@ -25,6 +29,8 @@ public class LoginDialog extends Frame {
 	 * Default constructor
 	 */
 	public LoginDialog() {
+		List<String> translated = new ArrayList<String>();
+		translated = Translator.translate("_LOGIN");
 		this.setBorderRendered(false);
 		this.getTitleBar().setVisible(false);
 		this.setSize(320, 160);
@@ -52,7 +58,7 @@ public class LoginDialog extends Frame {
 		m_password.setMaskEnabled(true);
 		this.add(m_password);
 		
-		m_userLabel = new Label("Username:");
+		m_userLabel = new Label(translated.get(5));
 		m_userLabel.pack();
 		m_userLabel.setLocation(m_username.getX() - m_userLabel.getWidth() - 24, 12);
 		m_userLabel.setVisible(true);
@@ -60,7 +66,7 @@ public class LoginDialog extends Frame {
 		m_userLabel.setForeground(m_white);
 		this.add(m_userLabel);
 		
-		m_passLabel = new Label("Password:");
+		m_passLabel = new Label(translated.get(6));
 		m_passLabel.pack();
 		m_passLabel.setLocation(m_userLabel.getX(), 40);
 		m_passLabel.setVisible(true);
@@ -68,7 +74,7 @@ public class LoginDialog extends Frame {
 		m_passLabel.setForeground(m_white);
 		this.add(m_passLabel);
 		
-		m_login = new Button("Login");
+		m_login = new Button(translated.get(7));
 		m_login.setSize(64, 32);
 		m_login.setLocation(m_password.getX(), m_password.getY() + m_password.getHeight() + 8);
 		m_login.setVisible(true);
@@ -82,7 +88,7 @@ public class LoginDialog extends Frame {
 		});
 		this.add(m_login);
 		
-		m_register = new Button("Register");
+		m_register = new Button(translated.get(8));
 		m_register.setSize(64, 32);
 		m_register.setLocation(m_login.getX() + m_login.getWidth() + 8, m_login.getY());
 		m_register.setVisible(true);

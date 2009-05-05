@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
@@ -33,8 +34,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 	 */
 	public void sessionClosed(IoSession session) {
 		m_game.reset();
-		GameClient.messageDialog("You have been disconnected\n" +
-				"from the game server.", GameClient.getInstance().getDisplay());
+		List<String> translated = new ArrayList<String>();
+		translated = Translator.translate("_LOGIN");
+		GameClient.messageDialog(translated.get(40), GameClient.getInstance().getDisplay());
 	}
 	
 	/**
@@ -54,6 +56,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 	 * Once a message is received, this method is called
 	 */
 	public void messageReceived(IoSession session, Object m) {
+		List<String> translated = new ArrayList<String>();
+		translated = Translator.translate("_LOGIN");
 		Player p;
 		String message = (String) m;
 		System.out.println("INFO: " + message);
@@ -402,16 +406,14 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'e':
 				//Error
-				GameClient.messageDialog("User or password are incorrect" +
-				"Verify you typed user and password correctly.", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog(translated.get(21), GameClient.getInstance().getDisplay());
 				
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().enableLogin();
 				break;
 			case '1':
 				//Account server offline
-				GameClient.messageDialog("The account server is currently offline.\n" +
-						"Please try again later.", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog(translated.get(22), GameClient.getInstance().getDisplay());
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().showLogin();
 				break;
@@ -422,29 +424,28 @@ public class ConnectionManager extends IoHandlerAdapter {
 			switch(message.charAt(1)) {
 			case 's':
 				//Sucessful registration
-				GameClient.messageDialog("Successful registration. You may now login on any server.", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog(translated.get(23), GameClient.getInstance().getDisplay());
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().showLogin();
 				break;
 			case '1':
 				//Account server offline
-				GameClient.messageDialog("The account server is currently offline.\n" +
-						"Please try again later.", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog(translated.get(24), GameClient.getInstance().getDisplay());
 				m_game.getLoginScreen().getRegistration().enableRegistration();
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			case '2':
-				GameClient.messageDialog("Username already taken.", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog(translated.get(25), GameClient.getInstance().getDisplay());
 				m_game.getLoginScreen().getRegistration().enableRegistration();
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			case '3':
-				GameClient.messageDialog("Unkown error occurred. Please try again later.", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog(translated.get(26), GameClient.getInstance().getDisplay());
 				m_game.getLoginScreen().getRegistration().enableRegistration();
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			case '4':
-				GameClient.messageDialog("Invalid data.", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog(translated.get(27), GameClient.getInstance().getDisplay());
 				m_game.getLoginScreen().getRegistration().enableRegistration();
 				m_game.getLoadingScreen().setVisible(false);
 				break;

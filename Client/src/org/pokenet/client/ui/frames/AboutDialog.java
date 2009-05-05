@@ -1,7 +1,11 @@
 package org.pokenet.client.ui.frames;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.newdawn.slick.Color;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.TextArea;
@@ -21,8 +25,9 @@ public class AboutDialog extends Frame {
 	public AboutDialog() {
 		m_bg = new Color(0, 0, 0, 70);
 		m_white = new Color(255, 255, 255);
-		
-		this.setTitle("About Pokenet");
+		List<String> translated = new ArrayList<String>();
+		translated = Translator.translate("_LOGIN");
+		this.setTitle(translated.get(34));
 		this.setLocation(128, 256);
 		this.setBackground(m_bg);
 		this.setResizable(false);
@@ -31,13 +36,11 @@ public class AboutDialog extends Frame {
 		m_info.setSize(280, 320);
 		m_info.setLocation(4, 4);
 		m_info.setWrapEnabled(true);
-		m_info.setText("Pokenet is a free, non-profit, open-source Pokemon MMORPG. " +
-				"Pokenet is in no way affiliated with or officially supported by Nintendo. " +
-				"Pokemon is a registered trademark of Nintendo (1995 - Present).\n \n" +
-				"Contributors:\n" +
-				"Fshy, ZombieBear, Ryan, Pivot/Ilentcape, Sienide, TMKCodes, Drawing, LordAdmiral, Psycho, Dragina, " +
-				"Oblivion, Lastplacer, Firefly17, Gama, Jacobe, Latias, Callagan, xkendrickx, Mewtwo, PheonixClaw, " +
-				"JayJay, May, Nushio");
+		m_info.setText(translated.get(35)+"\n"+
+				translated.get(36)+"\n"+
+				translated.get(37)+"\n"+
+				translated.get(38)+"\n"+
+				translated.get(39)+"\n");
 		m_info.setFont(GameClient.getFontSmall());
 		m_info.setBackground(m_bg);
 		m_info.setForeground(m_white);
