@@ -7,7 +7,7 @@ import java.util.List;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
-import org.pokenet.client.beans.Item;
+import org.pokenet.client.backend.entity.Item;
 import org.pokenet.client.network.PacketGenerator;
 
 import mdes.slick.sui.Frame;
