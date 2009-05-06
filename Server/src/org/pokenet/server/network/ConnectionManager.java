@@ -99,6 +99,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 						if(boxNum >= 0 && boxNum < 9)
 							p.sendBoxInfo(boxNum);
 						break;
+					case 'R':
+						//Releasing a pokemon from storage - sent as BRBOXNUM,BOXSLOT
+						break;
 					case 's':
 						//Swap pokemon between box and party - sent as BsBOXNUM,BOXSLOT,PARTYSLOT, e.g.Bs0,1,0
 						break;

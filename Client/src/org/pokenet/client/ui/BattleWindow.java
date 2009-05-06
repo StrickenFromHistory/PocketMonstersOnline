@@ -482,6 +482,7 @@ public class BattleWindow extends Frame {
 	private void useMove(int i){
         disableMoves();
         GameClient.getInstance().getPacketGenerator().write("bm" + i);
+        GameClient.getInstance().getUi().getBattleManager().getTimeLine().getBattleSpeech().advance();
 	}
 	
 	/**
