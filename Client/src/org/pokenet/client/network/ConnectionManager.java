@@ -196,6 +196,18 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 'c':
 			//Something changed
+			switch (message.charAt(1)){
+			case 'H':
+				//Pokes were healed
+				for (int i = 0; i < GameClient.getInstance().getOurPlayer().getPokemon().length; i++){
+					if (GameClient.getInstance().getOurPlayer().getPokemon()[i] != null){
+						GameClient.getInstance().getOurPlayer().getPokemon()[i].setCurHP(
+								GameClient.getInstance().getOurPlayer().getPokemon()[i].getMaxHP());
+					}
+				}
+				GameClient.getInstance().getUi().update();
+				break;
+			}
 			p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
 			if(p != null) {
 				switch(message.charAt(1)) {
@@ -215,13 +227,6 @@ public class ConnectionManager extends IoHandlerAdapter {
 				case 'S':
 					//Sprite change
 					p.setSprite(Integer.parseInt(message.substring(2)));
-					break;
-				case 'H':
-					//Player's pokemon were healed
-					for (int i = 0; i < GameClient.getInstance().getOurPlayer().getPokemon().length; i++){
-						GameClient.getInstance().getOurPlayer().getPokemon()[i].setCurHP(
-								GameClient.getInstance().getOurPlayer().getPokemon()[i].getMaxHP());
-					}
 					break;
 				default:
 					break;
