@@ -169,9 +169,11 @@ public class BattleTimeLine {
 	public void informRun(boolean canRun){
 		if (canRun){
 			addSpeech("You got away safely.");
+			m_narrator.advance();
 			GameClient.getInstance().getUi().getBattleManager().endBattle();
 		} else {
 			addSpeech("You couldn't run away.");
+			m_narrator.advance();
 			informMoveRequested();
 		}
 	}

@@ -53,7 +53,7 @@ public class BattleCanvas extends Container {
 		GameClient.getInstance().getUi().getBattleManager().getCurPoke().setBackSprite();
 		playerPoke = new Label(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getBackSprite());
 		playerPoke.setSize(80, 80);
-		playerPoke.setLocation(40, 76);
+		playerPoke.setLocation(20, 76);
 		add(playerPoke);
 	}
 	
@@ -66,7 +66,7 @@ public class BattleCanvas extends Container {
 		enemyPoke = new Label (GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke()
 				.getSprite());
 		enemyPoke.setSize(80, 80);
-		enemyPoke.setLocation(190, 21);
+		enemyPoke.setLocation(150, 21);
 		add(enemyPoke);
 	}
 	
