@@ -10,6 +10,7 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.base.BattleButtonFactory;
 
@@ -75,18 +76,19 @@ public class BattleWindow extends Frame {
 	 * Initializes the interface
 	 */
 	private void initComponents() {
+		LoadingList.setDeferredLoading(true);
 		this.setBackground(new Color(0, 0, 0, 0));
-		Label bg = null;
+		Label bg = new Label();
 		try {
 			bg = new Label(new Image("/res/ui/bg.png"));
-			bg.setSize(256,203);
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
-
+		bg.setSize(256,203);
 		bg.setLocation(0, 142);
 		getContentPane().add(bg);
 
+		System.out.println("Step 1");
 		attackPane = new Container();
 		attackPane.setBackground(new Color(0, 0, 0, 0));
 
@@ -357,6 +359,7 @@ public class BattleWindow extends Frame {
 		});
 
 		endPane.setVisible(false);
+		LoadingList.setDeferredLoading(false);
 	}
 
 	/**
