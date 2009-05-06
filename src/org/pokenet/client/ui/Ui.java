@@ -23,6 +23,7 @@ import org.pokenet.client.ui.frames.HelpWindow;
 import org.pokenet.client.ui.frames.NPCSpeechFrame;
 import org.pokenet.client.ui.frames.OptionsDialog;
 import org.pokenet.client.ui.frames.PartyInfoDialog;
+import org.pokenet.client.ui.frames.PokeStorageBoxFrame;
 import org.pokenet.client.ui.frames.RequestWindow;
 import org.pokenet.client.ui.frames.TradeDialog;
 
@@ -46,6 +47,7 @@ public class Ui extends Frame {
     private PartyInfoDialog m_teamInfo;
 	private NPCSpeechFrame m_speechFrame;
 	private BattleManager m_battleManager;
+	private PokeStorageBoxFrame m_storageBox;
     private boolean m_isOption;
     private static final int UI_WIDTH = 32*7;
 	
@@ -436,5 +438,29 @@ public class Ui extends Frame {
      */
     public BattleManager getBattleManager(){
     	return m_battleManager;
+    }
+    
+    /**
+     * Starts a Storage Box
+     */
+    public void useStorageBox(int[] data){
+    	m_storageBox = new PokeStorageBoxFrame(data);
+    	getDisplay().add(m_storageBox);
+    }
+    
+    /**
+     * Stops the Storage Box
+     */
+    public void stopUsingBox(){
+    	getDisplay().remove(m_storageBox);
+    	m_storageBox = null;
+    }
+    
+    /**
+     * Returns the Storage Box
+     * @return
+     */
+    public PokeStorageBoxFrame getStorageBox(){
+    	return m_storageBox;
     }
 }

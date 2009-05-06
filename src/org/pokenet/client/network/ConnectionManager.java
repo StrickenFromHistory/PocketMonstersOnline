@@ -80,6 +80,16 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 'B':
 			//Box access - receiving a string of pokedex numbers, e.g. B15,23,24,
+			String[] indexes = message.substring(1).split(",");
+	    	int[] pokes = new int[indexes.length];
+	    	for (int i = 0; i < pokes.length; i++){
+	    		pokes[i] = Integer.parseInt(indexes[i]);
+	    	}
+			if (GameClient.getInstance().getUi().getStorageBox() == null){
+				GameClient.getInstance().getUi().useStorageBox(pokes);
+			} else {
+				GameClient.getInstance().getUi().getStorageBox().changeBox(pokes);
+			}
 			break;
 		case 'b':
 			//Battle information
@@ -142,7 +152,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 's':
 				//Switch in Pokemon requested
-				GameClient.getInstance().getUi().getBattleManager().getBattleWindow().showPokePane(true);
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informSwitchRequested();
 				break;
 			case 'S':
 				//A switch occured -> bSTRAINERNAME,NEWPOKEMON

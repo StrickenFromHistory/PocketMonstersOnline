@@ -102,6 +102,14 @@ public class BattleTimeLine {
 	}
 	
 	/**
+	 * Informs that a pokemon switch is required
+	 */
+	public void informSwitchRequested(){
+		GameClient.getInstance().getUi().getBattleManager().getBattleWindow().showPokePane(true);
+		m_narrator.addSpeech("Select a new pokemon!");
+	}
+	
+	/**
 	 * Informs a change in health
 	 * @param data
 	 * @param i
