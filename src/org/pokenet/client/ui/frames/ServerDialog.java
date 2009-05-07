@@ -117,7 +117,7 @@ public class ServerDialog extends Frame {
 			m_servers[4].setVisible(true);
 			m_servers[4].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					GameClient.setHost(m_host[0]);
+					GameClient.setHost(m_host[4]);
 				}
 			});
 			this.add(m_servers[4]);
