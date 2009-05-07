@@ -1,13 +1,10 @@
 package org.pokenet.client;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.concurrent.Executors;
-
-import javax.swing.JOptionPane;
 
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Display;
@@ -47,6 +44,7 @@ import org.pokenet.client.ui.LoginScreen;
 import org.pokenet.client.ui.Ui;
 import org.pokenet.client.ui.frames.ConfirmationDialog;
 import org.pokenet.client.ui.frames.MessageDialog;
+import org.pokenet.client.ui.frames.PlayerPopupDialog;
 
 /**
  * The game client
@@ -80,6 +78,7 @@ public class GameClient extends BasicGame {
 	private Color m_daylight;
 	private static String m_language = "";
 	private ConfirmationDialog m_confirm;
+	private PlayerPopupDialog m_playerDialog;
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
 	 * Load options
@@ -377,6 +376,32 @@ public class GameClient extends BasicGame {
 	}
 	
 	/**
+	 * Accepts the mouse input
+	 */
+	@Override
+	public void mousePressed(int button, int x, int y) {
+		// Right Click
+        if (button == 1) {
+        	// loop through the players and look for one that's in the
+        	// place where the user just right-clicked
+        	for (Player p : m_mapMatrix.getPlayers()) {
+        		if ((x >= p.getX() + m_mapMatrix.getCurrentMap().getXOffset() && x <= p.getX() + 32 + m_mapMatrix.getCurrentMap().getXOffset()) 
+        				&& (y >= p.getY() + m_mapMatrix.getCurrentMap().getYOffset() && y <= p.getY() + 40 + m_mapMatrix.getCurrentMap().getYOffset())) {
+        			// Brings up a popup menu with player options
+        			if (!p.isOurPlayer()){
+        				if (getDisplay().containsChild(m_playerDialog))
+        					getDisplay().remove(m_playerDialog);
+        				m_playerDialog = new PlayerPopupDialog(p.getUsername());
+        				m_playerDialog.setLocation(x, y);
+        				getDisplay().add(m_playerDialog);
+        			}
+        		}
+        	}
+        }
+	}
+
+	
+	/**
 	 * Connects to a selected server
 	 */
 	public void connect() {
@@ -399,10 +424,9 @@ public class GameClient extends BasicGame {
         	i++;
         	//Connection attempt times out and a dialog appears
         	if(i >= 10000) {
-        		JOptionPane.showMessageDialog(null,
-						"Connection timed out.\n"
+        		messageDialog("Connection timed out.\n"
 						+ "The server may be offline.\n"
-						+ "Contact an administrator for assistance.");
+						+ "Contact an administrator for assistance.", getDisplay());
 				m_host = "";
 				return;
         	}

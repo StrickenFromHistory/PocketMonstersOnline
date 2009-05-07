@@ -14,7 +14,7 @@ import org.pokenet.client.GameClient;
  * @author ZombieBear
  *
  */
-class PlayerPopupDialog extends Frame{
+public class PlayerPopupDialog extends Frame{
 	Button m_battle, m_trade, m_addFriend, m_cancel;
 	Label m_name;
 	
@@ -40,14 +40,14 @@ class PlayerPopupDialog extends Frame{
 		m_trade.setLocation(0, m_battle.getY() + m_battle.getHeight());
 		getContentPane().add(m_trade);
 
-		m_trade = new Button("Add Friend");
-		m_trade.setSize(100,25);
-		m_trade.setLocation(0, m_battle.getY() + m_trade.getHeight());
-		getContentPane().add(m_trade);
+		m_addFriend = new Button("Add Friend");
+		m_addFriend.setSize(100,25);
+		m_addFriend.setLocation(0, m_trade.getY() + m_addFriend.getHeight());
+		getContentPane().add(m_addFriend);
 		
 		m_cancel = new Button("Cancel");
 		m_cancel.setSize(100,25);
-		m_cancel.setLocation(0, m_trade.getY() + m_cancel.getHeight());
+		m_cancel.setLocation(0, m_addFriend.getY() + m_cancel.getHeight());
 		getContentPane().add(m_cancel);
 		setBackground(new Color(0,0,0,150));
 		setSize(100, 125 + m_name.getTextHeight());
@@ -59,11 +59,18 @@ class PlayerPopupDialog extends Frame{
 		m_battle.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				//TODO: Battle request
+				//GameClient.getInstance().getPacketGenerator().write("" + m_name.getText());
 			}
 		});
 		m_trade.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				//TODO: Trade request
+				//GameClient.getInstance().getPacketGenerator().write("" + m_name.getText());
+			}
+		});
+		m_addFriend.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				GameClient.getInstance().getPacketGenerator().write("Fa" + m_name.getText());
 			}
 		});
 		m_cancel.addActionListener(new ActionListener(){
