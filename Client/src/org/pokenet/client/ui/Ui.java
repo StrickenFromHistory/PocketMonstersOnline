@@ -463,4 +463,12 @@ public class Ui extends Frame {
     public PokeStorageBoxFrame getStorageBox(){
     	return m_storageBox;
     }
+
+	/**
+	 * Returns the FriendsList
+	 * @return
+	 */
+	public FriendListDialog getFriendsList() {
+		return m_friendList;
+	}
 }

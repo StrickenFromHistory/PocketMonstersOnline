@@ -109,7 +109,6 @@ public class TradeDialog extends Frame {
 				getDisplay().remove(m_confirm);
 				m_confirm = null;
 			}
-		
 		};
 		m_confirm = new ConfirmationDialog("Are you sure you want to cancel the trade?", yes, no);
 	}
