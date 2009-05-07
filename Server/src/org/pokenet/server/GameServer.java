@@ -177,6 +177,16 @@ public class GameServer extends JFrame {
 	 * Starts the game server
 	 */
 	public void start() {
+		/*
+		 * Store locally
+		 */
+		m_dbServer = m_dbS.getText();
+		m_dbName = m_dbN.getText();
+		m_dbUsername = m_dbU.getText();
+		m_dbPassword = new String(m_dbP.getPassword());
+		m_serverName = m_name.getText();
+		
+		
 		m_serviceManager = new ServiceManager();
 		m_serviceManager.start();
 		m_start.setEnabled(false);
