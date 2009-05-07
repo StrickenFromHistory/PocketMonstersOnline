@@ -140,6 +140,11 @@ public class FriendListDialog extends Frame {
 class PopUp extends Frame{
 	Button m_whisper, m_cancel;
 	Label m_name;
+	
+	/**
+	 * Default Constructor
+	 * @param friend
+	 */
 	public PopUp(String friend){
 		m_name = new Label(friend);
 		m_name.setFont(GameClient.getFontSmall());
