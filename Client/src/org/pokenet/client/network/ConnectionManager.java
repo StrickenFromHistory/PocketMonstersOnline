@@ -365,12 +365,15 @@ public class ConnectionManager extends IoHandlerAdapter {
 				switch(message.charAt(1)) {
 				case 'i':
 					//Initialise
+					GameClient.getInstance().getUi().setFriendsList(message.substring(2).split(","));
 					break;
 				case 'a':
 					//A friend was added
+					GameClient.getInstance().getUi().getFriendsList().addFriend(message.substring(2));
 					break;
 				case 'r':
 					//A friend was removed
+					GameClient.getInstance().getUi().getFriendsList().removeFriend(message.substring(2));
 					break;
 				}
 				break;

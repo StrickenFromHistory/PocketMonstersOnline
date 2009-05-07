@@ -465,10 +465,18 @@ public class Ui extends Frame {
     }
 
 	/**
-	 * Returns the FriendsList
+	 * Returns the Friends List
 	 * @return
 	 */
 	public FriendListDialog getFriendsList() {
 		return m_friendList;
+	}
+	
+	/**
+	 * Sets the Friends List
+	 * @param friends
+	 */
+	public void setFriendsList(String[] friends){
+		m_friendList = new FriendListDialog(friends);
 	}
 }

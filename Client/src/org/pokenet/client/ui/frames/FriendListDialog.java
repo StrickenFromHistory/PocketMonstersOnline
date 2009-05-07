@@ -201,7 +201,6 @@ class PopUp extends Frame{
 				ActionListener m_yes = new ActionListener(){
 					public void actionPerformed(ActionEvent e){
 						GameClient.getInstance().getPacketGenerator().write("Fr" + m_name.getText());
-						GameClient.getInstance().getUi().getFriendsList().removeFriend(m_name.getText());
 						GameClient.getInstance().getDisplay().remove(m_confirm);
 						m_confirm = null;
 					}
