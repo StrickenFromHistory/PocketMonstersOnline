@@ -6,5 +6,5 @@ New Island
 127.0.0.1
 Sky Pillar
 -
-Burned Tower
--
+Ruins of Alph
+isocron.net
