@@ -1,7 +1,9 @@
 package org.pokenet.client.ui.frames;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import mdes.slick.sui.Button;
-import mdes.slick.sui.Container;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
 import mdes.slick.sui.event.ActionEvent;
@@ -19,7 +21,7 @@ import org.pokenet.client.GameClient;
  *
  */
 public class FriendListDialog extends Frame {
-	String[] m_friends;
+	List<String> m_friends;
 	Label[] m_shownFriends = new Label[10];
 	Button m_up, m_down;
 	int m_index;
@@ -30,7 +32,10 @@ public class FriendListDialog extends Frame {
 	 * @param friends
 	 */
 	public FriendListDialog(String[] friends) {
-		m_friends = friends;
+		m_friends = new ArrayList<String>();
+		for (int i = 0; i < friends.length; i++){
+			m_friends.add(friends[i]);
+		}
 		m_index = 0;
 		initGUI();
 	}
@@ -54,7 +59,7 @@ public class FriendListDialog extends Frame {
 		m_up.setLocation(getWidth() - 26, 3);
 		getContentPane().add(m_up);
 		m_down = new SimpleArrowButton(SimpleArrowButton.FACE_DOWN);
-		if (m_friends.length <= 10)
+		if (m_friends.size() <= 10)
 			m_down.setEnabled(false);
 		m_down.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -82,7 +87,7 @@ public class FriendListDialog extends Frame {
 		else
 			m_up.setEnabled(true);
 		
-		if (m_index + 10 >= m_friends.length)
+		if (m_index + 10 >= m_friends.size())
 			m_down.setEnabled(false);
 		else
 			m_down.setEnabled(true);
@@ -94,7 +99,7 @@ public class FriendListDialog extends Frame {
 				m_shownFriends[i] = null;
 			}
 			try{
-				m_shownFriends[i] = new Label(m_friends[i + m_index]);
+				m_shownFriends[i] = new Label(m_friends.get(i + m_index));
 			} catch (Exception e) {
 				m_shownFriends[i] = new Label();
 			}
@@ -130,6 +135,24 @@ public class FriendListDialog extends Frame {
 			m_shownFriends[i].setLocation(5, y);
 		}
 	}
+	
+	/**
+	 * Removes a friend from the list
+	 * @param friend
+	 */
+	public void removeFriend(String friend){
+		m_friends.remove(friend);
+		scroll(0);
+	}
+	
+	/**
+	 * Adds a friend from the list
+	 * @param friend
+	 */
+	public void addFriend(String friend){
+		m_friends.add(friend);
+		scroll(0);
+	}
 }
 
 /**
@@ -138,7 +161,8 @@ public class FriendListDialog extends Frame {
  *
  */
 class PopUp extends Frame{
-	Button m_whisper, m_cancel;
+	Button m_remove, m_whisper, m_cancel;
+	ConfirmationDialog m_confirm;
 	Label m_name;
 	
 	/**
@@ -152,20 +176,47 @@ class PopUp extends Frame{
 		m_name.pack();
 		m_name.setLocation(0,0);
 		getContentPane().add(m_name);
+		m_remove = new Button("Remove");
+		m_remove.setSize(100,25);
+		m_remove.setLocation(0, m_name.getY() + m_name.getTextHeight() + 3);
+		getContentPane().add(m_remove);
 		m_whisper = new Button("Whisper");
 		m_whisper.setSize(100,25);
-		m_whisper.setLocation(0, m_name.getY() + m_whisper.getTextHeight());
+		m_whisper.setLocation(0, m_remove.getY() + m_remove.getHeight());
 		getContentPane().add(m_whisper);
 		m_cancel = new Button("Cancel");
 		m_cancel.setSize(100,25);
 		m_cancel.setLocation(0, m_whisper.getY() + m_cancel.getHeight());
 		getContentPane().add(m_cancel);
 		setBackground(new Color(0,0,0,150));
-		setSize(100, 76 + m_name.getTextHeight());
+		setSize(100, 103 + m_name.getTextHeight());
 		getTitleBar().setVisible(false);
 		setVisible(true);
 		setResizable(false);
 		setAlwaysOnTop(true);
+		
+		m_remove.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				destroy();
+				ActionListener m_yes = new ActionListener(){
+					public void actionPerformed(ActionEvent e){
+						GameClient.getInstance().getPacketGenerator().write("Fr" + m_name.getText());
+						GameClient.getInstance().getUi().getFriendsList().removeFriend(m_name.getText());
+						GameClient.getInstance().getDisplay().remove(m_confirm);
+						m_confirm = null;
+					}
+				};
+				ActionListener m_no = new ActionListener(){
+					public void actionPerformed(ActionEvent evt) {
+						GameClient.getInstance().getDisplay().remove(m_confirm);
+						m_confirm = null;
+					}
+				};
+				m_confirm = new ConfirmationDialog("Are you sure you want to remove " + m_name.getText() + " from your friends?");
+				m_confirm.addYesListener(m_yes);
+				m_confirm.addNoListener(m_no);
+			}
+		});
 		m_cancel.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				destroy();				
