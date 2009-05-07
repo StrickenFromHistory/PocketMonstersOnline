@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import javax.swing.JOptionPane;
-
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
@@ -446,19 +444,19 @@ public class RegisterDialog extends Frame{
 							GameClient.getInstance().getPacketGenerator().register(m_username.getText(),
 									m_password.getText(), m_email.getText(), bday, m_starter, (m_gender == 0 ? 11: 20));
 						} else {
-							JOptionPane.showMessageDialog(null, translated.get(28));
+							GameClient.messageDialog(translated.get(28), GameClient.getInstance().getDisplay());
 						}
 					} else {
-						JOptionPane.showMessageDialog(null, translated.get(29));
+						GameClient.messageDialog(translated.get(29), GameClient.getInstance().getDisplay());
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, translated.get(30));
+					GameClient.messageDialog(translated.get(30), GameClient.getInstance().getDisplay());
 				}
 			} else {
-				JOptionPane.showMessageDialog(null, translated.get(31));
+				GameClient.messageDialog(translated.get(31), GameClient.getInstance().getDisplay());
 			}
 		} else {
-			JOptionPane.showMessageDialog(null, translated.get(32));
+			GameClient.messageDialog(translated.get(32), GameClient.getInstance().getDisplay());
 		}
 	}
 	
