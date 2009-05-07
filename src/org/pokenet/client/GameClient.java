@@ -398,6 +398,19 @@ public class GameClient extends BasicGame {
         		}
         	}
         }
+        //Left click
+        if (button == 0){
+        	//Get rid of the popup if you click outside of it
+        	if (getDisplay().containsChild(m_playerDialog)){
+        		if (x > m_playerDialog.getAbsoluteX() || x < m_playerDialog.getAbsoluteX()
+        				+ m_playerDialog.getWidth()){
+        			m_playerDialog.destroy();
+        		} else if (y > m_playerDialog.getAbsoluteY() || y < m_playerDialog.getAbsoluteY() 
+        				+ m_playerDialog.getHeight()){
+        			m_playerDialog.destroy();
+        		}
+        	} 
+        }
 	}
 
 	
