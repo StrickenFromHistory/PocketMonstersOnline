@@ -157,7 +157,7 @@ public class FriendListDialog extends Frame {
 
 /**
  * PopUp for right Click
- * @author administrator
+ * @author ZombieBear
  *
  */
 class PopUp extends Frame{
