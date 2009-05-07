@@ -164,4 +164,7 @@ public class ServerDialog extends Frame {
 		else
 			return "localhost";
 	}
+	public void goServer(){
+		GameClient.setHost(getPrivateServer());
+	}
 }

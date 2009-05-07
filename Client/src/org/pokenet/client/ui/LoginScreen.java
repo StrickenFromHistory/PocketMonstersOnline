@@ -188,7 +188,11 @@ public class LoginScreen extends Window {
 	 * @return
 	 */
 	public void enterKeyDefault() {
-		m_login.goLogin();
+		if(m_select.isVisible()){
+			m_select.goServer();
+		}else{
+			m_login.goLogin();
+		}
 	}
 	
 	/**

@@ -356,8 +356,8 @@ public class GameClient extends BasicGame {
 				} 
 			}
 		}
-		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) ) {
-			if(m_ui.getNPCSpeech() == null && getUi().getBattleManager().getBattleWindow() == null){
+		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() ) {
+			if(m_ui.getNPCSpeech() == null && getUi().getBattleManager().getBattleWindow() == null ){
 				m_packetGen.write("Ct");
 			}
 			/*} else if (getLogin().getSpeechy() != null) {
