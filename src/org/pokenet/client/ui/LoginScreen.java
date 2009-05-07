@@ -130,6 +130,7 @@ public class LoginScreen extends Window {
 		m_openAbout.setVisible(true);
 		m_openToS.setVisible(true);
 		m_lang.setVisible(false);
+		m_register.grabFocus();
 	}
 	
 	/**
@@ -200,7 +201,11 @@ public class LoginScreen extends Window {
      * @return
      */
 	public void tabKeyDefault() {
-		m_login.goToPass();
+		if(m_register.isActive()){
+			m_register.goToNext();
+		}else{
+			m_login.goToPass();
+		}
 	}
 	
 	

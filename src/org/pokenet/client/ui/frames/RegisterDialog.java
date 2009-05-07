@@ -57,6 +57,7 @@ public class RegisterDialog extends Frame{
 		m_username.setSize(128, 24);
 		m_username.setLocation(4, 24);
 		m_username.setVisible(true);
+		m_username.grabFocus();
 		this.add(m_username);
 		
 		m_p = new Label(translated.get(6));
@@ -488,5 +489,40 @@ public class RegisterDialog extends Frame{
                 return true;
         else
                 return false;
+	}
+	
+	/**
+	 * Tabs to the next field. 
+	 * @param email
+	 * @return
+	 */
+	public void goToNext() {
+		if (m_username.hasFocus()) {
+			m_username.releaseFocus();
+			m_password.grabFocus();
+		} else if (m_password.hasFocus()) {
+			m_password.releaseFocus();
+			m_confirmPass.grabFocus();
+		} else if (m_confirmPass.hasFocus()) {
+			m_confirmPass.releaseFocus();
+			m_day.grabFocus();
+		} else if (m_day.hasFocus()) {
+			m_day.releaseFocus();
+			m_month.grabFocus();
+		} else if (m_month.hasFocus()) {
+			m_month.releaseFocus();
+			m_year.grabFocus();
+		} else if (m_year.hasFocus()) {
+			m_year.releaseFocus();
+			m_email.grabFocus();
+		} else if (m_email.hasFocus()) {
+			m_email.releaseFocus();
+			m_confirmEmail.grabFocus();
+		}else if (m_confirmEmail.hasFocus()) {
+			m_confirmEmail.releaseFocus();
+			m_username.grabFocus();
+		}else{
+			m_username.grabFocus();
+		}
 	}
 }
