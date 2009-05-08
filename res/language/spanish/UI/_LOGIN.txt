@@ -3,20 +3,20 @@ Nota: Tu cuenta funciona en todos los servidores
 Servidor Privado
 Acerca de
 Terminos de Servicio
-Usuario:
-Clave:
+Usuario 
+Clave     
 Ingresar
-Registrarse
+Registrar
 Registro Pokenet
-Confirmar Clave:
-F.D.N. (dd/mm/aaaa):
-Correo Electronico:
-Confirmar Correo-E:
-Pokemon Inicial:
-Genero:
+Confirmar Clave
+F.D.N. (dd/mm/aaaa)
+Email
+Confirma Email
+Pokemon Inicial 
+                  Genero
 Hombre
 Mujer
-Terminos de Servicio
+      Terminos de Servicio
 Acepto los TdS
 Cancelar
 Usuario o Clave Incorrecto/nVerifica que escribiste correctamente tu nombre de usuario y clave
