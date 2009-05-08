@@ -1,48 +1,48 @@
-Pokemon Team
+Equipe Pokemon
 Level:
-Name:
+Nome:
 HP:
 Attack:
-Defense:
+Defensa:
 Sp. Attack:
-Sp. Defense: 
-Speed:
-Ability:
+Sp. Defensa:
+Velocidade:
+Abilidade:
 Exp:
 Nature:
-Type one:
-Type two:
-Gender:
-Options
-Full Screen view
-Mute
-Save
-Changes will not take effect until you restart.
-Pokenet: Online Help
-The movement buttons are the /narrow keys and/or WASD keys.
-The C key toggles the chat/nwindow.
-Use spacebar to talk to NPC(Non/nPlayer Character) and to continue/non the speech popup./n
-Use the /w USERNAME TEXT/ncommand to whisper to other/nplayers. 
-Use the /playercount command to/nsee how many players are online.
-If you have four badges, press/nshift to surf on water. 
+Tipo one:
+Tipo two:
+Genero:
+Opcoens
+Tela Cheia
+Mudo
+Salvar
+As mudancas terao efeito se voce reniciar.
+Pokenet: Ajuda online
+Os botoens de movimento sao as Setas e/ou WASD.
+A telca C abre o chat /n
+Use Espaco para conversar com a NPC(OU/nPersonagem nao jogador)./n
+Use o /w USERNAME TEXT/ncommando para chamar outros/njogadores.
+Use o /playercount commando to/npara ver quantos jogadores estao online.
+Se voce tiver insiguias use/nshift para surfar.
 Chat: Local
-You must accept Terms of Service (ToS) before registering.
-Male
-Female
-None
-Lv. 
-PvP Battles/Trades
-Cancel
-Accept
-Decline
-Send Offer
-Your Offer:
-Their Offer:
-test
-Waiting...
-Send a Request
-Requests Received
-Trade: 
-Money only
-Battle
-Trade
+Voce deve aceitar os termos do servico para se registar.
+Homem
+Mulher
+Duvidoso
+Lv.
+PvP Batalhas/Trocas
+Cancelar
+Aceitar
+Recusar
+Enviar Oferta:
+Sua Oferta:
+Oferta dele:
+teste
+Aguarde...
+Enviando Pedido
+Pedido Recebido
+Troca:
+Dinheiro apenas
+Batalha
+Troca 

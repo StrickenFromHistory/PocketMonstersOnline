@@ -1,14 +1,14 @@
-Please select a new Pokemon
-[poke] used [move]
-Awaiting your move...
-[poke] gained [exp] EXP
-[poke] returned to normal.
-[trainer] sent out [poke]
-Select a new Pokemon!
-[poke] took [damage] damage
-It has [hp] life remaining
-[poke] recovered [damage] HP
-[trainer] won the battle!
-[trainer] was defeated!
-You got away safely!
-You couldn't run away!
+Selecione um novo Pokemon
+[poke] usou [move]
+Aguardando seu movimento...
+[poke] ganhou [exp] EXP
+[poke] retornou ao normal.
+[trainer] enviou [poke]
+Selecione um novo Pokemon!
+[poke] recebeu [damage] damage
+Posui [hp] Vida restante
+[poke] recuperou [damage] HP
+[trainer] venceu a batalha!
+[trainer] foi derotado!
+fugiu a distancia segura!
+voce nao pode fugir!
