@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
@@ -22,7 +23,7 @@ public class SoundManager {
 	private ArrayList<String> channelList;
 	private boolean muted = false;
 
-	private final String audioPath = "/res/music/";
+	private final String audioPath = "res/music/";
 
 	public SoundManager() {
 		channels = new HashMap<String, Music>();
@@ -35,12 +36,14 @@ public class SoundManager {
 	private void loadFileList() {
 		try {
 			System.out.println(audioPath + "index.txt");
-			BufferedReader is = new BufferedReader(new InputStreamReader(
-					getClass().getClassLoader().getResourceAsStream(
-							audioPath + "index.txt")));
+//			BufferedReader is = new BufferedReader(new InputStreamReader(
+//					getClass().getClassLoader().getResourceAsStream(
+//							audioPath + "index.txt")));
+			Scanner reader = new Scanner(new File(audioPath+"index.txt"));
 
 			String f = null;
-			while ((f = is.readLine()) != null) {
+			while (reader.hasNext()) {
+				f = reader.nextLine();
 				String[] addFile = f.split(":", 2);
 				fileList.put(addFile[0], addFile[1]);
 			}
