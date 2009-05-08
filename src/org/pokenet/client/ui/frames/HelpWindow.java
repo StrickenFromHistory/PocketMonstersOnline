@@ -1,9 +1,12 @@
 package org.pokenet.client.ui.frames;
 
+import java.util.List;
+
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.TextArea;
 
 import org.newdawn.slick.Color;
+import org.pokenet.client.backend.Translator;
 
 /**
  * Instructions for new players
@@ -25,32 +28,33 @@ public class HelpWindow extends Frame{
 	 * Initializes the interface
 	 */
     private void initGUI() {
-            this.getTitleBar().getCloseButton().setVisible(false);
-            this.setTitle("Pokemon Global: Online Help!");
-            this.setBackground(new Color(0, 0, 0, 85));
-            this.setForeground(new Color(255, 255, 255));
+    	List<String> translated = Translator.translate("_GUI");
+    	this.getTitleBar().getCloseButton().setVisible(false);
+    	this.setTitle(translated.get(20));
+    	this.setBackground(new Color(0, 0, 0, 85));
+    	this.setForeground(new Color(255, 255, 255));
            
-            this.setLocation(200, 0);
-            this.setResizable(false);
+    	this.setLocation(200, 0);
+    	this.setResizable(false);
            
-            helptext = new TextArea();
-            helptext.setSize(355, 455);
-            //setText Mover stuff to help panel.
-            helptext.setText("The movement buttons are the arrow keys and/or WASD keys. \n" +
-                                                    "The C key toggles the chat window. \n" +
-                                                    "Use Spacebar to talk to NPC(Non Player Character) and to continue on the speechpopup.\n\n" +
-                                                    "Use the /w USERNAME TEXT command to whisper to other players.\n" +
-                                                    "Use the /playercount command to see how many players are online.\n" +
-                                                    "If you have four badges, press shift to surf on water.");
-            //helptext.setFont(GlobalGame.getDPFontSmall());
-            helptext.setForeground(new Color(255, 255, 255));
-            helptext.setBackground(new Color(0, 0, 0, 18));
-            helptext.setBorderRendered(false);
-            helptext.setEditable(false);
-            helptext.setWrapEnabled(true);
-            this.setSize(360, 460);
-            this.add(helptext);
-            setDraggable(false);
+    	helptext = new TextArea();
+    	helptext.setSize(355, 455);
+    	//setText Mover stuff to help panel.
+    	helptext.setText(translated.get(21) +
+    			translated.get(22) +
+    			translated.get(23) +
+    			translated.get(24) +
+    			translated.get(25) +
+    			translated.get(26));
+//    	helptext.setFont(GlobalGame.getDPFontSmall());
+    	helptext.setForeground(new Color(255, 255, 255));
+    	helptext.setBackground(new Color(0, 0, 0, 18));
+    	helptext.setBorderRendered(false);
+    	helptext.setEditable(false);
+    	helptext.setWrapEnabled(true);
+    	this.setSize(360, 460);
+    	this.add(helptext);
+    	setDraggable(false);
     }
        
     /**
