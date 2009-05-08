@@ -1,5 +1,8 @@
 package org.pokenet.client.backend;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.BattleCanvas;
 import org.pokenet.client.ui.frames.BattleSpeechFrame;
@@ -12,9 +15,10 @@ import org.pokenet.client.ui.frames.BattleSpeechFrame;
 public class BattleTimeLine {
 	private BattleSpeechFrame m_narrator;
 	private BattleCanvas m_canvas;
+	List<String> m_translator = new ArrayList<String>();
 	//Lines for REGEX needed for l10n
 	String m_pokeName, m_move, m_trainer;
-	int m_newHPValue, m_exp;
+	int m_newHPValue, m_exp, m_dmg;
 	
 	/**
 	 * Default constructor
@@ -27,6 +31,7 @@ public class BattleTimeLine {
 	 * Starts the TimeLine's components
 	 */
 	public void init(){
+		m_translator = Translator.translate("_BATTLE");
 		m_canvas = new BattleCanvas();
 		m_narrator = new BattleSpeechFrame();
 		GameClient.getInstance().getDisplay().add(m_canvas);
@@ -47,7 +52,7 @@ public class BattleTimeLine {
 			}
 			if (counter < i){
 				GameClient.getInstance().getUi().getBattleManager().getBattleWindow().showPokePane(true);
-				addSpeech("Please select a new Pokemon");
+				addSpeech(m_translator.get(0));
 				break;
 			}
 		}
@@ -60,7 +65,7 @@ public class BattleTimeLine {
 	public void informMoveUsed(String[] data){
 		m_pokeName = data[0];
 		m_move = data[1];
-		addSpeech(data[0] + " used " + data[1]);
+		addSpeech(m_translator.get(1));
 	}
 	
 	/**
@@ -68,7 +73,7 @@ public class BattleTimeLine {
 	 */
 	public void informMoveRequested(){
 		GameClient.getInstance().getUi().getBattleManager().requestMoves();
-		m_narrator.addSpeech("Awaiting your move.");
+		m_narrator.addSpeech(m_translator.get(2));
 	}
 	
 	/**
@@ -95,7 +100,7 @@ public class BattleTimeLine {
 	 */
 	public void informStatusHealed(String poke){
 		m_pokeName = poke;
-		m_narrator.addSpeech(poke + " returned to normal.");
+		m_narrator.addSpeech(m_translator.get(3));
 	}
 	
 	/**
@@ -109,7 +114,7 @@ public class BattleTimeLine {
 		m_canvas.drawOurInfo();
 		m_canvas.drawEnemyPoke();
 		m_canvas.drawEnemyInfo();
-		m_narrator.addSpeech(data[0] + " sent out " + data[1]);
+		m_narrator.addSpeech(m_translator.get(4));
 	}
 	
 	/**
@@ -117,7 +122,7 @@ public class BattleTimeLine {
 	 */
 	public void informSwitchRequested(){
 		GameClient.getInstance().getUi().getBattleManager().getBattleWindow().showPokePane(true);
-		m_narrator.addSpeech("Select a new pokemon!");
+		m_narrator.addSpeech(m_translator.get(5));
 	}
 	
 	/**
@@ -127,6 +132,7 @@ public class BattleTimeLine {
 	 */
 	public void informHealthChanged(String[] data, int i){
 		m_pokeName = data[0];
+		m_dmg = Integer.parseInt(data[i]);
 		if (i == 0){
 			m_newHPValue = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() + 
 				Integer.parseInt(data[1]);
@@ -146,10 +152,10 @@ public class BattleTimeLine {
 		}
 		
 		if (Integer.parseInt(data[1]) <= 0){
-			addSpeech(data[0] + " took " + data[1].substring(1) + " damage.");
-			addSpeech("It has " + m_newHPValue + " life remaining");
+			addSpeech(m_translator.get(6));
+			addSpeech(m_translator.get(7));
 		} else {
-			addSpeech(data[0] + " recovered " + data[1] + " HP.");
+			addSpeech(m_translator.get(8));
 		}
 	}
 	
@@ -158,7 +164,7 @@ public class BattleTimeLine {
 	 */
 	public void informVictory(){
 		m_trainer = GameClient.getInstance().getOurPlayer().getUsername();
-		m_narrator.addSpeech(GameClient.getInstance().getOurPlayer().getUsername() + " won the battle!");
+		m_narrator.addSpeech(m_translator.get(9));
 		GameClient.getInstance().getUi().getBattleManager().endBattle();
 	}
 	
@@ -167,7 +173,7 @@ public class BattleTimeLine {
 	 */
 	public void informLoss(){
 		m_trainer = GameClient.getInstance().getOurPlayer().getUsername();
-		m_narrator.addSpeech(GameClient.getInstance().getOurPlayer().getUsername() + " was defeated!");
+		m_narrator.addSpeech(m_translator.get(10));
 		GameClient.getInstance().getUi().getBattleManager().endBattle();
 	}
 	
@@ -185,11 +191,11 @@ public class BattleTimeLine {
 	 */
 	public void informRun(boolean canRun){
 		if (canRun){
-			addSpeech("You got away safely.");
+			addSpeech(m_translator.get(11));
 			m_narrator.advance();
 			GameClient.getInstance().getUi().getBattleManager().endBattle();
 		} else {
-			addSpeech("You couldn't run away.");
+			addSpeech(m_translator.get(12));
 			m_narrator.advance();
 			informMoveRequested();
 		}
@@ -241,6 +247,7 @@ public class BattleTimeLine {
 		line.replaceAll("[poke]", m_pokeName);
 		line.replaceAll("[hp]", String.valueOf(m_newHPValue));
 		line.replaceAll("[exp]", String.valueOf(m_exp));
+		line.replaceAll("[damage]", String.valueOf(m_dmg));
 		return line;
 	}
 }
