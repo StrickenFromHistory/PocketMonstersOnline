@@ -1,5 +1,7 @@
 package org.pokenet.client.ui.frames;
 
+import java.util.List;
+
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Frame;
@@ -17,6 +19,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 import org.pokenet.client.backend.entity.OurPokemon;
 import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.base.ProgressBar;
@@ -150,7 +153,8 @@ public class PartyInfoDialog extends Frame {
 		this.setSize(170, 288);
 		this.setLocationRelativeTo(null);
 		this.setBorderRendered(false);
-		this.setTitle("Pokemon Team");
+		List<String> translated = Translator.translate("_GUI");
+		this.setTitle(translated.get(0));
 	}
 
 	/**
@@ -179,8 +183,9 @@ public class PartyInfoDialog extends Frame {
 				System.out.println("Couldn't load pokeball");
 			}
 			try {
+				List<String> translated = Translator.translate("_GUI");
 				if (pokes[i] != null) {
-					m_level[i].setText("Lv: "
+					m_level[i].setText(translated.get(32)
 							+ String.valueOf(pokes[i].getLevel()));
 					m_level[i].pack();
 					m_pokeName[i].setText(pokes[i].getName());
@@ -202,7 +207,7 @@ public class PartyInfoDialog extends Frame {
 					m_pokeIcon[i].setSize(32, 32);
 					m_pokeName[i].setText(pokes[i].getName());
 					m_pokeName[i].pack();
-					m_level[i].setText("Lv: "
+					m_level[i].setText(translated.get(32)
 							+ String.valueOf(pokes[i].getLevel()));
 					m_level[i].pack();
 				} else {
@@ -222,6 +227,7 @@ public class PartyInfoDialog extends Frame {
 	 */
 	public void update(OurPokemon[] pokes) {
 		m_pokes = pokes;
+		List<String> translated = Translator.translate("_GUI");
 		LoadingList.setDeferredLoading(true);
 		for (int i = 0; i < 6; i++) {
 			try {
@@ -240,7 +246,7 @@ public class PartyInfoDialog extends Frame {
 					m_pokeIcon[i].setImage(pokes[i].getIcon());
 					m_pokeName[i].setText(pokes[i].getName());
 					m_pokeName[i].pack();
-					m_level[i].setText("Lv: "
+					m_level[i].setText(translated.get(32)
 							+ String.valueOf(pokes[i].getLevel()));
 					m_level[i].pack();
 					m_level[i].setLocation(m_pokeName[i].getX()
