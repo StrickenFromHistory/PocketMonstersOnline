@@ -189,7 +189,7 @@ public class LoginScreen extends Window {
 	 * @return
 	 */
 	public void enterKeyDefault() {
-		if (!this.containsChild(m_select) && !this.containsChild(m_lang)){
+		if (!m_select.isVisible() && !m_lang.isVisible()){
 			if(m_select.isVisible()){
 				m_select.goServer();
 			}else{
