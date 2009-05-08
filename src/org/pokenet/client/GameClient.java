@@ -314,7 +314,8 @@ public class GameClient extends BasicGame {
 			m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
 			getUi().getDisplay().add(m_confirm);
 		}
-		if(m_ui.getNPCSpeech() == null && m_ui.getLocalChat().isActive()==false && !m_login.isVisible() && !m_ui.getLocalChat().isActive()){
+		if(m_ui.getNPCSpeech() == null && m_ui.getLocalChat().isActive()==false && !m_login.isVisible()
+				&& !m_ui.getLocalChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
 					&& m_ourPlayer.getX() == m_ourPlayer.getServerX()
