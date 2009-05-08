@@ -12,6 +12,9 @@ import org.pokenet.client.ui.frames.BattleSpeechFrame;
 public class BattleTimeLine {
 	private BattleSpeechFrame m_narrator;
 	private BattleCanvas m_canvas;
+	//Lines for REGEX needed for l10n
+	String m_pokeName, m_move, m_trainer;
+	int m_newHPValue, m_exp;
 	
 	/**
 	 * Default constructor
@@ -35,6 +38,7 @@ public class BattleTimeLine {
 	 * @param poke
 	 */
 	public void informFaintedPoke(String poke){
+		m_pokeName = poke;
 		addSpeech(poke + " fainted.");
 		for (int i = 0; i < GameClient.getInstance().getOurPlayer().getPokemon().length; i++){
 			int counter = 0;
@@ -54,6 +58,8 @@ public class BattleTimeLine {
 	 * @param data
 	 */
 	public void informMoveUsed(String[] data){
+		m_pokeName = data[0];
+		m_move = data[1];
 		addSpeech(data[0] + " used " + data[1]);
 	}
 	
@@ -70,6 +76,7 @@ public class BattleTimeLine {
 	 * @param data
 	 */
 	public void informExperienceGained(String[] data){
+		m_exp = Integer.parseInt(data[1]);
 		m_narrator.addSpeech(data[0] + " gained " + data[1] + "EXP.");
 	}
 	
@@ -78,6 +85,7 @@ public class BattleTimeLine {
 	 * @param data
 	 */
 	public void informStatusChanged(String[] data){
+		m_pokeName = data[0];
 		//TODO: Code this one	
 	}
 
@@ -86,6 +94,7 @@ public class BattleTimeLine {
 	 * @param poke
 	 */
 	public void informStatusHealed(String poke){
+		m_pokeName = poke;
 		m_narrator.addSpeech(poke + " returned to normal.");
 	}
 	
@@ -94,6 +103,8 @@ public class BattleTimeLine {
 	 * @param data
 	 */
 	public void informSwitch(String[] data){
+		m_trainer = data[0];
+		m_pokeName = data[1];
 		m_canvas.drawOurPoke();
 		m_canvas.drawOurInfo();
 		m_canvas.drawEnemyPoke();
@@ -115,20 +126,20 @@ public class BattleTimeLine {
 	 * @param i
 	 */
 	public void informHealthChanged(String[] data, int i){
-		int newValue;
+		m_pokeName = data[0];
 		if (i == 0){
-			newValue = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() + 
+			m_newHPValue = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() + 
 				Integer.parseInt(data[1]);
-			if (newValue < 0){newValue = 0;}
-			GameClient.getInstance().getUi().getBattleManager().getCurPoke().setCurHP(newValue);
+			if (m_newHPValue < 0){m_newHPValue = 0;}
+			GameClient.getInstance().getUi().getBattleManager().getCurPoke().setCurHP(m_newHPValue);
 			m_canvas.updatePlayerHP(GameClient.getInstance().getUi().getBattleManager().getCurPoke()
 					.getCurHP());
 			data[0] = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getName();
 		} else {
-			newValue = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() + 
+			m_newHPValue = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() + 
 				Integer.parseInt(data[1]);
-			if (newValue < 0){newValue = 0;}
-			GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().setCurHP(newValue);
+			if (m_newHPValue < 0){m_newHPValue = 0;}
+			GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().setCurHP(m_newHPValue);
 			m_canvas.updateEnemyHP(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke()
 					.getCurHP());
 			data[0] = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getName();
@@ -136,7 +147,7 @@ public class BattleTimeLine {
 		
 		if (Integer.parseInt(data[1]) <= 0){
 			addSpeech(data[0] + " took " + data[1].substring(1) + " damage.");
-			addSpeech("It has " + newValue + " life remaining");
+			addSpeech("It has " + m_newHPValue + " life remaining");
 		} else {
 			addSpeech(data[0] + " recovered " + data[1] + " HP.");
 		}
@@ -146,6 +157,7 @@ public class BattleTimeLine {
 	 * Informs a victory on the player's side
 	 */
 	public void informVictory(){
+		m_trainer = GameClient.getInstance().getOurPlayer().getUsername();
 		m_narrator.addSpeech(GameClient.getInstance().getOurPlayer().getUsername() + " won the battle!");
 		GameClient.getInstance().getUi().getBattleManager().endBattle();
 	}
@@ -154,6 +166,7 @@ public class BattleTimeLine {
 	 * Informs a loss on the player's side
 	 */
 	public void informLoss(){
+		m_trainer = GameClient.getInstance().getOurPlayer().getUsername();
 		m_narrator.addSpeech(GameClient.getInstance().getOurPlayer().getUsername() + " was defeated!");
 		GameClient.getInstance().getUi().getBattleManager().endBattle();
 	}
@@ -187,7 +200,7 @@ public class BattleTimeLine {
 	 * @param msg
 	 */
 	public void addSpeech(String msg){
-		m_narrator.addSpeech(msg);
+		m_narrator.addSpeech(parsel10n(msg));
 		while (!m_narrator.getCurrentLine().equalsIgnoreCase(msg));
 		while (!m_narrator.getAdvancedLine().equalsIgnoreCase(msg));
 	}
@@ -216,5 +229,18 @@ public class BattleTimeLine {
 		GameClient.getInstance().getDisplay().remove(m_narrator);
 		m_canvas = null;
 		m_narrator = null;
+	}
+	
+	/**
+	 * Uses regexes to create the appropriate battle messages for battle
+	 * @param line
+	 */
+	public String parsel10n(String line){
+		line.replaceAll("[trainer]", m_trainer);
+		line.replaceAll("[move]", m_move);
+		line.replaceAll("[poke]", m_pokeName);
+		line.replaceAll("[hp]", String.valueOf(m_newHPValue));
+		line.replaceAll("[exp]", String.valueOf(m_exp));
+		return line;
 	}
 }
