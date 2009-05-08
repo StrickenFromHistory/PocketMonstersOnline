@@ -1,0 +1,1079 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+ <script type="text/javascript">
+ 
+ 
+ 
+ var codesite_token = "38da184e416651ed039d1a2fd21d2d8d";
+ 
+ </script>
+ <title>Opening League.ogg - 
+ pokeglobal -
+ 
+ Google Code</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ 
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/13924206732975079159/css/ph_core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/13924206732975079159/css/ph_detail.css" >
+ 
+ 
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/13924206732975079159/css/d_sb_20080522.css" >
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/13924206732975079159/css/d_ie.css" >
+<![endif]-->
+</head>
+<body class="t4">
+ <div id="gaia">
+ 
+ <span>
+ 
+ <b>javierbere@gmail.com</b>
+ 
+ 
+ | <a href="/u/javierbere/" id="projects-dropdown" onclick="return false;">My favorites</a>
+ 
+ | <a href="/u/javierbere/" onclick="_CS_click('/gb/ph/profile');" title="Profile, Updates, and Settings">Profile</a>
+ | <a href="http://www.google.com/accounts/Logout?continue=http%3A%2F%2Fcode.google.com%2Fp%2Fpokeglobal%2Fsource%2Fbrowse%2Ftrunk%2FGlobalClient%2Fpokeglobal%2Fres%2Faudio%2FOpening%2520League.ogg" onclick="_CS_click('/gb/ph/signout');">Sign out</a>
+ 
+ </span>
+
+ </div>
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+ <table style="padding:0px; margin: 20px 0px 0px 0px; width:100%" cellpadding="0" cellspacing="0">
+ <tr style="height: 58px;">
+ <td style="width: 55px; text-align:center;">
+ <a href="/p/pokeglobal/">
+ 
+ 
+ 
+ <img src="http://www.gstatic.com/codesite/ph/images/defaultlogo.png"
+ alt="Project Logo">
+ 
+ 
+ 
+ </a>
+ </td>
+ <td style="padding-left: 0.8em">
+ 
+ <div id="pname" style="margin: 0px 0px -3px 0px">
+ <a href="/p/pokeglobal/" style="text-decoration:none; color:#000">pokeglobal</a>
+ </div>
+ <div id="psum">
+ <i><a id="project_summary_link" href="/p/pokeglobal/" style="text-decoration:none; color:#000">A Pokemon-like online MMORPG.</a></i>
+ </div>
+ 
+ </td>
+ <td style="white-space:nowrap; text-align:right">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="">
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+
+<table id="mt" cellspacing="0" cellpadding="0" width="100%" border="0">
+ <tr>
+ <th onclick="if (!cancelBubble) _go('/p/pokeglobal/');">
+ <div class="tab inactive">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <a onclick="cancelBubble=true;" href="/p/pokeglobal/">Project&nbsp;Home</a>
+ </div>
+ </div>
+ </th><td>&nbsp;&nbsp;</td>
+ 
+ 
+ 
+ 
+ <th onclick="if (!cancelBubble) _go('/p/pokeglobal/downloads/list');">
+ <div class="tab inactive">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <a onclick="cancelBubble=true;" href="/p/pokeglobal/downloads/list">Downloads</a>
+ </div>
+ </div>
+ </th><td>&nbsp;&nbsp;</td>
+ 
+ 
+ 
+ 
+ 
+ <th onclick="if (!cancelBubble) _go('/p/pokeglobal/w/list');">
+ <div class="tab inactive">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <a onclick="cancelBubble=true;" href="/p/pokeglobal/w/list">Wiki</a>
+ </div>
+ </div>
+ </th><td>&nbsp;&nbsp;</td>
+ 
+ 
+ 
+ 
+ 
+ <th onclick="if (!cancelBubble) _go('/p/pokeglobal/wiki/IssueTracker?tm=3');">
+ <div class="tab inactive">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <a onclick="cancelBubble=true;" href="/p/pokeglobal/wiki/IssueTracker?tm=3">Issues</a>
+ </div>
+ </div>
+ </th><td>&nbsp;&nbsp;</td>
+ 
+ 
+ 
+ 
+ 
+ <th onclick="if (!cancelBubble) _go('/p/pokeglobal/source/checkout');">
+ <div class="tab active">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <a onclick="cancelBubble=true;" href="/p/pokeglobal/source/checkout">Source</a>
+ </div>
+ </div>
+ </th><td>&nbsp;&nbsp;</td>
+ 
+ 
+ <th onclick="if (!cancelBubble) _go('/p/pokeglobal/admin');">
+ <div class="tab inactive">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <a onclick="cancelBubble=true;" href="/p/pokeglobal/admin">Administer</a>
+ </div>
+ </div>
+ </th>
+ <td width="100%">&nbsp;</td>
+ </tr>
+</table>
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ 
+ <td>
+ 
+<div class="st2">
+ <div class="isf">
+ <span class="inst1"><a href="/p/pokeglobal/source/checkout">Checkout</a></span> |
+ <span class="inst2"><a href="/p/pokeglobal/source/browse/">Browse</a></span> |
+ <span class="inst3"><a href="/p/pokeglobal/source/list">Changes</a></span> |
+ <form action="http://www.google.com/codesearch" method="get" style="display:inline"
+ onsubmit="document.getElementById('codesearchq').value = document.getElementById('origq').value + ' package:http://pokeglobal\\.googlecode\\.com'">
+ <input type="hidden" name="q" id="codesearchq" value="">
+ <input maxlength="2048" size="35" id="origq" name="origq" value="" title="Google Code Search" style="font-size:92%">&nbsp;<input type="submit" value="Search Trunk" name="btnG" style="font-size:92%">
+  |
+ <a href="/p/pokeglobal/issues/entry?show=review&former=sourcelist">Request code review</a>
+ 
+ </form>
+ </div>
+</div>
+
+
+ </td>
+ 
+ 
+ 
+ 
+ 
+ <td height="4" align="right" valign="top" class="bevel-right">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ </td>
+ </tr>
+</table>
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+
+<div id="maincol">
+
+ 
+<!-- IE -->
+
+
+
+<div class="expand">
+
+
+<style type="text/css">
+ #file_flipper { display: inline; float: right; white-space: nowrap; }
+ #file_flipper.hidden { display: none; }
+ #file_flipper .pagelink { color: #0000CC; text-decoration: underline; }
+ #file_flipper #visiblefiles { padding-left: 0.5em; padding-right: 0.5em; }
+</style>
+<div id="nav_and_rev" class="heading">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <div class="" style="vertical-align: top">
+ <div class="src_crumbs src_nav">
+ <strong class="src_nav">Source path:&nbsp;</strong>
+ <span id="crumb_root">
+ 
+ <a href="/p/pokeglobal/source/browse/">svn</a>/&nbsp;</span>
+ <span id="crumb_links" class="ifClosed"><a href="/p/pokeglobal/source/browse/trunk/">trunk</a><span class="sp">/&nbsp;</span><a href="/p/pokeglobal/source/browse/trunk/GlobalClient/">GlobalClient</a><span class="sp">/&nbsp;</span><a href="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/">pokeglobal</a><span class="sp">/&nbsp;</span><a href="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/res/">res</a><span class="sp">/&nbsp;</span><a href="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/res/audio/">audio</a><span class="sp">/&nbsp;</span>Opening League.ogg</span>
+ 
+ </div>
+ 
+ </div>
+ <div class="pagination" style="margin-left: 2em">
+ <table cellpadding="0" cellspacing="0" class="flipper">
+ <tbody>
+ <tr>
+ 
+ <td><b>r2362</b></td>
+ 
+ 
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ 
+ <div style="clear:both"></div>
+ </div>
+</div>
+
+<style type="text/css">
+ 
+  tr.inline_comment {
+ background: #fff;
+ vertical-align: top;
+ }
+ div.draft, div.published {
+ padding: .3em;
+ border: 1px solid #999; 
+ margin-bottom: .1em;
+ font-family: arial, sans-serif;
+ max-width: 60em;
+ }
+ div.draft {
+ background: #ffa;
+ } 
+ div.published {
+ background: #e5ecf9;
+ }
+ div.published .body, div.draft .body {
+ padding: .5em .1em .1em .1em;
+ max-width: 60em;
+ white-space: pre-wrap;
+ white-space: -moz-pre-wrap;
+ white-space: -pre-wrap;
+ white-space: -o-pre-wrap;
+ word-wrap: break-word;
+ }
+ div.draft .actions {
+ margin-left: 1em;
+ font-size: 90%;
+ }
+ div.draft form {
+ padding: .5em .5em .5em 0;
+ }
+ div.draft textarea, div.published textarea {
+ width: 95%;
+ height: 10em;
+ font-family: arial, sans-serif;
+ margin-bottom: .5em;
+ }
+
+
+ 
+ .nocursor, .nocursor td, .cursor_hidden, .cursor_hidden td {
+ background-color: white;
+ height: 2px;
+ }
+ .cursor, .cursor td {
+ background-color: darkblue;
+ height: 2px;
+ display: '';
+ }
+
+</style>
+<div class="fc">
+ 
+
+
+ <p><em>
+ 
+ This file is not plain text (only UTF-8 and Latin-1 text encodings are currently supported).
+ 
+ </em></p>
+
+
+
+ <div id="log">
+ <div style="text-align:right">
+ <a class="ifCollapse" href="#" onclick="_toggleMeta('pokeglobal', this)">Show details</a>
+ <a class="ifExpand" href="#" onclick="_toggleMeta('pokeglobal', this)">Hide details</a>
+ </div>
+ <div class="ifExpand">
+ 
+ <div class="pmeta_bubble_bg" style="border:1px solid white">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <div id="changelog">
+ <p>Change log</p>
+ <div>
+ <a href="/p/pokeglobal/source/detail?spec=svn2362&r=1951">r1951</a>
+ by felty.wos
+ on Jan 03, 2009
+ &nbsp; <a href="/p/pokeglobal/source/diff?spec=svn2362&r=1951&amp;format=side&amp;path=/trunk/GlobalClient/pokeglobal/res/audio/Opening+League.ogg&amp;old_path=/trunk/GlobalClient/pokeglobal/res/audio/Opening+League.ogg&amp;old=">Diff</a>
+ </div>
+ <pre>Added GPL stuff, and sounds. Sounds are
+messed up when ending battle music, since
+for some reason it never stops playing the
+music. They also need caching/preloading
+to prevent the pause between a map change
+or battle start and the sound starting.</pre>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ <script type="text/javascript">
+ var detail_url = '/p/pokeglobal/source/detail?r=1951&spec=svn2362';
+ var publish_url = '/p/pokeglobal/source/detail?r=1951&spec=svn2362#publish';
+ // describe the paths of this revision in javascript.
+ var changed_paths = [];
+ var changed_urls = [];
+ 
+ changed_paths.push('/trunk/GlobalClient/gpl-3.0.txt');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/gpl-3.0.txt?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/GlobalGame.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/GlobalGame.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/engine/Animator.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/engine/Animator.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/engine/GameMap.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/engine/GameMap.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/engine/GameMapMatrix.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/engine/GameMapMatrix.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/logic/Enums.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/Enums.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/logic/OurPlayer.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/OurPlayer.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/logic/OurPokemon.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/OurPokemon.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/logic/Player.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/Player.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/logic/SpriteFactory.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/SpriteFactory.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/logic/TempPokemon.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/TempPokemon.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/network/PacketGenerator.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/network/PacketGenerator.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/network/ProtocolHandler.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/network/ProtocolHandler.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/sound');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/sound?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/sound/SoundManager.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/sound/SoundManager.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/HelpWindow.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/HelpWindow.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/LoginScreen.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/LoginScreen.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/MessageBox.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/MessageBox.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/Options.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/Options.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/PokeChooser.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/PokeChooser.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/PokeInfoPane.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/PokeInfoPane.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/PokeStorageBoxPopup.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/PokeStorageBoxPopup.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/ServerSelector.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/ServerSelector.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/ShopWindow.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/ShopWindow.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/SpriteChooser.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/SpriteChooser.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/StarterChoices.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/StarterChoices.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/TeamForBox.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/TeamForBox.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/TitleScreen.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/TitleScreen.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/battle/BagPane.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/battle/BagPane.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/battle/BattleWindow.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/battle/BattleWindow.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/hud/ChatWindow.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/hud/ChatWindow.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/hud/HUDButtonFactory.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/hud/HUDButtonFactory.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/hud/MainHUD.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/hud/MainHUD.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/hud/PartyInfo.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/hud/PartyInfo.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/hud/RequestWindow.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/hud/RequestWindow.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/speech/BattleSpeechPopup.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/speech/BattleSpeechPopup.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/speech/NPCSpeechPopup.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/speech/NPCSpeechPopup.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/speech/SpeechPopup.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/speech/SpeechPopup.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/team/Gateway.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/team/Gateway.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/client/ui/team/Profile.java');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/team/Profile.java?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/res/audio/Opening League.ogg');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/res/audio/Opening League.ogg?r=1951&spec=svn2362');
+ 
+ var selected_path = '/trunk/GlobalClient/pokeglobal/res/audio/Opening League.ogg';
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/res/audio/index.txt');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/res/audio/index.txt?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/res/audio/route30.ogg');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/res/audio/route30.ogg?r=1951&spec=svn2362');
+ 
+ 
+ changed_paths.push('/trunk/GlobalClient/pokeglobal/res/audio/wildbattle.ogg');
+ changed_urls.push('/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/res/audio/wildbattle.ogg?r=1951&spec=svn2362');
+ 
+ 
+ function getCurrentPageIndex() {
+ for (var i = 0; i < changed_paths.length; i++) {
+ if (selected_path == changed_paths[i]) {
+ return i;
+ }
+ }
+ }
+ function getNextPage() {
+ var i = getCurrentPageIndex();
+ if (i < changed_paths.length - 1) {
+ return changed_urls[i + 1];
+ }
+ return null;
+ }
+ function getPreviousPage() {
+ var i = getCurrentPageIndex();
+ if (i > 0) {
+ return changed_urls[i - 1];
+ }
+ return null;
+ }
+ function gotoNextPage() {
+ var page = getNextPage();
+ if (!page) {
+ page = detail_url;
+ }
+ window.location = page;
+ }
+ function gotoPreviousPage() {
+ var page = getPreviousPage();
+ if (!page) {
+ page = detail_url;
+ }
+ window.location = page;
+ }
+ function gotoDetailPage() {
+ window.location = detail_url;
+ }
+ function gotoPublishPage() {
+ window.location = publish_url;
+ }
+</script>
+ 
+ <style type="text/css">
+ #review_nav {
+ border-top: 3px solid white;
+ padding-top: 6px;
+ margin-top: 1em;
+ }
+ #review_nav td {
+ vertical-align: middle;
+ }
+ #review_nav select {
+ margin: .5em 0;
+ }
+ </style>
+ <div id="review_nav">
+ <table><tr><td>Go to:&nbsp;</td><td>
+ <select name="files_in_rev" onchange="window.location=this.value">
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/gpl-3.0.txt?r=1951&amp;spec=svn2362"
+ 
+ >/trunk/GlobalClient/gpl-3.0.txt</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/GlobalGame.java?r=1951&amp;spec=svn2362"
+ 
+ >...okeglobal/client/GlobalGame.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/engine/Animator.java?r=1951&amp;spec=svn2362"
+ 
+ >...obal/client/engine/Animator.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/engine/GameMap.java?r=1951&amp;spec=svn2362"
+ 
+ >...lobal/client/engine/GameMap.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/engine/GameMapMatrix.java?r=1951&amp;spec=svn2362"
+ 
+ >...client/engine/GameMapMatrix.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/Enums.java?r=1951&amp;spec=svn2362"
+ 
+ >...keglobal/client/logic/Enums.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/OurPlayer.java?r=1951&amp;spec=svn2362"
+ 
+ >...obal/client/logic/OurPlayer.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/OurPokemon.java?r=1951&amp;spec=svn2362"
+ 
+ >...bal/client/logic/OurPokemon.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/Player.java?r=1951&amp;spec=svn2362"
+ 
+ >...eglobal/client/logic/Player.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/SpriteFactory.java?r=1951&amp;spec=svn2362"
+ 
+ >.../client/logic/SpriteFactory.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/logic/TempPokemon.java?r=1951&amp;spec=svn2362"
+ 
+ >...al/client/logic/TempPokemon.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/network/PacketGenerator.java?r=1951&amp;spec=svn2362"
+ 
+ >...ent/network/PacketGenerator.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/network/ProtocolHandler.java?r=1951&amp;spec=svn2362"
+ 
+ >...ent/network/ProtocolHandler.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/sound?r=1951&amp;spec=svn2362"
+ 
+ >...alClient/pokeglobal/client/sound</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/sound/SoundManager.java?r=1951&amp;spec=svn2362"
+ 
+ >...l/client/sound/SoundManager.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/HelpWindow.java?r=1951&amp;spec=svn2362"
+ 
+ >...global/client/ui/HelpWindow.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/LoginScreen.java?r=1951&amp;spec=svn2362"
+ 
+ >...lobal/client/ui/LoginScreen.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/MessageBox.java?r=1951&amp;spec=svn2362"
+ 
+ >...global/client/ui/MessageBox.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/Options.java?r=1951&amp;spec=svn2362"
+ 
+ >...okeglobal/client/ui/Options.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/PokeChooser.java?r=1951&amp;spec=svn2362"
+ 
+ >...lobal/client/ui/PokeChooser.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/PokeInfoPane.java?r=1951&amp;spec=svn2362"
+ 
+ >...obal/client/ui/PokeInfoPane.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/PokeStorageBoxPopup.java?r=1951&amp;spec=svn2362"
+ 
+ >...ient/ui/PokeStorageBoxPopup.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/ServerSelector.java?r=1951&amp;spec=svn2362"
+ 
+ >...al/client/ui/ServerSelector.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/ShopWindow.java?r=1951&amp;spec=svn2362"
+ 
+ >...global/client/ui/ShopWindow.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/SpriteChooser.java?r=1951&amp;spec=svn2362"
+ 
+ >...bal/client/ui/SpriteChooser.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/StarterChoices.java?r=1951&amp;spec=svn2362"
+ 
+ >...al/client/ui/StarterChoices.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/TeamForBox.java?r=1951&amp;spec=svn2362"
+ 
+ >...global/client/ui/TeamForBox.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/TitleScreen.java?r=1951&amp;spec=svn2362"
+ 
+ >...lobal/client/ui/TitleScreen.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/battle/BagPane.java?r=1951&amp;spec=svn2362"
+ 
+ >...al/client/ui/battle/BagPane.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/battle/BattleWindow.java?r=1951&amp;spec=svn2362"
+ 
+ >...ient/ui/battle/BattleWindow.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/hud/ChatWindow.java?r=1951&amp;spec=svn2362"
+ 
+ >...al/client/ui/hud/ChatWindow.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/hud/HUDButtonFactory.java?r=1951&amp;spec=svn2362"
+ 
+ >...ent/ui/hud/HUDButtonFactory.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/hud/MainHUD.java?r=1951&amp;spec=svn2362"
+ 
+ >...lobal/client/ui/hud/MainHUD.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/hud/PartyInfo.java?r=1951&amp;spec=svn2362"
+ 
+ >...bal/client/ui/hud/PartyInfo.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/hud/RequestWindow.java?r=1951&amp;spec=svn2362"
+ 
+ >...client/ui/hud/RequestWindow.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/speech/BattleSpeechPopup.java?r=1951&amp;spec=svn2362"
+ 
+ >...ui/speech/BattleSpeechPopup.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/speech/NPCSpeechPopup.java?r=1951&amp;spec=svn2362"
+ 
+ >...nt/ui/speech/NPCSpeechPopup.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/speech/SpeechPopup.java?r=1951&amp;spec=svn2362"
+ 
+ >...lient/ui/speech/SpeechPopup.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/team/Gateway.java?r=1951&amp;spec=svn2362"
+ 
+ >...obal/client/ui/team/Gateway.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/client/ui/team/Profile.java?r=1951&amp;spec=svn2362"
+ 
+ >...obal/client/ui/team/Profile.java</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/res/audio/Opening League.ogg?r=1951&amp;spec=svn2362"
+ selected="selected"
+ >...bal/res/audio/Opening League.ogg</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/res/audio/index.txt?r=1951&amp;spec=svn2362"
+ 
+ >...t/pokeglobal/res/audio/index.txt</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/res/audio/route30.ogg?r=1951&amp;spec=svn2362"
+ 
+ >...pokeglobal/res/audio/route30.ogg</option>
+ 
+ <option value="/p/pokeglobal/source/browse/trunk/GlobalClient/pokeglobal/res/audio/wildbattle.ogg?r=1951&amp;spec=svn2362"
+ 
+ >...eglobal/res/audio/wildbattle.ogg</option>
+ 
+ </select>
+ </td></tr></table>
+ 
+ 
+ 
+ <div id="review_instr" class="closed">
+ <a class="ifOpened" href="/p/pokeglobal/source/detail?r=1951&spec=svn2362#publish">Publish your comments</a>
+ <div class="ifClosed">Double click a line to add a comment</div>
+ </div>
+ 
+ </div>
+ 
+ 
+ </div>
+ <div class="round1"></div>
+ <div class="round2"></div>
+ <div class="round4"></div>
+ </div>
+ <div class="pmeta_bubble_bg" style="border:1px solid white">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <div id="older_bubble">
+ <p>Older revisions</p>
+ 
+ <a href="/p/pokeglobal/source/list?path=/trunk/GlobalClient/pokeglobal/res/audio/Opening+League.ogg&start=1951">All revisions of this file</a>
+ </div>
+ </div>
+ <div class="round1"></div>
+ <div class="round2"></div>
+ <div class="round4"></div>
+ </div>
+ <div class="pmeta_bubble_bg" style="border:1px solid white">
+ <div class="round4"></div>
+ <div class="round2"></div>
+ <div class="round1"></div>
+ <div class="box-inner">
+ <div id="fileinfo_bubble">
+ <p>File info</p>
+ 
+ <div>Size: 49421 bytes</div>
+ 
+ <div><a href="http://pokeglobal.googlecode.com/svn/trunk/GlobalClient/pokeglobal/res/audio/Opening League.ogg">View raw file</a></div>
+ </div>
+ 
+ <div id="props">
+ <p>File properties</p>
+ <dl>
+ 
+ <dt>svn:mime-type</dt>
+ <dd>application/octet-stream</dd>
+ 
+ </dl>
+ </div>
+ 
+ </div>
+ <div class="round1"></div>
+ <div class="round2"></div>
+ <div class="round4"></div>
+ </div>
+ </div>
+ </div>
+
+
+</div>
+</div>
+
+<script src="http://www.gstatic.com/codesite/ph/13924206732975079159/js/source_file_scripts_20080115.js"></script>
+
+ <script type="text/javascript" src="http://kibbles.googlecode.com/files/kibbles-1.3.1.comp.js"></script>
+ <script type="text/javascript">
+ var lastStop = null;
+ var initilized = false;
+ 
+ function updateCursor(next, prev) {
+ if (prev && prev.element) {
+ prev.element.className = 'cursor_stop cursor_hidden';
+ }
+ if (next && next.element) {
+ next.element.className = 'cursor_stop cursor';
+ lastStop = next.index;
+ }
+ }
+ 
+ function pubRevealed(data) {
+ updateCursorForCell(data.cellId, 'cursor_stop cursor_hidden');
+ if (initilized) {
+ reloadCursors();
+ }
+ }
+ 
+ function draftRevealed(data) {
+ updateCursorForCell(data.cellId, 'cursor_stop cursor_hidden');
+ if (initilized) {
+ reloadCursors();
+ }
+ }
+ 
+ function draftDestroyed(data) {
+ updateCursorForCell(data.cellId, 'nocursor');
+ if (initilized) {
+ reloadCursors();
+ }
+ }
+ function reloadCursors() {
+ kibbles.skipper.reset();
+ loadCursors();
+ if (lastStop != null) {
+ kibbles.skipper.setCurrentStop(lastStop);
+ }
+ }
+ // possibly the simplest way to insert any newly added comments
+ // is to update the class of the corresponding cursor row,
+ // then refresh the entire list of rows.
+ function updateCursorForCell(cellId, className) {
+ var cell = document.getElementById(cellId);
+ // we have to go two rows back to find the cursor location
+ var row = getPreviousElement(cell.parentNode);
+ row.className = className;
+ }
+ // returns the previous element, ignores text nodes.
+ function getPreviousElement(e) {
+ var element = e.previousSibling;
+ if (element.nodeType == 3) {
+ element = element.previousSibling;
+ }
+ if (element && element.tagName) {
+ return element;
+ }
+ }
+ function loadCursors() {
+ // register our elements with skipper
+ var elements = CR_getElements('*', 'cursor_stop');
+ var len = elements.length;
+ for (var i = 0; i < len; i++) {
+ var element = elements[i]; 
+ element.className = 'cursor_stop cursor_hidden';
+ kibbles.skipper.append(element);
+ }
+ }
+ function toggleComments() {
+ CR_toggleCommentDisplay();
+ reloadCursors();
+ }
+ function keysOnLoadHandler() {
+ // setup skipper
+ kibbles.skipper.addStopListener(
+ kibbles.skipper.LISTENER_TYPE.PRE, updateCursor);
+ // Set the 'offset' option to return the middle of the client area
+ // an option can be a static value, or a callback
+ kibbles.skipper.setOption('padding_top', 50);
+ // Set the 'offset' option to return the middle of the client area
+ // an option can be a static value, or a callback
+ kibbles.skipper.setOption('padding_bottom', 100);
+ // Register our keys
+ kibbles.skipper.addFwdKey("n");
+ kibbles.skipper.addRevKey("p");
+ kibbles.keys.addKeyPressListener(
+ 'u', function() { window.location = detail_url; });
+ kibbles.keys.addKeyPressListener(
+ 'r', function() { window.location = detail_url + '#publish'; });
+ 
+ kibbles.keys.addKeyPressListener('j', gotoNextPage);
+ kibbles.keys.addKeyPressListener('k', gotoPreviousPage);
+ 
+ 
+ kibbles.keys.addKeyPressListener('h', toggleComments);
+ 
+ }
+ window.onload = function() {keysOnLoadHandler();};
+ </script>
+
+
+<!-- code review support -->
+<script src="http://www.gstatic.com/codesite/ph/13924206732975079159/js/code_review_scripts_20081023.js"></script>
+<script type="text/javascript">
+ 
+ // the comment form template
+ var form = '<div class="draft"><div class="header"><span class="title">Draft comment:</span></div>' +
+ '<div class="body"><form onsubmit="return false;"><textarea id="$ID">$BODY</textarea><br>$ACTIONS</form></div>' +
+ '</div>';
+ // the comment "plate" template used for both draft and published comment "plates".
+ var draft_comment = '<div class="draft" ondblclick="$ONDBLCLICK">' +
+ '<div class="header"><span class="title">Draft comment:</span><span class="actions">$ACTIONS</span></div>' +
+ '<pre id="$ID" class="body">$BODY</pre>' +
+ '</div>';
+ var published_comment = '<div class="published">' +
+ '<div class="header"><span class="title"><a href="$PROFILE_URL">$AUTHOR:</a></span><div>' +
+ '<pre id="$ID" class="body">$BODY</pre>' +
+ '</div>';
+
+ function showPublishInstructions() {
+ var element = document.getElementById('review_instr');
+ if (element) {
+ element.className = 'opened';
+ }
+ }
+ function revsOnLoadHandler() {
+ // register our source container with the commenting code
+ var paths = {'svn1951': '/trunk/GlobalClient/pokeglobal/res/audio/Opening League.ogg'}
+ _setup('pokeglobal', 'svn2362', paths, '38da184e416651ed039d1a2fd21d2d8d',
+ CR_BrowseIntegrationFactory);
+ // register our hidden ui elements with the code commenting code ui builder.
+ CR_registerLayoutElement('form', form);
+ CR_registerLayoutElement('draft_comment', draft_comment);
+ CR_registerLayoutElement('published_comment', published_comment);
+ 
+ // register our source container with the commenting code
+ // in this case we're registering the container and the revison
+ // associated with the contianer which may be the primary revision
+ // or may be a previous revision against which the primary revision
+ // of the file is being compared.
+ CR_registerSourceContainer(document.getElementById('lines'), 'svn1951');
+ 
+ CR_registerActivityListener(CR_ACTIVITY_TYPE.REVEAL_DRAFT_PLATE, showPublishInstructions);
+ 
+ CR_registerActivityListener(CR_ACTIVITY_TYPE.REVEAL_PUB_PLATE, pubRevealed);
+ CR_registerActivityListener(CR_ACTIVITY_TYPE.REVEAL_DRAFT_PLATE, draftRevealed);
+ CR_registerActivityListener(CR_ACTIVITY_TYPE.DISCARD_DRAFT_COMMENT, draftDestroyed);
+ 
+ 
+ 
+ 
+ var initilized = true;
+ reloadCursors();
+ }
+ window.onload = function() {keysOnLoadHandler(); revsOnLoadHandler();};
+</script>
+
+<script type="text/javascript" src="http://www.gstatic.com/codesite/ph/13924206732975079159/js/dit_scripts_20081013.js"></script>
+
+ 
+ <script type="text/javascript" src="http://www.gstatic.com/codesite/ph/13924206732975079159/js/core_scripts_20081103.js"></script>
+ <script type="text/javascript" src="/js/codesite_product_dictionary_ph.pack.04102009.js"></script>
+ 
+ 
+ 
+ </div>
+<div id="footer" dir="ltr">
+ 
+ <div class="text">
+ 
+ &copy;2009 Google -
+ <a href="/">Code Home</a> -
+ <a href="/tos.html">Terms of Service</a> -
+ <a href="http://www.google.com/privacy.html">Privacy Policy</a> -
+ <a href="/more/">Site Directory</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ 
+ </div>
+</div>
+<script type="text/javascript">
+/**
+ * Reports analytics.
+ * It checks for the analytics functionality (window._gat) every 100ms
+ * until the analytics script is fully loaded in order to invoke siteTracker.
+ */
+function _CS_reportAnalytics() {
+ window.setTimeout(function() {
+ if (window._gat) {
+ var siteTracker = _gat._getTracker("UA-18071-1");
+ siteTracker._initData();
+ siteTracker._trackPageview();
+ 
+ } else {
+ _CS_reportAnalytics();
+ }
+ }, 100);
+}
+</script>
+
+ 
+ 
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Hosted by</span>
+ <a href="/hosting/">
+ <img src="http://www.gstatic.com/codesite/ph/images/google_code_tiny.gif" width="107" height="24" alt="Google Code">
+ </a>
+ </div>
+ 
+ 
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

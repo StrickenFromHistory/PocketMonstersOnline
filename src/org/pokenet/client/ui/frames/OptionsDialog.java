@@ -87,11 +87,12 @@ public class OptionsDialog extends Frame {
 						options.remove("soundMuted");
 						options.put("soundMuted", Boolean.toString(muteSound
 								.isSelected()));
-						/*
-						 * if (muteSound.isSelected())
-						 * GameClient.getSoundPlayer().muteAll(); else
-						 * GameClient.getSoundPlayer().unmuteAll();
-						 */
+						
+						if (muteSound.isSelected())
+							GameClient.getSoundPlayer().muteAll(); 
+						else
+							GameClient.getSoundPlayer().unmuteAll();
+						
 						muffin.saveFile(options, "options.dat");
 						GameClient
 								.messageDialog(

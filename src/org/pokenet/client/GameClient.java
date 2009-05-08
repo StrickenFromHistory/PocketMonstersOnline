@@ -31,6 +31,7 @@ import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.backend.Animator;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
+import org.pokenet.client.backend.SoundManager;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
@@ -79,6 +80,8 @@ public class GameClient extends BasicGame {
 	private static String m_language = "";
 	private ConfirmationDialog m_confirm;
 	private PlayerPopupDialog m_playerDialog;
+    private static SoundManager m_soundPlayer;
+
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
 	 * Load options
@@ -90,8 +93,8 @@ public class GameClient extends BasicGame {
 				options = new HashMap<String,String>();
 				options.put("soundMuted", String.valueOf(false));
 			}
-			//soundPlayer = new SoundManager();
-			//soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
+			m_soundPlayer = new SoundManager();
+			m_soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
 			m_instance = new GameClient("Pokenet: Fearless Feebas");
 		} catch (IOException e) { 
 			e.printStackTrace();
@@ -660,6 +663,15 @@ public class GameClient extends BasicGame {
                 System.exit(32);
         }
     }
+    
+    /**
+     * Returns the sound player
+     * @return
+     */
+    public static SoundManager getSoundPlayer() {
+        return m_soundPlayer;
+    }
+
     
     /**
      * Creates a message Box
