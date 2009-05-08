@@ -287,7 +287,7 @@ public class GameClient extends BasicGame {
 		
 		
 		if (m_login.isVisible()){
-			if (key == (Input.KEY_ENTER))
+			if (key == (Input.KEY_ENTER) || key == (Input.KEY_NUMPADENTER))
 				m_login.enterKeyDefault();
 			if (key == (Input.KEY_TAB))
 				m_login.tabKeyDefault();
