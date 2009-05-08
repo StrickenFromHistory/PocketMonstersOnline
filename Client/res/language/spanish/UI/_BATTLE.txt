@@ -1,0 +1,14 @@
+Por favor selecciona un nuevo Pokemon
+[poke] uso [move]
+Esperando tu decision...
+[poke] obtuvo [exp] EXP
+[poke] regreso a la normalidad.
+[trainer] envio a [poke]
+Selecciona un nuevo Pokemon!
+[poke] ha recibido [damage] danios
+Le quedan [hp] HP.
+[poke] ha recuperado [damage] HP
+[trainer] es el ganador!
+[trainer] fue derrotado!
+Saliste corriendo asalvo!
+No pudiste escapar!
