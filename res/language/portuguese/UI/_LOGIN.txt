@@ -1,41 +1,41 @@
-Pokenet Server Select
-Note: Your account will work on all servers
-Private Server
-About
+Pokenet Selecione o Servidor
+Note: Sua Conta deve Funcionar em Todos os Servidores
+Servidor Privado
+Sobre
 ToS
-Username:
-Password:
+Usuario:
+Senha:
 Login
-Register
-Pokenet Registration
-Confirm Password:
-D.O.B. (dd/mm/yyyy):
+Registro:
+Pokenet Registro
+Comfime Sua senha:
+nascimento (dd/mm/yyyy):
 Email:
-Confirm Email:
-Starter Pokemon:
-Gender:
-Male
-Female
-Terms of Service
-I agree to the ToS
-Cancel
-User or password are incorrect /nVerify you typed user and password correctly.
-The account server is currently offline. /nPlease try again later.
-Successful registration. You may now login on any server.
-The account server is currently offline./nPlease try again later.
-Username already taken.
-Unknown error occurred. Please try again later.
-Invalid data.
-You must accept Terms of Service (ToS) before registering.
-Date of birth invalid.
-Not a valid email.
-Passwords do not match.
-Username must have at least 4 characters and no more than 12.
+Confirme Email:
+Pokemon Inicial:
+Genero:
+Macho
+Femea
+Termos do Servico
+Eu aceito os Termos
+Cancelar
+Usoario ou senha incoreta /nVerifique se voce digitou coretamente.
+O servidor de contas esta offline. /nPor favor tente novamente.
+Registro conluido com suceso. Agora voce ja pode logar.
+O servidor de contas esta offline./nPor favor tente novamente.
+Usuario invalido.
+Um erro ocoreu. Por favor tente novamente.
+Arquivos invalidos.
+Voce deve aceitar os temos do servico para se registrar.
+Data de nacimento invalida.
+Email nao valido.
+As senhao nao coincidem.
+O usuario nao deve ter mais que 12 dijitos e menos que 4.
 VeryLongToSScreenGoesHere
-About Pokenet
-Pokenet is a free, non-profit, open-source Pokemon MMORPG. 
-Pokenet is in no way affiliated with or officially supported by Nintendo.
-Pokemon is a registered trademark of Nintendo (1995 - Present)./n/n
-Contributors:
-Fshy, ZombieBear, Ryan, Pivot/nIlentcape, Sienide, TMKCodes, Drawing,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, Kiwii
-You have been disconnected from the game server.
+Sobre Pokenet
+Pokenet e gratis, non-profit, um Pokemon MMORPG de codigo aberto.
+Pokenet de modo algum é afiliado ou oficialmente apoiado pela Nintendo.
+Pokemon e uma marca registrada da Nintendo (1995 - Present)./n/n
+Contribuidores:
+Fshy, ZombieBear, Ryan, Pivot/nIlentcape, Sienide, TMKCodes, Drawing,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, Kiwii, XFX
+Voce foi disconectado do servidor.
