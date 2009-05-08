@@ -285,6 +285,7 @@ public class GameClient extends BasicGame {
 	@Override
 	public void keyPressed(int key, char c) {
 		
+		
 		if (m_login.isVisible()){
 			if (key == (Input.KEY_ENTER))
 				m_login.enterKeyDefault();
@@ -313,7 +314,7 @@ public class GameClient extends BasicGame {
 			m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
 			getUi().getDisplay().add(m_confirm);
 		}
-		if(m_ui.getNPCSpeech() == null && m_ui.getLocalChat().isActive()==false && !m_login.isVisible()){
+		if(m_ui.getNPCSpeech() == null && m_ui.getLocalChat().isActive()==false && !m_login.isVisible() && !m_ui.getLocalChat().isActive()){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
 					&& m_ourPlayer.getX() == m_ourPlayer.getServerX()
@@ -355,7 +356,7 @@ public class GameClient extends BasicGame {
 				} 
 			}
 		}
-		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() ) {
+		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() && !m_ui.getLocalChat().isActive()) {
 			if(m_ui.getNPCSpeech() == null && getUi().getBattleManager().getBattleWindow() == null ){
 				m_packetGen.write("Ct");
 			}
@@ -410,6 +411,9 @@ public class GameClient extends BasicGame {
         			m_playerDialog.destroy();
         		}
         	} 
+        	if(getDisplay().containsChild(m_ui.getLocalChat())){
+        		m_ui.getLocalChat().dropFocus();
+        	}
         }
 	}
 

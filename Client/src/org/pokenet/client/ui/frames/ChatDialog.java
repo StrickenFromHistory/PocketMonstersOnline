@@ -149,4 +149,11 @@ public class ChatDialog extends Frame {
                         e.printStackTrace();
                 }
         }
+        
+        /**
+         * Drops focus
+         */
+        public void dropFocus() {
+               m_chatType.releaseFocus();
+        }
 }
