@@ -1,6 +1,5 @@
 package org.pokenet.client.ui.frames;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.newdawn.slick.Color;
@@ -29,8 +28,7 @@ public class LoginDialog extends Frame {
 	 * Default constructor
 	 */
 	public LoginDialog() {
-		List<String> translated = new ArrayList<String>();
-		translated = Translator.translate("_LOGIN");
+		List<String> translated = Translator.translate("_LOGIN");
 		this.setBorderRendered(false);
 		this.getTitleBar().setVisible(false);
 		this.setSize(320, 160);
@@ -147,5 +145,16 @@ public class LoginDialog extends Frame {
 	 */
 	public void goLogin() {
 		login();		
+	}
+	
+	/**
+	 * Reloads strings with language selected. 
+	 */
+	public void reloadStrings(){
+		List<String> translated = Translator.translate("_LOGIN");
+		m_userLabel.setText(translated.get(5));
+		m_passLabel.setText(translated.get(6));
+		m_login.setText(translated.get(7));
+		m_register.setText(translated.get(8));
 	}
 }

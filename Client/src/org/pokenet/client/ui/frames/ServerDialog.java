@@ -165,6 +165,13 @@ public class ServerDialog extends Frame {
 			return "localhost";
 	}
 	public void goServer(){
-		GameClient.setHost(getPrivateServer());
+		 if(privateIP.getText().length() > 0)
+			GameClient.setHost(getPrivateServer());
+	}
+	public void reloadStrings(){
+		List<String> translate = Translator.translate("_LOGIN");
+		this.setTitle(translate.get(0));
+		m_info.setText(translate.get(1));
+		privateServer.setText(translate.get(2));
 	}
 }
