@@ -1,6 +1,5 @@
 package org.pokenet.client.ui.frames;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -35,8 +34,7 @@ public class RegisterDialog extends Frame{
 	 * Default constructor
 	 */
 	public RegisterDialog() {
-		List<String> translated = new ArrayList<String>();
-		translated = Translator.translate("_LOGIN");
+		List<String> translated = Translator.translate("_LOGIN");
 		this.setVisible(false);
 		this.setSize(320, 320);
 		this.setBackground(new Color(0, 0, 0, 120));
@@ -426,8 +424,7 @@ public class RegisterDialog extends Frame{
 	 * Registers the player
 	 */
 	private void register() {
-		List<String> translated = new ArrayList<String>();
-		translated = Translator.translate("_LOGIN");
+		List<String> translated = Translator.translate("_LOGIN");
 		if(m_username.getText() != null
 				&& m_username.getText().length() >= 4 && m_username.getText().length() <= 12) {
 			if(m_password.getText() != null & !m_password.getText().equalsIgnoreCase("")
@@ -524,5 +521,24 @@ public class RegisterDialog extends Frame{
 		}else{
 			m_username.grabFocus();
 		}
+	}
+	
+	public void reloadStrings(){
+		List<String> translated = Translator.translate("_LOGIN");
+		this.setTitle(translated.get(9));
+		m_u.setText(translated.get(5));
+		m_p.setText(translated.get(6));
+		m_cp.setText(translated.get(10));
+		m_d.setText(translated.get(11));
+		m_e.setText(translated.get(12));
+		m_ce.setText(translated.get(13));
+		m_s.setText(translated.get(14));
+		m_g.setText(translated.get(15));
+		m_male.setText(translated.get(16));
+		m_female.setText(translated.get(17));
+		m_tos.setText(translated.get(18));
+		m_terms.setText(translated.get(19));
+		m_register.setText(translated.get(8));
+		m_cancel.setText(translated.get(20));
 	}
 }

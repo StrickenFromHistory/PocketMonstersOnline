@@ -1,6 +1,5 @@
 package org.pokenet.client.ui.frames;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.newdawn.slick.Color;
@@ -25,8 +24,7 @@ public class AboutDialog extends Frame {
 	public AboutDialog() {
 		m_bg = new Color(0, 0, 0, 70);
 		m_white = new Color(255, 255, 255);
-		List<String> translated = new ArrayList<String>();
-		translated = Translator.translate("_LOGIN");
+		List<String> translated = Translator.translate("_LOGIN");
 		this.setTitle(translated.get(34));
 		this.setLocation(128, 256);
 		this.setBackground(m_bg);
@@ -49,5 +47,15 @@ public class AboutDialog extends Frame {
 		this.setSize(288, 320);
 		
 		this.setVisible(false);
+	}
+	
+	public void reloadStrings(){
+		List<String> translated = Translator.translate("_LOGIN");
+		this.setTitle(translated.get(34));
+		m_info.setText(translated.get(35)+"\n"+
+				translated.get(36)+"\n"+
+				translated.get(37)+"\n"+
+				translated.get(38)+"\n"+
+				translated.get(39)+"\n");
 	}
 }

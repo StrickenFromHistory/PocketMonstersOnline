@@ -111,6 +111,7 @@ public class LoginScreen extends Window {
 	 * Shows the login dialog
 	 */
 	public void showLogin() {
+		m_login.reloadStrings();
 		m_select.setVisible(false);
 		m_register.setVisible(false);
 		m_login.setVisible(true);
@@ -126,10 +127,11 @@ public class LoginScreen extends Window {
 	public void showRegistration() {
 		m_select.setVisible(false);
 		m_login.setVisible(false);
-		m_register.setVisible(true);
 		m_openAbout.setVisible(true);
 		m_openToS.setVisible(true);
 		m_lang.setVisible(false);
+		m_register.reloadStrings();
+		m_register.setVisible(true);
 		m_register.grabFocus();
 	}
 	
@@ -139,6 +141,7 @@ public class LoginScreen extends Window {
 	public void showServerSelect() {
 		m_register.setVisible(false);
 		m_login.setVisible(false);
+		m_select.reloadStrings();
 		m_select.setVisible(true);
 		m_openAbout.setVisible(false);
 		m_openToS.setVisible(false);
@@ -161,6 +164,7 @@ public class LoginScreen extends Window {
 	 * Shows about dialog
 	 */
 	public void showAbout() {
+		m_about.reloadStrings();
 		m_about.setVisible(true);
 	}
 	
@@ -168,6 +172,7 @@ public class LoginScreen extends Window {
 	 * Shows the terms of service dialog
 	 */
 	public void showToS() {
+		m_terms.reloadStrings();
 		m_terms.setVisible(true);
 	}
 	
@@ -189,7 +194,7 @@ public class LoginScreen extends Window {
 	 * @return
 	 */
 	public void enterKeyDefault() {
-		if (!m_select.isVisible() && !m_lang.isVisible()){
+		if (!m_lang.isVisible()){
 			if(m_select.isVisible()){
 				m_select.goServer();
 			}else{
