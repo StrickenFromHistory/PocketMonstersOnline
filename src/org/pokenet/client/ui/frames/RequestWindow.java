@@ -1,6 +1,7 @@
 package org.pokenet.client.ui.frames;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Container;
@@ -11,6 +12,7 @@ import mdes.slick.sui.event.ActionListener;
 
 import org.newdawn.slick.Color;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 import org.pokenet.client.backend.entity.OurPokemon;
 
 /**
@@ -68,8 +70,9 @@ public class RequestWindow extends Frame {
      * Initializes the interface
      */
     public void initGUI() {
+    	List<String> translated = Translator.translate("_GUI");
             this.getTitleBar().getCloseButton().setVisible(false);
-            this.setTitle("PvP Battles/Trades");
+            this.setTitle(translated.get(33));
             this.setBackground(new Color(0, 0, 0, 85));
             this.setForeground(new Color(255, 255, 255));
             this.setSize(210, 360);
@@ -93,7 +96,7 @@ public class RequestWindow extends Frame {
             this.add(m_otherOffers);
            
             m_tradeCancel = new Button();
-            m_tradeCancel.setText("Cancel");
+            m_tradeCancel.setText(translated.get(34));
             m_tradeCancel.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
                             GameClient.getInstance().getPacketGenerator().write("tc");
@@ -105,7 +108,7 @@ public class RequestWindow extends Frame {
             m_tradeCancel.pack();
            
             m_tradeAccept = new Button();
-            m_tradeAccept.setText("Accept");
+            m_tradeAccept.setText(translated.get(35));
             m_tradeAccept.setSize(64, 32);
             m_tradeAccept.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
@@ -119,7 +122,7 @@ public class RequestWindow extends Frame {
             m_tradeAccept.pack();
            
             m_tradeDecline = new Button();
-            m_tradeDecline.setText("Decline");
+            m_tradeDecline.setText(translated.get(36));
             m_tradeDecline.setSize(64, 32);
             m_tradeDecline.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
@@ -132,7 +135,7 @@ public class RequestWindow extends Frame {
             m_tradeDecline.pack();
            
             m_tradeSend = new Button();
-            m_tradeSend.setText("Send Offer");
+            m_tradeSend.setText(translated.get(37));
             m_tradeSend.setSize(64, 32);
             m_tradeSend.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
@@ -145,21 +148,21 @@ public class RequestWindow extends Frame {
             m_tradeSend.pack();
            
             m_you = new Label();
-            m_you.setText("Your Offer:");
+            m_you.setText(translated.get(38));
             m_you.setLocation(4, 4);
             m_you.setFont(GameClient.getFontSmall());
             m_you.setForeground(new Color(255, 255, 255));
             m_you.pack();
            
             m_them = new Label();
-            m_them.setText("Their Offer:");
+            m_them.setText(translated.get(39));
             m_them.setLocation(88, 4);
             m_them.setFont(GameClient.getFontSmall());
             m_them.setForeground(new Color(255, 255, 255));
             m_them.pack();
            
             m_amount = new Label();
-            m_amount.setText("PD: " + m_pokedollars);
+            m_amount.setText("$: " + m_pokedollars);
             m_amount.setLocation(48, 114);
             m_amount.setFont(GameClient.getFontSmall());
             m_amount.setForeground(new Color(255, 255, 255));
@@ -224,21 +227,21 @@ public class RequestWindow extends Frame {
             m_decPokeIndex.pack();
            
             m_selectedPoke = new Label();
-            m_selectedPoke.setText("test");
+            m_selectedPoke.setText(translated.get(40));
             m_selectedPoke.setForeground(new Color(255, 255, 255));
             m_selectedPoke.setFont(GameClient.getFontSmall());
             m_selectedPoke.setLocation(20, 48);
             m_selectedPoke.pack();
            
             m_status = new Label();
-            m_status.setText("Waiting...");
+            m_status.setText(translated.get(41));
             m_status.setForeground(new Color(255, 255, 255));
             m_status.setFont(GameClient.getFontSmall());
             m_status.setLocation(94, 24);
             m_status.pack();
            
             m_c1 = new Label();
-            m_c1.setText("Send a Request");
+            m_c1.setText(translated.get(42));
             m_c1.setFont(GameClient.getFontSmall());
             m_c1.setForeground(new Color(255, 255, 255));
             m_c1.setLocation(2,2);
@@ -246,7 +249,7 @@ public class RequestWindow extends Frame {
             this.add(m_c1);
            
             m_c2 = new Label();
-            m_c2.setText("Requests Received");
+            m_c2.setText(translated.get(43));
             m_c2.setFont(GameClient.getFontSmall());
             m_c2.setForeground(new Color(255, 255, 255));
             m_c2.setLocation(2, 162);
@@ -261,7 +264,7 @@ public class RequestWindow extends Frame {
      */
     public void showOffer(int pokedollars2, OurPokemon requestedPokemon) {
             getDisplay().add(new PokemonInfoDialog(requestedPokemon));
-            m_status.setText("PD: " + pokedollars2);
+            m_status.setText("$: " + pokedollars2);
             m_tradeAccept.setEnabled(true);
             m_tradeDecline.setEnabled(true);
     }
@@ -304,7 +307,7 @@ public class RequestWindow extends Frame {
      * Updates the money offer
      */
     public void updateAmountLabel() {
-            m_amount.setText("PD: " + m_pokedollars);
+            m_amount.setText("$: " + m_pokedollars);
     }
    
     /***
@@ -328,7 +331,8 @@ public class RequestWindow extends Frame {
      * Loads the trade interface
      */
     public void loadTradeInterface() {
-            m_c1.setText("Trade : " + m_trader);
+    	List<String> translated = Translator.translate("_GUI");
+            m_c1.setText(translated.get(44) + m_trader);
             m_current.removeAll();
            
             m_current.add(m_you);
@@ -350,7 +354,7 @@ public class RequestWindow extends Frame {
                     m_selectedPoke.setText(m_party[m_pokeIndex].getName());
             }
             else {
-                    m_selectedPoke.setText("Money only");
+                    m_selectedPoke.setText(translated.get(45));
             }
             m_current.add(m_selectedPoke);
     }
@@ -359,7 +363,8 @@ public class RequestWindow extends Frame {
      * Reloads the requests
      */
     public void reloadRequests() {
-            m_c1.setText("Send a Request");
+    	List<String> translated = Translator.translate("_GUI");
+            m_c1.setText(translated.get(42));
             m_otherOffers.removeAll();
             for(int i = 0; i < m_offers.size(); i++) {
                     m_offers.get(i).getUserLabel().setLocation(0, (48 * i) + 4);
@@ -454,6 +459,7 @@ public class RequestWindow extends Frame {
      * @param request
      */
     public void addRequest(final String username, String request) {
+    	List<String> translated = Translator.translate("_GUI");
             if(request.charAt(0) == 'f') {
                     System.out.println(username + " " + request);
                     String s = "c" + username.toString() + "," + request.substring(request.indexOf(',') + 1);
@@ -481,7 +487,7 @@ public class RequestWindow extends Frame {
                             m_playerInfo.add(l);
                            
                             Button b = new Button();
-                            b.setText("Battle");
+                            b.setText(translated.get(46));
                             b.addActionListener(new ActionListener() {
                                     public void actionPerformed(ActionEvent evt) {
                                             GameClient.getInstance().getPacketGenerator().write("c" + username.toString() + "," + m_pokedollars);
@@ -496,7 +502,7 @@ public class RequestWindow extends Frame {
                             m_battleButtons.add(b);
                            
                             Button t = new Button();
-                            t.setText("Trade");
+                            t.setText(translated.get(47));
                             t.setToolTipText(new String(username));
                             t.addActionListener(new ActionListener() {
                                     public void actionPerformed(ActionEvent evt) {
@@ -521,7 +527,7 @@ public class RequestWindow extends Frame {
      * @param pokedollars2
      */
     public void showOffer(int pokedollars2) {
-            m_status.setText("PD: " + pokedollars2);
+            m_status.setText("$: " + pokedollars2);
             m_tradeAccept.setEnabled(true);
             m_tradeDecline.setEnabled(true);
     }
@@ -545,6 +551,7 @@ class Offer {
      * @param user
      */
     public Offer(String user) {
+    	List<String> translated = Translator.translate("_GUI");
             m_reqUsrname = user;
            
             m_userLabel = new Label();
@@ -554,13 +561,13 @@ class Offer {
             m_userLabel.pack();
            
             m_details = new Label();
-            m_details.setText("Trade");
+            m_details.setText(translated.get(44));
             m_details.setForeground(new Color(255, 255, 255));
             m_details.setFont(GameClient.getFontSmall());
             m_details.pack();
            
             m_accept = new Button();
-            m_accept.setText("Accept");
+            m_accept.setText(translated.get(35));
             m_accept.setSize(64, 32);
             m_accept.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
@@ -577,6 +584,7 @@ class Offer {
      * @param level
      */
     public Offer(String user, String request, String level) {
+    	List<String> translated = Translator.translate("_GUI");
             m_reqUsrname = user;
             m_offer = request;
             System.out.println(m_reqUsrname + " " + m_offer);
@@ -588,13 +596,13 @@ class Offer {
             m_userLabel.pack();
            
             m_details = new Label();
-            m_details.setText("PvP Battle: " + m_offer.substring(m_offer.indexOf(',') + 1));
+            m_details.setText(translated.get(46)+": " + m_offer.substring(m_offer.indexOf(',') + 1));
             m_details.setForeground(new Color(255, 255, 255));
             m_details.setFont(GameClient.getFontSmall());
             m_details.pack();
            
             m_accept = new Button();
-            m_accept.setText("Accept");
+            m_accept.setText(translated.get(35));
             m_accept.setSize(64, 32);
             m_accept.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {

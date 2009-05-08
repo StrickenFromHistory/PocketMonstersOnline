@@ -30,3 +30,19 @@ You must accept Terms of Service (ToS) before registering.
 Male
 Female
 None
+Lv. 
+PvP Battles/Trades
+Cancel
+Accept
+Decline
+Send Offer
+Your Offer:
+Their Offer:
+test
+Waiting...
+Send a Request
+Requests Received
+Trade: 
+Money only
+Battle
+Trade
