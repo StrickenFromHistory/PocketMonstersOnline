@@ -1,4 +1,4 @@
-Equipo Pokemón
+Equipo Pokemon
 Nivel:
 Nombre:
 HP:
