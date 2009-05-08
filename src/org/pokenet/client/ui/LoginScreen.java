@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.newdawn.slick.Image;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.Translator;
 import org.pokenet.client.ui.frames.AboutDialog;
 import org.pokenet.client.ui.frames.LanguageDialog;
@@ -98,6 +99,8 @@ public class LoginScreen extends Window {
 				}
 			});
 			this.add(m_openToS);
+			
+			GameClient.getSoundPlayer().playChannel("opening", "introMusic", true);
 			
 			this.setLocation(0, 0);
 			this.setSize(800, 600);

@@ -35,10 +35,6 @@ public class SoundManager {
 	// load the index file for audio samples
 	private void loadFileList() {
 		try {
-			System.out.println(audioPath + "index.txt");
-//			BufferedReader is = new BufferedReader(new InputStreamReader(
-//					getClass().getClassLoader().getResourceAsStream(
-//							audioPath + "index.txt")));
 			Scanner reader = new Scanner(new File(audioPath+"index.txt"));
 
 			String f = null;
@@ -60,6 +56,7 @@ public class SoundManager {
 		Music currChannel = channels.get(channel);
 		try {
 			currChannel = new Music(audioPath + fileList.get(key), true);
+			System.out.println("MAGIC 2");
 			channels.put(channel, currChannel);
 			channels.get(channel).setVolume(1);
 			channels.get(channel).play();
@@ -76,9 +73,12 @@ public class SoundManager {
 			channels.put(channel, null);
 			channelList.add(channel);
 		}
+		System.out.println("MAGIC");
+
 		Music currChannel = channels.get(channel);
 		try {
 			currChannel = new Music(audioPath + fileList.get(key), true);
+
 			channels.put(channel, currChannel);
 			channels.get(channel).setVolume(1);
 			channels.get(channel).loop();
