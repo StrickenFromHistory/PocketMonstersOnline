@@ -17,7 +17,8 @@ Options
 Full Screen view
 Mute
 Save
-Pokenet Online Help!
+Changes will not take effect until you restart.
+Pokenet: Online Help
 The movement buttons are the /narrow keys and/or WASD keys.
 The C key toggles the chat/nwindow.
 Use spacebar to talk to NPC(Non/nPlayer Character) and to continue/non the speech popup./n
@@ -26,3 +27,6 @@ Use the /playercount command to/nsee how many players are online.
 If you have four badges, press/nshift to surf on water. 
 Chat: Local
 You must accept Terms of Service (ToS) before registering.
+Male
+Female
+None

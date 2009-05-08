@@ -4,8 +4,8 @@ Nombre:
 HP:
 Ataque:
 Defensa:
-Ataque Esp.
-Defensa Esp.
+Ataque Sp:
+Defensa Sp:
 Velocidad:
 Habilidad:
 Exp:
@@ -14,10 +14,11 @@ Tipo uno:
 Tipo dos:
 Genero:
 Opciones
-Vista de Pantalla Completa
+Pantalla Completa
 Mudo
 Guardar
-Ayuda En linea Pokenet!
+Los cambios se aplican al reiniciar esta aplicacion.
+Pokenet: Ayuda En-linea
 Los botones de movimiento son las/nteclas de flecha y/o las teclas W,A,S,D.
 La tecla C Oculta/Muestra la ventana/npara conversar.
 Usa la barra espaciadora para hablarle a un NPC (Personaje /nno jugador) y para continuar/nen la ventana de discurso.
@@ -25,3 +26,7 @@ Usa el comando /w USERNAME TEXT/npara mensajes privados con otros /njugadores.
 Usa el comando /playercount para /nver cuántos jugadores están en línea.
 Si tienes cuatro medallas, presiona /nShift para surfear en el agua.
 Chat: Local
+Debes aceptar los Terminos (TdS) antes de registrarte. 
+Macho
+Hembra
+Ninguno

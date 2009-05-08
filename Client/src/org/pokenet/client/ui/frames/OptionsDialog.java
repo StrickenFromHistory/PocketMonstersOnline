@@ -2,6 +2,7 @@ package org.pokenet.client.ui.frames;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 import mdes.slick.sui.Button;
 import mdes.slick.sui.CheckBox;
@@ -13,6 +14,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.muffin.FileMuffin;
 import org.newdawn.slick.muffin.Muffin;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 
 public class OptionsDialog extends Frame {
 	private HashMap<String, String> options;
@@ -46,9 +48,11 @@ public class OptionsDialog extends Frame {
 		 * 
 		 * getContentPane().add(learnColor); }
 		 */
+		List<String> translated = Translator.translate("_GUI");
 		setBackground(new Color(0, 0, 0, 70));
 		{
-			fullScreen = new CheckBox("Full screen view");
+			
+			fullScreen = new CheckBox(translated.get(16));
 			fullScreen.pack();
 			fullScreen.setLocation(10, 10);
 
@@ -57,7 +61,7 @@ public class OptionsDialog extends Frame {
 			getContentPane().add(fullScreen);
 		}
 		{
-			muteSound = new CheckBox("Mute");
+			muteSound = new CheckBox(translated.get(17));
 			muteSound.pack();
 			muteSound.setLocation(150, 10);
 
@@ -66,7 +70,7 @@ public class OptionsDialog extends Frame {
 			getContentPane().add(muteSound);
 		}
 		{
-			save = new Button("Save");
+			save = new Button(translated.get(18));
 			save.setSize(50, 25);
 			save.setLocation(150, 45);
 			getContentPane().add(save);
@@ -74,6 +78,7 @@ public class OptionsDialog extends Frame {
 			save.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {
+						List<String> translated = Translator.translate("_GUI");
 						/*
 						 * options.remove("learnColor");
 						 * options.put("learnColor",
@@ -96,7 +101,7 @@ public class OptionsDialog extends Frame {
 						muffin.saveFile(options, "options.dat");
 						GameClient
 								.messageDialog(
-										"Changes will not take effect until you restart.",
+										translated.get(19),
 										getDisplay());
 						GameClient.reloadOptions();
 					} catch (IOException e1) {
@@ -105,7 +110,7 @@ public class OptionsDialog extends Frame {
 				}
 			});
 		}
-		setTitle("Options");
+		setTitle(translated.get(15));
 		setSize(400, 100);
 		setResizable(false);
 		this.getTitleBar().getCloseButton().setVisible(false);

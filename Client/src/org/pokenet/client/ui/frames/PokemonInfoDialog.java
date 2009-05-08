@@ -1,10 +1,13 @@
 package org.pokenet.client.ui.frames;
 
+import java.util.List;
+
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.loading.LoadingList;
+import org.pokenet.client.backend.Translator;
 import org.pokenet.client.backend.entity.OurPokemon;
 
 public class PokemonInfoDialog extends Frame{
@@ -27,6 +30,7 @@ public class PokemonInfoDialog extends Frame{
         }
        
         public void initGUI(OurPokemon poke){
+        	List<String> translated = Translator.translate("_GUI");
                 this.setBackground(new Color(255,255,255,200));
                 int x = 70;
                 int y = 5;
@@ -41,20 +45,20 @@ public class PokemonInfoDialog extends Frame{
                         getContentPane().add(labels[i]);
                         getContentPane().add(data[i]);
                 }
-                labels[0].setText("Level:");
-                labels[1].setText("Name:");
-                labels[2].setText("HP:");
-                labels[3].setText("Attack:");
-                labels[4].setText("Defense:");
-                labels[5].setText("Sp. Attack:");
-                labels[6].setText("Sp. Defense:");
-                labels[7].setText("Speed:");
-                labels[8].setText("Ability:");
-                labels[9].setText("Exp:");
-                labels[10].setText("Nature:");
-                labels[11].setText("Type one:");
-                labels[12].setText("Type two:");
-                labels[13].setText("Gender:");
+                labels[0].setText(translated.get(1));
+                labels[1].setText(translated.get(2));
+                labels[2].setText(translated.get(3));
+                labels[3].setText(translated.get(4));
+                labels[4].setText(translated.get(5));
+                labels[5].setText(translated.get(6));
+                labels[6].setText(translated.get(7));
+                labels[7].setText(translated.get(8));
+                labels[8].setText(translated.get(9));
+                labels[9].setText(translated.get(10));
+                labels[10].setText(translated.get(11));
+                labels[11].setText(translated.get(12));
+                labels[12].setText(translated.get(13));
+                labels[13].setText(translated.get(14));
                 //labels[13].setText("Exp to next level:");
                 data[0].setText(String.valueOf(poke.getLevel()));
                 data[1].setText(poke.getName());
@@ -76,11 +80,11 @@ public class PokemonInfoDialog extends Frame{
                         data[12].setText(String.valueOf(poke.getType2()));
                 }
                 if(poke.getGender() == 1){
-                        data[13].setText("Male");
+                        data[13].setText(translated.get(29));
                 }else if(poke.getGender() == 2){
-                        data[13].setText("Female");
+                        data[13].setText(translated.get(30));
                 }else
-                        data[13].setText("None");
+                        data[13].setText(translated.get(31));
                
                 for (int i = 0; i < data.length; i++) {
                         data[i].pack();
