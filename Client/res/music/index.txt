@@ -1,1 +1,18 @@
-opening:Opening League.ogg
+﻿opening:loginscreen.ogg
+newbark:1-New Bark.mp3
+cherrygrove:2-Cherrygrove Town.mp3
+violet:3-Violet Town.mp3
+azalea:4-Azalea Town.mp3
+goldenrod:5-GoldenrodCity.mp3
+ecruteak:6-Ecruteak Town.mp3
+darkcave:7-Dark Cave.mp3
+sprouttower:8-Sprout Twoer.mp3
+ruinsofalph:9-Ruins of Alph.mp3
+nationalpark:10-National Park.mp3
+burnedtower:11-Burned Tower.mp3
+tintower:12-Tin Tower.mp3
+lighthouse:13-Lighthouse.mp3
+dragonsden:14-Dragon Den.mp3
+pokecenter:15-PokeCenter.mp3
+pvnpc:18-GSBattle PvNPC.mp3
+pvgymleader:19-PvGymLeader.mp3
