@@ -23,8 +23,12 @@ import mdes.slick.sui.event.ActionListener;
  */
 public class ShopDialog extends Frame {
 	private Button[] m_categoryButtons;
+	private Label[] m_categoryLabels;
 	private Button[] m_itemButtons;
 	private Label[] m_itemPics;
+	private Label[] m_itemLabels;
+	private Label[] m_itemStockPics;
+	
 	List<Item> m_items;
 	private Button m_cancel;
 	// string being the item name and integer being item quantity
@@ -64,8 +68,9 @@ public class ShopDialog extends Frame {
 	
 	public void initGUI() {
 		m_categoryButtons = new Button[4];
+		m_categoryLabels = new Label[4];
 		
-		m_categoryButtons[0] = new Button("Pokeballs\n\n\n\n\n");
+		m_categoryButtons[0] = new Button(" ");
 		LoadingList.setDeferredLoading(true);
 		try{
 			m_categoryButtons[0].setImage(new Image("res/ui/shop/pokeball.png"));
@@ -83,7 +88,15 @@ public class ShopDialog extends Frame {
 		});
 		getContentPane().add(m_categoryButtons[0]);
 		
-		m_categoryButtons[1] = new Button("Potions\n\n\n\n\n");
+		m_categoryLabels[0] = new Label("Pokeballs");
+		m_categoryLabels[0].setLocation(0,0);
+		m_categoryLabels[0].setGlassPane(true);
+		m_categoryLabels[0].setZIndex(1000);
+		m_categoryLabels[0].setSize(150,10);
+		m_categoryLabels[0].setFont(GameClient.getFontLarge());
+		getContentPane().add(m_categoryLabels[0]);
+		
+		m_categoryButtons[1] = new Button(" ");
 		LoadingList.setDeferredLoading(true);
 		try{
 			m_categoryButtons[1].setImage(new Image("res/ui/shop/potion.png"));
@@ -101,7 +114,15 @@ public class ShopDialog extends Frame {
 		});
 		getContentPane().add(m_categoryButtons[1]);
 		
-		m_categoryButtons[2] = new Button("Status Healers\n\n\n\n\n");
+		m_categoryLabels[1] = new Label("Potions");
+		m_categoryLabels[1].setLocation(151,0);
+		m_categoryLabels[1].setGlassPane(true);
+		m_categoryLabels[1].setFont(GameClient.getFontLarge());
+		m_categoryLabels[1].setZIndex(1000);
+		m_categoryLabels[1].setSize(150,10);
+		getContentPane().add(m_categoryLabels[1]);
+		
+		m_categoryButtons[2] = new Button(" ");
 		LoadingList.setDeferredLoading(true);
 		try{
 			m_categoryButtons[2].setImage(new Image("res/ui/shop/status.png"));
@@ -119,7 +140,15 @@ public class ShopDialog extends Frame {
 		});
 		getContentPane().add(m_categoryButtons[2]);
 		
-		m_categoryButtons[3] = new Button("Field Tools\n\n\n\n\n");
+		m_categoryLabels[2] = new Label("Status Heals");
+		m_categoryLabels[2].setLocation(0,161);
+		m_categoryLabels[2].setGlassPane(true);
+		m_categoryLabels[2].setFont(GameClient.getFontLarge());
+		m_categoryLabels[2].setZIndex(1000);
+		m_categoryLabels[2].setSize(150,10);
+		getContentPane().add(m_categoryLabels[2]);
+		
+		m_categoryButtons[3] = new Button(" ");
 		LoadingList.setDeferredLoading(true);
 		try{
 			m_categoryButtons[3].setImage(new Image("res/ui/shop/field.png"));
@@ -136,6 +165,15 @@ public class ShopDialog extends Frame {
 			}
 		});
 		getContentPane().add(m_categoryButtons[3]);
+		
+		m_categoryLabels[3] = new Label("Field Tools");
+		m_categoryLabels[3].setLocation(151,161);
+		m_categoryLabels[3].setGlassPane(true);
+		m_categoryLabels[3].setFont(GameClient.getFontLarge());
+		m_categoryLabels[3].setZIndex(1000);
+		m_categoryLabels[3].setSize(150,10);
+		getContentPane().add(m_categoryLabels[3]);
+
 		
 		m_cancel = new Button("Cancel");
 		m_cancel.setSize(300,56);
@@ -168,11 +206,16 @@ public class ShopDialog extends Frame {
 		for(int i=0;i<m_categoryButtons.length;i++){
 			getContentPane().remove(m_categoryButtons[i]);
 		}
+		for(int i=0;i<m_categoryLabels.length;i++){
+			getContentPane().remove(m_categoryLabels[i]);
+		}
 		getContentPane().remove(m_cancel);
 		m_itemButtons = new Button[m_items.size()];
 		m_itemPics = new Label[m_items.size()];
+		m_itemLabels = new Label[m_items.size()];
+		m_itemStockPics = new Label[m_items.size()];
 		for(int i = 0;i<m_items.size();i++){
-			m_itemButtons[i] = new Button("    "+m_items.get(i).getName()+" - $"+m_items.get(i).getCost()+"     "+m_items.get(i).getAvailable()+" left");
+			m_itemButtons[i] = new Button("");
 			m_itemButtons[i].setSize(300, 50);
 			if(i>0)
 				m_itemButtons[i].setLocation(0,(m_itemButtons[i-1].getY()+51));
@@ -186,9 +229,11 @@ public class ShopDialog extends Frame {
 				}
 			});
 			getContentPane().add(m_itemButtons[i]);
-			LoadingList.setDeferredLoading(true);
+			
 			try{
+				LoadingList.setDeferredLoading(true);
 				m_itemPics[i] = new Label(new Image("/res/items/"+m_items.get(i).getPicname()+".png"));
+				LoadingList.setDeferredLoading(false);
 				m_itemPics[i].setGlassPane(true);
 				m_itemPics[i].setSize(32,32);
 				if(i>0)
@@ -200,6 +245,42 @@ public class ShopDialog extends Frame {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
+			
+			try{
+				LoadingList.setDeferredLoading(true);
+				String stock = "empty";
+				if(m_items.get(i).getAvailable()>=100||m_items.size()==-1){
+					stock = "full";
+				}else if(m_items.get(i).getAvailable()<100&&m_items.get(i).getAvailable()>=60){
+					stock = "half";
+				}else if(m_items.get(i).getAvailable()<60&&m_items.get(i).getAvailable()>=30){
+					stock = "nearempty";
+				}
+				m_itemStockPics[i] = new Label(new Image("/res/ui/shop/"+stock+".png"));
+				LoadingList.setDeferredLoading(false);
+				m_itemStockPics[i].setGlassPane(true);
+				m_itemStockPics[i].setSize(32,32);
+				if(i>0)
+					m_itemStockPics[i].setLocation(260,(m_itemStockPics[i-1].getY()+51));
+				else
+					m_itemStockPics[i].setLocation(260,12);
+				m_itemStockPics[i].setZIndex(1000);
+				getContentPane().add(m_itemStockPics[i]);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
+			m_itemLabels[i] = new Label(m_items.get(i).getName()+" - $"+m_items.get(i).getCost());
+			m_itemLabels[i].setSize(200,50);
+			m_itemLabels[i].setGlassPane(true);
+			m_itemLabels[i].setFont(GameClient.getFontLarge());
+			m_itemLabels[i].setZIndex(1200);
+			m_itemLabels[i].setHorizontalAlignment(0);
+			if(i>0)
+				m_itemLabels[i].setLocation(30,(m_itemLabels[i-1].getY()+51));
+			else
+				m_itemLabels[i].setLocation(30,0);
+			getContentPane().add(m_itemLabels[i]);
 		}
 		
 		m_cancel = new Button("Cancel");
@@ -213,6 +294,12 @@ public class ShopDialog extends Frame {
 				}
 				for(int i=0;i<m_itemPics.length;i++){
 					getContentPane().remove(m_itemPics[i]);
+				}
+				for(int i=0;i<m_itemLabels.length;i++){
+					getContentPane().remove(m_itemLabels[i]);
+				}
+				for(int i=0;i<m_itemStockPics.length;i++){
+					getContentPane().remove(m_itemStockPics[i]);
 				}
 				getContentPane().remove(m_cancel);
 				initGUI();
