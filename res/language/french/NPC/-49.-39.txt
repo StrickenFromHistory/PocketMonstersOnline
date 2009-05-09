@@ -1,0 +1,19 @@
+The blackboard describes Pokemon status changes in battle. 
+Sleep: If asleep, your Pokemon can't make a move. 
+A sleeping Pokemon doesn't wake up after battle. 
+Wake it up with an Awakening.
+Burn: A burn steadily consumes HP. It also reduces attack power. 
+A burn lingers after battle.
+Use a Burn Heal as the cure.
+Poison: If poisoned, a Pokemon steadily loses HP. 
+Poison lingers after the battle, and HP is lost as you walk. 
+To cure it, use an Antidote.
+Paralysis: Paralysis reduces speed and may prevent the Pokemon from moving. 
+Paralysis remains after battles. Use Paralyze Heal for treatment.
+I traded my best Pokemon to the guy beside me.
+Huh? The Pokemon I just got is holding something!
+A Pokemon holding a berry will heal itself in battle. 
+Many other items can be held by Pokemon... 
+It sure is tough taking notes...
+I'm taking notes of the teacher's lecture. 
+I'd better copy the stuff on the blackboard too.
