@@ -4,7 +4,7 @@ down
 23
 26
 20
-Caterpie,3;Caterpie,2;Weedle,3;Caterpie,3
+Caterpie,3,Caterpie,2,Weedle,3,Caterpie,3
 4
 -1
 0

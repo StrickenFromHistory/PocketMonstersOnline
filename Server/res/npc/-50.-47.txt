@@ -7,7 +7,7 @@ down
 NULL
 0
 -1
-0,1
+0
 false
 false
 true
@@ -21,7 +21,7 @@ right
 NULL
 0
 -1
-2
+1
 false
 false
 false

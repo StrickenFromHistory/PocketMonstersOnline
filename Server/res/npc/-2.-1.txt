@@ -18,7 +18,7 @@ down
 88
 17
 25
-Pidgey,4;Rattata,4
+Pidgey,4,Rattata,4
 2
 -1
 6
@@ -32,7 +32,7 @@ down
 23
 18
 8
-Caterpie,3;Caterpie,3
+Caterpie,3,Caterpie,3
 2
 -1
 7,8

@@ -1,13 +1,27 @@
 [npc]
 Sage Nico
 right
-11
+164
 11
 4
-Bellsprout,7
-4
+Bellsprout,3,Bellsprout,3,Bellsprout,3
+3
 -1
-1000
+0
+false
+false
+false
+[/npc]
+[npc]
+Sage Edmond
+left
+164
+8
+15
+Bellsprout,3,Bellsprout,3,Bellsprout,3
+3
+-1
+1
 false
 false
 false
