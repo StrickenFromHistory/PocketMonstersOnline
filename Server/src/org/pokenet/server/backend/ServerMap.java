@@ -97,7 +97,7 @@ public class ServerMap {
 		 */
 		try {
 			if(x < -30) {
-				if(x != -49 && y != -3) {
+				if(x != -49 || y != -3) {
 					m_forcedWeather = Weather.NORMAL;
 				}
 			} else if(map.getProperties().getProperty("forcedWeather") != null && 
