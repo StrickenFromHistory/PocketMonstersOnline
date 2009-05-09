@@ -96,7 +96,11 @@ public class ServerMap {
 		 * Add enforced weather if any
 		 */
 		try {
-			if(map.getProperties().getProperty("forcedWeather") != null && 
+			if(x < -30) {
+				if(x != -49 && y != -3) {
+					m_forcedWeather = Weather.NORMAL;
+				}
+			} else if(map.getProperties().getProperty("forcedWeather") != null && 
 					!map.getProperties().getProperty("forcedWeather").equalsIgnoreCase("")) {
 				m_forcedWeather = Weather.valueOf(map.getProperties().getProperty("forcedWeather"));
 			}

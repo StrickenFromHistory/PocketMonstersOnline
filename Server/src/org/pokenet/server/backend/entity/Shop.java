@@ -24,6 +24,7 @@ public class Shop implements Runnable {
 	
 	public Shop() {
 		m_stock = new HashMap<String, Integer>();
+		m_prices = new HashMap<String, Integer>();
 		/*
 		 * Generate all the items stock
 		 */
