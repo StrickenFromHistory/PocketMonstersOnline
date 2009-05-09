@@ -254,7 +254,7 @@ public class ShopDialog extends Frame {
 				}else if(m_items.get(i).getAvailable()<100&&m_items.get(i).getAvailable()>=60){
 					stock = "half";
 				}else if(m_items.get(i).getAvailable()<60&&m_items.get(i).getAvailable()>=30){
-					stock = "nearempty";
+					stock = "halfempty";
 				}
 				m_itemStockPics[i] = new Label(new Image("/res/ui/shop/"+stock+".png"));
 				LoadingList.setDeferredLoading(false);
