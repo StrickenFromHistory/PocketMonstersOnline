@@ -223,38 +223,14 @@ public class LoginManager implements Runnable {
 		//Add them to a movement service
 		GameServer.getServiceManager().getMovementService().getMovementManager().addPlayer(p);
 		//Send their Pokemon information to them
-		for(int i = 0; i < p.getParty().length; i++) {
-			if(p.getParty()[i] != null) {
-				p.getSession().write("Pi" + i + PokemonSpecies.getDefaultData().getPokemonByName(p.getParty()[i].getSpeciesName()) + "," +
-								p.getParty()[i].getName() + "," +
-								p.getParty()[i].getHealth() + "," +
-								p.getParty()[i].getGender() + "," +
-								(p.getParty()[i].isShiny() ? 1 : 0) + "," +
-								p.getParty()[i].getStat(0) + "," +
-								p.getParty()[i].getStat(1) + "," +
-								p.getParty()[i].getStat(2) + "," +
-								p.getParty()[i].getStat(3) + "," +
-								p.getParty()[i].getStat(4) + "," +
-								p.getParty()[i].getStat(5) + "," +
-								p.getParty()[i].getTypes()[0] + "," +
-								(p.getParty()[i].getTypes().length > 1 &&
-										p.getParty()[i].getTypes()[1] != null ? p.getParty()[i].getTypes()[1] + "," : ",") +
-								p.getParty()[i].getExp() + "," +
-								p.getParty()[i].getLevel() + "," +
-								p.getParty()[i].getAbilityName() + "," +
-								p.getParty()[i].getNature().getName() + "," +
-								(p.getParty()[i].getMoves()[0] != null ? p.getParty()[i].getMoves()[0].getName() : "") + "," +
-								(p.getParty()[i].getMoves()[1] != null ? p.getParty()[i].getMoves()[1].getName() : "") + "," +
-								(p.getParty()[i].getMoves()[2] != null ? p.getParty()[i].getMoves()[2].getName() : "") + "," +
-								(p.getParty()[i].getMoves()[3] != null ? p.getParty()[i].getMoves()[3].getName() : "")
-						);
-			}
-		}
+		p.updateClientParty();
 		//Send bag to them
 		for(int i = 0; i < p.getBag().getItems().length; i++) {
 			
 		}
 		//Send their friend list to them
+		//Send badges
+		p.updateClientBadges();
 	}
 
 	/**

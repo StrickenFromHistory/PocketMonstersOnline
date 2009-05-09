@@ -62,10 +62,12 @@ public class NonPlayerChar extends Char {
 		}
 		if(m_isHeal) {
 			p.healPokemon();
+			p.setLastHeal(p.getX(), p.getY(), p.getMapX(), p.getMapY());
 		}
 		if(m_isShop) {
 			//Send shop packet to display shop window clientside
-			p.getSession().write("S");
+			p.getSession().write("S" + m_shop.getStockData());
+			p.setShopping(true);
 		}
 		if(m_possiblePokemon != null && m_minPartySize > 0) {
 			
@@ -128,6 +130,10 @@ public class NonPlayerChar extends Char {
 	 */
 	public void setShopKeeper(boolean b) {
 		m_isShop = b;
+		if(b) {
+			m_shop = new Shop();
+			m_shop.start();
+		}
 	}
 	
 	/**

@@ -89,6 +89,28 @@ public class ConnectionManager extends IoHandlerAdapter {
 			 */
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
 			switch(message.charAt(0)) {
+			case 's':
+				//Party swapping
+				p.swapPokemon(Integer.parseInt(message.substring(1, message.indexOf(','))), 
+						Integer.parseInt(message.substring(message.indexOf(',')) + 1));
+				break;
+			case 'S':
+				//Shop interaction
+				if(p.isShopping()) {
+					switch(message.charAt(1)) {
+					case 'b':
+						//Buy items. Sent as SbITEMID,QUANTITY
+						int id = Integer.parseInt(message.substring(2, message.indexOf(',')));
+						int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
+						p.buyItem(id, q);
+						break;
+					case 'f':
+						//Finished shopping
+						p.setShopping(false);
+						break;
+					}
+				}
+				break;
 			case 'B':
 				//Box interaction
 				if(p.isBoxing()) {

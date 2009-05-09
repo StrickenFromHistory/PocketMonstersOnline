@@ -40,6 +40,7 @@ public class ServerMap {
 	private ArrayList<PlayerChar> m_players;
 	private ArrayList<NonPlayerChar> m_npcs;
 	private ArrayList<WarpTile> m_warps;
+	private ArrayList<MapItem> m_items;
 	//The following stores information for day, night and water wild pokemon
 	private HashMap<String, int[]> m_dayPokemonLevels;
 	private HashMap<String, Integer> m_dayPokemonChances;
@@ -231,6 +232,24 @@ public class ServerMap {
 		if(m_warps == null)
 			m_warps = new ArrayList<WarpTile>();
 		m_warps.add(w);
+	}
+	
+	/**
+	 * Adds an item to the map
+	 * @param x
+	 * @param y
+	 * @param id
+	 */
+	public void addItem(int x, int y, int id) {
+		m_items.add(new MapItem(x, y, id));
+	}
+	
+	/**
+	 * Allows a player to pick up an item
+	 * @param p
+	 */
+	public void pickupItem(PlayerChar p) {
+		
 	}
 	
 	/**

@@ -1,5 +1,6 @@
 package org.pokenet.server;
 
+import org.pokenet.server.backend.ItemService;
 import org.pokenet.server.backend.MovementService;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.feature.JythonService;
@@ -17,6 +18,7 @@ public class ServiceManager {
 	private DataService m_dataService;
 	private TimeService m_timeService;
 	private JythonService m_jythonService;
+	private ItemService m_itemService;
 	
 	/**
 	 * Default constructor
@@ -30,6 +32,7 @@ public class ServiceManager {
 		m_dataService = new DataService();
 		m_networkService = new NetworkService();
 		m_movementService = new MovementService();
+		m_itemService = new ItemService();
 	}
 	
 	/**
@@ -70,6 +73,14 @@ public class ServiceManager {
 	 */
 	public JythonService getJythonService() {
 		return m_jythonService;
+	}
+	
+	/**
+	 * Returns the item service
+	 * @return
+	 */
+	public ItemService getItemService() {
+		return m_itemService;
 	}
 	
 	/**

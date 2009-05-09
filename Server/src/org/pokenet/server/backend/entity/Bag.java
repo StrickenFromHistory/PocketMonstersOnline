@@ -17,6 +17,21 @@ public class Bag {
 	}
 	
 	/**
+	 * Returns true if there is space in the bag for that item
+	 * @param id
+	 * @return
+	 */
+	public boolean hasSpace(int id) {
+		for(int i = 0; i < m_items.length; i++) {
+			if(m_items[i].getItemNumber() == id)
+				return true;
+			if(m_items[i] == null)
+				return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * Adds an item to the bag. Returns true on success
 	 * @param itemNumber
 	 * @param quantity

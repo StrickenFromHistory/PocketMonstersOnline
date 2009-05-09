@@ -7,11 +7,13 @@ import java.util.Date;
 
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
+import org.pokenet.server.backend.ItemService;
 import org.pokenet.server.backend.ServerMap;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.battle.PokemonSpecies;
 import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.feature.TimeService;
 
@@ -45,6 +47,7 @@ public class PlayerChar extends Char implements Battleable {
 	private int m_healX, m_healY, m_healMapX, m_healMapY;
 	private int m_adminLevel = 0;
 	private boolean m_isMuted;
+	private Shop m_currentShop = null;
 	/*
 	 * Badges are stored as bytes. 0 = not obtained, 1 = obtained
 	 * Stored as following:
@@ -56,6 +59,22 @@ public class PlayerChar extends Char implements Battleable {
 	 * 36 - 41
 	 */
 	private byte [] m_badges;
+	
+	/**
+	 * Sets the current shop
+	 * @param s
+	 */
+	public void setShop(Shop s) {
+		m_currentShop = s;
+	}
+	
+	/**
+	 * Returns the shop the player is interacting with
+	 * @return
+	 */
+	public Shop getShop() {
+		return m_currentShop;
+	}
 	
 	/**
 	 * Creates a new PlayerChar
@@ -135,6 +154,22 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void setMuted(boolean b) {
 		m_isMuted = b;
+	}
+	
+	/**
+	 * Swaps two Pokemon in a player's party
+	 * @param a
+	 * @param b
+	 */
+	public void swapPokemon(int a, int b) {
+		if(a >= 0 && a < 6 && b >= 0 && b < 6) {
+			if(m_pokemon[a] != null && m_pokemon[b] != null) {
+				Pokemon temp = m_pokemon[a];
+				m_pokemon[a] = m_pokemon[b];
+				m_pokemon[b] = temp;
+				m_session.write("s" + a + "," + b);
+			}
+		}
 	}
 	
 	/**
@@ -568,6 +603,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_databasePokemon = null;
 		m_friends = null;
 		m_bag = null;
+		m_currentShop = null;
 		m_battleField = null;
 	}
 	
@@ -577,6 +613,9 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void setShopping(boolean b) {
 		m_isShopping = b;
+		if(!b) {
+			m_currentShop = null;
+		}
 	}
 	
 	/**
@@ -717,6 +756,85 @@ public class PlayerChar extends Char implements Battleable {
 			}
 			if(!packet.equalsIgnoreCase(""))
 				m_session.write("B" + packet);
+		}
+	}
+	
+	/**
+	 * Allows the player to buy an item
+	 * @param id
+	 * @param q
+	 */
+	public void buyItem(int id, int q) {
+		/* If the player isn't shopping, ignore this */
+		if(m_currentShop == null)
+			return;
+		if(m_bag.hasSpace(id)) {
+			/* First, check if the player can afford this */
+			if(m_money - (q * m_currentShop.getPriceForItem(ItemService.getName(id))) >= 0) {
+				/* Then, check if the player has right amount of badges to buy the item */
+				switch(id) {
+				case 0:
+					//TODO: Check badge based on items that require x amount of badges to buy
+					break;
+				}
+				/* Finally, if the item is in stock, buy it */
+				if(m_currentShop.buyItem(ItemService.getName(id), q)) {
+					m_money = m_money - (q * m_currentShop.getPriceForItem(ItemService.getName(id)));
+					m_bag.addItem(id, q);
+					this.updateClientMoney();
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Updates the player's money clientside
+	 */
+	public void updateClientMoney() {
+		m_session.write("cM" + m_money);
+	}
+	
+	/**
+	 * Sends all badges to client
+	 */
+	public void updateClientBadges() {
+		String data = "";
+		for(int i = 0; i < m_badges.length; i++) {
+			data = data + m_badges[i];
+		}
+		m_session.write("cB" + data);
+	}
+	
+	/**
+	 * Sends all party information to the client
+	 */
+	public void updateClientParty() {
+		for(int i = 0; i < this.getParty().length; i++) {
+			if(this.getParty()[i] != null) {
+				m_session.write("Pi" + i + PokemonSpecies.getDefaultData().getPokemonByName(this.getParty()[i].getSpeciesName()) + "," +
+						this.getParty()[i].getName() + "," +
+						this.getParty()[i].getHealth() + "," +
+						this.getParty()[i].getGender() + "," +
+						(this.getParty()[i].isShiny() ? 1 : 0) + "," +
+						this.getParty()[i].getStat(0) + "," +
+						this.getParty()[i].getStat(1) + "," +
+						this.getParty()[i].getStat(2) + "," +
+						this.getParty()[i].getStat(3) + "," +
+						this.getParty()[i].getStat(4) + "," +
+						this.getParty()[i].getStat(5) + "," +
+						this.getParty()[i].getTypes()[0] + "," +
+						(this.getParty()[i].getTypes().length > 1 &&
+								this.getParty()[i].getTypes()[1] != null ? this.getParty()[i].getTypes()[1] + "," : ",") +
+								this.getParty()[i].getExp() + "," +
+								this.getParty()[i].getLevel() + "," +
+								this.getParty()[i].getAbilityName() + "," +
+								this.getParty()[i].getNature().getName() + "," +
+						(this.getParty()[i].getMoves()[0] != null ? this.getParty()[i].getMoves()[0].getName() : "") + "," +
+						(this.getParty()[i].getMoves()[1] != null ? this.getParty()[i].getMoves()[1].getName() : "") + "," +
+						(this.getParty()[i].getMoves()[2] != null ? this.getParty()[i].getMoves()[2].getName() : "") + "," +
+						(this.getParty()[i].getMoves()[3] != null ? this.getParty()[i].getMoves()[3].getName() : "")
+				);
+			}
 		}
 	}
 }
