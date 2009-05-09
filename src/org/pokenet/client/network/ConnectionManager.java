@@ -66,17 +66,19 @@ public class ConnectionManager extends IoHandlerAdapter {
 		case '!':
 			//Server notification
 			break;
+		case 's':
+			//Party swapping. Received as s0,5. Pokemons in party at 0 and 5 were swapped around
+			break;
 		case 'S':
 			//Shop
 			List<Integer> merch = new ArrayList<Integer>();
-			String items = "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1";
+			String items = message.substring(1);
 			String[] merchData = items.split(",");
 			
 			for (int i = 1; i < merchData.length; i++) {
 				merch.add(Integer.parseInt(merchData[i]));
 			}
 			GameClient.getInstance().getDisplay().add(new ShopDialog(merch, GameClient.getInstance().getPacketGenerator()));
-
 			break;
 		case 'B':
 			//Box access - receiving a string of pokedex numbers, e.g. B15,23,24,
@@ -207,6 +209,33 @@ public class ConnectionManager extends IoHandlerAdapter {
 		case 'c':
 			//Something changed
 			switch (message.charAt(1)){
+			case 'B':
+				//Badge change
+				switch(message.charAt(2)) {
+				case 'i':
+					/*
+					 * All of the player's badges. Received as 0000001100001110000
+					 * 0 = no badge
+					 * 1 = badge earned
+					 * The string will be 41 chars long
+					 * 0 - 7   Kanto Badges
+					 * 8 - 15  Johto Badges
+					 * 16 - 23 Hoenn Badges
+					 * 24 - 31 Sinnoh Badges
+					 * 32 - 35 Orange Islands Badges
+					 * 36 - 41 Undefined
+					 */
+					break;
+				case 'a':
+					//Add a badge
+					break;
+				}
+				break;
+			case 'M':
+				//Money change
+				m_game.getOurPlayer().setMoney(Integer.parseInt(message.substring(2)));
+				GameClient.getInstance().getUi().update();
+				break;
 			case 'H':
 				//Pokes were healed
 				for (int i = 0; i < GameClient.getInstance().getOurPlayer().getPokemon().length; i++){
@@ -217,31 +246,38 @@ public class ConnectionManager extends IoHandlerAdapter {
 				}
 				GameClient.getInstance().getUi().update();
 				break;
-			}
-			p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
-			if(p != null) {
-				switch(message.charAt(1)) {
-				//Directional changes
-				case 'D':
+			case 'D':
+				//Facing down
+				p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
+				if(p != null)
 					p.setDirection(Direction.Down);
-					break;
-				case 'L':
-					p.setDirection(Direction.Left);
-					break;
-				case 'R':
-					p.setDirection(Direction.Right);
-					break;
-				case 'U':
-					p.setDirection(Direction.Up);
-					break;
-				case 'S':
-					//Sprite change
+				break;
+			case 'L':
+				//Facing Left
+				p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
+				if(p != null)
+					p.setDirection(Direction.Down);
+				break;
+			case 'R':
+				//Facing Right
+				p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
+				if(p != null)
+					p.setDirection(Direction.Down);
+				break;
+			case 'U':
+				//Facing Up
+				p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
+				if(p != null)
+					p.setDirection(Direction.Down);
+				break;
+			case 'S':
+				//Sprite change
+				p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
+				if(p != null) {
 					p.setSprite(Integer.parseInt(message.substring(2)));
-					break;
-				default:
-					break;
+					p.loadSpriteImage();
 				}
-				p.loadSpriteImage();
+				break;
 			}
 			break;
 		case 'U':

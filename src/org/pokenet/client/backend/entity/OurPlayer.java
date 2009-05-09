@@ -159,6 +159,14 @@ public class OurPlayer extends Player {
 	}
 	
 	/**
+	 * Sets the players money
+	 * @param m
+	 */
+	public void setMoney(int m) {
+		m_money = m;
+	}
+	
+	/**
 	 * Returns the player's badges
 	 */
 	public String [] getBadges(){
