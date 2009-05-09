@@ -94,9 +94,14 @@ public class PlayerChar extends Char implements Battleable {
             if (pokemon != null) {
                     pokemon.calculateStats(true);
                     pokemon.reinitialise();
+                    pokemon.setIsFainted(false);
+                    for(int i = 0; i < pokemon.getMoves().length; i++) {
+                    	if(pokemon.getMoves()[i] != null) {
+                    		pokemon.setPp(i, pokemon.getMaxPp(i));
+                    	}
+                    }
             }
 		}
-		this.setLastHeal(m_x, m_y, m_mapX, m_mapY);
 		m_session.write("cH");
 	}
 	

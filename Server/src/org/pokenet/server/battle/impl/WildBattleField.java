@@ -3,7 +3,6 @@ package org.pokenet.server.battle.impl;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.BattleTurn;
@@ -150,9 +149,9 @@ public class WildBattleField extends BattleField {
 			 */
             Thread t = m_dispatch;
             m_dispatch = null;
-            dispose();
             t.stop();
 		}
+        dispose();
 	}
 	
 	/**
@@ -181,10 +180,17 @@ public class WildBattleField extends BattleField {
                                     requestMoves();
                                     return;
                             } else {
-                                    if (trainer == 0) {
+                                    if (trainer == 0 && getAliveCount(0) > 0) {
+                                    	if(getAliveCount(0) > 0) {
                                             /*if (participatingPokemon.contains(getActivePokemon()[0]))
                                                     participatingPokemon.remove(getActivePokemon()[0]);*/
-                                    	requestPokemonReplacement(0);
+                                    		requestPokemonReplacement(0);
+                                    		return;
+                                    	} else {
+                                    		/* Player lost the battle */
+                                    		this.informVictory(1);
+                                    		return;
+                                    	}
                                     }
                             }
                     } else {
@@ -199,11 +205,10 @@ public class WildBattleField extends BattleField {
                                                                                             move.getId()) + " has no PP left. " +
                                                             "Select a different move.");
                                                         requestMove(0);
-                                                        return;
                                                     } else {
                                                     	requestMove(1);
-                                                    	return;
                                                     }
+                                                  	return;
                                             } else {
                                                     m_turn[trainer] = move;
                                             }
@@ -294,8 +299,8 @@ public class WildBattleField extends BattleField {
 		clearQueue();
 		if(this.getActivePokemon()[0].isActive() &&
                 this.getActivePokemon()[1].isActive()) {
-			m_player.getSession().write("bm");
 			getWildPokemonMove();
+			m_player.getSession().write("bm");
 		}
 	}
 
@@ -343,8 +348,17 @@ public class WildBattleField extends BattleField {
 		if(canRun()) {
 			m_player.getSession().write("br1");
 			m_player.setBattling(false);
-		} else
+			this.dispose();
+		} else {
 			m_player.getSession().write("br2");
+			if(m_turn[1] == null)
+				this.getWildPokemonMove();
+			try {
+				this.queueMove(0, BattleTurn.getMoveTurn(-1));
+			} catch (MoveQueueException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/**
