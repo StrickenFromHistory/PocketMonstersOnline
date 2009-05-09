@@ -331,7 +331,7 @@ public class ShopDialog extends Frame {
 	public void cancelled() {
 //		packetGen.write("F");
 		setVisible(false);
-		getDisplay().remove(this);
+		GameClient.getInstance().getDisplay().remove(this);
 	}
 	public void pack() {
 		
