@@ -297,25 +297,27 @@ public class GameClient extends BasicGame {
 		}
 		
 		if (key == (Input.KEY_ESCAPE)) {
-			ActionListener yes = new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					try {
-						System.exit(0);
-					} catch (Exception e) {
-						e.printStackTrace();
+			if(m_confirm==null){
+				ActionListener yes = new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						try {
+							System.exit(0);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+				
 					}
-			
-				}
-			};
-			ActionListener no = new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					m_confirm.setVisible(false);
-					getDisplay().remove(m_confirm);
-					m_confirm = null;
-				}
-			};
-			m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
-			getUi().getDisplay().add(m_confirm);
+				};
+				ActionListener no = new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						m_confirm.setVisible(false);
+						getDisplay().remove(m_confirm);
+						m_confirm = null;
+					}
+				};
+				m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
+				getUi().getDisplay().add(m_confirm);
+			}
 		}
 		if(m_ui.getNPCSpeech() == null && m_ui.getLocalChat().isActive()==false && !m_login.isVisible()
 				&& !m_ui.getLocalChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
