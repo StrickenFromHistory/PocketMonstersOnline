@@ -348,25 +348,57 @@ public class RegistrationManager implements Runnable {
                                         speciesIndex).getMoves().get(i)));
                 }
         }
+        /*
+         * possibleMoves sometimes has null moves stored in it, get rid of them
+         */
+        for(int i = 0; i < possibleMoves.size(); i++) {
+        	if(possibleMoves.get(i) == null)
+        		possibleMoves.remove(i);
+        }
+        /*
+         * Now the store the final set of moves for the Pokemon
+         */
         if (possibleMoves.size() <= 4) {
                 for (int i = 0; i < possibleMoves.size(); i++) {
                         moves[i] = possibleMoves.get(i);
                 }
         } else {
-                for (int i = 0; i < moves.length; i++) {
-                        if (possibleMoves.size() == 0)
-                                moves[i] = null;
-                        moves[i] = possibleMoves.get(random.nextInt(possibleMoves
+        	MoveListEntry m = null;
+                for (int i = 0; i < 4; i++) {
+                        if (possibleMoves.size() == 0) {
+                            moves[i] = null;
+                        } else {
+                        	while(m == null) {
+                        		m = possibleMoves.get(random.nextInt(possibleMoves
                                         .size()));
-                        possibleMoves.remove(moves[i]);
+                        	}
+                            moves[i] = m;
+                            possibleMoves.remove(m);
+                            m = null;
+                        }
                 }
         }
+        /*
+         * Get all possible abilities
+         */
         String [] abilities = PokemonSpecies.getDefaultData().getPossibleAbilities(species.getName());
+        /* First select an ability randomly */
+        String ab = abilities[random.nextInt(abilities.length)];
+        /*
+         * Unfortunately, all Pokemon have two possible ability slots but some only have one.
+         * If the null slot was selected, select the other slot
+         */
+        while(ab == null || ab.equalsIgnoreCase("")) {
+        	ab = abilities[random.nextInt(abilities.length)];
+        }
+        /*
+         * Create the Pokemon object
+         */
         Pokemon starter = new Pokemon(
         		DataService.getBattleMechanics(),
                         species,
                         PokemonNature.getNature(random.nextInt(PokemonNature.getNatureNames().length)),
-                                        abilities[random.nextInt(abilities.length)],
+                                        ab,
                         null, (random.nextInt(100) > 87 ? Pokemon.GENDER_FEMALE
                                         : Pokemon.GENDER_MALE), 5, new int[] {
                                         random.nextInt(32), // IVs
@@ -374,11 +406,16 @@ public class RegistrationManager implements Runnable {
                                         random.nextInt(32), random.nextInt(32),
                                         random.nextInt(32) }, new int[] { 0, 0, 0, 0, 0, 0 }, //EVs
                         moves, new int[] { 0, 0, 0, 0 });
+        /* Attach their growth rate */
         starter.setExpType(DataService.getPOLRDatabase().getPokemonData(speciesIndex)
                         .getGrowthRate());
+        /* Attach base experience */
         starter.setBaseExp(DataService.getPOLRDatabase().getPokemonData(speciesIndex).getBaseEXP());
+        /* Set their current exp */
         starter.setExp(DataService.getBattleMechanics().getExpForLevel(starter, 5));
+        /* Set their happiness */
         starter.setHappiness(DataService.getPOLRDatabase().getPokemonData(speciesIndex).getHappiness());
+        /* Set their name as their species */
         starter.setName(starter.getSpeciesName());
         return starter;
 	}

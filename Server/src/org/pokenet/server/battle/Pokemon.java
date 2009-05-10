@@ -478,29 +478,55 @@ public class Pokemon extends PokemonSpecies {
 			}
 		}
 		/*
-		 * Now that we have an arraylist of possible moves, lets pick them randomly
-		 */
-		if (possibleMoves.size() <= 4) {
-			for (int i = 0; i < possibleMoves.size(); i++) {
-				moves[i] = possibleMoves.get(i);
-			}
-		} else {
-			for (int i = 0; i < moves.length; i++) {
-				if (possibleMoves.size() == 0)
-					moves[i] = null;
-				moves[i] = possibleMoves.get(random.nextInt(possibleMoves.size()));
-				possibleMoves.remove(moves[i]);
-				possibleMoves.trimToSize();
-			}
-		}
+         * possibleMoves sometimes has null moves stored in it, get rid of them
+         */
+        for(int i = 0; i < possibleMoves.size(); i++) {
+        	if(possibleMoves.get(i) == null)
+        		possibleMoves.remove(i);
+        }
+        /*
+         * Now the store the final set of moves for the Pokemon
+         */
+        if (possibleMoves.size() <= 4) {
+                for (int i = 0; i < possibleMoves.size(); i++) {
+                        moves[i] = possibleMoves.get(i);
+                }
+        } else {
+        	MoveListEntry m = null;
+                for (int i = 0; i < 4; i++) {
+                        if (possibleMoves.size() == 0) {
+                            moves[i] = null;
+                        } else {
+                        	while(m == null) {
+                        		m = possibleMoves.get(random.nextInt(possibleMoves
+                                        .size()));
+                        	}
+                            moves[i] = m;
+                            possibleMoves.remove(m);
+                            m = null;
+                        }
+                }
+        }
+        /*
+         * Get all possible abilities
+         */
+        String [] abilities = PokemonSpecies.getDefaultData().getPossibleAbilities(ps.getName());
+        /* First select an ability randomly */
+        String ab = abilities[random.nextInt(abilities.length)];
+        /*
+         * Unfortunately, all Pokemon have two possible ability slots but some only have one.
+         * If the null slot was selected, select the other slot
+         */
+        while(ab == null || ab.equalsIgnoreCase("")) {
+        	ab = abilities[random.nextInt(abilities.length)];
+        }
 		/*
 		 * Now lets create the pokemon itself
 		 */
 		p = new Pokemon(DataService.getBattleMechanics(), 
 				ps, 
 				PokemonNature.getNature(random.nextInt(PokemonNature.getNatureNames().length)),
-				ps.getPossibleAbilities(PokemonSpecies.getDefaultData())[random
-				     .nextInt(ps.getPossibleAbilities(PokemonSpecies.getDefaultData()).length)],
+				ab,
 				     null, Pokemon.generateGender(ps.getPossibleGenders()),
 						level, new int[] {
 								random.nextInt(32), // IVs
