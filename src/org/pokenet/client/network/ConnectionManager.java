@@ -249,26 +249,34 @@ public class ConnectionManager extends IoHandlerAdapter {
 			case 'D':
 				//Facing down
 				p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
-				if(p != null)
+				if(p != null) {
 					p.setDirection(Direction.Down);
+					p.loadSpriteImage();
+				}
 				break;
 			case 'L':
 				//Facing Left
 				p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
-				if(p != null)
-					p.setDirection(Direction.Down);
+				if(p != null) {
+					p.setDirection(Direction.Left);
+					p.loadSpriteImage();
+				}
 				break;
 			case 'R':
 				//Facing Right
 				p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
-				if(p != null)
-					p.setDirection(Direction.Down);
+				if(p != null) {
+					p.setDirection(Direction.Right);
+					p.loadSpriteImage();
+				}
 				break;
 			case 'U':
 				//Facing Up
 				p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
-				if(p != null)
-					p.setDirection(Direction.Down);
+				if(p != null) {
+					p.setDirection(Direction.Up);
+					p.loadSpriteImage();
+				}
 				break;
 			case 'S':
 				//Sprite change
