@@ -133,27 +133,24 @@ public class ServerDialog extends Frame {
 				}
 				m_servers[i].setForeground(m_black);
 			}
-			privateIP = new TextField();
-			privateIP.setLocation(16, 204);
-			privateIP.setSize(128, 24);
-			this.add(privateIP);
-			
-			privateServer = new Button();
-			privateServer.setText(translate.get(2));
-			privateServer.setSize(128, 24);
-			privateServer.setLocation(168, 204);
-			privateServer.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
-					GameClient.setHost(getPrivateServer());
-				}
-			});
-			this.add(privateServer);
-		
-		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
+		privateIP = new TextField();
+		privateIP.setLocation(16, 204);
+		privateIP.setSize(128, 24);
+		this.add(privateIP);
+		
+		privateServer = new Button();
+		privateServer.setText(translate.get(2));
+		privateServer.setSize(128, 24);
+		privateServer.setLocation(168, 204);
+		privateServer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				GameClient.setHost(getPrivateServer());
+			}
+		});
+		this.add(privateServer);
 		
 		this.setVisible(false);
 	}

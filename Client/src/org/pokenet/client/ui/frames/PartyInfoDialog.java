@@ -119,8 +119,8 @@ public class PartyInfoDialog extends Frame {
 							SimpleArrowButton.FACE_UP);
 					m_switchUp[i].addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							GameClient.getInstance().getPacketGenerator().write("I" + String.valueOf(j)
-									+ String.valueOf(j - 1));
+							GameClient.getInstance().getPacketGenerator().write("s" + String.valueOf(j)
+									+ ","+String.valueOf(j - 1));
 						}
 					});
 					m_switchUp[i].setHeight(16);
@@ -132,8 +132,8 @@ public class PartyInfoDialog extends Frame {
 							SimpleArrowButton.FACE_DOWN);
 					m_switchDown[i].addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							GameClient.getInstance().getPacketGenerator().write("I" + String.valueOf(j)
-									+ String.valueOf(j + 1));
+							GameClient.getInstance().getPacketGenerator().write("s" + String.valueOf(j)
+									+ ","+String.valueOf(j + 1));
 						}
 					});
 
