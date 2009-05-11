@@ -88,7 +88,6 @@ public class BattleWindow extends Frame {
 		bg.setLocation(0, 142);
 		getContentPane().add(bg);
 
-		System.out.println("Step 1");
 		attackPane = new Container();
 		attackPane.setBackground(new Color(0, 0, 0, 0));
 

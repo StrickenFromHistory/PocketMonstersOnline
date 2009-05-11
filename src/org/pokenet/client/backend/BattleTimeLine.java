@@ -263,7 +263,6 @@ public class BattleTimeLine {
 		if (line.contains("damageNum")){
 			line = line.replaceAll("damageNum", String.valueOf(m_dmg));
 		}
-		System.err.println(line);
 		return line;
 	}
 }
