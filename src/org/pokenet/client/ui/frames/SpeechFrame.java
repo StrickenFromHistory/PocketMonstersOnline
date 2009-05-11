@@ -62,14 +62,13 @@ public class SpeechFrame extends Frame {
      * Initializes the interface
      */
     public void initGUI() {
-    	
-    	LoadingList.setDeferredLoading(true);
     	try {
+    		LoadingList.setDeferredLoading(true);
     		bg = new Image("/res/ui/speechbox.png");
+    		LoadingList.setDeferredLoading(false);
     	} catch (Exception e) {
     		e.printStackTrace();
     	}
-    	LoadingList.setDeferredLoading(false);
 
     	Label bg = new Label(this.bg);
     	bg.setSize(400, 100);

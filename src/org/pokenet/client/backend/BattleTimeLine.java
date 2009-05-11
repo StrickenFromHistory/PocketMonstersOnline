@@ -73,7 +73,7 @@ public class BattleTimeLine {
 	 */
 	public void informMoveRequested(){
 		GameClient.getInstance().getUi().getBattleManager().requestMoves();
-		m_narrator.addSpeech(m_translator.get(2));
+		addSpeech(m_translator.get(2));
 	}
 	
 	/**
@@ -82,7 +82,7 @@ public class BattleTimeLine {
 	 */
 	public void informExperienceGained(String[] data){
 		m_exp = Integer.parseInt(data[1]);
-		m_narrator.addSpeech(data[0] + " gained " + data[1] + "EXP.");
+		addSpeech(m_translator.get(3));
 	}
 	
 	/**
@@ -100,7 +100,7 @@ public class BattleTimeLine {
 	 */
 	public void informStatusHealed(String poke){
 		m_pokeName = poke;
-		m_narrator.addSpeech(m_translator.get(3));
+		addSpeech(m_translator.get(4));
 	}
 	
 	/**
@@ -114,7 +114,7 @@ public class BattleTimeLine {
 		m_canvas.drawOurInfo();
 		m_canvas.drawEnemyPoke();
 		m_canvas.drawEnemyInfo();
-		m_narrator.addSpeech(m_translator.get(4));
+		addSpeech(m_translator.get(5));
 	}
 	
 	/**
@@ -122,7 +122,7 @@ public class BattleTimeLine {
 	 */
 	public void informSwitchRequested(){
 		GameClient.getInstance().getUi().getBattleManager().getBattleWindow().showPokePane(true);
-		m_narrator.addSpeech(m_translator.get(5));
+		addSpeech(m_translator.get(6));
 	}
 	
 	/**
@@ -152,10 +152,10 @@ public class BattleTimeLine {
 		}
 		
 		if (Integer.parseInt(data[1]) <= 0){
-			addSpeech(m_translator.get(6));
 			addSpeech(m_translator.get(7));
-		} else {
 			addSpeech(m_translator.get(8));
+		} else {
+			addSpeech(m_translator.get(9));
 		}
 	}
 	
@@ -164,7 +164,7 @@ public class BattleTimeLine {
 	 */
 	public void informVictory(){
 		m_trainer = GameClient.getInstance().getOurPlayer().getUsername();
-		m_narrator.addSpeech(m_translator.get(9));
+		addSpeech(m_translator.get(10));
 		GameClient.getInstance().getUi().getBattleManager().endBattle();
 	}
 	
@@ -173,7 +173,7 @@ public class BattleTimeLine {
 	 */
 	public void informLoss(){
 		m_trainer = GameClient.getInstance().getOurPlayer().getUsername();
-		m_narrator.addSpeech(m_translator.get(10));
+		addSpeech(m_translator.get(11));
 		GameClient.getInstance().getUi().getBattleManager().endBattle();
 	}
 	
@@ -191,11 +191,11 @@ public class BattleTimeLine {
 	 */
 	public void informRun(boolean canRun){
 		if (canRun){
-			addSpeech(m_translator.get(11));
+			addSpeech(m_translator.get(12));
 			m_narrator.advance();
 			GameClient.getInstance().getUi().getBattleManager().endBattle();
 		} else {
-			addSpeech(m_translator.get(12));
+			addSpeech(m_translator.get(13));
 			m_narrator.advance();
 			informMoveRequested();
 		}
@@ -206,9 +206,10 @@ public class BattleTimeLine {
 	 * @param msg
 	 */
 	public void addSpeech(String msg){
-		m_narrator.addSpeech(parsel10n(msg));
-		while (!m_narrator.getCurrentLine().equalsIgnoreCase(msg));
-		while (!m_narrator.getAdvancedLine().equalsIgnoreCase(msg));
+		String newMsg = parsel10n(msg);
+		m_narrator.addSpeech(parsel10n(newMsg));
+		while (!m_narrator.getCurrentLine().equalsIgnoreCase(newMsg));
+		while (!m_narrator.getAdvancedLine().equalsIgnoreCase(newMsg));
 	}
 	
 	/**
@@ -232,7 +233,9 @@ public class BattleTimeLine {
 	 */
 	public void stop(){
 		GameClient.getInstance().getDisplay().remove(m_canvas);
+		while (GameClient.getInstance().getDisplay().containsChild(m_canvas));
 		GameClient.getInstance().getDisplay().remove(m_narrator);
+		while (GameClient.getInstance().getDisplay().containsChild(m_narrator));
 		m_canvas = null;
 		m_narrator = null;
 	}
@@ -242,12 +245,25 @@ public class BattleTimeLine {
 	 * @param line
 	 */
 	public String parsel10n(String line){
-		line.replaceAll("[trainer]", m_trainer);
-		line.replaceAll("[move]", m_move);
-		line.replaceAll("[poke]", m_pokeName);
-		line.replaceAll("[hp]", String.valueOf(m_newHPValue));
-		line.replaceAll("[exp]", String.valueOf(m_exp));
-		line.replaceAll("[damage]", String.valueOf(m_dmg));
+		if (line.contains("trainerName")){
+			line = line.replaceAll("trainerName", m_trainer);
+		}
+		if (line.contains("moveName")){
+			line = line.replaceAll("moveName", m_move);
+		}
+		if (line.contains("pokeName")){
+			line = line.replace("pokeName", m_pokeName);
+		}
+		if (line.contains("hpNum")){
+			line = line.replaceAll("hpNum", String.valueOf(m_newHPValue));
+		}
+		if (line.contains("expNum")){
+			line = line.replaceAll("expNum", String.valueOf(m_exp));
+		}
+		if (line.contains("damageNum")){
+			line = line.replaceAll("damageNum", String.valueOf(m_dmg));
+		}
+		System.err.println(line);
 		return line;
 	}
 }

@@ -1,14 +1,14 @@
-Please select a new Pokemon
-[poke] used [move]
+pokeName fainted!
+pokeName used moveName
 Awaiting your move...
-[poke] gained [exp] EXP
-[poke] returned to normal.
-[trainer] sent out [poke]
+pokeName gained expNum EXP
+pokeName returned to normal.
+trainerName sent out pokeName
 Select a new Pokemon!
-[poke] took [damage] damage
-It has [hp] life remaining
-[poke] recovered [damage] HP
-[trainer] won the battle!
-[trainer] was defeated!
+pokeName took damageNum damage
+It has hpNum life remaining
+pokeName recovered damageNum HP
+trainerName won the battle!
+trainerName was defeated!
 You got away safely!
 You couldn't run away!
