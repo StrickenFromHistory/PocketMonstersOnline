@@ -172,4 +172,10 @@ public class OurPlayer extends Player {
 	public String [] getBadges(){
 		return m_badges;
 	}
+	
+	public void swapPokemon(int Poke1, int Poke2){
+		OurPokemon temp1 = m_pokemon[Poke1];
+		m_pokemon[Poke1] = m_pokemon[Poke2];
+		m_pokemon[Poke2] = temp1;
+	}
 }

@@ -68,6 +68,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 's':
 			//Party swapping. Received as s0,5. Pokemons in party at 0 and 5 were swapped around
+			m_game.getOurPlayer().swapPokemon(Integer.parseInt(message.substring(1, message.indexOf(','))),Integer.parseInt(message.substring(message.indexOf(',') + 1)) );
+			GameClient.getInstance().getUi().refreshParty();
+//			details = message.substring(3).split(",");
+//			m_game.getOurPlayer().setPokemon(Integer.parseInt(message.substring(2, 3)), details);
 			break;
 		case 'S':
 			//Shop

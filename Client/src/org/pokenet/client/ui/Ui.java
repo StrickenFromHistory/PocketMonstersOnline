@@ -479,4 +479,11 @@ public class Ui extends Frame {
 	public void setFriendsList(String[] friends){
 		m_friendList = new FriendListDialog(friends);
 	}
+	
+	/**
+     * Refreshes PokemonParty HUD
+     */
+    public void refreshParty(){
+    	m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokemon());
+    }
 }
