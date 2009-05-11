@@ -46,7 +46,6 @@ public class BattleManager {
 	 */
 	private void setEnemyData() {
 		m_curEnemyPoke = m_enemyPokes[0];
-		System.out.println(m_curEnemyPoke.getName());
 		m_timeLine.getBattleCanvas().drawEnemyPoke();
 		m_timeLine.getBattleCanvas().drawEnemyInfo();
 		if(!m_isWild){
@@ -71,11 +70,8 @@ public class BattleManager {
 		m_battle.disableMoves();
 		updateMoves(0);
 		updatePokePane();
-		System.out.println("BattleWindow Loaded");
 		GameClient.getInstance().getDisplay().add(m_battle);
-		System.out.println("Works");
 		m_timeLine = new BattleTimeLine();
-		System.out.println("Still works");
 		m_enemyPokes = new Pokemon[pokeAmount];
 	}
 	
@@ -302,9 +298,7 @@ public class BattleManager {
 		m_enemyPokes[index].setSpriteNumber(spriteNum);
 		m_enemyPokes[index].setShiny(isShiny);
 		m_enemyPokes[index].setSprite();
-	
-		System.out.println((index + 1) + " pogey added");
-		
+
 		if ((index + 1) == m_enemyPokes.length)
 			setEnemyData();
 	}

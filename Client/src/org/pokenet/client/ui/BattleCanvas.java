@@ -19,18 +19,11 @@ import org.pokenet.client.ui.base.ProgressBar;
 public class BattleCanvas extends Container {
 	private ProgressBar playerHP = new ProgressBar(0,0);
 	private ProgressBar enemyHP = new ProgressBar(0,0);
-/*	private String ourSpritePath;
-	private String enemySpritePath;
-	private String checkOurShiny;
-	private String checkEnemyShiny;*/
 	private Label bgPic = new Label();
 	private Label playerPoke = new Label();
 	private Label enemyPoke = new Label();
 	private Label playerInfo = new Label();
 	private Label enemyInfo = new Label();
-//	private Image pic;
-//	private Image playerPokeImage;
-//	private Image enemyPokeImage;
 
 	/**
 	 * Default constructor
