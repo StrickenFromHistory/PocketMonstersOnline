@@ -130,7 +130,8 @@ public class BattleTimeLine {
 	 * @param data
 	 * @param i
 	 */
-	public void informHealthChanged(String[] data, int i){
+	public void informHealthChanged(String[] data,
+			int i){
 		m_pokeName = data[0];
 		m_dmg = Integer.parseInt(data[i]);
 		if (i == 0){
