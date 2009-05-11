@@ -2,12 +2,13 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="25" height="40" tilewidth="16" tileheight="16">
  <properties>
-   <property name="surfSpecies" value="Tentacool,60;Tentacruel,10;Quagsire,30;"/>
-  <property name="surfLevels" value="15-19;20-24;20-24;"/>
-  <property name="surfProbability" value="7"/>
-  <property name="wildLevels" value="20-20;21-22;22-22;22-22;20-21;23-23;22-22;"/>
+  <property name="dayPokemonLevels" value="22-22;22-22;22-22;21-21;20-20;23-23;"/>
+  <property name="dayPokemonChances" value="Zubat,30;Raticate,30;Golbat,20;Geodude,10;Rattata,5;Onix,5;"/>
+  <property name="nightPokemonLevels" value="22-22;21-21;22-22;20-20;22-22;23-23;"/>
+  <property name="nightPokemonChances" value="Zubat,30;Raticate,10;Golbat,30;Geodude,5;Quagsire,20;Onix,5;"/>
+  <property name="waterPokemonLevels" value="15-19;20-24;20-24;"/>
+  <property name="waterPokemonChances" value="Tentacool,60;Quagsire,30;Tentacruel,10;"/>
   <property name="wildProbability" value="10"/>
-  <property name="wildSpecies" value="Rattata,5;Raticate,10;Zubat,30;Golbat,20;Geodude,10;Onix,5;Quagsire,20;Buneary,1;"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
