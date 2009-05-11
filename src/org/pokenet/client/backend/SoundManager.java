@@ -1,9 +1,6 @@
 package org.pokenet.client.backend;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -11,140 +8,102 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
 /**
- * Loads, manages, and handles audio
- * 
- * @author Ryan
+ * Handles music throughout the game
  * @author ZombieBear
- * 
+ *
  */
-public class SoundManager {
-	private HashMap<String, Music> channels;
-	private HashMap<String, String> fileList;
-	private ArrayList<String> channelList;
-	private boolean muted = false;
+public class SoundManager extends Thread{
+	private HashMap<String, String> m_fileList;
+	private String m_trackName;
+	private boolean m_muted, m_trackChanged = true;
+	private Music m_music;
+	
+	private final String m_audioPath = "res/music/";
 
-	private final String audioPath = "res/music/";
-
+	/**
+	 * Default Constructor
+	 */
 	public SoundManager() {
-		channels = new HashMap<String, Music>();
-		channelList = new ArrayList<String>();
-		fileList = new HashMap<String, String>();
 		loadFileList();
 	}
-
-	// load the index file for audio samples
+	
+	/**
+	 * Loads the files
+	 */
 	private void loadFileList() {
 		try {
-			Scanner reader = new Scanner(new File(audioPath+"index.txt"));
+			Scanner reader = new Scanner(new File(m_audioPath+"index.txt"));
+			m_fileList = new HashMap<String, String>();
 
 			String f = null;
 			while (reader.hasNext()) {
 				f = reader.nextLine();
 				String[] addFile = f.split(":", 2);
-				fileList.put(addFile[0], addFile[1]);
+				m_fileList.put(addFile[0], addFile[1]);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.err.println("Failed to load music");
 		}
 	}
-
-	public void playChannel(String key, String channel) {
-		if (!channels.containsKey(channel)) {
-			channels.put(channel, null);
-			channelList.add(channel);
-		}
-		Music currChannel = channels.get(channel);
+	
+	/**
+	 * Called by m_thread.start(). Loops through all players calling PlayerChar.move() if the player requested to be moved.
+	 */
+	@Override
+	public void run() {
+		System.out.println("Running!");
 		try {
-			currChannel = new Music(audioPath + fileList.get(key), true);
-			System.out.println("MAGIC 2");
-			channels.put(channel, currChannel);
-			channels.get(channel).setVolume(1);
-			channels.get(channel).play();
-
-			if (muted)
-				muteAll();
-		} catch (SlickException e) {
-			e.printStackTrace();
+			if (m_trackChanged){
+				System.out.println("Changed track to: " + m_fileList.get(m_trackName));
+				m_music = new Music(m_audioPath + m_fileList.get(m_trackName), true);
+				if (m_muted)
+					m_music.setVolume(0);
+				else
+					m_music.setVolume(1);
+				play();
+			}
+			m_trackChanged = false;
+		} catch (SlickException e){
+			System.err.println("Failed to load " +  m_fileList.get(m_trackName));
+			m_music = null;
+			m_trackChanged = false;
 		}
 	}
-
-	public void playChannel(String key, String channel, boolean loop) {
-		if (!channels.containsKey(channel)) {
-			channels.put(channel, null);
-			channelList.add(channel);
-		}
-		System.out.println("MAGIC");
-
-		Music currChannel = channels.get(channel);
+	
+	/**
+	 * Plays the track
+	 */
+	public void play(){
 		try {
-			currChannel = new Music(audioPath + fileList.get(key), true);
-
-			channels.put(channel, currChannel);
-			channels.get(channel).setVolume(1);
-			channels.get(channel).loop();
-
-			if (muted)
-				muteAll();
-		} catch (SlickException e) {
-			e.printStackTrace();
+			m_music.play();
+			m_music.loop();
+		} catch (NullPointerException e){}
+	}
+	
+	/**
+	 * Sets the track to play
+	 * @param key
+	 */
+	public void setTrack(String key){
+		if (key != m_trackName){
+			m_trackName = key;
+			m_trackChanged = true;
 		}
 	}
-
-	// stops the current channel
-	public void stopChannel(String channel) {
-		if (channels.containsKey(channel) && (channels.get(channel) != null)) {
-			channels.get(channel).stop();
+	
+	/**
+	 * Mutes or unmutes the music
+	 * @param mute
+	 */
+	public void mute(boolean mute){
+		m_muted = mute;
+		if (m_muted){
+			try {
+				m_music.setVolume(0);
+			} catch (NullPointerException e) {
+				System.err.println("Failed to mute the curent track");
+			}
 		}
-	}
-
-	// pauses the current channel
-	public void pauseChannel(String channel) {
-		if (channels.containsKey(channel) && (channels.get(channel) != null)) {
-			channels.get(channel).pause();
-		}
-	}
-
-	// resumes a previously paused channel
-	public void resumeChannel(String channel) {
-		if (channels.containsKey(channel) && (channels.get(channel) != null)) {
-			channels.get(channel).setVolume(1);
-			channels.get(channel).resume();
-
-			if (muted)
-				muteAll();
-		}
-	}
-
-	// creates a channel
-	public void createChannel(String channel) {
-		if (!channels.containsKey(channel)) {
-			channels.put(channel, null);
-			channelList.add(channel);
-
-			if (muted)
-				muteAll();
-		}
-	}
-
-	public void muteAll() {
-		for (String t : channelList) {
-			channels.get(t).setVolume(0);
-		}
-		mute(true);
-	}
-
-	public void unmuteAll() {
-		for (String t : channelList) {
-			channels.get(t).setVolume(1);
-		}
-		mute(false);
-	}
-
-	public void mute(boolean m) {
-		muted = m;
-	}
-
-	public boolean isMuted() {
-		return muted;
 	}
 }
