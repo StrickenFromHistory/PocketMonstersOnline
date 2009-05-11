@@ -2,12 +2,13 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="26" height="28" tilewidth="16" tileheight="16">
  <properties>
-    <property name="surfSpecies" value=""/>
-  <property name="surfLevels" value=""/>
-  <property name="surfProbability" value="0"/>
-  <property name="wildLevels" value="4-6;4-4;6-7;7-7;4-4;3-3;2-4;3-4;4-4;3-3;3-3;2-4"/>
-  <property name="wildProbability" value="50"/>
-  <property name="wildSpecies" value="Rattata,75;Ekans,75;Bellsprout,50;Pidgey,12;Hoppip,5;Ledyba,30;Pidgey,40;Rattata,40;Poliwag,20;Zubat,40;Spinarak,30;Hoothoot,50;Buneary,1;"/>
+  <property name="dayPokemonLevels" value="6-7;6-8;6-6;4-4;7-7;6-6;"/>
+  <property name="dayPokemonChances" value="Rattata,30;Hoppip,25;Spearow,10;Zubat,5;Ekans,20;Geodude,10;"/>
+  <property name="nightPokemonLevels" value="6-8;6-6;7-7;6-6;"/>
+  <property name="nightPokemonChances" value="Zubat,40;Rattata,30;Ekans,15;Geodude,15;"/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="32"/>
   <property name="yOffsetModifier" value="1376"/>
  </properties>
