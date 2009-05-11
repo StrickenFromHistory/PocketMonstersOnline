@@ -6,7 +6,7 @@ azalea:4-Azalea Town.mp3
 goldenrod:5-GoldenrodCity.mp3
 ecruteak:6-Ecruteak Town.mp3
 darkcave:7-Dark Cave.mp3
-sprouttower:8-Sprout Twoer.mp3
+sprouttower:8-Sprout Tower.mp3
 ruinsofalph:9-Ruins of Alph.mp3
 nationalpark:10-National Park.mp3
 burnedtower:11-Burned Tower.mp3

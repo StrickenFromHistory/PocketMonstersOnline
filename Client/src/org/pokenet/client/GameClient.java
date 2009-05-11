@@ -8,6 +8,7 @@ import java.util.concurrent.Executors;
 
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Display;
+import mdes.slick.sui.Frame;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
@@ -31,6 +32,7 @@ import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.backend.Animator;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
+import org.pokenet.client.backend.NewSoundManager;
 import org.pokenet.client.backend.SoundManager;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
@@ -43,6 +45,7 @@ import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
 import org.pokenet.client.ui.Ui;
+import org.pokenet.client.ui.base.ComboBox;
 import org.pokenet.client.ui.frames.ConfirmationDialog;
 import org.pokenet.client.ui.frames.MessageDialog;
 import org.pokenet.client.ui.frames.PlayerPopupDialog;
@@ -80,7 +83,7 @@ public class GameClient extends BasicGame {
 	private static String m_language = "";
 	private ConfirmationDialog m_confirm;
 	private PlayerPopupDialog m_playerDialog;
-    private static SoundManager m_soundPlayer;
+    private static NewSoundManager m_soundPlayer;
 
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
@@ -93,8 +96,9 @@ public class GameClient extends BasicGame {
 				options = new HashMap<String,String>();
 				options.put("soundMuted", String.valueOf(false));
 			}
-			m_soundPlayer = new SoundManager();
+			m_soundPlayer = new NewSoundManager();
 			m_soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
+			m_soundPlayer.start();
 			m_instance = new GameClient("Pokenet: Fearless Feebas");
 		} catch (IOException e) { 
 			e.printStackTrace();
@@ -670,7 +674,7 @@ public class GameClient extends BasicGame {
      * Returns the sound player
      * @return
      */
-    public static SoundManager getSoundPlayer() {
+    public static NewSoundManager getSoundPlayer() {
         return m_soundPlayer;
     }
 
