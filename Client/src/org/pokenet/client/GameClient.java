@@ -32,7 +32,7 @@ import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.backend.Animator;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
-import org.pokenet.client.backend.NewSoundManager;
+import org.pokenet.client.backend.SoundManager;
 import org.pokenet.client.backend.SoundManager;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
@@ -83,7 +83,7 @@ public class GameClient extends BasicGame {
 	private static String m_language = "";
 	private ConfirmationDialog m_confirm;
 	private PlayerPopupDialog m_playerDialog;
-    private static NewSoundManager m_soundPlayer;
+    private static SoundManager m_soundPlayer;
 
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
@@ -96,9 +96,10 @@ public class GameClient extends BasicGame {
 				options = new HashMap<String,String>();
 				options.put("soundMuted", String.valueOf(false));
 			}
-			m_soundPlayer = new NewSoundManager();
+			m_soundPlayer = new SoundManager();
 			m_soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
 			m_soundPlayer.start();
+			m_soundPlayer.setTrack("opening");
 			m_instance = new GameClient("Pokenet: Fearless Feebas");
 		} catch (IOException e) { 
 			e.printStackTrace();
@@ -198,6 +199,7 @@ public class GameClient extends BasicGame {
 			m_mapMatrix.recalibrate();
 			m_isNewMap = false;
 			m_loading.setVisible(false);
+			m_soundPlayer.setTrack("newbark");
 		}
 		/*
 		 * Animate the player
@@ -291,8 +293,6 @@ public class GameClient extends BasicGame {
 	 */
 	@Override
 	public void keyPressed(int key, char c) {
-		
-		
 		if (m_login.isVisible()){
 			if (key == (Input.KEY_ENTER) || key == (Input.KEY_NUMPADENTER))
 				m_login.enterKeyDefault();
@@ -674,7 +674,7 @@ public class GameClient extends BasicGame {
      * Returns the sound player
      * @return
      */
-    public static NewSoundManager getSoundPlayer() {
+    public static SoundManager getSoundPlayer() {
         return m_soundPlayer;
     }
 

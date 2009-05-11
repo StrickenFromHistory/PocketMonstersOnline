@@ -100,9 +100,6 @@ public class LoginScreen extends Window {
 			});
 			this.add(m_openToS);
 			
-			GameClient.getSoundPlayer().setTrack("opening");
-			GameClient.getSoundPlayer().run();
-			
 			this.setLocation(0, 0);
 			this.setSize(800, 600);
 			this.setVisible(true);
