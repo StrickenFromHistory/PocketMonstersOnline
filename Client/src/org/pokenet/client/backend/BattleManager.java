@@ -58,8 +58,11 @@ public class BattleManager {
 
 	/**
 	 * Starts a new BattleWindow and BattleCanvas
+	 * @param isWild
+	 * @param pokeAmount
 	 */
-	public void startBattle(char isWild, int pokeAmount) {
+	public void startBattle(char isWild,
+			int pokeAmount) {
 		if (isWild == '0'){
 			setWild(false);
 		} else {
@@ -87,7 +90,7 @@ public class BattleManager {
 
 	/**
 	 * Returns the TimeLine
-	 * @return
+	 * @return m_timeLine
 	 */
 	public BattleTimeLine getTimeLine(){
 		return m_timeLine;
@@ -95,42 +98,18 @@ public class BattleManager {
 	
 	/**
 	 * Retrieves a pokemon's moves and updates the BattleWindow
-	 * @param int i
+	 * @param int pokeIndex
 	 */
-	public void updateMoves(int i) {
-		if (m_ourPokes[i].getMoves()[0] != null) {
-			m_battle.move1.setText(m_ourPokes[i].getMoves()[0]);
-			m_battle.pp1.setText(m_ourPokes[i].getMovecurPP()[0] + "/"
-					+ m_ourPokes[i].getMovemaxPP()[0]);
-		} else {
-			m_battle.move1.setText("");
-			m_battle.pp1.setText("");
-		}
-
-		if (m_ourPokes[i].getMoves()[1] != null) {
-			m_battle.move2.setText(m_ourPokes[i].getMoves()[1]);
-			m_battle.pp2.setText(m_ourPokes[i].getMovecurPP()[1] + "/"
-					+ m_ourPokes[i].getMovemaxPP()[1]);
-		} else {
-			m_battle.move2.setText("");
-			m_battle.pp2.setText("");
-		}
-
-		if (m_ourPokes[i].getMoves()[2] != null) {
-			m_battle.move3.setText(m_ourPokes[i].getMoves()[2]);
-			m_battle.pp3.setText(m_ourPokes[i].getMovecurPP()[2] + "/"
-					+ m_ourPokes[i].getMovemaxPP()[2]);
-		} else {
-			m_battle.move3.setText("");
-			m_battle.pp3.setText("");
-		}
-		if (m_ourPokes[i].getMoves()[3] != null) {
-			m_battle.move4.setText(m_ourPokes[i].getMoves()[3]);
-			m_battle.pp4.setText(m_ourPokes[i].getMovecurPP()[3] + "/"
-					+ m_ourPokes[i].getMovemaxPP()[3]);
-		} else {
-			m_battle.move4.setText("");
-			m_battle.pp4.setText("");
+	public void updateMoves(int pokeIndex) {
+		for (int i = 0; i < 3; i++){
+			if (m_ourPokes[pokeIndex].getMoves()[i] != null) {
+				m_battle.move1.setText(m_ourPokes[pokeIndex].getMoves()[i]);
+				m_battle.pp1.setText(m_ourPokes[pokeIndex].getMovecurPP()[i] + "/"
+						+ m_ourPokes[pokeIndex].getMovemaxPP()[i]);
+			} else {
+				m_battle.move1.setText("");
+				m_battle.pp1.setText("");
+			}
 		}
 	}
 
@@ -222,7 +201,9 @@ public class BattleManager {
 	 * @param trainerIndex
 	 * @param pokeIndex
 	 */
-	public void switchPoke(int trainerIndex, int pokeIndex, boolean isForced) {
+	public void switchPoke(int trainerIndex,
+			int pokeIndex,
+			boolean isForced) {
 		if (trainerIndex == 0) {
 			// TODO: Draw our poke
 			updateMoves(pokeIndex);
@@ -311,6 +292,10 @@ public class BattleManager {
 		this.m_isWild = m_isWild;
 	}
 	
+	/**
+	 * Returns a boolean determining whether the pokemon is wild
+	 * @return m_isWild
+	 */
 	public boolean isWild() {
 		return m_isWild;
 	}
