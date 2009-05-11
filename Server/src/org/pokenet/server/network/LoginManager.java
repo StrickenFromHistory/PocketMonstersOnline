@@ -106,6 +106,7 @@ public class LoginManager implements Runnable {
 				}
 			} else {
 				//Password is wrong, say so.
+				session.write("le");
 				return;
 			}
 			m_database.close();
