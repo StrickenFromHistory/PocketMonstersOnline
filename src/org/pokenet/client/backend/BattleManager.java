@@ -76,6 +76,7 @@ public class BattleManager {
 		GameClient.getInstance().getDisplay().add(m_battle);
 		m_timeLine = new BattleTimeLine();
 		m_enemyPokes = new Pokemon[pokeAmount];
+		GameClient.changeTrack("pvnpc");
 	}
 	
 	/**
@@ -86,6 +87,7 @@ public class BattleManager {
 		m_timeLine = null;
 		GameClient.getInstance().getDisplay().remove(m_battle);
 		m_battle = null;
+		GameClient.changeTrack("newbark");
 	}
 
 	/**

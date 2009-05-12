@@ -99,7 +99,7 @@ public class GameClient extends BasicGame {
 			m_soundPlayer = new SoundManager();
 			m_soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
 			m_soundPlayer.start();
-			m_soundPlayer.setTrack("opening");
+			m_soundPlayer.setTrack("introandgym");
 			m_instance = new GameClient("Pokenet: Fearless Feebas");
 		} catch (IOException e) { 
 			e.printStackTrace();
@@ -199,7 +199,6 @@ public class GameClient extends BasicGame {
 			m_mapMatrix.recalibrate();
 			m_isNewMap = false;
 			m_loading.setVisible(false);
-			m_soundPlayer.setTrack("newbark");
 		}
 		/*
 		 * Animate the player
@@ -625,6 +624,7 @@ public class GameClient extends BasicGame {
 		m_mapY = y;
 		m_isNewMap = true;
 		m_loading.setVisible(true);
+		changeTrack("newbark");
 	}
 	
 	/**
@@ -708,6 +708,14 @@ public class GameClient extends BasicGame {
     	m_language = lang;
     	return m_language;
     }
+    
+    /**
+     * Changes the playing track
+     * @param fileKey
+     */
+	public static void changeTrack(String fileKey){
+		m_soundPlayer.setTrack(fileKey);
+	}
     
     /**
     * Slick Native library finder.

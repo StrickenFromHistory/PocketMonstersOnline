@@ -14,8 +14,8 @@ import org.newdawn.slick.SlickException;
  */
 public class SoundManager extends Thread{
 	private HashMap<String, String> m_fileList;
-	private String m_trackName;
-	private boolean m_muted, m_trackChanged = true;
+	protected String m_trackName;
+	private boolean m_muted, m_trackChanged = true, m_isRunning = false;
 	private Music m_music;
 	
 	private final String m_audioPath = "res/music/";
@@ -53,21 +53,23 @@ public class SoundManager extends Thread{
 	@Override
 	public void run() {
 		System.out.println("Running!");
-		try {
-			if (m_trackChanged){
-				System.out.println("Changed track to: " + m_fileList.get(m_trackName));
-				m_music = new Music(m_audioPath + m_fileList.get(m_trackName), true);
-				if (m_muted)
-					m_music.setVolume(0);
-				else
-					m_music.setVolume(1);
-				play();
+		while (m_isRunning){
+			try {
+				if (m_trackChanged){
+					System.out.println("Changed track to: " + m_fileList.get(m_trackName));
+					m_music = new Music(m_audioPath + m_fileList.get(m_trackName), true);
+					if (m_muted)
+						m_music.setVolume(0);
+					else
+						m_music.setVolume(1);
+					play();
+				}
+				m_trackChanged = false;
+			} catch (SlickException e){
+				System.err.println("Failed to load " +  m_fileList.get(m_trackName));
+				m_music = null;
+				m_trackChanged = false;
 			}
-			m_trackChanged = false;
-		} catch (SlickException e){
-			System.err.println("Failed to load " +  m_fileList.get(m_trackName));
-			m_music = null;
-			m_trackChanged = false;
 		}
 	}
 	
@@ -90,6 +92,14 @@ public class SoundManager extends Thread{
 			m_trackName = key;
 			m_trackChanged = true;
 		}
+	}
+	
+	/**
+	 * Starts the thread
+	 */
+	public void start(){
+		super.start();
+		m_isRunning = true;
 	}
 	
 	/**

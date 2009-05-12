@@ -473,7 +473,6 @@ public class ConnectionManager extends IoHandlerAdapter {
 			case 'e':
 				//Error
 				GameClient.messageDialog(translated.get(21), GameClient.getInstance().getDisplay());
-				
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().enableLogin();
 				break;

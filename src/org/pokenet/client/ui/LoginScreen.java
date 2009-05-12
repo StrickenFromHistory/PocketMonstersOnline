@@ -99,7 +99,7 @@ public class LoginScreen extends Window {
 				}
 			});
 			this.add(m_openToS);
-			
+
 			this.setLocation(0, 0);
 			this.setSize(800, 600);
 			this.setVisible(true);
