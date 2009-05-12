@@ -28,18 +28,20 @@ public class ComboBox extends Container{
 	private Button m_arrow;
 	private String m_selected;
 	private ItemSelector m_itemSelector;
+	private ComboBox m_this;
 	
 	/**
 	 * Default Constructor
 	 */
 	public ComboBox(){
+		m_this = this;
 		m_elements = new ArrayList<String>();
 		m_arrow = new SimpleArrowButton(SimpleArrowButton.DOWN);
 		m_arrow.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				if (m_itemSelector == null) {
-					m_itemSelector = new ItemSelector(6, m_elements.toArray(new String[m_elements.size()]),
-							(int)getWidth(), (int)m_arrow.getWidth());
+					m_itemSelector = new ItemSelector(m_this, 6, m_elements.toArray(new String
+							[m_elements.size()]), (int)getWidth(), (int)m_arrow.getWidth());
 					m_itemSelector.setLocation(getAbsoluteX(), getAbsoluteY() - 5);
 					getDisplay().add(m_itemSelector);
 				} else {
@@ -87,7 +89,7 @@ public class ComboBox extends Container{
 			@Override
 			public void mouseReleased(MouseEvent e){
 				if (m_itemSelector == null){
-					m_itemSelector = new ItemSelector(5, m_elements.toArray(new String[m_elements.size()]),
+					m_itemSelector = new ItemSelector(m_this, 5, m_elements.toArray(new String[m_elements.size()]),
 						(int)getWidth(), (int)m_arrow.getWidth());
 					m_itemSelector.setLocation(getAbsoluteX(), getAbsoluteY() - 5);
 					getDisplay().add(m_itemSelector);
@@ -150,6 +152,7 @@ class ItemSelector extends Frame{
 	Button m_up, m_down;
 	int m_amountShown, m_index, m_selected, m_width;
 	private boolean m_choiceMade = false;
+	ComboBox m_parent;
 	
 	/**
 	 * Default Constructor
@@ -158,10 +161,12 @@ class ItemSelector extends Frame{
 	 * @param width
 	 * @param buttonWidth
 	 */
-	public ItemSelector(int shown,
+	public ItemSelector(ComboBox parent,
+			int shown,
 			String[] items,
 			int width,
 			int buttonWidth){
+		m_parent = parent;
 		m_amountShown = shown;
 		m_items = items;
 		m_width = width;
@@ -275,6 +280,14 @@ class ItemSelector extends Frame{
 	 */
 	public boolean isChoiceMade(){
 		return m_choiceMade;
+	}
+	
+	@Override
+	public void update(GUIContext container, int delta){
+		super.update(container, delta);
+		if (!m_parent.getParent().getParent().isVisible()){
+			destroy();
+		}
 	}
 	
 	/**
