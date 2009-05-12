@@ -156,6 +156,7 @@ class ItemSelector extends Frame{
 	
 	/**
 	 * Default Constructor
+	 * @param parent
 	 * @param shown
 	 * @param items
 	 * @param width
