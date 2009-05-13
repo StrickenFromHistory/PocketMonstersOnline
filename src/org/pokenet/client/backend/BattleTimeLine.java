@@ -133,8 +133,9 @@ public class BattleTimeLine {
 	public void informHealthChanged(String[] data,
 			int i){
 		m_pokeName = data[0];
-		m_dmg = Integer.parseInt(data[i]);
+		m_dmg = Math.abs(Integer.parseInt(data[i]));
 		if (i == 0){
+			m_pokeName = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getName();
 			m_newHPValue = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() + 
 				Integer.parseInt(data[1]);
 			if (m_newHPValue < 0){m_newHPValue = 0;}
@@ -143,6 +144,7 @@ public class BattleTimeLine {
 					.getCurHP());
 			data[0] = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getName();
 		} else {
+			m_pokeName = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getName();
 			m_newHPValue = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() + 
 				Integer.parseInt(data[1]);
 			if (m_newHPValue < 0){m_newHPValue = 0;}
