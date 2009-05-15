@@ -88,7 +88,7 @@ public class LanguageDialog extends Frame {
 			m_languages[3].setVisible(true);
 			m_languages[3].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					GameClient.setLanguage("portugues");
+					GameClient.setLanguage("portuguese");
 					
 				}
 			});
