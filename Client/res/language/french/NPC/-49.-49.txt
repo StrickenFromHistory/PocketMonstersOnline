@@ -1,0 +1,2 @@
+Welcome to the PokeMart.
+Please report this bug!
