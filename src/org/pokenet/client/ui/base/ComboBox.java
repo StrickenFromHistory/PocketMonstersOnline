@@ -55,12 +55,8 @@ public class ComboBox extends Container{
 		add(m_item);
 	}
 	
-	/**
-	 * Sets the size
-	 * @param width
-	 * @param height
-	 */
-	public void setSize(int width, int height){
+	@Override
+	public void setSize(float width, float height){
 		super.setSize(width, height);
 		m_arrow.setSize(getHeight(), getHeight());
 		m_arrow.setLocation(getWidth() - m_arrow.getWidth(), 0);
@@ -70,7 +66,7 @@ public class ComboBox extends Container{
 	 * Sets the selected item
 	 * @param item
 	 */
-	private void setSelected(String item){
+	public void setSelected(String item){
 		m_item.setText(item);
 		m_item.pack();
 		m_item.addMouseListener(new MouseAdapter(){
@@ -138,6 +134,14 @@ public class ComboBox extends Container{
 			m_itemSelector.destroy();
 			m_itemSelector = null;
 		}
+	}
+	
+	@Override
+	public void setForeground(Color c){
+		super.setForeground(c);
+		try{
+			m_item.setForeground(c);
+		} catch (NullPointerException e) {}
 	}
 }
 

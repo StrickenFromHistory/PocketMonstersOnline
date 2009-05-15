@@ -101,7 +101,7 @@ public class ListBox extends Container {
 		m_down.setZIndex(99);
 		scroll(0);
 		ensureZOrder();
-		this.add(m_up);
+		add(m_up);
 		add(m_down);
 	}
 	
@@ -121,7 +121,6 @@ public class ListBox extends Container {
 		int y = -17;
 
 		m_scrollIndex = m_scrollIndex + indexMod;
-		System.out.println(m_scrollIndex);
 		//Handles the buttons' availability
 		if (m_scrollIndex == 0)
 			m_up.setEnabled(false);

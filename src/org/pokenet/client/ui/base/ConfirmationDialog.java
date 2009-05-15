@@ -1,4 +1,4 @@
-package org.pokenet.client.ui.frames;
+package org.pokenet.client.ui.base;
 
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Container;

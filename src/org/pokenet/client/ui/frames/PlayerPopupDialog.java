@@ -15,7 +15,7 @@ import org.pokenet.client.GameClient;
  *
  */
 public class PlayerPopupDialog extends Frame{
-	Button m_battle, m_trade, m_addFriend, m_cancel;
+	Button m_battle, m_trade, m_addFriend, m_whisper, m_cancel;
 	Label m_name;
 	
 	/**
@@ -32,25 +32,30 @@ public class PlayerPopupDialog extends Frame{
 
 		m_battle = new Button("Battle");
 		m_battle.setSize(100,25);
-		m_battle.setLocation(0, m_name.getY() + m_name.getTextHeight() + 3);
+		m_battle.setLocation(0, m_name.getY() + m_name.getHeight() + 3);
 		getContentPane().add(m_battle);
 		
 		m_trade = new Button("Trade");
 		m_trade.setSize(100,25);
-		m_trade.setLocation(0, m_battle.getY() + m_battle.getHeight());
+		m_trade.setLocation(0, m_battle.getY() + 25);
 		getContentPane().add(m_trade);
 
+		m_whisper = new Button("Whisper");
+		m_whisper.setSize(100,25);
+		m_whisper.setLocation(0, m_trade.getY() + 25);
+		getContentPane().add(m_whisper);
+		
 		m_addFriend = new Button("Add Friend");
 		m_addFriend.setSize(100,25);
-		m_addFriend.setLocation(0, m_trade.getY() + m_addFriend.getHeight());
+		m_addFriend.setLocation(0, m_whisper.getY() + 25);
 		getContentPane().add(m_addFriend);
 		
 		m_cancel = new Button("Cancel");
 		m_cancel.setSize(100,25);
-		m_cancel.setLocation(0, m_addFriend.getY() + m_cancel.getHeight());
+		m_cancel.setLocation(0, m_addFriend.getY() + 25);
 		getContentPane().add(m_cancel);
 		setBackground(new Color(0,0,0,150));
-		setSize(100, 125 + m_name.getTextHeight());
+		setSize(100, 150 + m_name.getTextHeight());
 		getTitleBar().setVisible(false);
 		setVisible(true);
 		setResizable(false);
@@ -60,22 +65,32 @@ public class PlayerPopupDialog extends Frame{
 			public void actionPerformed(ActionEvent e){
 				//TODO: Battle request
 				//GameClient.getInstance().getPacketGenerator().write("" + m_name.getText());
+				destroy();
 			}
 		});
 		m_trade.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				//TODO: Trade request
 				//GameClient.getInstance().getPacketGenerator().write("" + m_name.getText());
+				destroy();
+			}
+		});
+		m_whisper.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				GameClient.getInstance().getUi().getChat().addChat(m_name.getText());
+				GameClient.getInstance().getUi().getChat().setCurrentChat(m_name.getText());
+				destroy();
 			}
 		});
 		m_addFriend.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				GameClient.getInstance().getPacketGenerator().write("Fa" + m_name.getText());
+				destroy();
 			}
 		});
 		m_cancel.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				destroy();				
+				destroy();
 			}
 		});
 	}

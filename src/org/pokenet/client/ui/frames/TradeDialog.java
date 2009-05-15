@@ -13,6 +13,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Pokemon;
+import org.pokenet.client.ui.base.ConfirmationDialog;
 
 /**
  * The trade interface

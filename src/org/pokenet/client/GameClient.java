@@ -46,8 +46,8 @@ import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
 import org.pokenet.client.ui.Ui;
 import org.pokenet.client.ui.base.ComboBox;
-import org.pokenet.client.ui.frames.ConfirmationDialog;
-import org.pokenet.client.ui.frames.MessageDialog;
+import org.pokenet.client.ui.base.ConfirmationDialog;
+import org.pokenet.client.ui.base.MessageDialog;
 import org.pokenet.client.ui.frames.PlayerPopupDialog;
 
 /**
@@ -322,8 +322,8 @@ public class GameClient extends BasicGame {
 				getUi().getDisplay().add(m_confirm);
 			}
 		}
-		if(m_ui.getNPCSpeech() == null && m_ui.getLocalChat().isActive()==false && !m_login.isVisible()
-				&& !m_ui.getLocalChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
+		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
+				&& !m_ui.getChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
 					&& m_ourPlayer.getX() == m_ourPlayer.getServerX()
@@ -365,7 +365,7 @@ public class GameClient extends BasicGame {
 				} 
 			}
 		}
-		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() && !m_ui.getLocalChat().isActive()) {
+		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() && !m_ui.getChat().isActive()) {
 			if(m_ui.getNPCSpeech() == null && getUi().getBattleManager().getBattleWindow() == null ){
 				m_packetGen.write("Ct");
 			}
@@ -420,8 +420,8 @@ public class GameClient extends BasicGame {
         			m_playerDialog.destroy();
         		}
         	} 
-        	if(getDisplay().containsChild(m_ui.getLocalChat())){
-        		m_ui.getLocalChat().dropFocus();
+        	if(getDisplay().containsChild(m_ui.getChat())){
+        		m_ui.getChat().dropFocus();
         	}
         }
 	}
