@@ -1,7 +1,5 @@
 package org.pokenet.client.ui;
 
-import java.util.ArrayList;
-
 import mdes.slick.sui.Display;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
@@ -17,11 +15,10 @@ import org.pokenet.client.ui.base.HUDButtonFactory;
 import org.pokenet.client.ui.base.ImageButton;
 import org.pokenet.client.ui.base.ListBox;
 import org.pokenet.client.ui.frames.BagDialog;
-import org.pokenet.client.ui.frames.OldChatDialog;
+import org.pokenet.client.ui.frames.ChatDialog;
 import org.pokenet.client.ui.frames.FriendListDialog;
 import org.pokenet.client.ui.frames.HelpWindow;
 import org.pokenet.client.ui.frames.NPCSpeechFrame;
-import org.pokenet.client.ui.frames.ChatDialog;
 import org.pokenet.client.ui.frames.OptionsDialog;
 import org.pokenet.client.ui.frames.PartyInfoDialog;
 import org.pokenet.client.ui.frames.PokeStorageBoxFrame;

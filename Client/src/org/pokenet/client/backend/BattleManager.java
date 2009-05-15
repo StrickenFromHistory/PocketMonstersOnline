@@ -1,6 +1,5 @@
 package org.pokenet.client.backend;
 
-import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.OurPokemon;

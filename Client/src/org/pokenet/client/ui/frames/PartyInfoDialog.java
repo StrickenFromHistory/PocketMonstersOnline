@@ -12,16 +12,13 @@ import mdes.slick.sui.event.MouseAdapter;
 import mdes.slick.sui.event.MouseEvent;
 import mdes.slick.sui.skin.simple.SimpleArrowButton;
 
-import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.Color;
-import org.newdawn.slick.Font;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.Translator;
 import org.pokenet.client.backend.entity.OurPokemon;
-import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.base.ProgressBar;
 
 /**
@@ -29,6 +26,7 @@ import org.pokenet.client.ui.base.ProgressBar;
  * @author ZombieBear
  *
  */
+@SuppressWarnings("deprecation")
 public class PartyInfoDialog extends Frame {
 	Container[] m_container = new Container[6];
 	Label[] m_pokeBall = new Label[6];

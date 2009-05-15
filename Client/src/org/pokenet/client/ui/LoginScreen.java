@@ -3,8 +3,13 @@ package org.pokenet.client.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import mdes.slick.sui.Button;
+import mdes.slick.sui.Label;
+import mdes.slick.sui.Window;
+import mdes.slick.sui.event.ActionEvent;
+import mdes.slick.sui.event.ActionListener;
+
 import org.newdawn.slick.Image;
-import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.Translator;
 import org.pokenet.client.ui.frames.AboutDialog;
 import org.pokenet.client.ui.frames.LanguageDialog;
@@ -12,12 +17,6 @@ import org.pokenet.client.ui.frames.LoginDialog;
 import org.pokenet.client.ui.frames.RegisterDialog;
 import org.pokenet.client.ui.frames.ServerDialog;
 import org.pokenet.client.ui.frames.ToSDialog;
-
-import mdes.slick.sui.Button;
-import mdes.slick.sui.Label;
-import mdes.slick.sui.Window;
-import mdes.slick.sui.event.ActionEvent;
-import mdes.slick.sui.event.ActionListener;
 
 /**
  * The login screen (contains server selector, login and registration)

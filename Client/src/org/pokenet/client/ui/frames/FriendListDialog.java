@@ -21,6 +21,7 @@ import org.pokenet.client.ui.base.ConfirmationDialog;
  * @author ZombieBear
  *
  */
+@SuppressWarnings("deprecation")
 public class FriendListDialog extends Frame {
 	List<String> m_friends;
 	Label[] m_shownFriends = new Label[10];

@@ -22,6 +22,7 @@ import org.pokenet.client.GameClient;
  * @author ZombieBear
  *
  */
+@SuppressWarnings("deprecation")
 public class ComboBox extends Container{
 	private List<String> m_elements;
 	private Label m_item;
@@ -166,6 +167,7 @@ class ItemSelector extends Frame{
 	 * @param width
 	 * @param buttonWidth
 	 */
+	@SuppressWarnings("deprecation")
 	public ItemSelector(ComboBox parent,
 			int shown,
 			String[] items,

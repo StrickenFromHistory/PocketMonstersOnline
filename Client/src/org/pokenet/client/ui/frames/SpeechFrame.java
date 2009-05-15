@@ -12,7 +12,6 @@ import mdes.slick.sui.TextArea;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.loading.LoadingList;

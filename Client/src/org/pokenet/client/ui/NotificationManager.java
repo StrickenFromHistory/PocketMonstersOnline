@@ -1,6 +1,5 @@
 package org.pokenet.client.ui;
 
-import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -14,6 +13,7 @@ import org.pokenet.client.ui.base.Notification;
  *
  */
 public class NotificationManager implements Runnable {
+	@SuppressWarnings("unused")
 	private Display m_display;
 	private boolean m_isRunning;
 	private Thread m_thread;
