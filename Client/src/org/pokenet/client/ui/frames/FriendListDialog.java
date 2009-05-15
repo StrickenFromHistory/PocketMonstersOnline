@@ -14,6 +14,7 @@ import mdes.slick.sui.skin.simple.SimpleArrowButton;
 
 import org.newdawn.slick.Color;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.ui.base.ConfirmationDialog;
 
 /**
  * Friends List

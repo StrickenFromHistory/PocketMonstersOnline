@@ -17,10 +17,11 @@ import org.pokenet.client.ui.base.HUDButtonFactory;
 import org.pokenet.client.ui.base.ImageButton;
 import org.pokenet.client.ui.base.ListBox;
 import org.pokenet.client.ui.frames.BagDialog;
-import org.pokenet.client.ui.frames.ChatDialog;
+import org.pokenet.client.ui.frames.OldChatDialog;
 import org.pokenet.client.ui.frames.FriendListDialog;
 import org.pokenet.client.ui.frames.HelpWindow;
 import org.pokenet.client.ui.frames.NPCSpeechFrame;
+import org.pokenet.client.ui.frames.ChatDialog;
 import org.pokenet.client.ui.frames.OptionsDialog;
 import org.pokenet.client.ui.frames.PartyInfoDialog;
 import org.pokenet.client.ui.frames.PokeStorageBoxFrame;
@@ -35,8 +36,7 @@ import org.pokenet.client.ui.frames.TradeDialog;
  */
 public class Ui extends Frame {
 	private FriendListDialog m_friendList;
-	private ChatDialog m_localChat;
-	private ArrayList<ChatDialog> m_privateChat;
+	private ChatDialog m_chat;
 	private ImageButton [] m_buttons;
 	private Display m_display;
 	private Label m_moneyLabel = new Label();
@@ -65,8 +65,7 @@ public class Ui extends Frame {
 		
 		m_display = display;
 		
-		m_localChat = new ChatDialog("Cl", "Chat: Local");
-		m_privateChat = new ArrayList<ChatDialog>();
+		m_chat = new ChatDialog("Chat: Local");
 		
 		startButtons();
 
@@ -82,9 +81,9 @@ public class Ui extends Frame {
 		
 		this.getTitleBar().setVisible(false);
 
-		m_localChat.setLocation(GameClient.getInstance().getDisplay().getWidth()
-				- m_localChat.getWidth(), 0);
-		m_display.add(m_localChat);
+		m_chat.setLocation(GameClient.getInstance().getDisplay().getWidth()
+				- m_chat.getWidth(), 0);
+		m_display.add(m_chat);
 		m_display.add(this);
 	}
 	
@@ -160,31 +159,12 @@ public class Ui extends Frame {
 			break;
 		case 'l':
 			//Local Chat
-			m_localChat.appendText(m.substring(1));
+			m_chat.addChatLine("Local", m.substring(1));
 			break;
 		case 'p':
 			//Private Chat
 			String [] details = m.substring(1).split(",");
-			//Find the private chat and add the text to it
-			for(int i = 0; i < m_privateChat.size(); i++) {
-				if(m_privateChat.get(i).getName().equalsIgnoreCase(details[0])) {
-					m_privateChat.get(i).appendText(details[1]);
-					/*
-					 * If the private chat is visible on screen, exit this method
-					 * Else, add a popup notification about the new message
-					 */
-					if(m_privateChat.get(i).isVisible())
-						return;
-					else {
-						NotificationManager.addNotification("Message from " + details[0]);
-						return;
-					}
-				}
-			}
-			//If not found, open up a new chat window
-			ChatDialog c = new ChatDialog("Cp" + details[0] + ",", "Chat: " + details[0]);
-			m_privateChat.add(c);
-			m_display.add(c);
+			m_chat.addChatLine(details[0], details[1]);
 			break;
 		}
 	}
@@ -195,27 +175,7 @@ public class Ui extends Frame {
 	 */
 	public void setAllVisible(boolean b) {
 		this.setVisible(b);
-		m_localChat.setVisible(b);
-		for(int i = 0; i < m_privateChat.size(); i++) {
-			m_privateChat.get(i).setVisible(b);
-		}
-	}
-	
-	/**
-	 * Opens up all private chats
-	 */
-	public void showPrivateChatWindows() {
-		for(int i = 0; i < m_privateChat.size(); i++) {
-			m_privateChat.get(i).setVisible(true);
-		}
-	}
-	
-	/**
-	 * Returns the local chat
-	 * @return
-	 */
-	public ChatDialog getLocalChat() {
-		return m_localChat;
+		m_chat.setVisible(b);
 	}
 	
     /**
@@ -231,7 +191,7 @@ public class Ui extends Frame {
     
     /**
      * Returns true if a pane is being shown
-     * @return
+     * @return true if a pane is being shown
      */
     public boolean isOccupied() {
     	return ( (m_optionsForm != null && m_optionsForm.isVisible())
@@ -249,7 +209,7 @@ public class Ui extends Frame {
     
     /**
      * Returns the options form
-     * @return
+     * @return the options form
      */
     public OptionsDialog getOptionPane() {
             return m_optionsForm;
@@ -257,7 +217,7 @@ public class Ui extends Frame {
     
     /**
      * Returns the request window
-     * @return
+     * @return the request window
      */
     public RequestWindow getReqWindow() {
             return m_requestsForm;
@@ -407,7 +367,6 @@ public class Ui extends Frame {
     
     /**
 	 * Nulls m_speechFrame
-	 * @return
 	 */
 	public void nullSpeechFrame() {
 		getDisplay().remove(m_speechFrame);
@@ -416,11 +375,19 @@ public class Ui extends Frame {
 	
 	/**
 	 * Returns the NPC Speech Frame
-	 * @return
+	 * @return the NPC Speech Frame
 	 */
 	public NPCSpeechFrame getNPCSpeech(){
 		return m_speechFrame;
 	}
+
+	/**
+	 * Returns the Chat Dialog
+	 * @return the Chat Dialog
+	 */
+	public ChatDialog getChat(){
+		return m_chat;
+	}	
 	
 	/**
 	 * Pops up the trade dialog
@@ -434,7 +401,7 @@ public class Ui extends Frame {
     
     /**
      * Returns the Battle Manager
-     * @return
+     * @return the Battle Manager
      */
     public BattleManager getBattleManager(){
     	return m_battleManager;
@@ -458,7 +425,7 @@ public class Ui extends Frame {
     
     /**
      * Returns the Storage Box
-     * @return
+     * @return the Storage Box
      */
     public PokeStorageBoxFrame getStorageBox(){
     	return m_storageBox;
@@ -466,7 +433,7 @@ public class Ui extends Frame {
 
 	/**
 	 * Returns the Friends List
-	 * @return
+	 * @return the Friends List
 	 */
 	public FriendListDialog getFriendsList() {
 		return m_friendList;
