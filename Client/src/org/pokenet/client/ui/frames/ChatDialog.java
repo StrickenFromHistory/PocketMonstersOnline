@@ -216,11 +216,14 @@ class ChatWidget extends Container{
     /**
      * Default Constructor
      */
-    public ChatWidget(Color foreColor){
+    @SuppressWarnings("deprecation")
+	public ChatWidget(Color foreColor){
     	m_foreColor = foreColor;
     	m_maxLines = (int)(getHeight() / GameClient.getFontSmall().getHeight("X"));
 		m_chatShown = new Label[m_maxLines];
 		m_contents = new ArrayList<String>();
+		m_up = new SimpleArrowButton(SimpleArrowButton.FACE_UP);
+		m_down = new SimpleArrowButton(SimpleArrowButton.FACE_DOWN);
 		layoutScrollButtons();
     }
     
@@ -244,7 +247,13 @@ class ChatWidget extends Container{
      * @param indexMod
      */
     public void scroll(int indexMod){
-		m_maxLines = (int)(getHeight() / GameClient.getFontSmall().getHeight("X") - 1);
+    	for (int i = 0; i < m_chatShown.length; i++){
+    		try {
+    			m_chatShown[i].setText("");
+    			remove(m_chatShown[i]);
+    		} catch (Exception e) {}
+    	}
+    	m_maxLines = (int)(getHeight() / GameClient.getFontSmall().getHeight("X") - 1);
 		m_chatShown = new Label[m_maxLines];
 
 		//Handles the buttons' availability
@@ -288,15 +297,14 @@ class ChatWidget extends Container{
      */
     public void setForeColor(Color c) {
     	m_foreColor = c;
+    	scroll(0);
     }
     
     /**
      * Lays out the scrolling buttons
      */
-	@SuppressWarnings("deprecation")
 	public void layoutScrollButtons(){
 		int buttonWidth = 16;
-		m_up = new SimpleArrowButton(SimpleArrowButton.FACE_UP);
 		m_up.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				scroll(-1);
@@ -306,7 +314,6 @@ class ChatWidget extends Container{
 		m_up.setSize(buttonWidth, buttonWidth);
 		m_up.setLocation(getWidth() - buttonWidth, 0);
 		
-		m_down = new SimpleArrowButton(SimpleArrowButton.FACE_DOWN);
 		m_down.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				scroll(1);
