@@ -56,14 +56,13 @@ public class RequestWindow extends Frame {
      * @param username
      */
     public void addTradeRequest(String username) {
-            String s = "tk" + username.toString();
-            Offer r = new Offer(username);
-            if(m_offers.size() > 4) {
-                    m_offers.remove(0);
-                    m_offers.trimToSize();
-            }
-            m_offers.add(r);
-            reloadRequests();
+    	Offer r = new Offer(username);
+    	if(m_offers.size() > 4) {
+    		m_offers.remove(0);
+    		m_offers.trimToSize();
+    	}
+    	m_offers.add(r);
+    	reloadRequests();
     }
 
     /**

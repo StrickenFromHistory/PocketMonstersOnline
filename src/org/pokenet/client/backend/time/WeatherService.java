@@ -1,7 +1,5 @@
 package org.pokenet.client.backend.time;
 
-import java.io.File;
-
 import org.newdawn.slick.loading.LoadingList;
 import org.newdawn.slick.particles.ParticleIO;
 import org.newdawn.slick.particles.ParticleSystem;
@@ -30,7 +28,6 @@ public class WeatherService {
 		
 		try {
 			LoadingList.setDeferredLoading(true);
-			File f = new File(".");
 			//Rain
 			m_systems[0] = ParticleIO.loadConfiguredSystem("res/effects/rain/rain.xml");
 			//Hail

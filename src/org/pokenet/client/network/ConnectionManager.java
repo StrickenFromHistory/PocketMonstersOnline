@@ -373,7 +373,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 						pl.set(p);
 						m_game.setOurPlayer(pl);
 						m_game.getMapMatrix().addPlayer(pl);
-						m_game.getInstance().getOurPlayer().setAnimating(true);
+						GameClient.getInstance().getOurPlayer().setAnimating(true);
 					} else
 						m_game.getMapMatrix().addPlayer(p);
 				}

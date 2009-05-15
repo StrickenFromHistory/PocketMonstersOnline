@@ -8,7 +8,6 @@ import java.util.concurrent.Executors;
 
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Display;
-import mdes.slick.sui.Frame;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
@@ -33,7 +32,6 @@ import org.pokenet.client.backend.Animator;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
 import org.pokenet.client.backend.SoundManager;
-import org.pokenet.client.backend.SoundManager;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
@@ -45,7 +43,6 @@ import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
 import org.pokenet.client.ui.Ui;
-import org.pokenet.client.ui.base.ComboBox;
 import org.pokenet.client.ui.base.ConfirmationDialog;
 import org.pokenet.client.ui.base.MessageDialog;
 import org.pokenet.client.ui.frames.PlayerPopupDialog;
@@ -57,6 +54,7 @@ import org.pokenet.client.ui.frames.PlayerPopupDialog;
  * @author Nushio
  *
  */
+@SuppressWarnings("unchecked")
 public class GameClient extends BasicGame {
 	//Some variables needed
 	private static GameClient m_instance;
@@ -75,6 +73,7 @@ public class GameClient extends BasicGame {
 	private LoginScreen m_login;
 	//The gui display layer
 	private Display m_display;
+	@SuppressWarnings("unused")
 	private Font m_dpFontLarge, m_dpFontSmall;
 	private WeatherService m_weather;
 	private TimeService m_time;

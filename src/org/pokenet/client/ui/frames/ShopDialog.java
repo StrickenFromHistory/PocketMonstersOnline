@@ -1,20 +1,19 @@
 package org.pokenet.client.ui.frames;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+
+import mdes.slick.sui.Button;
+import mdes.slick.sui.Frame;
+import mdes.slick.sui.Label;
+import mdes.slick.sui.event.ActionEvent;
+import mdes.slick.sui.event.ActionListener;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Item;
 import org.pokenet.client.network.PacketGenerator;
-
-import mdes.slick.sui.Frame;
-import mdes.slick.sui.Button;
-import mdes.slick.sui.Label;
-import mdes.slick.sui.event.ActionEvent;
-import mdes.slick.sui.event.ActionListener;
 
 /**
  * The shop dialog
