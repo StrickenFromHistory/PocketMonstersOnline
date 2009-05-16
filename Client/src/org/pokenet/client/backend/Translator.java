@@ -1,11 +1,9 @@
 package org.pokenet.client.backend;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,6 +12,7 @@ import org.pokenet.client.GameClient;
 
 public class Translator {
 	
+	@SuppressWarnings("deprecation")
 	public static List<String> translate(String filename){
 		File f = new File(".");
 		List<String> translated = new ArrayList<String>();
