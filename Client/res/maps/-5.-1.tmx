@@ -2,12 +2,13 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="56" height="42" tilewidth="16" tileheight="16">
  <properties>
-  <property name="surfLevels" value="15-24;20-24;"/>
-  <property name="surfProbability" value="7"/>
-  <property name="surfSpecies" value="Psyduck,90;Golduck,10;"/>
-  <property name="wildLevels" value="12-12;12-12;12-12;10-10;14-14;12-12;14-14;13-13;12-12;13-13;14-14"/>
-  <property name="wildProbability" value="30"/>
-  <property name="wildSpecies" value="Nidoran_m,30;Nidoran_f,30;Jigglypuff,5;Abra,10;Drowzee,20;Yanma,1;Pidgey,20;Growlithe,20;Snubbull,30;Psyduck,20;Hoothoot,20;Buneary,1;"/>
+  <property name="dayPokemonLevels" value="12-12;12-12;14-14;12-12;13-13;14-14;10-10;12-12;12-12;"/>
+  <property name="dayPokemonChances" value="Nidoran-m,15;Nidoran-f,15;Pidgey,15;Snubbull,15;Growlithe,10;Drowzee,10;Abra,10;Jigglypuff,9;Yanma,1;"/>
+  <property name="nightPokemonLevels" value="12-12;12-12;14-14;14-14;13-13;10-10;12-12;12-12;"/>
+  <property name="nightPokemonChances" value="Nidoran-m,15;Nidoran-f,15;Drowzee,15;Hoothoot,15;Psyduck,20;Abra,10;Jigglypuff,9;Yanma,1;"/>
+  <property name="waterPokemonLevels" value="15-24;20-24;"/>
+  <property name="waterPokemonChances" value="Psyduck,90;Golduck,10;"/>
+  <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="-320"/>
   <property name="yOffsetModifier" value="-12"/>
  </properties>
