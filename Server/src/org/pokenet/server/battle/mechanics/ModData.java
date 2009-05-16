@@ -77,7 +77,7 @@ public class ModData {
     /**
      * Cache of mod data.
      */
-    private static final Map m_map = Collections.synchronizedMap(new HashMap());
+    private static final Map<String, ModData> m_map = Collections.synchronizedMap(new HashMap<String, ModData>());
     private static final ModData m_default;
     
     /**
@@ -255,11 +255,11 @@ public class ModData {
     /**
      * Handle the moves from a mod data line.
      */
-    private void handleMoves(int species, ArrayList moves, int category) {
+    private void handleMoves(int species, ArrayList<String> moves, int category) {
         MoveSet set = m_moveSets.getMoveSet(species);
-        ArrayList removals = new ArrayList();
-        ArrayList additions = new ArrayList();
-        Iterator i = moves.iterator();
+        ArrayList<String> removals = new ArrayList<String>();
+        ArrayList<String> additions = new ArrayList<String>();
+        Iterator<String> i = moves.iterator();
         while (i.hasNext()) {
             String item = (String)i.next();
             char c = item.charAt(0);
@@ -277,7 +277,7 @@ public class ModData {
         }
         String[][] arr = set.getMoves();
         removeMoves(arr, (String[])removals.toArray(new String[removals.size()]));
-        ArrayList update = new ArrayList(Arrays.asList(arr[category]));
+        ArrayList<String> update = new ArrayList<String>(Arrays.asList(arr[category]));
         update.addAll(additions);
         arr[category] = (String[])update.toArray(new String[update.size()]);
     }
@@ -285,15 +285,15 @@ public class ModData {
     /**
      * Handle the abilities in a mod data line.
      */
-    private void handleAbilities(String species, ArrayList abilities) {
+    private void handleAbilities(String species, ArrayList<String> abilities) {
         String arr[] = m_species.getAbilityNames(species);
         if (arr == null) {
             System.out.println("Warning: problematic abilities for " + species + ".");
             arr = new String[0];
         }
-        ArrayList names =
-                new ArrayList(Arrays.asList(arr));
-        Iterator i = abilities.iterator();
+        ArrayList<String> names =
+                new ArrayList<String>(Arrays.asList(arr));
+        Iterator<String> i = abilities.iterator();
         while (i.hasNext()) {
             String item = (String)i.next();
             char c = item.charAt(1);
@@ -315,8 +315,8 @@ public class ModData {
     /**
      * Handle the items in a mod data line.
      */
-    private void handleItems(String species, ArrayList items) {
-        Iterator i = items.iterator();
+    private void handleItems(String species, ArrayList<String> items) {
+        Iterator<String> i = items.iterator();
         while (i.hasNext()) {
             String item = (String)i.next();
             char c = item.charAt(1);
@@ -376,9 +376,9 @@ public class ModData {
             System.out.println("Warning: no existing species of " + species + ".");
             return;
         }
-        ArrayList moves = new ArrayList();
-        ArrayList abilities = new ArrayList();
-        ArrayList items = new ArrayList();
+        ArrayList<String> moves = new ArrayList<String>();
+        ArrayList<String> abilities = new ArrayList<String>();
+        ArrayList<String> items = new ArrayList<String>();
         String[] parts = line.substring(idx + 1).trim().split(" *, *");
         for (int i = 0; i < parts.length; ++i) {
             String part = parts[i];

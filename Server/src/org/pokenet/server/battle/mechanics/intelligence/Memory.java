@@ -8,6 +8,7 @@ import org.pokenet.server.battle.mechanics.PokemonType;
  *
  * @author Colin
  */
+@SuppressWarnings("serial")
 public class Memory implements Serializable {
     
     protected PokemonType m_me, m_opponent;

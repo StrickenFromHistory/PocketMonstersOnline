@@ -77,7 +77,7 @@ import org.pokenet.server.battle.mechanics.statuses.items.HoldItem;
 public class MoveList {
     
     private static MoveList m_inst = new MoveList(true);
-    private ArrayList m_moves;
+    private ArrayList<MoveListEntry> m_moves;
     
     /**
      * Get the default MoveList.
@@ -1928,9 +1928,9 @@ public class MoveList {
         ));
             
     PokemonMove foresight = new PokemonMove(PokemonType.T_NORMAL, 0, 1.0, 40) {
-                public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
-                    List statuses = target.getNormalStatuses(0);
-                    Iterator i = statuses.iterator();
+				public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
+                    List<StatusEffect> statuses = target.getNormalStatuses(0);
+                    Iterator<StatusEffect> i = statuses.iterator();
                     while (i.hasNext()) {
                         StatusEffect effect = (StatusEffect)i.next();
                         if (!(effect instanceof StatChangeEffect)) continue;
@@ -1995,15 +1995,15 @@ public class MoveList {
             public boolean attemptHit(BattleMechanics mech, Pokemon user, Pokemon target) {
                 return true;
             }
-            public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
+			public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
                 if (target.hasAbility("Damp")) {
                     user.getField().showMessage(target.getName() + "'s Damp prevents explosions!");
                     return 0;
                 }
                 int damage = 0;
                 if (target.hasEffect(ProtectEffect.class)) {
-                    List list = target.getNormalStatuses(0);
-                    Iterator i = list.iterator();
+                    List<StatusEffect> list = target.getNormalStatuses(0);
+                    Iterator<StatusEffect> i = list.iterator();
                     while (i.hasNext()) {
                         Object o = i.next();
                         if (o instanceof ProtectEffect) {
@@ -2078,7 +2078,7 @@ public class MoveList {
                     target.changeHealth(-damage);
                     return damage;
                 }
-                public Class getStatusException() {
+				public Class<?> getStatusException() {
                     return SleepEffect.class;
                 }
             }
@@ -2128,7 +2128,7 @@ public class MoveList {
                     return user.useMove(move, target);
                 }
                 
-                public Class getStatusException() {
+				public Class<?> getStatusException() {
                     return SleepEffect.class;
                 }
             }
@@ -2217,7 +2217,7 @@ public class MoveList {
         m_moves.add(new MoveListEntry("Metronome", new PokemonMove(
             PokemonType.T_NORMAL, 0, 1.0, 10) {
                 public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
-                    ArrayList moves = getMoveList();
+                    ArrayList<MoveListEntry> moves = getMoveList();
                     int size = moves.size();
                     Random random = mech.getRandom();
                     MoveListEntry entry;
@@ -2761,8 +2761,8 @@ public class MoveList {
                 public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
                     user.removeStatus(StatChangeEffect.class);
                     
-                    List statuses = target.getNormalStatuses(0);
-                    Iterator i = statuses.iterator();
+                    List<?> statuses = target.getNormalStatuses(0);
+                    Iterator<?> i = statuses.iterator();
                     while (i.hasNext()) {
                         StatusEffect effect = (StatusEffect)i.next();
                         if (effect instanceof StatChangeEffect) {
@@ -2842,8 +2842,8 @@ public class MoveList {
                         user.removeStatus(LeechSeedEffect.class);
                         user.getField().showMessage(user.getName() + " was released!");
                     }
-                    ArrayList spikes = user.getField().getEffectsByType(SpikesEffect.class);
-                    Iterator i = spikes.iterator();
+                    ArrayList<FieldEffect> spikes = user.getField().getEffectsByType(SpikesEffect.class);
+                    Iterator<FieldEffect> i = spikes.iterator();
                     boolean blewAway = false;
                     while (i.hasNext()) {
                         SpikesEffect eff = (SpikesEffect)i.next();
@@ -2960,8 +2960,8 @@ public class MoveList {
         m_moves.add(new MoveListEntry("Brick Break",
             new PokemonMove(PokemonType.T_FIGHTING, 75, 1.0, 15) {
                 public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
-                    ArrayList effects = user.getField().getEffectsByType(StatCutEffect.class);
-                    Iterator i = effects.iterator();
+                    ArrayList<FieldEffect> effects = user.getField().getEffectsByType(StatCutEffect.class);
+                    Iterator<FieldEffect> i = effects.iterator();
                     while (i.hasNext()) {
                         StatCutEffect eff = (StatCutEffect)i.next();
                         if (eff.getParty() == target.getParty()) {
@@ -3145,16 +3145,17 @@ public class MoveList {
         
         m_moves.add(new MoveListEntry("Baton Pass",
             new PokemonMove(PokemonType.T_NORMAL, 0, 1.0, 40) {
-                public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
+                @SuppressWarnings("unchecked")
+				public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
                     BattleField field = user.getField();
                     int party = user.getParty();
                     if (field.getAliveCount(party) == 1) {
                         user.getField().showMessage("But it failed!");
                         return 0;
                     }
-                    List list = user.getNormalStatuses(0);
+                    List<StatusEffect> list = user.getNormalStatuses(0);
                     List applied = new ArrayList();
-                    Iterator i = list.iterator();
+                    Iterator<StatusEffect>  i = list.iterator();
                     while (i.hasNext()) {
                         StatusEffect effect = (StatusEffect)i.next();
                         if (effect.getLock() != StatusEffect.SPECIAL_EFFECT_LOCK) {
@@ -3203,8 +3204,8 @@ public class MoveList {
                 if (target.isFainted())
                     return 0;
                 
-                ArrayList party = new ArrayList(Arrays.asList(target.getTeammates()));
-                Iterator i = party.iterator();
+                ArrayList<Pokemon> party = new ArrayList<Pokemon>(Arrays.asList(target.getTeammates()));
+                Iterator<Pokemon> i = party.iterator();
                 while (i.hasNext()) {
                     Pokemon p = (Pokemon)i.next();
                     if (p.isFainted() || (p == target)) {
@@ -4043,8 +4044,8 @@ public class MoveList {
             new PokemonMove(PokemonType.T_DARK, 0, 1.0, 5) {
                 public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
                     int raises = 0;
-                    List statuses = target.getNormalStatuses(0);
-                    Iterator i = statuses.iterator();
+                    List<StatusEffect> statuses = target.getNormalStatuses(0);
+                    Iterator<StatusEffect> i = statuses.iterator();
                     while (i.hasNext()) {
                         StatusEffect effect = (StatusEffect)i.next();
                         if (!(effect instanceof StatChangeEffect)) continue;
@@ -4189,7 +4190,7 @@ public class MoveList {
                             if (name.equals("Struggle")) {
                                 return false;
                             }
-                            HashSet set = new HashSet(Arrays.asList(new String[] {
+                            HashSet<String> set = new HashSet<String>(Arrays.asList(new String[] {
                                 "Nature Power", "Sleep Talk", "Assist", "Metronome"
                             }));
                             if (set.contains(name)) {
@@ -4469,8 +4470,8 @@ public class MoveList {
                         private PokemonType[] m_types;
                         public boolean apply(Pokemon p) {
                             m_types = p.getTypes();
-                            ArrayList types = new ArrayList(Arrays.asList(m_types));
-                            Iterator i = types.iterator();
+                            ArrayList<PokemonType> types = new ArrayList<PokemonType>(Arrays.asList(m_types));
+                            Iterator<PokemonType> i = types.iterator();
                             while (i.hasNext()) {
                                 PokemonType type = (PokemonType)i.next();
                                 if (type.equals(PokemonType.T_FLYING)) {
@@ -4720,8 +4721,8 @@ public class MoveList {
             new double[] { 1.0 }
         ) {
             public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
-                List statuses = target.getNormalStatuses(0);
-                Iterator i = statuses.iterator();
+                List<StatusEffect> statuses = target.getNormalStatuses(0);
+                Iterator<StatusEffect> i = statuses.iterator();
                 while (i.hasNext()) {
                     StatusEffect effect = (StatusEffect)i.next();
                     if (!(effect instanceof StatChangeEffect)) continue;
@@ -5202,7 +5203,7 @@ public class MoveList {
                 }
                 private boolean canUseMove(String move) {
                     // Moves that involve going up into the air are forbidden.
-                    Set forbidden = new HashSet(Arrays.asList(new String[] {
+                    Set<String> forbidden = new HashSet<String>(Arrays.asList(new String[] {
                         "Fly", "Bounce", "Hi Jump Kick", "Jump Kick", "Magnet Rise"
                     }));
                     return !forbidden.contains(move);
@@ -5300,7 +5301,8 @@ public class MoveList {
     
     m_moves.add(new MoveListEntry("Snatch",
             new PokemonMove(PokemonType.T_DARK, 0, 1.0, 10) {
-                public void beginTurn(BattleTurn[] turn, Pokemon p, int index) {
+                @SuppressWarnings("unused")
+				public void beginTurn(BattleTurn[] turn, Pokemon p, int index) {
                     if (p.hasEffect(SleepEffect.class) || p.hasEffect(FreezeEffect.class)) {
                         return;
                     }
@@ -5375,8 +5377,8 @@ public class MoveList {
                                 return false;
                             }
                             PokemonType moveType = entry.getMove().getType();
-                            ArrayList types = new ArrayList(Arrays.asList(PokemonType.getTypes()));
-                            Iterator i = types.iterator();
+                            ArrayList<PokemonType> types = new ArrayList<PokemonType>(Arrays.asList(PokemonType.getTypes()));
+                            Iterator<PokemonType> i = types.iterator();
                             while (i.hasNext()) {
                                 PokemonType type = (PokemonType)i.next();
                                 if (moveType.getMultiplier(type) >= 1) {
@@ -5640,7 +5642,7 @@ public class MoveList {
         
     m_moves.add(new MoveListEntry("Magic Coat", new PokemonMove(
             PokemonType.T_PSYCHIC, 0, 1.0, 15) {
-                public int getPririty() {
+                public int getPriority() {
                     return 5;
                 }
                 public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
@@ -5925,7 +5927,8 @@ public class MoveList {
      * The logic is located in AdvanceMechanics.
      */    
     public static class LockOnEffect extends StatusEffect {
-        private int m_turns = 1;
+        @SuppressWarnings("unused")
+		private int m_turns = 1;
         public String getName() {
             return "Locked-on";
         }
@@ -6266,8 +6269,8 @@ public class MoveList {
                 return 0;
             }
             DamageListenerEffect listener = null;
-            List effects = user.getNormalStatuses(0);
-            Iterator i = effects.iterator();
+            List<StatusEffect> effects = user.getNormalStatuses(0);
+            Iterator<StatusEffect> i = effects.iterator();
             while (i.hasNext()) {
                 StatusEffect eff = (StatusEffect)i.next();
                 if (eff instanceof DamageListenerEffect) {
@@ -6314,8 +6317,8 @@ public class MoveList {
         /**
          * Removes statuses from the list if they are not StatChangeEffects of the expected variety.
          */
-        private List cleanList(List list) {
-            Iterator i = list.iterator();
+        private List<StatusEffect> cleanList(List<StatusEffect> list) {
+            Iterator<StatusEffect> i = list.iterator();
             while (i.hasNext()) {
                 StatusEffect eff = (StatusEffect)i.next();
                 if (eff == null) continue;
@@ -6338,8 +6341,8 @@ public class MoveList {
         /**
          * Removes a list of effects from a Pokemon.
          */
-        private void removeStatuses(Pokemon p, List effects) {
-            Iterator i = effects.iterator();
+        private void removeStatuses(Pokemon p, List<StatusEffect> effects) {
+            Iterator<StatusEffect> i = effects.iterator();
             while (i.hasNext()) {
                 StatChangeEffect eff = (StatChangeEffect)i.next();
                 p.removeStatus(eff);
@@ -6348,8 +6351,8 @@ public class MoveList {
         /**
          * Applies a list of effects from a Pokemon.
          */
-        private void addStatuses(Pokemon p, List effects) {
-            Iterator i = effects.iterator();
+        private void addStatuses(Pokemon p, List<StatusEffect> effects) {
+            Iterator<StatusEffect> i = effects.iterator();
             while (i.hasNext()) {
                 StatChangeEffect eff = (StatChangeEffect)i.next();
                 eff.setDescription(null);
@@ -6357,8 +6360,8 @@ public class MoveList {
             }
         }
         public int use(BattleMechanics mech, Pokemon user, final Pokemon target) {
-            List userStatuses = cleanList(user.getNormalStatuses(0));
-            List targetStatuses = cleanList(target.getNormalStatuses(0));
+            List<StatusEffect> userStatuses = cleanList(user.getNormalStatuses(0));
+            List<StatusEffect> targetStatuses = cleanList(target.getNormalStatuses(0));
             removeStatuses(user, userStatuses);
             removeStatuses(target, targetStatuses);
             addStatuses(user, targetStatuses);
@@ -6378,8 +6381,8 @@ public class MoveList {
         }
         public DamageListenerEffect getListener(Pokemon p) {
             DamageListenerEffect listener = null;
-            List effects = p.getNormalStatuses(0);
-            Iterator i = effects.iterator();
+            List<StatusEffect> effects = p.getNormalStatuses(0);
+            Iterator<StatusEffect> i = effects.iterator();
             while (i.hasNext()) {
                 StatusEffect eff = (StatusEffect)i.next();
                 if (eff instanceof DamageListenerEffect) {
@@ -6511,7 +6514,8 @@ public class MoveList {
     }
     
     private static class InvulnerableStateEffect extends StatusEffect {
-        private int m_turns = 0;
+        @SuppressWarnings("unused")
+		private int m_turns = 0;
         private String[] m_effectiveMoves;
         
         /**
@@ -6859,7 +6863,7 @@ public class MoveList {
     
     private static class StockpileEffect extends StatusEffect {
         private int m_levels = 0;
-        private List m_effects = new ArrayList();
+        private List<StatusEffect> m_effects = new ArrayList<StatusEffect>();
 
         public String getName() {
             return "Stockpile";
@@ -6901,7 +6905,7 @@ public class MoveList {
             //Do nothing
         }
         public void unapply(Pokemon p) {
-            Iterator i = m_effects.iterator();
+            Iterator<StatusEffect> i = m_effects.iterator();
             while (i.hasNext()) {
                 p.removeStatus((StatusEffect)i.next());
             }
@@ -6917,8 +6921,8 @@ public class MoveList {
             super(type, power, accuracy, pp);
         }
         public StockpileEffect getStockpileEffect(Pokemon p) {
-            List statuses = p.getNormalStatuses(0);
-            Iterator i = statuses.iterator();
+            List<StatusEffect> statuses = p.getNormalStatuses(0);
+            Iterator<StatusEffect> i = statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect eff = (StatusEffect)i.next();
                 if (eff instanceof StockpileEffect) {
@@ -6935,11 +6939,11 @@ public class MoveList {
     }
     //Removes an effect from the opponent if the user switches out.    
     public static class CoEffect extends StatusEffect {
-        private Class m_type;
-        public CoEffect(Class type) {
+		private Class<?> m_type;
+        public CoEffect(Class<?> type) {
             m_type = type;
         }
-        public Class getType() {
+        public Class<?> getType() {
             return m_type;
         }
         public String getName() {
@@ -7106,10 +7110,10 @@ public class MoveList {
         /**
          * Returns the instance of a certain class of spikes on the field, if one is present.
          */
-        public static SpikesEffect getSpikes(BattleField field, Class type) {
-            List effects = field.getEffectsByType(SpikesEffect.class);
+        public static SpikesEffect getSpikes(BattleField field, Class<?> type) {
+            List<?> effects = field.getEffectsByType(SpikesEffect.class);
             if (effects.size() == 0) return null;
-            Iterator i = effects.iterator();
+            Iterator<?> i = effects.iterator();
             while (i.hasNext()) {
                 SpikesEffect eff = (SpikesEffect)i.next();
                 if (eff.getClass().equals(type)) {
@@ -7492,7 +7496,7 @@ public class MoveList {
         if (!initialise) {
             return;
         }
-        m_moves = new ArrayList();
+        m_moves = new ArrayList<MoveListEntry>();
         initNonStatusMoves();
         initStatusMoves();
     }
@@ -7500,7 +7504,7 @@ public class MoveList {
     /**
      * Get the move list.
      */
-    public ArrayList getMoveList() {
+    public ArrayList<MoveListEntry> getMoveList() {
         return m_moves;
     }
     
@@ -7510,7 +7514,7 @@ public class MoveList {
     public MoveListEntry getMove(String name) {
         if (name == null)
             return null;
-        Iterator i = m_moves.iterator();
+        Iterator<MoveListEntry> i = m_moves.iterator();
         while (i.hasNext()) {
             MoveListEntry move = (MoveListEntry)i.next();
             if (name.equals(move.getName())) {
@@ -7523,11 +7527,11 @@ public class MoveList {
     /**
      * Write data on all moves to an ouput stream.
      */
-    public void saveMoveList(OutputStream output) throws IOException {
+	public void saveMoveList(OutputStream output) throws IOException {
         ObjectOutputStream stream = new ObjectOutputStream(output);
-        ArrayList moves = getMoveList();
+        ArrayList<MoveListEntry> moves = getMoveList();
         stream.writeInt(moves.size());
-        Iterator i = moves.iterator();
+        Iterator<MoveListEntry> i = moves.iterator();
         while (i.hasNext()) {
             MoveListEntry entry = (MoveListEntry)i.next();
             stream.writeObject(entry.getName());
@@ -7563,7 +7567,7 @@ public class MoveList {
      */
     public void loadMoveList(InputStream input) throws IOException {
         ObjectInputStream stream = new ObjectInputStream(input);
-        m_moves = new ArrayList();
+        m_moves = new ArrayList<MoveListEntry>();
         int size = stream.readInt();
         m_moves.ensureCapacity(size);
         for (int i = 0; i < size; ++i) {
@@ -7585,7 +7589,7 @@ public class MoveList {
      * Get a list of all move names.
      */
     public String[] getMoveNames() {
-        ArrayList moves = m_moves;
+        ArrayList<MoveListEntry> moves = m_moves;
         String[] names = new String[moves.size()];
         for (int i = 0; i < moves.size(); ++i) {
             names[i] = ((MoveListEntry)moves.get(i)).getName();

@@ -99,15 +99,15 @@ class SynchronizeAbility extends IntrinsicAbility implements StatusListener {
  *
  * @author Colin
  */
-public class IntrinsicAbility extends StatusEffect implements Comparable {
+public class IntrinsicAbility extends StatusEffect implements Comparable<Object> {
     
-    protected static HashMap m_map = new HashMap();
+    protected static HashMap<String, IntrinsicAbility> m_map = new HashMap<String, IntrinsicAbility>();
     private String m_name = null;
     
     /**
      * List of abilities nullified by Mold Breaker.
      */
-    private static final HashSet m_moldBreaker = new HashSet(Arrays.asList(new String[] {
+    private static final HashSet<String> m_moldBreaker = new HashSet<String>(Arrays.asList(new String[] {
         "Battle Armor",
         "Clear Body",
         "Damp",
@@ -154,7 +154,7 @@ public class IntrinsicAbility extends StatusEffect implements Comparable {
     /**
      * List of moves that count as physical ("contact") attacks.
      */
-    private static final HashSet m_physical = new HashSet(Arrays.asList(new String[] {
+    private static final HashSet<String> m_physical = new HashSet<String>(Arrays.asList(new String[] {
         "Aerial Ace",
         "Ancientpower",
         "Arm Thrust",
@@ -277,7 +277,7 @@ public class IntrinsicAbility extends StatusEffect implements Comparable {
     
     public static Set<String> getAbilityNames() {
     	Set<String> result = new HashSet<String>();
-    	Iterator it = m_physical.iterator();
+    	Iterator<String> it = m_physical.iterator();
     	while(it.hasNext()) {
     		result.add((String) it.next());
     	}
@@ -1007,7 +1007,8 @@ public class IntrinsicAbility extends StatusEffect implements Comparable {
             }
             
             protected MoveListEntry getTransformedMove(Pokemon p, MoveListEntry entry) {
-                Pokemon target = p.getOpponent();
+                @SuppressWarnings("unused")
+				Pokemon target = p.getOpponent();
                 int g1 = p.getGender();
                 int g2 = p.getOpponent().getGender();
                 if ((g1 == PokemonSpecies.GENDER_NONE) ||
@@ -1151,7 +1152,7 @@ public class IntrinsicAbility extends StatusEffect implements Comparable {
                 return enemy;
             }
             public MoveListEntry getEnemyTransformedMove(Pokemon p, MoveListEntry entry) {
-                Set set = new HashSet(Arrays.asList(new String[] {
+                Set<String> set = new HashSet<String>(Arrays.asList(new String[] {
                     "Grasswhistle", "Growl", "Hyper Voice", "Metal Sound", "Roar",
                     "Sing", "Supersonic", "Screech", "Snore", "Uproar"
                 }));

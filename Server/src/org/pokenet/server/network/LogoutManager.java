@@ -1,21 +1,14 @@
 package org.pokenet.server.network;
 
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.Queue;
-import java.util.Random;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.Bag;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.Pokemon;
-import org.pokenet.server.battle.PokemonSpecies;
-import org.pokenet.server.battle.mechanics.PokemonNature;
-import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
 
 /**
  * Handles logging players out

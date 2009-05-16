@@ -15,13 +15,14 @@ import org.simpleframework.xml.ElementMap;
  * Mechanics for the DS games (diamond/pearl), or the "Jewel Generation".
  * @author Colin
  */
+@SuppressWarnings("serial")
 public class JewelMechanics extends AdvanceMechanics {
 
     /**
      * Map indicating whether each move is special.
      */
 	@ElementMap
-    private static HashMap m_moves = new HashMap();
+    private static HashMap<String, Boolean> m_moves = new HashMap<String, Boolean>();
     
     public JewelMechanics(int bytes) {
         super(bytes);

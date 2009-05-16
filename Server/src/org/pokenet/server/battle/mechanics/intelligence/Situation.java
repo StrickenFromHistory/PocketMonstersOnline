@@ -20,7 +20,7 @@ import org.pokenet.server.battle.mechanics.PokemonType;
  */
 public class Situation {
     
-    private ArrayList m_memory = new ArrayList();
+    private ArrayList<Memory> m_memory = new ArrayList<Memory>();
     private static final Random m_random = new Random();
     private static final Situation m_inst = new Situation();
     private static final String m_file = "knowledge";
@@ -45,7 +45,8 @@ public class Situation {
     /**
      * Load the Situations database from a file.
      */
-    private void loadFromFile() {
+    @SuppressWarnings("unchecked")
+	private void loadFromFile() {
         try {
             File f = new File(m_file);
             FileInputStream file = new FileInputStream(f);
@@ -103,7 +104,7 @@ public class Situation {
      * Find an exact match for a memory.
      */
     private synchronized Memory findMemory(Memory target) {
-        Iterator i = m_memory.iterator();
+        Iterator<Memory> i = m_memory.iterator();
         while (i.hasNext()) {
             Memory mem = (Memory)i.next();
             if (target.equals(mem)) {
@@ -131,7 +132,8 @@ public class Situation {
     /**
      * Find the best move to use for the situation.
      */
-    public synchronized String getBestMemory(final Memory target, String[] moves) {
+    @SuppressWarnings("unchecked")
+	public synchronized String getBestMemory(final Memory target, String[] moves) {
         Comparator comp = new Comparator() {
                 public int compare(Object o1, Object o2) {
                     Memory a = (Memory)o1, b = (Memory)o2;
@@ -193,8 +195,8 @@ public class Situation {
     /**
      * Update a set of memories -- were they positive experiences?
      */
-    public synchronized void updateMemories(ArrayList memories, boolean positive, int factor) {
-        Iterator i = memories.iterator();
+    public synchronized void updateMemories(ArrayList<?> memories, boolean positive, int factor) {
+        Iterator<?> i = memories.iterator();
         while (i.hasNext()) {
             Memory target = (Memory)i.next();
             Memory mem = findMemory(target);

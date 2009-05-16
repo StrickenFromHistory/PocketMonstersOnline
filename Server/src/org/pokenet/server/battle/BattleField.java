@@ -31,7 +31,6 @@ import java.util.List;
 import java.util.Random;
 
 import org.pokenet.server.backend.entity.PlayerChar;
-import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.battle.mechanics.BattleMechanics;
 import org.pokenet.server.battle.mechanics.ModData;
 import org.pokenet.server.battle.mechanics.MoveQueueException;
@@ -44,7 +43,6 @@ import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.battle.mechanics.moves.MoveList.SpeedSwapEffect;
 import org.pokenet.server.battle.mechanics.statuses.StatusEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
-import org.pokenet.server.feature.TimeService;
 
 /**
  *
@@ -61,7 +59,7 @@ public abstract class BattleField {
      * Store lists of spectators and effects
      */
 	private ArrayList<PlayerChar> m_spectators = new ArrayList<PlayerChar>();
-    protected ArrayList m_effects = new ArrayList();
+    protected ArrayList<FieldEffect> m_effects = new ArrayList<FieldEffect>();
     /*
      * The Pokemon in this battlefield
      */
@@ -236,7 +234,7 @@ public abstract class BattleField {
      */
     public boolean applyEffect(FieldEffect eff) {
     	if(eff != null) {
-    		Iterator i = m_effects.iterator();
+    		Iterator<FieldEffect> i = m_effects.iterator();
             while (i.hasNext()) {
                 FieldEffect j = (FieldEffect)i.next();
                 if (j.isRemovable()) continue;
@@ -283,14 +281,14 @@ public abstract class BattleField {
         }
         
         // Check any clauses.
-        Collections.sort(m_effects, new Comparator() {
+        Collections.sort(m_effects, new Comparator<Object>() {
             public int compare(Object o1, Object o2) {
                 StatusEffect e1 = (StatusEffect)o1;
                 StatusEffect e2 = (StatusEffect)o2;
                 return e1.getTier() - e2.getTier();
             }
         });
-        Iterator i = m_effects.iterator();
+        Iterator<FieldEffect> i = m_effects.iterator();
         while (i.hasNext()) {
             StatusEffect eff = (StatusEffect)i.next();
             if (eff instanceof Clause) {
@@ -307,7 +305,7 @@ public abstract class BattleField {
      * Synchronise FieldEffects.
      */
     public void synchroniseFieldEffects() {
-        Iterator i = m_effects.iterator();
+        Iterator<FieldEffect> i = m_effects.iterator();
         while (i.hasNext()) {
             StatusEffect eff = (StatusEffect)i.next();
             if (eff.isRemovable()) {
@@ -332,7 +330,8 @@ public abstract class BattleField {
      * Returns the first instance of an effect of a certain class that is
      * applied to the BattleField.
      */
-    public FieldEffect getEffectByType(Class type) {
+    @SuppressWarnings("unchecked")
+	public FieldEffect getEffectByType(Class type) {
         ArrayList list = getEffectsByType(type);
         if (list.size() == 0) {
             return null;
@@ -344,9 +343,10 @@ public abstract class BattleField {
      * Returns a list of the effects of a certain class that are applied to
      * this BattleField.
      */
-    public ArrayList getEffectsByType(Class type) {
-        ArrayList ret = new ArrayList();
-        Iterator i = m_effects.iterator();
+    @SuppressWarnings("unchecked")
+	public ArrayList<FieldEffect> getEffectsByType(Class type) {
+        ArrayList<FieldEffect> ret = new ArrayList<FieldEffect>();
+        Iterator<FieldEffect> i = m_effects.iterator();
         while (i.hasNext()) {
             FieldEffect effect = (FieldEffect)i.next();
             if ((effect == null) || (!effect.isActive())) {
@@ -442,7 +442,7 @@ public abstract class BattleField {
      * Apply field effects to a pokemon.
      */
     private void applyEffects(Pokemon p) {
-        Iterator i = m_effects.iterator();
+        Iterator<FieldEffect> i = m_effects.iterator();
         while (i.hasNext()) {
             FieldEffect eff = (FieldEffect)i.next();
             if (!eff.isRemovable()) {
@@ -566,7 +566,8 @@ public abstract class BattleField {
     /**
      * Tick status effects at the end of a turn.
      */
-    private void tickStatuses(Pokemon[] active) {
+    @SuppressWarnings("unchecked")
+	private void tickStatuses(Pokemon[] active) {
         sortBySpeed(active);
         
         for (int i = 0; i < active.length; ++i) {
@@ -625,7 +626,8 @@ public abstract class BattleField {
      * A wrapper for a pokemon and a turn. Can be compared on the basis of
      * move priority, or, failing that, speed.
      */
-    protected static class PokemonWrapper implements Comparable {
+    @SuppressWarnings("unchecked")
+	protected static class PokemonWrapper implements Comparable {
         private Pokemon m_poke;
         private BattleTurn m_turn;
         private int m_idx;
@@ -692,7 +694,7 @@ public abstract class BattleField {
          * the arrays passed in and also returns an array of the indices of the
          * pokemon as rearranged.
          */
-        public static int[] sortMoves(Pokemon[] active, BattleTurn[] move) {
+		public static int[] sortMoves(Pokemon[] active, BattleTurn[] move) {
             final PokemonWrapper[] wrap = new PokemonWrapper[active.length];
             for (int i = 0; i < wrap.length; ++i) {
                 wrap[i] = new PokemonWrapper(active[i], move[i], i);

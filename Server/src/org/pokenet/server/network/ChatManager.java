@@ -6,7 +6,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.ServerMap;
-import org.pokenet.server.backend.entity.PlayerChar;
 
 /**
  * Handles chat messages sent by players
@@ -15,6 +14,7 @@ import org.pokenet.server.backend.entity.PlayerChar;
  */
 public class ChatManager implements Runnable {
 	private Thread m_thread;
+	@SuppressWarnings("unused")
 	private boolean m_isRunning;
 	/*
 	 * Local chat queue

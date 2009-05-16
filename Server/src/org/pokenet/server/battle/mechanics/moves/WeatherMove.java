@@ -34,11 +34,11 @@ import org.pokenet.server.battle.mechanics.statuses.field.WeatherEffect;
  */
 public class WeatherMove extends PokemonMove {
     
-    private Class[] m_effects;
+    private Class<?>[] m_effects;
     private String m_item;
     
     /** Creates a new instance of FieldMove */
-    public WeatherMove(PokemonType type, int pp, Class[] effects, String item) {
+    public WeatherMove(PokemonType type, int pp, Class<?>[] effects, String item) {
         super(type, 0, 1.0, pp);
         m_effects = effects;
         m_item = item;
@@ -60,7 +60,7 @@ public class WeatherMove extends PokemonMove {
             int length = user.hasItem(m_item) ? 8 : 5;
             WeatherEffect eff = null;
             try {
-                Constructor ctor = m_effects[i].getConstructor(new Class[] { int.class });
+                Constructor<?> ctor = m_effects[i].getConstructor(new Class[] { int.class });
                 eff = (WeatherEffect)ctor.newInstance(new Object[] { new Integer(length) });
             } catch (Exception e) {
                 throw new InternalError();

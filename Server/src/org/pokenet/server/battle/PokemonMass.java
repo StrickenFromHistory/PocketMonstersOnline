@@ -40,7 +40,7 @@ public class PokemonMass {
     /**
      * Map containing the mass of each pokemon.
      */
-    private static HashMap m_masses = new HashMap();
+    private static HashMap<String, Double> m_masses = new HashMap<String, Double>();
     
     static {
         // Assume the file is named masses.txt for now.

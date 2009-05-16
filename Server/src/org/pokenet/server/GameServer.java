@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -296,6 +294,7 @@ public class GameServer extends JFrame {
 			/*
 			 * Create the server gui
 			 */
+			@SuppressWarnings("unused")
 			GameServer gs = new GameServer();
 		} else {
 			System.err.println("Server requires a settings parameter, e.g. java GameServer -medium");

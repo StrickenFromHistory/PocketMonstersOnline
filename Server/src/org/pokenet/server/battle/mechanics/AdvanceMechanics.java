@@ -14,7 +14,8 @@ import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
 public class AdvanceMechanics extends BattleMechanics {
     
     private static final long serialVersionUID = -2238204671194997172L;
-    private static int m_log = 0;
+    @SuppressWarnings("unused")
+	private static int m_log = 0;
     
     /** Creates a new instance of AdvanceMechanics */
     public AdvanceMechanics(int bytes) {

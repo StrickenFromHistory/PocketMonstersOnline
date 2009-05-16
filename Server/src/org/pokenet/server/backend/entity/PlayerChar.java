@@ -9,7 +9,6 @@ import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.ItemService;
 import org.pokenet.server.backend.ServerMap;
-import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;

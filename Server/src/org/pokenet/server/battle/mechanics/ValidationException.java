@@ -30,6 +30,7 @@ package org.pokenet.server.battle.mechanics;
  * 
  * @author Colin
  */
+@SuppressWarnings("serial")
 public class ValidationException extends Exception {
 
     /** Creates a new instance of ValidationException */

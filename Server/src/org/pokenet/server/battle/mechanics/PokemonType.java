@@ -37,7 +37,7 @@ public class PokemonType implements Serializable {
     
     @Element
     private int m_type;
-    private static ArrayList m_typeList = new ArrayList();
+    private static ArrayList<PokemonType> m_typeList = new ArrayList<PokemonType>();
 
     /**
      * Constants representing each of the types.

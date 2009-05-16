@@ -132,6 +132,7 @@ public class WildBattleField extends BattleField {
 			m_player.getSession().write("bM" + poke.getSpeciesName() + "," + name);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void informVictory(int winner) {
 		if(winner == 0) {

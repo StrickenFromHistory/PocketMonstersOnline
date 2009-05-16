@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.Char;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
@@ -33,6 +32,7 @@ public class ServerMap {
 	private int m_y;
 	private int m_xOffsetModifier;
 	private int m_yOffsetModifier;
+	@SuppressWarnings("unused")
 	private PvPType m_pvpType = PvPType.ENABLED;
 	private ServerMapMatrix m_mapMatrix;
 	private Weather m_forcedWeather = null;
@@ -221,6 +221,7 @@ public class ServerMap {
 		File f = new File("res/npc/" + m_x + "." + m_y + ".txt");
 		if(f.exists()) {
 			try {
+				@SuppressWarnings("unused")
 				DataLoader d = new DataLoader(f, this);
 			} catch (Exception e) {
 				

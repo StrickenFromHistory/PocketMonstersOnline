@@ -25,6 +25,7 @@ public abstract class BattleMechanics implements Serializable {
 	 * server so that there are not several identical streams of random
 	 * numbers kicking around.
 	 */
+	@SuppressWarnings("unused")
 	private static final Random m_masterRandom;
 
 	/**

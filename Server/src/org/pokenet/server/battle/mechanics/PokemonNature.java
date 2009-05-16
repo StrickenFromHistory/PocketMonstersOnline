@@ -16,10 +16,11 @@ public class PokemonNature implements Serializable {
     
     private static final long serialVersionUID = -549059028197342801L;
     
-    @Element
+    @SuppressWarnings("unused")
+	@Element
     /*serializable*/ private int m_nature;
         
-    private static final ArrayList m_natures = new ArrayList();
+    private static final ArrayList<PokemonNature> m_natures = new ArrayList<PokemonNature>();
     
     public static final PokemonNature N_LONELY = new PokemonNature("Lonely", Pokemon.S_ATTACK, Pokemon.S_DEFENCE);
     public static final PokemonNature N_BRAVE = new PokemonNature("Brave", Pokemon.S_ATTACK, Pokemon.S_SPEED);
@@ -90,8 +91,9 @@ public class PokemonNature implements Serializable {
      * Initialise this nature by its name. Note that the first letter should
      * be capital, e.g., "Hardy", "Naive", etc.
      */
-    private PokemonNature(String name) {
-        Iterator i = m_natures.iterator();
+    @SuppressWarnings("unused")
+	private PokemonNature(String name) {
+        Iterator<PokemonNature> i = m_natures.iterator();
         while (i.hasNext()) {
             PokemonNature nature = (PokemonNature)i.next();
             if (name.equals(name)) {
@@ -118,7 +120,7 @@ public class PokemonNature implements Serializable {
      */
     public static String[] getNatureNames() {
         String[] natures = new String[m_natures.size()];
-        Iterator i = m_natures.iterator();
+        Iterator<PokemonNature> i = m_natures.iterator();
         int j = 0;
         while (i.hasNext()) {
             natures[j++] = ((PokemonNature)i.next()).getName();
@@ -132,7 +134,7 @@ public class PokemonNature implements Serializable {
      * @return
      */
     public static PokemonNature getNatureByName(String nature) {
-    	Iterator i = m_natures.iterator();
+    	Iterator<PokemonNature> i = m_natures.iterator();
     	PokemonNature result;
     	while(i.hasNext()) {
     		result = (PokemonNature) i.next();

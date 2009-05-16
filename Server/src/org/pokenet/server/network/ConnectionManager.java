@@ -2,7 +2,6 @@ package org.pokenet.server.network;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;

@@ -47,9 +47,9 @@ import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
  * A hold item that cures a status effect.
  */
 class StatusCureItem extends HoldItem implements StatusListener, Berry {
-    private Class m_effect;
+    private Class<?> m_effect;
     
-    public StatusCureItem(String name, Class eff) {
+    public StatusCureItem(String name, Class<?> eff) {
         super(name);
         m_effect = eff;
     }
@@ -76,8 +76,8 @@ class StatusCureItem extends HoldItem implements StatusListener, Berry {
     }
     
     public void executeEffects(Pokemon p) {
-        List statuses = p.getNormalStatuses(StatusEffect.SPECIAL_EFFECT_LOCK);
-        Iterator i = statuses.iterator();
+        List<StatusEffect> statuses = p.getNormalStatuses(StatusEffect.SPECIAL_EFFECT_LOCK);
+        Iterator<StatusEffect> i = statuses.iterator();
         while (i.hasNext()) {
             StatusEffect effect = (StatusEffect)i.next();
             if (isCurable(effect)) {
@@ -100,8 +100,8 @@ class WhiteHerbItem extends StatusCureItem {
                 + "status!");
     }
     public void executeEffects(Pokemon p) {
-        List statuses = p.getNormalStatuses(0);
-        Iterator i = statuses.iterator();
+        List<StatusEffect> statuses = p.getNormalStatuses(0);
+        Iterator<StatusEffect> i = statuses.iterator();
         while (i.hasNext()) {
             StatusEffect effect = (StatusEffect)i.next();
             if (isCurable(effect)) {
@@ -463,7 +463,8 @@ class EffectiveMoveWeakener extends HoldItem implements Berry {
         return true;
     }
     public void informDamaged(Pokemon source, Pokemon target, MoveListEntry entry, int damage) {
-        PokemonMove move = entry.getMove();
+        @SuppressWarnings("unused")
+		PokemonMove move = entry.getMove();
         if (m_suitable) {
             target.getField().showMessage("The " + getName() + " weakened "
                     + entry.getName() + "'s power!");

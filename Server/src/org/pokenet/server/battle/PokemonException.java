@@ -27,6 +27,7 @@ package org.pokenet.server.battle;
  *
  * @author Colin
  */
+@SuppressWarnings("serial")
 public class PokemonException extends IllegalArgumentException {
     
     /** Creates a new instance of PokemonException */

@@ -59,7 +59,7 @@ public class PokemonSpeciesData {
     @ElementMap
     private HashMap<String, String[]> m_ablNames = 
             new HashMap<String, String[]>();
-    private TreeSet m_unimplemented = new TreeSet();
+    private TreeSet<String> m_unimplemented = new TreeSet<String>();
     private long m_lastModified;
     
     /**
@@ -68,7 +68,7 @@ public class PokemonSpeciesData {
      * of validating pokemon. To speed the latter operation up, this cache
      * is useful. Call cacheMoveSets() to create this cache.
      */
-    private TreeSet[] m_movesets = null;
+    private TreeSet<?>[] m_movesets = null;
     
     /**
      * Database of all pokemon species.
@@ -105,7 +105,8 @@ public class PokemonSpeciesData {
             stream.writeObject(s.m_base);
             stream.writeInt(s.m_genders);
             if (requireImplementation) {
-                String [] set = m_abilities.get(s.m_name);
+                @SuppressWarnings("unused")
+				String [] set = m_abilities.get(s.m_name);
                 //String[] abilities = (String[])set.toArray(new String[set.size()]);
                 //stream.writeObject(abilities);
             } else {
@@ -142,9 +143,9 @@ public class PokemonSpeciesData {
             boolean requireImplementation) throws IOException {
         ObjectInputStream stream = new ObjectInputStream(input);
         int size = stream.readInt();
-        m_abilities = new HashMap();
-        m_ablNames = new HashMap();
-        m_unimplemented = new TreeSet();
+        m_abilities = new HashMap<String, String[]>();
+        m_ablNames = new HashMap<String, String[]>();
+        m_unimplemented = new TreeSet<String>();
         m_database = new PokemonSpecies[size];
         for (int i = 0; i < size; ++i) {
             try {
@@ -161,7 +162,7 @@ public class PokemonSpeciesData {
             }
         }
         
-        Iterator i = m_unimplemented.iterator();
+        Iterator<String> i = m_unimplemented.iterator();
         while (i.hasNext()) {
             String ability = (String)i.next();
             System.out.println("Unimplemented intrinsic ability: " + ability);
@@ -177,8 +178,8 @@ public class PokemonSpeciesData {
             boolean requireImplementation) {
         // This function will double as an error catching mechanism for
         // unimplemented moves.
-        TreeSet unimplemented = new TreeSet();
-        HashSet implemented = new HashSet();
+        TreeSet<String> unimplemented = new TreeSet<String>();
+        HashSet<String> implemented = new HashSet<String>();
         
         m_movesets = new TreeSet[m_database.length];
         for (int i = 0; i < m_database.length; ++i) {
@@ -191,7 +192,7 @@ public class PokemonSpeciesData {
                 continue;
             }
             String[][] moves = set.getMoves();
-            TreeSet list = new TreeSet();
+            TreeSet<String> list = new TreeSet<String>();
             for (int j = 0; j < moves.length; ++j) {
                 if (!requireImplementation) {
                     list.addAll(Arrays.asList(moves[j]));
@@ -230,7 +231,7 @@ public class PokemonSpeciesData {
         }
         
         // Print out moves that were unimplemented.
-        Iterator i = unimplemented.iterator();
+        Iterator<String> i = unimplemented.iterator();
         while (i.hasNext()) {
             String str = (String)i.next();
             System.out.println("Unimplemented move: " + str);
@@ -367,7 +368,7 @@ public class PokemonSpeciesData {
     /**
      * Return a TreeSet of moves that the pokemon can learn.
      */
-    public TreeSet getLearnableMoves(int i) {
+    public TreeSet<?> getLearnableMoves(int i) {
         return m_movesets[i];
     }
     
@@ -375,7 +376,7 @@ public class PokemonSpeciesData {
      * Return whether this species can learn a particular move.
      */
     public boolean canLearn(int i, String move) {
-        TreeSet set = m_movesets[i];
+        TreeSet<?> set = m_movesets[i];
         if (set == null) {
             return false;
         }

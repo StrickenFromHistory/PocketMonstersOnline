@@ -63,7 +63,7 @@ public class MoveSet implements Serializable {
      * Merge in another move set's data.
      */
     public void mergeMoves(int category, String[] moves) {
-        HashSet set = new HashSet(Arrays.asList(m_moves[category]));
+        HashSet<String> set = new HashSet<String>(Arrays.asList(m_moves[category]));
         set.addAll(Arrays.asList(moves));
         m_moves[category] = (String[])set.toArray(new String[set.size()]);
     }

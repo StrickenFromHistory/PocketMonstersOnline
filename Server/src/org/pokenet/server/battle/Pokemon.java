@@ -82,7 +82,7 @@ public class Pokemon extends PokemonSpecies {
     transient private StatMultiplier[] m_multiplier;
     transient private StatMultiplier m_accuracy;
     transient private StatMultiplier m_evasion;
-    transient private List m_statuses;
+    transient private List<StatusEffect> m_statuses;
     @ElementArray
     transient private int[] m_pp;
     @ElementArray
@@ -139,7 +139,8 @@ public class Pokemon extends PokemonSpecies {
     
     @Element
     private String m_originalTrainer;
-    @Element
+    @SuppressWarnings("unused")
+	@Element
     private long m_originalNo;
     
     private int m_databaseID = -1;
@@ -397,14 +398,14 @@ public class Pokemon extends PokemonSpecies {
         PokemonSpecies species = new PokemonSpecies(
                 speciesData,
                 random.nextInt(speciesData.getSpeciesCount()));
-        TreeSet moveset = species.getLearnableMoves(speciesData);
+        TreeSet<?> moveset = species.getLearnableMoves(speciesData);
         if ((moveset == null) || (moveset.size() == 0)) {
             return null;
         }
         int moveCount = moveset.size();
         String[] moves = (String[])moveset.toArray(new String[moveCount]);
         MoveListEntry[] entries = new MoveListEntry[(moveCount >= 4) ? 4 : moveCount];
-        Set moveSet = new HashSet();
+        Set<String> moveSet = new HashSet<String>();
         int[] ppUp = new int[entries.length];
         for (int i = 0; i < entries.length; ++i) {
             String move;
@@ -417,7 +418,7 @@ public class Pokemon extends PokemonSpecies {
         }
         
         String ability = null;
-        SortedSet set;
+        SortedSet<Object> set;
         String[] itemes = species.getPossibleAbilities(speciesData);
         if ((itemes != null)) {
             ability = itemes[random.nextInt(itemes.length)];
@@ -679,7 +680,7 @@ public class Pokemon extends PokemonSpecies {
     public void validate(ModData data) throws ValidationException {
         m_mech.validateHiddenStats(this);
         PokemonSpeciesData speciesData = data.getSpeciesData();
-        Set set = new HashSet();
+        Set<String> set = new HashSet<String>();
         int moveCount = 0;
         for (int i = 0; i < m_move.length; ++i) {
             MoveListEntry move = m_move[i];
@@ -775,7 +776,7 @@ public class Pokemon extends PokemonSpecies {
     	m_movesLearning = new ArrayList<String>();
         m_accuracy = new StatMultiplier(true);
         m_evasion = new StatMultiplier(true);
-        m_statuses = Collections.synchronizedList(new ArrayList());
+        m_statuses = Collections.synchronizedList(new ArrayList<StatusEffect>());
         m_pp = new int[4];
         m_maxPp = new int[m_pp.length];
         m_fainted = false;
@@ -918,7 +919,7 @@ public class Pokemon extends PokemonSpecies {
      * @param turn the turn that is about to be executed
      */
     public void executeTurn(BattleTurn turn) {
-        Iterator i = m_statuses.iterator();
+        Iterator<StatusEffect> i = m_statuses.iterator();
         while (i.hasNext()) {
             StatusEffect j = (StatusEffect)i.next();
             if ((j == null) || !j.isActive()) {
@@ -970,8 +971,8 @@ public class Pokemon extends PokemonSpecies {
      * Switch out this pokemon.
      */
     public void switchOut() {
-        List list = new ArrayList(m_statuses);
-        Iterator i = list.iterator();
+        List<StatusEffect> list = new ArrayList<StatusEffect>(m_statuses);
+        Iterator<StatusEffect> i = list.iterator();
         while (i.hasNext()) {
             StatusEffect effect = (StatusEffect)i.next();
             if (effect.isActive() && effect.switchOut(this)) {
@@ -997,7 +998,7 @@ public class Pokemon extends PokemonSpecies {
             throw new MoveQueueException("No such move.");
         }
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect j = (StatusEffect)i.next();
                 if ((j == null) || !j.isActive()) {
@@ -1018,7 +1019,7 @@ public class Pokemon extends PokemonSpecies {
         if (eff == null) {
             return false;
         }
-        Iterator i = m_statuses.iterator();
+        Iterator<StatusEffect> i = m_statuses.iterator();
         while (i.hasNext()) {
             StatusEffect j = (StatusEffect)i.next();
             if ((j == null) || !j.isActive()) {
@@ -1044,7 +1045,7 @@ public class Pokemon extends PokemonSpecies {
      */
     public StatusEffect getEffect(int lock) {
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect eff = (StatusEffect)i.next();
                 if ((eff == null) || !eff.isActive()) {
@@ -1062,9 +1063,9 @@ public class Pokemon extends PokemonSpecies {
      * Return the effect of a particular class applied to this pokemon, or
      * null if there is no such effect.
      */
-    public StatusEffect getEffect(Class type) {
+    public StatusEffect getEffect(Class<?> type) {
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect eff = (StatusEffect)i.next();
                 if ((eff == null) || !eff.isActive()) {
@@ -1081,7 +1082,7 @@ public class Pokemon extends PokemonSpecies {
     /**
      * Return whether this Pokemon has a particular class of effect.
      */
-    public boolean hasEffect(Class type) {
+    public boolean hasEffect(Class<?> type) {
         return (getEffect(type) != null);
     }
     
@@ -1110,7 +1111,7 @@ public class Pokemon extends PokemonSpecies {
      */
     public boolean isActive() {
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect eff = (StatusEffect)i.next();
                 if (eff.isActive() && eff.deactivates(this)) {
@@ -1145,10 +1146,10 @@ public class Pokemon extends PokemonSpecies {
     /**
      * Get all status effects of a certain tier.
      */
-    public List getStatusesByTier(int tier) {
-        List ret = new ArrayList();
+    public List<StatusEffect> getStatusesByTier(int tier) {
+        List<StatusEffect> ret = new ArrayList<StatusEffect>();
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect effect = (StatusEffect)i.next();
                 if (effect.isActive() && (effect.getTier() == tier)) {
@@ -1164,10 +1165,10 @@ public class Pokemon extends PokemonSpecies {
      * items.
      * @param lock status lock to allow
      */
-    public List getNormalStatuses(int lock) {
-        List ret = new ArrayList();
+    public List<StatusEffect> getNormalStatuses(int lock) {
+        List<StatusEffect> ret = new ArrayList<StatusEffect>();
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect effect = (StatusEffect)i.next();
                 if (!effect.isActive()) continue;
@@ -1188,7 +1189,7 @@ public class Pokemon extends PokemonSpecies {
      */
     public boolean canSwitch() {
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect effect = (StatusEffect)i.next();
                 if (effect.isActive() && !effect.canSwitch(this)) {
@@ -1204,7 +1205,7 @@ public class Pokemon extends PokemonSpecies {
      */
     public void beginStatusTicks() {
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect effect = (StatusEffect)i.next();
                 effect.beginTick();
@@ -1217,7 +1218,7 @@ public class Pokemon extends PokemonSpecies {
      */
     public void synchroniseStatuses() {
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect effect = (StatusEffect)i.next();
                 if (effect.isRemovable()) {
@@ -1255,7 +1256,7 @@ public class Pokemon extends PokemonSpecies {
      */
     public void removeStatus(StatusEffect eff) {
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect effect = (StatusEffect)i.next();
                 if (effect == eff) {
@@ -1271,7 +1272,7 @@ public class Pokemon extends PokemonSpecies {
      */
     public void removeStatus(int lock) {
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect effect = (StatusEffect)i.next();
                 if ((effect.getLock() == lock) && !effect.isRemovable()) {
@@ -1284,9 +1285,9 @@ public class Pokemon extends PokemonSpecies {
     /**
      * Remove statuses by class type.
      */
-    public void removeStatus(Class type) {
+    public void removeStatus(Class<?> type) {
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect effect = (StatusEffect)i.next();
                 if (!effect.isRemovable() && type.isAssignableFrom(effect.getClass())) {
@@ -1364,11 +1365,11 @@ public class Pokemon extends PokemonSpecies {
     /**
      * Get the effectiveness of this pokemon attacking a particular type.
      */
-    public static double getEffectiveness(List statuses, PokemonType move,
+    public static double getEffectiveness(List<?> statuses, PokemonType move,
             PokemonType pokemon, boolean enemy) {
         double expected = move.getMultiplier(pokemon);
         synchronized (statuses) {
-            Iterator i = statuses.iterator();
+            Iterator<?> i = statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect eff = (StatusEffect)i.next();
                 if (eff.isActive() && eff.isEffectivenessTransformer(enemy)) {
@@ -1390,16 +1391,16 @@ public class Pokemon extends PokemonSpecies {
      * Is this pokemon immobilised?
      * @param exception status not to check for
      */
-    public boolean isImmobilised(Class exception) {
+    public boolean isImmobilised(Class<?> exception) {
         synchronized (m_statuses) {
-            Collections.sort(m_statuses, new Comparator() {
+            Collections.sort(m_statuses, new Comparator<Object>() {
                 public int compare(Object o1, Object o2) {
                     StatusEffect e1 = (StatusEffect)o1;
                     StatusEffect e2 = (StatusEffect)o2;
                     return e1.getTier() - e2.getTier();
                 }
             });
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect eff = (StatusEffect)i.next();
                 if (eff.isActive() && eff.immobilises(this)) {
@@ -1421,7 +1422,7 @@ public class Pokemon extends PokemonSpecies {
     protected MoveListEntry getTransformedMove(MoveListEntry move, boolean enemy) {
         // For now, do this in no particular order.
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect eff = (StatusEffect)i.next();
                 if (eff.isActive() && eff.isMoveTransformer(enemy)) {
@@ -1649,7 +1650,7 @@ public class Pokemon extends PokemonSpecies {
      * application of the given status effect to this pokemon.
      */
     public boolean allowsStatus(StatusEffect eff, Pokemon source) {
-        Iterator i = m_statuses.iterator();
+        Iterator<StatusEffect> i = m_statuses.iterator();
         while (i.hasNext()) {
             StatusEffect clause = (StatusEffect)i.next();
             if ((clause == null) || !clause.isActive())
@@ -1669,7 +1670,7 @@ public class Pokemon extends PokemonSpecies {
         
         // Make sure there isn't another copy of this effect applied already.
         synchronized (m_statuses) {
-            Iterator i = m_statuses.iterator();
+            Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
                 StatusEffect j = (StatusEffect)i.next();
                 if (!j.isRemovable() && (eff.equals(j) || eff.isExclusiveWith(j))) {

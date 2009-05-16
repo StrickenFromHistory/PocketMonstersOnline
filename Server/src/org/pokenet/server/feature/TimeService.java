@@ -1,18 +1,12 @@
 package org.pokenet.server.feature;
 
 import java.util.Calendar;
-import java.util.Iterator;
 import java.util.Random;
 
-import org.pokenet.server.GameServer;
-import org.pokenet.server.backend.entity.PlayerChar;
-import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.HailEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.RainEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.SandstormEffect;
-import org.pokenet.server.battle.mechanics.statuses.field.SunEffect;
-import org.pokenet.server.network.ConnectionManager;
 
 /**
  * Handles game time and weather

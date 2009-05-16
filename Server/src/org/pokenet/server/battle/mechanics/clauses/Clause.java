@@ -30,7 +30,8 @@ import org.pokenet.server.battle.mechanics.statuses.items.HoldItem;
  */
 public abstract class Clause extends FieldEffect {
     
-    public static class ClauseChoice implements Serializable, Comparable {
+    @SuppressWarnings("unchecked")
+	public static class ClauseChoice implements Serializable, Comparable {
         private static final long serialVersionUID = 1L;
         private String m_name, m_description;
         private boolean m_default, m_disablesSelection;
@@ -64,7 +65,7 @@ public abstract class Clause extends FieldEffect {
     }
     
     private String m_name;
-    private static final Map m_clauses = new HashMap();
+    private static final Map<String, Clause> m_clauses = new HashMap<String, Clause>();
     private static ClauseChoice[] m_clauseChoices;
     
     static {
@@ -98,7 +99,7 @@ public abstract class Clause extends FieldEffect {
                         + "holding the same item.";
             }
             public boolean isTeamValid(BattleField field, Pokemon[] team, int idx) {
-                Set set = new HashSet();
+                Set<String> set = new HashSet<String>();
                 for (int i = 0; i < team.length; ++i) {
                     if (team[i] == null)
                         continue;
@@ -118,7 +119,7 @@ public abstract class Clause extends FieldEffect {
                 return "No two pokemon on a team may have the same species.";
             }
             public boolean isTeamValid(BattleField field, Pokemon[] team, int idx) {
-                Set set = new HashSet();
+                Set<String> set = new HashSet<String>();
                 for (int i = 0; i < team.length; ++i) {
                     if (team[i] == null)
                         continue;
@@ -239,10 +240,11 @@ public abstract class Clause extends FieldEffect {
         
     }
     
-    private static void initialiseClauseChoices() {
+    @SuppressWarnings("unchecked")
+	private static void initialiseClauseChoices() {
         m_clauseChoices = new ClauseChoice[m_clauses.size()];
         int i = 0;
-        Iterator j = m_clauses.values().iterator();
+        Iterator<Clause> j = m_clauses.values().iterator();
         while (j.hasNext()) {
             m_clauseChoices[i++] = new ClauseChoice((Clause)j.next());
         }

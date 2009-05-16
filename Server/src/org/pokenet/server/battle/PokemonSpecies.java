@@ -273,7 +273,7 @@ public class PokemonSpecies implements Serializable {
     /**
      * Return a TreeSet of moves that the pokemon can learn.
      */
-    public TreeSet getLearnableMoves(PokemonSpeciesData data) {
+    public TreeSet<?> getLearnableMoves(PokemonSpeciesData data) {
         return data.getLearnableMoves(m_species);
     }
     

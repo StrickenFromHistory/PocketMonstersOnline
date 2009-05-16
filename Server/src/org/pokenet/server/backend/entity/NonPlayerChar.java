@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import org.pokenet.server.GameServer;
+import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 
 /**
@@ -178,7 +179,8 @@ public class NonPlayerChar extends Char {
 		Pokemon poke;
 		int level;
 		String name;
-		Random r = GameServer.getServiceManager().getDataService().getBattleMechanics().getRandom();
+		GameServer.getServiceManager().getDataService();
+		Random r = DataService.getBattleMechanics().getRandom();
 		if(m_minPartySize < p.getPartyCount()) {
 			/*
 			 * The player has more Pokemon, generate a random party

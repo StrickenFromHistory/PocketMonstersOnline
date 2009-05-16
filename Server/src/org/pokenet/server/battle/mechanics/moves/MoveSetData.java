@@ -92,8 +92,8 @@ public class MoveSetData {
             }
             String[][] categories = m_movesets[i].getMoves();
             for (int j = 0; j < categories.length; ++j) {
-                ArrayList moves = new ArrayList(Arrays.asList(categories[j]));
-                Iterator k = moves.iterator();
+                ArrayList<String> moves = new ArrayList<String>(Arrays.asList(categories[j]));
+                Iterator<String> k = moves.iterator();
                 while (k.hasNext()) {
                     if (k.next() == null) {
                         k.remove();
@@ -157,7 +157,8 @@ public class MoveSetData {
      */
     public static void main(String[] args) throws Exception {
         class Pair {
-            public String first, second;
+            @SuppressWarnings("unused")
+			public String first, second;
             Pair(String f, String s) {
                 first = f;
                 second = s;
@@ -219,7 +220,8 @@ public class MoveSetData {
         if (Math.abs(0) == 0)
             return;*/
         
-        Pair[] changes = {
+        @SuppressWarnings("unused")
+		Pair[] changes = {
             new Pair("Ancient Power", "Ancientpower"),
             new Pair("Bubble Beam", "Bubblebeam"),
             new Pair("Double Edge", "Double-edge"),

@@ -30,6 +30,7 @@ package org.pokenet.server.battle.mechanics;
  *
  * @author Colin
  */
+@SuppressWarnings("serial")
 public class StatException extends IllegalArgumentException {
     public StatException() {
         super("Invalid stat index.");

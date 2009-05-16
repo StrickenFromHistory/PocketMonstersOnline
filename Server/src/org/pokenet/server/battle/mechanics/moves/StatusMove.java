@@ -39,7 +39,8 @@ public class StatusMove extends PokemonMove {
     private StatusEffect[] m_statuses;
     private double[] m_chances;
     private boolean[] m_attacker;   // Does this status affect the attacker?
-    private boolean m_bug = false;
+    @SuppressWarnings("unused")
+	private boolean m_bug = false;
     
     // Is this is a personal enhancement move?
     private boolean m_personal = true;

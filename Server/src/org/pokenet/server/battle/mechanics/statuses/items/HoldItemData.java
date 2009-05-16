@@ -41,8 +41,8 @@ import java.util.TreeSet;
  */
 public class HoldItemData {
     
-    /*package*/ TreeSet m_items = new TreeSet();
-    /*package*/ HashMap m_exclusives = new HashMap();
+    /*package*/ TreeSet<Object> m_items = new TreeSet<Object>();
+    /*package*/ HashMap<String, HashSet<String>> m_exclusives = new HashMap<String, HashSet<String>>();
     
     /**
      * Return whether the named species can use a particular item.
@@ -55,18 +55,19 @@ public class HoldItemData {
         if (o == null) {
             return false;
         }
-        return ((HashSet)o).contains(item);
+        return ((HashSet<?>)o).contains(item);
     }
     
     /**
      * Get an item set corresponding to the named species.
      */
-    public SortedSet getItemSet(String species) {
+    @SuppressWarnings("unchecked")
+	public SortedSet<Object> getItemSet(String species) {
         Object o = m_exclusives.get(species);
         if (o == null) {
             return m_items;
         }
-        SortedSet items = (SortedSet)m_items.clone();
+        SortedSet<Object> items = (SortedSet<Object>)m_items.clone();
         items.addAll((Collection)o);
         return items;
     }
@@ -85,7 +86,8 @@ public class HoldItemData {
      * Read item data in from an arbitrary input stream.
      * To be only only by the client - does not initialise for battles!
      */
-    public void loadItemData(InputStream input) throws IOException, FileNotFoundException {
+    @SuppressWarnings("unchecked")
+	public void loadItemData(InputStream input) throws IOException, FileNotFoundException {
         ObjectInputStream stream = new ObjectInputStream(input);
         try {
             m_items = (TreeSet)stream.readObject();
@@ -98,7 +100,8 @@ public class HoldItemData {
     /**
      *  Remove an exclusive item from a pokemon.
      */
-    public void removeExclusiveItem(String name, String pokemon) {
+    @SuppressWarnings("unchecked")
+	public void removeExclusiveItem(String name, String pokemon) {
         Object o = m_exclusives.get(pokemon);
         if (o == null) {
             return;
@@ -110,14 +113,15 @@ public class HoldItemData {
     /**
      * Add an exclusive item to a pokemon.
      */
-    public void addExclusiveItem(String name, String pokemon) {
+    @SuppressWarnings("unchecked")
+	public void addExclusiveItem(String name, String pokemon) {
         Object o = m_exclusives.get(pokemon);
         if (o == null) {
-            HashSet set = new HashSet();
+            HashSet<String> set = new HashSet<String>();
             set.add(name);
             m_exclusives.put(pokemon, set);
         } else {
-            ((HashSet)o).add(name);
+            ((HashSet<String>)o).add(name);
         }
     }
 }

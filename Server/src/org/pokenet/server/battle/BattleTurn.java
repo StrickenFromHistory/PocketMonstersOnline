@@ -35,6 +35,7 @@ import org.pokenet.server.battle.mechanics.moves.PokemonMove;
  * a single party.
  * @author Colin
  */
+@SuppressWarnings("serial")
 public class BattleTurn implements Serializable, Cloneable {
     
     protected boolean m_useMove = false;
