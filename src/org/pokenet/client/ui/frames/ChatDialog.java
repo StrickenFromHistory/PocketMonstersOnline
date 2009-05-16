@@ -205,6 +205,7 @@ public class ChatDialog extends Frame {
  */
 class ChatWidget extends Container{
     private List<String> m_contents;
+	List<String> m_wrappedText = new ArrayList<String>();
 	
     private int m_scrollIndex = 0; 
 	public int m_maxLines;
@@ -251,7 +252,9 @@ class ChatWidget extends Container{
     		try {
     			m_chatShown[i].setText("");
     			remove(m_chatShown[i]);
-    		} catch (Exception e) {}
+    		}
+    		catch (NullPointerException e) {}
+    		catch (Exception e) {e.printStackTrace();}
     	}
     	m_maxLines = (int)(getHeight() / GameClient.getFontSmall().getHeight("X") - 1);
 		m_chatShown = new Label[m_maxLines];
@@ -270,13 +273,17 @@ class ChatWidget extends Container{
 		else
 			m_down.setEnabled(true);
 
+		wrap();
+		System.out.println(m_wrappedText.toString());
+		
 		//Handles Chat drawing
     	int y = 0;
+    	
     	for (int i = 0; i < m_chatShown.length; i++){
 			try {
-				m_chatShown[i].setText(m_contents.get(m_scrollIndex + i));
+				m_chatShown[i].setText(m_wrappedText.get(m_wrappedText.size() - m_chatShown.length + i));
 			} catch (NullPointerException e) {
-    			m_chatShown[i] = new Label(m_contents.get(m_scrollIndex + i));
+    			m_chatShown[i] = new Label(m_wrappedText.get(m_wrappedText.size() - m_chatShown.length + i));
     		} catch (Exception e) {
     			m_chatShown[i] = new Label();
     		}
@@ -334,6 +341,43 @@ class ChatWidget extends Container{
 		}
 	}
     
+	/**
+	 * Returns a List<String> with the wrapped text for the chat labels.
+	 * @return a List<String> with the wrapped text for the chat labels.
+	 */
+	public void wrap(){
+		m_wrappedText.clear();
+		
+		for (int i = m_scrollIndex; i < (m_scrollIndex + m_maxLines); i++) {
+			if (m_contents.size() != 0)
+				try{
+					if (GameClient.getFontSmall().getWidth(m_contents.get(i)) <= getWidth()){
+						m_wrappedText.add(m_contents.get(i));
+					} else {
+						String loopLine = new String();
+						ArrayList<String> loopList = new ArrayList<String>();
+						loopLine = m_contents.get(i);
+						loopList.add(m_contents.get(i));
+						while (GameClient.getFontSmall().getWidth(loopLine) > getWidth()){
+							int linesToDrop = 1;
+							while (GameClient.getFontSmall().getWidth(loopList.get(
+									loopList.size() - 1)) > getWidth()){
+								loopList.add(loopLine.substring(0, loopLine.length() 
+										- linesToDrop));
+								linesToDrop++;
+							}
+							m_wrappedText.add(loopList.get(loopList.size() - 1));
+							loopLine = loopLine.substring(loopList.get(
+									loopList.size() - 1).length());
+							loopList.add(loopLine);
+						}
+						m_wrappedText.add(loopLine);
+					}
+				} catch (IndexOutOfBoundsException e) {}
+				catch (Exception e) {e.printStackTrace();}
+		}
+	}
+	
     @Override
     public void setSize(float width, float height){
 		super.setSize(width, height);
