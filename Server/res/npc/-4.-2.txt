@@ -1,13 +1,27 @@
 [npc]
+Psychic Mark
+left
+97
+19
+13
+Abra,13,Abra,13,Kadabra,15
+3
+-1
+0
+false
+false
+false
+[/npc]
+[npc]
 Schoolboy Alan
 down
-11
+121
 43
 8
-Tangela,1
-2
+Tangela,16
+1
 -1
-1000
+0
 false
 false
 false
