@@ -85,6 +85,7 @@ public class BattleCanvas extends Container {
 	public void drawOurInfo(){
 		// display player's data
 		playerNameLabel.setFont(GameClient.getTrueTypeFont());
+		playerNameLabel.setForeground(Color.white);
 		playerNameLabel.setText(GameClient.getInstance().getUi().getBattleManager()
 				.getCurPoke().getName());
         playerNameLabel.setSize(GameClient.getTrueTypeFont().getWidth(playerNameLabel
@@ -95,6 +96,7 @@ public class BattleCanvas extends Container {
         playerLv = new Label("Lv:" + GameClient.getInstance().getUi().getBattleManager()
         		.getCurPoke().getLevel());
         playerLv.setFont(GameClient.getTrueTypeFont());
+        playerLv.setForeground(Color.white);
         playerLv.setSize(GameClient.getTrueTypeFont().getWidth(playerLv.getText()),
         		GameClient.getTrueTypeFont().getHeight(playerLv.getText()));
         playerLv.setLocation(playerDataBG.getX() + playerDataBG.getWidth() 
@@ -117,6 +119,7 @@ public class BattleCanvas extends Container {
 		enemyNameLabel.setText(GameClient.getInstance().getUi().getBattleManager()
 				.getCurEnemyPoke().getName());
 		enemyNameLabel.setFont(GameClient.getTrueTypeFont());
+		enemyNameLabel.setForeground(Color.white);
 		enemyNameLabel.setSize(GameClient.getTrueTypeFont().getWidth(enemyNameLabel.getText()),
         		GameClient.getTrueTypeFont().getHeight(enemyNameLabel.getText()));
         enemyNameLabel.setLocation(enemyDataBG.getX() + 15, enemyDataBG.getY() + 7);
@@ -124,6 +127,7 @@ public class BattleCanvas extends Container {
         enemyLv = new Label("Lv: " + GameClient.getInstance().getUi().getBattleManager()
         		.getCurEnemyPoke().getLevel());
         enemyLv.setFont(GameClient.getTrueTypeFont());
+        enemyLv.setForeground(Color.white);
         enemyLv.setSize(GameClient.getTrueTypeFont().getWidth(enemyLv.getText()),
         		GameClient.getTrueTypeFont().getHeight(enemyLv.getText()));
         enemyLv.setLocation(enemyDataBG.getX() + enemyDataBG.getWidth() - enemyLv.getWidth()
