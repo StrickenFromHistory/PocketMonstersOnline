@@ -17,14 +17,19 @@ public class Item {
      * @param number
      * @param quantity
      */
-    public Item(int number, int quantity) {
+    public Item(int number,
+    		int quantity) {
             m_number = number;
             m_quantity = quantity;
             m_name = Item.getItemName(number);
     }
 
 	
-	public Item(String name, String picname, String description, int cost, int available) {
+	public Item(String name,
+			String picname,
+			String description,
+			int cost,
+			int available) {
 		super();
 		this.m_name = name;
 		this.m_picname = picname;
