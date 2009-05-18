@@ -89,17 +89,29 @@ public class BattleTimeLine {
 	 * Informs that a pokemon's status was changed
 	 * @param data
 	 */
-	public void informStatusChanged(String[] data){
+	public void informStatusChanged(int trainer, String[] data){
 		m_pokeName = data[0];
-		//TODO: Code this one	
+		m_canvas.setStatus(trainer, data[1]);
+		if (data[1].equalsIgnoreCase("poison")){
+			addSpeech(m_translator.get(14));
+		} else if (data[1].equalsIgnoreCase("freeze")){
+			addSpeech(m_translator.get(15));
+		} else if (data[1].equalsIgnoreCase("burn")){
+			addSpeech(m_translator.get(16));
+		} else if (data[1].equalsIgnoreCase("paralysis")){
+			addSpeech(m_translator.get(17));
+		} else if (data[1].equalsIgnoreCase("sleep")){
+			addSpeech(m_translator.get(18));
+		}
 	}
 
 	/**
 	 * Informs that a pokemon's status was returned to normal
 	 * @param poke
 	 */
-	public void informStatusHealed(String poke){
+	public void informStatusHealed(int trainer, String poke){
 		m_pokeName = poke;
+		m_canvas.setStatus(trainer, "normal");
 		addSpeech(m_translator.get(4));
 	}
 	
