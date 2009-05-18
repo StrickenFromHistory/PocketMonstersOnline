@@ -192,8 +192,8 @@ public class BattleCanvas extends Container {
 		LoadingList.setDeferredLoading(true);
 		try{
 			bgPic = new Label(new Image("/res/ui/DP_darkgrass.png"));
-			playerDataBG = new Label(new Image("/res/battle/singlePlayerBox2.png"));
-			enemyDataBG = new Label(new Image("/res/battle/singleEnemyBox2.png"));
+			playerDataBG = new Label(new Image("/res/battle/singlePlayerBox3.png"));
+			enemyDataBG = new Label(new Image("/res/battle/singleEnemyBox3.png"));
 			enemyHPBar = new Label(new Image("/res/battle/HPBar.png"));
 		} catch (SlickException e) {
 			e.printStackTrace();
