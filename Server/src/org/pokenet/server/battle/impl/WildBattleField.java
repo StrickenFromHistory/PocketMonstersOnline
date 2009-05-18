@@ -109,14 +109,22 @@ public class WildBattleField extends BattleField {
 
 	@Override
 	public void informStatusApplied(Pokemon poke, StatusEffect eff) {
-		if(m_player != null)
-			m_player.getSession().write("be" + poke.getSpeciesName() + "," + eff.getName());
+		if(m_player != null){
+			if (poke != m_wildPoke)
+				m_player.getSession().write("be0" + poke.getSpeciesName() + "," + eff.getName());
+			else
+				m_player.getSession().write("be1" + poke.getSpeciesName() + "," + eff.getName());
+		}
 	}
 
 	@Override
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
-		if(m_player != null)
-			m_player.getSession().write("bE" + poke.getSpeciesName() + "," + eff.getName());
+		if(m_player != null){
+			if (poke != m_wildPoke)
+				m_player.getSession().write("bE0" + poke.getSpeciesName() + "," + eff.getName());
+			else
+				m_player.getSession().write("bE1" + poke.getSpeciesName() + "," + eff.getName());
+		}
 	}
 
 	@Override
