@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import org.lwjgl.openal.OpenALException;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
@@ -52,11 +53,11 @@ public class SoundManager extends Thread{
 	 */
 	@Override
 	public void run() {
-		System.out.println("Running!");
 		while (m_isRunning){
 			try {
 				if (m_trackChanged){
-					System.out.println("Changed track to: " + m_fileList.get(m_trackName));
+					m_trackChanged = false;
+					System.out.println("Playing: " + m_fileList.get(m_trackName));
 					m_music = new Music(m_audioPath + m_fileList.get(m_trackName), true);
 					if (m_muted)
 						m_music.setVolume(0);
@@ -64,7 +65,6 @@ public class SoundManager extends Thread{
 						m_music.setVolume(1);
 					play();
 				}
-				m_trackChanged = false;
 			} catch (SlickException e){
 				System.err.println("Failed to load " +  m_fileList.get(m_trackName));
 				m_music = null;
@@ -78,9 +78,14 @@ public class SoundManager extends Thread{
 	 */
 	public void play(){
 		try {
+			if (m_muted)
+				m_music.setVolume(0);
+			else
+				m_music.setVolume(1);
 			m_music.play();
 			m_music.loop();
 		} catch (NullPointerException e){}
+		catch (OpenALException e){}
 	}
 	
 	/**
@@ -108,12 +113,8 @@ public class SoundManager extends Thread{
 	 */
 	public void mute(boolean mute){
 		m_muted = mute;
-		if (m_muted){
-			try {
-				m_music.setVolume(0);
-			} catch (NullPointerException e) {
-				System.err.println("Failed to mute the curent track");
-			}
+		if (m_muted && m_music != null){
+			m_music.setVolume(0);
 		}
 	}
 }
