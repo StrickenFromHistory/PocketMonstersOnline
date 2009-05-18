@@ -107,10 +107,10 @@ public class BattleTimeLine {
 
 	/**
 	 * Informs that a pokemon's status was returned to normal
-	 * @param poke
+	 * @param data
 	 */
-	public void informStatusHealed(int trainer, String poke){
-		m_pokeName = poke;
+	public void informStatusHealed(int trainer, String[] data){
+		m_pokeName = data[0];
 		m_canvas.setStatus(trainer, "normal");
 		addSpeech(m_translator.get(4));
 	}

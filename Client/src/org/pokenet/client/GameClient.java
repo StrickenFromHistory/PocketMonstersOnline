@@ -366,14 +366,16 @@ public class GameClient extends BasicGame {
 				} 
 			}
 		}
-		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() && !m_ui.getChat().isActive()) {
-			if(m_ui.getNPCSpeech() == null && getUi().getBattleManager().getBattleWindow() == null ){
+		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() &&
+				!m_ui.getChat().isActive()) {
+			if(m_ui.getNPCSpeech() == null && getUi().getBattleManager().getBattleWindow()
+					== null ){
 				m_packetGen.write("Ct");
 			}
 			/*} else if (getLogin().getSpeechy() != null) {
 			getLogin().getSpeechy().advance();*/
-			if (getUi().getBattleManager().getBattleWindow() != null && getUi().getBattleManager()
-					.getTimeLine().getBattleSpeech() != null) {
+			if (getUi().getBattleManager().getBattleWindow() != null && getUi()
+					.getBattleManager().getTimeLine().getBattleSpeech() != null) {
 				getUi().getBattleManager().getTimeLine().getBattleSpeech().advance();
 			} else{
 				try {
