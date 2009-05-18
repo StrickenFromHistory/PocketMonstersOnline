@@ -149,12 +149,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informExperienceGained(message.substring(2).split(","));
 				break;
 			case 'e':
-				//A Pokemon received a status effect -> bePOKEMON,EFFECT
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusChanged(message.substring(2).split(","));
+				//A Pokemon received a status effect -> beTRAINER.POKEMON,EFFECT
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusChanged(Integer.parseInt(String.valueOf(message.charAt(2))), message.substring(3).split(","));
 				break;
 			case 'E':
 				//A Pokemon had a status effect removed -> bEPOKEMON,EFFECT
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusHealed(message.substring(2).split(",")[0]);
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusHealed(Integer.parseInt(String.valueOf(message.charAt(2))), message.substring(3).split(",")[0]);
 				break;
 			case 's':
 				//Switch in Pokemon requested

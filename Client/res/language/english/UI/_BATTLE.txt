@@ -12,3 +12,8 @@ trainerName won the battle!
 trainerName was defeated!
 You got away safely!
 You couldn't run away!
+pokeName was posioned!
+pokeName is frozen solid!
+pokeName was burnt!
+pokeName is paralyzed! It might be unable to move
+pokeName fell asleep!

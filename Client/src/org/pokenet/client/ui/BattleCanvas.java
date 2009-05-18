@@ -313,11 +313,11 @@ public class BattleCanvas extends Container {
 	public void loadStatusIcons(){
 		LoadingList.setDeferredLoading(true);
 		try{
-			m_statusIcons.put("poison", new Image("/res/battle/PSN.png"));
-			m_statusIcons.put("sleep", new Image("/res/battle/SLP.png"));
-			m_statusIcons.put("frozen", new Image("/res/battle/FRZ.png"));
-			m_statusIcons.put("burnt", new Image("/res/battle/BRN.png"));
-			m_statusIcons.put("paralyzed", new Image("/res/battle/PAR.png"));
+			m_statusIcons.put("Poison", new Image("/res/battle/PSN.png"));
+			m_statusIcons.put("Sleep", new Image("/res/battle/SLP.png"));
+			m_statusIcons.put("Freze", new Image("/res/battle/FRZ.png"));
+			m_statusIcons.put("Burn", new Image("/res/battle/BRN.png"));
+			m_statusIcons.put("Paralysis", new Image("/res/battle/PAR.png"));
 		} catch (SlickException e) {}
 		LoadingList.setDeferredLoading(true);
 	}
