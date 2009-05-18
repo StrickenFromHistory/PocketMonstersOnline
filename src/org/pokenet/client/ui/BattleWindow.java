@@ -1,5 +1,8 @@
 package org.pokenet.client.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Frame;
@@ -57,6 +60,8 @@ public class BattleWindow extends Frame {
 	public Button cancel;
 	public Button close;
 	private boolean isWild;
+	public List<Button> m_moveButtons = new ArrayList<Button>();
+	public List<Label> m_ppLabels = new ArrayList<Label>();
 
 	/**
 	 * Default constructor
@@ -180,6 +185,16 @@ public class BattleWindow extends Frame {
 		pp4.setBounds(130, 95, 110, 20);
 		attackPane.add(pp4);
 
+		m_moveButtons.add(move1);
+		m_moveButtons.add(move2);
+		m_moveButtons.add(move3);
+		m_moveButtons.add(move4);
+		
+		m_ppLabels.add(pp1);
+		m_ppLabels.add(pp2);
+		m_ppLabels.add(pp3);
+		m_ppLabels.add(pp4);
+		
 		jBtnRun = BattleButtonFactory.getSmallButton("Run");
 		attackPane.add(jBtnRun);
 

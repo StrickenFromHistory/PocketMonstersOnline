@@ -104,12 +104,12 @@ public class BattleManager {
 	public void updateMoves(int pokeIndex) {
 		for (int i = 0; i < 3; i++){
 			if (m_ourPokes[pokeIndex].getMoves()[i] != null) {
-				m_battle.move1.setText(m_ourPokes[pokeIndex].getMoves()[i]);
-				m_battle.pp1.setText(m_ourPokes[pokeIndex].getMovecurPP()[i] + "/"
+				m_battle.m_moveButtons.get(i).setText(m_ourPokes[pokeIndex].getMoves()[i]);
+				m_battle.m_ppLabels.get(i).setText(m_ourPokes[pokeIndex].getMovecurPP()[i] + "/"
 						+ m_ourPokes[pokeIndex].getMovemaxPP()[i]);
 			} else {
-				m_battle.move1.setText("");
-				m_battle.pp1.setText("");
+				m_battle.m_moveButtons.get(i).setText("");
+				m_battle.m_ppLabels.get(i).setText("");
 			}
 		}
 	}
