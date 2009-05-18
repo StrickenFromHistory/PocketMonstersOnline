@@ -145,7 +145,7 @@ public class PartyInfoDialog extends Frame {
 				//e.printStackTrace();
 			}
 		}
-		
+		update(m_pokes);
 		this.getTitleBar().setGlassPane(true);
 		this.setResizable(false);
 		this.setSize(170, 288);
