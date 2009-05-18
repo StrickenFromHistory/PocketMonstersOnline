@@ -27,6 +27,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.backend.Animator;
 import org.pokenet.client.backend.ClientMap;
@@ -66,15 +67,14 @@ public class GameClient extends BasicGame {
 	private Animator m_animator;
 	private static HashMap<String, String> options;
 	//Static variables
-	private static Font m_fontLarge, m_fontSmall;
+	private static Font m_fontLarge, m_fontSmall, m_trueTypeFont;
 	private static String m_host;
 	//UI
 	private LoadingScreen m_loading;
 	private LoginScreen m_login;
 	//The gui display layer
 	private Display m_display;
-	@SuppressWarnings("unused")
-	private Font m_dpFontLarge, m_dpFontSmall;
+
 	private WeatherService m_weather;
 	private TimeService m_time;
 	private Ui m_ui;
@@ -131,6 +131,8 @@ public class GameClient extends BasicGame {
 		m_fontSmall = new AngelCodeFont("res/fonts/dp-small.fnt",
 		"res/fonts/dp-small.png");
 		Player.loadSpriteFactory();
+		m_trueTypeFont = new TrueTypeFont(new java.awt.Font("res/fonts/pokeFont.ttf",
+				java.awt.Font.BOLD, 14), false);
 		
 		/*
 		 * Time/Weather Services
@@ -528,6 +530,10 @@ public class GameClient extends BasicGame {
 	 */
 	public static Font getFontSmall() {
 		return m_fontSmall;
+	}
+	
+	public static Font getTrueTypeFont() {
+		return m_trueTypeFont;
 	}
 	
 	/**

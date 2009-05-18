@@ -133,7 +133,7 @@ public class BattleTimeLine {
 	public void informHealthChanged(String[] data,
 			int i){
 		m_pokeName = data[0];
-		m_dmg = Math.abs(Integer.parseInt(data[i]));
+		m_dmg = Math.abs(Integer.parseInt(data[1]));
 		if (i == 0){
 			m_pokeName = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getName();
 			m_newHPValue = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() + 
