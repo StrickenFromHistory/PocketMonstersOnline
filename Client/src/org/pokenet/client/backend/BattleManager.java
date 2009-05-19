@@ -115,6 +115,14 @@ public class BattleManager {
 		}
 	}
 
+	public void switchPoke(int trainer, int pokeIndex){
+		if (trainer == 0) {
+			m_curPoke = GameClient.getInstance().getOurPlayer().getPokemon()[pokeIndex];
+		} else {
+			m_curEnemyPoke = m_enemyPokes[pokeIndex];
+		}
+	}
+	
 	/**
 	 * Updates the pokemon pane
 	 */

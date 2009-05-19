@@ -66,7 +66,6 @@ public class Ui extends Frame {
 		
 		startButtons();
 
-		m_moneyLabel.setText("$100");
 		m_moneyLabel.pack();
 		m_moneyLabel.setLocation(4, 205);
 		m_moneyLabel.setVisible(true);
