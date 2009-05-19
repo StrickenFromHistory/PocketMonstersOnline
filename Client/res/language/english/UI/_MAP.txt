@@ -1,0 +1,22 @@
+*Name, width, height, x (multiples of 8), y (multiples of 8)
+New Bark Town,8,8,31,21
+Cherrygrove City,8,8,22,21
+Violet City,8,8,19,11
+Azalea Town,8,8,16,25
+Goldenrod City,8,16,13,15
+Ecruteak City,8,8,15,5
+Olivine City,8,8,10,10
+Cianwood City,8,8,5,19
+Mahogany Town,8,8,23,5
+Blackthorn City,8,8,27,5
+Pallet Town,8,8,42,21
+Viridian City,8,8,42,12
+Pewter City,8,8,42,8
+Cerulean City,8,8,56,7
+Vermilion City,8,16,55,18
+Lavender Town,8,8,62,14
+Celadon City,16,8,51,14
+Saffron City,16,16,55,14
+Fuchsia City,8,8,53,25
+Cinnabar Island,8,8,42,28
+Indigo Plateau,8,8,38,7
