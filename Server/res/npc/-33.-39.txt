@@ -1,13 +1,13 @@
 [npc]
 Tin Tower Sage
 down
-11
+164
 13
 2
 NULL
-1
+0
 -1
-1000
+0,1
 false
 false
 false

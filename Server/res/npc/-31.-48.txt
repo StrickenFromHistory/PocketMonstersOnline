@@ -1,13 +1,41 @@
 [npc]
 Tin Tower Sage
 down
-11
+164
 7
 2
 NULL
-1
+0
 -1
-1000
+0,1
+false
+false
+false
+[/npc]
+[npc]
+Tin Tower Sage
+up
+164
+7
+6
+NULL
+0
+-1
+2,3
+false
+false
+false
+[/npc]
+[npc]
+Tin Tower Sage
+left
+164
+8
+5
+NULL
+0
+-1
+4,5
 false
 false
 false
