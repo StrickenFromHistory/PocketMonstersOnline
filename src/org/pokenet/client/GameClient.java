@@ -47,6 +47,7 @@ import org.pokenet.client.ui.Ui;
 import org.pokenet.client.ui.base.ConfirmationDialog;
 import org.pokenet.client.ui.base.MessageDialog;
 import org.pokenet.client.ui.frames.PlayerPopupDialog;
+import org.pokenet.client.ui.frames.TownMap;
 
 /**
  * The game client
@@ -490,32 +491,30 @@ public class GameClient extends BasicGame {
 	 * @param args
 	 */
 	public boolean closeRequested(){
-
-		ActionListener yes = new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					System.exit(0);
-					m_close = true;
-				} catch (Exception e) {
-					e.printStackTrace();
-					m_close = true;
+		if (m_confirm == null){
+			ActionListener yes = new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					try {
+						System.exit(0);
+						m_close = true;
+					} catch (Exception e) {
+						e.printStackTrace();
+						m_close = true;
+					}
 				}
-		
-			}
-		};
-		ActionListener no = new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				m_confirm.setVisible(false);
-				getDisplay().remove(m_confirm);
-				m_confirm = null;
-				m_close = false;
-			}
-		};
-		m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
-		getUi().getDisplay().add(m_confirm);
-		
+			};
+			ActionListener no = new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					m_confirm.setVisible(false);
+					getDisplay().remove(m_confirm);
+					m_confirm = null;
+					m_close = false;
+				}
+			};
+			m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
+			getUi().getDisplay().add(m_confirm);
+		}		
 		return m_close;
-
 	 }
 
 	/**
