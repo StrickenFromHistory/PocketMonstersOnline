@@ -62,6 +62,8 @@ public class BattleWindow extends Frame {
 	private boolean isWild;
 	public List<Button> m_moveButtons = new ArrayList<Button>();
 	public List<Label> m_ppLabels = new ArrayList<Label>();
+	public List<Button> m_pokeButtons = new ArrayList<Button>();
+	public List<Label> m_pokeInfo = new ArrayList<Label>();
 
 	/**
 	 * Default constructor
@@ -312,6 +314,13 @@ public class BattleWindow extends Frame {
 				switchPoke(5);
 			}
 		});
+		
+		m_pokeButtons.add(pokeBtn1);
+		m_pokeButtons.add(pokeBtn2);
+		m_pokeButtons.add(pokeBtn3);
+		m_pokeButtons.add(pokeBtn4);
+		m_pokeButtons.add(pokeBtn5);
+		m_pokeButtons.add(pokeBtn6);
 
 		pokeCancelBtn = BattleButtonFactory.getSmallButton("Cancel");
 		pokesContainer.add(pokeCancelBtn);
@@ -348,6 +357,13 @@ public class BattleWindow extends Frame {
 		info6.setText("                               ");
 		info6.setBounds(128, 139, 107, 14);
 
+		m_pokeInfo.add(info1);
+		m_pokeInfo.add(info2);
+		m_pokeInfo.add(info3);
+		m_pokeInfo.add(info4);
+		m_pokeInfo.add(info5);
+		m_pokeInfo.add(info6);
+		
 		pokeCancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				showAttack();
