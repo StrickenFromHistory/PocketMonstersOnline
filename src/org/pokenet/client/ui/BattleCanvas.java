@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Label;
-import mdes.slick.sui.Timer;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;

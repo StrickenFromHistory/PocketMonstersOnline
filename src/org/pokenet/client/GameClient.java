@@ -47,7 +47,6 @@ import org.pokenet.client.ui.Ui;
 import org.pokenet.client.ui.base.ConfirmationDialog;
 import org.pokenet.client.ui.base.MessageDialog;
 import org.pokenet.client.ui.frames.PlayerPopupDialog;
-import org.pokenet.client.ui.frames.TownMap;
 
 /**
  * The game client
