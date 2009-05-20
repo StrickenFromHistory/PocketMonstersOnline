@@ -2,7 +2,12 @@ package org.pokenet.client.backend;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
+
+import mdes.slick.sui.Container;
+import mdes.slick.sui.event.MouseAdapter;
+import mdes.slick.sui.event.MouseEvent;
 
 import org.newdawn.slick.Graphics;
 import org.pokenet.client.GameClient;
@@ -17,6 +22,7 @@ public class ClientMapMatrix {
 	private ClientMap [][] m_mapMatrix;
 	private ArrayList<Player> m_players;
 	private ArrayList<String> m_speech;
+	private HashMap<String, String> m_mapNames;
 	
 	/**
 	 * Default constructor
@@ -25,6 +31,8 @@ public class ClientMapMatrix {
 		m_mapMatrix = new ClientMap[3][3];
 		m_players = new ArrayList<Player>();
 		m_speech = new ArrayList<String>();
+		m_mapNames = new HashMap<String, String>();
+		loadMapNames();
 	}
 	
 	/**
@@ -205,5 +213,42 @@ public class ClientMapMatrix {
 			return m_mapMatrix[x][y];
 		else
 			return null;
+	}
+	
+	/**
+	 * Laods the map names
+	 */
+	private void loadMapNames() {
+		try {
+			Scanner reader;
+			try{
+				reader = new Scanner(new File("res/language/" + GameClient.getLanguage()
+						+ "/_MAPNAMES.txt"));
+			} catch (Exception e){
+				reader = new Scanner(new File("res/language/english/_MAPNAMES.txt"));
+			}
+			
+			String f = null;
+			while (reader.hasNext()) {
+				f = reader.nextLine();
+				if (f.charAt(0) != '*'){
+					final String[] details = f.split(",");
+					m_mapNames.put(details[0] + ", " + details[1], details[2]);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println("Failed to load locations");
+		}
+	}
+	
+	/**
+	 * Returns the map's name
+	 * @param x
+	 * @param y
+	 * @return the map's name
+	 */
+	public String getMapName(int x, int y) {
+		return m_mapNames.get(String.valueOf(x) + ", " + String.valueOf(y));
 	}
 }

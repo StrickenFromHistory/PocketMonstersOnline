@@ -23,6 +23,7 @@ import org.pokenet.client.ui.frames.OptionsDialog;
 import org.pokenet.client.ui.frames.PartyInfoDialog;
 import org.pokenet.client.ui.frames.PokeStorageBoxFrame;
 import org.pokenet.client.ui.frames.RequestWindow;
+import org.pokenet.client.ui.frames.TownMap;
 import org.pokenet.client.ui.frames.TradeDialog;
 
 /**
@@ -45,6 +46,7 @@ public class Ui extends Frame {
 	private NPCSpeechFrame m_speechFrame;
 	private BattleManager m_battleManager;
 	private PokeStorageBoxFrame m_storageBox;
+	private TownMap m_map;
     private boolean m_isOption;
     private static final int UI_WIDTH = 32*7;
 	
@@ -63,6 +65,8 @@ public class Ui extends Frame {
 		m_display = display;
 		
 		m_chat = new ChatDialog("Chat: Local");
+		
+		m_map = new TownMap();
 		
 		startButtons();
 
@@ -83,6 +87,17 @@ public class Ui extends Frame {
 		m_display.add(this);
 	}
 	
+	/**
+	 * Returns the map
+	 * @return the map
+	 */
+	public TownMap getMap() {
+		return m_map;
+	}
+
+	/**
+	 * Starts the HUD buttons
+	 */
 	public void startButtons(){
 		m_buttons = new ImageButton[5];
 		
@@ -125,13 +140,8 @@ public class Ui extends Frame {
         for (int i = 0; i < m_buttons.length; i++){
         	m_buttons[i].pack();
         	getContentPane().add(m_buttons[i]);
+        	m_buttons[0].setLocation(7, 22 + (32 * i) + (5 * i));
         }
-        
-		m_buttons[0].setLocation(7, 22);
-		m_buttons[1].setLocation(7, 22 + 32 + 5);
-		m_buttons[2].setLocation(7, 22 + 64 + 10);
-		m_buttons[3].setLocation(7, 22 + 96 + 15);
-		m_buttons[4].setLocation(7, 22 + 128 + 20);
 	}
 	
 	/**

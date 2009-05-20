@@ -26,8 +26,9 @@ import org.pokenet.client.GameClient;
 public class TownMap extends Frame {
 	private Label m_map;
 	private Label m_mapName;
-	private HashMap<String, Container> m_buttons;
+	private HashMap<String, Container> m_containers;
 	private List<String> m_locations;
+	private Label m_playerLoc;
 	
 	/**
 	 * Default constructor
@@ -54,8 +55,6 @@ public class TownMap extends Frame {
 		loadLocations();
 		setResizable(false);
 		setVisible(true);
-		setAlwaysOnTop(true);
-		GameClient.getInstance().getDisplay().add(this);
 	}
 	
 	/**
@@ -70,7 +69,7 @@ public class TownMap extends Frame {
 			} catch (Exception e){
 				reader = new Scanner(new File("res/language/english/UI/_MAP.txt"));
 			}
-			m_buttons = new HashMap<String, Container>();
+			m_containers = new HashMap<String, Container>();
 			m_locations = new ArrayList<String>();
 			
 			String f = null;
@@ -105,13 +104,27 @@ public class TownMap extends Frame {
 						}
 
 					});
-					m_buttons.put(details[0], m_surface);
-					add(m_buttons.get(details[0]));
+					m_containers.put(details[0], m_surface);
+					add(m_containers.get(details[0]));
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println("Failed to load locations");
 		}
+	}
+	
+	/**
+	 * Set's the players current location
+	 */
+	public void setLocation() {
+		try {
+			remove(m_playerLoc);
+		} catch (Exception e) {}
+		String currentLoc = GameClient.getInstance().getMapMatrix().getCurrentMap().getName();
+		m_playerLoc = new Label();
+		m_playerLoc.setSize(m_containers.get(currentLoc).getSize());
+		m_playerLoc.setLocation(m_containers.get(currentLoc).getLocation());
+		add(m_playerLoc);
 	}
 }
