@@ -7,6 +7,7 @@ import java.util.Random;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.battle.impl.NpcBattleField;
 
 /**
  * Represents a Non Playable Character
@@ -29,6 +30,8 @@ public class NonPlayerChar extends Char {
 	private int m_badge = -1;
 	private ArrayList<Integer> m_speech;
 	private Shop m_shop = null;
+	//Store a list of players they have battled
+	private ArrayList<String> m_battles;
 	
 	/**
 	 * Constructor
@@ -48,10 +51,42 @@ public class NonPlayerChar extends Char {
 	}
 	
 	/**
+	 * Returns true if this npc has battled the specified player already
+	 * @param name
+	 * @return
+	 */
+	public boolean hasBattled(String name) {
+		return m_battles.contains(name);
+	}
+	
+	/**
+	 * Adds a player to its list of players battled
+	 * @param name
+	 */
+	public void battled(String name) {
+		m_battles.add(name);
+	}
+	
+	/**
 	 * Talks to a player
 	 * @param p
 	 */
 	public void talkToPlayer(PlayerChar p) {
+		if(m_possiblePokemon != null && m_minPartySize > 0) {
+			if(this.hasBattled(p.getName())) {
+				//TODO: Write victory message
+				return;
+			} else {
+				String speech = this.getSpeech();
+				if(!speech.equalsIgnoreCase("")) {
+					p.getSession().write("Cn" + speech);
+				}
+				p.setBattling(true);
+				p.setBattleField(new NpcBattleField(DataService.getBattleMechanics(), p, this));
+				return;
+			}
+		}
+		/* If this NPC wasn't a trainer, handle other possibilities */
 		String speech = this.getSpeech();
 		if(!speech.equalsIgnoreCase("")) {
 			p.getSession().write("Cn" + speech);
@@ -70,9 +105,15 @@ public class NonPlayerChar extends Char {
 			p.getSession().write("S" + m_shop.getStockData());
 			p.setShopping(true);
 		}
-		if(m_possiblePokemon != null && m_minPartySize > 0) {
-			
-		}
+	}
+	
+	/**
+	 * Returns true if this npc can see the player
+	 * @param p
+	 * @return
+	 */
+	public boolean canSee(PlayerChar p) {
+		return false;
 	}
 	
 	/**
@@ -83,6 +124,22 @@ public class NonPlayerChar extends Char {
 		if(m_speech == null)
 			m_speech = new ArrayList<Integer>();
 		m_speech.add(id);
+	}
+	
+	/**
+	 * Returns true if the npc is a gym leader
+	 * @return
+	 */
+	public boolean isGymLeader() {
+		return m_badge != -1;
+	}
+	
+	/**
+	 * Returns true if an NPC is a trainer
+	 * @return
+	 */
+	public boolean isTrainer() {
+		return m_possiblePokemon != null && m_minPartySize > 0;
 	}
 	
 	/**
@@ -143,6 +200,7 @@ public class NonPlayerChar extends Char {
 	 */
 	public void setPossiblePokemon(HashMap<String, Integer> pokes) {
 		m_possiblePokemon = pokes;
+		m_battles = new ArrayList<String>();
 	}
 	
 	/**

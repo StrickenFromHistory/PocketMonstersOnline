@@ -269,7 +269,7 @@ public class GameClient extends BasicGame {
             if(m_weather.isEnabled() && m_weather.getWeather() != Weather.NORMAL)
             	m_weather.getParticleSystem().render();
             //Render the current daylight
-            if(m_time.getDaylight() > 0 || 
+            if(m_mapX > -30 && m_time.getDaylight() > 0 || 
             		(m_weather.getWeather() != Weather.NORMAL && 
             				m_weather.getWeather() != Weather.SANDSTORM)) {
             	g.setColor(m_daylight);

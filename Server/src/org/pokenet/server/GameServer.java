@@ -42,7 +42,7 @@ public class GameServer extends JFrame {
 	private static GameServer m_instance;
 	private static final long serialVersionUID = 1L;
 	private static ServiceManager m_serviceManager;
-	private static int m_maxPlayers, m_movementThreads, m_battleThreads;
+	private static int m_maxPlayers, m_movementThreads;
 	private static String m_dbServer, m_dbName, m_dbUsername, m_dbPassword, m_serverName;
 	private JTextField m_dbS, m_dbN, m_dbU, m_name;
 	private JPasswordField m_dbP;
@@ -53,8 +53,30 @@ public class GameServer extends JFrame {
 	/**
 	 * Default constructor
 	 */
-	public GameServer() {
-		super("Pokenet Server");
+	public GameServer(boolean gui) {
+		if(gui) {
+			createGui();
+		} else {
+			ConsoleReader r = new ConsoleReader();
+			System.out.println("Please enter the required information.");
+			System.out.println("Database Server: ");
+			m_dbServer = r.readToken();
+			System.out.println("Database Name:");
+			m_dbName = r.readToken();
+			System.out.println("Database Username:");
+			m_dbUsername = r.readToken();
+			System.out.println("Database Password:");
+			m_dbPassword = r.readToken();
+			System.out.println("This server's IP or hostname:");
+			m_serverName = r.readToken();
+			System.out.println();
+			System.err.println("WARNING: When using no gui, the server should only be shut down using a master client");
+			start();
+		}
+	}
+	
+	private void createGui() {
+		this.setTitle("Pokenet Server");
 		this.setSize(148, 340);
 		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		this.getContentPane().setLayout(null);
@@ -276,28 +298,33 @@ public class GameServer extends JFrame {
 			 * computing ability of the server specified by the server owner.
 			 */
 			if(args[0].equalsIgnoreCase("-low")) {
-				m_maxPlayers = 75;
-				m_movementThreads = 2;
-				m_battleThreads = 2;
-			} else if(args[0].equalsIgnoreCase("-medium")) {
-				m_maxPlayers = 200;
 				m_movementThreads = 4;
-				m_battleThreads = 4;
-			} else if(args[0].equalsIgnoreCase("-high")) {
-				m_maxPlayers = 500;
+			} else if(args[0].equalsIgnoreCase("-medium")) {
 				m_movementThreads = 8;
-				m_battleThreads = 8;
+			} else if(args[0].equalsIgnoreCase("-high")) {
+				m_movementThreads = 12;
 			} else {
-				System.err.println("Server requires a settings parameter, e.g. java GameServer -medium");
+				System.err.println("Server requires a settings parameter, e.g. java GameServer -medium 0");
 				System.exit(0);
+			}
+			if(args.length > 1 && args[1] != null) {
+				m_maxPlayers = Integer.parseInt(args[1]);
+			} else {
+				System.err.println("WARNING: No maximum player count provided. Will default to 500 players.");
+				m_maxPlayers = 500;
 			}
 			/*
 			 * Create the server gui
 			 */
 			@SuppressWarnings("unused")
-			GameServer gs = new GameServer();
+			GameServer gs;
+			if(args.length < 3)
+				gs = new GameServer(true);
+			else
+				gs = new GameServer(false);
 		} else {
-			System.err.println("Server requires a settings parameter, e.g. java GameServer -medium");
+			System.err.println("Server requires a settings parameter, e.g. java GameServer -medium -0");
+			System.err.println("To start without a gui, run: java GameServer -medium -0 -nogui");
 		}
 	}
 	
@@ -315,14 +342,6 @@ public class GameServer extends JFrame {
 	 */
 	public static int getMaxPlayers() {
 		return m_maxPlayers;
-	}
-	
-	/**
-	 * Returns the amount of battle threads running in this server
-	 * @return
-	 */
-	public static int getBattleThreadAmount() {
-		return m_battleThreads;
 	}
 	
 	/**

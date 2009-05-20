@@ -122,6 +122,7 @@ public class Char implements Positionable {
 
 	/**
 	 * Moves the char if m_nextMovement != null
+	 * Returns true if the char was successfully moved
 	 */
 	public boolean move() {
 		if(m_nextMovement != null && m_map != null) {
@@ -145,6 +146,9 @@ public class Char implements Positionable {
 					m_map.sendToAll("cR" + m_id);
 					break;
 				}
+				m_nextMovement = null;
+				m_lastMovement = System.currentTimeMillis();
+				return true;
 			} else if(m_map.moveChar(this, m_nextMovement)) {
 				switch(m_nextMovement) {
 				case Up:
@@ -168,10 +172,10 @@ public class Char implements Positionable {
 					m_map.sendToAll("R" + m_id);
 					break;
 				}
+				m_nextMovement = null;
+				m_lastMovement = System.currentTimeMillis();
+				return true;
 			}
-			m_nextMovement = null;
-			m_lastMovement = System.currentTimeMillis();
-			return true;
 		}
 		return false;
 	}
@@ -270,5 +274,21 @@ public class Char implements Positionable {
 	 */
 	public void setFacing(Direction d) {
 		m_facing = d;
+		if(m_map != null) {
+			switch(d) {
+			case Up:
+				m_map.sendToAll("cU" + m_id);
+				break;
+			case Down:
+				m_map.sendToAll("cD" + m_id);
+				break;
+			case Left:
+				m_map.sendToAll("cL" + m_id);
+				break;
+			case Right:
+				m_map.sendToAll("cR" + m_id);
+				break;
+			}
+		}
 	}
 }

@@ -11,6 +11,7 @@ import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.battle.impl.NpcBattleLauncher;
 import org.pokenet.server.feature.TimeService;
 import org.pokenet.server.feature.TimeService.Weather;
 
@@ -505,7 +506,7 @@ public class ServerMap {
 	}
 	
 	/**
-	 * Attempts to move a char and sends the movement to everyone, returns true on success
+	 * Returns true if the char is able to move
 	 * @param c
 	 * @param d
 	 */
@@ -650,6 +651,59 @@ public class ServerMap {
 			break;
 		}
 		return false;
+	}
+	
+	/**
+	 * Starts an npc battle with the player if the player was challenged
+	 * @param p
+	 * @return
+	 */
+	public void isNpcBattle(PlayerChar p) {
+		NonPlayerChar n = null;
+		for(int i = 0; i < m_npcs.size(); i++) {
+			n = m_npcs.get(i);
+			if(n != null && n.isTrainer() && !n.isGymLeader() && !n.hasBattled(p.getName())) {
+				/*
+				 * For the npc to be able to challenge the player, the must be on the same
+				 * axis as the player, the x axis or the y axis
+				 */
+				if(n.getX() == p.getX()) {
+					/* Same column */
+					if(n.getY() > p.getY()) {
+						/* NPC is above the player */
+						if(n.getFacing() == Direction.Up && n.canSee(p)) {
+							NpcBattleLauncher l = new NpcBattleLauncher(n, p);
+							l.start();
+							return;
+						}
+					} else {
+						/* NPC is below the player */
+						if(n.getFacing() == Direction.Down && n.canSee(p)) {
+							NpcBattleLauncher l = new NpcBattleLauncher(n, p);
+							l.start();
+							return;
+						}
+					}
+				} else if(n.getY() == p.getY()) {
+					/* Same row */
+					if(n.getX() > p.getX()) {
+						/* NPC is right of the player */
+						if(n.getFacing() == Direction.Left && n.canSee(p)) {
+							NpcBattleLauncher l = new NpcBattleLauncher(n, p);
+							l.start();
+							return;
+						}
+					} else {
+						/* NPC is left of the player */
+						if(n.getFacing() == Direction.Right && n.canSee(p)) {
+							NpcBattleLauncher l = new NpcBattleLauncher(n, p);
+							l.start();
+							return;
+						}
+					}
+				}
+			}
+		}
 	}
 	
 	/**

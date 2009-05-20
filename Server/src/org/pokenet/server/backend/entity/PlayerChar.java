@@ -9,6 +9,7 @@ import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.ItemService;
 import org.pokenet.server.backend.ServerMap;
+import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
@@ -324,6 +325,15 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
+	 * Forces the player to move in the direction they are facing.
+	 * Returns true if they were moved
+	 */
+	public boolean forceMove() {
+		this.setNextMovement(getFacing());
+		return super.move();
+	}
+	
+	/**
 	 * Overrides char's move method.
 	 * Adds a check for wild battles and clears battle/trade request lists
 	 */
@@ -332,12 +342,15 @@ public class PlayerChar extends Char implements Battleable {
 		if(!m_isBattling && !m_isTalking && !m_isShopping && !m_isBoxing) {
 			if(super.move()) {
 				//If the player moved
-				if(this.getMap() != null && this.getMap().isWildBattle(m_x, m_y, this)) {
-					GameServer.getServiceManager().getDataService();
-					m_battleField = new WildBattleField(
-							DataService.getBattleMechanics(),
-							this,
-							this.getMap().getWildPokemon(this));
+				if(this.getMap() != null) {
+					if(this.getMap().isWildBattle(m_x, m_y, this)) {
+						m_battleField = new WildBattleField(
+								DataService.getBattleMechanics(),
+								this,
+								this.getMap().getWildPokemon(this));
+					} else {
+						m_map.isNpcBattle(this);
+					}
 				}
 				//TODO: Clear requests list
 				return true;
@@ -835,5 +848,12 @@ public class PlayerChar extends Char implements Battleable {
 				);
 			}
 		}
+	}
+
+	/**
+	 * Sets the battlefield for this player
+	 */
+	public void setBattleField(BattleField b) {
+		m_battleField = b;
 	}
 }

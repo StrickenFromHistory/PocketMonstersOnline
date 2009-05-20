@@ -13,6 +13,7 @@ public class MovementManager implements Runnable {
 	private ArrayList<PlayerChar> m_players;
 	private Thread m_thread;
 	private boolean m_isRunning;
+	private int m_pLoad = 0;
 	
 	/**
 	 * Default constructor.
@@ -27,6 +28,7 @@ public class MovementManager implements Runnable {
 	 * @param player
 	 */
 	public void addPlayer(PlayerChar player) {
+		m_pLoad++;
 		m_players.add(player);
 	}
 	
@@ -34,7 +36,7 @@ public class MovementManager implements Runnable {
 	 * Returns how many players are in this thread (the processing load)
 	 */
 	public int getProcessingLoad() {
-		return m_players.size();
+		return m_pLoad;
 	}
 	
 	/**
@@ -47,6 +49,7 @@ public class MovementManager implements Runnable {
 			if(m_players.get(i).getName().equalsIgnoreCase(player)) {
 				m_players.remove(i);
 				m_players.trimToSize();
+				m_pLoad--;
 				return true;
 			}
 		}
@@ -61,7 +64,7 @@ public class MovementManager implements Runnable {
 			synchronized(m_players) {
 				for(int i = 0; i < m_players.size(); i++) {
 					m_players.get(i).move();
-			}
+				}
 			}
 			try {
 				Thread.sleep(250);
