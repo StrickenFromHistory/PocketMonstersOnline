@@ -2,12 +2,13 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="40" height="31" tilewidth="16" tileheight="16">
  <properties>
-  <property name="surfSpecies" value=""/>
-  <property name="surfLevels" value=""/>
-  <property name="surfProbability" value="0"/>
-  <property name="wildSpecies" value="Raticate,30;Magnemite,20;Tauros,4;Snubbull,1;Miltank,5;Pidgeotto,2;Rattata,17;Meowth,17;Farfetch'd,2;Noctowl,2;Buneary,1;"/>
-  <property name="wildLevels" value="16-16;16-16;13-13;13-13;13-13;16-16;16-16;16-16;16-16;16-16;"/>
-  <property name="wildProbability" value="15"/>
+  <property name="dayPokemonLevels" value="16-16;16-16;16-16;16-16;16-16;16-16;13-13;13-13;13-13;"/>
+  <property name="dayPokemonChances" value="Rattata,15;Meowth,15;Raticate,30;Magnemite,20;Farfetch'd,5;Pidgeotto,5;Miltank,5;Tauros,4;Snubbull,1;"/>
+  <property name="nightPokemonLevels" value="16-16;16-16;16-16;16-16;16-16;13-13;13-13;13-13;"/>
+  <property name="nightPokemonChances" value="Rattata,20;Meowth,20;Raticate,30;Magnemite,20;Noctowl,5;Miltank,2;Tauros,2;Snubbull,1;"/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="-64"/>
   <property name="yOffsetModifier" value="-96"/>
  </properties>
