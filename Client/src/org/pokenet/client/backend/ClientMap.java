@@ -6,6 +6,7 @@ import java.util.Iterator;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
 
@@ -25,6 +26,7 @@ public class ClientMap extends TiledMap {
 	private boolean m_isCurrent = false;
 	private ClientMapMatrix m_mapMatrix;
 	private int m_walkableLayer, m_lastRendered;
+	private String m_name;
 	
 	private Graphics m_graphics;
 
@@ -44,6 +46,11 @@ public class ClientMap extends TiledMap {
 		m_yOffset = m_yOffsetModifier;
 		m_walkableLayer = getLayerCount() - 2;
 		m_lastRendered = 0;
+		try {
+			m_name = GameClient.getInstance().getMapMatrix().getMapName(m_mapX, m_mapY);
+		} catch (Exception e) {
+			m_name = "";
+		}
 	}
 	
 	@Override
@@ -300,5 +307,13 @@ public class ClientMap extends TiledMap {
 				map.setXOffset(offset + getWidth() * 32 - getXOffsetModifier()
 						+ map.getXOffsetModifier(), false);
 		}
+	}
+
+	/**
+	 * Returns the map's name
+	 * @return the map's name
+	 */
+	public String getName() {
+		return m_name;
 	}
 }
