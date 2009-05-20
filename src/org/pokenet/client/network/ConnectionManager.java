@@ -482,6 +482,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().showLogin();
 				break;
+			case '2':
+				//Server full
+				GameClient.messageDialog("This server is full, please try another", GameClient.getInstance().getDisplay());
+				m_game.getLoadingScreen().setVisible(false);
+				m_game.getLoginScreen().showLogin();
+				break;
 			}
 		
 			break;
