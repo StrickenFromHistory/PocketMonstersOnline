@@ -13,6 +13,7 @@ import org.pokenet.client.backend.entity.Player.Direction;
 /**
  * Represents a map to be rendered on screen
  * @author shadowkanji
+ * @author ZombieBear
  *
  */
 public class ClientMap extends TiledMap {
