@@ -53,6 +53,11 @@ public class LoginManager implements Runnable {
 	private void attemptLogin(IoSession session, String username, String password) {
 		PlayerChar p;
 		try {
+			//Check if we haven't reach the player limit
+			if(ConnectionManager.getPlayerCount() >= GameServer.getMaxPlayers()) {
+				session.write("l2");
+				return;
+			}
 			//First connect to the database
 			if(!m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword())) {
 				session.write("l1");

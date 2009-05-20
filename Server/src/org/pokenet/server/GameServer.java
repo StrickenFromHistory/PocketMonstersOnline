@@ -212,7 +212,6 @@ public class GameServer extends JFrame {
 			m_serviceManager.start();
 			m_start.setEnabled(false);
 			m_stop.setEnabled(true);
-			createGui();
 		} else {
 			m_serviceManager = new ServiceManager();
 			m_serviceManager.start();
@@ -325,6 +324,8 @@ public class GameServer extends JFrame {
 			}
 			if(args.length > 1 && args[1] != null) {
 				m_maxPlayers = Integer.parseInt(args[1]);
+				if(m_maxPlayers == 0)
+					m_maxPlayers = 99999;
 			} else {
 				System.err.println("WARNING: No maximum player count provided. Will default to 500 players.");
 				m_maxPlayers = 500;
