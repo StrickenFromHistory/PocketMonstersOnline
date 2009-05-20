@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import mdes.slick.sui.Container;
-import mdes.slick.sui.event.MouseAdapter;
-import mdes.slick.sui.event.MouseEvent;
-
 import org.newdawn.slick.Graphics;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Player;
@@ -16,6 +12,7 @@ import org.pokenet.client.backend.entity.Player;
 /**
  * Represents the current map the player is on and its surrounding maps to be rendered on screen.
  * @author shadowkanji
+ * @author ZombieBear
  *
  */
 public class ClientMapMatrix {
