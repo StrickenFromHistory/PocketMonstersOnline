@@ -71,7 +71,7 @@ public class GameServer extends JFrame {
 			m_serverName = r.readToken();
 			System.out.println();
 			System.err.println("WARNING: When using no gui, the server should only be shut down using a master client");
-			start();
+			start(gui);
 		}
 	}
 	
@@ -103,7 +103,7 @@ public class GameServer extends JFrame {
 		m_start.setLocation(4, 48);
 		m_start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				start();
+				start(true);
 			}
 		});
 		this.getContentPane().add(m_start);
@@ -196,21 +196,27 @@ public class GameServer extends JFrame {
 	/**
 	 * Starts the game server
 	 */
-	public void start() {
+	public void start(boolean gui) {
 		/*
 		 * Store locally
 		 */
-		m_dbServer = m_dbS.getText();
-		m_dbName = m_dbN.getText();
-		m_dbUsername = m_dbU.getText();
-		m_dbPassword = new String(m_dbP.getPassword());
-		m_serverName = m_name.getText();
-		
-		
-		m_serviceManager = new ServiceManager();
-		m_serviceManager.start();
-		m_start.setEnabled(false);
-		m_stop.setEnabled(true);
+		if(gui) {
+			m_dbServer = m_dbS.getText();
+			m_dbName = m_dbN.getText();
+			m_dbUsername = m_dbU.getText();
+			m_dbPassword = new String(m_dbP.getPassword());
+			m_serverName = m_name.getText();
+			
+			
+			m_serviceManager = new ServiceManager();
+			m_serviceManager.start();
+			m_start.setEnabled(false);
+			m_stop.setEnabled(true);
+			createGui();
+		} else {
+			m_serviceManager = new ServiceManager();
+			m_serviceManager.start();
+		}
 	}
 	
 	/**
@@ -271,12 +277,22 @@ public class GameServer extends JFrame {
 	 * @param amount
 	 */
 	public void updatePlayerCount() {
-		int amount = ConnectionManager.getPlayerCount();
-		m_pAmount.setText(amount + " players online");
-		if(amount > m_highest) {
-			m_pHighest.setText("Highest: " + amount);
-			m_highest = amount;
+		try{
+			int amount = ConnectionManager.getPlayerCount();
+			m_pAmount.setText(amount + " players online");
+			if(amount > m_highest) {
+				m_highest = amount;
+				m_pHighest.setText("Highest: " + amount);
+			}
+		}catch(Exception e){//-nogui
+			int amount = ConnectionManager.getPlayerCount();
+			System.out.println(amount + " players online");
+			if(amount > m_highest) {
+				m_highest = amount;
+				System.out.println("Highest: " + amount);
+			}
 		}
+		
 	}
 	
 	/**
