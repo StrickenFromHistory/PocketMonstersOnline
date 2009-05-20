@@ -4,7 +4,7 @@ DOWN
 55
 41
 22
-Bulbasaur,32,Ivysaur,32,Venasaur,32,
+Bulbasaur,32,Ivysaur,32,Venusaur,32
 3      
 -1
 NULL
@@ -18,7 +18,7 @@ UP
 81
 52
 20
-Magneton,33,Quagsire,31,Exeggecute,31.
+Magneton,33,Quagsire,31,Exeggcute,31
 3
 -1
 NULL
