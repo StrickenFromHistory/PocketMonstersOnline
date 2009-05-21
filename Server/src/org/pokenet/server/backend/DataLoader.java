@@ -36,14 +36,20 @@ public class DataLoader implements Runnable {
 			WarpTile warp = new WarpTile();
 			String line;
 			String [] details;
+			String direction = "Down";
 			while(reader.hasNextLine()) {
 				line = reader.nextLine();
 				if(line.equalsIgnoreCase("[npc]")) {
 					npc = new NonPlayerChar();
 					npc.setName(reader.nextLine());
-					try {
-						npc.setFacing(Direction.valueOf(reader.nextLine()));
-					} catch (Exception e) {
+					direction = reader.nextLine();
+					if(direction.equalsIgnoreCase("UP")) {
+						npc.setFacing(Direction.Up);
+					} else if(direction.equalsIgnoreCase("LEFT")) {
+						npc.setFacing(Direction.Left);
+					} else if(direction.equalsIgnoreCase("RIGHT")) {
+						npc.setFacing(Direction.Right);
+					} else {
 						npc.setFacing(Direction.Down);
 					}
 					npc.setSprite(Integer.parseInt(reader.nextLine()));
