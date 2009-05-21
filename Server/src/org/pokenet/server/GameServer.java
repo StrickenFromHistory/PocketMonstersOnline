@@ -45,6 +45,7 @@ public class GameServer {
 	private static ServiceManager m_serviceManager;
 	private static int m_maxPlayers, m_movementThreads;
 	private static String m_dbServer, m_dbName, m_dbUsername, m_dbPassword, m_serverName;
+	private static boolean m_boolGui;
 	private JTextField m_dbS, m_dbN, m_dbU, m_name;
 	private JPasswordField m_dbP;
 	private JButton m_start, m_stop, m_set, m_exit;
@@ -52,28 +53,56 @@ public class GameServer {
 	private JLabel m_pAmount, m_pHighest;
 	private JFrame m_gui;
 	
+	
 	/**
 	 * Default constructor
 	 */
-	public GameServer(boolean gui) {
-		if(gui) {
+	public GameServer() {
+		if(m_boolGui) {
 			createGui();
 		} else {
 			ConsoleReader r = new ConsoleReader();
-			System.out.println("Please enter the required information.");
-			System.out.println("Database Server: ");
-			m_dbServer = r.readToken();
-			System.out.println("Database Name:");
-			m_dbName = r.readToken();
-			System.out.println("Database Username:");
-			m_dbUsername = r.readToken();
-			System.out.println("Database Password:");
-			m_dbPassword = r.readToken();
-			System.out.println("This server's IP or hostname:");
-			m_serverName = r.readToken();
-			System.out.println();
-			System.err.println("WARNING: When using no gui, the server should only be shut down using a master client");
-			start(gui);
+			System.out.println("Load Settings? y/N");
+			String answer = r.readToken();
+			if(answer.contains("y")||answer.contains("Y")){
+				/*
+				 * Load pre-existing settings if any
+				 */
+				File f = new File("res/settings.txt");
+				if(f.exists()) {
+					try {
+						Scanner s = new Scanner(f);
+						m_dbServer = s.nextLine();
+						m_dbName = s.nextLine();
+						m_dbUsername = s.nextLine();
+						m_serverName = s.nextLine();
+						m_dbPassword = s.nextLine();
+						s.close();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}else{
+				System.out.println("Please enter the required information.");
+				System.out.println("Database Server: ");
+				m_dbServer = r.readToken();
+				System.out.println("Database Name:");
+				m_dbName = r.readToken();
+				System.out.println("Database Username:");
+				m_dbUsername = r.readToken();
+				System.out.println("Database Password:");
+				m_dbPassword = r.readToken();
+				System.out.println("This server's IP or hostname:");
+				m_serverName = r.readToken();
+				System.out.println("Save info? (y/N)");
+				answer = r.readToken();
+				if(answer.contains("y")||answer.contains("Y")){
+					saveSettings();
+				}
+				System.out.println();
+				System.err.println("WARNING: When using no gui, the server should only be shut down using a master client");
+			}
+			start();
 		}
 	}
 	
@@ -106,7 +135,7 @@ public class GameServer {
 		m_start.setLocation(4, 48);
 		m_start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				start(true);
+				start();
 			}
 		});
 		m_gui.getContentPane().add(m_start);
@@ -199,11 +228,11 @@ public class GameServer {
 	/**
 	 * Starts the game server
 	 */
-	public void start(boolean gui) {
+	public void start() {
 		/*
 		 * Store locally
 		 */
-		if(gui) {
+		if(m_boolGui) {
 			m_dbServer = m_dbS.getText();
 			m_dbName = m_dbN.getText();
 			m_dbUsername = m_dbU.getText();
@@ -248,14 +277,15 @@ public class GameServer {
 	private void saveSettings() {
 		try {
 			/*
-			 * Store locally
+			 * Store globally
 			 */
-			m_dbServer = m_dbS.getText();
-			m_dbName = m_dbN.getText();
-			m_dbUsername = m_dbU.getText();
-			m_dbPassword = new String(m_dbP.getPassword());
-			m_serverName = m_name.getText();
-			
+			if(m_boolGui){
+				m_dbServer = m_dbS.getText();
+				m_dbName = m_dbN.getText();
+				m_dbUsername = m_dbU.getText();
+				m_dbPassword = new String(m_dbP.getPassword());
+				m_serverName = m_name.getText();
+			}
 			/*
 			 * Write to file
 			 */
@@ -263,10 +293,11 @@ public class GameServer {
 			if(f.exists())
 				f.delete();
 			PrintWriter w = new PrintWriter(f);
-			w.println(m_dbS.getText());
-			w.println(m_dbN.getText());
-			w.println(m_dbU.getText());
-			w.println(m_name.getText());
+			w.println(m_dbServer);
+			w.println(m_dbName);
+			w.println(m_dbUsername);
+			w.println(m_serverName);
+			w.println("");
 			w.flush();
 			w.close();
 		} catch (Exception e) {
@@ -279,14 +310,14 @@ public class GameServer {
 	 * @param amount
 	 */
 	public void updatePlayerCount() {
-		try{
+		if(m_boolGui){
 			int amount = ConnectionManager.getPlayerCount();
 			m_pAmount.setText(amount + " players online");
 			if(amount > m_highest) {
 				m_highest = amount;
 				m_pHighest.setText("Highest: " + amount);
 			}
-		}catch(Exception e){//-nogui
+		}else{//-nogui
 			int amount = ConnectionManager.getPlayerCount();
 			System.out.println(amount + " players online");
 			if(amount > m_highest) {
@@ -338,10 +369,14 @@ public class GameServer {
 			 */
 			@SuppressWarnings("unused")
 			GameServer gs;
-			if(args.length < 3)
-				gs = new GameServer(true);
-			else
-				gs = new GameServer(false);
+			if(args.length < 3){
+				m_boolGui = true;
+				gs = new GameServer();
+			}
+			else{
+				m_boolGui = false;
+				gs = new GameServer();
+			}
 		} else {
 			System.err.println("Server requires a settings parameter, e.g. java GameServer -medium -0");
 			System.err.println("To start without a gui, run: java GameServer -medium -0 -nogui");
