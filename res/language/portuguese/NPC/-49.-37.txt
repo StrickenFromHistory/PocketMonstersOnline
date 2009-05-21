@@ -1,0 +1,8 @@
+It's a list of winning trainers.
+Jasmine uses the steel-type. 
+You should know how to fight it.
+Please allow me to introduce myself. I am Jasmine, a gym leader. 
+I use the steel-type. 
+...Do you know about the steel-type? 
+It has been discovered with the dark type after the other 15 types. 
+...Um... May I begin?
