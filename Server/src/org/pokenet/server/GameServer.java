@@ -36,9 +36,10 @@ import org.pokenet.server.network.ConnectionManager;
  * 		> 1mbps Up/Down Connection
  * 		> 500 Players
  * @author shadowkanji
+ * @author Nushio
  *
  */
-public class GameServer extends JFrame {
+public class GameServer {
 	private static GameServer m_instance;
 	private static final long serialVersionUID = 1L;
 	private static ServiceManager m_serviceManager;
@@ -49,6 +50,7 @@ public class GameServer extends JFrame {
 	private JButton m_start, m_stop, m_set, m_exit;
 	private int m_highest;
 	private JLabel m_pAmount, m_pHighest;
+	private JFrame m_gui;
 	
 	/**
 	 * Default constructor
@@ -76,12 +78,13 @@ public class GameServer extends JFrame {
 	}
 	
 	private void createGui() {
-		this.setTitle("Pokenet Server");
-		this.setSize(148, 340);
-		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-		this.getContentPane().setLayout(null);
-		this.setResizable(false);
-		this.setLocation(32, 32);
+		m_gui = new JFrame();
+		m_gui.setTitle("Pokenet Server");
+		m_gui.setSize(148, 340);
+		m_gui.setDefaultCloseOperation(0); //DO_NOTHING_ON_CLOSE
+		m_gui.getContentPane().setLayout(null);
+		m_gui.setResizable(false);
+		m_gui.setLocation(32, 32);
 		
 		/*
 		 * Set up the buttons
@@ -90,13 +93,13 @@ public class GameServer extends JFrame {
 		m_pAmount.setSize(160, 16);
 		m_pAmount.setLocation(4, 4);
 		m_pAmount.setVisible(true);
-		this.getContentPane().add(m_pAmount);
+		m_gui.getContentPane().add(m_pAmount);
 		
 		m_pHighest = new JLabel("[No record]");
 		m_pHighest.setSize(160, 16);
 		m_pHighest.setLocation(4, 24);
 		m_pHighest.setVisible(true);
-		this.getContentPane().add(m_pHighest);
+		m_gui.getContentPane().add(m_pHighest);
 		
 		m_start = new JButton("Start Server");
 		m_start.setSize(128, 24);
@@ -106,7 +109,7 @@ public class GameServer extends JFrame {
 				start(true);
 			}
 		});
-		this.getContentPane().add(m_start);
+		m_gui.getContentPane().add(m_start);
 		
 		m_stop = new JButton("Stop Server");
 		m_stop.setSize(128, 24);
@@ -117,7 +120,7 @@ public class GameServer extends JFrame {
 				stop();
 			}
 		});
-		this.getContentPane().add(m_stop);
+		m_gui.getContentPane().add(m_stop);
 		
 		m_set = new JButton("Save Settings");
 		m_set.setSize(128, 24);
@@ -127,7 +130,7 @@ public class GameServer extends JFrame {
 				saveSettings();
 			}
 		});
-		this.getContentPane().add(m_set);
+		m_gui.getContentPane().add(m_set);
 		
 		m_exit = new JButton("Quit");
 		m_exit.setSize(128, 24);
@@ -137,7 +140,7 @@ public class GameServer extends JFrame {
 				exit();
 			}
 		});
-		this.getContentPane().add(m_exit);
+		m_gui.getContentPane().add(m_exit);
 		
 		/*
 		 * Settings text boxes
@@ -146,31 +149,31 @@ public class GameServer extends JFrame {
 		m_dbS.setSize(128, 24);
 		m_dbS.setText("MySQL Host");
 		m_dbS.setLocation(4, 128);
-		this.getContentPane().add(m_dbS);
+		m_gui.getContentPane().add(m_dbS);
 		
 		m_dbN = new JTextField();
 		m_dbN.setSize(128, 24);
 		m_dbN.setText("MySQL Database Name");
 		m_dbN.setLocation(4, 160);
-		this.getContentPane().add(m_dbN);
+		m_gui.getContentPane().add(m_dbN);
 		
 		m_dbU = new JTextField();
 		m_dbU.setSize(128, 24);
 		m_dbU.setText("MySQL Username");
 		m_dbU.setLocation(4, 192);
-		this.getContentPane().add(m_dbU);
+		m_gui.getContentPane().add(m_dbU);
 		
 		m_dbP = new JPasswordField();
 		m_dbP.setSize(128, 24);
 		m_dbP.setText("Pass");
 		m_dbP.setLocation(4, 224);
-		this.getContentPane().add(m_dbP);
+		m_gui.getContentPane().add(m_dbP);
 		
 		m_name = new JTextField();
 		m_name.setSize(128, 24);
 		m_name.setText("Your Server Name");
 		m_name.setLocation(4, 260);
-		this.getContentPane().add(m_name);
+		m_gui.getContentPane().add(m_name);
 		
 		/*
 		 * Load pre-existing settings if any
@@ -190,7 +193,7 @@ public class GameServer extends JFrame {
 		}
 		
 		m_instance = this;
-		this.setVisible(true);
+		m_gui.setVisible(true);
 	}
 	
 	/**
