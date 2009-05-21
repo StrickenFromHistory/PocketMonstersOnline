@@ -1,13 +1,27 @@
 [npc]
 Lass Connie
 down
-11
+119
 11
 2
-Marill,2
+Marill,21
+1
+-1
+0,1,2
+false
+false
+false
+[/npc]
+[npc]
+Sailor Kent
+left
+184
+7
+14
+Krabby,18,Krabby,20
 2
 -1
-1000
+3
 false
 false
 false

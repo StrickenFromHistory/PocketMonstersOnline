@@ -1,13 +1,27 @@
 [npc]
 Gentleman Alfred
 left
-11
+160
 17
 8
-Noctowl,2
+Noctowl,20
+1
+-1
+0
+false
+false
+false
+[/npc]
+[npc]
+Sailor Huey
+right
+184
+9
+3
+Poliwag,18,Poliwhirl,18
 2
 -1
-1000
+1
 false
 false
 false

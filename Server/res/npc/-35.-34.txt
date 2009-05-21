@@ -1,13 +1,27 @@
 [npc]
+Bird Keeper Denis
+left
+83
+8
+3
+Spearow,18,Fearow,20,Spearow,18
+3
+-1
+0
+false
+false
+false
+[/npc]
+[npc]
 Sailor Ernest
 down
-11
+184
 8
 11
-Machop,1
-4
+Machop,18,Poliwhirl,18,Machop,18
+3
 -1
-1000
+1
 false
 false
 false

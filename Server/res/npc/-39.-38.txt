@@ -1,13 +1,27 @@
 [npc]
 Lighthouse Visitor
 down
-11
+115
 16
 7
 NULL
-1
+0
 -1
-1000
+0,1
+false
+false
+false
+[/npc]
+[npc]
+Lighthouse Visitor
+down
+184
+8
+2
+NULL
+0
+-1
+2,3
 false
 false
 false
