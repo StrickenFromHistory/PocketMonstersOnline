@@ -140,7 +140,7 @@ public class Ui extends Frame {
         for (int i = 0; i < m_buttons.length; i++){
         	m_buttons[i].pack();
         	getContentPane().add(m_buttons[i]);
-        	m_buttons[0].setLocation(7, 22 + (32 * i) + (5 * i));
+        	m_buttons[i].setLocation(7, 22 + (32 * i) + (5 * i));
         }
 	}
 	
