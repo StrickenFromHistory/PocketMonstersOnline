@@ -154,6 +154,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 								p.getMap().setWeather(Weather.NORMAL);
 								break;
 							}
+						case 's':
+							if(p.getAdminLevel() == 2) {
+								GameServer.getServiceManager().stop();
+								return;
+							}
+							break;
 						}
 					} catch (Exception e) {}
 				}
