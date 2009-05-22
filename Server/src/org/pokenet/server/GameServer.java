@@ -335,12 +335,12 @@ public class GameServer {
 				m_pHighest.setText("Highest: " + amount);
 			}
 		}else{//-nogui
-			int amount = ConnectionManager.getPlayerCount();
-			System.out.println(amount + " players online");
-			if(amount > m_highest) {
-				m_highest = amount;
-				System.out.println("Highest: " + amount);
-			}
+//			int amount = ConnectionManager.getPlayerCount();
+//			System.out.println(amount + " players online");
+//			if(amount > m_highest) {
+//				m_highest = amount;
+//				System.out.println("Highest: " + amount);
+//			}
 		}
 		
 	}
