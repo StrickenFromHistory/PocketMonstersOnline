@@ -289,6 +289,14 @@ public class GameServer {
 		if(m_boolGui){
 			m_start.setEnabled(true);
 			m_stop.setEnabled(false);
+		} else {
+			try {
+				/* Let threads finish up */
+				Thread.sleep(10000);
+				/* Exit */
+				System.out.println("Exiting server...");
+				System.exit(0);
+			} catch (Exception e) {}
 		}
 	}
 	
