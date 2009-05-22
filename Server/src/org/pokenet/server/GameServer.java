@@ -113,6 +113,7 @@ public class GameServer {
 	 * Default constructor
 	 */
 	public GameServer(boolean autorun) {
+		m_instance = this;
 		if(autorun){
 			loadSettings();
 			start();
@@ -134,6 +135,9 @@ public class GameServer {
 		}
 	}
 	
+	/**
+	 * Generates the gui-version of the server
+	 */
 	private void createGui() {
 		m_gui = new JFrame();
 		m_gui.setTitle("Pokenet Server");
@@ -249,7 +253,6 @@ public class GameServer {
 			}
 		}
 		
-		m_instance = this;
 		m_gui.setVisible(true);
 	}
 	
@@ -350,14 +353,13 @@ public class GameServer {
 				m_highest = amount;
 				m_pHighest.setText("Highest: " + amount);
 			}
-		}else{//-nogui
-//			int amount = ConnectionManager.getPlayers().size();
-//			System.out.println(amount + " players online");
-//			if(amount > m_highest) {
-//				m_highest = amount;
-//				System.out.println("Highest: " + amount);
-//			}
-
+		} else {
+			int amount = ConnectionManager.getPlayers().size();
+			System.out.println(amount + " players online");
+			if(amount > m_highest) {
+				m_highest = amount;
+				System.out.println("Highest: " + amount);
+			}
 		}
 		
 	}
