@@ -118,6 +118,7 @@ public class GameServer {
 			start();
 		}else{
 			if(m_boolGui) {
+				loadSettings();
 				createGui();
 			} else {
 				ConsoleReader r = new ConsoleReader();
@@ -231,7 +232,22 @@ public class GameServer {
 		m_name.setLocation(4, 260);
 		m_gui.getContentPane().add(m_name);
 		
-		loadSettings();
+		/*
+		 * Load pre-existing settings if any
+		 */
+		File f = new File("res/settings.txt");
+		if(f.exists()) {
+			try {
+				Scanner s = new Scanner(f);
+				m_dbS.setText(s.nextLine());
+				m_dbN.setText(s.nextLine());
+				m_dbU.setText(s.nextLine());
+				m_name.setText(s.nextLine());
+				s.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		m_instance = this;
 		m_gui.setVisible(true);
@@ -335,12 +351,13 @@ public class GameServer {
 				m_pHighest.setText("Highest: " + amount);
 			}
 		}else{//-nogui
-//			int amount = ConnectionManager.getPlayerCount();
+//			int amount = ConnectionManager.getPlayers().size();
 //			System.out.println(amount + " players online");
 //			if(amount > m_highest) {
 //				m_highest = amount;
 //				System.out.println("Highest: " + amount);
 //			}
+
 		}
 		
 	}
@@ -419,10 +436,10 @@ public class GameServer {
 		        GameServer gs;
 		        if(line.hasOption("nogui")){
 					m_boolGui = false;
-						if(line.hasOption("autorun"))
-							gs = new GameServer(true);
-						else
-							gs = new GameServer(false);
+					if(line.hasOption("autorun"))
+						gs = new GameServer(true);
+					else
+						gs = new GameServer(false);
 				}else{
 					m_boolGui = true;
 					gs = new GameServer(false);
