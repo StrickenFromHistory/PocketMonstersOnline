@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="lib/tiled-core.jar"/>
 	<classpathentry kind="lib" path="lib/tiled.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.7-bin.jar"/>
+	<classpathentry kind="lib" path="lib/commons-cli-1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -13,18 +13,24 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.GnuParser;
+import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
 import org.pokenet.server.network.ConnectionManager;
 
 /**
  * Represents a game server.
  * 
- * Starting a server requires a parameter to be passed in, i.e. java GameServer -low
+ * Starting a server requires a parameter to be passed in, i.e. java GameServer -s low -p 500
  * Here are the different settings:
  * -low
  * 		< 1.86ghz
  * 		< 512MB Ram
  * 		< 1mbps Up/Down Connection
- * 		75 Playeys
+ * 		75 Players
  * -medium
  * 		< 2ghz
  * 		1GB Ram
@@ -35,6 +41,7 @@ import org.pokenet.server.network.ConnectionManager;
  * 		> 1GB Ram
  * 		> 1mbps Up/Down Connection
  * 		> 500 Players
+ * 
  * @author shadowkanji
  * @author Nushio
  *
@@ -53,56 +60,76 @@ public class GameServer {
 	private JLabel m_pAmount, m_pHighest;
 	private JFrame m_gui;
 	
+	/**
+	 * Load pre-existing settings if any
+ 	 * NOTE: It loads the database password if available.
+ 	 * Password is line after serverName
+	 */
+	private void loadSettings(){
+		
+		File foo = new File("res/settings.txt");
+		if(foo.exists()) {
+			try {
+				Scanner s = new Scanner(foo);
+				m_dbServer = s.nextLine();
+				m_dbName = s.nextLine();
+				m_dbUsername = s.nextLine();
+				m_serverName = s.nextLine();
+				m_dbPassword = s.nextLine();
+				s.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	/**
+	 * Asks for Database User/Pass, then asks to save
+	 * NOTE: It doesnt save the database password
+	 */
+	private void getConsoleSettings(){
+		ConsoleReader r = new ConsoleReader();
+		System.out.println("Please enter the required information.");
+		System.out.println("Database Server: ");
+		m_dbServer = r.readToken();
+		System.out.println("Database Name:");
+		m_dbName = r.readToken();
+		System.out.println("Database Username:");
+		m_dbUsername = r.readToken();
+		System.out.println("Database Password:");
+		m_dbPassword = r.readToken();
+		System.out.println("This server's IP or hostname:");
+		m_serverName = r.readToken();
+		System.out.println("Save info? (y/N)");
+		String answer = r.readToken();
+		if(answer.contains("y")||answer.contains("Y")){
+			saveSettings();
+		}
+		System.out.println();
+		System.err.println("WARNING: When using -nogui, the server should only be shut down using a master client");
+	}
 	
 	/**
 	 * Default constructor
 	 */
-	public GameServer() {
-		if(m_boolGui) {
-			createGui();
-		} else {
-			ConsoleReader r = new ConsoleReader();
-			System.out.println("Load Settings? y/N");
-			String answer = r.readToken();
-			if(answer.contains("y")||answer.contains("Y")){
-				/*
-				 * Load pre-existing settings if any
-				 */
-				File f = new File("res/settings.txt");
-				if(f.exists()) {
-					try {
-						Scanner s = new Scanner(f);
-						m_dbServer = s.nextLine();
-						m_dbName = s.nextLine();
-						m_dbUsername = s.nextLine();
-						m_serverName = s.nextLine();
-						m_dbPassword = s.nextLine();
-						s.close();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}else{
-				System.out.println("Please enter the required information.");
-				System.out.println("Database Server: ");
-				m_dbServer = r.readToken();
-				System.out.println("Database Name:");
-				m_dbName = r.readToken();
-				System.out.println("Database Username:");
-				m_dbUsername = r.readToken();
-				System.out.println("Database Password:");
-				m_dbPassword = r.readToken();
-				System.out.println("This server's IP or hostname:");
-				m_serverName = r.readToken();
-				System.out.println("Save info? (y/N)");
-				answer = r.readToken();
-				if(answer.contains("y")||answer.contains("Y")){
-					saveSettings();
-				}
-				System.out.println();
-				System.err.println("WARNING: When using no gui, the server should only be shut down using a master client");
-			}
+	public GameServer(boolean autorun) {
+		if(autorun){
+			loadSettings();
 			start();
+		}else{
+			if(m_boolGui) {
+				createGui();
+			} else {
+				ConsoleReader r = new ConsoleReader();
+				System.out.println("Load Settings? y/N");
+				String answer = r.readToken();
+				if(answer.contains("y")||answer.contains("Y")){
+					loadSettings();
+				}else{
+					getConsoleSettings();
+				}
+				start();
+			}
 		}
 	}
 	
@@ -204,22 +231,7 @@ public class GameServer {
 		m_name.setLocation(4, 260);
 		m_gui.getContentPane().add(m_name);
 		
-		/*
-		 * Load pre-existing settings if any
-		 */
-		File f = new File("res/settings.txt");
-		if(f.exists()) {
-			try {
-				Scanner s = new Scanner(f);
-				m_dbS.setText(s.nextLine());
-				m_dbN.setText(s.nextLine());
-				m_dbU.setText(s.nextLine());
-				m_name.setText(s.nextLine());
-				s.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		loadSettings();
 		
 		m_instance = this;
 		m_gui.setVisible(true);
@@ -255,19 +267,24 @@ public class GameServer {
 	 */
 	public void stop() {
 		m_serviceManager.stop();
-		m_start.setEnabled(true);
-		m_stop.setEnabled(false);
+		if(m_boolGui){
+			m_start.setEnabled(true);
+			m_stop.setEnabled(false);
+		}
 	}
 	
 	/**
 	 * Exits the game server application
 	 */
 	private void exit() {
-		if(m_stop.isEnabled()) {
-			JOptionPane.showMessageDialog(null, "You must stop the server before exiting.");
-		} else {
+		if(m_boolGui)
+			if(m_stop.isEnabled()) {
+				JOptionPane.showMessageDialog(null, "You must stop the server before exiting.");
+			} else {
+				System.exit(0);
+			}
+		else
 			System.exit(0);
-		}
 	}
 	
 	/**
@@ -297,7 +314,7 @@ public class GameServer {
 			w.println(m_dbName);
 			w.println(m_dbUsername);
 			w.println(m_serverName);
-			w.println("");
+			w.println(" ");
 			w.flush();
 			w.close();
 		} catch (Exception e) {
@@ -341,45 +358,89 @@ public class GameServer {
 	 * @param args
 	 */
 	public static void main(String [] args) {
+		Options options = new Options();
+		options.addOption("s","settings", true, "Can be low, medium, or high.");
+		options.addOption("p","players", true, "Sets the max number of players.");
+		options.addOption("ng", "nogui", false, "Starts server in headless mode.");
+		options.addOption("ar", "autorun", false, "Runs without asking a single question.");
+		options.addOption("h", "help", false, "Shows this menu.");
+		
 		if(args.length > 0) {
-			/*
-			 * The following sets the server's settings based on the
-			 * computing ability of the server specified by the server owner.
-			 */
-			if(args[0].equalsIgnoreCase("-low")) {
-				m_movementThreads = 4;
-			} else if(args[0].equalsIgnoreCase("-medium")) {
-				m_movementThreads = 8;
-			} else if(args[0].equalsIgnoreCase("-high")) {
-				m_movementThreads = 12;
-			} else {
-				System.err.println("Server requires a settings parameter, e.g. java GameServer -medium 0");
-				System.exit(0);
-			}
-			if(args.length > 1 && args[1] != null) {
-				m_maxPlayers = Integer.parseInt(args[1]);
-				if(m_maxPlayers == 0)
-					m_maxPlayers = 99999;
-			} else {
-				System.err.println("WARNING: No maximum player count provided. Will default to 500 players.");
-				m_maxPlayers = 500;
-			}
-			/*
-			 * Create the server gui
-			 */
-			@SuppressWarnings("unused")
-			GameServer gs;
-			if(args.length < 3){
-				m_boolGui = true;
-				gs = new GameServer();
-			}
-			else{
-				m_boolGui = false;
-				gs = new GameServer();
-			}
-		} else {
-			System.err.println("Server requires a settings parameter, e.g. java GameServer -medium -0");
-			System.err.println("To start without a gui, run: java GameServer -medium -0 -nogui");
+			
+			CommandLineParser parser = new GnuParser();
+		    try {
+		        // parse the command line arguments
+		        CommandLine line = parser.parse( options, args );
+		        
+		        /*
+				 * The following sets the server's settings based on the
+				 * computing ability of the server specified by the server owner.
+				 */
+		        if( line.hasOption( "settings" ) ) {
+		        	String settings = line.getOptionValue( "settings" );
+		        	if(settings.equalsIgnoreCase("low")) {
+						m_movementThreads = 4;
+					} else if(settings.equalsIgnoreCase("medium")) {
+						m_movementThreads = 8;
+					} else if(settings.equalsIgnoreCase("high")) {
+						m_movementThreads = 12;
+					} else {
+						System.err.println("Server requires a settings parameter");
+						HelpFormatter formatter = new HelpFormatter();
+				        formatter.printHelp( "java GameServer [param] <args>", options );
+						System.exit(0);
+					}
+		        }else{
+		        	System.err.println("Server requires a settings parameter");
+		        	HelpFormatter formatter = new HelpFormatter();
+			        formatter.printHelp( "java GameServer [param] <args>", options );
+					System.exit(0);
+		        }
+		        
+		        if(line.hasOption("players")) {
+					m_maxPlayers = Integer.parseInt(line.getOptionValue( "players" ));
+					if(m_maxPlayers == 0 || m_maxPlayers == -1)
+						m_maxPlayers = 99999;
+				} else {
+					System.err.println("WARNING: No maximum player count provided. Will default to 500 players.");
+					m_maxPlayers = 500;
+				}
+		        
+		        if(line.hasOption("help")){
+		        	HelpFormatter formatter = new HelpFormatter();
+					System.err.println("Server requires a settings parameter");
+			        formatter.printHelp( "java GameServer [param] <args>", options );
+		        }
+		        
+		        /*
+				 * Create the server gui
+				 */
+				@SuppressWarnings("unused")
+		        GameServer gs;
+		        if(line.hasOption("nogui")){
+					m_boolGui = false;
+						if(line.hasOption("autorun"))
+							gs = new GameServer(true);
+						else
+							gs = new GameServer(false);
+				}else{
+					m_boolGui = true;
+					gs = new GameServer(false);
+				}
+		    }
+		    catch( ParseException exp ) {
+		        // oops, something went wrong
+		        System.err.println( "Parsing failed.  Reason: " + exp.getMessage() );
+		     // automatically generate the help statement
+		        HelpFormatter formatter = new HelpFormatter();
+		        formatter.printHelp( "java GameServer [param] <args>", options );
+		    }
+
+		}else{
+			// automatically generate the help statement
+			HelpFormatter formatter = new HelpFormatter();
+			System.err.println("Server requires a settings parameter");
+	        formatter.printHelp( "java GameServer [param] <args>", options );
 		}
 	}
 	
