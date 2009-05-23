@@ -1789,9 +1789,9 @@ public class Pokemon extends PokemonSpecies {
         m_evasion = new StatMultiplier(true);
         m_statuses = new ArrayList<StatusEffect>();
         m_movesLearning = new ArrayList<String>();
-        m_pp = new int[4];
+       /* m_pp = new int[4];
         m_maxPp = new int[4];
-        m_ppUp = new int[4];
+        m_ppUp = new int[4];*/
 	}
 	
 
