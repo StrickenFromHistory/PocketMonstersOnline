@@ -20,7 +20,7 @@ public class Player {
 	protected Direction m_direction = Direction.Down;
 	protected boolean m_isAnimating = false;
 	//Handles animating footsteps
-	protected boolean m_leftOrRight = false;
+	public boolean m_leftOrRight = false;
 	protected Image m_currentImage;
 	protected boolean m_ours = false;
 	
@@ -35,9 +35,6 @@ public class Player {
 	 */
 	public void moveRight() {
 		m_svrX += 32;
-		m_direction = Direction.Right;
-		m_leftOrRight = !m_leftOrRight;
-		m_currentImage = Player.getSpriteFactory().getSprite(Direction.Right, true, m_leftOrRight, m_sprite);
 		m_isAnimating = true;
 	}
 	
@@ -46,9 +43,6 @@ public class Player {
 	 */
 	public void moveLeft() {
 		m_svrX -= 32;
-		m_direction = Direction.Left;
-		m_leftOrRight = !m_leftOrRight;
-		m_currentImage = Player.getSpriteFactory().getSprite(Direction.Left, true, m_leftOrRight, m_sprite);
 		m_isAnimating = true;
 	}
 	
@@ -57,9 +51,6 @@ public class Player {
 	 */
 	public void moveDown() {
 		m_svrY += 32;
-		m_direction = Direction.Down;
-		m_leftOrRight = !m_leftOrRight;
-		m_currentImage = Player.getSpriteFactory().getSprite(Direction.Down, true, m_leftOrRight, m_sprite);
 		m_isAnimating = true;
 	}
 	
@@ -68,9 +59,6 @@ public class Player {
 	 */
 	public void moveUp() {
 		m_svrY -= 32;
-		m_direction = Direction.Up;
-		m_leftOrRight = !m_leftOrRight;
-		m_currentImage = Player.getSpriteFactory().getSprite(Direction.Up, true, m_leftOrRight, m_sprite);
 		m_isAnimating = true;
 	}
 	
