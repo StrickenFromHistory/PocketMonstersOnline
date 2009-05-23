@@ -6,7 +6,7 @@
       </entry>
       <entry>
          <string>Regigigas</string>
-         <string length="2">Slow Start</string>
+         <string length="1">Slow Start</string>
       </entry>
       <entry>
          <string>Tentacruel</string>
@@ -14,7 +14,7 @@
       </entry>
       <entry>
          <string>Regirock</string>
-         <string length="2">Clear Body</string>
+         <string length="1">Clear Body</string>
       </entry>
       <entry>
          <string>Hoothoot</string>
@@ -22,27 +22,27 @@
       </entry>
       <entry>
          <string>Jigglypuff</string>
-         <string length="2">Cute Charm</string>
+         <string length="1">Cute Charm</string>
       </entry>
       <entry>
          <string>Gloom</string>
-         <string length="2">Chlorophyll</string>
+         <string length="1">Chlorophyll</string>
       </entry>
       <entry>
          <string>Vaporeon</string>
-         <string length="2">Water Absorb</string>
+         <string length="1">Water Absorb</string>
       </entry>
       <entry>
          <string>Kecleon</string>
-         <string length="2">Color Change</string>
+         <string length="1">Color Change</string>
       </entry>
       <entry>
          <string>Burmy</string>
-         <string length="2">Shed Skin</string>
+         <string length="1">Shed Skin</string>
       </entry>
       <entry>
          <string>Oddish</string>
-         <string length="2">Chlorophyll</string>
+         <string length="1">Chlorophyll</string>
       </entry>
       <entry>
          <string>Omanyte</string>
@@ -50,11 +50,11 @@
       </entry>
       <entry>
          <string>Weavile</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Forretress</string>
-         <string length="2">Sturdy</string>
+         <string length="1">Sturdy</string>
       </entry>
       <entry>
          <string>Gliscor</string>
@@ -62,11 +62,11 @@
       </entry>
       <entry>
          <string>Magby</string>
-         <string length="2">Flame Body</string>
+         <string length="1">Flame Body</string>
       </entry>
       <entry>
          <string>Gastly</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Azurill</string>
@@ -82,11 +82,11 @@
       </entry>
       <entry>
          <string>Hippowdon</string>
-         <string length="2">Sand Stream</string>
+         <string length="1">Sand Stream</string>
       </entry>
       <entry>
          <string>Vulpix</string>
-         <string length="2">Flash Fire</string>
+         <string length="1">Flash Fire</string>
       </entry>
       <entry>
          <string>Mankey</string>
@@ -98,11 +98,11 @@
       </entry>
       <entry>
          <string>Ninjask</string>
-         <string length="2">Speed Boost</string>
+         <string length="1">Speed Boost</string>
       </entry>
       <entry>
          <string>Seviper</string>
-         <string length="2">Shed Skin</string>
+         <string length="1">Shed Skin</string>
       </entry>
       <entry>
          <string>Nidoqueen</string>
@@ -114,7 +114,7 @@
       </entry>
       <entry>
          <string>Azelf</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Golduck</string>
@@ -122,15 +122,15 @@
       </entry>
       <entry>
          <string>Staravia</string>
-         <string length="2">Intimidate</string>
+         <string length="1">Intimidate</string>
       </entry>
       <entry>
          <string>Marshtomp</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Vespiquen</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Seedot</string>
@@ -138,7 +138,7 @@
       </entry>
       <entry>
          <string>Exeggutor</string>
-         <string length="2">Chlorophyll</string>
+         <string length="1">Chlorophyll</string>
       </entry>
       <entry>
          <string>Kadabra</string>
@@ -150,7 +150,7 @@
       </entry>
       <entry>
          <string>Deoxys</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Clefable</string>
@@ -166,7 +166,7 @@
       </entry>
       <entry>
          <string>Gallade</string>
-         <string length="2">Steadfast</string>
+         <string length="1">Steadfast</string>
       </entry>
       <entry>
          <string>Pinsir</string>
@@ -178,11 +178,11 @@
       </entry>
       <entry>
          <string>Salamence</string>
-         <string length="2">Intimidate</string>
+         <string length="1">Intimidate</string>
       </entry>
       <entry>
          <string>Torchic</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Dunsparce</string>
@@ -190,11 +190,11 @@
       </entry>
       <entry>
          <string>Sandshrew</string>
-         <string length="2">Sand Veil</string>
+         <string length="1">Sand Veil</string>
       </entry>
       <entry>
          <string>Bulbasaur</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Roserade</string>
@@ -202,7 +202,7 @@
       </entry>
       <entry>
          <string>Chimecho</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Lairon</string>
@@ -210,7 +210,7 @@
       </entry>
       <entry>
          <string>Charizard</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Cubone</string>
@@ -226,7 +226,7 @@
       </entry>
       <entry>
          <string>Raichu</string>
-         <string length="2">Static</string>
+         <string length="1">Static</string>
       </entry>
       <entry>
          <string>Tentacool</string>
@@ -234,11 +234,11 @@
       </entry>
       <entry>
          <string>Cacturne</string>
-         <string length="2">Sand Veil</string>
+         <string length="1">Sand Veil</string>
       </entry>
       <entry>
          <string>Gabite</string>
-         <string length="2">Sand Veil</string>
+         <string length="1">Sand Veil</string>
       </entry>
       <entry>
          <string>Glameow</string>
@@ -246,15 +246,15 @@
       </entry>
       <entry>
          <string>Squirtle</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Magmortar</string>
-         <string length="2">Flame Body</string>
+         <string length="1">Flame Body</string>
       </entry>
       <entry>
          <string>Arceus</string>
-         <string length="2">Multitype</string>
+         <string length="1">Multitype</string>
       </entry>
       <entry>
          <string>Makuhita</string>
@@ -266,15 +266,15 @@
       </entry>
       <entry>
          <string>Staraptor</string>
-         <string length="2">Intimidate</string>
+         <string length="1">Intimidate</string>
       </entry>
       <entry>
          <string>Darkrai</string>
-         <string length="2">Bad Dreams</string>
+         <string length="1">Bad Dreams</string>
       </entry>
       <entry>
          <string>Cresselia</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Drifblim</string>
@@ -282,15 +282,15 @@
       </entry>
       <entry>
          <string>Combee</string>
-         <string length="2">Honey Gather</string>
+         <string length="1">Honey Gather</string>
       </entry>
       <entry>
          <string>Kricketot</string>
-         <string length="2">Shed Skin</string>
+         <string length="1">Shed Skin</string>
       </entry>
       <entry>
          <string>Nincada</string>
-         <string length="2">Compoundeyes</string>
+         <string length="1">Compoundeyes</string>
       </entry>
       <entry>
          <string>Porygon</string>
@@ -302,15 +302,15 @@
       </entry>
       <entry>
          <string>Fearow</string>
-         <string length="2">Keen Eye</string>
+         <string length="1">Keen Eye</string>
       </entry>
       <entry>
          <string>Mismagius</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Floatzel</string>
-         <string length="2">Swift Swim</string>
+         <string length="1">Swift Swim</string>
       </entry>
       <entry>
          <string>Cloyster</string>
@@ -318,15 +318,15 @@
       </entry>
       <entry>
          <string>Dustox</string>
-         <string length="2">Shield Dust</string>
+         <string length="1">Shield Dust</string>
       </entry>
       <entry>
          <string>Bagon</string>
-         <string length="2">Rock Head</string>
+         <string length="1">Rock Head</string>
       </entry>
       <entry>
          <string>Palkia</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Porygon2</string>
@@ -334,23 +334,23 @@
       </entry>
       <entry>
          <string>Treecko</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Venusaur</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Slakoth</string>
-         <string length="2">Truant</string>
+         <string length="1">Truant</string>
       </entry>
       <entry>
          <string>Jirachi</string>
-         <string length="2">Serene Grace</string>
+         <string length="1">Serene Grace</string>
       </entry>
       <entry>
          <string>Froslass</string>
-         <string length="2">Snow Cloak</string>
+         <string length="1">Snow Cloak</string>
       </entry>
       <entry>
          <string>Xatu</string>
@@ -362,7 +362,7 @@
       </entry>
       <entry>
          <string>Bayleef</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Houndoom</string>
@@ -370,7 +370,7 @@
       </entry>
       <entry>
          <string>Exeggcute</string>
-         <string length="2">Chlorophyll</string>
+         <string length="1">Chlorophyll</string>
       </entry>
       <entry>
          <string>Horsea</string>
@@ -394,7 +394,7 @@
       </entry>
       <entry>
          <string>Cranidos</string>
-         <string length="2">Mold Breaker</string>
+         <string length="1">Mold Breaker</string>
       </entry>
       <entry>
          <string>Growlithe</string>
@@ -406,19 +406,19 @@
       </entry>
       <entry>
          <string>Ninetales</string>
-         <string length="2">Flash Fire</string>
+         <string length="1">Flash Fire</string>
       </entry>
       <entry>
          <string>Blastoise</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Swampert</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Koffing</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Magneton</string>
@@ -438,15 +438,15 @@
       </entry>
       <entry>
          <string>Buizel</string>
-         <string length="2">Swift Swim</string>
+         <string length="1">Swift Swim</string>
       </entry>
       <entry>
          <string>Manaphy</string>
-         <string length="2">Hydration</string>
+         <string length="1">Hydration</string>
       </entry>
       <entry>
          <string>Weedle</string>
-         <string length="2">Shield Dust</string>
+         <string length="1">Shield Dust</string>
       </entry>
       <entry>
          <string>Blissey</string>
@@ -454,27 +454,27 @@
       </entry>
       <entry>
          <string>Silcoon</string>
-         <string length="2">Shed Skin</string>
+         <string length="1">Shed Skin</string>
       </entry>
       <entry>
          <string>Spearow</string>
-         <string length="2">Keen Eye</string>
+         <string length="1">Keen Eye</string>
       </entry>
       <entry>
          <string>Cascoon</string>
-         <string length="2">Shed Skin</string>
+         <string length="1">Shed Skin</string>
       </entry>
       <entry>
          <string>Luvdisc</string>
-         <string length="2">Swift Swim</string>
+         <string length="1">Swift Swim</string>
       </entry>
       <entry>
          <string>Infernape</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Espeon</string>
-         <string length="2">Synchronize</string>
+         <string length="1">Synchronize</string>
       </entry>
       <entry>
          <string>Porygonz</string>
@@ -490,15 +490,15 @@
       </entry>
       <entry>
          <string>Blaziken</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Plusle</string>
-         <string length="2">Plus</string>
+         <string length="1">Plus</string>
       </entry>
       <entry>
          <string>Mudkip</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Jynx</string>
@@ -514,11 +514,11 @@
       </entry>
       <entry>
          <string>Gible</string>
-         <string length="2">Sand Veil</string>
+         <string length="1">Sand Veil</string>
       </entry>
       <entry>
          <string>Vibrava</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Bronzor</string>
@@ -530,19 +530,19 @@
       </entry>
       <entry>
          <string>Rayquaza</string>
-         <string length="2">Air Lock</string>
+         <string length="1">Air Lock</string>
       </entry>
       <entry>
          <string>Vigoroth</string>
-         <string length="2">Vital Spirit</string>
+         <string length="1">Vital Spirit</string>
       </entry>
       <entry>
          <string>Cacnea</string>
-         <string length="2">Sand Veil</string>
+         <string length="1">Sand Veil</string>
       </entry>
       <entry>
          <string>Whismur</string>
-         <string length="2">Soundproof</string>
+         <string length="1">Soundproof</string>
       </entry>
       <entry>
          <string>Lombre</string>
@@ -554,11 +554,11 @@
       </entry>
       <entry>
          <string>Monferno</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Rampardos</string>
-         <string length="2">Mold Breaker</string>
+         <string length="1">Mold Breaker</string>
       </entry>
       <entry>
          <string>Pidgeot</string>
@@ -566,23 +566,23 @@
       </entry>
       <entry>
          <string>Unown</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Clamperl</string>
-         <string length="2">Shell Armor</string>
+         <string length="1">Shell Armor</string>
       </entry>
       <entry>
          <string>Crobat</string>
-         <string length="2">Inner Focus</string>
+         <string length="1">Inner Focus</string>
       </entry>
       <entry>
          <string>Deoxys-l</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Magmar</string>
-         <string length="2">Flame Body</string>
+         <string length="1">Flame Body</string>
       </entry>
       <entry>
          <string>Wooper</string>
@@ -598,7 +598,7 @@
       </entry>
       <entry>
          <string>Wartortle</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Venonat</string>
@@ -610,11 +610,11 @@
       </entry>
       <entry>
          <string>Mew</string>
-         <string length="2">Synchronize</string>
+         <string length="1">Synchronize</string>
       </entry>
       <entry>
          <string>Charmander</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Poliwhirl</string>
@@ -634,7 +634,7 @@
       </entry>
       <entry>
          <string>Chikorita</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Riolu</string>
@@ -650,7 +650,7 @@
       </entry>
       <entry>
          <string>Loudred</string>
-         <string length="2">Soundproof</string>
+         <string length="1">Soundproof</string>
       </entry>
       <entry>
          <string>Illumise</string>
@@ -658,11 +658,11 @@
       </entry>
       <entry>
          <string>Wurmple</string>
-         <string length="2">Shield Dust</string>
+         <string length="1">Shield Dust</string>
       </entry>
       <entry>
          <string>Ho-oh</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Wailord</string>
@@ -670,23 +670,23 @@
       </entry>
       <entry>
          <string>Dusknoir</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Articuno</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Deoxys-e</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Golbat</string>
-         <string length="2">Inner Focus</string>
+         <string length="1">Inner Focus</string>
       </entry>
       <entry>
          <string>Deoxys-f</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Persian</string>
@@ -694,11 +694,11 @@
       </entry>
       <entry>
          <string>Duskull</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Feebas</string>
-         <string length="2">Swift Swim</string>
+         <string length="1">Swift Swim</string>
       </entry>
       <entry>
          <string>Abra</string>
@@ -706,7 +706,7 @@
       </entry>
       <entry>
          <string>Chingling</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Gastrodon</string>
@@ -714,7 +714,7 @@
       </entry>
       <entry>
          <string>Turtwig</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Scyther</string>
@@ -726,7 +726,7 @@
       </entry>
       <entry>
          <string>Flaaffy</string>
-         <string length="2">Static</string>
+         <string length="1">Static</string>
       </entry>
       <entry>
          <string>Honchkrow</string>
@@ -738,11 +738,11 @@
       </entry>
       <entry>
          <string>Starly</string>
-         <string length="2">Keen Eye</string>
+         <string length="1">Keen Eye</string>
       </entry>
       <entry>
          <string>Swellow</string>
-         <string length="2">Guts</string>
+         <string length="1">Guts</string>
       </entry>
       <entry>
          <string>Mr. Mime</string>
@@ -750,7 +750,7 @@
       </entry>
       <entry>
          <string>Minun</string>
-         <string length="2">Minus</string>
+         <string length="1">Minus</string>
       </entry>
       <entry>
          <string>Budew</string>
@@ -758,23 +758,23 @@
       </entry>
       <entry>
          <string>Phione</string>
-         <string length="2">Hydration</string>
+         <string length="1">Hydration</string>
       </entry>
       <entry>
          <string>Hippopotas</string>
-         <string length="2">Sand Stream</string>
+         <string length="1">Sand Stream</string>
       </entry>
       <entry>
          <string>Latios</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Mesprit</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Gorebyss</string>
-         <string length="2">Swift Swim</string>
+         <string length="1">Swift Swim</string>
       </entry>
       <entry>
          <string>Wailmer</string>
@@ -782,27 +782,27 @@
       </entry>
       <entry>
          <string>Flareon</string>
-         <string length="2">Flash Fire</string>
+         <string length="1">Flash Fire</string>
       </entry>
       <entry>
          <string>Gyarados</string>
-         <string length="2">Intimidate</string>
+         <string length="1">Intimidate</string>
       </entry>
       <entry>
          <string>Wobbuffet</string>
-         <string length="2">Shadow Tag</string>
+         <string length="1">Shadow Tag</string>
       </entry>
       <entry>
          <string>Bellsprout</string>
-         <string length="2">Chlorophyll</string>
+         <string length="1">Chlorophyll</string>
       </entry>
       <entry>
          <string>Wormadam-g</string>
-         <string length="2">Anticipation</string>
+         <string length="1">Anticipation</string>
       </entry>
       <entry>
          <string>Swablu</string>
-         <string length="2">Natural Cure</string>
+         <string length="1">Natural Cure</string>
       </entry>
       <entry>
          <string>Dodrio</string>
@@ -810,7 +810,7 @@
       </entry>
       <entry>
          <string>Mothim</string>
-         <string length="2">Swarm</string>
+         <string length="1">Swarm</string>
       </entry>
       <entry>
          <string>Slowbro</string>
@@ -818,11 +818,11 @@
       </entry>
       <entry>
          <string>Chimchar</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Anorith</string>
-         <string length="2">Battle Armor</string>
+         <string length="1">Battle Armor</string>
       </entry>
       <entry>
          <string>Lanturn</string>
@@ -834,15 +834,15 @@
       </entry>
       <entry>
          <string>Larvitar</string>
-         <string length="2">Guts</string>
+         <string length="1">Guts</string>
       </entry>
       <entry>
          <string>Wormadam-s</string>
-         <string length="2">Anticipation</string>
+         <string length="1">Anticipation</string>
       </entry>
       <entry>
          <string>Carnivine</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Zigzagoon</string>
@@ -854,11 +854,11 @@
       </entry>
       <entry>
          <string>Masquerain</string>
-         <string length="2">Intimidate</string>
+         <string length="1">Intimidate</string>
       </entry>
       <entry>
          <string>Baltoy</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Rhyperior</string>
@@ -870,7 +870,7 @@
       </entry>
       <entry>
          <string>Abomasnow</string>
-         <string length="2">Snow Warning</string>
+         <string length="1">Snow Warning</string>
       </entry>
       <entry>
          <string>Krabby</string>
@@ -886,7 +886,7 @@
       </entry>
       <entry>
          <string>Metagross</string>
-         <string length="2">Clear Body</string>
+         <string length="1">Clear Body</string>
       </entry>
       <entry>
          <string>Seadra</string>
@@ -898,7 +898,7 @@
       </entry>
       <entry>
          <string>Pineco</string>
-         <string length="2">Sturdy</string>
+         <string length="1">Sturdy</string>
       </entry>
       <entry>
          <string>Shroomish</string>
@@ -906,11 +906,11 @@
       </entry>
       <entry>
          <string>Grotle</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Grovyle</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Shiftry</string>
@@ -930,11 +930,11 @@
       </entry>
       <entry>
          <string>Umbreon</string>
-         <string length="2">Synchronize</string>
+         <string length="1">Synchronize</string>
       </entry>
       <entry>
          <string>Caterpie</string>
-         <string length="2">Shield Dust</string>
+         <string length="1">Shield Dust</string>
       </entry>
       <entry>
          <string>Granbull</string>
@@ -954,7 +954,7 @@
       </entry>
       <entry>
          <string>Glaceon</string>
-         <string length="2">Snow Cloak</string>
+         <string length="1">Snow Cloak</string>
       </entry>
       <entry>
          <string>Bonsly</string>
@@ -962,19 +962,19 @@
       </entry>
       <entry>
          <string>Leafeon</string>
-         <string length="2">Leaf Guard</string>
+         <string length="1">Leaf Guard</string>
       </entry>
       <entry>
          <string>Shaymin</string>
-         <string length="2">Natural Cure</string>
+         <string length="1">Natural Cure</string>
       </entry>
       <entry>
          <string>Raikou</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Wingull</string>
-         <string length="2">Keen Eye</string>
+         <string length="1">Keen Eye</string>
       </entry>
       <entry>
          <string>Skuntank</string>
@@ -986,11 +986,11 @@
       </entry>
       <entry>
          <string>Zangoose</string>
-         <string length="2">Immunity</string>
+         <string length="1">Immunity</string>
       </entry>
       <entry>
          <string>Lunatone</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Golem</string>
@@ -998,11 +998,11 @@
       </entry>
       <entry>
          <string>Elekid</string>
-         <string length="2">Static</string>
+         <string length="1">Static</string>
       </entry>
       <entry>
          <string>Beldum</string>
-         <string length="2">Clear Body</string>
+         <string length="1">Clear Body</string>
       </entry>
       <entry>
          <string>Drifloon</string>
@@ -1026,7 +1026,7 @@
       </entry>
       <entry>
          <string>Dialga</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Mantyke</string>
@@ -1034,27 +1034,27 @@
       </entry>
       <entry>
          <string>Slaking</string>
-         <string length="2">Truant</string>
+         <string length="1">Truant</string>
       </entry>
       <entry>
          <string>Bidoof</string>
-         <string length="2"></string>
+         <string length="2">Simple, Unaware</string>
       </entry>
       <entry>
          <string>Torterra</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Carvanha</string>
-         <string length="2">Rough Skin</string>
+         <string length="1">Rough Skin</string>
       </entry>
       <entry>
          <string>Donphan</string>
-         <string length="2">Sturdy</string>
+         <string length="1">Sturdy</string>
       </entry>
       <entry>
          <string>Cyndaquil</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Doduo</string>
@@ -1066,19 +1066,19 @@
       </entry>
       <entry>
          <string>Lileep</string>
-         <string length="2">Suction Cups</string>
+         <string length="1">Suction Cups</string>
       </entry>
       <entry>
          <string>Pelipper</string>
-         <string length="2">Keen Eye</string>
+         <string length="1">Keen Eye</string>
       </entry>
       <entry>
          <string>Cherubi</string>
-         <string length="2">Chlorophyll</string>
+         <string length="1">Chlorophyll</string>
       </entry>
       <entry>
          <string>Dusclops</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Geodude</string>
@@ -1094,23 +1094,23 @@
       </entry>
       <entry>
          <string>Heatran</string>
-         <string length="2">Flash Fire</string>
+         <string length="1">Flash Fire</string>
       </entry>
       <entry>
          <string>Victreebel</string>
-         <string length="2">Chlorophyll</string>
+         <string length="1">Chlorophyll</string>
       </entry>
       <entry>
          <string>Groudon</string>
-         <string length="2">Drought</string>
+         <string length="1">Drought</string>
       </entry>
       <entry>
          <string>Meganium</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Pichu</string>
-         <string length="2">Static</string>
+         <string length="1">Static</string>
       </entry>
       <entry>
          <string>Swinub</string>
@@ -1122,11 +1122,11 @@
       </entry>
       <entry>
          <string>Electivire</string>
-         <string length="2">Motor Drive</string>
+         <string length="1">Motor Drive</string>
       </entry>
       <entry>
          <string>Beedrill</string>
-         <string length="2">Swarm</string>
+         <string length="1">Swarm</string>
       </entry>
       <entry>
          <string>Marill</string>
@@ -1142,7 +1142,7 @@
       </entry>
       <entry>
          <string>Registeel</string>
-         <string length="2">Clear Body</string>
+         <string length="1">Clear Body</string>
       </entry>
       <entry>
          <string>Lumineon</string>
@@ -1162,7 +1162,7 @@
       </entry>
       <entry>
          <string>Meditite</string>
-         <string length="2">Pure Power</string>
+         <string length="1">Pure Power</string>
       </entry>
       <entry>
          <string>Ambipom</string>
@@ -1178,7 +1178,7 @@
       </entry>
       <entry>
          <string>Taillow</string>
-         <string length="2">Guts</string>
+         <string length="1">Guts</string>
       </entry>
       <entry>
          <string>Pachirisu</string>
@@ -1190,7 +1190,7 @@
       </entry>
       <entry>
          <string>Medicham</string>
-         <string length="2">Pure Power</string>
+         <string length="1">Pure Power</string>
       </entry>
       <entry>
          <string>Aipom</string>
@@ -1202,7 +1202,7 @@
       </entry>
       <entry>
          <string>Claydol</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Nosepass</string>
@@ -1210,7 +1210,7 @@
       </entry>
       <entry>
          <string>Suicune</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Dugtrio</string>
@@ -1222,7 +1222,7 @@
       </entry>
       <entry>
          <string>Combusken</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Aggron</string>
@@ -1230,7 +1230,7 @@
       </entry>
       <entry>
          <string>Uxie</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Seel</string>
@@ -1238,7 +1238,7 @@
       </entry>
       <entry>
          <string>Pikachu</string>
-         <string length="2">Static</string>
+         <string length="1">Static</string>
       </entry>
       <entry>
          <string>Shellder</string>
@@ -1250,7 +1250,7 @@
       </entry>
       <entry>
          <string>Rotom</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Poochyena</string>
@@ -1262,11 +1262,11 @@
       </entry>
       <entry>
          <string>Prinplup</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Moltres</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Rhyhorn</string>
@@ -1290,7 +1290,7 @@
       </entry>
       <entry>
          <string>Phanpy</string>
-         <string length="2">Pickup</string>
+         <string length="1">Pickup</string>
       </entry>
       <entry>
          <string>Toxicroak</string>
@@ -1302,11 +1302,11 @@
       </entry>
       <entry>
          <string>Regice</string>
-         <string length="2">Clear Body</string>
+         <string length="1">Clear Body</string>
       </entry>
       <entry>
          <string>Wigglytuff</string>
-         <string length="2">Cute Charm</string>
+         <string length="1">Cute Charm</string>
       </entry>
       <entry>
          <string>Nidorino</string>
@@ -1318,11 +1318,11 @@
       </entry>
       <entry>
          <string>Wynaut</string>
-         <string length="2">Shadow Tag</string>
+         <string length="1">Shadow Tag</string>
       </entry>
       <entry>
          <string>Dragonite</string>
-         <string length="2">Inner Focus</string>
+         <string length="1">Inner Focus</string>
       </entry>
       <entry>
          <string>Skorupi</string>
@@ -1330,7 +1330,7 @@
       </entry>
       <entry>
          <string>Cradily</string>
-         <string length="2">Suction Cups</string>
+         <string length="1">Suction Cups</string>
       </entry>
       <entry>
          <string>Tangela</string>
@@ -1342,11 +1342,11 @@
       </entry>
       <entry>
          <string>Croconaw</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Sableye</string>
-         <string length="2">Keen Eye</string>
+         <string length="2">Keen Eye, Stall</string>
       </entry>
       <entry>
          <string>Snorunt</string>
@@ -1362,11 +1362,11 @@
       </entry>
       <entry>
          <string>Igglybuff</string>
-         <string length="2">Cute Charm</string>
+         <string length="1">Cute Charm</string>
       </entry>
       <entry>
          <string>Zubat</string>
-         <string length="2">Inner Focus</string>
+         <string length="1">Inner Focus</string>
       </entry>
       <entry>
          <string>Primeape</string>
@@ -1378,7 +1378,7 @@
       </entry>
       <entry>
          <string>Wormadam</string>
-         <string length="2">Anticipation</string>
+         <string length="1">Anticipation</string>
       </entry>
       <entry>
          <string>Roselia</string>
@@ -1390,11 +1390,11 @@
       </entry>
       <entry>
          <string>Metapod</string>
-         <string length="2">Shed Skin</string>
+         <string length="1">Shed Skin</string>
       </entry>
       <entry>
          <string>Beautifly</string>
-         <string length="2">Swarm</string>
+         <string length="1">Swarm</string>
       </entry>
       <entry>
          <string>Stantler</string>
@@ -1406,7 +1406,7 @@
       </entry>
       <entry>
          <string>Kricketune</string>
-         <string length="2">Swarm</string>
+         <string length="1">Swarm</string>
       </entry>
       <entry>
          <string>Lickitung</string>
@@ -1414,7 +1414,7 @@
       </entry>
       <entry>
          <string>Altaria</string>
-         <string length="2">Natural Cure</string>
+         <string length="1">Natural Cure</string>
       </entry>
       <entry>
          <string>Hitmontop</string>
@@ -1422,23 +1422,23 @@
       </entry>
       <entry>
          <string>Bellossom</string>
-         <string length="2">Chlorophyll</string>
+         <string length="1">Chlorophyll</string>
       </entry>
       <entry>
          <string>Ditto</string>
-         <string length="2">Limber</string>
+         <string length="1">Limber</string>
       </entry>
       <entry>
          <string>Magikarp</string>
-         <string length="2">Swift Swim</string>
+         <string length="1">Swift Swim</string>
       </entry>
       <entry>
          <string>Spiritomb</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Electabuzz</string>
-         <string length="2">Static</string>
+         <string length="1">Static</string>
       </entry>
       <entry>
          <string>Luxray</string>
@@ -1470,7 +1470,7 @@
       </entry>
       <entry>
          <string>Charmeleon</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Aron</string>
@@ -1482,7 +1482,7 @@
       </entry>
       <entry>
          <string>Surskit</string>
-         <string length="2">Swift Swim</string>
+         <string length="1">Swift Swim</string>
       </entry>
       <entry>
          <string>Munchlax</string>
@@ -1490,11 +1490,11 @@
       </entry>
       <entry>
          <string>Celebi</string>
-         <string length="2">Natural Cure</string>
+         <string length="1">Natural Cure</string>
       </entry>
       <entry>
          <string>Numel</string>
-         <string length="2">Oblivious</string>
+         <string length="2">Oblivious, Simple</string>
       </entry>
       <entry>
          <string>Camerupt</string>
@@ -1514,11 +1514,11 @@
       </entry>
       <entry>
          <string>Gengar</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Misdreavus</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Spinda</string>
@@ -1526,7 +1526,7 @@
       </entry>
       <entry>
          <string>Butterfree</string>
-         <string length="2">Compoundeyes</string>
+         <string length="1">Compoundeyes</string>
       </entry>
       <entry>
          <string>Hitmonchan</string>
@@ -1538,7 +1538,7 @@
       </entry>
       <entry>
          <string>Piplup</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Swalot</string>
@@ -1558,7 +1558,7 @@
       </entry>
       <entry>
          <string>Mewtwo</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Heracross</string>
@@ -1574,7 +1574,7 @@
       </entry>
       <entry>
          <string>Dratini</string>
-         <string length="2">Shed Skin</string>
+         <string length="1">Shed Skin</string>
       </entry>
       <entry>
          <string>Onix</string>
@@ -1586,7 +1586,7 @@
       </entry>
       <entry>
          <string>Feraligatr</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Graveler</string>
@@ -1594,7 +1594,7 @@
       </entry>
       <entry>
          <string>Pupitar</string>
-         <string length="2">Shed Skin</string>
+         <string length="1">Shed Skin</string>
       </entry>
       <entry>
          <string>Sentret</string>
@@ -1606,11 +1606,11 @@
       </entry>
       <entry>
          <string>Latias</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Quilava</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Snorlax</string>
@@ -1630,11 +1630,11 @@
       </entry>
       <entry>
          <string>Flygon</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Sandslash</string>
-         <string length="2">Sand Veil</string>
+         <string length="1">Sand Veil</string>
       </entry>
       <entry>
          <string>Kabuto</string>
@@ -1646,7 +1646,7 @@
       </entry>
       <entry>
          <string>Exploud</string>
-         <string length="2">Soundproof</string>
+         <string length="1">Soundproof</string>
       </entry>
       <entry>
          <string>Slowking</string>
@@ -1674,11 +1674,11 @@
       </entry>
       <entry>
          <string>Entei</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Castform</string>
-         <string length="2">Forecast</string>
+         <string length="1">Forecast</string>
       </entry>
       <entry>
          <string>Tauros</string>
@@ -1690,7 +1690,7 @@
       </entry>
       <entry>
          <string>Ivysaur</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Tropius</string>
@@ -1718,31 +1718,31 @@
       </entry>
       <entry>
          <string>Shedinja</string>
-         <string length="2">Wonder Guard</string>
+         <string length="1">Wonder Guard</string>
       </entry>
       <entry>
          <string>Sharpedo</string>
-         <string length="2">Rough Skin</string>
+         <string length="1">Rough Skin</string>
       </entry>
       <entry>
          <string>Jolteon</string>
-         <string length="2">Volt Absorb</string>
+         <string length="1">Volt Absorb</string>
       </entry>
       <entry>
          <string>Solrock</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Kyogre</string>
-         <string length="2">Drizzle</string>
+         <string length="1">Drizzle</string>
       </entry>
       <entry>
          <string>Haunter</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Kakuna</string>
-         <string length="2">Shed Skin</string>
+         <string length="1">Shed Skin</string>
       </entry>
       <entry>
          <string>Grimer</string>
@@ -1754,11 +1754,11 @@
       </entry>
       <entry>
          <string>Huntail</string>
-         <string length="2">Swift Swim</string>
+         <string length="1">Swift Swim</string>
       </entry>
       <entry>
          <string>Metang</string>
-         <string length="2">Clear Body</string>
+         <string length="1">Clear Body</string>
       </entry>
       <entry>
          <string>Hitmonlee</string>
@@ -1766,7 +1766,7 @@
       </entry>
       <entry>
          <string>Cherrim</string>
-         <string length="2">Flower Gift</string>
+         <string length="1">Flower Gift</string>
       </entry>
       <entry>
          <string>Delibird</string>
@@ -1774,7 +1774,7 @@
       </entry>
       <entry>
          <string>Ampharos</string>
-         <string length="2">Static</string>
+         <string length="1">Static</string>
       </entry>
       <entry>
          <string>Hoppip</string>
@@ -1782,7 +1782,7 @@
       </entry>
       <entry>
          <string>Lugia</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Venomoth</string>
@@ -1806,7 +1806,7 @@
       </entry>
       <entry>
          <string>Bibarel</string>
-         <string length="2"></string>
+         <string length="2">Simple, Unaware</string>
       </entry>
       <entry>
          <string>Drowzee</string>
@@ -1818,7 +1818,7 @@
       </entry>
       <entry>
          <string>Mareep</string>
-         <string length="2">Static</string>
+         <string length="1">Static</string>
       </entry>
       <entry>
          <string>Girafarig</string>
@@ -1830,15 +1830,15 @@
       </entry>
       <entry>
          <string>Vileplume</string>
-         <string length="2">Chlorophyll</string>
+         <string length="1">Chlorophyll</string>
       </entry>
       <entry>
          <string>Sceptile</string>
-         <string length="2">Overgrow</string>
+         <string length="1">Overgrow</string>
       </entry>
       <entry>
          <string>Typhlosion</string>
-         <string length="2">Blaze</string>
+         <string length="1">Blaze</string>
       </entry>
       <entry>
          <string>Chinchou</string>
@@ -1850,11 +1850,11 @@
       </entry>
       <entry>
          <string>Giratina</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
       <entry>
          <string>Totodile</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Starmie</string>
@@ -1866,7 +1866,7 @@
       </entry>
       <entry>
          <string>Armaldo</string>
-         <string length="2">Battle Armor</string>
+         <string length="1">Battle Armor</string>
       </entry>
       <entry>
          <string>Poliwrath</string>
@@ -1878,7 +1878,7 @@
       </entry>
       <entry>
          <string>Weezing</string>
-         <string length="2">Levitate</string>
+         <string length="1">Levitate</string>
       </entry>
       <entry>
          <string>Pidgeotto</string>
@@ -1886,19 +1886,19 @@
       </entry>
       <entry>
          <string>Snover</string>
-         <string length="2">Snow Warning</string>
+         <string length="1">Snow Warning</string>
       </entry>
       <entry>
          <string>Garchomp</string>
-         <string length="2">Sand Veil</string>
+         <string length="1">Sand Veil</string>
       </entry>
       <entry>
          <string>Tyranitar</string>
-         <string length="2">Sand Stream</string>
+         <string length="1">Sand Stream</string>
       </entry>
       <entry>
          <string>Weepinbell</string>
-         <string length="2">Chlorophyll</string>
+         <string length="1">Chlorophyll</string>
       </entry>
       <entry>
          <string>Goldeen</string>
@@ -1906,7 +1906,7 @@
       </entry>
       <entry>
          <string>Milotic</string>
-         <string length="2">Marvel Scale</string>
+         <string length="1">Marvel Scale</string>
       </entry>
       <entry>
          <string>Banette</string>
@@ -1922,7 +1922,7 @@
       </entry>
       <entry>
          <string>Shelgon</string>
-         <string length="2">Rock Head</string>
+         <string length="1">Rock Head</string>
       </entry>
       <entry>
          <string>Stunky</string>
@@ -1930,7 +1930,7 @@
       </entry>
       <entry>
          <string>Empoleon</string>
-         <string length="2">Torrent</string>
+         <string length="1">Torrent</string>
       </entry>
       <entry>
          <string>Luxio</string>
@@ -1942,7 +1942,7 @@
       </entry>
       <entry>
          <string>Dragonair</string>
-         <string length="2">Shed Skin</string>
+         <string length="1">Shed Skin</string>
       </entry>
       <entry>
          <string>Electrike</string>
@@ -1950,7 +1950,7 @@
       </entry>
       <entry>
          <string>Shieldon</string>
-         <string length="2">Sturdy</string>
+         <string length="1">Sturdy</string>
       </entry>
       <entry>
          <string>Togetic</string>
@@ -1958,7 +1958,7 @@
       </entry>
       <entry>
          <string>Torkoal</string>
-         <string length="2">White Smoke</string>
+         <string length="1">White Smoke</string>
       </entry>
       <entry>
          <string>Clefairy</string>
@@ -1974,7 +1974,7 @@
       </entry>
       <entry>
          <string>Bastiodon</string>
-         <string length="2">Sturdy</string>
+         <string length="1">Sturdy</string>
       </entry>
       <entry>
          <string>Diglett</string>
@@ -1990,7 +1990,7 @@
       </entry>
       <entry>
          <string>Zapdos</string>
-         <string length="2">Pressure</string>
+         <string length="1">Pressure</string>
       </entry>
    </m_abilities>
    <m_ablNames>
@@ -3987,9 +3987,30 @@
          <string length="1">Pressure</string>
       </entry>
    </m_ablNames>
-   <m_database length="498">
-      <pokemonSpecies>
+   <m_database length="499">
+   	<pokemonSpecies>
          <m_species>0</m_species>
+         <m_name>Missigno</m_name>
+         <m_base length="6">
+            <int>1</int>
+            <int>1</int>
+            <int>1</int>
+            <int>1</int>
+            <int>1</int>
+            <int>1</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>0</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>9</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>1</m_species>
          <m_name>Bulbasaur</m_name>
          <m_base length="6">
             <int>45</int>
@@ -4010,7 +4031,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>1</m_species>
+         <m_species>2</m_species>
          <m_name>Ivysaur</m_name>
          <m_base length="6">
             <int>60</int>
