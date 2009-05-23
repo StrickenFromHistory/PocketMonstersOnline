@@ -97,7 +97,7 @@ public class GameClient extends BasicGame {
 			}
 			m_soundPlayer = new SoundManager();
 			m_soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
-			m_soundPlayer.start();
+			/*m_soundPlayer.start();*/
 			m_soundPlayer.setTrack("introandgym");
 			m_instance = new GameClient("Pokenet: Fearless Feebas");
 		} catch (IOException e) { 
