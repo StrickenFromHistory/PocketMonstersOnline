@@ -1,6 +1,7 @@
 package org.pokenet.client.backend;
 
 import org.pokenet.client.backend.entity.Player;
+import org.pokenet.client.backend.entity.Player.Direction;
 
 public class Animator {
 	private ClientMapMatrix m_mapMatrix;
@@ -55,12 +56,32 @@ public class Animator {
 		 * Move the player
 		 */
 		if (p.getX() > p.getServerX()) {
+			if(p.getX() % 32 == 0) {
+				p.setDirection(Direction.Left);
+				p.m_leftOrRight = !p.m_leftOrRight;
+				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), true, p.m_leftOrRight, p.getSprite()));
+			}
 			p.setX(p.getX() - ANIMATION_INCREMENT);
 		} else if (p.getX() < p.getServerX()) {
+			if(p.getX() % 32 == 0) {
+				p.setDirection(Direction.Right);
+				p.m_leftOrRight = !p.m_leftOrRight;
+				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), true, p.m_leftOrRight, p.getSprite()));
+			}
 			p.setX(p.getX() + ANIMATION_INCREMENT);
 		} else if (p.getY() > p.getServerY()) {
+			if((p.getY() + 8) % 32 == 0) {
+				p.setDirection(Direction.Up);
+				p.m_leftOrRight = !p.m_leftOrRight;
+				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), true, p.m_leftOrRight, p.getSprite()));
+			}
 			p.setY(p.getY() - ANIMATION_INCREMENT);
 		} else if (p.getY() < p.getServerY()) {
+			if((p.getY() + 8) % 32 == 0) {
+				p.setDirection(Direction.Down);
+				p.m_leftOrRight = !p.m_leftOrRight;
+				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), true, p.m_leftOrRight, p.getSprite()));
+			}
 			p.setY(p.getY() + ANIMATION_INCREMENT);
 		}
 		/*
