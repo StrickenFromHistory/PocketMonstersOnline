@@ -1,13 +1,27 @@
 [npc]
 Goldenrod Citizen
 left
-11
+61
 6
 3
 NULL
-1
+0
 -1
-1000
+0,1
+false
+false
+false
+[/npc]
+[npc]
+Goldenrod Citizen
+down
+45
+3
+4
+NULL
+0
+-1
+2,3
 false
 false
 false

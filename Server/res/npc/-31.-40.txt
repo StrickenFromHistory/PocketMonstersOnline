@@ -1,13 +1,13 @@
 [npc]
 Name Rater
 down
-11
+160
 3
 4
 NULL
-1
+0
 -1
-1000
+0,1,2
 false
 false
 false

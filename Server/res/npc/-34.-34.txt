@@ -1,13 +1,27 @@
 [npc]
 Flower Shop Owner
 right
-11
+51
 4
 5
 NULL
-1
+0
 -1
-1000
+0,1,2,3,4,5
+false
+false
+false
+[/npc]
+[npc]
+Owner's Sister
+down
+54
+7
+7
+NULL
+0
+-1
+6
 false
 false
 false
