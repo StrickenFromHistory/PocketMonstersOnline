@@ -62,6 +62,10 @@ public class Animator {
 				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), true, p.m_leftOrRight, p.getSprite()));
 			}
 			p.setX(p.getX() - ANIMATION_INCREMENT);
+			if(p.getX() > p.getServerX() && p.getX() % 32 == 0) {
+				/* If the player is still behind the server, make sure the stopped animation is shown */
+				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), false, p.m_leftOrRight, p.getSprite()));
+			}
 		} else if (p.getX() < p.getServerX()) {
 			if(p.getX() % 32 == 0) {
 				p.setDirection(Direction.Right);
@@ -69,6 +73,10 @@ public class Animator {
 				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), true, p.m_leftOrRight, p.getSprite()));
 			}
 			p.setX(p.getX() + ANIMATION_INCREMENT);
+			if(p.getX() < p.getServerX() && p.getX() % 32 == 0) {
+				/* If the player is still behind the server, make sure the stopped animation is shown */
+				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), false, p.m_leftOrRight, p.getSprite()));
+			}
 		} else if (p.getY() > p.getServerY()) {
 			if((p.getY() + 8) % 32 == 0) {
 				p.setDirection(Direction.Up);
@@ -76,6 +84,10 @@ public class Animator {
 				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), true, p.m_leftOrRight, p.getSprite()));
 			}
 			p.setY(p.getY() - ANIMATION_INCREMENT);
+			if(p.getY() > p.getServerY() && (p.getY() + 8) % 32 == 0) {
+				/* If the player is still behind the server, make sure the stopped animation is shown */
+				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), false, p.m_leftOrRight, p.getSprite()));
+			}
 		} else if (p.getY() < p.getServerY()) {
 			if((p.getY() + 8) % 32 == 0) {
 				p.setDirection(Direction.Down);
@@ -83,6 +95,10 @@ public class Animator {
 				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), true, p.m_leftOrRight, p.getSprite()));
 			}
 			p.setY(p.getY() + ANIMATION_INCREMENT);
+			if(p.getY() < p.getServerY() && (p.getY() + 8) % 32 == 0) {
+				/* If the player is still behind the server, make sure the stopped animation is shown */
+				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), false, p.m_leftOrRight, p.getSprite()));
+			}
 		}
 		/*
 		 * The player is now in sync with the server, stop moving/animating them
