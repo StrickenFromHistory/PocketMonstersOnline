@@ -4052,7 +4052,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>2</m_species>
+         <m_species>3</m_species>
          <m_name>Venusaur</m_name>
          <m_base length="6">
             <int>80</int>
@@ -4073,7 +4073,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>3</m_species>
+         <m_species>4</m_species>
          <m_name>Charmander</m_name>
          <m_base length="6">
             <int>39</int>
@@ -4091,7 +4091,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>4</m_species>
+         <m_species>5</m_species>
          <m_name>Charmeleon</m_name>
          <m_base length="6">
             <int>58</int>
@@ -4109,7 +4109,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>5</m_species>
+         <m_species>6</m_species>
          <m_name>Charizard</m_name>
          <m_base length="6">
             <int>78</int>
@@ -4130,7 +4130,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>6</m_species>
+         <m_species>7</m_species>
          <m_name>Squirtle</m_name>
          <m_base length="6">
             <int>44</int>
@@ -4148,7 +4148,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>7</m_species>
+         <m_species>8</m_species>
          <m_name>Wartortle</m_name>
          <m_base length="6">
             <int>59</int>
@@ -4166,7 +4166,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>8</m_species>
+         <m_species>9</m_species>
          <m_name>Blastoise</m_name>
          <m_base length="6">
             <int>79</int>
@@ -4184,7 +4184,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>9</m_species>
+         <m_species>10</m_species>
          <m_name>Caterpie</m_name>
          <m_base length="6">
             <int>45</int>
@@ -4202,7 +4202,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>10</m_species>
+         <m_species>11</m_species>
          <m_name>Metapod</m_name>
          <m_base length="6">
             <int>50</int>
@@ -4220,7 +4220,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>11</m_species>
+         <m_species>12</m_species>
          <m_name>Butterfree</m_name>
          <m_base length="6">
             <int>60</int>
@@ -4241,7 +4241,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>12</m_species>
+         <m_species>13</m_species>
          <m_name>Weedle</m_name>
          <m_base length="6">
             <int>40</int>
@@ -4262,7 +4262,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>13</m_species>
+         <m_species>14</m_species>
          <m_name>Kakuna</m_name>
          <m_base length="6">
             <int>45</int>
@@ -4283,7 +4283,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>14</m_species>
+         <m_species>15</m_species>
          <m_name>Beedrill</m_name>
          <m_base length="6">
             <int>65</int>
@@ -4304,7 +4304,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>15</m_species>
+         <m_species>16</m_species>
          <m_name>Pidgey</m_name>
          <m_base length="6">
             <int>40</int>
@@ -4325,7 +4325,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>16</m_species>
+         <m_species>17</m_species>
          <m_name>Pidgeotto</m_name>
          <m_base length="6">
             <int>63</int>
@@ -4346,7 +4346,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>17</m_species>
+         <m_species>18</m_species>
          <m_name>Pidgeot</m_name>
          <m_base length="6">
             <int>83</int>
@@ -4367,7 +4367,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>18</m_species>
+         <m_species>19</m_species>
          <m_name>Rattata</m_name>
          <m_base length="6">
             <int>30</int>
@@ -4385,7 +4385,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>19</m_species>
+         <m_species>20</m_species>
          <m_name>Raticate</m_name>
          <m_base length="6">
             <int>55</int>
@@ -4403,7 +4403,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>20</m_species>
+         <m_species>21</m_species>
          <m_name>Spearow</m_name>
          <m_base length="6">
             <int>40</int>
@@ -4424,7 +4424,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>21</m_species>
+         <m_species>22</m_species>
          <m_name>Fearow</m_name>
          <m_base length="6">
             <int>65</int>
@@ -4445,7 +4445,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>22</m_species>
+         <m_species>23</m_species>
          <m_name>Ekans</m_name>
          <m_base length="6">
             <int>35</int>
@@ -4463,7 +4463,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>23</m_species>
+         <m_species>24</m_species>
          <m_name>Arbok</m_name>
          <m_base length="6">
             <int>60</int>
@@ -4481,7 +4481,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>24</m_species>
+         <m_species>25</m_species>
          <m_name>Pikachu</m_name>
          <m_base length="6">
             <int>35</int>
@@ -4499,7 +4499,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>25</m_species>
+         <m_species>26</m_species>
          <m_name>Raichu</m_name>
          <m_base length="6">
             <int>60</int>
@@ -4517,7 +4517,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>26</m_species>
+         <m_species>27</m_species>
          <m_name>Sandshrew</m_name>
          <m_base length="6">
             <int>50</int>
@@ -4535,7 +4535,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>27</m_species>
+         <m_species>28</m_species>
          <m_name>Sandslash</m_name>
          <m_base length="6">
             <int>75</int>
@@ -4553,7 +4553,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>28</m_species>
+         <m_species>29</m_species>
          <m_name>Nidoran-f</m_name>
          <m_base length="6">
             <int>55</int>
@@ -4571,7 +4571,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>29</m_species>
+         <m_species>30</m_species>
          <m_name>Nidorina</m_name>
          <m_base length="6">
             <int>70</int>
@@ -4589,7 +4589,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>30</m_species>
+         <m_species>31</m_species>
          <m_name>Nidoqueen</m_name>
          <m_base length="6">
             <int>90</int>
@@ -4610,7 +4610,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>31</m_species>
+         <m_species>32</m_species>
          <m_name>Nidoran-m</m_name>
          <m_base length="6">
             <int>46</int>
@@ -4628,7 +4628,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>32</m_species>
+         <m_species>33</m_species>
          <m_name>Nidorino</m_name>
          <m_base length="6">
             <int>61</int>
@@ -4646,7 +4646,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>33</m_species>
+         <m_species>34</m_species>
          <m_name>Nidoking</m_name>
          <m_base length="6">
             <int>81</int>
@@ -4667,7 +4667,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>34</m_species>
+         <m_species>35</m_species>
          <m_name>Clefairy</m_name>
          <m_base length="6">
             <int>70</int>
@@ -4685,7 +4685,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>35</m_species>
+         <m_species>36</m_species>
          <m_name>Clefable</m_name>
          <m_base length="6">
             <int>95</int>
@@ -4703,7 +4703,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>36</m_species>
+         <m_species>37</m_species>
          <m_name>Vulpix</m_name>
          <m_base length="6">
             <int>38</int>
@@ -4721,7 +4721,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>37</m_species>
+         <m_species>38</m_species>
          <m_name>Ninetales</m_name>
          <m_base length="6">
             <int>73</int>
@@ -4739,7 +4739,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>38</m_species>
+         <m_species>39</m_species>
          <m_name>Jigglypuff</m_name>
          <m_base length="6">
             <int>115</int>
@@ -4757,7 +4757,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>39</m_species>
+         <m_species>40</m_species>
          <m_name>Wigglytuff</m_name>
          <m_base length="6">
             <int>140</int>
@@ -4775,7 +4775,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>40</m_species>
+         <m_species>41</m_species>
          <m_name>Zubat</m_name>
          <m_base length="6">
             <int>40</int>
@@ -4796,7 +4796,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>41</m_species>
+         <m_species>42</m_species>
          <m_name>Golbat</m_name>
          <m_base length="6">
             <int>75</int>
@@ -4817,7 +4817,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>42</m_species>
+         <m_species>43</m_species>
          <m_name>Oddish</m_name>
          <m_base length="6">
             <int>45</int>
@@ -4838,7 +4838,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>43</m_species>
+         <m_species>44</m_species>
          <m_name>Gloom</m_name>
          <m_base length="6">
             <int>60</int>
@@ -4859,7 +4859,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>44</m_species>
+         <m_species>45</m_species>
          <m_name>Vileplume</m_name>
          <m_base length="6">
             <int>75</int>
@@ -4880,7 +4880,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>45</m_species>
+         <m_species>46</m_species>
          <m_name>Paras</m_name>
          <m_base length="6">
             <int>35</int>
@@ -4901,7 +4901,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>46</m_species>
+         <m_species>47</m_species>
          <m_name>Parasect</m_name>
          <m_base length="6">
             <int>60</int>
@@ -4922,7 +4922,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>47</m_species>
+         <m_species>48</m_species>
          <m_name>Venonat</m_name>
          <m_base length="6">
             <int>60</int>
@@ -4943,7 +4943,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>48</m_species>
+         <m_species>49</m_species>
          <m_name>Venomoth</m_name>
          <m_base length="6">
             <int>70</int>
@@ -4964,7 +4964,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>49</m_species>
+         <m_species>50</m_species>
          <m_name>Diglett</m_name>
          <m_base length="6">
             <int>10</int>
@@ -4982,7 +4982,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>50</m_species>
+         <m_species>51</m_species>
          <m_name>Dugtrio</m_name>
          <m_base length="6">
             <int>35</int>
@@ -5000,7 +5000,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>51</m_species>
+         <m_species>52</m_species>
          <m_name>Meowth</m_name>
          <m_base length="6">
             <int>40</int>
@@ -5018,7 +5018,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>52</m_species>
+         <m_species>53</m_species>
          <m_name>Persian</m_name>
          <m_base length="6">
             <int>65</int>
@@ -5036,7 +5036,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>53</m_species>
+         <m_species>54</m_species>
          <m_name>Psyduck</m_name>
          <m_base length="6">
             <int>50</int>
@@ -5054,7 +5054,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>54</m_species>
+         <m_species>55</m_species>
          <m_name>Golduck</m_name>
          <m_base length="6">
             <int>80</int>
@@ -5072,7 +5072,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>55</m_species>
+         <m_species>56</m_species>
          <m_name>Mankey</m_name>
          <m_base length="6">
             <int>40</int>
@@ -5090,7 +5090,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>56</m_species>
+         <m_species>57</m_species>
          <m_name>Primeape</m_name>
          <m_base length="6">
             <int>65</int>
@@ -5108,7 +5108,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>57</m_species>
+         <m_species>58</m_species>
          <m_name>Growlithe</m_name>
          <m_base length="6">
             <int>55</int>
@@ -5126,7 +5126,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>58</m_species>
+         <m_species>59</m_species>
          <m_name>Arcanine</m_name>
          <m_base length="6">
             <int>90</int>
@@ -5144,7 +5144,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>59</m_species>
+         <m_species>60</m_species>
          <m_name>Poliwag</m_name>
          <m_base length="6">
             <int>40</int>
@@ -5162,7 +5162,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>60</m_species>
+         <m_species>61</m_species>
          <m_name>Poliwhirl</m_name>
          <m_base length="6">
             <int>65</int>
@@ -5180,7 +5180,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>61</m_species>
+         <m_species>62</m_species>
          <m_name>Poliwrath</m_name>
          <m_base length="6">
             <int>90</int>
@@ -5201,7 +5201,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>62</m_species>
+         <m_species>63</m_species>
          <m_name>Abra</m_name>
          <m_base length="6">
             <int>25</int>
@@ -5219,7 +5219,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>63</m_species>
+         <m_species>64</m_species>
          <m_name>Kadabra</m_name>
          <m_base length="6">
             <int>40</int>
@@ -5237,7 +5237,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>64</m_species>
+         <m_species>65</m_species>
          <m_name>Alakazam</m_name>
          <m_base length="6">
             <int>55</int>
@@ -5255,7 +5255,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>65</m_species>
+         <m_species>66</m_species>
          <m_name>Machop</m_name>
          <m_base length="6">
             <int>70</int>
@@ -5273,7 +5273,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>66</m_species>
+         <m_species>67</m_species>
          <m_name>Machoke</m_name>
          <m_base length="6">
             <int>80</int>
@@ -5291,7 +5291,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>67</m_species>
+         <m_species>68</m_species>
          <m_name>Machamp</m_name>
          <m_base length="6">
             <int>90</int>
@@ -5309,7 +5309,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>68</m_species>
+         <m_species>69</m_species>
          <m_name>Bellsprout</m_name>
          <m_base length="6">
             <int>50</int>
@@ -5330,7 +5330,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>69</m_species>
+         <m_species>70</m_species>
          <m_name>Weepinbell</m_name>
          <m_base length="6">
             <int>65</int>
@@ -5351,7 +5351,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>70</m_species>
+         <m_species>71</m_species>
          <m_name>Victreebel</m_name>
          <m_base length="6">
             <int>80</int>
@@ -5372,7 +5372,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>71</m_species>
+         <m_species>72</m_species>
          <m_name>Tentacool</m_name>
          <m_base length="6">
             <int>40</int>
@@ -5393,7 +5393,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>72</m_species>
+         <m_species>73</m_species>
          <m_name>Tentacruel</m_name>
          <m_base length="6">
             <int>80</int>
@@ -5414,7 +5414,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>73</m_species>
+         <m_species>74</m_species>
          <m_name>Geodude</m_name>
          <m_base length="6">
             <int>40</int>
@@ -5435,7 +5435,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>74</m_species>
+         <m_species>75</m_species>
          <m_name>Graveler</m_name>
          <m_base length="6">
             <int>55</int>
@@ -5456,7 +5456,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>75</m_species>
+         <m_species>76</m_species>
          <m_name>Golem</m_name>
          <m_base length="6">
             <int>80</int>
@@ -5477,7 +5477,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>76</m_species>
+         <m_species>77</m_species>
          <m_name>Ponyta</m_name>
          <m_base length="6">
             <int>50</int>
@@ -5495,7 +5495,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>77</m_species>
+         <m_species>78</m_species>
          <m_name>Rapidash</m_name>
          <m_base length="6">
             <int>65</int>
@@ -5513,7 +5513,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>78</m_species>
+         <m_species>79</m_species>
          <m_name>Slowpoke</m_name>
          <m_base length="6">
             <int>90</int>
@@ -5534,7 +5534,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>79</m_species>
+         <m_species>80</m_species>
          <m_name>Slowbro</m_name>
          <m_base length="6">
             <int>95</int>
@@ -5555,7 +5555,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>80</m_species>
+         <m_species>81</m_species>
          <m_name>Magnemite</m_name>
          <m_base length="6">
             <int>25</int>
@@ -5576,7 +5576,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>81</m_species>
+         <m_species>82</m_species>
          <m_name>Magneton</m_name>
          <m_base length="6">
             <int>50</int>
@@ -5597,7 +5597,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>82</m_species>
+         <m_species>83</m_species>
          <m_name>Farfetch&apos;d</m_name>
          <m_base length="6">
             <int>52</int>
@@ -5618,7 +5618,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>83</m_species>
+         <m_species>84</m_species>
          <m_name>Doduo</m_name>
          <m_base length="6">
             <int>35</int>
@@ -5639,7 +5639,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>84</m_species>
+         <m_species>85</m_species>
          <m_name>Dodrio</m_name>
          <m_base length="6">
             <int>60</int>
@@ -5660,7 +5660,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>85</m_species>
+         <m_species>86</m_species>
          <m_name>Seel</m_name>
          <m_base length="6">
             <int>65</int>
@@ -5678,7 +5678,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>86</m_species>
+         <m_species>87</m_species>
          <m_name>Dewgong</m_name>
          <m_base length="6">
             <int>90</int>
@@ -5699,7 +5699,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>87</m_species>
+         <m_species>88</m_species>
          <m_name>Grimer</m_name>
          <m_base length="6">
             <int>80</int>
@@ -5717,7 +5717,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>88</m_species>
+         <m_species>89</m_species>
          <m_name>Muk</m_name>
          <m_base length="6">
             <int>105</int>
@@ -5735,7 +5735,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>89</m_species>
+         <m_species>90</m_species>
          <m_name>Shellder</m_name>
          <m_base length="6">
             <int>30</int>
@@ -5753,7 +5753,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>90</m_species>
+         <m_species>91</m_species>
          <m_name>Cloyster</m_name>
          <m_base length="6">
             <int>50</int>
@@ -5774,7 +5774,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>91</m_species>
+         <m_species>92</m_species>
          <m_name>Gastly</m_name>
          <m_base length="6">
             <int>30</int>
@@ -5795,7 +5795,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>92</m_species>
+         <m_species>93</m_species>
          <m_name>Haunter</m_name>
          <m_base length="6">
             <int>45</int>
@@ -5816,7 +5816,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>93</m_species>
+         <m_species>94</m_species>
          <m_name>Gengar</m_name>
          <m_base length="6">
             <int>60</int>
@@ -5837,7 +5837,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>94</m_species>
+         <m_species>95</m_species>
          <m_name>Onix</m_name>
          <m_base length="6">
             <int>35</int>
@@ -5858,7 +5858,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>95</m_species>
+         <m_species>96</m_species>
          <m_name>Drowzee</m_name>
          <m_base length="6">
             <int>60</int>
@@ -5876,7 +5876,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>96</m_species>
+         <m_species>97</m_species>
          <m_name>Hypno</m_name>
          <m_base length="6">
             <int>85</int>
@@ -5894,7 +5894,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>97</m_species>
+         <m_species>98</m_species>
          <m_name>Krabby</m_name>
          <m_base length="6">
             <int>30</int>
@@ -5912,7 +5912,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>98</m_species>
+         <m_species>99</m_species>
          <m_name>Kingler</m_name>
          <m_base length="6">
             <int>55</int>
@@ -5930,7 +5930,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>99</m_species>
+         <m_species>100</m_species>
          <m_name>Voltorb</m_name>
          <m_base length="6">
             <int>40</int>
@@ -5948,7 +5948,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>100</m_species>
+         <m_species>101</m_species>
          <m_name>Electrode</m_name>
          <m_base length="6">
             <int>60</int>
@@ -5966,7 +5966,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>101</m_species>
+         <m_species>102</m_species>
          <m_name>Exeggcute</m_name>
          <m_base length="6">
             <int>60</int>
@@ -5987,7 +5987,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>102</m_species>
+         <m_species>103</m_species>
          <m_name>Exeggutor</m_name>
          <m_base length="6">
             <int>95</int>
@@ -6008,7 +6008,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>103</m_species>
+         <m_species>104</m_species>
          <m_name>Cubone</m_name>
          <m_base length="6">
             <int>50</int>
@@ -6026,7 +6026,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>104</m_species>
+         <m_species>105</m_species>
          <m_name>Marowak</m_name>
          <m_base length="6">
             <int>60</int>
@@ -6044,7 +6044,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>105</m_species>
+         <m_species>106</m_species>
          <m_name>Hitmonlee</m_name>
          <m_base length="6">
             <int>50</int>
@@ -6062,7 +6062,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>106</m_species>
+         <m_species>107</m_species>
          <m_name>Hitmonchan</m_name>
          <m_base length="6">
             <int>50</int>
@@ -6080,7 +6080,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>107</m_species>
+         <m_species>108</m_species>
          <m_name>Lickitung</m_name>
          <m_base length="6">
             <int>90</int>
@@ -6098,7 +6098,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>108</m_species>
+         <m_species>109</m_species>
          <m_name>Koffing</m_name>
          <m_base length="6">
             <int>40</int>
@@ -6116,7 +6116,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>109</m_species>
+         <m_species>110</m_species>
          <m_name>Weezing</m_name>
          <m_base length="6">
             <int>65</int>
@@ -6134,7 +6134,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>110</m_species>
+         <m_species>111</m_species>
          <m_name>Rhyhorn</m_name>
          <m_base length="6">
             <int>80</int>
@@ -6155,7 +6155,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>111</m_species>
+         <m_species>112</m_species>
          <m_name>Rhydon</m_name>
          <m_base length="6">
             <int>105</int>
@@ -6176,7 +6176,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>112</m_species>
+         <m_species>113</m_species>
          <m_name>Chansey</m_name>
          <m_base length="6">
             <int>250</int>
@@ -6194,7 +6194,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>113</m_species>
+         <m_species>114</m_species>
          <m_name>Tangela</m_name>
          <m_base length="6">
             <int>65</int>
@@ -6212,7 +6212,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>114</m_species>
+         <m_species>115</m_species>
          <m_name>Kangaskhan</m_name>
          <m_base length="6">
             <int>105</int>
@@ -6230,7 +6230,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>115</m_species>
+         <m_species>116</m_species>
          <m_name>Horsea</m_name>
          <m_base length="6">
             <int>30</int>
@@ -6248,7 +6248,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>116</m_species>
+         <m_species>117</m_species>
          <m_name>Seadra</m_name>
          <m_base length="6">
             <int>55</int>
@@ -6266,7 +6266,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>117</m_species>
+         <m_species>118</m_species>
          <m_name>Goldeen</m_name>
          <m_base length="6">
             <int>45</int>
@@ -6284,7 +6284,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>118</m_species>
+         <m_species>119</m_species>
          <m_name>Seaking</m_name>
          <m_base length="6">
             <int>80</int>
@@ -6302,7 +6302,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>119</m_species>
+         <m_species>120</m_species>
          <m_name>Staryu</m_name>
          <m_base length="6">
             <int>30</int>
@@ -6320,7 +6320,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>120</m_species>
+         <m_species>121</m_species>
          <m_name>Starmie</m_name>
          <m_base length="6">
             <int>60</int>
@@ -6341,7 +6341,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>121</m_species>
+         <m_species>122</m_species>
          <m_name>Mr. Mime</m_name>
          <m_base length="6">
             <int>40</int>
@@ -6359,7 +6359,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>122</m_species>
+         <m_species>123</m_species>
          <m_name>Scyther</m_name>
          <m_base length="6">
             <int>70</int>
@@ -6380,7 +6380,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>123</m_species>
+         <m_species>124</m_species>
          <m_name>Jynx</m_name>
          <m_base length="6">
             <int>65</int>
@@ -6401,7 +6401,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>124</m_species>
+         <m_species>125</m_species>
          <m_name>Electabuzz</m_name>
          <m_base length="6">
             <int>65</int>
@@ -6419,7 +6419,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>125</m_species>
+         <m_species>126</m_species>
          <m_name>Magmar</m_name>
          <m_base length="6">
             <int>65</int>
@@ -6437,7 +6437,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>126</m_species>
+         <m_species>127</m_species>
          <m_name>Pinsir</m_name>
          <m_base length="6">
             <int>65</int>
@@ -6455,7 +6455,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>127</m_species>
+         <m_species>128</m_species>
          <m_name>Tauros</m_name>
          <m_base length="6">
             <int>75</int>
@@ -6473,7 +6473,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>128</m_species>
+         <m_species>129</m_species>
          <m_name>Magikarp</m_name>
          <m_base length="6">
             <int>20</int>
@@ -6491,7 +6491,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>129</m_species>
+         <m_species>130</m_species>
          <m_name>Gyarados</m_name>
          <m_base length="6">
             <int>95</int>
@@ -6512,7 +6512,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>130</m_species>
+         <m_species>131</m_species>
          <m_name>Lapras</m_name>
          <m_base length="6">
             <int>130</int>
@@ -6533,7 +6533,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>131</m_species>
+         <m_species>132</m_species>
          <m_name>Ditto</m_name>
          <m_base length="6">
             <int>48</int>
@@ -6551,7 +6551,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>132</m_species>
+         <m_species>133</m_species>
          <m_name>Eevee</m_name>
          <m_base length="6">
             <int>55</int>
@@ -6569,7 +6569,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>133</m_species>
+         <m_species>134</m_species>
          <m_name>Vaporeon</m_name>
          <m_base length="6">
             <int>130</int>
@@ -6587,7 +6587,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>134</m_species>
+         <m_species>135</m_species>
          <m_name>Jolteon</m_name>
          <m_base length="6">
             <int>65</int>
@@ -6605,7 +6605,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>135</m_species>
+         <m_species>136</m_species>
          <m_name>Flareon</m_name>
          <m_base length="6">
             <int>65</int>
@@ -6623,7 +6623,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>136</m_species>
+         <m_species>137</m_species>
          <m_name>Porygon</m_name>
          <m_base length="6">
             <int>65</int>
@@ -6641,7 +6641,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>137</m_species>
+         <m_species>138</m_species>
          <m_name>Omanyte</m_name>
          <m_base length="6">
             <int>35</int>
@@ -6662,7 +6662,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>138</m_species>
+         <m_species>139</m_species>
          <m_name>Omastar</m_name>
          <m_base length="6">
             <int>70</int>
@@ -6683,7 +6683,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>139</m_species>
+         <m_species>140</m_species>
          <m_name>Kabuto</m_name>
          <m_base length="6">
             <int>30</int>
@@ -6704,7 +6704,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>140</m_species>
+         <m_species>141</m_species>
          <m_name>Kabutops</m_name>
          <m_base length="6">
             <int>60</int>
@@ -6725,7 +6725,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>141</m_species>
+         <m_species>142</m_species>
          <m_name>Aerodactyl</m_name>
          <m_base length="6">
             <int>80</int>
@@ -6746,7 +6746,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>142</m_species>
+         <m_species>143</m_species>
          <m_name>Snorlax</m_name>
          <m_base length="6">
             <int>160</int>
@@ -6764,7 +6764,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>143</m_species>
+         <m_species>144</m_species>
          <m_name>Articuno</m_name>
          <m_base length="6">
             <int>90</int>
@@ -6785,7 +6785,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>144</m_species>
+         <m_species>145</m_species>
          <m_name>Zapdos</m_name>
          <m_base length="6">
             <int>90</int>
@@ -6806,7 +6806,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>145</m_species>
+         <m_species>146</m_species>
          <m_name>Moltres</m_name>
          <m_base length="6">
             <int>90</int>
@@ -6827,7 +6827,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>146</m_species>
+         <m_species>147</m_species>
          <m_name>Dratini</m_name>
          <m_base length="6">
             <int>41</int>
@@ -6845,7 +6845,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>147</m_species>
+         <m_species>148</m_species>
          <m_name>Dragonair</m_name>
          <m_base length="6">
             <int>61</int>
@@ -6863,7 +6863,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>148</m_species>
+         <m_species>149</m_species>
          <m_name>Dragonite</m_name>
          <m_base length="6">
             <int>91</int>
@@ -6884,7 +6884,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>149</m_species>
+         <m_species>150</m_species>
          <m_name>Mewtwo</m_name>
          <m_base length="6">
             <int>106</int>
@@ -6902,7 +6902,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>150</m_species>
+         <m_species>151</m_species>
          <m_name>Mew</m_name>
          <m_base length="6">
             <int>100</int>
@@ -6920,7 +6920,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>151</m_species>
+         <m_species>152</m_species>
          <m_name>Chikorita</m_name>
          <m_base length="6">
             <int>45</int>
@@ -6938,7 +6938,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>152</m_species>
+         <m_species>153</m_species>
          <m_name>Bayleef</m_name>
          <m_base length="6">
             <int>60</int>
@@ -6956,7 +6956,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>153</m_species>
+         <m_species>154</m_species>
          <m_name>Meganium</m_name>
          <m_base length="6">
             <int>80</int>
@@ -6974,7 +6974,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>154</m_species>
+         <m_species>155</m_species>
          <m_name>Cyndaquil</m_name>
          <m_base length="6">
             <int>39</int>
@@ -6992,7 +6992,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>155</m_species>
+         <m_species>156</m_species>
          <m_name>Quilava</m_name>
          <m_base length="6">
             <int>58</int>
@@ -7010,7 +7010,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>156</m_species>
+         <m_species>157</m_species>
          <m_name>Typhlosion</m_name>
          <m_base length="6">
             <int>78</int>
@@ -7028,7 +7028,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>157</m_species>
+         <m_species>158</m_species>
          <m_name>Totodile</m_name>
          <m_base length="6">
             <int>50</int>
@@ -7046,7 +7046,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>158</m_species>
+         <m_species>159</m_species>
          <m_name>Croconaw</m_name>
          <m_base length="6">
             <int>65</int>
@@ -7064,7 +7064,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>159</m_species>
+         <m_species>160</m_species>
          <m_name>Feraligatr</m_name>
          <m_base length="6">
             <int>85</int>
@@ -7082,7 +7082,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>160</m_species>
+         <m_species>161</m_species>
          <m_name>Sentret</m_name>
          <m_base length="6">
             <int>35</int>
@@ -7100,7 +7100,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>161</m_species>
+         <m_species>162</m_species>
          <m_name>Furret</m_name>
          <m_base length="6">
             <int>85</int>
@@ -7118,7 +7118,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>162</m_species>
+         <m_species>163</m_species>
          <m_name>Hoothoot</m_name>
          <m_base length="6">
             <int>60</int>
@@ -7139,7 +7139,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>163</m_species>
+         <m_species>164</m_species>
          <m_name>Noctowl</m_name>
          <m_base length="6">
             <int>100</int>
@@ -7160,7 +7160,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>164</m_species>
+         <m_species>165</m_species>
          <m_name>Ledyba</m_name>
          <m_base length="6">
             <int>40</int>
@@ -7181,7 +7181,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>165</m_species>
+         <m_species>166</m_species>
          <m_name>Ledian</m_name>
          <m_base length="6">
             <int>55</int>
@@ -7202,7 +7202,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>166</m_species>
+         <m_species>167</m_species>
          <m_name>Spinarak</m_name>
          <m_base length="6">
             <int>40</int>
@@ -7223,7 +7223,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>167</m_species>
+         <m_species>168</m_species>
          <m_name>Ariados</m_name>
          <m_base length="6">
             <int>70</int>
@@ -7244,7 +7244,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>168</m_species>
+         <m_species>169</m_species>
          <m_name>Crobat</m_name>
          <m_base length="6">
             <int>85</int>
@@ -7265,7 +7265,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>169</m_species>
+         <m_species>170</m_species>
          <m_name>Chinchou</m_name>
          <m_base length="6">
             <int>75</int>
@@ -7286,7 +7286,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>170</m_species>
+         <m_species>171</m_species>
          <m_name>Lanturn</m_name>
          <m_base length="6">
             <int>125</int>
@@ -7307,7 +7307,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>171</m_species>
+         <m_species>172</m_species>
          <m_name>Pichu</m_name>
          <m_base length="6">
             <int>20</int>
@@ -7325,7 +7325,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>172</m_species>
+         <m_species>173</m_species>
          <m_name>Cleffa</m_name>
          <m_base length="6">
             <int>50</int>
@@ -7343,7 +7343,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>173</m_species>
+         <m_species>174</m_species>
          <m_name>Igglybuff</m_name>
          <m_base length="6">
             <int>90</int>
@@ -7361,7 +7361,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>174</m_species>
+         <m_species>175</m_species>
          <m_name>Togepi</m_name>
          <m_base length="6">
             <int>35</int>
@@ -7379,7 +7379,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>175</m_species>
+         <m_species>176</m_species>
          <m_name>Togetic</m_name>
          <m_base length="6">
             <int>55</int>
@@ -7400,7 +7400,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>176</m_species>
+         <m_species>177</m_species>
          <m_name>Natu</m_name>
          <m_base length="6">
             <int>40</int>
@@ -7421,7 +7421,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>177</m_species>
+         <m_species>178</m_species>
          <m_name>Xatu</m_name>
          <m_base length="6">
             <int>65</int>
@@ -7442,7 +7442,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>178</m_species>
+         <m_species>179</m_species>
          <m_name>Mareep</m_name>
          <m_base length="6">
             <int>55</int>
@@ -7460,7 +7460,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>179</m_species>
+         <m_species>180</m_species>
          <m_name>Flaaffy</m_name>
          <m_base length="6">
             <int>70</int>
@@ -7478,7 +7478,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>180</m_species>
+         <m_species>181</m_species>
          <m_name>Ampharos</m_name>
          <m_base length="6">
             <int>90</int>
@@ -7496,7 +7496,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>181</m_species>
+         <m_species>182</m_species>
          <m_name>Bellossom</m_name>
          <m_base length="6">
             <int>75</int>
@@ -7514,7 +7514,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>182</m_species>
+         <m_species>183</m_species>
          <m_name>Marill</m_name>
          <m_base length="6">
             <int>70</int>
@@ -7532,7 +7532,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>183</m_species>
+         <m_species>184</m_species>
          <m_name>Azumarill</m_name>
          <m_base length="6">
             <int>100</int>
@@ -7550,7 +7550,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>184</m_species>
+         <m_species>185</m_species>
          <m_name>Sudowoodo</m_name>
          <m_base length="6">
             <int>70</int>
@@ -7568,7 +7568,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>185</m_species>
+         <m_species>186</m_species>
          <m_name>Politoed</m_name>
          <m_base length="6">
             <int>90</int>
@@ -7586,7 +7586,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>186</m_species>
+         <m_species>187</m_species>
          <m_name>Hoppip</m_name>
          <m_base length="6">
             <int>35</int>
@@ -7607,7 +7607,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>187</m_species>
+         <m_species>188</m_species>
          <m_name>Skiploom</m_name>
          <m_base length="6">
             <int>55</int>
@@ -7628,7 +7628,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>188</m_species>
+         <m_species>189</m_species>
          <m_name>Jumpluff</m_name>
          <m_base length="6">
             <int>75</int>
@@ -7649,7 +7649,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>189</m_species>
+         <m_species>190</m_species>
          <m_name>Aipom</m_name>
          <m_base length="6">
             <int>55</int>
@@ -7667,7 +7667,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>190</m_species>
+         <m_species>191</m_species>
          <m_name>Sunkern</m_name>
          <m_base length="6">
             <int>30</int>
@@ -7685,7 +7685,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>191</m_species>
+         <m_species>192</m_species>
          <m_name>Sunflora</m_name>
          <m_base length="6">
             <int>75</int>
@@ -7703,7 +7703,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>192</m_species>
+         <m_species>193</m_species>
          <m_name>Yanma</m_name>
          <m_base length="6">
             <int>65</int>
@@ -7724,7 +7724,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>193</m_species>
+         <m_species>194</m_species>
          <m_name>Wooper</m_name>
          <m_base length="6">
             <int>55</int>
@@ -7745,7 +7745,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>194</m_species>
+         <m_species>195</m_species>
          <m_name>Quagsire</m_name>
          <m_base length="6">
             <int>95</int>
@@ -7766,7 +7766,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>195</m_species>
+         <m_species>196</m_species>
          <m_name>Espeon</m_name>
          <m_base length="6">
             <int>65</int>
@@ -7784,7 +7784,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>196</m_species>
+         <m_species>197</m_species>
          <m_name>Umbreon</m_name>
          <m_base length="6">
             <int>95</int>
@@ -7802,7 +7802,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>197</m_species>
+         <m_species>198</m_species>
          <m_name>Murkrow</m_name>
          <m_base length="6">
             <int>60</int>
@@ -7823,7 +7823,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>198</m_species>
+         <m_species>199</m_species>
          <m_name>Slowking</m_name>
          <m_base length="6">
             <int>95</int>
@@ -7844,7 +7844,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>199</m_species>
+         <m_species>200</m_species>
          <m_name>Misdreavus</m_name>
          <m_base length="6">
             <int>60</int>
@@ -7862,7 +7862,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>200</m_species>
+         <m_species>201</m_species>
          <m_name>Unown</m_name>
          <m_base length="6">
             <int>48</int>
@@ -7880,7 +7880,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>201</m_species>
+         <m_species>202</m_species>
          <m_name>Wobbuffet</m_name>
          <m_base length="6">
             <int>190</int>
@@ -7898,7 +7898,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>202</m_species>
+         <m_species>203</m_species>
          <m_name>Girafarig</m_name>
          <m_base length="6">
             <int>70</int>
@@ -7919,7 +7919,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>203</m_species>
+         <m_species>204</m_species>
          <m_name>Pineco</m_name>
          <m_base length="6">
             <int>50</int>
@@ -7937,7 +7937,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>204</m_species>
+         <m_species>205</m_species>
          <m_name>Forretress</m_name>
          <m_base length="6">
             <int>75</int>
@@ -7958,7 +7958,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>205</m_species>
+         <m_species>206</m_species>
          <m_name>Dunsparce</m_name>
          <m_base length="6">
             <int>100</int>
@@ -7976,7 +7976,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>206</m_species>
+         <m_species>207</m_species>
          <m_name>Gligar</m_name>
          <m_base length="6">
             <int>65</int>
@@ -7997,7 +7997,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>207</m_species>
+         <m_species>208</m_species>
          <m_name>Steelix</m_name>
          <m_base length="6">
             <int>75</int>
@@ -8018,7 +8018,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>208</m_species>
+         <m_species>209</m_species>
          <m_name>Snubbull</m_name>
          <m_base length="6">
             <int>60</int>
@@ -8036,7 +8036,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>209</m_species>
+         <m_species>210</m_species>
          <m_name>Granbull</m_name>
          <m_base length="6">
             <int>90</int>
@@ -8054,7 +8054,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>210</m_species>
+         <m_species>211</m_species>
          <m_name>Qwilfish</m_name>
          <m_base length="6">
             <int>65</int>
@@ -8075,7 +8075,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>211</m_species>
+         <m_species>212</m_species>
          <m_name>Scizor</m_name>
          <m_base length="6">
             <int>70</int>
@@ -8096,7 +8096,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>212</m_species>
+         <m_species>213</m_species>
          <m_name>Shuckle</m_name>
          <m_base length="6">
             <int>20</int>
@@ -8117,7 +8117,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>213</m_species>
+         <m_species>214</m_species>
          <m_name>Heracross</m_name>
          <m_base length="6">
             <int>80</int>
@@ -8138,7 +8138,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>214</m_species>
+         <m_species>215</m_species>
          <m_name>Sneasel</m_name>
          <m_base length="6">
             <int>55</int>
@@ -8159,7 +8159,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>215</m_species>
+         <m_species>216</m_species>
          <m_name>Teddiursa</m_name>
          <m_base length="6">
             <int>60</int>
@@ -8177,7 +8177,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>216</m_species>
+         <m_species>217</m_species>
          <m_name>Ursaring</m_name>
          <m_base length="6">
             <int>90</int>
@@ -8195,7 +8195,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>217</m_species>
+         <m_species>218</m_species>
          <m_name>Slugma</m_name>
          <m_base length="6">
             <int>40</int>
@@ -8213,7 +8213,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>218</m_species>
+         <m_species>219</m_species>
          <m_name>Magcargo</m_name>
          <m_base length="6">
             <int>50</int>
@@ -8234,7 +8234,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>219</m_species>
+         <m_species>220</m_species>
          <m_name>Swinub</m_name>
          <m_base length="6">
             <int>50</int>
@@ -8255,7 +8255,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>220</m_species>
+         <m_species>221</m_species>
          <m_name>Piloswine</m_name>
          <m_base length="6">
             <int>100</int>
@@ -8276,7 +8276,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>221</m_species>
+         <m_species>222</m_species>
          <m_name>Corsola</m_name>
          <m_base length="6">
             <int>55</int>
@@ -8297,7 +8297,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>222</m_species>
+         <m_species>223</m_species>
          <m_name>Remoraid</m_name>
          <m_base length="6">
             <int>35</int>
@@ -8315,7 +8315,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>223</m_species>
+         <m_species>224</m_species>
          <m_name>Octillery</m_name>
          <m_base length="6">
             <int>75</int>
@@ -8333,7 +8333,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>224</m_species>
+         <m_species>225</m_species>
          <m_name>Delibird</m_name>
          <m_base length="6">
             <int>45</int>
@@ -8354,7 +8354,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>225</m_species>
+         <m_species>226</m_species>
          <m_name>Mantine</m_name>
          <m_base length="6">
             <int>65</int>
@@ -8375,7 +8375,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>226</m_species>
+         <m_species>227</m_species>
          <m_name>Skarmory</m_name>
          <m_base length="6">
             <int>65</int>
@@ -8396,7 +8396,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>227</m_species>
+         <m_species>228</m_species>
          <m_name>Houndour</m_name>
          <m_base length="6">
             <int>45</int>
@@ -8417,7 +8417,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>228</m_species>
+         <m_species>229</m_species>
          <m_name>Houndoom</m_name>
          <m_base length="6">
             <int>75</int>
@@ -8438,7 +8438,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>229</m_species>
+         <m_species>230</m_species>
          <m_name>Kingdra</m_name>
          <m_base length="6">
             <int>75</int>
@@ -8459,7 +8459,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>230</m_species>
+         <m_species>231</m_species>
          <m_name>Phanpy</m_name>
          <m_base length="6">
             <int>90</int>
@@ -8477,7 +8477,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>231</m_species>
+         <m_species>232</m_species>
          <m_name>Donphan</m_name>
          <m_base length="6">
             <int>90</int>
@@ -8495,7 +8495,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>232</m_species>
+         <m_species>233</m_species>
          <m_name>Porygon2</m_name>
          <m_base length="6">
             <int>85</int>
@@ -8513,7 +8513,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>233</m_species>
+         <m_species>234</m_species>
          <m_name>Stantler</m_name>
          <m_base length="6">
             <int>73</int>
@@ -8531,7 +8531,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>234</m_species>
+         <m_species>235</m_species>
          <m_name>Smeargle</m_name>
          <m_base length="6">
             <int>55</int>
@@ -8549,7 +8549,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>235</m_species>
+         <m_species>236</m_species>
          <m_name>Tyrogue</m_name>
          <m_base length="6">
             <int>35</int>
@@ -8567,7 +8567,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>236</m_species>
+         <m_species>237</m_species>
          <m_name>Hitmontop</m_name>
          <m_base length="6">
             <int>50</int>
@@ -8585,7 +8585,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>237</m_species>
+         <m_species>238</m_species>
          <m_name>Smoochum</m_name>
          <m_base length="6">
             <int>45</int>
@@ -8606,7 +8606,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>238</m_species>
+         <m_species>239</m_species>
          <m_name>Elekid</m_name>
          <m_base length="6">
             <int>45</int>
@@ -8624,7 +8624,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>239</m_species>
+         <m_species>240</m_species>
          <m_name>Magby</m_name>
          <m_base length="6">
             <int>45</int>
@@ -8642,7 +8642,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>240</m_species>
+         <m_species>241</m_species>
          <m_name>Miltank</m_name>
          <m_base length="6">
             <int>95</int>
@@ -8660,7 +8660,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>241</m_species>
+         <m_species>242</m_species>
          <m_name>Blissey</m_name>
          <m_base length="6">
             <int>255</int>
@@ -8678,7 +8678,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>242</m_species>
+         <m_species>243</m_species>
          <m_name>Raikou</m_name>
          <m_base length="6">
             <int>90</int>
@@ -8696,7 +8696,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>243</m_species>
+         <m_species>244</m_species>
          <m_name>Entei</m_name>
          <m_base length="6">
             <int>115</int>
@@ -8714,7 +8714,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>244</m_species>
+         <m_species>245</m_species>
          <m_name>Suicune</m_name>
          <m_base length="6">
             <int>100</int>
@@ -8732,7 +8732,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>245</m_species>
+         <m_species>246</m_species>
          <m_name>Larvitar</m_name>
          <m_base length="6">
             <int>50</int>
@@ -8753,7 +8753,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>246</m_species>
+         <m_species>247</m_species>
          <m_name>Pupitar</m_name>
          <m_base length="6">
             <int>70</int>
@@ -8774,7 +8774,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>247</m_species>
+         <m_species>248</m_species>
          <m_name>Tyranitar</m_name>
          <m_base length="6">
             <int>100</int>
@@ -8795,7 +8795,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>248</m_species>
+         <m_species>249</m_species>
          <m_name>Lugia</m_name>
          <m_base length="6">
             <int>106</int>
@@ -8816,7 +8816,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>249</m_species>
+         <m_species>250</m_species>
          <m_name>Ho-oh</m_name>
          <m_base length="6">
             <int>106</int>
@@ -8837,7 +8837,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>250</m_species>
+         <m_species>251</m_species>
          <m_name>Celebi</m_name>
          <m_base length="6">
             <int>100</int>
@@ -8858,7 +8858,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>251</m_species>
+         <m_species>252</m_species>
          <m_name>Treecko</m_name>
          <m_base length="6">
             <int>40</int>
@@ -8876,7 +8876,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>252</m_species>
+         <m_species>253</m_species>
          <m_name>Grovyle</m_name>
          <m_base length="6">
             <int>50</int>
@@ -8894,7 +8894,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>253</m_species>
+         <m_species>254</m_species>
          <m_name>Sceptile</m_name>
          <m_base length="6">
             <int>70</int>
@@ -8912,7 +8912,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>254</m_species>
+         <m_species>255</m_species>
          <m_name>Torchic</m_name>
          <m_base length="6">
             <int>45</int>
@@ -8930,7 +8930,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>255</m_species>
+         <m_species>256</m_species>
          <m_name>Combusken</m_name>
          <m_base length="6">
             <int>60</int>
@@ -8951,7 +8951,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>256</m_species>
+         <m_species>257</m_species>
          <m_name>Blaziken</m_name>
          <m_base length="6">
             <int>80</int>
@@ -8972,7 +8972,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>257</m_species>
+         <m_species>258</m_species>
          <m_name>Mudkip</m_name>
          <m_base length="6">
             <int>50</int>
@@ -8990,7 +8990,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>258</m_species>
+         <m_species>259</m_species>
          <m_name>Marshtomp</m_name>
          <m_base length="6">
             <int>70</int>
@@ -9011,7 +9011,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>259</m_species>
+         <m_species>260</m_species>
          <m_name>Swampert</m_name>
          <m_base length="6">
             <int>100</int>
@@ -9032,7 +9032,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>260</m_species>
+         <m_species>261</m_species>
          <m_name>Poochyena</m_name>
          <m_base length="6">
             <int>35</int>
@@ -9050,7 +9050,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>261</m_species>
+         <m_species>262</m_species>
          <m_name>Mightyena</m_name>
          <m_base length="6">
             <int>70</int>
@@ -9068,7 +9068,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>262</m_species>
+         <m_species>263</m_species>
          <m_name>Zigzagoon</m_name>
          <m_base length="6">
             <int>38</int>
@@ -9086,7 +9086,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>263</m_species>
+         <m_species>264</m_species>
          <m_name>Linoone</m_name>
          <m_base length="6">
             <int>78</int>
@@ -9104,7 +9104,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>264</m_species>
+         <m_species>265</m_species>
          <m_name>Wurmple</m_name>
          <m_base length="6">
             <int>45</int>
@@ -9122,7 +9122,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>265</m_species>
+         <m_species>266</m_species>
          <m_name>Silcoon</m_name>
          <m_base length="6">
             <int>50</int>
@@ -9140,7 +9140,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>266</m_species>
+         <m_species>267</m_species>
          <m_name>Beautifly</m_name>
          <m_base length="6">
             <int>60</int>
@@ -9161,7 +9161,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>267</m_species>
+         <m_species>268</m_species>
          <m_name>Cascoon</m_name>
          <m_base length="6">
             <int>50</int>
@@ -9179,7 +9179,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>268</m_species>
+         <m_species>2689</m_species>
          <m_name>Dustox</m_name>
          <m_base length="6">
             <int>60</int>
@@ -9200,7 +9200,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>269</m_species>
+         <m_species>270</m_species>
          <m_name>Lotad</m_name>
          <m_base length="6">
             <int>40</int>
@@ -9221,7 +9221,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>270</m_species>
+         <m_species>271</m_species>
          <m_name>Lombre</m_name>
          <m_base length="6">
             <int>60</int>
@@ -9242,7 +9242,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>271</m_species>
+         <m_species>272</m_species>
          <m_name>Ludicolo</m_name>
          <m_base length="6">
             <int>80</int>
@@ -9263,7 +9263,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>272</m_species>
+         <m_species>273</m_species>
          <m_name>Seedot</m_name>
          <m_base length="6">
             <int>40</int>
@@ -9281,7 +9281,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>273</m_species>
+         <m_species>274</m_species>
          <m_name>Nuzleaf</m_name>
          <m_base length="6">
             <int>70</int>
@@ -9302,7 +9302,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>274</m_species>
+         <m_species>275</m_species>
          <m_name>Shiftry</m_name>
          <m_base length="6">
             <int>90</int>
@@ -9323,7 +9323,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>275</m_species>
+         <m_species>276</m_species>
          <m_name>Taillow</m_name>
          <m_base length="6">
             <int>40</int>
@@ -9344,7 +9344,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>276</m_species>
+         <m_species>277</m_species>
          <m_name>Swellow</m_name>
          <m_base length="6">
             <int>60</int>
@@ -9365,7 +9365,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>277</m_species>
+         <m_species>278</m_species>
          <m_name>Wingull</m_name>
          <m_base length="6">
             <int>40</int>
@@ -9386,7 +9386,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>278</m_species>
+         <m_species>279</m_species>
          <m_name>Pelipper</m_name>
          <m_base length="6">
             <int>60</int>
@@ -9407,7 +9407,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>279</m_species>
+         <m_species>280</m_species>
          <m_name>Ralts</m_name>
          <m_base length="6">
             <int>28</int>
@@ -9425,7 +9425,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>280</m_species>
+         <m_species>281</m_species>
          <m_name>Kirlia</m_name>
          <m_base length="6">
             <int>38</int>
@@ -9443,7 +9443,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>281</m_species>
+         <m_species>282</m_species>
          <m_name>Gardevoir</m_name>
          <m_base length="6">
             <int>68</int>
@@ -9461,7 +9461,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>282</m_species>
+         <m_species>283</m_species>
          <m_name>Surskit</m_name>
          <m_base length="6">
             <int>40</int>
@@ -9482,7 +9482,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>283</m_species>
+         <m_species>284</m_species>
          <m_name>Masquerain</m_name>
          <m_base length="6">
             <int>70</int>
@@ -9503,7 +9503,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>284</m_species>
+         <m_species>285</m_species>
          <m_name>Shroomish</m_name>
          <m_base length="6">
             <int>60</int>
@@ -9521,7 +9521,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>285</m_species>
+         <m_species>286</m_species>
          <m_name>Breloom</m_name>
          <m_base length="6">
             <int>60</int>
@@ -9542,7 +9542,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>286</m_species>
+         <m_species>287</m_species>
          <m_name>Slakoth</m_name>
          <m_base length="6">
             <int>60</int>
@@ -9560,7 +9560,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>287</m_species>
+         <m_species>288</m_species>
          <m_name>Vigoroth</m_name>
          <m_base length="6">
             <int>80</int>
@@ -9578,7 +9578,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>288</m_species>
+         <m_species>289</m_species>
          <m_name>Slaking</m_name>
          <m_base length="6">
             <int>150</int>
@@ -9596,7 +9596,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>289</m_species>
+         <m_species>290</m_species>
          <m_name>Nincada</m_name>
          <m_base length="6">
             <int>31</int>
@@ -9617,7 +9617,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>290</m_species>
+         <m_species>291</m_species>
          <m_name>Ninjask</m_name>
          <m_base length="6">
             <int>61</int>
@@ -9638,7 +9638,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>291</m_species>
+         <m_species>292</m_species>
          <m_name>Shedinja</m_name>
          <m_base length="6">
             <int>1</int>
@@ -9659,7 +9659,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>292</m_species>
+         <m_species>293</m_species>
          <m_name>Whismur</m_name>
          <m_base length="6">
             <int>64</int>
@@ -9677,7 +9677,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>293</m_species>
+         <m_species>294</m_species>
          <m_name>Loudred</m_name>
          <m_base length="6">
             <int>84</int>
@@ -9695,7 +9695,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>294</m_species>
+         <m_species>295</m_species>
          <m_name>Exploud</m_name>
          <m_base length="6">
             <int>104</int>
@@ -9713,7 +9713,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>295</m_species>
+         <m_species>296</m_species>
          <m_name>Makuhita</m_name>
          <m_base length="6">
             <int>72</int>
@@ -9731,7 +9731,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>296</m_species>
+         <m_species>297</m_species>
          <m_name>Hariyama</m_name>
          <m_base length="6">
             <int>144</int>
@@ -9749,7 +9749,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>297</m_species>
+         <m_species>298</m_species>
          <m_name>Azurill</m_name>
          <m_base length="6">
             <int>50</int>
@@ -9767,7 +9767,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>298</m_species>
+         <m_species>299</m_species>
          <m_name>Nosepass</m_name>
          <m_base length="6">
             <int>30</int>
@@ -9785,7 +9785,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>299</m_species>
+         <m_species>300</m_species>
          <m_name>Skitty</m_name>
          <m_base length="6">
             <int>50</int>
@@ -9803,7 +9803,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>300</m_species>
+         <m_species>301</m_species>
          <m_name>Delcatty</m_name>
          <m_base length="6">
             <int>70</int>
@@ -9821,7 +9821,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>301</m_species>
+         <m_species>302</m_species>
          <m_name>Sableye</m_name>
          <m_base length="6">
             <int>50</int>
@@ -9842,7 +9842,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>302</m_species>
+         <m_species>303</m_species>
          <m_name>Mawile</m_name>
          <m_base length="6">
             <int>50</int>
@@ -9860,7 +9860,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>303</m_species>
+         <m_species>304</m_species>
          <m_name>Aron</m_name>
          <m_base length="6">
             <int>50</int>
@@ -9881,7 +9881,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>304</m_species>
+         <m_species>305</m_species>
          <m_name>Lairon</m_name>
          <m_base length="6">
             <int>60</int>
@@ -9902,7 +9902,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>305</m_species>
+         <m_species>306</m_species>
          <m_name>Aggron</m_name>
          <m_base length="6">
             <int>70</int>
@@ -9923,7 +9923,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>306</m_species>
+         <m_species>307</m_species>
          <m_name>Meditite</m_name>
          <m_base length="6">
             <int>30</int>
@@ -9944,7 +9944,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>307</m_species>
+         <m_species>308</m_species>
          <m_name>Medicham</m_name>
          <m_base length="6">
             <int>60</int>
@@ -9965,7 +9965,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>308</m_species>
+         <m_species>309</m_species>
          <m_name>Electrike</m_name>
          <m_base length="6">
             <int>40</int>
@@ -9983,7 +9983,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>309</m_species>
+         <m_species>310</m_species>
          <m_name>Manectric</m_name>
          <m_base length="6">
             <int>70</int>
@@ -10001,7 +10001,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>310</m_species>
+         <m_species>311</m_species>
          <m_name>Plusle</m_name>
          <m_base length="6">
             <int>60</int>
@@ -10019,7 +10019,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>311</m_species>
+         <m_species>312</m_species>
          <m_name>Minun</m_name>
          <m_base length="6">
             <int>60</int>
@@ -10037,7 +10037,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>312</m_species>
+         <m_species>313</m_species>
          <m_name>Volbeat</m_name>
          <m_base length="6">
             <int>65</int>
@@ -10055,7 +10055,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>313</m_species>
+         <m_species>314</m_species>
          <m_name>Illumise</m_name>
          <m_base length="6">
             <int>65</int>
@@ -10073,7 +10073,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>314</m_species>
+         <m_species>315</m_species>
          <m_name>Roselia</m_name>
          <m_base length="6">
             <int>50</int>
@@ -10094,7 +10094,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>315</m_species>
+         <m_species>316</m_species>
          <m_name>Gulpin</m_name>
          <m_base length="6">
             <int>70</int>
@@ -10112,7 +10112,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>316</m_species>
+         <m_species>317</m_species>
          <m_name>Swalot</m_name>
          <m_base length="6">
             <int>100</int>
@@ -10130,7 +10130,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>317</m_species>
+         <m_species>318</m_species>
          <m_name>Carvanha</m_name>
          <m_base length="6">
             <int>45</int>
@@ -10151,7 +10151,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>318</m_species>
+         <m_species>319</m_species>
          <m_name>Sharpedo</m_name>
          <m_base length="6">
             <int>70</int>
@@ -10172,7 +10172,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>319</m_species>
+         <m_species>320</m_species>
          <m_name>Wailmer</m_name>
          <m_base length="6">
             <int>130</int>
@@ -10190,7 +10190,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>320</m_species>
+         <m_species>321</m_species>
          <m_name>Wailord</m_name>
          <m_base length="6">
             <int>170</int>
@@ -10208,7 +10208,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>321</m_species>
+         <m_species>322</m_species>
          <m_name>Numel</m_name>
          <m_base length="6">
             <int>60</int>
@@ -10229,7 +10229,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>322</m_species>
+         <m_species>323</m_species>
          <m_name>Camerupt</m_name>
          <m_base length="6">
             <int>70</int>
@@ -10250,7 +10250,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>323</m_species>
+         <m_species>324</m_species>
          <m_name>Torkoal</m_name>
          <m_base length="6">
             <int>70</int>
@@ -10268,7 +10268,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>324</m_species>
+         <m_species>325</m_species>
          <m_name>Spoink</m_name>
          <m_base length="6">
             <int>60</int>
@@ -10286,7 +10286,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>325</m_species>
+         <m_species>326</m_species>
          <m_name>Grumpig</m_name>
          <m_base length="6">
             <int>80</int>
@@ -10304,7 +10304,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>326</m_species>
+         <m_species>327</m_species>
          <m_name>Spinda</m_name>
          <m_base length="6">
             <int>60</int>
@@ -10322,7 +10322,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>327</m_species>
+         <m_species>328</m_species>
          <m_name>Trapinch</m_name>
          <m_base length="6">
             <int>45</int>
@@ -10340,7 +10340,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>328</m_species>
+         <m_species>329</m_species>
          <m_name>Vibrava</m_name>
          <m_base length="6">
             <int>50</int>
@@ -10361,7 +10361,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>329</m_species>
+         <m_species>330</m_species>
          <m_name>Flygon</m_name>
          <m_base length="6">
             <int>80</int>
@@ -10382,7 +10382,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>330</m_species>
+         <m_species>331</m_species>
          <m_name>Cacnea</m_name>
          <m_base length="6">
             <int>50</int>
@@ -10400,7 +10400,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>331</m_species>
+         <m_species>332</m_species>
          <m_name>Cacturne</m_name>
          <m_base length="6">
             <int>70</int>
@@ -10421,7 +10421,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>332</m_species>
+         <m_species>333</m_species>
          <m_name>Swablu</m_name>
          <m_base length="6">
             <int>45</int>
@@ -10442,7 +10442,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>333</m_species>
+         <m_species>334</m_species>
          <m_name>Altaria</m_name>
          <m_base length="6">
             <int>75</int>
@@ -10463,7 +10463,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>334</m_species>
+         <m_species>335</m_species>
          <m_name>Zangoose</m_name>
          <m_base length="6">
             <int>73</int>
@@ -10481,7 +10481,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>335</m_species>
+         <m_species>336</m_species>
          <m_name>Seviper</m_name>
          <m_base length="6">
             <int>73</int>
@@ -10499,7 +10499,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>336</m_species>
+         <m_species>337</m_species>
          <m_name>Lunatone</m_name>
          <m_base length="6">
             <int>70</int>
@@ -10520,7 +10520,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>337</m_species>
+         <m_species>338</m_species>
          <m_name>Solrock</m_name>
          <m_base length="6">
             <int>70</int>
@@ -10541,7 +10541,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>338</m_species>
+         <m_species>339</m_species>
          <m_name>Barboach</m_name>
          <m_base length="6">
             <int>50</int>
@@ -10562,7 +10562,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>339</m_species>
+         <m_species>340</m_species>
          <m_name>Whiscash</m_name>
          <m_base length="6">
             <int>110</int>
@@ -10583,7 +10583,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>340</m_species>
+         <m_species>341</m_species>
          <m_name>Corphish</m_name>
          <m_base length="6">
             <int>43</int>
@@ -10601,7 +10601,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>341</m_species>
+         <m_species>342</m_species>
          <m_name>Crawdaunt</m_name>
          <m_base length="6">
             <int>63</int>
@@ -10622,7 +10622,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>342</m_species>
+         <m_species>343</m_species>
          <m_name>Baltoy</m_name>
          <m_base length="6">
             <int>40</int>
@@ -10643,7 +10643,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>343</m_species>
+         <m_species>344</m_species>
          <m_name>Claydol</m_name>
          <m_base length="6">
             <int>60</int>
@@ -10664,7 +10664,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>344</m_species>
+         <m_species>345</m_species>
          <m_name>Lileep</m_name>
          <m_base length="6">
             <int>66</int>
@@ -10685,7 +10685,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>345</m_species>
+         <m_species>346</m_species>
          <m_name>Cradily</m_name>
          <m_base length="6">
             <int>86</int>
@@ -10706,7 +10706,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>346</m_species>
+         <m_species>347</m_species>
          <m_name>Anorith</m_name>
          <m_base length="6">
             <int>45</int>
@@ -10727,7 +10727,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>347</m_species>
+         <m_species>348</m_species>
          <m_name>Armaldo</m_name>
          <m_base length="6">
             <int>75</int>
@@ -10748,7 +10748,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>348</m_species>
+         <m_species>349</m_species>
          <m_name>Feebas</m_name>
          <m_base length="6">
             <int>20</int>
@@ -10766,7 +10766,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>349</m_species>
+         <m_species>350</m_species>
          <m_name>Milotic</m_name>
          <m_base length="6">
             <int>95</int>
@@ -10784,7 +10784,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>350</m_species>
+         <m_species>351</m_species>
          <m_name>Castform</m_name>
          <m_base length="6">
             <int>70</int>
@@ -10802,7 +10802,61 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>351</m_species>
+         <m_species>3510</m_species>
+         <m_name>Castform-r</m_name>
+         <m_base length="6">
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>2</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>3</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>3511</m_species>
+         <m_name>Castform-s</m_name>
+         <m_base length="6">
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>1</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>3</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>3512</m_species>
+         <m_name>Castform-h</m_name>
+         <m_base length="6">
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>5</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>3</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>352</m_species>
          <m_name>Kecleon</m_name>
          <m_base length="6">
             <int>60</int>
@@ -10820,7 +10874,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>352</m_species>
+         <m_species>353</m_species>
          <m_name>Shuppet</m_name>
          <m_base length="6">
             <int>44</int>
@@ -10838,7 +10892,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>353</m_species>
+         <m_species>354</m_species>
          <m_name>Banette</m_name>
          <m_base length="6">
             <int>64</int>
@@ -10856,7 +10910,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>354</m_species>
+         <m_species>355</m_species>
          <m_name>Duskull</m_name>
          <m_base length="6">
             <int>20</int>
@@ -10874,7 +10928,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>355</m_species>
+         <m_species>356</m_species>
          <m_name>Dusclops</m_name>
          <m_base length="6">
             <int>40</int>
@@ -10892,7 +10946,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>356</m_species>
+         <m_species>357</m_species>
          <m_name>Tropius</m_name>
          <m_base length="6">
             <int>99</int>
@@ -10913,7 +10967,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>357</m_species>
+         <m_species>358</m_species>
          <m_name>Chimecho</m_name>
          <m_base length="6">
             <int>65</int>
@@ -10931,7 +10985,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>358</m_species>
+         <m_species>359</m_species>
          <m_name>Absol</m_name>
          <m_base length="6">
             <int>65</int>
@@ -10949,7 +11003,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>359</m_species>
+         <m_species>360</m_species>
          <m_name>Wynaut</m_name>
          <m_base length="6">
             <int>95</int>
@@ -10967,7 +11021,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>360</m_species>
+         <m_species>361</m_species>
          <m_name>Snorunt</m_name>
          <m_base length="6">
             <int>50</int>
@@ -10985,7 +11039,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>361</m_species>
+         <m_species>362</m_species>
          <m_name>Glalie</m_name>
          <m_base length="6">
             <int>80</int>
@@ -11003,7 +11057,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>362</m_species>
+         <m_species>363</m_species>
          <m_name>Spheal</m_name>
          <m_base length="6">
             <int>70</int>
@@ -11024,7 +11078,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>363</m_species>
+         <m_species>364</m_species>
          <m_name>Sealeo</m_name>
          <m_base length="6">
             <int>90</int>
@@ -11045,7 +11099,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>364</m_species>
+         <m_species>365</m_species>
          <m_name>Walrein</m_name>
          <m_base length="6">
             <int>110</int>
@@ -11066,7 +11120,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>365</m_species>
+         <m_species>366</m_species>
          <m_name>Clamperl</m_name>
          <m_base length="6">
             <int>35</int>
@@ -11084,7 +11138,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>366</m_species>
+         <m_species>367</m_species>
          <m_name>Huntail</m_name>
          <m_base length="6">
             <int>55</int>
@@ -11102,7 +11156,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>367</m_species>
+         <m_species>368</m_species>
          <m_name>Gorebyss</m_name>
          <m_base length="6">
             <int>55</int>
@@ -11120,7 +11174,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>368</m_species>
+         <m_species>369</m_species>
          <m_name>Relicanth</m_name>
          <m_base length="6">
             <int>100</int>
@@ -11141,7 +11195,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>369</m_species>
+         <m_species>370</m_species>
          <m_name>Luvdisc</m_name>
          <m_base length="6">
             <int>43</int>
@@ -11159,7 +11213,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>370</m_species>
+         <m_species>371</m_species>
          <m_name>Bagon</m_name>
          <m_base length="6">
             <int>45</int>
@@ -11177,7 +11231,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>371</m_species>
+         <m_species>372</m_species>
          <m_name>Shelgon</m_name>
          <m_base length="6">
             <int>65</int>
@@ -11195,7 +11249,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>372</m_species>
+         <m_species>373</m_species>
          <m_name>Salamence</m_name>
          <m_base length="6">
             <int>95</int>
@@ -11216,7 +11270,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>373</m_species>
+         <m_species>374</m_species>
          <m_name>Beldum</m_name>
          <m_base length="6">
             <int>40</int>
@@ -11237,7 +11291,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>374</m_species>
+         <m_species>375</m_species>
          <m_name>Metang</m_name>
          <m_base length="6">
             <int>60</int>
@@ -11258,7 +11312,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>375</m_species>
+         <m_species>376</m_species>
          <m_name>Metagross</m_name>
          <m_base length="6">
             <int>80</int>
@@ -11279,7 +11333,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>376</m_species>
+         <m_species>377</m_species>
          <m_name>Regirock</m_name>
          <m_base length="6">
             <int>80</int>
@@ -11297,7 +11351,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>377</m_species>
+         <m_species>378</m_species>
          <m_name>Regice</m_name>
          <m_base length="6">
             <int>80</int>
@@ -11315,7 +11369,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>378</m_species>
+         <m_species>379</m_species>
          <m_name>Registeel</m_name>
          <m_base length="6">
             <int>80</int>
@@ -11333,7 +11387,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>379</m_species>
+         <m_species>380</m_species>
          <m_name>Latias</m_name>
          <m_base length="6">
             <int>80</int>
@@ -11354,7 +11408,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>380</m_species>
+         <m_species>381</m_species>
          <m_name>Latios</m_name>
          <m_base length="6">
             <int>80</int>
@@ -11375,7 +11429,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>381</m_species>
+         <m_species>382</m_species>
          <m_name>Kyogre</m_name>
          <m_base length="6">
             <int>100</int>
@@ -11393,7 +11447,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>382</m_species>
+         <m_species>383</m_species>
          <m_name>Groudon</m_name>
          <m_base length="6">
             <int>100</int>
@@ -11411,7 +11465,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>383</m_species>
+         <m_species>384</m_species>
          <m_name>Rayquaza</m_name>
          <m_base length="6">
             <int>105</int>
@@ -11432,7 +11486,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>384</m_species>
+         <m_species>385</m_species>
          <m_name>Jirachi</m_name>
          <m_base length="6">
             <int>100</int>
@@ -11453,7 +11507,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>385</m_species>
+         <m_species>386</m_species>
          <m_name>Deoxys</m_name>
          <m_base length="6">
             <int>50</int>
@@ -11471,7 +11525,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>386</m_species>
+         <m_species>3860</m_species>
          <m_name>Deoxys-f</m_name>
          <m_base length="6">
             <int>50</int>
@@ -11489,7 +11543,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>387</m_species>
+         <m_species>3861</m_species>
          <m_name>Deoxys-l</m_name>
          <m_base length="6">
             <int>50</int>
@@ -11507,7 +11561,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>388</m_species>
+         <m_species>3862</m_species>
          <m_name>Deoxys-e</m_name>
          <m_base length="6">
             <int>50</int>
@@ -11525,7 +11579,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>389</m_species>
+         <m_species>387</m_species>
          <m_name>Turtwig</m_name>
          <m_base length="6">
             <int>55</int>
@@ -11543,7 +11597,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>390</m_species>
+         <m_species>388</m_species>
          <m_name>Grotle</m_name>
          <m_base length="6">
             <int>75</int>
@@ -11561,7 +11615,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>391</m_species>
+         <m_species>389</m_species>
          <m_name>Torterra</m_name>
          <m_base length="6">
             <int>95</int>
@@ -11582,7 +11636,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>392</m_species>
+         <m_species>390</m_species>
          <m_name>Chimchar</m_name>
          <m_base length="6">
             <int>44</int>
@@ -11600,7 +11654,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>393</m_species>
+         <m_species>391</m_species>
          <m_name>Monferno</m_name>
          <m_base length="6">
             <int>64</int>
@@ -11621,7 +11675,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>394</m_species>
+         <m_species>392</m_species>
          <m_name>Infernape</m_name>
          <m_base length="6">
             <int>76</int>
@@ -11642,7 +11696,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>395</m_species>
+         <m_species>393</m_species>
          <m_name>Piplup</m_name>
          <m_base length="6">
             <int>53</int>
@@ -11660,7 +11714,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>396</m_species>
+         <m_species>394</m_species>
          <m_name>Prinplup</m_name>
          <m_base length="6">
             <int>64</int>
@@ -11678,7 +11732,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>397</m_species>
+         <m_species>395</m_species>
          <m_name>Empoleon</m_name>
          <m_base length="6">
             <int>84</int>
@@ -11699,7 +11753,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>398</m_species>
+         <m_species>396</m_species>
          <m_name>Starly</m_name>
          <m_base length="6">
             <int>40</int>
@@ -11720,7 +11774,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>399</m_species>
+         <m_species>397</m_species>
          <m_name>Staravia</m_name>
          <m_base length="6">
             <int>55</int>
@@ -11741,7 +11795,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>400</m_species>
+         <m_species>398</m_species>
          <m_name>Staraptor</m_name>
          <m_base length="6">
             <int>85</int>
@@ -11762,7 +11816,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>401</m_species>
+         <m_species>399</m_species>
          <m_name>Bidoof</m_name>
          <m_base length="6">
             <int>59</int>
@@ -11780,7 +11834,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>402</m_species>
+         <m_species>400</m_species>
          <m_name>Bibarel</m_name>
          <m_base length="6">
             <int>79</int>
@@ -11801,7 +11855,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>403</m_species>
+         <m_species>401</m_species>
          <m_name>Kricketot</m_name>
          <m_base length="6">
             <int>37</int>
@@ -11819,7 +11873,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>404</m_species>
+         <m_species>402</m_species>
          <m_name>Kricketune</m_name>
          <m_base length="6">
             <int>77</int>
@@ -11837,7 +11891,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>405</m_species>
+         <m_species>403</m_species>
          <m_name>Shinx</m_name>
          <m_base length="6">
             <int>45</int>
@@ -11855,7 +11909,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>406</m_species>
+         <m_species>404</m_species>
          <m_name>Luxio</m_name>
          <m_base length="6">
             <int>60</int>
@@ -11873,7 +11927,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>407</m_species>
+         <m_species>405</m_species>
          <m_name>Luxray</m_name>
          <m_base length="6">
             <int>80</int>
@@ -11891,7 +11945,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>408</m_species>
+         <m_species>406</m_species>
          <m_name>Budew</m_name>
          <m_base length="6">
             <int>40</int>
@@ -11912,7 +11966,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>409</m_species>
+         <m_species>407</m_species>
          <m_name>Roserade</m_name>
          <m_base length="6">
             <int>60</int>
@@ -11933,7 +11987,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>410</m_species>
+         <m_species>408</m_species>
          <m_name>Cranidos</m_name>
          <m_base length="6">
             <int>67</int>
@@ -11951,7 +12005,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>411</m_species>
+         <m_species>409</m_species>
          <m_name>Rampardos</m_name>
          <m_base length="6">
             <int>97</int>
@@ -11969,7 +12023,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>412</m_species>
+         <m_species>410</m_species>
          <m_name>Shieldon</m_name>
          <m_base length="6">
             <int>30</int>
@@ -11990,7 +12044,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>413</m_species>
+         <m_species>411</m_species>
          <m_name>Bastiodon</m_name>
          <m_base length="6">
             <int>60</int>
@@ -12011,7 +12065,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>414</m_species>
+         <m_species>412</m_species>
          <m_name>Burmy</m_name>
          <m_base length="6">
             <int>40</int>
@@ -12029,7 +12083,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>415</m_species>
+         <m_species>413</m_species>
          <m_name>Wormadam</m_name>
          <m_base length="6">
             <int>60</int>
@@ -12050,7 +12104,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>416</m_species>
+         <m_species>4130</m_species>
          <m_name>Wormadam-g</m_name>
          <m_base length="6">
             <int>60</int>
@@ -12071,7 +12125,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>417</m_species>
+         <m_species>4131</m_species>
          <m_name>Wormadam-s</m_name>
          <m_base length="6">
             <int>60</int>
@@ -12092,7 +12146,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>418</m_species>
+         <m_species>414</m_species>
          <m_name>Mothim</m_name>
          <m_base length="6">
             <int>70</int>
@@ -12113,7 +12167,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>419</m_species>
+         <m_species>415</m_species>
          <m_name>Combee</m_name>
          <m_base length="6">
             <int>30</int>
@@ -12134,7 +12188,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>420</m_species>
+         <m_species>416</m_species>
          <m_name>Vespiquen</m_name>
          <m_base length="6">
             <int>70</int>
@@ -12155,7 +12209,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>421</m_species>
+         <m_species>417</m_species>
          <m_name>Pachirisu</m_name>
          <m_base length="6">
             <int>60</int>
@@ -12173,7 +12227,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>422</m_species>
+         <m_species>418</m_species>
          <m_name>Buizel</m_name>
          <m_base length="6">
             <int>55</int>
@@ -12191,7 +12245,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>423</m_species>
+         <m_species>419</m_species>
          <m_name>Floatzel</m_name>
          <m_base length="6">
             <int>85</int>
@@ -12209,7 +12263,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>424</m_species>
+         <m_species>420</m_species>
          <m_name>Cherubi</m_name>
          <m_base length="6">
             <int>45</int>
@@ -12227,7 +12281,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>425</m_species>
+         <m_species>421</m_species>
          <m_name>Cherrim</m_name>
          <m_base length="6">
             <int>70</int>
@@ -12245,7 +12299,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>426</m_species>
+         <m_species>422</m_species>
          <m_name>Shellos</m_name>
          <m_base length="6">
             <int>76</int>
@@ -12262,8 +12316,26 @@
          </m_type>
          <m_genders>3</m_genders>
       </pokemonSpecies>
+     <pokemonSpecies>
+         <m_species>4220</m_species>
+         <m_name>Shellos-m</m_name>
+         <m_base length="6">
+            <int>76</int>
+            <int>48</int>
+            <int>48</int>
+            <int>34</int>
+            <int>57</int>
+            <int>62</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>2</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>3</m_genders>
+      </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>427</m_species>
+         <m_species>423</m_species>
          <m_name>Gastrodon</m_name>
          <m_base length="6">
             <int>111</int>
@@ -12284,7 +12356,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>428</m_species>
+         <m_species>424</m_species>
          <m_name>Ambipom</m_name>
          <m_base length="6">
             <int>75</int>
@@ -12302,7 +12374,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>429</m_species>
+         <m_species>425</m_species>
          <m_name>Drifloon</m_name>
          <m_base length="6">
             <int>90</int>
@@ -12323,7 +12395,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>430</m_species>
+         <m_species>426</m_species>
          <m_name>Drifblim</m_name>
          <m_base length="6">
             <int>150</int>
@@ -12344,7 +12416,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>431</m_species>
+         <m_species>427</m_species>
          <m_name>Buneary</m_name>
          <m_base length="6">
             <int>55</int>
@@ -12362,7 +12434,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>432</m_species>
+         <m_species>428</m_species>
          <m_name>Lopunny</m_name>
          <m_base length="6">
             <int>65</int>
@@ -12380,7 +12452,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>433</m_species>
+         <m_species>429</m_species>
          <m_name>Mismagius</m_name>
          <m_base length="6">
             <int>60</int>
@@ -12398,7 +12470,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>434</m_species>
+         <m_species>430</m_species>
          <m_name>Honchkrow</m_name>
          <m_base length="6">
             <int>100</int>
@@ -12419,7 +12491,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>435</m_species>
+         <m_species>431</m_species>
          <m_name>Glameow</m_name>
          <m_base length="6">
             <int>49</int>
@@ -12437,7 +12509,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>436</m_species>
+         <m_species>432</m_species>
          <m_name>Purugly</m_name>
          <m_base length="6">
             <int>71</int>
@@ -12455,7 +12527,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>437</m_species>
+         <m_species>433</m_species>
          <m_name>Chingling</m_name>
          <m_base length="6">
             <int>45</int>
@@ -12473,7 +12545,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>438</m_species>
+         <m_species>434</m_species>
          <m_name>Stunky</m_name>
          <m_base length="6">
             <int>63</int>
@@ -12494,7 +12566,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>439</m_species>
+         <m_species>435</m_species>
          <m_name>Skuntank</m_name>
          <m_base length="6">
             <int>103</int>
@@ -12515,7 +12587,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>440</m_species>
+         <m_species>436</m_species>
          <m_name>Bronzor</m_name>
          <m_base length="6">
             <int>57</int>
@@ -12536,7 +12608,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>441</m_species>
+         <m_species>437</m_species>
          <m_name>Bronzong</m_name>
          <m_base length="6">
             <int>67</int>
@@ -12557,7 +12629,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>442</m_species>
+         <m_species>438</m_species>
          <m_name>Bonsly</m_name>
          <m_base length="6">
             <int>50</int>
@@ -12575,7 +12647,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>443</m_species>
+         <m_species>439</m_species>
          <m_name>Mime Jr.</m_name>
          <m_base length="6">
             <int>20</int>
@@ -12593,7 +12665,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>444</m_species>
+         <m_species>440</m_species>
          <m_name>Happiny</m_name>
          <m_base length="6">
             <int>100</int>
@@ -12611,7 +12683,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>445</m_species>
+         <m_species>441</m_species>
          <m_name>Chatot</m_name>
          <m_base length="6">
             <int>76</int>
@@ -12632,7 +12704,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>446</m_species>
+         <m_species>442</m_species>
          <m_name>Spiritomb</m_name>
          <m_base length="6">
             <int>50</int>
@@ -12653,7 +12725,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>447</m_species>
+         <m_species>443</m_species>
          <m_name>Gible</m_name>
          <m_base length="6">
             <int>58</int>
@@ -12674,7 +12746,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>448</m_species>
+         <m_species>444</m_species>
          <m_name>Gabite</m_name>
          <m_base length="6">
             <int>68</int>
@@ -12695,7 +12767,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>449</m_species>
+         <m_species>445</m_species>
          <m_name>Garchomp</m_name>
          <m_base length="6">
             <int>108</int>
@@ -12716,7 +12788,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>450</m_species>
+         <m_species>446</m_species>
          <m_name>Munchlax</m_name>
          <m_base length="6">
             <int>135</int>
@@ -12734,7 +12806,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>451</m_species>
+         <m_species>447</m_species>
          <m_name>Riolu</m_name>
          <m_base length="6">
             <int>40</int>
@@ -12752,7 +12824,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>452</m_species>
+         <m_species>448</m_species>
          <m_name>Lucario</m_name>
          <m_base length="6">
             <int>70</int>
@@ -12773,7 +12845,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>453</m_species>
+         <m_species>449</m_species>
          <m_name>Hippopotas</m_name>
          <m_base length="6">
             <int>68</int>
@@ -12791,7 +12863,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>454</m_species>
+         <m_species>450</m_species>
          <m_name>Hippowdon</m_name>
          <m_base length="6">
             <int>108</int>
@@ -12809,7 +12881,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>455</m_species>
+         <m_species>451</m_species>
          <m_name>Skorupi</m_name>
          <m_base length="6">
             <int>40</int>
@@ -12830,7 +12902,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>456</m_species>
+         <m_species>452</m_species>
          <m_name>Drapion</m_name>
          <m_base length="6">
             <int>70</int>
@@ -12851,7 +12923,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>457</m_species>
+         <m_species>453</m_species>
          <m_name>Croagunk</m_name>
          <m_base length="6">
             <int>48</int>
@@ -12872,7 +12944,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>458</m_species>
+         <m_species>454</m_species>
          <m_name>Toxicroak</m_name>
          <m_base length="6">
             <int>83</int>
@@ -12893,7 +12965,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>459</m_species>
+         <m_species>455</m_species>
          <m_name>Carnivine</m_name>
          <m_base length="6">
             <int>74</int>
@@ -12911,7 +12983,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>460</m_species>
+         <m_species>456</m_species>
          <m_name>Finneon</m_name>
          <m_base length="6">
             <int>49</int>
@@ -12929,7 +13001,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>461</m_species>
+         <m_species>457</m_species>
          <m_name>Lumineon</m_name>
          <m_base length="6">
             <int>69</int>
@@ -12947,7 +13019,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>462</m_species>
+         <m_species>458</m_species>
          <m_name>Mantyke</m_name>
          <m_base length="6">
             <int>45</int>
@@ -12968,7 +13040,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>463</m_species>
+         <m_species>459</m_species>
          <m_name>Snover</m_name>
          <m_base length="6">
             <int>60</int>
@@ -12989,7 +13061,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>464</m_species>
+         <m_species>460</m_species>
          <m_name>Abomasnow</m_name>
          <m_base length="6">
             <int>90</int>
@@ -13010,7 +13082,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>465</m_species>
+         <m_species>461</m_species>
          <m_name>Weavile</m_name>
          <m_base length="6">
             <int>70</int>
@@ -13031,7 +13103,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>466</m_species>
+         <m_species>462</m_species>
          <m_name>Magnezone</m_name>
          <m_base length="6">
             <int>70</int>
@@ -13052,7 +13124,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>467</m_species>
+         <m_species>463</m_species>
          <m_name>Lickilicky</m_name>
          <m_base length="6">
             <int>110</int>
@@ -13070,7 +13142,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>468</m_species>
+         <m_species>464</m_species>
          <m_name>Rhyperior</m_name>
          <m_base length="6">
             <int>115</int>
@@ -13091,7 +13163,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>469</m_species>
+         <m_species>465</m_species>
          <m_name>Tangrowth</m_name>
          <m_base length="6">
             <int>100</int>
@@ -13109,7 +13181,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>470</m_species>
+         <m_species>466</m_species>
          <m_name>Electivire</m_name>
          <m_base length="6">
             <int>75</int>
@@ -13127,7 +13199,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>471</m_species>
+         <m_species>467</m_species>
          <m_name>Magmortar</m_name>
          <m_base length="6">
             <int>75</int>
@@ -13145,7 +13217,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>472</m_species>
+         <m_species>468</m_species>
          <m_name>Togekiss</m_name>
          <m_base length="6">
             <int>85</int>
@@ -13166,7 +13238,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>473</m_species>
+         <m_species>469</m_species>
          <m_name>Yanmega</m_name>
          <m_base length="6">
             <int>86</int>
@@ -13187,7 +13259,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>474</m_species>
+         <m_species>470</m_species>
          <m_name>Leafeon</m_name>
          <m_base length="6">
             <int>65</int>
@@ -13205,7 +13277,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>475</m_species>
+         <m_species>471</m_species>
          <m_name>Glaceon</m_name>
          <m_base length="6">
             <int>65</int>
@@ -13223,7 +13295,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>476</m_species>
+         <m_species>472</m_species>
          <m_name>Gliscor</m_name>
          <m_base length="6">
             <int>75</int>
@@ -13244,7 +13316,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>477</m_species>
+         <m_species>473</m_species>
          <m_name>Mamoswine</m_name>
          <m_base length="6">
             <int>110</int>
@@ -13265,7 +13337,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>478</m_species>
+         <m_species>474</m_species>
          <m_name>Porygonz</m_name>
          <m_base length="6">
             <int>85</int>
@@ -13283,7 +13355,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>479</m_species>
+         <m_species>475</m_species>
          <m_name>Gallade</m_name>
          <m_base length="6">
             <int>68</int>
@@ -13304,7 +13376,7 @@
          <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>480</m_species>
+         <m_species>476</m_species>
          <m_name>Probopass</m_name>
          <m_base length="6">
             <int>60</int>
@@ -13325,7 +13397,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>481</m_species>
+         <m_species>477</m_species>
          <m_name>Dusknoir</m_name>
          <m_base length="6">
             <int>45</int>
@@ -13343,7 +13415,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>482</m_species>
+         <m_species>478</m_species>
          <m_name>Froslass</m_name>
          <m_base length="6">
             <int>70</int>
@@ -13364,7 +13436,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>483</m_species>
+         <m_species>479</m_species>
          <m_name>Rotom</m_name>
          <m_base length="6">
             <int>50</int>
@@ -13384,8 +13456,113 @@
          </m_type>
          <m_genders>0</m_genders>
       </pokemonSpecies>
+     <pokemonSpecies>
+         <m_species>4790</m_species>
+         <m_name>Rotom-f</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>50</int>
+            <int>77</int>
+            <int>91</int>
+            <int>95</int>
+            <int>77</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>1</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>484</m_species>
+         <m_species>4791</m_species>
+         <m_name>Rotom-w</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>50</int>
+            <int>77</int>
+            <int>91</int>
+            <int>95</int>
+            <int>77</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>2</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+	<pokemonSpecies>
+         <m_species>4792</m_species>
+         <m_name>Rotom-g</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>50</int>
+            <int>77</int>
+            <int>91</int>
+            <int>95</int>
+            <int>77</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>4</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4793</m_species>
+         <m_name>Rotom-i</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>50</int>
+            <int>77</int>
+            <int>91</int>
+            <int>95</int>
+            <int>77</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>5</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+       <pokemonSpecies>
+         <m_species>4794</m_species>
+         <m_name>Rotom-f</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>50</int>
+            <int>77</int>
+            <int>91</int>
+            <int>95</int>
+            <int>77</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>9</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>480</m_species>
          <m_name>Uxie</m_name>
          <m_base length="6">
             <int>75</int>
@@ -13403,7 +13580,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>485</m_species>
+         <m_species>481</m_species>
          <m_name>Mesprit</m_name>
          <m_base length="6">
             <int>80</int>
@@ -13421,7 +13598,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>486</m_species>
+         <m_species>482</m_species>
          <m_name>Azelf</m_name>
          <m_base length="6">
             <int>75</int>
@@ -13439,7 +13616,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>487</m_species>
+         <m_species>483</m_species>
          <m_name>Dialga</m_name>
          <m_base length="6">
             <int>100</int>
@@ -13460,7 +13637,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>488</m_species>
+         <m_species>484</m_species>
          <m_name>Palkia</m_name>
          <m_base length="6">
             <int>90</int>
@@ -13481,7 +13658,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>489</m_species>
+         <m_species>485</m_species>
          <m_name>Heatran</m_name>
          <m_base length="6">
             <int>91</int>
@@ -13502,7 +13679,7 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>490</m_species>
+         <m_species>486</m_species>
          <m_name>Regigigas</m_name>
          <m_base length="6">
             <int>110</int>
@@ -13520,7 +13697,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>491</m_species>
+         <m_species>487</m_species>
          <m_name>Giratina</m_name>
          <m_base length="6">
             <int>150</int>
@@ -13541,7 +13718,28 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>492</m_species>
+         <m_species>4870</m_species>
+         <m_name>Giratina-o</m_name>
+         <m_base length="6">
+            <int>150</int>
+            <int>120</int>
+            <int>100</int>
+            <int>90</int>
+            <int>120</int>
+            <int>190</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>14</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>488</m_species>
          <m_name>Cresselia</m_name>
          <m_base length="6">
             <int>120</int>
@@ -13559,7 +13757,7 @@
          <m_genders>2</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>493</m_species>
+         <m_species>489</m_species>
          <m_name>Phione</m_name>
          <m_base length="6">
             <int>80</int>
@@ -13577,7 +13775,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>494</m_species>
+         <m_species>490</m_species>
          <m_name>Manaphy</m_name>
          <m_base length="6">
             <int>100</int>
@@ -13595,7 +13793,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>495</m_species>
+         <m_species>491</m_species>
          <m_name>Darkrai</m_name>
          <m_base length="6">
             <int>70</int>
@@ -13613,7 +13811,7 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>496</m_species>
+         <m_species>492</m_species>
          <m_name>Shaymin</m_name>
          <m_base length="6">
             <int>100</int>
@@ -13631,7 +13829,100 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>497</m_species>
+         <m_species>4920</m_species>
+         <m_name>Shaymin-s</m_name>
+         <m_base length="6">
+            <int>100</int>
+            <int>103</int>
+            <int>75</int>
+            <int>127</int>
+            <int>75</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>4</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>9</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4931</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>1</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4932</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>2</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4933</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>3</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4934</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>4</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>493</m_species>
          <m_name>Arceus</m_name>
          <m_base length="6">
             <int>120</int>
@@ -13644,6 +13935,222 @@
          <m_type length="1">
             <pokemonType>
                <m_type>0</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>4</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4935</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>5</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4936</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>6</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4937</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>7</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4938</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>8</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4939</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>9</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>49310</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>10</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>49311</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>11</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>49312</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>12</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>49313</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>49314</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>14</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>49315</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>15</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>49316</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>16</m_type>
             </pokemonType>
          </m_type>
          <m_genders>0</m_genders>
