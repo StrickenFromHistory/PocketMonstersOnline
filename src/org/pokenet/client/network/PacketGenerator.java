@@ -10,6 +10,7 @@ import org.pokenet.client.backend.entity.Player.Direction;
  */
 public class PacketGenerator {
 	private IoSession m_session;
+	private long m_lastMovement = 0;
 	
 	/**
 	 * Default constructor
@@ -67,19 +68,22 @@ public class PacketGenerator {
 	 * @param d
 	 */
 	public void move(Direction d) {
-		switch(d) {
-		case Down:
-			m_session.write("D");
-			break;
-		case Up:
-			m_session.write("U");
-			break;
-		case Left:
-			m_session.write("L");
-			break;
-		case Right:
-			m_session.write("R");
-			break;
+		if(System.currentTimeMillis() - m_lastMovement > 60) {
+			switch(d) {
+			case Down:
+				m_session.write("D");
+				break;
+			case Up:
+				m_session.write("U");
+				break;
+			case Left:
+				m_session.write("L");
+				break;
+			case Right:
+				m_session.write("R");
+				break;
+			}
+			m_lastMovement = System.currentTimeMillis();
 		}
 	}
 	
