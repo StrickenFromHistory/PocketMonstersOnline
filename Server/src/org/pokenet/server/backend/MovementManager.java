@@ -63,7 +63,11 @@ public class MovementManager implements Runnable {
 		while(m_isRunning) {
 			synchronized(m_players) {
 				for(int i = 0; i < m_players.size(); i++) {
-					m_players.get(i).move();
+					try {
+						m_players.get(i).move();
+					} catch (Exception e) {
+						m_players.get(i).forceLogout();
+					}
 				}
 			}
 			try {

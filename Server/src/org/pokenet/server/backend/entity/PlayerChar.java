@@ -620,6 +620,13 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
+	 * Forces the player to be logged out
+	 */
+	public void forceLogout() {
+		m_session.close();
+	}
+	
+	/**
 	 * Sets if this player is interacting with a shop npc
 	 * @param b
 	 */
