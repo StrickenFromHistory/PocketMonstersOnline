@@ -452,6 +452,8 @@ public class GameServer {
 						gs = new GameServer(false);
 				}else{
 					m_boolGui = true;
+					if(line.hasOption("autorun"))
+						System.out.println("autorun doesn't work with GUI");
 					gs = new GameServer(false);
 				}
 		    }
