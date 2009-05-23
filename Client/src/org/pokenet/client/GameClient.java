@@ -327,8 +327,7 @@ public class GameClient extends BasicGame {
 				&& !m_ui.getChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
-					&& m_ourPlayer.getX() == m_ourPlayer.getServerX()
-					&& m_ourPlayer.getY() == m_ourPlayer.getServerY()) {
+					&& m_ourPlayer.canMove()) {
 				if (key == (Input.KEY_DOWN) || key == (Input.KEY_S)) {
 					if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Down)) {
 						m_packetGen.move(Direction.Down);

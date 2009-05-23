@@ -173,9 +173,35 @@ public class OurPlayer extends Player {
 		return m_badges;
 	}
 	
+	/**
+	 * Swaps two pokemon
+	 * @param Poke1
+	 * @param Poke2
+	 */
 	public void swapPokemon(int Poke1, int Poke2){
 		OurPokemon temp1 = m_pokemon[Poke1];
 		m_pokemon[Poke1] = m_pokemon[Poke2];
 		m_pokemon[Poke2] = temp1;
+	}
+	
+	public boolean canMove() {
+		if(this.isAnimating()) {
+			switch(m_direction) {
+			case Up:
+				return this.getX() == this.getServerX();
+			case Down:
+				return this.getX() == this.getServerX();
+			case Left:
+				return this.getY() == this.getServerY();
+			case Right:
+				return this.getY() == this.getServerY();
+			}
+		} else {
+			if(this.getX() == this.getServerX() && 
+					this.getY() == this.getServerY()) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
