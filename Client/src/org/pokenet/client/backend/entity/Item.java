@@ -22,6 +22,7 @@ public class Item {
             m_number = number;
             m_quantity = quantity;
             m_name = Item.getItemName(number);
+            m_picname = Item.getPicName(number);
     }
 
 	
@@ -120,7 +121,60 @@ public class Item {
      * @return
      */
     public static String getItemName(int number) {
-            return "";
+    	//We should load item DB from XML, but for now, this will do. 
+    	String name = "";
+    	switch(number){
+    	case 1:
+    		name = "Potion";
+    		break;
+    	case 2:
+    		name = "Super Potion";
+    		break;
+    	case 3:
+    		name = "Hyper Potion";
+    		break;
+    	case 4:
+    		name = "Max Potion";
+    		break;
+    	case 5:
+    		name = "Full Restore";
+    		break;
+    	default:
+    		name="";
+    		break;
+    	}
+    	return name;   
+    }
+    
+    /**
+     * Returns the picname of the item based on its item number
+     * @param number
+     * @return
+     */
+    public static String getPicName(int number) {
+    	//We should load item DB from XML, but for now, this will do. 
+    	String name = "";
+    	switch(number){
+    	case 1:
+    		name = "potion";
+    		break;
+    	case 2:
+    		name = "superpotion";
+    		break;
+    	case 3:
+    		name = "hyperpotion";
+    		break;
+    	case 4:
+    		name = "maxpotion";
+    		break;
+    	case 5:
+    		name = "fullheal";
+    		break;
+    	default:
+    		name="";
+    		break;
+    	}
+    	return name;   
     }
 
 }
