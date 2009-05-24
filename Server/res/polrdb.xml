@@ -1,5 +1,127 @@
 <POLRDatabase>
-   <m_pokemonData length="498">
+   <m_pokemonData length="499">
+   <POLRDataEntry>
+         <name>Missigno</name>
+         <internalName>Missigno</internalName>
+         <kind>Hack</kind>
+         <pokedex>Missigno can't be seen napping anywhere. They break games and clone items.</pokedex>
+         <type1>Normal</type1>
+         <type2>Flying</type2>
+         <baseStats length="6">
+            <int>45</int>
+            <int>49</int>
+            <int>49</int>
+            <int>45</int>
+            <int>65</int>
+            <int>65</int>
+         </baseStats>
+         <rareness>45</rareness>
+         <baseEXP>64</baseEXP>
+         <happiness>70</happiness>
+         <growthRate>FLUCTUATING</growthRate>
+         <stepsToHatch>5120</stepsToHatch>
+         <color>Green</color>
+         <habitat>Grassland</habitat>
+         <effortPoints length="6">
+            <int>0</int>
+            <int>0</int>
+            <int>0</int>
+            <int>0</int>
+            <int>1</int>
+            <int>0</int>
+         </effortPoints>
+         <abilities>
+            <string>Overgrow</string>
+         </abilities>
+         <compatibility length="2">
+            <int>1</int>
+            <int>7</int>
+         </compatibility>
+         <height>0.7</height>
+         <weight>6.9</weight>
+         <femalePercentage>0</femalePercentage>
+         <moves>
+            <entry>
+               <integer>1</integer>
+               <string>Tackle</string>
+            </entry>
+            <entry>
+               <integer>3</integer>
+               <string>Growl</string>
+            </entry>
+            <entry>
+               <integer>33</integer>
+               <string>Synthesis</string>
+            </entry>
+            <entry>
+               <integer>7</integer>
+               <string>Leech Seed</string>
+            </entry>
+            <entry>
+               <integer>37</integer>
+               <string>Seed Bomb</string>
+            </entry>
+            <entry>
+               <integer>9</integer>
+               <string>Vine Whip</string>
+            </entry>
+            <entry>
+               <integer>13</integer>
+               <string>Sleep Powder</string>
+            </entry>
+            <entry>
+               <integer>15</integer>
+               <string>Take Down</string>
+            </entry>
+            <entry>
+               <integer>19</integer>
+               <string>Razor Leaf</string>
+            </entry>
+            <entry>
+               <integer>21</integer>
+               <string>Sweet Scent</string>
+            </entry>
+            <entry>
+               <integer>25</integer>
+               <string>Growth</string>
+            </entry>
+            <entry>
+               <integer>27</integer>
+               <string>Double-Edge</string>
+            </entry>
+            <entry>
+               <integer>31</integer>
+               <string>Worry Seed</string>
+            </entry>
+         </moves>
+         <starterMoves>
+            <string>Tackle</string>
+         </starterMoves>
+         <eggMoves>
+            <string>Amnesia</string>
+            <string>Ingrain</string>
+            <string>Leaf Storm</string>
+            <string>Nature Power</string>
+            <string>Light Screen</string>
+            <string>Skull Bash</string>
+            <string>Safeguard</string>
+            <string>Charm</string>
+            <string>Petal Dance</string>
+            <string>Magical Leaf</string>
+            <string>Grasswhistle</string>
+            <string>Curse</string>
+         </eggMoves>
+         <evolutions>
+            <POLREvolution>
+               <m_type>Level</m_type>
+               <m_level>16</m_level>
+               <m_evolveTo>Ivysaur</m_evolveTo>
+            </POLREvolution>
+         </evolutions>
+         <battlerPlayerY>0</battlerPlayerY>
+         <battlerEnemyY>0</battlerEnemyY>
+         <battlerAltitude>0</battlerAltitude>
+      </POLRDataEntry>
       <POLRDataEntry>
          <name>Bulbasaur</name>
          <internalName>Bulbasaur</internalName>
@@ -40531,311 +40653,6 @@
          <battlerAltitude>0</battlerAltitude>
       </POLRDataEntry>
       <POLRDataEntry>
-         <name>Deoxys-f</name>
-         <internalName>Deoxys-f</internalName>
-         <kind>Dna</kind>
-         <pokedex>A POKÈMON that mutated from an extraterrestrial virus exposed to a laser beam. Its body is configured for superior agility and speed.</pokedex>
-         <type1>Psychic</type1>
-         <baseStats length="6">
-            <int>50</int>
-            <int>150</int>
-            <int>50</int>
-            <int>150</int>
-            <int>150</int>
-            <int>50</int>
-         </baseStats>
-         <rareness>3</rareness>
-         <baseEXP>215</baseEXP>
-         <happiness>0</happiness>
-         <growthRate>SLOW</growthRate>
-         <stepsToHatch>30720</stepsToHatch>
-         <color>Red</color>
-         <habitat>Rare</habitat>
-         <effortPoints length="6">
-            <int>0</int>
-            <int>1</int>
-            <int>0</int>
-            <int>1</int>
-            <int>1</int>
-            <int>0</int>
-         </effortPoints>
-         <abilities>
-            <string>Pressure</string>
-         </abilities>
-         <compatibility length="2">
-            <int>15</int>
-            <int>15</int>
-         </compatibility>
-         <height>1.7</height>
-         <weight>60.8</weight>
-         <femalePercentage>-1</femalePercentage>
-         <moves>
-            <entry>
-               <integer>17</integer>
-               <string>Teleport</string>
-            </entry>
-            <entry>
-               <integer>49</integer>
-               <string>Superpower</string>
-            </entry>
-            <entry>
-               <integer>33</integer>
-               <string>Pursuit</string>
-            </entry>
-            <entry>
-               <integer>81</integer>
-               <string>Zap Cannon</string>
-            </entry>
-            <entry>
-               <integer>65</integer>
-               <string>Zen Headbutt</string>
-            </entry>
-            <entry>
-               <integer>97</integer>
-               <string>Hyper Beam</string>
-            </entry>
-            <entry>
-               <integer>25</integer>
-               <string>Taunt</string>
-            </entry>
-            <entry>
-               <integer>9</integer>
-               <string>Night Shade</string>
-            </entry>
-            <entry>
-               <integer>57</integer>
-               <string>Psycho Shift</string>
-            </entry>
-            <entry>
-               <integer>41</integer>
-               <string>Psychic</string>
-            </entry>
-            <entry>
-               <integer>89</integer>
-               <string>Psycho Boost</string>
-            </entry>
-            <entry>
-               <integer>73</integer>
-               <string>Cosmic Power</string>
-            </entry>
-         </moves>
-         <starterMoves>
-            <string>Leer</string>
-            <string>Wrap</string>
-         </starterMoves>
-         <eggMoves/>
-         <evolutions/>
-         <battlerPlayerY>0</battlerPlayerY>
-         <battlerEnemyY>0</battlerEnemyY>
-         <battlerAltitude>0</battlerAltitude>
-      </POLRDataEntry>
-      <POLRDataEntry>
-         <name>Deoxys-l</name>
-         <internalName>Deoxys-l</internalName>
-         <kind>Dna</kind>
-         <pokedex>A POKÈMON that mutated from an extraterrestrial virus exposed to a laser beam. Its body is configured for superior agility and speed.</pokedex>
-         <type1>Psychic</type1>
-         <baseStats length="6">
-            <int>50</int>
-            <int>150</int>
-            <int>50</int>
-            <int>150</int>
-            <int>150</int>
-            <int>50</int>
-         </baseStats>
-         <rareness>3</rareness>
-         <baseEXP>215</baseEXP>
-         <happiness>0</happiness>
-         <growthRate>SLOW</growthRate>
-         <stepsToHatch>30720</stepsToHatch>
-         <color>Red</color>
-         <habitat>Rare</habitat>
-         <effortPoints length="6">
-            <int>0</int>
-            <int>1</int>
-            <int>0</int>
-            <int>1</int>
-            <int>1</int>
-            <int>0</int>
-         </effortPoints>
-         <abilities>
-            <string>Pressure</string>
-         </abilities>
-         <compatibility length="2">
-            <int>15</int>
-            <int>15</int>
-         </compatibility>
-         <height>1.7</height>
-         <weight>60.8</weight>
-         <femalePercentage>-1</femalePercentage>
-         <moves>
-            <entry>
-               <integer>33</integer>
-               <string>Spikes</string>
-            </entry>
-            <entry>
-               <integer>98</integer>
-               <string>Mirror Coat</string>
-            </entry>
-            <entry>
-               <integer>65</integer>
-               <string>Zen Headbutt</string>
-            </entry>
-            <entry>
-               <integer>97</integer>
-               <string>Counter</string>
-            </entry>
-            <entry>
-               <integer>9</integer>
-               <string>Night Shade</string>
-            </entry>
-            <entry>
-               <integer>41</integer>
-               <string>Psychic</string>
-            </entry>
-            <entry>
-               <integer>73</integer>
-               <string>Iron Defense</string>
-            </entry>
-            <entry>
-               <integer>74</integer>
-               <string>Amnesia</string>
-            </entry>
-            <entry>
-               <integer>17</integer>
-               <string>Teleport</string>
-            </entry>
-            <entry>
-               <integer>49</integer>
-               <string>Snatch</string>
-            </entry>
-            <entry>
-               <integer>81</integer>
-               <string>Recover</string>
-            </entry>
-            <entry>
-               <integer>25</integer>
-               <string>Knock Off</string>
-            </entry>
-            <entry>
-               <integer>57</integer>
-               <string>Psycho Shift</string>
-            </entry>
-            <entry>
-               <integer>89</integer>
-               <string>Psycho Boost</string>
-            </entry>
-         </moves>
-         <starterMoves>
-            <string>Leer</string>
-            <string>Wrap</string>
-         </starterMoves>
-         <eggMoves/>
-         <evolutions/>
-         <battlerPlayerY>0</battlerPlayerY>
-         <battlerEnemyY>0</battlerEnemyY>
-         <battlerAltitude>0</battlerAltitude>
-      </POLRDataEntry>
-      <POLRDataEntry>
-         <name>Deoxys-e</name>
-         <internalName>Deoxys-e</internalName>
-         <kind>Dna</kind>
-         <pokedex>A POKÈMON that mutated from an extraterrestrial virus exposed to a laser beam. Its body is configured for superior agility and speed.</pokedex>
-         <type1>Psychic</type1>
-         <baseStats length="6">
-            <int>50</int>
-            <int>150</int>
-            <int>50</int>
-            <int>150</int>
-            <int>150</int>
-            <int>50</int>
-         </baseStats>
-         <rareness>3</rareness>
-         <baseEXP>215</baseEXP>
-         <happiness>0</happiness>
-         <growthRate>SLOW</growthRate>
-         <stepsToHatch>30720</stepsToHatch>
-         <color>Red</color>
-         <habitat>Rare</habitat>
-         <effortPoints length="6">
-            <int>0</int>
-            <int>1</int>
-            <int>0</int>
-            <int>1</int>
-            <int>1</int>
-            <int>0</int>
-         </effortPoints>
-         <abilities>
-            <string>Pressure</string>
-         </abilities>
-         <compatibility length="2">
-            <int>15</int>
-            <int>15</int>
-         </compatibility>
-         <height>1.7</height>
-         <weight>60.8</weight>
-         <femalePercentage>-1</femalePercentage>
-         <moves>
-            <entry>
-               <integer>17</integer>
-               <string>Double Team</string>
-            </entry>
-            <entry>
-               <integer>49</integer>
-               <string>Swift</string>
-            </entry>
-            <entry>
-               <integer>33</integer>
-               <string>Pursuit</string>
-            </entry>
-            <entry>
-               <integer>81</integer>
-               <string>Recover</string>
-            </entry>
-            <entry>
-               <integer>65</integer>
-               <string>Zen Headbutt</string>
-            </entry>
-            <entry>
-               <integer>97</integer>
-               <string>Hyper Beam</string>
-            </entry>
-            <entry>
-               <integer>25</integer>
-               <string>Knock Off</string>
-            </entry>
-            <entry>
-               <integer>9</integer>
-               <string>Night Shade</string>
-            </entry>
-            <entry>
-               <integer>57</integer>
-               <string>Psycho Shift</string>
-            </entry>
-            <entry>
-               <integer>41</integer>
-               <string>Psychic</string>
-            </entry>
-            <entry>
-               <integer>89</integer>
-               <string>Psycho Boost</string>
-            </entry>
-            <entry>
-               <integer>73</integer>
-               <string>Agility</string>
-            </entry>
-         </moves>
-         <starterMoves>
-            <string>Leer</string>
-            <string>Wrap</string>
-         </starterMoves>
-         <eggMoves/>
-         <evolutions/>
-         <battlerPlayerY>0</battlerPlayerY>
-         <battlerEnemyY>0</battlerEnemyY>
-         <battlerAltitude>0</battlerAltitude>
-      </POLRDataEntry>
-      <POLRDataEntry>
          <name>Turtwig</name>
          <internalName>Turtwig</internalName>
          <kind>Tiny leaf</kind>
@@ -51224,6 +51041,311 @@
             <string>Cosmic Power</string>
             <string>Natural Gift</string>
             <string>Punishement</string>
+         </starterMoves>
+         <eggMoves/>
+         <evolutions/>
+         <battlerPlayerY>0</battlerPlayerY>
+         <battlerEnemyY>0</battlerEnemyY>
+         <battlerAltitude>0</battlerAltitude>
+      </POLRDataEntry>
+      <POLRDataEntry>
+         <name>Deoxys-f</name>
+         <internalName>Deoxys-f</internalName>
+         <kind>Dna</kind>
+         <pokedex>A POKÈMON that mutated from an extraterrestrial virus exposed to a laser beam. Its body is configured for superior agility and speed.</pokedex>
+         <type1>Psychic</type1>
+         <baseStats length="6">
+            <int>50</int>
+            <int>150</int>
+            <int>50</int>
+            <int>150</int>
+            <int>150</int>
+            <int>50</int>
+         </baseStats>
+         <rareness>3</rareness>
+         <baseEXP>215</baseEXP>
+         <happiness>0</happiness>
+         <growthRate>SLOW</growthRate>
+         <stepsToHatch>30720</stepsToHatch>
+         <color>Red</color>
+         <habitat>Rare</habitat>
+         <effortPoints length="6">
+            <int>0</int>
+            <int>1</int>
+            <int>0</int>
+            <int>1</int>
+            <int>1</int>
+            <int>0</int>
+         </effortPoints>
+         <abilities>
+            <string>Pressure</string>
+         </abilities>
+         <compatibility length="2">
+            <int>15</int>
+            <int>15</int>
+         </compatibility>
+         <height>1.7</height>
+         <weight>60.8</weight>
+         <femalePercentage>-1</femalePercentage>
+         <moves>
+            <entry>
+               <integer>17</integer>
+               <string>Teleport</string>
+            </entry>
+            <entry>
+               <integer>49</integer>
+               <string>Superpower</string>
+            </entry>
+            <entry>
+               <integer>33</integer>
+               <string>Pursuit</string>
+            </entry>
+            <entry>
+               <integer>81</integer>
+               <string>Zap Cannon</string>
+            </entry>
+            <entry>
+               <integer>65</integer>
+               <string>Zen Headbutt</string>
+            </entry>
+            <entry>
+               <integer>97</integer>
+               <string>Hyper Beam</string>
+            </entry>
+            <entry>
+               <integer>25</integer>
+               <string>Taunt</string>
+            </entry>
+            <entry>
+               <integer>9</integer>
+               <string>Night Shade</string>
+            </entry>
+            <entry>
+               <integer>57</integer>
+               <string>Psycho Shift</string>
+            </entry>
+            <entry>
+               <integer>41</integer>
+               <string>Psychic</string>
+            </entry>
+            <entry>
+               <integer>89</integer>
+               <string>Psycho Boost</string>
+            </entry>
+            <entry>
+               <integer>73</integer>
+               <string>Cosmic Power</string>
+            </entry>
+         </moves>
+         <starterMoves>
+            <string>Leer</string>
+            <string>Wrap</string>
+         </starterMoves>
+         <eggMoves/>
+         <evolutions/>
+         <battlerPlayerY>0</battlerPlayerY>
+         <battlerEnemyY>0</battlerEnemyY>
+         <battlerAltitude>0</battlerAltitude>
+      </POLRDataEntry>
+      <POLRDataEntry>
+         <name>Deoxys-l</name>
+         <internalName>Deoxys-l</internalName>
+         <kind>Dna</kind>
+         <pokedex>A POKÈMON that mutated from an extraterrestrial virus exposed to a laser beam. Its body is configured for superior agility and speed.</pokedex>
+         <type1>Psychic</type1>
+         <baseStats length="6">
+            <int>50</int>
+            <int>150</int>
+            <int>50</int>
+            <int>150</int>
+            <int>150</int>
+            <int>50</int>
+         </baseStats>
+         <rareness>3</rareness>
+         <baseEXP>215</baseEXP>
+         <happiness>0</happiness>
+         <growthRate>SLOW</growthRate>
+         <stepsToHatch>30720</stepsToHatch>
+         <color>Red</color>
+         <habitat>Rare</habitat>
+         <effortPoints length="6">
+            <int>0</int>
+            <int>1</int>
+            <int>0</int>
+            <int>1</int>
+            <int>1</int>
+            <int>0</int>
+         </effortPoints>
+         <abilities>
+            <string>Pressure</string>
+         </abilities>
+         <compatibility length="2">
+            <int>15</int>
+            <int>15</int>
+         </compatibility>
+         <height>1.7</height>
+         <weight>60.8</weight>
+         <femalePercentage>-1</femalePercentage>
+         <moves>
+            <entry>
+               <integer>33</integer>
+               <string>Spikes</string>
+            </entry>
+            <entry>
+               <integer>98</integer>
+               <string>Mirror Coat</string>
+            </entry>
+            <entry>
+               <integer>65</integer>
+               <string>Zen Headbutt</string>
+            </entry>
+            <entry>
+               <integer>97</integer>
+               <string>Counter</string>
+            </entry>
+            <entry>
+               <integer>9</integer>
+               <string>Night Shade</string>
+            </entry>
+            <entry>
+               <integer>41</integer>
+               <string>Psychic</string>
+            </entry>
+            <entry>
+               <integer>73</integer>
+               <string>Iron Defense</string>
+            </entry>
+            <entry>
+               <integer>74</integer>
+               <string>Amnesia</string>
+            </entry>
+            <entry>
+               <integer>17</integer>
+               <string>Teleport</string>
+            </entry>
+            <entry>
+               <integer>49</integer>
+               <string>Snatch</string>
+            </entry>
+            <entry>
+               <integer>81</integer>
+               <string>Recover</string>
+            </entry>
+            <entry>
+               <integer>25</integer>
+               <string>Knock Off</string>
+            </entry>
+            <entry>
+               <integer>57</integer>
+               <string>Psycho Shift</string>
+            </entry>
+            <entry>
+               <integer>89</integer>
+               <string>Psycho Boost</string>
+            </entry>
+         </moves>
+         <starterMoves>
+            <string>Leer</string>
+            <string>Wrap</string>
+         </starterMoves>
+         <eggMoves/>
+         <evolutions/>
+         <battlerPlayerY>0</battlerPlayerY>
+         <battlerEnemyY>0</battlerEnemyY>
+         <battlerAltitude>0</battlerAltitude>
+      </POLRDataEntry>
+      <POLRDataEntry>
+         <name>Deoxys-e</name>
+         <internalName>Deoxys-e</internalName>
+         <kind>Dna</kind>
+         <pokedex>A POKÈMON that mutated from an extraterrestrial virus exposed to a laser beam. Its body is configured for superior agility and speed.</pokedex>
+         <type1>Psychic</type1>
+         <baseStats length="6">
+            <int>50</int>
+            <int>150</int>
+            <int>50</int>
+            <int>150</int>
+            <int>150</int>
+            <int>50</int>
+         </baseStats>
+         <rareness>3</rareness>
+         <baseEXP>215</baseEXP>
+         <happiness>0</happiness>
+         <growthRate>SLOW</growthRate>
+         <stepsToHatch>30720</stepsToHatch>
+         <color>Red</color>
+         <habitat>Rare</habitat>
+         <effortPoints length="6">
+            <int>0</int>
+            <int>1</int>
+            <int>0</int>
+            <int>1</int>
+            <int>1</int>
+            <int>0</int>
+         </effortPoints>
+         <abilities>
+            <string>Pressure</string>
+         </abilities>
+         <compatibility length="2">
+            <int>15</int>
+            <int>15</int>
+         </compatibility>
+         <height>1.7</height>
+         <weight>60.8</weight>
+         <femalePercentage>-1</femalePercentage>
+         <moves>
+            <entry>
+               <integer>17</integer>
+               <string>Double Team</string>
+            </entry>
+            <entry>
+               <integer>49</integer>
+               <string>Swift</string>
+            </entry>
+            <entry>
+               <integer>33</integer>
+               <string>Pursuit</string>
+            </entry>
+            <entry>
+               <integer>81</integer>
+               <string>Recover</string>
+            </entry>
+            <entry>
+               <integer>65</integer>
+               <string>Zen Headbutt</string>
+            </entry>
+            <entry>
+               <integer>97</integer>
+               <string>Hyper Beam</string>
+            </entry>
+            <entry>
+               <integer>25</integer>
+               <string>Knock Off</string>
+            </entry>
+            <entry>
+               <integer>9</integer>
+               <string>Night Shade</string>
+            </entry>
+            <entry>
+               <integer>57</integer>
+               <string>Psycho Shift</string>
+            </entry>
+            <entry>
+               <integer>41</integer>
+               <string>Psychic</string>
+            </entry>
+            <entry>
+               <integer>89</integer>
+               <string>Psycho Boost</string>
+            </entry>
+            <entry>
+               <integer>73</integer>
+               <string>Agility</string>
+            </entry>
+         </moves>
+         <starterMoves>
+            <string>Leer</string>
+            <string>Wrap</string>
          </starterMoves>
          <eggMoves/>
          <evolutions/>

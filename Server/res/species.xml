@@ -10802,60 +10802,6 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>3510</m_species>
-         <m_name>Castform-r</m_name>
-         <m_base length="6">
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-         </m_base>
-         <m_type length="1">
-            <pokemonType>
-               <m_type>2</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>3</m_genders>
-      </pokemonSpecies>
-      <pokemonSpecies>
-         <m_species>3511</m_species>
-         <m_name>Castform-s</m_name>
-         <m_base length="6">
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-         </m_base>
-         <m_type length="1">
-            <pokemonType>
-               <m_type>1</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>3</m_genders>
-      </pokemonSpecies>
-      <pokemonSpecies>
-         <m_species>3512</m_species>
-         <m_name>Castform-h</m_name>
-         <m_base length="6">
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-            <int>70</int>
-         </m_base>
-         <m_type length="1">
-            <pokemonType>
-               <m_type>5</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>3</m_genders>
-      </pokemonSpecies>
-      <pokemonSpecies>
          <m_species>352</m_species>
          <m_name>Kecleon</m_name>
          <m_base length="6">
@@ -11525,60 +11471,6 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>3860</m_species>
-         <m_name>Deoxys-f</m_name>
-         <m_base length="6">
-            <int>50</int>
-            <int>180</int>
-            <int>20</int>
-            <int>150</int>
-            <int>180</int>
-            <int>20</int>
-         </m_base>
-         <m_type length="1">
-            <pokemonType>
-               <m_type>10</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>0</m_genders>
-      </pokemonSpecies>
-      <pokemonSpecies>
-         <m_species>3861</m_species>
-         <m_name>Deoxys-l</m_name>
-         <m_base length="6">
-            <int>50</int>
-            <int>70</int>
-            <int>160</int>
-            <int>90</int>
-            <int>70</int>
-            <int>160</int>
-         </m_base>
-         <m_type length="1">
-            <pokemonType>
-               <m_type>10</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>0</m_genders>
-      </pokemonSpecies>
-      <pokemonSpecies>
-         <m_species>3862</m_species>
-         <m_name>Deoxys-e</m_name>
-         <m_base length="6">
-            <int>50</int>
-            <int>95</int>
-            <int>90</int>
-            <int>180</int>
-            <int>95</int>
-            <int>90</int>
-         </m_base>
-         <m_type length="1">
-            <pokemonType>
-               <m_type>10</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>0</m_genders>
-      </pokemonSpecies>
-      <pokemonSpecies>
          <m_species>387</m_species>
          <m_name>Turtwig</m_name>
          <m_base length="6">
@@ -12103,48 +11995,7 @@
          </m_type>
          <m_genders>2</m_genders>
       </pokemonSpecies>
-      <pokemonSpecies>
-         <m_species>4130</m_species>
-         <m_name>Wormadam-g</m_name>
-         <m_base length="6">
-            <int>60</int>
-            <int>79</int>
-            <int>105</int>
-            <int>36</int>
-            <int>59</int>
-            <int>85</int>
-         </m_base>
-         <m_type length="2">
-            <pokemonType>
-               <m_type>11</m_type>
-            </pokemonType>
-            <pokemonType>
-               <m_type>8</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>2</m_genders>
-      </pokemonSpecies>
-      <pokemonSpecies>
-         <m_species>4131</m_species>
-         <m_name>Wormadam-s</m_name>
-         <m_base length="6">
-            <int>60</int>
-            <int>69</int>
-            <int>95</int>
-            <int>36</int>
-            <int>69</int>
-            <int>95</int>
-         </m_base>
-         <m_type length="2">
-            <pokemonType>
-               <m_type>11</m_type>
-            </pokemonType>
-            <pokemonType>
-               <m_type>16</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>2</m_genders>
-      </pokemonSpecies>
+      
       <pokemonSpecies>
          <m_species>414</m_species>
          <m_name>Mothim</m_name>
@@ -12301,24 +12152,6 @@
       <pokemonSpecies>
          <m_species>422</m_species>
          <m_name>Shellos</m_name>
-         <m_base length="6">
-            <int>76</int>
-            <int>48</int>
-            <int>48</int>
-            <int>34</int>
-            <int>57</int>
-            <int>62</int>
-         </m_base>
-         <m_type length="1">
-            <pokemonType>
-               <m_type>2</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>3</m_genders>
-      </pokemonSpecies>
-     <pokemonSpecies>
-         <m_species>4220</m_species>
-         <m_name>Shellos-m</m_name>
          <m_base length="6">
             <int>76</int>
             <int>48</int>
@@ -13477,111 +13310,6 @@
          </m_type>
          <m_genders>0</m_genders>
       </pokemonSpecies>
-     <pokemonSpecies>
-         <m_species>4790</m_species>
-         <m_name>Rotom-f</m_name>
-         <m_base length="6">
-            <int>50</int>
-            <int>50</int>
-            <int>77</int>
-            <int>91</int>
-            <int>95</int>
-            <int>77</int>
-         </m_base>
-         <m_type length="2">
-            <pokemonType>
-               <m_type>1</m_type>
-            </pokemonType>
-            <pokemonType>
-               <m_type>13</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>0</m_genders>
-      </pokemonSpecies>
-      <pokemonSpecies>
-         <m_species>4791</m_species>
-         <m_name>Rotom-w</m_name>
-         <m_base length="6">
-            <int>50</int>
-            <int>50</int>
-            <int>77</int>
-            <int>91</int>
-            <int>95</int>
-            <int>77</int>
-         </m_base>
-         <m_type length="2">
-            <pokemonType>
-               <m_type>2</m_type>
-            </pokemonType>
-            <pokemonType>
-               <m_type>13</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>0</m_genders>
-      </pokemonSpecies>
-	<pokemonSpecies>
-         <m_species>4792</m_species>
-         <m_name>Rotom-g</m_name>
-         <m_base length="6">
-            <int>50</int>
-            <int>50</int>
-            <int>77</int>
-            <int>91</int>
-            <int>95</int>
-            <int>77</int>
-         </m_base>
-         <m_type length="2">
-            <pokemonType>
-               <m_type>4</m_type>
-            </pokemonType>
-            <pokemonType>
-               <m_type>13</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>0</m_genders>
-      </pokemonSpecies>
-      <pokemonSpecies>
-         <m_species>4793</m_species>
-         <m_name>Rotom-i</m_name>
-         <m_base length="6">
-            <int>50</int>
-            <int>50</int>
-            <int>77</int>
-            <int>91</int>
-            <int>95</int>
-            <int>77</int>
-         </m_base>
-         <m_type length="2">
-            <pokemonType>
-               <m_type>5</m_type>
-            </pokemonType>
-            <pokemonType>
-               <m_type>13</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>0</m_genders>
-      </pokemonSpecies>
-       <pokemonSpecies>
-         <m_species>4794</m_species>
-         <m_name>Rotom-f</m_name>
-         <m_base length="6">
-            <int>50</int>
-            <int>50</int>
-            <int>77</int>
-            <int>91</int>
-            <int>95</int>
-            <int>77</int>
-         </m_base>
-         <m_type length="2">
-            <pokemonType>
-               <m_type>9</m_type>
-            </pokemonType>
-            <pokemonType>
-               <m_type>13</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>0</m_genders>
-      </pokemonSpecies>
       <pokemonSpecies>
          <m_species>480</m_species>
          <m_name>Uxie</m_name>
@@ -13739,27 +13467,6 @@
          <m_genders>0</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
-         <m_species>4870</m_species>
-         <m_name>Giratina-o</m_name>
-         <m_base length="6">
-            <int>150</int>
-            <int>120</int>
-            <int>100</int>
-            <int>90</int>
-            <int>120</int>
-            <int>190</int>
-         </m_base>
-         <m_type length="2">
-            <pokemonType>
-               <m_type>13</m_type>
-            </pokemonType>
-            <pokemonType>
-               <m_type>14</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>0</m_genders>
-      </pokemonSpecies>
-      <pokemonSpecies>
          <m_species>488</m_species>
          <m_name>Cresselia</m_name>
          <m_base length="6">
@@ -13849,6 +13556,319 @@
          </m_type>
          <m_genders>0</m_genders>
       </pokemonSpecies>
+      
+      <pokemonSpecies>
+         <m_species>493</m_species>
+         <m_name>Arceus</m_name>
+         <m_base length="6">
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>0</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+       <pokemonSpecies>
+         <m_species>3510</m_species>
+         <m_name>Castform-r</m_name>
+         <m_base length="6">
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>2</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>3</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>3511</m_species>
+         <m_name>Castform-s</m_name>
+         <m_base length="6">
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>1</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>3</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>3512</m_species>
+         <m_name>Castform-h</m_name>
+         <m_base length="6">
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+            <int>70</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>5</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>3</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>3860</m_species>
+         <m_name>Deoxys-f</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>180</int>
+            <int>20</int>
+            <int>150</int>
+            <int>180</int>
+            <int>20</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>10</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>3861</m_species>
+         <m_name>Deoxys-l</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>70</int>
+            <int>160</int>
+            <int>90</int>
+            <int>70</int>
+            <int>160</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>10</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>3862</m_species>
+         <m_name>Deoxys-e</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>95</int>
+            <int>90</int>
+            <int>180</int>
+            <int>95</int>
+            <int>90</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>10</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4130</m_species>
+         <m_name>Wormadam-g</m_name>
+         <m_base length="6">
+            <int>60</int>
+            <int>79</int>
+            <int>105</int>
+            <int>36</int>
+            <int>59</int>
+            <int>85</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>11</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>8</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>2</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4131</m_species>
+         <m_name>Wormadam-s</m_name>
+         <m_base length="6">
+            <int>60</int>
+            <int>69</int>
+            <int>95</int>
+            <int>36</int>
+            <int>69</int>
+            <int>95</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>11</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>16</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>2</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4220</m_species>
+         <m_name>Shellos-m</m_name>
+         <m_base length="6">
+            <int>76</int>
+            <int>48</int>
+            <int>48</int>
+            <int>34</int>
+            <int>57</int>
+            <int>62</int>
+         </m_base>
+         <m_type length="1">
+            <pokemonType>
+               <m_type>2</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>3</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4790</m_species>
+         <m_name>Rotom-f</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>50</int>
+            <int>77</int>
+            <int>91</int>
+            <int>95</int>
+            <int>77</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>1</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4791</m_species>
+         <m_name>Rotom-w</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>50</int>
+            <int>77</int>
+            <int>91</int>
+            <int>95</int>
+            <int>77</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>2</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+	<pokemonSpecies>
+         <m_species>4792</m_species>
+         <m_name>Rotom-g</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>50</int>
+            <int>77</int>
+            <int>91</int>
+            <int>95</int>
+            <int>77</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>4</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4793</m_species>
+         <m_name>Rotom-i</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>50</int>
+            <int>77</int>
+            <int>91</int>
+            <int>95</int>
+            <int>77</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>5</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+       <pokemonSpecies>
+         <m_species>4794</m_species>
+         <m_name>Rotom-f</m_name>
+         <m_base length="6">
+            <int>50</int>
+            <int>50</int>
+            <int>77</int>
+            <int>91</int>
+            <int>95</int>
+            <int>77</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>9</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
+         <m_species>4870</m_species>
+         <m_name>Giratina-o</m_name>
+         <m_base length="6">
+            <int>150</int>
+            <int>120</int>
+            <int>100</int>
+            <int>90</int>
+            <int>120</int>
+            <int>190</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>13</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>14</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
       <pokemonSpecies>
          <m_species>4920</m_species>
          <m_name>Shaymin-s</m_name>
@@ -13866,24 +13886,6 @@
             </pokemonType>
             <pokemonType>
                <m_type>9</m_type>
-            </pokemonType>
-         </m_type>
-         <m_genders>0</m_genders>
-      </pokemonSpecies>
-      <pokemonSpecies>
-         <m_species>493</m_species>
-         <m_name>Arceus</m_name>
-         <m_base length="6">
-            <int>120</int>
-            <int>120</int>
-            <int>120</int>
-            <int>120</int>
-            <int>120</int>
-            <int>120</int>
-         </m_base>
-         <m_type length="1">
-            <pokemonType>
-               <m_type>0</m_type>
             </pokemonType>
          </m_type>
          <m_genders>0</m_genders>
