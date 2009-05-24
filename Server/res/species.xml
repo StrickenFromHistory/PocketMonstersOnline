@@ -13828,7 +13828,27 @@
          </m_type>
          <m_genders>0</m_genders>
       </pokemonSpecies>
-     
+      <pokemonSpecies>
+         <m_species>4920</m_species>
+         <m_name>Shaymin-s</m_name>
+         <m_base length="6">
+            <int>100</int>
+            <int>103</int>
+            <int>75</int>
+            <int>127</int>
+            <int>75</int>
+            <int>120</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>4</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>9</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>0</m_genders>
+      </pokemonSpecies>
       <pokemonSpecies>
          <m_species>493</m_species>
          <m_name>Arceus</m_name>
