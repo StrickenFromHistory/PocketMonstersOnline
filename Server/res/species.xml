@@ -12356,6 +12356,27 @@
          <m_genders>3</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
+         <m_species>4230</m_species>
+         <m_name>Gastrodon-m</m_name>
+         <m_base length="6">
+            <int>111</int>
+            <int>83</int>
+            <int>68</int>
+            <int>39</int>
+            <int>92</int>
+            <int>82</int>
+         </m_base>
+         <m_type length="2">
+            <pokemonType>
+               <m_type>2</m_type>
+            </pokemonType>
+            <pokemonType>
+               <m_type>8</m_type>
+            </pokemonType>
+         </m_type>
+         <m_genders>3</m_genders>
+      </pokemonSpecies>
+      <pokemonSpecies>
          <m_species>424</m_species>
          <m_name>Ambipom</m_name>
          <m_base length="6">
