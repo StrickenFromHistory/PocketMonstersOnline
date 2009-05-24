@@ -364,19 +364,19 @@ public class Pokemon {
          * @return
          */
         public void setSpriteNumber(int x) {
-                int i = 0;
-                if (x <= 385) {
-                        i = x + 1;
-                } else if (x <= 388) {
-                        i = 386;
-                } else if (x <= 414) {
-                        i = x - 2;
-                } else if (x <= 416) {
-                        i = 413;
-                } else {
-                        i = x - 4;
-                }
-                m_spriteNum = i;
+//                int i = 0;
+//                if (x <= 385) {
+//                        i = x + 1;
+//                } else if (x <= 388) {
+//                        i = 386;
+//                } else if (x <= 414) {
+//                        i = x - 2;
+//                } else if (x <= 416) {
+//                        i = 413;
+//                } else {
+//                        i = x - 4;
+//                }
+                m_spriteNum = x;
         }
         
         /**
