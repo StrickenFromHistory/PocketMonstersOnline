@@ -261,6 +261,7 @@ public class Ui extends Frame {
 			m_bagForm.setBackground(new Color(0, 0, 0, 70));
 			m_bagForm.setResizable(false);
 			m_bagForm.setDraggable(false);
+			m_bagForm.setTitle("     Bag");
 			BagDialog pane = new BagDialog(
 					GameClient.getInstance().getOurPlayer().getItems()) {
 				public void itemClicked(Item item) {
@@ -268,10 +269,10 @@ public class Ui extends Frame {
 							item.getName());
 				}
 				public void cancelled() {
-					m_bagForm.setVisible(false);
+					getDisplay().remove(m_bagForm);
 				}
 			};
-			pane.setSize(UI_WIDTH, 300);
+			pane.setSize(80, 210);
 			pane.pack();
 			
 			ListBox badges = new ListBox(
