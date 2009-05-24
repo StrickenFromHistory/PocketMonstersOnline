@@ -42,56 +42,8 @@
          <femalePercentage>0</femalePercentage>
          <moves>
             <entry>
-               <integer>1</integer>
-               <string>Tackle</string>
-            </entry>
-            <entry>
                <integer>3</integer>
                <string>Growl</string>
-            </entry>
-            <entry>
-               <integer>33</integer>
-               <string>Synthesis</string>
-            </entry>
-            <entry>
-               <integer>7</integer>
-               <string>Leech Seed</string>
-            </entry>
-            <entry>
-               <integer>37</integer>
-               <string>Seed Bomb</string>
-            </entry>
-            <entry>
-               <integer>9</integer>
-               <string>Vine Whip</string>
-            </entry>
-            <entry>
-               <integer>13</integer>
-               <string>Sleep Powder</string>
-            </entry>
-            <entry>
-               <integer>15</integer>
-               <string>Take Down</string>
-            </entry>
-            <entry>
-               <integer>19</integer>
-               <string>Razor Leaf</string>
-            </entry>
-            <entry>
-               <integer>21</integer>
-               <string>Sweet Scent</string>
-            </entry>
-            <entry>
-               <integer>25</integer>
-               <string>Growth</string>
-            </entry>
-            <entry>
-               <integer>27</integer>
-               <string>Double-Edge</string>
-            </entry>
-            <entry>
-               <integer>31</integer>
-               <string>Worry Seed</string>
             </entry>
          </moves>
          <starterMoves>
@@ -99,25 +51,8 @@
          </starterMoves>
          <eggMoves>
             <string>Amnesia</string>
-            <string>Ingrain</string>
-            <string>Leaf Storm</string>
-            <string>Nature Power</string>
-            <string>Light Screen</string>
-            <string>Skull Bash</string>
-            <string>Safeguard</string>
-            <string>Charm</string>
-            <string>Petal Dance</string>
-            <string>Magical Leaf</string>
-            <string>Grasswhistle</string>
             <string>Curse</string>
          </eggMoves>
-         <evolutions>
-            <POLREvolution>
-               <m_type>Level</m_type>
-               <m_level>16</m_level>
-               <m_evolveTo>Ivysaur</m_evolveTo>
-            </POLREvolution>
-         </evolutions>
          <battlerPlayerY>0</battlerPlayerY>
          <battlerEnemyY>0</battlerEnemyY>
          <battlerAltitude>0</battlerAltitude>
@@ -163,10 +98,6 @@
          <weight>6.9</weight>
          <femalePercentage>0</femalePercentage>
          <moves>
-            <entry>
-               <integer>1</integer>
-               <string>Tackle</string>
-            </entry>
             <entry>
                <integer>3</integer>
                <string>Growl</string>
@@ -810,10 +741,6 @@
             <entry>
                <integer>34</integer>
                <string>Rain Dance</string>
-            </entry>
-            <entry>
-               <integer>1</integer>
-               <string>Tackle</string>
             </entry>
             <entry>
                <integer>4</integer>
@@ -8488,10 +8415,6 @@
          <femalePercentage>0</femalePercentage>
          <moves>
             <entry>
-               <integer>1</integer>
-               <string>Fury Cutter</string>
-            </entry>
-            <entry>
                <integer>19</integer>
                <string>Slash</string>
             </entry>
@@ -8517,6 +8440,10 @@
             </entry>
             <entry>
                <integer>43</integer>
+               <string>Feint</string>
+            </entry>
+            <entry>
+               <integer>45</integer>
                <string>False Swipe</string>
             </entry>
             <entry>
@@ -8535,7 +8462,7 @@
          <starterMoves>
             <string>Poison Jab</string>
             <string>Peck</string>
-            <string>Leer</string>
+            <string>Sand Attack</string>
             <string>Fury Cutter</string>
          </starterMoves>
          <eggMoves>
@@ -15887,10 +15814,6 @@
                <string>Body Slam</string>
             </entry>
             <entry>
-               <integer>1</integer>
-               <string>Growl</string>
-            </entry>
-            <entry>
                <integer>39</integer>
                <string>Safeguard</string>
             </entry>
@@ -16224,10 +16147,6 @@
          <femalePercentage>0</femalePercentage>
          <moves>
             <entry>
-               <integer>1</integer>
-               <string>Leer</string>
-            </entry>
-            <entry>
                <integer>49</integer>
                <string>Eruption</string>
             </entry>
@@ -16551,10 +16470,6 @@
             <entry>
                <integer>34</integer>
                <string>Screech</string>
-            </entry>
-            <entry>
-               <integer>1</integer>
-               <string>Leer</string>
             </entry>
             <entry>
                <integer>6</integer>
@@ -26536,10 +26451,6 @@
                <string>Pursuit</string>
             </entry>
             <entry>
-               <integer>1</integer>
-               <string>Leer</string>
-            </entry>
-            <entry>
                <integer>21</integer>
                <string>Screech</string>
             </entry>
@@ -26859,10 +26770,6 @@
                <string>Peck</string>
             </entry>
             <entry>
-               <integer>1</integer>
-               <string>Growl</string>
-            </entry>
-            <entry>
                <integer>19</integer>
                <string>Sand-Attack</string>
             </entry>
@@ -27175,10 +27082,6 @@
          <weight>7.6</weight>
          <femalePercentage>0</femalePercentage>
          <moves>
-            <entry>
-               <integer>1</integer>
-               <string>Growl</string>
-            </entry>
             <entry>
                <integer>19</integer>
                <string>Foresight</string>
