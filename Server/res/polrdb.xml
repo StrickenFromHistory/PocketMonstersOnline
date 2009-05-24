@@ -49,10 +49,8 @@
          <starterMoves>
             <string>Tackle</string>
          </starterMoves>
-         <eggMoves>
-            <string>Amnesia</string>
-            <string>Curse</string>
-         </eggMoves>
+         <eggMoves />
+         <evolutions/>
          <battlerPlayerY>0</battlerPlayerY>
          <battlerEnemyY>0</battlerEnemyY>
          <battlerAltitude>0</battlerAltitude>
