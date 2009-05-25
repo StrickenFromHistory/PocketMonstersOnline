@@ -3,6 +3,7 @@ package org.pokenet.client;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
+import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.concurrent.Executors;
 
@@ -281,7 +282,9 @@ public class GameClient extends BasicGame {
 		 */
 		try {
 			synchronized(m_display) {
-				m_display.render(gc, g);
+				try{
+					m_display.render(gc, g);
+				} catch (ConcurrentModificationException e){m_display.render(gc, g);}
 			}
 		} catch (Exception e) { e.printStackTrace(); }
 	}
