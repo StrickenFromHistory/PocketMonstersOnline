@@ -212,7 +212,7 @@ class ChatWidget extends Container{
     private Label[] m_chatShown;
 	private Button m_up, m_down;
     private Color m_foreColor;
-    private boolean m_canScroll = true;
+    private boolean m_canScroll = true, m_isWrapped = false;
 	
     /**
      * Default Constructor
@@ -233,8 +233,6 @@ class ChatWidget extends Container{
      * @param line
      */
     public void addLine(String line){
-    	while (!m_canScroll);
-    	m_canScroll = false;
     	m_contents.add(line);
     	if (m_maxLines >= m_contents.size()){
     		scroll(0);
@@ -248,54 +246,58 @@ class ChatWidget extends Container{
      * @param indexMod
      */
     public void scroll(int indexMod){
-    	for (int i = 0; i < m_chatShown.length; i++){
-    		try {
-    			m_chatShown[i].setText("");
-    			remove(m_chatShown[i]);
+    	if (m_canScroll) {
+    		m_canScroll = false;
+    		m_isWrapped = false;
+    		
+    		for (int i = 0; i < m_chatShown.length; i++){
+    			try {
+    				remove(m_chatShown[i]);
+    			}
+    			catch (NullPointerException e) {}
+    			catch (Exception e) {e.printStackTrace();}
     		}
-    		catch (NullPointerException e) {}
-    		catch (Exception e) {e.printStackTrace();}
-    	}
-    	m_maxLines = (int)(getHeight() / GameClient.getFontSmall().getHeight("X") - 1);
-		m_chatShown = new Label[m_maxLines];
+    		m_maxLines = (int)(getHeight() / GameClient.getFontSmall().getHeight("X") - 1);
+    		m_chatShown = new Label[m_maxLines];
 
-		//Handles the buttons' availability
-		layoutScrollButtons();
-		m_scrollIndex = m_scrollIndex + indexMod;
+    		//Handles the buttons' availability
+    		layoutScrollButtons();
+    		m_scrollIndex = m_scrollIndex + indexMod;
 
-		if (m_scrollIndex == 0)
-			m_up.setEnabled(false);
-		else
-			m_up.setEnabled(true);
+    		if (m_scrollIndex == 0)
+    			m_up.setEnabled(false);
+    		else
+    			m_up.setEnabled(true);
 
-		if (m_scrollIndex + m_maxLines >= m_contents.size())
-			m_down.setEnabled(false);
-		else
-			m_down.setEnabled(true);
+    		if (m_scrollIndex + m_maxLines >= m_contents.size())
+    			m_down.setEnabled(false);
+    		else
+    			m_down.setEnabled(true);
 
-		wrap();
-		System.out.println(m_wrappedText.toString());
+    		wrap();
+    		while (!m_isWrapped);
 		
-		//Handles Chat drawing
-    	int y = 0;
+    		//Handles Chat drawing
+    		int y = 0;
     	
-    	for (int i = 0; i < m_chatShown.length; i++){
-			try {
-				m_chatShown[i].setText(m_wrappedText.get(m_wrappedText.size() - m_chatShown.length + i));
-			} catch (NullPointerException e) {
-    			m_chatShown[i] = new Label(m_wrappedText.get(m_wrappedText.size() - m_chatShown.length + i));
-    		} catch (Exception e) {
-    			m_chatShown[i] = new Label();
-    		}
-    		m_chatShown[i].setFont(GameClient.getFontSmall());
-    		m_chatShown[i].setForeground(m_foreColor);
-    		m_chatShown[i].setLocation(0, y);
-    		m_chatShown[i].pack();
-    		add(m_chatShown[i]);
+    		for (int i = 0; i < m_chatShown.length; i++){
+    			try {
+    				m_chatShown[i].setText(m_wrappedText.get(m_wrappedText.size() - m_chatShown.length + i));
+    			} catch (NullPointerException e) {
+    				m_chatShown[i] = new Label(m_wrappedText.get(m_wrappedText.size() - m_chatShown.length + i));
+    			} catch (Exception e) {
+    				m_chatShown[i] = new Label();
+    			}
+    			m_chatShown[i].setFont(GameClient.getFontSmall());
+    			m_chatShown[i].setForeground(m_foreColor);
+    			m_chatShown[i].setLocation(0, y);
+    			m_chatShown[i].pack();
+    			add(m_chatShown[i]);
 
-    		y += GameClient.getFontSmall().getHeight("X");
+    			y += GameClient.getFontSmall().getHeight("X");
+    		}
+    		m_canScroll = true;
     	}
-    	m_canScroll = true;
     }
     
     /**
@@ -376,6 +378,7 @@ class ChatWidget extends Container{
 				} catch (IndexOutOfBoundsException e) {}
 				catch (Exception e) {e.printStackTrace();}
 		}
+		m_isWrapped = true;
 	}
 	
     @Override
