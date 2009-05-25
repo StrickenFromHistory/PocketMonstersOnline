@@ -318,7 +318,7 @@ public class BattleCanvas extends Container {
 			m_statusIcons.put("Burn", new Image("/res/battle/BRN.png"));
 			m_statusIcons.put("Paralysis", new Image("/res/battle/PAR.png"));
 		} catch (SlickException e) {}
-		LoadingList.setDeferredLoading(true);
+		LoadingList.setDeferredLoading(false);
 	}
 	
 	/**
@@ -328,5 +328,11 @@ public class BattleCanvas extends Container {
 		float y = GameClient.getInstance().getUi().getBattleManager().getBattleWindow().getY() + 20;
 		float x = GameClient.getInstance().getUi().getBattleManager().getBattleWindow().getX() + 1;
 		setLocation(x, y);
+	}
+	
+	public void stop() {
+		try {
+			finalize();
+		} catch (Throwable e) {e.printStackTrace();}
 	}
 }

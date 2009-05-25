@@ -44,15 +44,17 @@ public class BattleManager {
 	 * Sets the enemy's data 
 	 */
 	private void setEnemyData() {
-		m_curEnemyPoke = m_enemyPokes[0];
-		m_timeLine.getBattleCanvas().drawEnemyPoke();
-		m_timeLine.getBattleCanvas().drawEnemyInfo();
-		if(!m_isWild){
-			// TODO: Draw pokeballs equal to the enemy's pokemon count
-			m_timeLine.addSpeech(m_enemy + " sent out " + m_curEnemyPoke.getName());
-		} else{
-			m_timeLine.addSpeech("A wild " + m_curEnemyPoke.getName() + " attacked!");
-		}
+		try{
+			m_curEnemyPoke = m_enemyPokes[0];
+			m_timeLine.getBattleCanvas().drawEnemyPoke();
+			m_timeLine.getBattleCanvas().drawEnemyInfo();
+			if(!m_isWild){
+				// TODO: Draw pokeballs equal to the enemy's pokemon count
+				m_timeLine.addSpeech(m_enemy + " sent out " + m_curEnemyPoke.getName());
+			} else{
+				m_timeLine.addSpeech("A wild " + m_curEnemyPoke.getName() + " attacked!");
+			}
+		} catch (Exception e) {e.printStackTrace();}
 	}
 
 	/**
@@ -67,6 +69,7 @@ public class BattleManager {
 		} else {
 			setWild(true);
 		}
+		m_enemyPokes = new Pokemon[pokeAmount];
 		getPlayerData();
 		m_battle = new BattleWindow("Battle!", m_isWild);
 		m_battle.disableMoves();
@@ -74,7 +77,6 @@ public class BattleManager {
 		updatePokePane();
 		GameClient.getInstance().getDisplay().add(m_battle);
 		m_timeLine = new BattleTimeLine();
-		m_enemyPokes = new Pokemon[pokeAmount];
 		GameClient.changeTrack("pvnpc");
 	}
 	
@@ -197,18 +199,20 @@ public class BattleManager {
 			int curHP,
 			int spriteNum,
 			boolean isShiny){
-		m_enemyPokes[index] = new Pokemon();
-		m_enemyPokes[index].setName(name);
-		m_enemyPokes[index].setLevel(level);
-		m_enemyPokes[index].setGender(gender);
-		m_enemyPokes[index].setMaxHP(maxHP);
-		m_enemyPokes[index].setCurHP(curHP);
-		m_enemyPokes[index].setSpriteNumber(spriteNum);
-		m_enemyPokes[index].setShiny(isShiny);
-		m_enemyPokes[index].setSprite();
+		try{
+			m_enemyPokes[index] = new Pokemon();
+			m_enemyPokes[index].setName(name);
+			m_enemyPokes[index].setLevel(level);
+			m_enemyPokes[index].setGender(gender);
+			m_enemyPokes[index].setMaxHP(maxHP);
+			m_enemyPokes[index].setCurHP(curHP);
+			m_enemyPokes[index].setSpriteNumber(spriteNum);
+			m_enemyPokes[index].setShiny(isShiny);
+			m_enemyPokes[index].setSprite();
 
-		if ((index + 1) == m_enemyPokes.length)
-			setEnemyData();
+			if ((index + 1) == m_enemyPokes.length)
+				setEnemyData();
+		} catch (Exception e) {e.printStackTrace();}
 	}
 
 	/**

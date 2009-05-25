@@ -251,7 +251,7 @@ public class BattleTimeLine {
 		while (GameClient.getInstance().getDisplay().containsChild(m_canvas));
 		GameClient.getInstance().getDisplay().remove(m_narrator);
 		while (GameClient.getInstance().getDisplay().containsChild(m_narrator));
-		m_canvas = null;
+		m_canvas.stop();
 		m_narrator = null;
 	}
 	
