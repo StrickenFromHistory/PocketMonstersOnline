@@ -1,13 +1,13 @@
 [npc]
 Medium
 down
-11
+163
 3
 5
 NULL
-1
+0
 -1
-1000
+0,1,2,3,4
 false
 false
 false
