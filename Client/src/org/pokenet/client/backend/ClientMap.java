@@ -45,10 +45,11 @@ public class ClientMap extends TiledMap {
 		"0").trim());
 		m_xOffset = m_xOffsetModifier;
 		m_yOffset = m_yOffsetModifier;
-		if (getLayerIndex("WalkBehind") != 0){
-			m_walkableLayer = getLayerCount() - 2;
-		} else {
+		System.out.println("WalkBehind Layer Index: " + getLayerIndex("WalkBehind"));
+		if (getLayerIndex("WalkBehind") == -1){
 			m_walkableLayer = getLayerCount() - 1;
+		} else {
+			m_walkableLayer = getLayerCount() - 2;
 		}
 		m_lastRendered = 0;
 		try {
