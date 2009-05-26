@@ -45,7 +45,7 @@ public class ClientMap extends TiledMap {
 		"0").trim());
 		m_xOffset = m_xOffsetModifier;
 		m_yOffset = m_yOffsetModifier;
-		m_walkableLayer = getLayerCount() - 2;
+		m_walkableLayer = getLayerIndex("Walkable") + 1;
 		m_lastRendered = 0;
 		try {
 			m_name = GameClient.getInstance().getMapMatrix().getMapName(m_mapX, m_mapY);
