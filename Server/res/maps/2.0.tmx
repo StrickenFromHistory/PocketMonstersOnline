@@ -2,34 +2,28 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="20" height="108" tilewidth="16" tileheight="16">
  <properties>
-<properties>
-  <property name="waterPokemonLevels" value="25-34,30-34"/>
-  <property name="waterPokemonChances" value="Tentacool,90;Tentacruel,10;"/>
-  <property name="nightPokemonLevels" value="28-30;28-28;32-32;30-32"/>
-  <property name="nightPokemonChances" value="Raticate,40;Sandslash,30;Ponyta,20;Quagsire,10;"/>
-  <property name="dayPokemonLevels" value="28-30;28-28;32-32;30-30;30-30;"/>
   <property name="dayPokemonChances" value="Doduo,40;Sandslash,30;Ponyta,20;Dodrio,5;Raticate,5;"/>
+  <property name="dayPokemonLevels" value="28-30;28-28;32-32;30-30;30-30;"/>
+  <property name="nightPokemonChances" value="Raticate,40;Sandslash,30;Ponyta,20;Quagsire,10;"/>
+  <property name="nightPokemonLevels" value="28-30;28-28;32-32;30-32"/>
+  <property name="waterPokemonChances" value="Tentacool,90;Tentacruel,10;"/>
+  <property name="waterPokemonLevels" value="25-34,30-34"/>
   <property name="wildProbability" value="28"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="-2592"/>
  </properties>
- </properties>
  <tileset firstgid="1" source="Tileset 1.tsx"/>
- 
  <tileset firstgid="1025" source="Tileset 11.tsx"/>
- 
  <tileset firstgid="2049" source="Tileset 3.tsx"/>
- 
  <tileset firstgid="3073" source="Tileset 2.tsx"/>
- 
-<layer name="Walkable" width="20" height="108">
+ <layer name="Layer 6" width="20" height="108">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3SWwqAIBRFUUnnP8hGElEfERkFhx6whAV+yBa51lJKPTCs5n3rnLkj2fpDDwAAAAAAAJ40toWe3pXOVrKV7qXempzBm72z9YVe708k57q/L9X6ggn9ZCRkwCEAAA==
+   H4sIAAAAAAAAAO3SOwrAIBAEUAvvf8fcJJXkA0KYWKi8B9soDMtoKQAAAAAAAMBqjvqc93mSl9ztmtebkTuk+82Yl/67Xt5faV7y9lxaT/fO9PjdCY3oxNrAIQAA
   </data>
  </layer>
  <layer name="Walkable" width="20" height="108">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2WXQ7CIBCEOYDhTqVeBOpFKvYgRj2fVxBiiasBY5d9IDiTTNqH8mXZDj9K5TUEm9Vj4ZstssFu9QQeeBt4i3plkZvHOfiY8VWo3iQLXve8lEeJfTHlEjlsg5fOvZMQL9Z1U89/7IV4LfSN3g+ouX2jffo0p2+t9Ak88Frl4RwDDzzwwPsP3n33vu+X/Mt5EFlRdN93BXPq/8at6Qfl9ngvBw88CcV1IrEuIAiCoLZ01kpdNHg98UwYPxLvK3kujJ+ID5U8Osc5PL0gT0I98gZdtmFkxOqyHSMjPpOH9C6Rkd71AKDIcMvAIQAA
+   H4sIAAAAAAAAAO2W4QmDMBBGA/ZnyU6aLmLsIjbtIKXtYl2gKzQBxVOMxORog34HDxXMI56fMYUQopihtFQdynPPGmqL7mjgg2+F7yaGLMbmsbVcZngyzZfOG75t+/o8KgZfn0vkMA9f/9+7MvncvF7dOzYZPWeqj+4PKLF9o32aEtO3XPoEH3y5+vAfgw8++ODbh+9zHK/7PlSgyx3puq89xMx/yZvSD+rd4r4cPvg4cN+JYfQBAAD4D9O6SyEecriGL83nq1/6KjteEU6JPm3HN4Rzoo8+Y2uPhtEXWty+pcrBV0o/VWBGaNXSjw7MCC2XgfdhyAM9D83InusL166TvMAhAAA=
   </data>
  </layer>
  <layer name="Grass" width="20" height="108">
@@ -39,12 +33,7 @@
  </layer>
  <layer name="Water" width="20" height="108">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3YMQqAMAxA0Q7e/5CexFWEYmwjYvoedCs/0K1pDQCAavatf7I6I71Is0ov8nZ6Y7J75yYAAAD8Se/fnbUXWb33dL/xRi8yZ7Z314z0rvcyerP7ptFeZNaXvYhKvdXOAby9JnbAIQAA
-  </data>
- </layer>
- <layer name="Water" width="20" height="108">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3YTQqAIBCG4YEIy2vY/e8UFnSMWtTSQWWECd4H3H6MPxs/EQAAAKBsX0UOZbWaou18XvPyez6LUZ7XfX7Sk7cpy9rV8fY0adCcAAAAAACMlJXO5jTubeaOf/Of80Js78O89zfk1Sndu1XPB2hucUXnFcAhAAA=
+   H4sIAAAAAAAAAO3YWQqAIBhFYaGiYRu1/z01QcsooaCHtJQLTeeDH3qIg+ZTGgMAAICv6VL3hHba0pjBM6GSSre+J/f69fsUot7Zuu7u1Uuv8UzseRyxnanU9axt/QAAAAAAvEnvubMZBfc2G/ucRfw3v7mXV+H3Yb5ezP1L4tiTutcKevv3VL2ro+65zr2I7F1Zu2K/e1/q/W1mvx23U8AhAAA=
   </data>
  </layer>
  <layer name="Ledges" width="20" height="108">
