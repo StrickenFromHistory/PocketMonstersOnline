@@ -2,12 +2,13 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="69" height="22" tilewidth="16" tileheight="16">
  <properties>
-   <property name="surfSpecies" value="Goldeen,90;Seaking,10;"/>
-  <property name="surfLevels" value="15-24;20-24;"/>
-  <property name="surfProbability" value="7"/>
-  <property name="wildLevels" value="15-15;13-15;15-17;13-15;15-16;14-16;16-16;13-14;15-16;14-16;16-16;15-15"/>
+  <property name="dayPokemonLevels" value="14-16;15-15;13-13;13-13;15-15;15-17;16-16;15-15;16-16;"/>
+  <property name="dayPokemonChances" value="Spearow,30;Mankey,15;Ekans,15;Mareep,10;Rattata,10;Flaaffy,5;Raticate,5;Arbok,5;Fearow,5;"/>
+  <property name="nightPokemonLevels" value="14-14;13-13;13-13;15-15;15-15;16-16;15-17;15-15;"/>
+  <property name="nightPokemonChances" value="Zubat,30;Mareep,15;Rattata,15;Mankey,10;Raticate,10;Golbat,8;Flaaffy,7;Marill,5;"/>
+  <property name="waterPokemonLevels" value="15-24;20-24;"/>
+  <property name="waterPokemonChances" value="Goldeen,90;Seaking,10;"/>
   <property name="wildProbability" value="10"/>
-  <property name="wildSpecies" value="Mankey,10;Mareep,30;Flaafy,2;Rattata,10;Raticate,8;Spearow,15;Fearow,2;Ekans,5;Arbok,3;Zubat,10;Golbat,4;Marill,1;Buneary,1;"/>
   <property name="xOffsetModifier" value="-64"/>
   <property name="yOffsetModifier" value="320"/>
  </properties>
