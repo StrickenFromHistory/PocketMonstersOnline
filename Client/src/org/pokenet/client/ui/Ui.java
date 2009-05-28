@@ -54,7 +54,7 @@ public class Ui extends Frame {
 	 * Default constructor
 	 */
 	public Ui(Display display) {
-		this.setSize(48, 256);
+		this.setSize(48, 293);
 		this.setLocation(0, -24);
 		this.setBackground(new Color(0, 0, 0, 75));
 		this.setResizable(false);
@@ -67,11 +67,14 @@ public class Ui extends Frame {
 		m_chat = new ChatDialog("Chat: Local");
 		
 		m_map = new TownMap();
+		m_map.setVisible(false);
+		m_display.add(m_map);
 		
 		startButtons();
 
+		m_moneyLabel.setText("$");
 		m_moneyLabel.pack();
-		m_moneyLabel.setLocation(4, 205);
+		m_moneyLabel.setLocation(4, 242);
 		m_moneyLabel.setVisible(true);
 		m_moneyLabel.setFont(GameClient.getFontSmall());
 		m_moneyLabel.setForeground(new Color(255, 255, 255));
@@ -99,7 +102,7 @@ public class Ui extends Frame {
 	 * Starts the HUD buttons
 	 */
 	public void startButtons(){
-		m_buttons = new ImageButton[5];
+		m_buttons = new ImageButton[6];
 		
 		m_buttons[0] = HUDButtonFactory.getButton("requests");
 		m_buttons[0].addActionListener(new ActionListener() {
@@ -134,6 +137,12 @@ public class Ui extends Frame {
         m_buttons[4].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		toggleHelp();
+        	}
+        });
+        m_buttons[5] = HUDButtonFactory.getButton("map");
+        m_buttons[5].addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		toggleMap();
         	}
         });
         
@@ -345,6 +354,20 @@ public class Ui extends Frame {
     }
     
     /**
+     * Toggles the Help Pane
+     */
+    public void toggleMap(){
+    	if (m_map.isVisible()) {
+			m_map.setVisible(false);
+			hideHUD();
+		} else {
+			hideHUD();
+			m_map.setLocation(48, 0);
+			m_map.setVisible(true);
+		}
+    }
+        
+    /**
      * Hides all HUD elements
      */
     private void hideHUD() {
@@ -358,6 +381,7 @@ public class Ui extends Frame {
             m_optionsForm = null;
             if (m_helpForm != null) m_helpForm.setVisible(false);
             m_helpForm = null;
+            if (m_map.isVisible()) m_map.setVisible(false);
     }
     
     /**

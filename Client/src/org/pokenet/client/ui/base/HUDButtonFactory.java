@@ -51,6 +51,11 @@ public class HUDButtonFactory {
                         rollovers.put("options", getRolloverImage("options"));
                         downs.put("options", getDownImage("options"));
                         
+                        // -- Map Buttons --
+                        normals.put("map", getNormalImage("map"));
+                        rollovers.put("map", getRolloverImage("map"));
+                        downs.put("map", getDownImage("map"));
+                        
                         font = new AngelCodeFont(
                                 "/res/fonts/dp-small.fnt",
                                 "/res/fonts/dp-small.png");

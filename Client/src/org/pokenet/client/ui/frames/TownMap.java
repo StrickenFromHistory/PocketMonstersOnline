@@ -52,6 +52,7 @@ public class TownMap extends Frame {
 		add(m_mapName);
 		
 		setSize(536, 265 + getTitleBar().getHeight());
+		getTitleBar().getCloseButton().setVisible(false);
 		loadLocations();
 		setResizable(false);
 		setVisible(true);
@@ -117,7 +118,7 @@ public class TownMap extends Frame {
 	/**
 	 * Set's the players current location
 	 */
-	public void setLocation() {
+	public void setPlayerLocation() {
 		try {
 			remove(m_playerLoc);
 		} catch (Exception e) {}
