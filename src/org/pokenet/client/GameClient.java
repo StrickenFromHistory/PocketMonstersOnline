@@ -199,6 +199,7 @@ public class GameClient extends BasicGame {
 			m_mapMatrix.getCurrentMap().setXOffset(400 - m_ourPlayer.getX(), false);
 			m_mapMatrix.getCurrentMap().setYOffset(300 - m_ourPlayer.getY(), false);
 			m_mapMatrix.recalibrate();
+			m_ui.getMap().setPlayerLocation();
 			m_isNewMap = false;
 			m_loading.setVisible(false);
 		}
@@ -241,28 +242,27 @@ public class GameClient extends BasicGame {
 			g.setFont(m_fontLarge);
 			g.scale(2, 2);
             for (int x = 0; x <= 2; x++) {
-                     for (int y = 0; y <= 2; y++) {
-                    		 thisMap = m_mapMatrix.getMap(x, y);
-                             if (thisMap != null && thisMap.isRendering()) {
-                            	 if(!thisMap.isCurrent())
-                        			 thisMap.render(thisMap.getXOffset() / 2,
-                                             thisMap.getYOffset() / 2, 0, 0,
-                                             (gc.getScreenWidth() - thisMap.getXOffset()) / 32,
-                                             (gc.getScreenHeight() - thisMap.getYOffset()) / 32,
-                                             false);
-                        		 else {
-                                	 for(int l = 0; l < thisMap.getLayerCount(); l++) {
-                                		 thisMap.render(thisMap.getXOffset() / 2,
-                                                 thisMap.getYOffset() / 2, 0, 0,
-                                                 (gc.getScreenWidth() - thisMap.getXOffset()) / 32,
-                                                 (gc.getScreenHeight() - thisMap.getYOffset()) / 32,
-                                                 l, thisMap.getLastLayerRendered() + 1 == thisMap.getWalkableLayer());
-                            			 thisMap.setLastLayerRendered(l); 
-                                	 }
-                        		 }
-                             }
-                            	 
-                     }
+            	for (int y = 0; y <= 2; y++) {
+            		thisMap = m_mapMatrix.getMap(x, y);
+            		if (thisMap != null && thisMap.isRendering()) {
+            			if(!thisMap.isCurrent())
+            				thisMap.render(thisMap.getXOffset() / 2,
+            						thisMap.getYOffset() / 2, 0, 0,
+            						(gc.getScreenWidth() - thisMap.getXOffset()) / 32,
+            						(gc.getScreenHeight() - thisMap.getYOffset()) / 32,
+            						false);
+            			else {
+            				for(int l = 0; l < thisMap.getLayerCount(); l++) {
+            					thisMap.render(thisMap.getXOffset() / 2,
+            							thisMap.getYOffset() / 2, 0, 0,
+            							(gc.getScreenWidth() - thisMap.getXOffset()) / 32,
+            							(gc.getScreenHeight() - thisMap.getYOffset()) / 32,
+            							l, thisMap.getLastLayerRendered() + 1 == thisMap.getWalkableLayer());
+            					thisMap.setLastLayerRendered(l); 
+            				}
+            			}
+            		}
+            	}
             }
             g.resetTransform();
             
