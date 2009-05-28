@@ -51,11 +51,6 @@ public class ClientMap extends TiledMap {
 			m_walkableLayer = getLayerCount() - 2;
 		}
 		m_lastRendered = 0;
-		try {
-			m_name = GameClient.getInstance().getMapMatrix().getMapName(m_mapX, m_mapY);
-		} catch (Exception e) {
-			m_name = "";
-		}
 	}
 	
 	@Override
@@ -320,5 +315,13 @@ public class ClientMap extends TiledMap {
 	 */
 	public String getName() {
 		return m_name;
+	}
+	
+	/**
+	 * Sets the map's name
+	 * @param name
+	 */
+	public void setName(String name) {
+		m_name = name;
 	}
 }

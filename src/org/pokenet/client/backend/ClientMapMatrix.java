@@ -60,6 +60,7 @@ public class ClientMapMatrix {
 							m_mapMatrix[x + 1][y + 1].setCurrent(x == 0 && y == 0);
 							System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
 									"to MapMatrix[" + (x + 1) + "][" + (y + 1) + "]");
+							m_mapMatrix[x + 1][y + 1].setName(getMapName(mapX, mapY));
 						} catch (Exception e) {
 							m_mapMatrix[x + 1][y + 1] = null;
 						}

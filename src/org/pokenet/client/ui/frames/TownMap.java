@@ -123,9 +123,11 @@ public class TownMap extends Frame {
 			remove(m_playerLoc);
 		} catch (Exception e) {}
 		String currentLoc = GameClient.getInstance().getMapMatrix().getCurrentMap().getName();
-		m_playerLoc = new Label();
-		m_playerLoc.setSize(m_containers.get(currentLoc).getSize());
-		m_playerLoc.setLocation(m_containers.get(currentLoc).getLocation());
-		add(m_playerLoc);
+		m_playerLoc = new Label("X");
+		m_playerLoc.pack();
+		try {
+			m_playerLoc.setLocation(m_containers.get(currentLoc).getLocation());
+			add(m_playerLoc);
+		} catch (Exception e) {}
 	}
 }
