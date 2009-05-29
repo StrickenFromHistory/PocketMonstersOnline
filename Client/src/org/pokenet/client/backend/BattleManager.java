@@ -28,6 +28,7 @@ public class BattleManager {
 	 * Default Constructor
 	 */
 	public BattleManager() {
+		m_battle = new BattleWindow("Battle!");
 	}
 
 	/**
@@ -71,7 +72,6 @@ public class BattleManager {
 		}
 		m_enemyPokes = new Pokemon[pokeAmount];
 		getPlayerData();
-		m_battle = new BattleWindow("Battle!", m_isWild);
 		m_battle.disableMoves();
 		updateMoves(0);
 		updatePokePane();
@@ -93,7 +93,6 @@ public class BattleManager {
 		m_timeLine = null;
 		GameClient.getInstance().getDisplay().remove(m_battle);
 		while (GameClient.getInstance().getDisplay().containsChild(m_battle));
-		m_battle = null;
 		GameClient.changeTrack("newbark");
 	}
 
@@ -226,6 +225,7 @@ public class BattleManager {
 	 */
 	public void setWild(boolean m_isWild) {
 		this.m_isWild = m_isWild;
+		m_battle.setWild(m_isWild);
 	}
 	
 	/**
