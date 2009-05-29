@@ -12,9 +12,11 @@ import mdes.slick.sui.Label;
 import mdes.slick.sui.event.MouseAdapter;
 import mdes.slick.sui.event.MouseEvent;
 
+import org.lwjgl.util.Timer;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 
@@ -29,6 +31,7 @@ public class TownMap extends Frame {
 	private HashMap<String, Container> m_containers;
 	private List<String> m_locations;
 	private Label m_playerLoc;
+	private Timer m_timer;
 	
 	/**
 	 * Default constructor
@@ -36,26 +39,44 @@ public class TownMap extends Frame {
 	public TownMap() {
 		super("World Map");
 		m_mapName = new Label();
+		m_playerLoc = new Label();
+		m_timer = new Timer();
+		
 		LoadingList.setDeferredLoading(true);
 		try {
 			m_map = new Label(new Image("/res/ui/KantoandJohto.png"));
 		} catch (SlickException e) {}
 		LoadingList.setDeferredLoading(false);
-		
+
 		m_map.setSize(534, 264);
 		m_map.setLocation(0, 0);
 		m_mapName.setFont(GameClient.getFontLarge());
 		m_mapName.setForeground(Color.white);
 		m_mapName.setX(10);
-		
+
 		add(m_map);
 		add(m_mapName);
-		
+
 		setSize(536, 265 + getTitleBar().getHeight());
 		getTitleBar().getCloseButton().setVisible(false);
 		loadLocations();
 		setResizable(false);
 		setVisible(true);
+	}
+	
+	@Override
+	public void update(GUIContext container, int delta){
+		super.update(container, delta);
+		Timer.tick();
+		if (isVisible()){
+			if (m_timer.getTime() >= 0.5) {
+				if (m_playerLoc.isVisible())
+					m_playerLoc.setVisible(false);
+				else
+					m_playerLoc.setVisible(true);
+				m_timer.reset();
+			}
+		}
 	}
 	
 	/**
@@ -121,12 +142,15 @@ public class TownMap extends Frame {
 	public void setPlayerLocation() {
 		try {
 			remove(m_playerLoc);
+			m_playerLoc = new Label();
 		} catch (Exception e) {}
 		String currentLoc = GameClient.getInstance().getMapMatrix().getCurrentMap().getName();
-		m_playerLoc = new Label("X");
-		m_playerLoc.pack();
+		m_playerLoc.setOpaque(true);
+		m_playerLoc.setBackground(new Color(255, 0, 0, 130));
 		try {
+			m_playerLoc.setSize(m_containers.get(currentLoc).getSize());
 			m_playerLoc.setLocation(m_containers.get(currentLoc).getLocation());
+			m_playerLoc.setGlassPane(true);
 			add(m_playerLoc);
 		} catch (Exception e) {}
 	}
