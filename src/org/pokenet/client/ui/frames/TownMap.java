@@ -64,11 +64,12 @@ public class TownMap extends Frame {
 		setVisible(true);
 	}
 	
+	@SuppressWarnings("static-access")
 	@Override
 	public void update(GUIContext container, int delta){
 		super.update(container, delta);
-		Timer.tick();
 		if (isVisible()){
+			m_timer.tick();
 			if (m_timer.getTime() >= 0.5) {
 				if (m_playerLoc.isVisible())
 					m_playerLoc.setVisible(false);
