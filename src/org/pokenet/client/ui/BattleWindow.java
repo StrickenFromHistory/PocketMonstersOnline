@@ -71,9 +71,8 @@ public class BattleWindow extends Frame {
 	 * @param title
 	 * @param wild
 	 */
-	public BattleWindow(String title, boolean wild) {
+	public BattleWindow(String title) {
 		setTitle(title);
-		isWild = wild;
 		initComponents();
 		setCenter();
 		setSize(259, 369);
@@ -528,5 +527,13 @@ public class BattleWindow extends Frame {
 	 */
 	private void switchPoke(int i){
         GameClient.getInstance().getPacketGenerator().write("bs" + i);
+	}
+	
+	/**
+	 * Sets whether the battle is a wild pokemon
+	 * @param isWild
+	 */
+	public void setWild(boolean isWild){
+		this.isWild = isWild;
 	}
 }
