@@ -291,7 +291,7 @@ public class BattleCanvas extends Container {
 	 * @param status
 	 */
 	public void setStatus(int poke, String status){
-		if (poke == 0){
+		if (poke != 0){
 			if (status != "normal") {
 				playerStatus.setImage(m_statusIcons.get(status));
 			} else {
@@ -313,9 +313,13 @@ public class BattleCanvas extends Container {
 		LoadingList.setDeferredLoading(true);
 		try{
 			m_statusIcons.put("Poison", new Image("/res/battle/PSN.png"));
+		} catch (SlickException e) {} try{
 			m_statusIcons.put("Sleep", new Image("/res/battle/SLP.png"));
+		} catch (SlickException e) {} try{
 			m_statusIcons.put("Freze", new Image("/res/battle/FRZ.png"));
+		} catch (SlickException e) {} try{
 			m_statusIcons.put("Burn", new Image("/res/battle/BRN.png"));
+		} catch (SlickException e) {} try{
 			m_statusIcons.put("Paralysis", new Image("/res/battle/PAR.png"));
 		} catch (SlickException e) {}
 		LoadingList.setDeferredLoading(false);
@@ -331,8 +335,22 @@ public class BattleCanvas extends Container {
 	}
 	
 	public void stop() {
-		try {
-			finalize();
-		} catch (Throwable e) {e.printStackTrace();}
+		this.removeAll();
+		playerHP = null;
+		enemyHP = null;
+		bgPic = null;
+		playerPoke = null;
+		enemyPoke = null;
+		playerNameLabel = null;
+		enemyNameLabel = null;
+		playerDataBG = null;
+		enemyDataBG = null;
+		playerHPBar = null;
+		enemyHPBar = null;
+		playerLv = null;
+		enemyLv = null;
+		playerStatus = null;
+		enemyStatus = null;
+		m_statusIcons = null;
 	}
 }
