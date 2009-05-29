@@ -376,8 +376,8 @@ public class GameClient extends BasicGame {
 			}
 			/*} else if (getLogin().getSpeechy() != null) {
 			getLogin().getSpeechy().advance();*/
-			if (getUi().getBattleManager().getBattleWindow() != null && getUi()
-					.getBattleManager().getTimeLine().getBattleSpeech() != null) {
+			if (getDisplay().containsChild(getUi().getBattleManager().getBattleWindow()) && 
+					 getDisplay().containsChild(getUi().getBattleManager().getTimeLine().getBattleSpeech())) {
 				getUi().getBattleManager().getTimeLine().getBattleSpeech().advance();
 			} else{
 				try {

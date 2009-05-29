@@ -193,10 +193,19 @@ public class BattleCanvas extends Container {
 	 */
 	public void drawBackground(){
 		LoadingList.setDeferredLoading(true);
-		try{
+		try {
 			bgPic = new Label(new Image("/res/ui/DP_darkgrass.png"));
+		} catch (SlickException e) {
+			e.printStackTrace();
+		} try {
 			playerDataBG = new Label(new Image("/res/battle/singlePlayerBox3.png"));
+		} catch (SlickException e) {
+			e.printStackTrace();
+		} try {
 			enemyDataBG = new Label(new Image("/res/battle/singleEnemyBox3.png"));
+		} catch (SlickException e) {
+			e.printStackTrace();
+		} try {
 			enemyHPBar = new Label(new Image("/res/battle/HPBar.png"));
 		} catch (SlickException e) {
 			e.printStackTrace();
