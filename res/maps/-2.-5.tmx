@@ -2,12 +2,13 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="25" height="53" tilewidth="16" tileheight="16">
  <properties>
-    <property name="surfSpecies" value="Magikarp,100;"/>
-  <property name="surfLevels" value="10-24;"/>
-  <property name="surfProbability" value="7"/>
-  <property name="wildLevels" value="15-15;16-17;17-17;15-17;16-16;15-15;15-17;15-15;15-17;17-17;16-17"/>
-  <property name="wildProbability" value="28"/>
-  <property name="wildSpecies" value="Girafarig,10;Pidgeotto,20;Raticate,5;Venonat,15;Farfetch'd,5;Sentret,15;Furret,5;Mareep,5;Flaafy,10;Venomoth,7;Noctowl,8;Buneary,1;"/>
+  <property name="dayPokemonLevels" value="17-17;15-15;15-15;15-15;16-16;15-17;15-15;16-16;17-17;"/>
+  <property name="dayPokemonChances" value="Pidgeotto,30;Girafarig,15;Sentret,15;Flaaffy,10;Farfetch'd,10;Furret,8;Mareep,7;Venonat,2;Raticate,3;"/>
+  <property name="nightPokemonLevels" value="15-15;15-15;17-17;16-16;15-17;15-15;16-17;"/>
+  <property name="nightPokemonChances" value="Flaaffy,30;Girafarig,15;Venomoth,15;Noctowl,20;Venonat,15;Mareep,2;Raticate,3;"/>
+  <property name="waterPokemonLevels" value="15-24;"/>
+  <property name="waterPokemonChances" value="Magikarp,100;"/>
+  <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="-96"/>
   <property name="yOffsetModifier" value="160"/>
  </properties>
