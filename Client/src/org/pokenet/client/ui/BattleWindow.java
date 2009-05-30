@@ -51,9 +51,9 @@ public class BattleWindow extends Frame {
 	public Button pokeBtn4;
 	public Button pokeBtn5;
 	public Button pokeBtn6;
-	public Button jBtnPoke;
-	public Button jBtnBag;
-	public Button jBtnRun;
+	public Button btnPoke;
+	public Button btnBag;
+	public Button btnRun;
 	public Label shouldReplace;
 	public Button yes;
 	public Button no;
@@ -196,37 +196,33 @@ public class BattleWindow extends Frame {
 		m_ppLabels.add(pp3);
 		m_ppLabels.add(pp4);
 		
-		jBtnRun = BattleButtonFactory.getSmallButton("Run");
-		attackPane.add(jBtnRun);
+		btnRun = BattleButtonFactory.getSmallButton("Run");
+		btnRun.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				run();
+			}
+		});
+		attackPane.add(btnRun);
+		
+		btnRun.setBounds(97, 148, 60, 47);
 
-		if (!isWild) {
-			jBtnRun.setEnabled(false);
-		} else {
-			jBtnRun.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
-					run();
-				}
-			});
-		}
-		jBtnRun.setBounds(97, 148, 60, 47);
+		btnBag = BattleButtonFactory.getSmallButton("Bag");
+		attackPane.add(btnBag);
+		btnBag.setLocation(3, 122);
+		btnBag.setSize(82, 48);
 
-		jBtnBag = BattleButtonFactory.getSmallButton("Bag");
-		attackPane.add(jBtnBag);
-		jBtnBag.setLocation(3, 122);
-		jBtnBag.setSize(82, 48);
-
-		jBtnBag.addActionListener(new ActionListener() {
+		btnBag.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				//TODO: Show bag
 			}
 		});
 
-		jBtnPoke = BattleButtonFactory.getSmallButton("Pokemon");
-		attackPane.add(jBtnPoke);
-		jBtnPoke.setLocation(168, 122);
-		jBtnPoke.setSize(82, 48);
+		btnPoke = BattleButtonFactory.getSmallButton("Pokemon");
+		attackPane.add(btnPoke);
+		btnPoke.setLocation(168, 122);
+		btnPoke.setSize(82, 48);
 
-		jBtnPoke.addActionListener(new ActionListener() {
+		btnPoke.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				showPokePane(false);
 			}
@@ -416,9 +412,9 @@ public class BattleWindow extends Frame {
 		pp3.setEnabled(false);
 		pp4.setEnabled(false);
 
-		jBtnPoke.setEnabled(false);
-		jBtnBag.setEnabled(false);
-		jBtnRun.setEnabled(false);
+		btnPoke.setEnabled(false);
+		btnBag.setEnabled(false);
+		btnRun.setEnabled(false);
 
 		//cancel.setVisible(false);
 	}
@@ -427,12 +423,12 @@ public class BattleWindow extends Frame {
 	 * Enables moves
 	 */
 	public void enableMoves() {
-		jBtnPoke.setEnabled(true);
-		jBtnBag.setEnabled(true);
+		btnPoke.setEnabled(true);
+		btnBag.setEnabled(true);
 		if (!isWild) {
-			jBtnRun.setEnabled(false);
+			btnRun.setEnabled(false);
 		} else {
-			jBtnRun.setEnabled(true);
+			btnRun.setEnabled(true);
 		}
 
 		pokeCancelBtn.setEnabled(true);
@@ -535,5 +531,6 @@ public class BattleWindow extends Frame {
 	 */
 	public void setWild(boolean isWild){
 		this.isWild = isWild;
+		btnRun.setEnabled(isWild);
 	}
 }
