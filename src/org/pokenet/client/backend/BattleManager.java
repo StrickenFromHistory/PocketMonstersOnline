@@ -48,18 +48,24 @@ public class BattleManager {
 		m_curEnemyPoke = m_enemyPokes[0];
 		try{
 			m_timeLine.getBattleCanvas().drawEnemyPoke();
-		} catch (Exception e) {e.printStackTrace();}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		try{
 			m_timeLine.getBattleCanvas().drawEnemyInfo();
-		} catch (Exception e) {e.printStackTrace();}
-		     try{
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try{
 			if(!m_isWild){
 				// TODO: Draw pokeballs equal to the enemy's pokemon count
 				m_timeLine.addSpeech(m_enemy + " sent out " + m_curEnemyPoke.getName());
 			} else{
 				m_timeLine.addSpeech("A wild " + m_curEnemyPoke.getName() + " attacked!");
 			}
-		} catch (Exception e) {e.printStackTrace();}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
