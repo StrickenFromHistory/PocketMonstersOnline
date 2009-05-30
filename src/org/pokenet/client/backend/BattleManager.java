@@ -45,10 +45,14 @@ public class BattleManager {
 	 * Sets the enemy's data 
 	 */
 	private void setEnemyData() {
+		m_curEnemyPoke = m_enemyPokes[0];
 		try{
-			m_curEnemyPoke = m_enemyPokes[0];
 			m_timeLine.getBattleCanvas().drawEnemyPoke();
+		} catch (Exception e) {e.printStackTrace();}
+		try{
 			m_timeLine.getBattleCanvas().drawEnemyInfo();
+		} catch (Exception e) {e.printStackTrace();}
+		     try{
 			if(!m_isWild){
 				// TODO: Draw pokeballs equal to the enemy's pokemon count
 				m_timeLine.addSpeech(m_enemy + " sent out " + m_curEnemyPoke.getName());
