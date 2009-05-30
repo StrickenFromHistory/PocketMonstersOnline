@@ -157,6 +157,22 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
+	 * If the player's first Pokemon in party has 0 HP, 
+	 * it puts the first Pokemon in their party with more
+	 * than 0 HP at the front
+	 */
+	public void ensureHealthyPokemon() {
+		if(m_pokemon[0].getHealth() == 0) {
+			for(int i = 1; i < 6; i++) {
+				if(m_pokemon[i] != null && m_pokemon[i].getHealth() > 0) {
+					swapPokemon(0, i);
+					return;
+				}
+			}
+		}
+	}
+	
+	/**
 	 * Swaps two Pokemon in a player's party
 	 * @param a
 	 * @param b
@@ -344,6 +360,7 @@ public class PlayerChar extends Char implements Battleable {
 				//If the player moved
 				if(this.getMap() != null) {
 					if(this.getMap().isWildBattle(m_x, m_y, this)) {
+						this.ensureHealthyPokemon();
 						m_battleField = new WildBattleField(
 								DataService.getBattleMechanics(),
 								this,

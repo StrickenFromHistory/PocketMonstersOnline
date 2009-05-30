@@ -57,6 +57,7 @@ public class NpcBattleLauncher implements Runnable {
 				Thread.sleep(250);
 			}
 			/* Start the NPC battle */
+			m_player.ensureHealthyPokemon();
 			m_player.setBattleField(new NpcBattleField(DataService.getBattleMechanics(), m_player, m_npc));
 		} catch (Exception e) {
 			e.printStackTrace();
