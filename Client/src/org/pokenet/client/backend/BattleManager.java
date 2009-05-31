@@ -86,12 +86,8 @@ public class BattleManager {
 		updateMoves(0);
 		updatePokePane();
 		GameClient.getInstance().getDisplay().add(m_battle);
-		try{
-			m_timeLine = new BattleTimeLine();
-		} catch (Exception e) {
-			e.printStackTrace();
-			GameClient.getInstance().getDisplay().remove(m_battle);
-		}
+		m_timeLine = new BattleTimeLine();
+
 		GameClient.changeTrack("pvnpc");
 	}
 	

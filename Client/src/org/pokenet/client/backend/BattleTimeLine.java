@@ -32,7 +32,11 @@ public class BattleTimeLine {
 	 */
 	public void init(){
 		m_translator = Translator.translate("_BATTLE");
-		m_canvas = new BattleCanvas();
+		try{
+			m_canvas = new BattleCanvas();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		m_narrator = new BattleSpeechFrame();
 		GameClient.getInstance().getDisplay().add(m_canvas);
 		GameClient.getInstance().getDisplay().add(m_narrator);
