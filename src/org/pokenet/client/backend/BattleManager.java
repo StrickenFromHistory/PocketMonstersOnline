@@ -29,6 +29,7 @@ public class BattleManager {
 	 */
 	public BattleManager() {
 		m_battle = new BattleWindow("Battle!");
+		m_timeLine = new BattleTimeLine();
 	}
 
 	/**
@@ -85,9 +86,8 @@ public class BattleManager {
 		m_battle.disableMoves();
 		updateMoves(0);
 		updatePokePane();
+		m_timeLine.startBattle();
 		GameClient.getInstance().getDisplay().add(m_battle);
-		m_timeLine = new BattleTimeLine();
-
 		GameClient.changeTrack("pvnpc");
 	}
 	
@@ -95,8 +95,7 @@ public class BattleManager {
 	 * Ends the battle
 	 */
 	public void endBattle() {
-		m_timeLine.stop();
-		m_timeLine = null;
+		m_timeLine.endBattle();
 		GameClient.getInstance().getDisplay().remove(m_battle);
 		while (GameClient.getInstance().getDisplay().containsChild(m_battle));
 		GameClient.changeTrack("newbark");
@@ -209,20 +208,24 @@ public class BattleManager {
 			int curHP,
 			int spriteNum,
 			boolean isShiny){
-		try{
-			m_enemyPokes[index] = new Pokemon();
-			m_enemyPokes[index].setName(name);
-			m_enemyPokes[index].setLevel(level);
-			m_enemyPokes[index].setGender(gender);
-			m_enemyPokes[index].setMaxHP(maxHP);
-			m_enemyPokes[index].setCurHP(curHP);
-			m_enemyPokes[index].setSpriteNumber(spriteNum);
-			m_enemyPokes[index].setShiny(isShiny);
-			m_enemyPokes[index].setSprite();
 
-			if ((index + 1) == m_enemyPokes.length)
-				setEnemyData();
-		} catch (Exception e) {e.printStackTrace();}
+		m_enemyPokes[index] = new Pokemon();
+		m_enemyPokes[index].setName(name);
+		m_enemyPokes[index].setLevel(level);
+		m_enemyPokes[index].setGender(gender);
+		m_enemyPokes[index].setMaxHP(maxHP);
+		m_enemyPokes[index].setCurHP(curHP);
+		m_enemyPokes[index].setSpriteNumber(spriteNum);
+		m_enemyPokes[index].setShiny(isShiny);
+		try {
+			m_enemyPokes[index].setSprite();
+		} catch  (Exception e) {
+			e.printStackTrace();
+			m_enemyPokes[index].setSprite();
+		}
+
+		if ((index + 1) == m_enemyPokes.length)
+			setEnemyData();
 	}
 
 	/**
