@@ -347,15 +347,15 @@ public class BattleCanvas extends Container {
 		LoadingList.setDeferredLoading(true);
 		try{
 			m_statusIcons.put("Poison", new Image("/res/battle/PSN.png"));
-		} catch (SlickException e) {} try{
+		} catch (SlickException e) {e.printStackTrace();} try{
 			m_statusIcons.put("Sleep", new Image("/res/battle/SLP.png"));
-		} catch (SlickException e) {} try{
+		} catch (SlickException e) {e.printStackTrace();} try{
 			m_statusIcons.put("Freze", new Image("/res/battle/FRZ.png"));
-		} catch (SlickException e) {} try{
+		} catch (SlickException e) {e.printStackTrace();} try{
 			m_statusIcons.put("Burn", new Image("/res/battle/BRN.png"));
-		} catch (SlickException e) {} try{
+		} catch (SlickException e) {e.printStackTrace();} try{
 			m_statusIcons.put("Paralysis", new Image("/res/battle/PAR.png"));
-		} catch (SlickException e) {}
+		} catch (SlickException e) {e.printStackTrace();}
 		LoadingList.setDeferredLoading(false);
 	}
 	
