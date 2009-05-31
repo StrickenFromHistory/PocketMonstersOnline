@@ -19,21 +19,21 @@ import org.pokenet.client.ui.base.ProgressBar;
  * 
  */
 public class BattleCanvas extends Container {
-	private ProgressBar playerHP = new ProgressBar(0,0);
-	private ProgressBar enemyHP = new ProgressBar(0,0);
-	private Label bgPic = new Label();
-	private Label playerPoke = new Label();
-	private Label enemyPoke = new Label();
-	private Label playerNameLabel = new Label();
-	private Label enemyNameLabel = new Label();
-	private Label playerDataBG = new Label();
-	private Label enemyDataBG = new Label();
-	private Label playerHPBar = new Label();
-	private Label enemyHPBar = new Label();
-	private Label playerLv = new Label();
-	private Label enemyLv = new Label();
-	private Label playerStatus = new Label();
-	private Label enemyStatus = new Label();
+	private ProgressBar playerHP;
+	private ProgressBar enemyHP;
+	private Label bgPic;
+	private Label playerPoke;
+	private Label enemyPoke;
+	private Label playerNameLabel;
+	private Label enemyNameLabel;
+	private Label playerDataBG;
+	private Label enemyDataBG;
+	private Label playerHPBar;
+	private Label enemyHPBar;
+	private Label playerLv;
+	private Label enemyLv;
+	private Label playerStatus;
+	private Label enemyStatus;
 	private HashMap<String, Image> m_statusIcons = new HashMap<String, Image>();
 
 	/**
@@ -43,10 +43,6 @@ public class BattleCanvas extends Container {
 		setSize(257, 144);
 		setVisible(true);
 		loadStatusIcons();
-		positionCanvas();
-		drawBackground();
-		drawOurPoke();
-		drawOurInfo();
 	}
 	
 	/**
@@ -60,6 +56,17 @@ public class BattleCanvas extends Container {
 		playerPoke.setSize(80, 80);
 		playerPoke.setLocation(20, 76);
 		add(playerPoke);
+	}
+
+	/**
+	 * Starts a battle
+	 */
+	public void startBattle() {
+		initComponents();
+		positionCanvas();
+		drawBackground();
+		drawOurPoke();
+		drawOurInfo();
 	}
 	
 	/**
@@ -76,6 +83,24 @@ public class BattleCanvas extends Container {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private void initComponents() {
+		playerHP = new ProgressBar(0,0);
+		enemyHP = new ProgressBar(0,0);
+		bgPic = new Label();
+		playerPoke = new Label();
+		enemyPoke = new Label();
+		playerNameLabel = new Label();
+		enemyNameLabel = new Label();
+		playerDataBG = new Label();
+		enemyDataBG = new Label();
+		playerHPBar = new Label();
+		enemyHPBar = new Label();
+		playerLv = new Label();
+		enemyLv = new Label();
+		playerStatus = new Label();
+		enemyStatus = new Label();
 	}
 	
 	/**
@@ -360,6 +385,5 @@ public class BattleCanvas extends Container {
 		enemyLv = null;
 		playerStatus = null;
 		enemyStatus = null;
-		m_statusIcons = null;
 	}
 }

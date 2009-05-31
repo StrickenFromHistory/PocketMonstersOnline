@@ -24,13 +24,6 @@ public class BattleTimeLine {
 	 * Default constructor
 	 */
 	public BattleTimeLine(){
-		init();
-	}
-	
-	/**
-	 * Starts the TimeLine's components
-	 */
-	public void init(){
 		m_translator = Translator.translate("_BATTLE");
 		try{
 			m_canvas = new BattleCanvas();
@@ -38,6 +31,13 @@ public class BattleTimeLine {
 			e.printStackTrace();
 		}
 		m_narrator = new BattleSpeechFrame();
+	}
+	
+	/**
+	 * Starts the TimeLine's components
+	 */
+	public void startBattle(){
+		m_canvas.startBattle();
 		GameClient.getInstance().getDisplay().add(m_canvas);
 		GameClient.getInstance().getDisplay().add(m_narrator);
 	}
@@ -250,14 +250,12 @@ public class BattleTimeLine {
 	/**
 	 * Stops the timeline
 	 */
-	public void stop(){
+	public void endBattle(){
+		m_canvas.stop();
 		GameClient.getInstance().getDisplay().remove(m_canvas);
 		while (GameClient.getInstance().getDisplay().containsChild(m_canvas));
 		GameClient.getInstance().getDisplay().remove(m_narrator);
 		while (GameClient.getInstance().getDisplay().containsChild(m_narrator));
-		m_canvas.stop();
-		m_canvas = null;
-		m_narrator = null;
 	}
 	
 	/**
