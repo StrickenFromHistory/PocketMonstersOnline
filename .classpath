@@ -17,5 +17,6 @@
 	<classpathentry kind="lib" path="lib/slf4j-jdk14-1.5.6.jar"/>
 	<classpathentry kind="lib" path="lib/slick.jar"/>
 	<classpathentry kind="lib" path="lib/sui.jar"/>
+	<classpathentry kind="lib" path="lib/simple-xml-2.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
