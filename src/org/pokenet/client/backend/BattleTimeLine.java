@@ -252,9 +252,13 @@ public class BattleTimeLine {
 	 */
 	public void endBattle(){
 		m_canvas.stop();
-		GameClient.getInstance().getDisplay().remove(m_canvas);
+		try {
+			GameClient.getInstance().getDisplay().remove(m_canvas);
+		} catch (Exception e){};
 		while (GameClient.getInstance().getDisplay().containsChild(m_canvas));
-		GameClient.getInstance().getDisplay().remove(m_narrator);
+		try {
+			GameClient.getInstance().getDisplay().remove(m_narrator);
+		} catch (Exception e){};
 		while (GameClient.getInstance().getDisplay().containsChild(m_narrator));
 	}
 	
