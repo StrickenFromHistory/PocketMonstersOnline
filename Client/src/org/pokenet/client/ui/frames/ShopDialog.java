@@ -12,7 +12,7 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
-import org.pokenet.client.backend.entity.Item;
+import org.pokenet.client.backend.entity.PlayerItem;
 import org.pokenet.client.network.PacketGenerator;
 
 /**
@@ -28,7 +28,7 @@ public class ShopDialog extends Frame {
 	private Label[] m_itemLabels;
 	private Label[] m_itemStockPics;
 	
-	List<Item> m_items;
+	List<PlayerItem> m_items;
 	private Button m_cancel;
 	// string being the item name and integer being item quantity
 //	private List<Integer> m_merch;
@@ -44,22 +44,22 @@ public class ShopDialog extends Frame {
 	
 	public void categoryClicked(int name) {
 //		packetGen.write("x" + name);
-		m_items = new ArrayList<Item>();
+		m_items = new ArrayList<PlayerItem>();
 		switch(name){
 		case 0:
-			m_items = Item.generatePokeballs();
+			m_items = PlayerItem.generatePokeballs();
 			initItems();
 			break;
 		case 1:
-			m_items = Item.generatePotions();
+			m_items = PlayerItem.generatePotions();
 			initItems();
 			break;
 		case 2:
-			m_items = Item.generateStatusHeals();
+			m_items = PlayerItem.generateStatusHeals();
 			initItems();
 			break;
 		case 3:
-			m_items = Item.generateFieldItems();
+			m_items = PlayerItem.generateFieldItems();
 			initItems();
 			break;
 		}
