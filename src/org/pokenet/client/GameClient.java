@@ -33,6 +33,7 @@ import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.backend.Animator;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
+import org.pokenet.client.backend.ItemDatabase;
 import org.pokenet.client.backend.SoundManager;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
@@ -154,6 +155,12 @@ public class GameClient extends BasicGame {
 		m_ui = new Ui(m_display);
 		m_ui.setAllVisible(false);
 
+		/*
+		 * Item DB
+		 */
+		ItemDatabase db = new ItemDatabase();
+		db.reinitialise();
+		
 		/*
 		 * The animator and map matrix
 		 */
@@ -612,7 +619,7 @@ public class GameClient extends BasicGame {
 	 
 	
 	/**
-	 * Resets the client back to the start
+	 * Resets the client back to the z
 	 */
 	public void reset() {
 		m_packetGen = null;

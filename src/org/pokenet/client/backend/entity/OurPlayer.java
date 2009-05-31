@@ -9,7 +9,7 @@ import org.pokenet.client.backend.entity.Enums.Poketype;
  */
 public class OurPlayer extends Player {
 	private OurPokemon [] m_pokemon;
-	private Item [] m_items;
+	private PlayerItem [] m_items;
     private String[] m_badges = new String[0];
 	private int m_money;
 	
@@ -18,7 +18,7 @@ public class OurPlayer extends Player {
 	 */
 	public OurPlayer() {
 		m_pokemon = new OurPokemon[6];
-		m_items = new Item[6];
+		m_items = new PlayerItem[6];
 		m_badges = new String[0];
 		m_money = 0;
 	}
@@ -59,7 +59,7 @@ public class OurPlayer extends Player {
 	 * Returns our player's bag
 	 * @return
 	 */
-	public Item[] getItems() {
+	public PlayerItem[] getItems() {
 		return m_items;
 	}
 	
@@ -74,7 +74,7 @@ public class OurPlayer extends Player {
 				m_items[i].setQuantity(m_items[i].getQuantity() + quantity);
 				return;
 			} else if(m_items[i] == null) {
-				m_items[i] = new Item(number, quantity);
+				m_items[i] = new PlayerItem(number, quantity);
 				return;
 			}
 		}

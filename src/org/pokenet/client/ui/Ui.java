@@ -10,7 +10,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.BattleManager;
-import org.pokenet.client.backend.entity.Item;
+import org.pokenet.client.backend.entity.PlayerItem;
 import org.pokenet.client.ui.base.HUDButtonFactory;
 import org.pokenet.client.ui.base.ImageButton;
 import org.pokenet.client.ui.base.ListBox;
@@ -273,7 +273,7 @@ public class Ui extends Frame {
 			m_bagForm.setTitle("     Bag");
 			BagDialog pane = new BagDialog(
 					GameClient.getInstance().getOurPlayer().getItems()) {
-				public void itemClicked(Item item) {
+				public void itemClicked(PlayerItem item) {
 					GameClient.getInstance().getPacketGenerator().write("u" + 
 							item.getName());
 				}

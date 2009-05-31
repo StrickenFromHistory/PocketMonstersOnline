@@ -12,7 +12,7 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
-import org.pokenet.client.backend.entity.Item;
+import org.pokenet.client.backend.entity.PlayerItem;
 
 /**
  * Bag dialog
@@ -25,20 +25,20 @@ public abstract class BagDialog extends Container {
         private Button m_cancel;
         Container[] m_container;
         
-        private List<Item> m_items;
+        private List<PlayerItem> m_items;
 
         /**
          * Default Constructor
          * @param bag
          */
-        public BagDialog(Item[] bag) {
+        public BagDialog(PlayerItem[] bag) {
         	//Lets Fake the Bag for now.
-        	m_items = new ArrayList<Item>();
-        	m_items.add(new Item(1,20));
-        	m_items.add(new Item(2,20));
-        	m_items.add(new Item(3,20));
-        	m_items.add(new Item(4,20));
-        	m_items.add(new Item(5,20));
+        	m_items = new ArrayList<PlayerItem>();
+        	m_items.add(new PlayerItem(1,20));
+        	m_items.add(new PlayerItem(2,20));
+        	m_items.add(new PlayerItem(3,20));
+        	m_items.add(new PlayerItem(4,20));
+        	m_items.add(new PlayerItem(5,20));
 //                 
 //                Item potion1 = new Item(1,20);
 //                Item potion2 = new Item(2,20);
@@ -71,7 +71,7 @@ public abstract class BagDialog extends Container {
          * Handles events on click
          * @param item
          */
-        public abstract void itemClicked(Item item);
+        public abstract void itemClicked(PlayerItem item);
         
         /**
          * Initializes the interface
