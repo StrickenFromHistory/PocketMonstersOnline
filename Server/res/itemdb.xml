@@ -2,8 +2,8 @@
 	<m_item>
 		<number>1</number>
 		<name>Potion</name>
-		<description>Heals 20 HP</description>
-		<cost>200</cost>
+		<description>Restores 20 HP</description>
+		<cost>300</cost>
 		<type>Potion</type>
 		<properties>
 			<useField>true</useField>
@@ -12,6 +12,71 @@
 		</properties>
 		<effect>
 			<recover>20</recover>
+		</effect>
+	</m_item>
+	<m_item>
+		<number>2</number>
+		<name>Super Potion</name>
+		<description>Restores 50 HP</description>
+		<cost>700</cost>
+		<type>Potion</type>
+		<properties>
+			<useField>true</useField>
+			<useBattle>true</useBattle>
+			<heldOnly>false</heldOnly>
+		</properties>
+		<effect>
+			<recover>50</recover>
+		</effect>
+	</m_item>
+	<m_item>
+		<number>3</number>
+		<name>Hyper Potion</name>
+		<description>Restores 200 HP</description>
+		<cost>1200</cost>
+		<type>Potion</type>
+		<properties>
+			<useField>true</useField>
+			<useBattle>true</useBattle>
+			<heldOnly>false</heldOnly>
+		</properties>
+		<effect>
+			<recover>200</recover>
+		</effect>
+	</m_item>
+	<m_item>
+		<number>4</number>
+		<name>Max Potion</name>
+		<description>Restores HP to Full</description>
+		<cost>2500</cost>
+		<type>Potion</type>
+		<properties>
+			<useField>true</useField>
+			<useBattle>true</useBattle>
+			<heldOnly>false</heldOnly>
+		</properties>
+		<effect>
+			<recover>-1</recover>
+		</effect>
+	</m_item>
+	<m_item>
+		<number>5</number>
+		<name>Full Restore</name>
+		<description>Restores HP to full, and heals all status</description>
+		<cost>3000</cost>
+		<type>Potion</type>
+		<properties>
+			<useField>true</useField>
+			<useBattle>true</useBattle>
+			<heldOnly>false</heldOnly>
+		</properties>
+		<effect>
+			<recover>-1</recover>
+			<heal>Poison</heal>
+			<heal>Parlyz</heal>
+			<heal>Sleep</heal>
+			<heal>Burn</heal>
+			<heal>Freeze</heal>
 		</effect>
 	</m_item>
 	<m_item>
@@ -27,6 +92,21 @@
 		</properties>
 		<effect>
 			<heal>Poison</heal>
+		</effect>
+	</m_item>
+	<m_item>
+		<number>17</number>
+		<name>Parlyz Heal</name>
+		<description>Cures Paralysis</description>
+		<cost>200</cost>
+		<type>Potion</type>
+		<properties>
+			<useField>true</useField>
+			<useBattle>true</useBattle>
+			<heldOnly>false</heldOnly>
+		</properties>
+		<effect>
+			<heal>Parlyz</heal>
 		</effect>
 	</m_item>
 	<m_item>
