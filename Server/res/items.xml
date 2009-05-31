@@ -1,5 +1,135 @@
 <itemDatabase>
    <m_items>
+   	  <entry>
+         <integer>1</integer>
+         <item>
+            <m_name>Potion</m_name>
+            <m_id>1</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>2</integer>
+         <item>
+            <m_name>Super Potion</m_name>
+            <m_id>2</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>3</integer>
+         <item>
+            <m_name>Hyper Potion</m_name>
+            <m_id>3</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>4</integer>
+         <item>
+            <m_name>Max Potion</m_name>
+            <m_id>4</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>5</integer>
+         <item>
+            <m_name>Full Restore</m_name>
+            <m_id>5</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>16</integer>
+         <item>
+            <m_name>Antidote</m_name>
+            <m_id>16</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>17</integer>
+         <item>
+            <m_name>Parlyz Heal</m_name>
+            <m_id>17</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>18</integer>
+         <item>
+            <m_name>Awakening</m_name>
+            <m_id>18</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>19</integer>
+         <item>
+            <m_name>Burn Heal</m_name>
+            <m_id>19</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>20</integer>
+         <item>
+            <m_name>Ice Heal</m_name>
+            <m_id>20</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>21</integer>
+         <item>
+            <m_name>Full Heal</m_name>
+            <m_id>21</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>22</integer>
+         <item>
+            <m_name>Lava Cookie</m_name>
+            <m_id>22</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
+      <entry>
+         <integer>23</integer>
+         <item>
+            <m_name>Old Gateau</m_name>
+            <m_id>23</m_id>
+            <m_attributes>
+               <itemAttribute>POKEMON</itemAttribute>
+            </m_attributes>
+         </item>
+      </entry>
       <entry>
          <integer>369</integer>
          <item>
@@ -285,16 +415,6 @@
             <m_id>94</m_id>
             <m_attributes>
                <itemAttribute>FIELD</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
-      <entry>
-         <integer>23</integer>
-         <item>
-            <m_name>Lava Cookie</m_name>
-            <m_id>23</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
             </m_attributes>
          </item>
       </entry>
@@ -733,16 +853,6 @@
          </item>
       </entry>
       <entry>
-         <integer>17</integer>
-         <item>
-            <m_name>Parlyz Heal</m_name>
-            <m_id>17</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
-      <entry>
          <integer>165</integer>
          <item>
             <m_name>Water Stone</m_name>
@@ -877,16 +987,7 @@
             </m_attributes>
          </item>
       </entry>
-      <entry>
-         <integer>21</integer>
-         <item>
-            <m_name>Full Heal</m_name>
-            <m_id>21</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
+      
       <entry>
          <integer>78</integer>
          <item>
@@ -907,16 +1008,7 @@
             </m_attributes>
          </item>
       </entry>
-      <entry>
-         <integer>19</integer>
-         <item>
-            <m_name>Burn Heal</m_name>
-            <m_id>19</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
+      
       <entry>
          <integer>183</integer>
          <item>
@@ -1126,16 +1218,7 @@
             </m_attributes>
          </item>
       </entry>
-      <entry>
-         <integer>1</integer>
-         <item>
-            <m_name>Potion</m_name>
-            <m_id>1</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
+      
       <entry>
          <integer>316</integer>
          <item>
@@ -1209,16 +1292,7 @@
             </m_attributes>
          </item>
       </entry>
-      <entry>
-         <integer>3</integer>
-         <item>
-            <m_name>Hyper Potion</m_name>
-            <m_id>3</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
+      
       <entry>
          <integer>626</integer>
          <item>
@@ -1601,16 +1675,7 @@
             </m_attributes>
          </item>
       </entry>
-      <entry>
-         <integer>5</integer>
-         <item>
-            <m_name>Full Restore</m_name>
-            <m_id>5</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
+      
       <entry>
          <integer>400</integer>
          <item>
@@ -2536,16 +2601,6 @@
          </item>
       </entry>
       <entry>
-         <integer>24</integer>
-         <item>
-            <m_name>Old Gateau</m_name>
-            <m_id>24</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
-      <entry>
          <integer>417</integer>
          <item>
             <m_name>Dry Poffin</m_name>
@@ -2732,16 +2787,6 @@
          </item>
       </entry>
       <entry>
-         <integer>16</integer>
-         <item>
-            <m_name>Antidote</m_name>
-            <m_id>16</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
-      <entry>
          <integer>441</integer>
          <item>
             <m_name>Silver Gummi</m_name>
@@ -2856,16 +2901,7 @@
             </m_attributes>
          </item>
       </entry>
-      <entry>
-         <integer>18</integer>
-         <item>
-            <m_name>Awakening</m_name>
-            <m_id>18</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
+      
       <entry>
          <integer>162</integer>
          <item>
@@ -3027,16 +3063,6 @@
             <m_attributes>
                <itemAttribute>POKEMON</itemAttribute>
                <itemAttribute>MOVESLOT</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
-      <entry>
-         <integer>22</integer>
-         <item>
-            <m_name>Full Restore</m_name>
-            <m_id>22</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
             </m_attributes>
          </item>
       </entry>
@@ -3206,16 +3232,7 @@
             </m_attributes>
          </item>
       </entry>
-      <entry>
-         <integer>20</integer>
-         <item>
-            <m_name>Ice Heal</m_name>
-            <m_id>20</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
+      
       <entry>
          <integer>184</integer>
          <item>
@@ -3456,16 +3473,7 @@
             </m_attributes>
          </item>
       </entry>
-      <entry>
-         <integer>2</integer>
-         <item>
-            <m_name>Super Potion</m_name>
-            <m_id>2</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
+      
       <entry>
          <integer>248</integer>
          <item>
@@ -3632,16 +3640,7 @@
             </m_attributes>
          </item>
       </entry>
-      <entry>
-         <integer>4</integer>
-         <item>
-            <m_name>Max Potion</m_name>
-            <m_id>4</m_id>
-            <m_attributes>
-               <itemAttribute>POKEMON</itemAttribute>
-            </m_attributes>
-         </item>
-      </entry>
+      
       <entry>
          <integer>557</integer>
          <item>

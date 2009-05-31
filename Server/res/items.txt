@@ -9,9 +9,8 @@ Awakening	18
 Burn Heal	19	
 Ice Heal	20	
 Full Heal	21	
-Full Restore	22	
-Lava Cookie	23	
-Old Gateau	24	
+Lava Cookie	22	
+Old Gateau	23	
 Poke Ball	35	
 Great Ball	36	
 Ultra Ball	37	
