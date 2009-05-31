@@ -1,7 +1,7 @@
 package org.pokenet.server;
 
-import org.pokenet.server.backend.ItemService;
 import org.pokenet.server.backend.MovementService;
+import org.pokenet.server.backend.item.ItemDatabase;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.feature.JythonService;
 import org.pokenet.server.feature.TimeService;
@@ -18,7 +18,6 @@ public class ServiceManager {
 	private DataService m_dataService;
 	private TimeService m_timeService;
 	private JythonService m_jythonService;
-	private ItemService m_itemService;
 	
 	/**
 	 * Default constructor
@@ -32,7 +31,6 @@ public class ServiceManager {
 		m_dataService = new DataService();
 		m_networkService = new NetworkService();
 		m_movementService = new MovementService();
-		m_itemService = new ItemService();
 	}
 	
 	/**
@@ -76,14 +74,6 @@ public class ServiceManager {
 	}
 	
 	/**
-	 * Returns the item service
-	 * @return
-	 */
-	public ItemService getItemService() {
-		return m_itemService;
-	}
-	
-	/**
 	 * Starts all services
 	 */
 	public void start() {
@@ -94,6 +84,8 @@ public class ServiceManager {
 		m_movementService.start();
 		m_networkService.start();
 		m_timeService.start();
+		ItemDatabase db = new ItemDatabase();
+		db.reinitialise();
 		System.out.println("INFO: Service Manager startup completed.");
 	}
 	

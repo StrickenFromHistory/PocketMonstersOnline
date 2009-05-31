@@ -187,6 +187,7 @@ public class WildBattleField extends BattleField {
                             if (!move.isMoveTurn()) {
                                     this.switchInPokemon(trainer, move.getId());
                                     requestMoves();
+                                    System.out.println("Pokemon switched");
                                     return;
                             } else {
                                     if (trainer == 0 && getAliveCount(0) > 0) {
@@ -242,6 +243,7 @@ public class WildBattleField extends BattleField {
 		if(m_dispatch != null)
 			return;
 		if(m_turn[0] != null && m_turn[1] != null) {
+			System.out.println("Executing Turn");
          	m_dispatch = new Thread(new Runnable() {
                  public void run() {
                      executeTurn(m_turn);

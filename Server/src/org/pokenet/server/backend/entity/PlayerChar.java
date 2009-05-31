@@ -7,9 +7,9 @@ import java.util.Date;
 
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
-import org.pokenet.server.backend.ItemService;
 import org.pokenet.server.backend.ServerMap;
 import org.pokenet.server.backend.entity.Positionable.Direction;
+import org.pokenet.server.backend.item.ItemDatabase;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
@@ -806,7 +806,7 @@ public class PlayerChar extends Char implements Battleable {
 			return;
 		if(m_bag.hasSpace(id)) {
 			/* First, check if the player can afford this */
-			if(m_money - (q * m_currentShop.getPriceForItem(ItemService.getName(id))) >= 0) {
+			if(m_money - (q * m_currentShop.getPriceForItem(ItemDatabase.getInstance().getItem(id).getName())) >= 0) {
 				/* Then, check if the player has right amount of badges to buy the item */
 				switch(id) {
 				case 0:
@@ -814,8 +814,8 @@ public class PlayerChar extends Char implements Battleable {
 					break;
 				}
 				/* Finally, if the item is in stock, buy it */
-				if(m_currentShop.buyItem(ItemService.getName(id), q)) {
-					m_money = m_money - (q * m_currentShop.getPriceForItem(ItemService.getName(id)));
+				if(m_currentShop.buyItem(ItemDatabase.getInstance().getItem(id).getName(), q)) {
+					m_money = m_money - (q * m_currentShop.getPriceForItem(ItemDatabase.getInstance().getItem(id).getName()));
 					m_bag.addItem(id, q);
 					this.updateClientMoney();
 				}
@@ -878,6 +878,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * Sets the battlefield for this player
 	 */
 	public void setBattleField(BattleField b) {
-		m_battleField = b;
+		if(m_battleField == null)
+			m_battleField = b;
 	}
 }

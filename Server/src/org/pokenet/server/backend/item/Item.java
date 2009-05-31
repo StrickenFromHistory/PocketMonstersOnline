@@ -1,0 +1,71 @@
+package org.pokenet.server.backend.item;
+
+import java.util.ArrayList;
+
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
+
+/**
+ * Represents an item
+ * @author shadowkanji
+ */
+public class Item {
+	@Element
+	private String m_name;
+	@Element
+	private int m_id;
+	@ElementList
+	private ArrayList<ItemAttribute> m_attributes;
+	/* Handles item attributes, lets us know what we need to do with them */
+	public enum ItemAttribute { POKEMON, MOVESLOT, BATTLE, FIELD, CRAFT, HOLD, OTHER }
+	
+	/**
+	 * Adds an attribute
+	 * @param i
+	 */
+	public void addAttribute(ItemAttribute i) {
+		if(m_attributes == null)
+			m_attributes = new ArrayList<ItemAttribute>();
+		m_attributes.add(i);
+	}
+	
+	/**
+	 * Returns the arraylist of attributes
+	 * @return
+	 */
+	public ArrayList<ItemAttribute> getAttributes() {
+		return m_attributes;
+	}
+	
+	/**
+	 * Sets the name of the item
+	 * @param s
+	 */
+	public void setName(String s) {
+		m_name = s;
+	}
+	
+	/**
+	 * Sets the id of the item
+	 * @param i
+	 */
+	public void setId(int i) {
+		m_id = i;
+	}
+	
+	/**
+	 * Returns the name of the item
+	 * @return
+	 */
+	public String getName() {
+		return m_name;
+	}
+	
+	/**
+	 * Returns the id of the item
+	 * @return
+	 */
+	public int getId() {
+		return m_id;
+	}
+}
