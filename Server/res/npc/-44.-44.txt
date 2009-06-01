@@ -1,13 +1,13 @@
 [npc]
-Blackthorn citizen
+NULL
 down
-11
+163
 4
 6
 NULL
-1
+0
 -1
-1000
+0,1,2
 false
 false
 false

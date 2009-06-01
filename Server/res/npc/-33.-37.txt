@@ -1,13 +1,13 @@
 [npc]
 Move Deleter
 down
-11
+100
 4
 6
 NULL
-1
+0
 -1
-1000
+0,1,2
 false
 false
 false
