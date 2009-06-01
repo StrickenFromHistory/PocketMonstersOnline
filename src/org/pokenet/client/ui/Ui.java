@@ -22,7 +22,7 @@ import org.pokenet.client.ui.frames.NPCSpeechFrame;
 import org.pokenet.client.ui.frames.OptionsDialog;
 import org.pokenet.client.ui.frames.PartyInfoDialog;
 import org.pokenet.client.ui.frames.PokeStorageBoxFrame;
-import org.pokenet.client.ui.frames.RequestWindow;
+import org.pokenet.client.ui.frames.RequestDialog;
 import org.pokenet.client.ui.frames.TownMap;
 import org.pokenet.client.ui.frames.TradeDialog;
 
@@ -39,7 +39,7 @@ public class Ui extends Frame {
 	private Display m_display;
 	private Label m_moneyLabel = new Label();
     private OptionsDialog m_optionsForm;
-    private RequestWindow m_requestsForm;
+    private RequestDialog m_requestsForm;
     private HelpWindow m_helpForm;
     private Frame m_bagForm;
     private PartyInfoDialog m_teamInfo;
@@ -234,7 +234,7 @@ public class Ui extends Frame {
      * Returns the request window
      * @return the request window
      */
-    public RequestWindow getReqWindow() {
+    public RequestDialog getReqWindow() {
             return m_requestsForm;
     }
     
@@ -247,11 +247,9 @@ public class Ui extends Frame {
 			hideHUD();
 		} else {
 			hideHUD();
-			m_requestsForm = new RequestWindow();
+			m_requestsForm = new RequestDialog();
 			m_requestsForm.setWidth(UI_WIDTH);
 			m_requestsForm.setLocation(48, 0);
-			m_requestsForm.setPokeData(GameClient.getInstance().getOurPlayer()
-					.getPokemon());
 			m_requestsForm.setDraggable(false);
 			getDisplay().add(m_requestsForm);
 		}
