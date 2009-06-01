@@ -2,12 +2,13 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="40" height="40" tilewidth="16" tileheight="16">
  <properties>
-  <property name="surfSpecies" value="Magikarp,94;Horsea,5;Gyarados,1;"/>
-  <property name="surfLevels" value="5-19;10-15;20-25;"/>
-  <property name="surfProbability" value="50"/>
-  <property name="wildLevels" value=""/>
-  <property name="wildProbability" value="0"/>
-  <property name="wildSpecies" value=""/>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="dayPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value="10-19;"/>
+  <property name="waterPokemonChances" value="Magikarp,100;"/>
+  <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
