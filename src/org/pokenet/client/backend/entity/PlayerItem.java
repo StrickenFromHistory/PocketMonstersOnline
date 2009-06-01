@@ -3,6 +3,7 @@ package org.pokenet.client.backend.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.ItemDatabase;
 
 public class PlayerItem {
@@ -82,36 +83,40 @@ public class PlayerItem {
 		this.m_quantity = m_quantity;
 	}
 
-	public static List<PlayerItem> generatePokeballs(){
-		List<PlayerItem> m_items = new ArrayList<PlayerItem>();
-		m_items.add(new PlayerItem("Pokeball", "pokeball", "Catches Pokemon", 200,100));
-		m_items.add(new PlayerItem("Greatball", "greatball", "Catches Pokemon", 600,100));
-		m_items.add(new PlayerItem("Ultraball", "ultraball", "Catches Pokemon", 1000,100));
+	public static List<Item> generatePokeballs(){
+		List<Item> m_items = new ArrayList<Item>();
+		m_items = ItemDatabase.getCategoryItems("Pokeball");
+//		m_items.add(new PlayerItem("Pokeball", "pokeball", "Catches Pokemon", 200,100));
+//		m_items.add(new PlayerItem("Greatball", "greatball", "Catches Pokemon", 600,100));
+//		m_items.add(new PlayerItem("Ultraball", "ultraball", "Catches Pokemon", 1000,100));
 		return m_items;
 	}
-	public static List<PlayerItem> generateFieldItems(){
-		List<PlayerItem> m_items = new ArrayList<PlayerItem>();
-		m_items.add(new PlayerItem("Repel", "repel", "Scares Pokemon", 500,100));
-		m_items.add(new PlayerItem("Super Repel", "superrepel", "Scares Pokemon longer", 500,100));
-		m_items.add(new PlayerItem("Max Repel", "maxrepel", "Scares Pokemon longer faster better stronger", 500,100));
+	public static List<Item> generateFieldItems(){
+		List<Item> m_items = new ArrayList<Item>();
+		m_items = ItemDatabase.getCategoryItems("Field");
+//		m_items.add(new PlayerItem("Repel", "repel", "Scares Pokemon", 500,100));
+//		m_items.add(new PlayerItem("Super Repel", "superrepel", "Scares Pokemon longer", 500,100));
+//		m_items.add(new PlayerItem("Max Repel", "maxrepel", "Scares Pokemon longer faster better stronger", 500,100));
 		return m_items;
 	}
-	public static List<PlayerItem> generatePotions(){
-		List<PlayerItem> m_items = new ArrayList<PlayerItem>();
-		m_items.add(new PlayerItem("Potion", "potion", "Heals 20 HP", 200,100));
-		m_items.add(new PlayerItem("Super Potion", "superpotion", "Heals 50 HP", 400,100));
-		m_items.add(new PlayerItem("Hyper Potion", "hyperpotion", "Heals 200 HP", 800,100));
-		m_items.add(new PlayerItem("Max Potion", "maxpotion", "Heals ALL HP", 1200,100));
+	public static List<Item> generatePotions(){
+		List<Item> m_items = new ArrayList<Item>();
+		m_items = ItemDatabase.getCategoryItems("Potions");
+//		m_items.add(new PlayerItem("Potion", "potion", "Heals 20 HP", 200,100));
+//		m_items.add(new PlayerItem("Super Potion", "superpotion", "Heals 50 HP", 400,100));
+//		m_items.add(new PlayerItem("Hyper Potion", "hyperpotion", "Heals 200 HP", 800,100));
+//		m_items.add(new PlayerItem("Max Potion", "maxpotion", "Heals ALL HP", 1200,100));
 		return m_items;
 	}
-	public static List<PlayerItem> generateStatusHeals(){
-		List<PlayerItem> m_items = new ArrayList<PlayerItem>();
-		m_items.add(new PlayerItem("Antidote", "antidote", "Cures Poison", 200,100));
-		m_items.add(new PlayerItem("Parlyz Heal", "parlyzheal", "Cures Parlyz", 200,100));
-		m_items.add(new PlayerItem("Burn Heal", "burnheal", "Cures Burn", 200,100));
-		m_items.add(new PlayerItem("Ice Heal", "iceheal", "Cures Frost", 200,100));
-		m_items.add(new PlayerItem("Awakening", "awakening", "Cures Sleep", 200,100));
-		m_items.add(new PlayerItem("Full Heal", "fullheal", "Cures anything", 500,100));
+	public static List<Item> generateStatusHeals(){
+		List<Item> m_items = new ArrayList<Item>();
+		m_items = ItemDatabase.getCategoryItems("Medicine");
+//		m_items.add(new PlayerItem("Antidote", "antidote", "Cures Poison", 200,100));
+//		m_items.add(new PlayerItem("Parlyz Heal", "parlyzheal", "Cures Parlyz", 200,100));
+//		m_items.add(new PlayerItem("Burn Heal", "burnheal", "Cures Burn", 200,100));
+//		m_items.add(new PlayerItem("Ice Heal", "iceheal", "Cures Frost", 200,100));
+//		m_items.add(new PlayerItem("Awakening", "awakening", "Cures Sleep", 200,100));
+//		m_items.add(new PlayerItem("Full Heal", "fullheal", "Cures anything", 500,100));
 		return m_items;
 	}
 	
@@ -120,9 +125,9 @@ public class PlayerItem {
      * @param number
      * @return
      */
-    public static PlayerItem getItem(int number) {
+    public static Item getItem(int number) {
     	//We should load item DB from XML, but for now, this will do. 
-    	PlayerItem item = ItemDatabase.getInstance().getItem(number);
+    	Item item = ItemDatabase.getInstance().getItem(number);
     	return item;  
     }
 }

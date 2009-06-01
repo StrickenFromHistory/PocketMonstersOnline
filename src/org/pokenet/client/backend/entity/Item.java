@@ -13,11 +13,13 @@ public class Item {
 	@Element
 	private String m_name;
 	@Element
+	private String m_description;
+	@Element
 	private int m_id;
 	@Element
-	private int m_price;
-	@Element
 	private String m_category;
+	@Element
+	private int m_price;
 	@ElementList
 	private ArrayList<ItemAttribute> m_attributes;
 	/* Handles item attributes, lets us know what we need to do with them */
@@ -39,6 +41,14 @@ public class Item {
 	 */
 	public ArrayList<ItemAttribute> getAttributes() {
 		return m_attributes;
+	}
+	
+	/**
+	 * Sets the description of the item
+	 * @param s
+	 */
+	public void setDescription(String s) {
+		m_description = s;
 	}
 	
 	/**
@@ -71,6 +81,14 @@ public class Item {
 	 */
 	public void setId(int i) {
 		m_id = i;
+	}
+	
+	/**
+	 * Returns the description of the item
+	 * @return
+	 */
+	public String getDescription() {
+		return m_description;
 	}
 	
 	/**
