@@ -12,6 +12,7 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.entity.Item;
 import org.pokenet.client.backend.entity.PlayerItem;
 import org.pokenet.client.network.PacketGenerator;
 
@@ -28,7 +29,7 @@ public class ShopDialog extends Frame {
 	private Label[] m_itemLabels;
 	private Label[] m_itemStockPics;
 	
-	List<PlayerItem> m_items;
+	List<Item> m_items;
 	private Button m_cancel;
 	// string being the item name and integer being item quantity
 //	private List<Integer> m_merch;
@@ -44,7 +45,7 @@ public class ShopDialog extends Frame {
 	
 	public void categoryClicked(int name) {
 //		packetGen.write("x" + name);
-		m_items = new ArrayList<PlayerItem>();
+		m_items = new ArrayList<Item>();
 		switch(name){
 		case 0:
 			m_items = PlayerItem.generatePokeballs();
@@ -231,7 +232,7 @@ public class ShopDialog extends Frame {
 			
 			try{
 				LoadingList.setDeferredLoading(true);
-				m_itemPics[i] = new Label(new Image("/res/items/"+m_items.get(i).getPicname()+".png"));
+				m_itemPics[i] = new Label(new Image("/res/items/"+m_items.get(i).getId()+".png"));
 				LoadingList.setDeferredLoading(false);
 				m_itemPics[i].setGlassPane(true);
 				m_itemPics[i].setSize(32,32);
@@ -248,13 +249,13 @@ public class ShopDialog extends Frame {
 			try{
 				LoadingList.setDeferredLoading(true);
 				String stock = "empty";
-				if(m_items.get(i).getAvailable()>=100||m_items.size()==-1){
+//				if(m_items.get(i).getAvailable()>=100||m_items.size()==-1){
 					stock = "full";
-				}else if(m_items.get(i).getAvailable()<100&&m_items.get(i).getAvailable()>=60){
-					stock = "half";
-				}else if(m_items.get(i).getAvailable()<60&&m_items.get(i).getAvailable()>=30){
-					stock = "halfempty";
-				}
+//				}else if(m_items.get(i).getAvailable()<100&&m_items.get(i).getAvailable()>=60){
+//					stock = "half";
+//				}else if(m_items.get(i).getAvailable()<60&&m_items.get(i).getAvailable()>=30){
+//					stock = "halfempty";
+//				}
 				m_itemStockPics[i] = new Label(new Image("/res/ui/shop/"+stock+".png"));
 				LoadingList.setDeferredLoading(false);
 				m_itemStockPics[i].setGlassPane(true);
@@ -269,7 +270,7 @@ public class ShopDialog extends Frame {
 				e.printStackTrace();
 			}
 			
-			m_itemLabels[i] = new Label(m_items.get(i).getName()+" - $"+m_items.get(i).getCost());
+			m_itemLabels[i] = new Label(m_items.get(i).getName()+" - $"+m_items.get(i).getPrice());
 			m_itemLabels[i].setSize(200,50);
 			m_itemLabels[i].setGlassPane(true);
 			m_itemLabels[i].setFont(GameClient.getFontLarge());

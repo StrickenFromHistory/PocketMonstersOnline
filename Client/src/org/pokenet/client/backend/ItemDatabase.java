@@ -1,10 +1,12 @@
 package org.pokenet.client.backend;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
-import org.pokenet.client.backend.entity.PlayerItem;
+import org.pokenet.client.backend.entity.Item;
 import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Root;
 import org.simpleframework.xml.Serializer;
@@ -13,11 +15,12 @@ import org.simpleframework.xml.core.Persister;
 /**
  * The item database
  * @author shadowkanji
+ * @author Nushio
  */
 @Root
 public class ItemDatabase {
 	@ElementMap
-	private HashMap<Integer, PlayerItem> m_items;
+	private HashMap<Integer, Item> m_items;
 	
 	private static ItemDatabase m_instance;
 	
@@ -26,9 +29,9 @@ public class ItemDatabase {
 	 * @param id
 	 * @param i
 	 */
-	public void addItem(int id, PlayerItem i) {
+	public void addItem(int id, Item i) {
 		if(m_items == null)
-			m_items = new HashMap<Integer, PlayerItem>();
+			m_items = new HashMap<Integer, Item>();
 		m_items.put(id, i);
 	}
 	
@@ -37,7 +40,7 @@ public class ItemDatabase {
 	 * @param id
 	 * @return
 	 */
-	public PlayerItem getItem(int id) {
+	public Item getItem(int id) {
 		return m_items.get(id);
 	}
 	
@@ -46,9 +49,9 @@ public class ItemDatabase {
 	 * @param name
 	 * @return
 	 */
-	public PlayerItem getItem(String name) {
-		Iterator<PlayerItem> it = m_items.values().iterator();
-		PlayerItem i;
+	public Item getItem(String name) {
+		Iterator<Item> it = m_items.values().iterator();
+		Item i;
 		while(it.hasNext()) {
 			i = it.next();
 			if(i.getName().equalsIgnoreCase(name))
@@ -85,5 +88,21 @@ public class ItemDatabase {
 	 */
 	public static ItemDatabase getInstance() {
 		return m_instance;
+	}
+	/**
+	 * Returns the instance of item database
+	 * @return
+	 */
+	public static List<Item> getCategoryItems(String category) {
+		List<Item> itemList = new ArrayList<Item>();
+		System.out.println("Size: "+m_instance.m_items.values().size());
+		for(int i=0;i<=m_instance.m_items.size();i++){
+			try{
+				Item item = m_instance.m_items.get(i);
+				if(item.getCategory().equals(category))
+					itemList.add(item);
+			}catch(Exception e){}
+		}
+		return itemList;
 	}
 }

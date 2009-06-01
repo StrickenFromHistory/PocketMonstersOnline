@@ -85,7 +85,7 @@ public class GameClient extends BasicGame {
 	private ConfirmationDialog m_confirm;
 	private PlayerPopupDialog m_playerDialog;
     private static SoundManager m_soundPlayer;
-
+    
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
 	 * Load options
@@ -158,8 +158,8 @@ public class GameClient extends BasicGame {
 		/*
 		 * Item DB
 		 */
-		ItemDatabase db = new ItemDatabase();
-		db.reinitialise();
+		ItemDatabase m_itemdb = new ItemDatabase();
+		m_itemdb.reinitialise();
 		
 		/*
 		 * The animator and map matrix
