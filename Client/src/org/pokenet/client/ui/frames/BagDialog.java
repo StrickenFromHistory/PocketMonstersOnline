@@ -22,6 +22,7 @@ import org.pokenet.client.backend.entity.PlayerItem;
  */
 public abstract class BagDialog extends Container {
         private Button[] m_itemButtons;
+        private Button m_bag;
         private Button m_cancel;
         Container[] m_container;
         
@@ -86,7 +87,7 @@ public abstract class BagDialog extends Container {
         		m_itemIcon[i].setSize(32, 32);
         		try {
         			LoadingList.setDeferredLoading(true);
-        			Image itemImage = new Image("/res/items/" + m_items.get(i).getPicname() + ".png");
+        			Image itemImage = new Image("/res/items/" + m_items.get(i).getNumber() + ".png");
         			m_itemIcon[i].setImage(itemImage);
         			m_itemIcon[i].setGlassPane(true);
 					LoadingList.setDeferredLoading(false);
@@ -102,7 +103,14 @@ public abstract class BagDialog extends Container {
         		});
         		add(m_itemButtons[i]);
         	}
-
+        	m_bag = new Button("Bag");
+        	m_bag.addActionListener(new ActionListener() {
+        		public void actionPerformed(ActionEvent e) {
+        			loadBag();
+        		}
+        	});
+        	add(m_bag);
+        	
         	m_cancel = new Button("Cancel");
         	m_cancel.addActionListener(new ActionListener() {
         		public void actionPerformed(ActionEvent e) {
@@ -120,18 +128,28 @@ public abstract class BagDialog extends Container {
         public abstract void cancelled();
         
         /**
+         * Handles loading Big Bag
+         */
+        public abstract void loadBag();
+        
+        /**
          * Resizes items for optimal size
          */
         public void pack() {
+        	
                 m_cancel.setWidth(getWidth());
                 m_cancel.setHeight(20);
                 m_cancel.setY(getHeight() - 20);
                 m_cancel.setX(0);
+                m_bag.setWidth(getWidth());
+            	m_bag.setHeight(40);
+            	m_bag.setX(0);
+            	m_bag.setY(m_cancel.getY()-40);
                 for (int i = 0; i < m_itemButtons.length; i++) {
                         if (i > 0)
                                 m_itemButtons[i].setY(m_itemButtons[i-1].getY()
                                                 + m_itemButtons[i-1].getHeight());
-                        m_itemButtons[i].setHeight((getHeight() - 20)/ m_items.size());
+                        m_itemButtons[i].setHeight((getHeight() - 60)/ m_items.size());
                         m_itemButtons[i].setWidth(getWidth());
                 }
         }
