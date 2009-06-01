@@ -1,8 +1,10 @@
 package org.pokenet.server.backend.item;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Root;
@@ -12,6 +14,7 @@ import org.simpleframework.xml.core.Persister;
 /**
  * The item database
  * @author shadowkanji
+ * @author Nushio
  */
 @Root
 public class ItemDatabase {
@@ -61,7 +64,7 @@ public class ItemDatabase {
 	 */
 	public void reinitialise() {
 		Serializer serializer = new Persister();
-		File source = new File("./res/items.xml");
+		File source = new File("./res/items/items.xml");
 		try {
 			m_instance = serializer.read(ItemDatabase.class, source);
 			System.out.println("INFO: Items database loaded.");
@@ -84,5 +87,20 @@ public class ItemDatabase {
 	 */
 	public static ItemDatabase getInstance() {
 		return m_instance;
+	}
+	/**
+	 * Returns the instance of item database
+	 * @return
+	 */
+	public static List<Item> getCategoryItems(String category) {
+		List<Item> itemList = new ArrayList<Item>();
+		for(int i=0;i<=m_instance.m_items.size();i++){
+			try{
+				Item item = m_instance.m_items.get(i);
+				if(item.getCategory().equals(category))
+					itemList.add(item);
+			}catch(Exception e){}
+		}
+		return itemList;
 	}
 }
