@@ -95,7 +95,6 @@ public class ItemDatabase {
 	 */
 	public static List<Item> getCategoryItems(String category) {
 		List<Item> itemList = new ArrayList<Item>();
-		System.out.println("Size: "+m_instance.m_items.values().size());
 		for(int i=0;i<=m_instance.m_items.size();i++){
 			try{
 				Item item = m_instance.m_items.get(i);
