@@ -66,14 +66,16 @@ public class Ui extends Frame {
 		m_display = display;
 		
 		m_chat = new ChatDialog("Chat: Local");
+		m_requestsForm = new RequestDialog();
 		
 		m_map = new TownMap();
+		
 		m_map.setVisible(false);
 		m_display.add(m_map);
 		
 		startButtons();
 
-		m_moneyLabel.setText("$");
+		m_moneyLabel.setText("$0");
 		m_moneyLabel.pack();
 		m_moneyLabel.setLocation(4, 242);
 		m_moneyLabel.setVisible(true);
@@ -105,12 +107,12 @@ public class Ui extends Frame {
 	public void startButtons(){
 		m_buttons = new ImageButton[6];
 		
-		m_buttons[0] = HUDButtonFactory.getButton("requests");
-		m_buttons[0].addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				toggleRequests();
-			}
-		});
+        m_buttons[0] = HUDButtonFactory.getButton("pokemon");
+        m_buttons[0].addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		togglePokemon();
+        	}
+        });
 
 		m_buttons[1] = HUDButtonFactory.getButton("bag");
         m_buttons[1].addActionListener(new ActionListener() {
@@ -118,21 +120,21 @@ public class Ui extends Frame {
         		toggleBag();
         	}
         });
-        getContentPane().add(m_buttons[1]);
         
-        m_buttons[2] = HUDButtonFactory.getButton("pokemon");
+
+		m_buttons[2] = HUDButtonFactory.getButton("map");
         m_buttons[2].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		togglePokemon();
+        		toggleMap();
         	}
         });
-        
-        m_buttons[3] = HUDButtonFactory.getButton("options");
-        m_buttons[3].addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		toggleOptions();
-        	}
-        });
+
+        m_buttons[3] = HUDButtonFactory.getButton("requests");
+		m_buttons[3].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				toggleRequests();
+			}
+		});
         
         m_buttons[4] = HUDButtonFactory.getButton("help");
         m_buttons[4].addActionListener(new ActionListener() {
@@ -140,13 +142,14 @@ public class Ui extends Frame {
         		toggleHelp();
         	}
         });
-        m_buttons[5] = HUDButtonFactory.getButton("map");
-        m_buttons[5].addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		toggleMap();
-        	}
-        });
-        
+
+		m_buttons[5] = HUDButtonFactory.getButton("options");
+		m_buttons[5].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				toggleOptions();
+			}
+		});
+
         for (int i = 0; i < m_buttons.length; i++){
         	m_buttons[i].pack();
         	getContentPane().add(m_buttons[i]);
@@ -248,7 +251,6 @@ public class Ui extends Frame {
 			hideHUD();
 		} else {
 			hideHUD();
-			m_requestsForm = new RequestDialog();
 			m_requestsForm.setWidth(UI_WIDTH);
 			m_requestsForm.setLocation(48, 0);
 			m_requestsForm.setDraggable(false);
@@ -378,8 +380,7 @@ public class Ui extends Frame {
      * Hides all HUD elements
      */
     private void hideHUD() {
-            if (m_requestsForm != null) m_requestsForm.setVisible(false);
-            m_requestsForm = null;
+            if (m_display.containsChild(m_requestsForm)) m_display.remove(m_requestsForm);
             if (m_bagForm != null) m_bagForm.setVisible(false);
             m_bagForm = null;
             if (m_teamInfo != null) m_teamInfo.setVisible(false);
