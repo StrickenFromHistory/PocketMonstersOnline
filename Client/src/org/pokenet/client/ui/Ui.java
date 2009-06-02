@@ -55,7 +55,7 @@ public class Ui extends Frame {
 	 * Default constructor
 	 */
 	public Ui(Display display) {
-		this.setSize(48, 293);
+		this.setSize(48, 284);
 		this.setLocation(0, -24);
 		this.setBackground(new Color(0, 0, 0, 75));
 		this.setResizable(false);
@@ -153,7 +153,7 @@ public class Ui extends Frame {
         for (int i = 0; i < m_buttons.length; i++){
         	m_buttons[i].pack();
         	getContentPane().add(m_buttons[i]);
-        	m_buttons[i].setLocation(7, 22 + (32 * i) + (5 * i));
+        	m_buttons[i].setLocation(6, 22 + (32 * i) + (5 * i));
         }
 	}
 	
