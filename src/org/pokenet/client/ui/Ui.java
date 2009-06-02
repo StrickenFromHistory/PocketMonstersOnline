@@ -135,20 +135,20 @@ public class Ui extends Frame {
 				toggleRequests();
 			}
 		});
-        
-        m_buttons[4] = HUDButtonFactory.getButton("help");
-        m_buttons[4].addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		toggleHelp();
-        	}
-        });
 
-		m_buttons[5] = HUDButtonFactory.getButton("options");
-		m_buttons[5].addActionListener(new ActionListener() {
+		m_buttons[4] = HUDButtonFactory.getButton("options");
+		m_buttons[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				toggleOptions();
 			}
 		});
+		
+        m_buttons[5] = HUDButtonFactory.getButton("help");
+        m_buttons[5].addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		toggleHelp();
+        	}
+        });
 
         for (int i = 0; i < m_buttons.length; i++){
         	m_buttons[i].pack();

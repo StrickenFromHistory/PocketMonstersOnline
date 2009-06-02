@@ -149,8 +149,6 @@ public class PartyInfoDialog extends Frame {
 		this.getTitleBar().setGlassPane(true);
 		this.setResizable(false);
 		this.setSize(170, 288);
-		this.setLocationRelativeTo(null);
-		this.setBorderRendered(false);
 		List<String> translated = Translator.translate("_GUI");
 		this.setTitle(translated.get(0));
 	}
