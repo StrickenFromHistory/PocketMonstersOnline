@@ -88,8 +88,8 @@ down
 34
 4
 1
-Primeape,27,Poliwhirl,30
-2
+Primeape,84,Machamp,85,Poliwrath,85,Hitmontop,85,Hitmonlee,84,Hitmonchan,84
+6
 12
 6,7,8,9,10,11
 false

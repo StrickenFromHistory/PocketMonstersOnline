@@ -60,8 +60,8 @@ down
 150
 6
 2
-Gastly,21,Haunter,21,Gengar,25,Haunter,23
-4
+Gengar,90,Misdreavus,90
+2
 11
 6,7,8,9,10,11,12,13,14
 false

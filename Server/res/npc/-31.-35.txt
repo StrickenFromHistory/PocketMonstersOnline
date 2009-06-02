@@ -102,8 +102,8 @@ down
 207
 9
 3
-Clefairy,18,Miltank,20
-2
+Blissey,83,Miltank,83,Ursaring,83,Granbull,82,Snorlax,82,Clefable,82
+6
 10
 10,11,12,13
 false

@@ -116,8 +116,8 @@ down
 175
 6
 4
-Seel,27,Dewgong,29,Piloswine,31
-3
+Jynx,87,Piloswine,88,Delibird,87,Dewgong,88,Cloyster,87,Lapras,88
+6
 14
 11,12,13,14,15,16
 false

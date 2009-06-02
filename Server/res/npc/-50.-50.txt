@@ -88,8 +88,8 @@ down
 25
 24
 22
-Metapod,14,Kakuna,14,Scyther,16
-3
+Butterfree,82,Beedrill,82,Parasect,81,Heracross,81,Yanma,81,Scyther,82
+6
 9
 12,13,14
 false

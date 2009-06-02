@@ -46,8 +46,8 @@ down
 103
 5
 3
-Magnemite,30,Magnemite,30,Steelix,35
-3
+Steelix,87,Skarmory,86,Magneton,86,Forretress,86,Scizor,86
+5
 13
 3,4,5,6,7
 false
