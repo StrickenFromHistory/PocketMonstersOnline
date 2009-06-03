@@ -14,6 +14,7 @@ import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.PokemonSpecies;
 import org.pokenet.server.battle.impl.WildBattleField;
+import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.feature.TimeService;
 
 /**
@@ -115,7 +116,9 @@ public class PlayerChar extends Char implements Battleable {
                     pokemon.setIsFainted(false);
                     for(int i = 0; i < pokemon.getMoves().length; i++) {
                     	if(pokemon.getMoves()[i] != null) {
-                    		pokemon.setPp(i, pokemon.getMaxPp(i));
+                    		PokemonMove move = pokemon.getMoves()[i].getMove();
+                    		pokemon.setMaxPP(i, move.getPp() * (5 + pokemon.getPp(i)) / 5);
+                    		pokemon.setPp(i, move.getPp() * (5 + pokemon.getPp(i)) / 5);
                     	}
                     }
             }
