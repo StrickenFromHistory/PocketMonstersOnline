@@ -63,13 +63,13 @@ public class PlayerPopupDialog extends Frame{
 		
 		m_battle.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				GameClient.getInstance().getPacketGenerator().write("rB" + m_name.getText());
+				GameClient.getInstance().getPacketGenerator().write("rb" + m_name.getText());
 				destroy();
 			}
 		});
 		m_trade.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				GameClient.getInstance().getPacketGenerator().write("rT" + m_name.getText());
+				GameClient.getInstance().getPacketGenerator().write("rt" + m_name.getText());
 				destroy();
 			}
 		});
