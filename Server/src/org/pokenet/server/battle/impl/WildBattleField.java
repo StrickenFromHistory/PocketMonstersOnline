@@ -48,6 +48,7 @@ public class WildBattleField extends BattleField {
 				+ wild.getHealth() + "," + wild.getHealth() + ","  + wild.getSpeciesNumber() + "," +
 				wild.isShiny());
 		m_player = p;
+		m_wildPoke = wild;
 		applyWeather();
 		requestMoves();
 	}
