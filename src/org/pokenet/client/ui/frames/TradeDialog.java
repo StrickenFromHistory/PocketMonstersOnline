@@ -100,6 +100,7 @@ public class TradeDialog extends Frame {
 				getDisplay().remove(m_confirm);
 				m_confirm = null;
 				setVisible(false);
+				GameClient.getInstance().getUi().stopTrade();
 				System.out.println("Trade Cancelled");
 			}
 		
