@@ -479,7 +479,7 @@ public class WildBattleField extends BattleField {
 			p.setExp(p.getExp() + exp);
 			m_player.getSession().write("b." + p.getSpeciesName() + "," + exp);
 			String expGain = exp + "";
-			expGain.substring(expGain.indexOf('.'));
+			expGain.substring(0, expGain.indexOf('.'));
 			m_player.getSession().write("Pe" + index + expGain);
 			
 			double levelExp = DataService.getBattleMechanics().getExpForLevel(p, p.getLevel() + 1) - p.getExp();
