@@ -14,7 +14,6 @@ import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Item;
 import org.pokenet.client.backend.entity.PlayerItem;
-import org.pokenet.client.network.PacketGenerator;
 
 /**
  * The big bag dialog
@@ -34,8 +33,6 @@ public class BigBagDialog extends Frame {
 	// string being the item name and integer being item quantity
 //	private List<Integer> m_merch;
 
-	private PacketGenerator packetGen;
-	
 	public BigBagDialog() {
 //		m_merch = merch;
 //		packetGen = out;

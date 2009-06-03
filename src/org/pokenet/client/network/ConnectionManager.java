@@ -85,7 +85,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 			for (int i = 1; i < merchData.length; i++) {
 				merch.add(Integer.parseInt(merchData[i]));
 			}
-			GameClient.getInstance().getDisplay().add(new ShopDialog(merch, GameClient.getInstance().getPacketGenerator()));
+			GameClient.getInstance().getDisplay().add(new ShopDialog(merch));
 			break;
 		case 'B':
 			//Box access - receiving a string of pokedex numbers, e.g. B15,23,24,

@@ -14,7 +14,6 @@ import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Item;
 import org.pokenet.client.backend.entity.PlayerItem;
-import org.pokenet.client.network.PacketGenerator;
 
 /**
  * The shop dialog
@@ -34,11 +33,8 @@ public class ShopDialog extends Frame {
 	// string being the item name and integer being item quantity
 //	private List<Integer> m_merch;
 
-	private PacketGenerator packetGen;
-	
-	public ShopDialog(List<Integer> merch, PacketGenerator out) {
+	public ShopDialog(List<Integer> merch) {
 //		m_merch = merch;
-		packetGen = out;
 		setCenter();
 		initGUI();
 	}
@@ -329,7 +325,7 @@ public class ShopDialog extends Frame {
 	}
 	
 	public void cancelled() {
-		packetGen.write("Sf");
+		GameClient.getInstance().getPacketGenerator().write("Sf");
 		setVisible(false);
 		GameClient.getInstance().getDisplay().remove(this);
 	}
