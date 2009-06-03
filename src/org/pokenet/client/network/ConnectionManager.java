@@ -66,6 +66,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 		case '!':
 			//Server notification
 			break;
+		case 'q':
+			//Server notification
+			break;		
 		case 's':
 			//Party swapping. Received as s0,5. Pokemons in party at 0 and 5 were swapped around
 			m_game.getOurPlayer().swapPokemon(Integer.parseInt(message.substring(1, message.indexOf(','))),Integer.parseInt(message.substring(message.indexOf(',') + 1)) );
@@ -493,6 +496,18 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 'r':
 			switch(message.charAt(1)) {
+			case 't':
+				//Trade Request
+				GameClient.getInstance().getUi().getReqWindow().addRequest(message.substring(2), "trade");
+				break;
+			case 'b':
+				//Battle Request
+				GameClient.getInstance().getUi().getReqWindow().addRequest(message.substring(2), "battle");
+				break;
+			case 'c':
+				//Request canceled
+				GameClient.getInstance().getUi().getReqWindow().removeOffer(message.substring(2));
+				break;
 			case 's':
 				//Sucessful registration
 				GameClient.messageDialog(translated.get(23), GameClient.getInstance().getDisplay());
