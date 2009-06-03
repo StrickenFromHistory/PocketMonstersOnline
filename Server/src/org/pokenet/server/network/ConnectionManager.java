@@ -88,6 +88,29 @@ public class ConnectionManager extends IoHandlerAdapter {
 			 */
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
 			switch(message.charAt(0)) {
+			case 'P':
+				//Pokemon interaction
+				int pokemonIndex = 0;
+				switch(message.charAt(1)) {
+				case 'm':
+					//Player is allowing move to be learned
+					pokemonIndex = Integer.parseInt(message.charAt(2) + "");
+					int moveIndex = Integer.parseInt(message.charAt(3) + "");
+					String move = message.substring(4);
+					if(p.getParty()[pokemonIndex] != null) {
+						if(p.getParty()[pokemonIndex].getMovesLearning().contains(move)) {
+							p.getParty()[pokemonIndex].learnMove(moveIndex, move);
+						}
+					}
+					break;
+				case 'e':
+					//Player is allowing evolution
+					pokemonIndex = Integer.parseInt(message.charAt(2) + "");
+					if(p.getParty()[pokemonIndex] != null) {
+						p.getParty()[pokemonIndex].evolutionResponse(message.charAt(3) == '1', p);
+					}
+					break;
+				}
 			case 's':
 				//Party swapping
 				p.swapPokemon(Integer.parseInt(message.substring(1, message.indexOf(','))), 

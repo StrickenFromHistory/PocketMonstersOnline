@@ -1,14 +1,19 @@
 package org.pokenet.server.battle.impl;
 
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.BattleTurn;
+import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.mechanics.BattleMechanics;
 import org.pokenet.server.battle.mechanics.MoveQueueException;
+import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
+import org.pokenet.server.battle.mechanics.polr.POLREvolution;
 import org.pokenet.server.battle.mechanics.statuses.StatusEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.HailEffect;
@@ -144,8 +149,8 @@ public class WildBattleField extends BattleField {
 	@Override
 	public void informVictory(int winner) {
 		if(winner == 0) {
+			calculateExp();
 			m_player.getSession().write("b@w");
-			//TODO: Exp gain
 		} else {
 			m_player.getSession().write("b@l");
 			m_player.lostBattle();
@@ -187,13 +192,14 @@ public class WildBattleField extends BattleField {
                             if (!move.isMoveTurn()) {
                                     this.switchInPokemon(trainer, move.getId());
                                     requestMoves();
-                                    System.out.println("Pokemon switched");
+                                    if (!m_participatingPokemon.contains(getActivePokemon()[0]))
+                                        m_participatingPokemon.add(getActivePokemon()[0]);
                                     return;
                             } else {
                                     if (trainer == 0 && getAliveCount(0) > 0) {
                                     	if(getAliveCount(0) > 0) {
-                                            /*if (participatingPokemon.contains(getActivePokemon()[0]))
-                                                    participatingPokemon.remove(getActivePokemon()[0]);*/
+                                            if (m_participatingPokemon.contains(getActivePokemon()[0]))
+                                                    m_participatingPokemon.remove(getActivePokemon()[0]);
                                     		requestPokemonReplacement(0);
                                     		return;
                                     	} else {
@@ -396,6 +402,140 @@ public class WildBattleField extends BattleField {
 			 * If its the wild Pokemon, just get the moves
 			 */
 			getWildPokemonMove();
+		}
+	}
+	
+	/**
+	 * Calculates exp gained for Pokemon at the end of battles
+	 */
+	private void calculateExp() {
+		/*
+		 * First calculate earnings
+		 */
+		m_player.setMoney(m_player.getMoney() + 5);
+		showMessage("You earned 5 PD!");
+		
+		/*
+		 * Secondly, calculate EVs and exp
+		 */
+		POLRDataEntry poke = DataService.getPOLRDatabase().
+			getPokemonData(DataService.getSpeciesDatabase().getPokemonByName(m_wildPoke.getSpeciesName()));
+		int [] evs = poke.getEffortPoints();
+		
+		double exp = (DataService.getBattleMechanics().calculateExpGain
+			(m_wildPoke, m_participatingPokemon.size(), false)) / 2;
+		if(exp == 0)
+			exp = 1;
+		/*
+		 * Finally, add the EVs and exp to the participating Pokemon
+		 */
+		Iterator<Pokemon> it = m_participatingPokemon.iterator();
+		Pokemon p = null;
+		while(it.hasNext()) {
+			p = it.next();
+			int index = m_player.getPokemonIndex(p);
+			
+			/* Add the evs */
+			/* Ensure EVs don't go over limit, before or during addition */
+			int evTotal = p.getEvTotal();
+			if(evTotal < 510) {
+				for(int i = 0; i < evs.length; i++) {
+					/* Ensure we don't hit the EV limit */
+					if(evTotal + evs[i] < 510) {
+						if(p.getEv(i) < 255) {
+							if(p.getEv(i) + evs[i] < 255) {
+								/* Add the EV */
+								evTotal += evs[i];
+								p.setEv(i, p.getEv(i) + evs[i]);
+							} else {
+								/* Cap the EV at 255 */
+								evTotal += (255 - p.getEv(i));
+								p.setEv(i, 255);
+							}
+						}
+					} else {
+						/* 
+						 * We're going to hit the EV total limit
+						 * Only add what's allowed
+						 */
+						evs[i] = 510 - evTotal;
+						if(p.getEv(i) + evs[i] < 255)
+							p.setEv(i, p.getEv(i) + evs[i]);
+						else
+							p.setEv(i, 255);
+						break;
+					}
+				}
+			}
+			
+			/* Gain exp/level up and update client */
+			p.setExp(p.getExp() + exp);
+			m_player.getSession().write("b." + p.getSpeciesName() + "," + exp);
+			m_player.getSession().write("Pe" + index + "," + exp);
+			
+			double levelExp = DataService.getBattleMechanics().getExpForLevel(p, p.getLevel() + 1) - p.getExp();
+			if(levelExp <= 0) {
+				POLRDataEntry pokeData = DataService.getPOLRDatabase().getPokemonData(
+						DataService.getSpeciesDatabase().getPokemonByName(p.getSpeciesName()));
+				
+				/* Handle evolution */
+				for(int i = 0; i < pokeData.getEvolutions().size(); i++) {
+					POLREvolution evolution = pokeData.getEvolutions().get(i);
+					switch(evolution.getType()) {
+					case Level:
+						if(evolution.getLevel() == p.getLevel() + 1) {
+							p.setEvolution(evolution);
+							m_player.getSession().write("Pe" + index);
+							return;
+						}
+						break;
+					case HappinessDay:
+						if(p.getHappiness() > 220 && !TimeService.isNight()) {
+							p.setEvolution(evolution);
+							m_player.getSession().write("Pe" + index);
+							return;
+						}
+						break;
+					case HappinessNight:
+						if(p.getHappiness() > 220 && TimeService.isNight()) {
+							p.setEvolution(evolution);
+							m_player.getSession().write("Pe" + index);
+							return;
+						}
+						break;
+					case Happiness:
+						if(p.getHappiness() > 220) {
+							p.setEvolution(evolution);
+							m_player.getSession().write("Pe" + index);
+							return;
+						}
+						break;
+					case Beauty:
+						break;
+					}
+				}
+				
+				/* This Pokemon just, levelled up! */
+				p.setHappiness(p.getHappiness() + 2);
+				p.calculateStats(false);
+				
+
+				int level = DataService.getBattleMechanics().calculateLevel(p);
+				int oldLevel = p.getLevel();
+				String move = "";
+				/* Move learning */
+				p.getMovesLearning().clear();
+				for(int i = oldLevel; i < level; i++) {
+					if(pokeData.getMoves().get(i) != null) {
+						move = pokeData.getMoves().get(i);
+						p.getMovesLearning().add(move);
+						m_player.getSession().write("Pm" + index + move);
+					}
+				}
+				/* Save the level and update the client */
+				p.setLevel(level);
+				m_player.getSession().write("Pl" + level);
+			}
 		}
 	}
 }

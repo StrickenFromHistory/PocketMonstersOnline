@@ -102,6 +102,13 @@ public abstract class BattleMechanics implements Serializable {
 		m_masterRandom = getRandomSource(25);
 	}
 
+	/**
+	 * Returns the amount of EXP required to reach a level
+	 * based on a pokemon's EXP type
+	 * @param poke
+	 * @param level
+	 * @return
+	 */
 	public double getExpForLevel(Pokemon poke, int level){
 		double exp = 0;
 		switch (poke.getExpType()){
@@ -174,6 +181,12 @@ public abstract class BattleMechanics implements Serializable {
 			return new Random();
 		}
 	}
+	
+	/**
+	 * Calcultes the level of a Pokemon based on their EXP amount
+	 * @param a
+	 * @return
+	 */
 	public int calculateLevel(Pokemon a){
 		double result = 0;
 		switch (a.getExpType())	{

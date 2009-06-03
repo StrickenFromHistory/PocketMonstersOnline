@@ -845,31 +845,7 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void updateClientParty() {
 		for(int i = 0; i < this.getParty().length; i++) {
-			if(this.getParty()[i] != null) {
-				m_session.write("Pi" + i + PokemonSpecies.getDefaultData().getPokemonByName(this.getParty()[i].getSpeciesName()) + "," +
-						this.getParty()[i].getName() + "," +
-						this.getParty()[i].getHealth() + "," +
-						this.getParty()[i].getGender() + "," +
-						(this.getParty()[i].isShiny() ? 1 : 0) + "," +
-						this.getParty()[i].getStat(0) + "," +
-						this.getParty()[i].getStat(1) + "," +
-						this.getParty()[i].getStat(2) + "," +
-						this.getParty()[i].getStat(3) + "," +
-						this.getParty()[i].getStat(4) + "," +
-						this.getParty()[i].getStat(5) + "," +
-						this.getParty()[i].getTypes()[0] + "," +
-						(this.getParty()[i].getTypes().length > 1 &&
-								this.getParty()[i].getTypes()[1] != null ? this.getParty()[i].getTypes()[1] + "," : ",") +
-								this.getParty()[i].getExp() + "," +
-								this.getParty()[i].getLevel() + "," +
-								this.getParty()[i].getAbilityName() + "," +
-								this.getParty()[i].getNature().getName() + "," +
-						(this.getParty()[i].getMoves()[0] != null ? this.getParty()[i].getMoves()[0].getName() : "") + "," +
-						(this.getParty()[i].getMoves()[1] != null ? this.getParty()[i].getMoves()[1].getName() : "") + "," +
-						(this.getParty()[i].getMoves()[2] != null ? this.getParty()[i].getMoves()[2].getName() : "") + "," +
-						(this.getParty()[i].getMoves()[3] != null ? this.getParty()[i].getMoves()[3].getName() : "")
-				);
-			}
+			updateClientParty(i);
 		}
 	}
 
@@ -879,5 +855,50 @@ public class PlayerChar extends Char implements Battleable {
 	public void setBattleField(BattleField b) {
 		if(m_battleField == null)
 			m_battleField = b;
+	}
+
+	/**
+	 * Returns the index of the pokemon in the player's party
+	 * @param p
+	 * @return
+	 */
+	public int getPokemonIndex(Pokemon p) {
+		for(int i = 0; i < m_pokemon.length; i++) {
+			if(m_pokemon[i] != null && m_pokemon[i].getDateCaught().equalsIgnoreCase(p.getDateCaught()))
+				return i;
+		}
+		return 0;
+	}
+
+	/**
+	 * Updates the client for a specific Pokemon
+	 * @param index
+	 */
+	public void updateClientParty(int i) {
+		if(this.getParty()[i] != null) {
+			m_session.write("Pi" + i + PokemonSpecies.getDefaultData().getPokemonByName(this.getParty()[i].getSpeciesName()) + "," +
+					this.getParty()[i].getName() + "," +
+					this.getParty()[i].getHealth() + "," +
+					this.getParty()[i].getGender() + "," +
+					(this.getParty()[i].isShiny() ? 1 : 0) + "," +
+					this.getParty()[i].getStat(0) + "," +
+					this.getParty()[i].getStat(1) + "," +
+					this.getParty()[i].getStat(2) + "," +
+					this.getParty()[i].getStat(3) + "," +
+					this.getParty()[i].getStat(4) + "," +
+					this.getParty()[i].getStat(5) + "," +
+					this.getParty()[i].getTypes()[0] + "," +
+					(this.getParty()[i].getTypes().length > 1 &&
+							this.getParty()[i].getTypes()[1] != null ? this.getParty()[i].getTypes()[1] + "," : ",") +
+							this.getParty()[i].getExp() + "," +
+							this.getParty()[i].getLevel() + "," +
+							this.getParty()[i].getAbilityName() + "," +
+							this.getParty()[i].getNature().getName() + "," +
+					(this.getParty()[i].getMoves()[0] != null ? this.getParty()[i].getMoves()[0].getName() : "") + "," +
+					(this.getParty()[i].getMoves()[1] != null ? this.getParty()[i].getMoves()[1].getName() : "") + "," +
+					(this.getParty()[i].getMoves()[2] != null ? this.getParty()[i].getMoves()[2].getName() : "") + "," +
+					(this.getParty()[i].getMoves()[3] != null ? this.getParty()[i].getMoves()[3].getName() : "")
+			);
+		}
 	}
 }

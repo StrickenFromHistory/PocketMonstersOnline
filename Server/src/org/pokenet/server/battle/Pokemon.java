@@ -41,6 +41,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.mechanics.BattleMechanics;
 import org.pokenet.server.battle.mechanics.ModData;
 import org.pokenet.server.battle.mechanics.MoveQueueException;
@@ -53,6 +54,8 @@ import org.pokenet.server.battle.mechanics.clauses.Clause.PendanticDamageClause;
 import org.pokenet.server.battle.mechanics.moves.MoveList;
 import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
 import org.pokenet.server.battle.mechanics.moves.PokemonMove;
+import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
+import org.pokenet.server.battle.mechanics.polr.POLREvolution;
 import org.pokenet.server.battle.mechanics.statuses.StatusEffect;
 import org.pokenet.server.battle.mechanics.statuses.StatusListener;
 import org.pokenet.server.battle.mechanics.statuses.abilities.IntrinsicAbility;
@@ -107,10 +110,13 @@ public class Pokemon extends PokemonSpecies {
     /** The health of a substitute, or zero if no substitute is out.
      */
     transient private int m_substitute;
+    /* Stores the EXP growth rate of the Pokemon */
     @Element
     transient private ExpTypes m_expType;
     @Element
     private int m_happiness;
+    /* Stores the evolution this Pokemon is waiting to evolve to */
+    private POLREvolution m_evolution = null;
     
     // Intrinsic statistics.
     @Element
@@ -160,6 +166,67 @@ public class Pokemon extends PokemonSpecies {
     
     public enum ExpTypes {
         MEDIUM, ERRATIC, FLUCTUATING, PARABOLIC, FAST, SLOW
+    }
+    
+    /**
+     * Returns true if this Pokemon is waiting to evolve
+     * @return
+     */
+    public boolean isWaitToEvolve() {
+    	return m_evolution != null;
+    }
+    
+    /**
+     * Sets if this Pokemon is waiting to evolve and
+     * the evolution it is waiting to go to
+     * @param e
+     */
+    public void setEvolution(POLREvolution e) {
+    	m_evolution = e;
+    }
+    
+    /**
+     * Handles the response from the client, 
+     * whether they allowed evolution or not
+     * @param allow  - If the evolution is allowed
+     * @param p  - The player that owns the Pokemon
+     */
+    public void evolutionResponse(boolean allow, PlayerChar p) {
+    	/* Get the index of the Pokemon in the player's party */
+    	int index = p.getPokemonIndex(this);
+
+    	if(allow) {
+    		/* The player is allowing evolution, evolve the Pokemon */
+    		this.evolve(DataService.getSpeciesDatabase().getSpecies(
+    				DataService.getSpeciesDatabase().getPokemonByName(m_evolution.getEvolveTo())));
+    	}
+    	/* Retrieve the Pokemon data */
+    	POLRDataEntry pokeData = DataService.getPOLRDatabase().getPokemonData(
+				DataService.getSpeciesDatabase().getPokemonByName(getSpeciesName()));
+    	
+		setHappiness(m_happiness + 2);
+		calculateStats(false);
+		
+		/* Now learn any moves that need learning */
+		int level = DataService.getBattleMechanics().calculateLevel(this);
+		int oldLevel = getLevel();
+		String move = "";
+		/* Generate a list of moves this Pokemon wants to learn */
+		m_movesLearning.clear();
+		for(int i = oldLevel; i < level; i++) {
+			if(pokeData.getMoves().get(i) != null) {
+				move = pokeData.getMoves().get(i);
+				m_movesLearning.add(move);
+			}
+		}
+		/* Save the Pokemon's level */
+		setLevel(level);
+		/* Update the client with new Pokemon information */
+		p.updateClientParty(index);
+		/* Inform the client this Pokemon wants to learn new moves */
+		for(int i = 0; i < m_movesLearning.size(); i++) {
+			p.getSession().write("Pm" + index + m_movesLearning.get(i));
+		}
     }
     
     /**
@@ -1805,7 +1872,11 @@ public class Pokemon extends PokemonSpecies {
             }
             return total;
     }
-
+    
+    /**
+     * Sets the name of the original trainer
+     * @param name
+     */
 	public void setOriginalTrainer(String name) {
 		m_originalTrainer = name;
 	}
@@ -1814,23 +1885,55 @@ public class Pokemon extends PokemonSpecies {
 		m_originalNo = m_no;
 	}
 
-	public Pokemon evolve(Pokemon newPoke, PokemonSpecies species) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Evolves this pokemon into the new species
+	 * @param species
+	 */
+	private void evolve(PokemonSpecies species) {
+		m_species = species.getSpeciesNumber();
+		m_name = species.getName();
+		m_base = species.getBaseStats();
+		m_genders = species.m_genders;
+		m_type = species.getTypes();
+		try {
+			String [] abilities = PokemonSpecies.getDefaultData().getPossibleAbilities(getSpeciesName());
+			m_ability = IntrinsicAbility.getInstance(
+					abilities[DataService.getBattleMechanics().getRandom().nextInt(abilities.length)]);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		calculateStats(m_base, m_iv, m_ev);
+		m_evolution = null;
 	}
 
+	/**
+	 * Returns the EXP of the Pokemon
+	 * @return
+	 */
 	public double getExp() {
 		return m_exp;
 	}
 
+	/**
+	 * Sets the base EXP of the Pokemon
+	 * @param baseEXP
+	 */
 	public void setBaseExp(int baseEXP) {
 		m_baseExp = baseEXP;
 	}
 
+	/**
+	 * Sets the happiness of the Pokemon
+	 * @param happiness
+	 */
 	public void setHappiness(int happiness) {
-		m_happiness = happiness;
+		m_happiness = happiness <= 255 ? happiness : 255;
 	}
 
+	/**
+	 * Sets the exp of the Pokemon
+	 * @param exp
+	 */
 	public void setExp(double exp) {
 		DecimalFormat form = new DecimalFormat("#.##");
 		if (exp > 100000000) {
@@ -1840,22 +1943,43 @@ public class Pokemon extends PokemonSpecies {
 		m_exp = Double.valueOf(form.format(exp));
 	}
 
+	/**
+	 * Returns the happiness of the Pokemon
+	 * @return
+	 */
 	public int getHappiness() {
 		return m_happiness;
 	}
 
+	/**
+	 * Sets the EV of the pokemon
+	 * @param i
+	 * @param j
+	 */
 	public void setEv(int i, int j) {
 		m_ev[i] = j;
 	}
 
+	/**
+	 * Sets the EXP growth rate of the Pokemon
+	 * @param growthRate
+	 */
 	public void setExpType(ExpTypes growthRate) {
 		m_expType = growthRate;
 	}
 	
+	/**
+	 * Returns the EXP growth rate of the Pokemon
+	 * @return
+	 */
 	public ExpTypes getExpType() {
 		return m_expType;
 	}
 
+	/**
+	 * Returns the base EXP of the Pokemon
+	 * @return
+	 */
 	public int getBaseExp() {
 		return m_baseExp;
 	}
