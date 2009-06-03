@@ -365,6 +365,13 @@ public abstract class BattleMechanics implements Serializable {
 		return (int) result;
 	}
 
+	/**
+	 * Calculates the EXP gained (per Pokemon who defeated it) from defeating a Pokemon
+	 * @param a
+	 * @param u
+	 * @param isTrainer
+	 * @return
+	 */
 	public double calculateExpGain(Pokemon a, int u, boolean isTrainer){
 		double result = 0;
 		if(isTrainer)
@@ -373,6 +380,7 @@ public abstract class BattleMechanics implements Serializable {
 			result = (((((a.getLevel() * a.getBaseExp())/7))/u)* 1);
 		return result;
 	}
+	
 	public boolean isCaught(Pokemon pokemon, int rate, double ball, int status){
 		int maxHP = pokemon.getStat(Pokemon.S_HP);
 		int currentHP = pokemon.getHealth();

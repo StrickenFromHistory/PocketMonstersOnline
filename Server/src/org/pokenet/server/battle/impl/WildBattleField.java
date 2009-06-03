@@ -41,14 +41,20 @@ public class WildBattleField extends BattleField {
 	 */
 	public WildBattleField(BattleMechanics m, PlayerChar p, Pokemon wild) {
 		super(m, new Pokemon[][] { p.getParty(), new Pokemon[] { wild }});
+		/* Send information to client */
 		p.setBattling(true);
 		p.setBattleId(0);
 		p.getSession().write("bi1");
 		p.getSession().write("bP0," + wild.getName() + "," + wild.getLevel() + "," + wild.getGender() + "," 
 				+ wild.getHealth() + "," + wild.getHealth() + ","  + wild.getSpeciesNumber() + "," +
 				wild.isShiny());
+		
+		/* Store variables */
 		m_player = p;
 		m_wildPoke = wild;
+		m_participatingPokemon.add(p.getParty()[0]);
+		
+		/* Call methods */
 		applyWeather();
 		requestMoves();
 	}
