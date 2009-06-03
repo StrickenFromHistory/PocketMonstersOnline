@@ -63,7 +63,7 @@ Viridan Forest,8,8,42,10
 Diglett's Cave,8,8,43,10
 Mt. Moon,8,8,47,7
 Rock Tunnel,8,8,62,7
-Power Plant,8,8,62,8
+Power Plant,8,8,63,12
 Diglett's Cave,8,8,56,18
 Safari Zone,8,8,53,24
 Seafoam Islands,8,8,48,28
