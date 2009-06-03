@@ -1957,7 +1957,11 @@ public class Pokemon extends PokemonSpecies {
 	 * @param j
 	 */
 	public void setEv(int i, int j) {
-		m_ev[i] = j;
+		
+		if(j < 256)
+			m_ev[i] = j;
+		else
+			m_ev[i] = 255;
 	}
 
 	/**
