@@ -32,6 +32,7 @@ public class TradeDialog extends Frame {
 	private TextField m_ourMoneyOffer;
 	private ActionListener m_offerListener;
 	private ConfirmationDialog m_confirm;
+	private int m_offerNum;
 	
 	/**
 	 * Default constructor
@@ -49,8 +50,8 @@ public class TradeDialog extends Frame {
 	 * Sends the offer to the server
 	 */
 	private void makeOffer(){
-		//TODO: Make the proper packet
-		//GameClient.getInstance().getPacketGenerator().write("PACKET GOES HERE");
+		//TODO: Make packet
+		GameClient.getInstance().getPacketGenerator().write("to" + m_offerNum + "," + m_ourMoneyOffer.getText());
 		m_makeOfferBtn.setText("Cancel Offer");
 		for (int i = 0; i < 6; i++){
 			m_ourPokes[i].setGlassPane(true);
@@ -61,8 +62,7 @@ public class TradeDialog extends Frame {
 	 * Cancels a sent offer
 	 */
 	private void cancelOffer(){
-		//TODO: Make the proper packet
-		//GameClient.getInstance().getPacketGenerator().write("PACKET GOES HERE");
+		GameClient.getInstance().getPacketGenerator().write("Tc");
 		m_makeOfferBtn.setText("Make Offer");
 		for (int i = 0; i < 6; i++){
 			m_ourPokes[i].setGlassPane(false);
@@ -84,8 +84,7 @@ public class TradeDialog extends Frame {
 	 * Performs the trade
 	 */
 	private void performTrade(){
-		//TODO: Make the proper packet
-		//GameClient.getInstance().getPacketGenerator().write("PACKET GOES HERE");
+		GameClient.getInstance().getPacketGenerator().write("Tt");
 		System.out.println("Trade complete");
 		this.setVisible(false);
 	}
@@ -96,7 +95,7 @@ public class TradeDialog extends Frame {
 	private void cancelTrade(){
 		ActionListener yes = new ActionListener(){
 			public void actionPerformed(ActionEvent evt) {
-				//TODO: Send cancel packet
+				GameClient.getInstance().getPacketGenerator().write("TC");
 				m_confirm.setVisible(false);
 				getDisplay().remove(m_confirm);
 				m_confirm = null;
@@ -175,6 +174,7 @@ public class TradeDialog extends Frame {
 
 			m_ourPokes[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
+					m_offerNum = j;
 					m_ourPokes[j].setSelected(true);
 					untoggleOthers(j);
 				};
