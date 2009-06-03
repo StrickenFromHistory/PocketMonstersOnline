@@ -391,6 +391,7 @@ public class LoginManager implements Runnable {
 				p.setExpType(ExpTypes.valueOf(data.getString("expType")));
 				p.setOriginalTrainer(data.getString("originalTrainerName"));
 				p.setDatabaseID(data.getInt("id"));
+				p.setDateCaught(data.getString("date"));
 				p.setIsFainted(Boolean.parseBoolean(data.getString("isFainted")));
 				/*
 				 * Sets the stats

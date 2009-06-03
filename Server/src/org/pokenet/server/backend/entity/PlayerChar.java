@@ -870,7 +870,10 @@ public class PlayerChar extends Char implements Battleable {
 			if(m_pokemon[i] != null) {
 				if(p.getDatabaseID() != -1 && p.getDatabaseID() == m_pokemon[i].getDatabaseID())
 					return i;
-				else if(p == m_pokemon[i])
+				else if(p.getDateCaught() != null && m_pokemon[i].getDateCaught() != null) {
+					if(p.getDateCaught().equalsIgnoreCase(m_pokemon[i].getDateCaught()))
+						return i;
+				} else if(p == m_pokemon[i])
 					return i;
 			}
 		}
