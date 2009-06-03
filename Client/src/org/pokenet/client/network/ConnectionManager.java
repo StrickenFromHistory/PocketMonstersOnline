@@ -69,6 +69,29 @@ public class ConnectionManager extends IoHandlerAdapter {
 		case 'q':
 			//Server notification
 			break;		
+		case 'T':
+			//Trade
+			switch(message.charAt(1)) {
+			case 's':
+				//Start trade TsPOKEIDNUMS,TRAINERNAME
+				String[] tradeData = message.split(",");
+				int[] pokeNums = new int[tradeData.length - 1];
+				for (int i = 0; i < tradeData.length; i++)
+					pokeNums[i] = Integer.parseInt(tradeData[i]);
+				GameClient.getInstance().getUi().startTrade(pokeNums, tradeData[tradeData.length - 1]);
+				break;
+			case 'o':
+				//An offer was made ToPOKEINDEX,MONEYNUM
+				String[] offerData = message.split(",");
+				GameClient.getInstance().getUi().getTrade().getOffer(Integer.parseInt(offerData[0]), 
+						Integer.parseInt(offerData[1]));
+				break;
+			case 'c':
+				//The offer was cancelled
+				GameClient.getInstance().getUi().stopTrade();
+				break;
+			}
+			break;
 		case 's':
 			//Party swapping. Received as s0,5. Pokemons in party at 0 and 5 were swapped around
 			m_game.getOurPlayer().swapPokemon(Integer.parseInt(message.substring(1, message.indexOf(','))),Integer.parseInt(message.substring(message.indexOf(',') + 1)) );

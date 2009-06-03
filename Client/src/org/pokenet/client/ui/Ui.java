@@ -48,6 +48,7 @@ public class Ui extends Frame {
 	private BattleManager m_battleManager;
 	private PokeStorageBoxFrame m_storageBox;
 	private TownMap m_map;
+	private TradeDialog m_trade;
     private boolean m_isOption;
     private static final int UI_WIDTH = 32*7;
 	
@@ -492,4 +493,27 @@ public class Ui extends Frame {
     public void refreshParty(){
     	m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokemon());
     }
+    
+    /**
+     * Starts a trade
+     * @param pokeNums
+     * @param trainer
+     */
+    public void startTrade(int[] pokeNums, String trainer){
+    	m_trade = new TradeDialog(pokeNums, trainer);
+    	m_display.add(m_trade);
+    }
+    
+    /**
+     * Stops a trade
+     */
+    public void stopTrade(){
+    	m_display.remove(m_trade);
+    	m_trade = null;
+    }
+    
+    public TradeDialog getTrade() {
+    	return m_trade;
+    }
 }
+ 
