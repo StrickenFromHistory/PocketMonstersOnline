@@ -867,8 +867,12 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public int getPokemonIndex(Pokemon p) {
 		for(int i = 0; i < m_pokemon.length; i++) {
-			if(m_pokemon[i] != null && m_pokemon[i].getDateCaught().equalsIgnoreCase(p.getDateCaught()))
-				return i;
+			if(m_pokemon[i] != null) {
+				if(p.getDatabaseID() != -1 && p.getDatabaseID() == m_pokemon[i].getDatabaseID())
+					return i;
+				else if(p == m_pokemon[i])
+					return i;
+			}
 		}
 		return 0;
 	}
