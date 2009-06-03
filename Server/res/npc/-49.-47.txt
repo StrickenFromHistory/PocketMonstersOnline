@@ -7,10 +7,10 @@ down
 NULL
 0
 -1
-1000
-false
-false
+0,1
 true
+false
+false
 [/npc]
 [warp]
 20
