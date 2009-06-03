@@ -246,6 +246,23 @@ public class ConnectionManager extends IoHandlerAdapter {
 					break;
 				}
 				break;
+			case 'T':
+				//Trade packets
+				switch (message.charAt(1)){
+				case 'o':
+					//Make an offer ToPOKENUM,MONEYAMOUNT
+					break;
+				case 't':
+					//Ready to perform the trade
+					break;
+				case 'c':
+					//Cancel the offer
+					break;
+				case 'C':
+					//Cancel the trade
+					break;
+				}
+				break;
 			case 'C':
 				//Chat/Interact
 				switch(message.charAt(1)) {
