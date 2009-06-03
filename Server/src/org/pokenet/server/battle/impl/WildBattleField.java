@@ -478,7 +478,9 @@ public class WildBattleField extends BattleField {
 			/* Gain exp/level up and update client */
 			p.setExp(p.getExp() + exp);
 			m_player.getSession().write("b." + p.getSpeciesName() + "," + exp);
-			m_player.getSession().write("Pe" + index + "," + exp);
+			String expGain = exp + "";
+			expGain.substring(expGain.indexOf('.'));
+			m_player.getSession().write("Pe" + index + expGain);
 			
 			double levelExp = DataService.getBattleMechanics().getExpForLevel(p, p.getLevel() + 1) - p.getExp();
 			if(levelExp <= 0) {

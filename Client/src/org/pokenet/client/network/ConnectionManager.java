@@ -238,8 +238,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 				 */
 				break;
 			case 'e':
-				//EXP change
-				m_game.getOurPlayer().getPokemon()[Integer.parseInt(message.charAt(2) + "")].setExp(Integer.parseInt(message.substring(3)));
+				//EXP gain
+				int p1 = Integer.parseInt(message.charAt(2) + "");
+				int exp = m_game.getOurPlayer().getPokemon()[p1].getExp() + Integer.parseInt(message.substring(3));
+				m_game.getOurPlayer().getPokemon()[p1].setExp(exp);
 				break;
 			case 'E':
 				/*
