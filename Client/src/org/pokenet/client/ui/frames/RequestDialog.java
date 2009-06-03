@@ -59,7 +59,7 @@ public class RequestDialog extends Frame{
      * @param request
      */
     public void addRequest(final String username, String request) {
-    	if(request.charAt(0) == 'f') {
+    	if(request.equalsIgnoreCase("trade")) {
     		//TRADE
     		if (!m_offerUser.contains(username)){
     			m_offerUser.add(username);
@@ -67,7 +67,7 @@ public class RequestDialog extends Frame{
     			m_update = true;
     		}
     	}
-    	else if(request.charAt(0) == 'a') {
+    	else if(request.equalsIgnoreCase("battle")) {
     		if (!m_offerUser.contains(username)){
     			m_offerUser.add(username);
     			m_offers.put(username, new Button("Battle"));
@@ -144,7 +144,7 @@ public class RequestDialog extends Frame{
      * @param userIndex
      */
     public void acceptOffer(int userIndex) {
-    	//TODO: Add Packet: GameClient.getInstance().getPacketGenerator().write();
+    	GameClient.getInstance().getPacketGenerator().write("ra" + m_offerUser.get(userIndex));
     	m_offers.remove(m_offerUser.get(userIndex));
     	m_offerUser.remove(userIndex);
     	m_update = true;
@@ -155,7 +155,7 @@ public class RequestDialog extends Frame{
      * @param userIndex
      */
     public void declineOffer(int userIndex) {
-    	//TODO: Add Packet: GameClient.getInstance().getPacketGenerator().write();
+    	GameClient.getInstance().getPacketGenerator().write("rc" + m_offerUser.get(userIndex));
     	m_offers.remove(m_offerUser.get(userIndex));
     	m_offerUser.remove(userIndex);
     	m_update = true;

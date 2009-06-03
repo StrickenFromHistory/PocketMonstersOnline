@@ -110,6 +110,23 @@ public class ConnectionManager extends IoHandlerAdapter {
 					}
 				}
 				break;
+			case 'r':
+				//A request was sent
+				switch(message.charAt(1)) {
+				case 'b':
+					//Battle Request rbUSERNAME
+					break;
+				case 't':
+					//Battle Request rtUSERNAME
+					break;
+				case 'a':
+					//Request accepted raUSERNAME
+					break;
+				case 'c':
+					//Request canceled rcUSERNAME
+					break;
+				}
+				break;
 			case 'B':
 				//Box interaction
 				if(p.isBoxing()) {
