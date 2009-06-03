@@ -242,6 +242,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				int p1 = Integer.parseInt(message.charAt(2) + "");
 				int exp = m_game.getOurPlayer().getPokemon()[p1].getExp() + Integer.parseInt(message.substring(3));
 				m_game.getOurPlayer().getPokemon()[p1].setExp(exp);
+				m_game.getUi().update();
 				break;
 			case 'E':
 				/*
@@ -255,6 +256,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 			case 'l':
 				//Level change
 				m_game.getOurPlayer().getPokemon()[Integer.parseInt(message.charAt(2) + "")].setLevel(Integer.parseInt(message.substring(3)));
+				m_game.getUi().update();
 				break;
 			}
 			break;
