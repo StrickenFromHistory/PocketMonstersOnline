@@ -230,6 +230,30 @@ public class ConnectionManager extends IoHandlerAdapter {
 				details = message.substring(3).split(",");
 				m_game.getOurPlayer().setPokemon(Integer.parseInt(message.substring(2, 3)), details);
 				break;
+			case 'm':
+				/*
+				 * Move learning, received as (for example) Pm0EMBER
+				 * The 3rd character is the index of the pokemon in
+				 * the player's party and the rest is the move name
+				 */
+				break;
+			case 'e':
+				//EXP change
+				m_game.getOurPlayer().getPokemon()[Integer.parseInt(message.charAt(2) + "")].setExp(Integer.parseInt(message.substring(3)));
+				break;
+			case 'E':
+				/*
+				 * A pokemon would like to evolve, received as PE1
+				 * 1 is the index of the pokemon in the party
+				 * Reply to server with the same packet except
+				 * with a 0 at the end if the evolution was cancelled
+				 * or a 1 if it was allowed, e.g. PE10
+				 */
+				break;
+			case 'l':
+				//Level change
+				m_game.getOurPlayer().getPokemon()[Integer.parseInt(message.charAt(2) + "")].setLevel(Integer.parseInt(message.substring(3)));
+				break;
 			}
 			break;
 		case 'C':
