@@ -543,7 +543,7 @@ public class WildBattleField extends BattleField {
 				}
 				/* Save the level and update the client */
 				p.setLevel(level);
-				m_player.getSession().write("Pl" + level);
+				m_player.getSession().write("Pl" + index + "," + level);
 				showMessage(p.getSpeciesName() + " reached level " + level + "!");
 			}
 		}
