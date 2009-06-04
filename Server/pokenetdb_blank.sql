@@ -27,10 +27,12 @@ USE pokenet;
 
 DROP TABLE IF EXISTS `pokenet`.`pn_bag`;
 CREATE TABLE  `pokenet`.`pn_bag` (
-  `item` int(11) NOT NULL,
   `member` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `item` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  UNIQUE KEY `memberitem` (`member`,`item`),
+  KEY `Memberid` (`member`)
+) ENGINE=MyISAM DEFAULT CHARSET=ascii;
 
 --
 -- Dumping data for table `pokenet`.`pn_bag`
