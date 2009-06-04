@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.BattleTurn;
@@ -479,7 +478,7 @@ public class WildBattleField extends BattleField {
 			p.setExp(p.getExp() + exp);
 			m_player.getSession().write("b." + p.getSpeciesName() + "," + exp);
 			String expGain = exp + "";
-			expGain.substring(0, expGain.indexOf('.'));
+			expGain = expGain.substring(0, expGain.indexOf('.'));
 			m_player.getSession().write("Pe" + index + expGain);
 			
 			double levelExp = DataService.getBattleMechanics().getExpForLevel(p, p.getLevel() + 1) - p.getExp();
