@@ -180,7 +180,9 @@ public class GameClient extends BasicGame {
 		 */
 		try {
 			synchronized (m_display) {
-				m_display.update(gc, delta);
+				try{
+					m_display.update(gc, delta);
+				} catch (Exception e) {}
 			}
 		} catch (Exception e) { e.printStackTrace(); }
 		/*
