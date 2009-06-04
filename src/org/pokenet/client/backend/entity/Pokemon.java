@@ -286,6 +286,15 @@ public class Pokemon {
         }
         
         /**
+         * Sets a specific move
+         * @param index
+         * @param move
+         */
+        public void setMoves(int index, String move) {
+        	m_moves[index] = move;
+        }
+        
+        /**
          * Returns maximum PP for moves
          * @return
          */

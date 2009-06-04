@@ -128,6 +128,22 @@ public class BattleManager {
 			}
 		}
 	}
+	
+	/**
+	 * Updates moves with the current poke
+	 */
+	public void updateMoves() {
+		for (int i = 0; i < 3; i++){
+			if (m_curPoke.getMoves()[i] != null) {
+				m_battle.m_moveButtons.get(i).setText(m_curPoke.getMoves()[i]);
+				m_battle.m_ppLabels.get(i).setText(m_curPoke.getMovecurPP()[i] + "/"
+						+ m_curPoke.getMovemaxPP()[i]);
+			} else {
+				m_battle.m_moveButtons.get(i).setText("");
+				m_battle.m_ppLabels.get(i).setText("");
+			}
+		}
+	}
 
 	public void switchPoke(int trainer, int pokeIndex){
 		if (trainer == 0) {

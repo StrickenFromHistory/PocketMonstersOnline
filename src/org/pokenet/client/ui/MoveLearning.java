@@ -145,7 +145,6 @@ public class MoveLearning extends Frame {
 		m_pp.add(pp4);
 
 		m_cancel = new Button("Cancel");
-		// TODO: REAL HEIGHT
 		m_cancel.setBounds(3, 122, 246, 77);
 		m_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -177,6 +176,8 @@ public class MoveLearning extends Frame {
 						+ m_move + "?");
 				ActionListener yes = new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						GameClient.getInstance().getOurPlayer().getPokemon()[m_pokeIndex].setMoves(j, m_move);
+						GameClient.getInstance().getUi().getBattleManager().updateMoves();
 						GameClient.getInstance().getPacketGenerator().write(
 								"Pm" + m_pokeIndex + j + m_move);
 						GameClient.getInstance().getDisplay().remove(m_replace);
