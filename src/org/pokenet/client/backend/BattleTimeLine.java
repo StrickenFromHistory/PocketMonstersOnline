@@ -19,6 +19,7 @@ public class BattleTimeLine {
 	//Lines for REGEX needed for l10n
 	String m_pokeName, m_move, m_trainer;
 	int m_newHPValue, m_exp, m_dmg;
+	private boolean m_isBattling;
 	
 	/**
 	 * Default constructor
@@ -38,6 +39,7 @@ public class BattleTimeLine {
 	 */
 	public void startBattle(){
 		m_canvas.startBattle();
+		m_isBattling = true;
 		GameClient.getInstance().getDisplay().add(m_canvas);
 		GameClient.getInstance().getDisplay().add(m_narrator);
 	}
@@ -85,6 +87,7 @@ public class BattleTimeLine {
 	 * @param data
 	 */
 	public void informExperienceGained(String[] data){
+		m_pokeName = data[0];
 		m_exp = Integer.parseInt(data[1]);
 		addSpeech(m_translator.get(3));
 	}
@@ -185,6 +188,7 @@ public class BattleTimeLine {
 		m_trainer = GameClient.getInstance().getOurPlayer().getUsername();
 		addSpeech(m_translator.get(10));
 		GameClient.getInstance().getUi().getBattleManager().endBattle();
+		m_isBattling = false;
 	}
 	
 	/**
@@ -194,6 +198,7 @@ public class BattleTimeLine {
 		m_trainer = GameClient.getInstance().getOurPlayer().getUsername();
 		addSpeech(m_translator.get(11));
 		GameClient.getInstance().getUi().getBattleManager().endBattle();
+		m_isBattling = false;
 	}
 	
 	/**
@@ -286,5 +291,9 @@ public class BattleTimeLine {
 			line = line.replaceAll("damageNum", String.valueOf(m_dmg));
 		}
 		return line;
+	}
+	
+	public boolean isBattling() {
+		return m_isBattling;
 	}
 }
