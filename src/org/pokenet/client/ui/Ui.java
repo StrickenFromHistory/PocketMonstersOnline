@@ -171,11 +171,7 @@ public class Ui extends Frame {
 			for(int i = 0; i < speech.length; i++) {
 				result += GameClient.getInstance().getMapMatrix().getSpeech(Integer.parseInt(speech[i])) + "/n";
 			}
-			try {
-				talkToNPC(result);
-			} catch (SlickException e) {
-				e.printStackTrace();
-			}
+			talkToNPC(result);
 			break;
 		case 'l':
 			//Local Chat
@@ -398,7 +394,7 @@ public class Ui extends Frame {
      * @param speech
      * @throws SlickException
      */
-    public void talkToNPC(String speech) throws SlickException {
+    public void talkToNPC(String speech){
 		m_speechFrame = new NPCSpeechFrame(speech);
 		getDisplay().add(m_speechFrame);
 //		if (speech.startsWith("*"))
