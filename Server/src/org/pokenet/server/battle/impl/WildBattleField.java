@@ -533,7 +533,7 @@ public class WildBattleField extends BattleField {
 				String move = "";
 				/* Move learning */
 				p.getMovesLearning().clear();
-				for(int i = oldLevel; i < level; i++) {
+				for(int i = oldLevel; i <= level; i++) {
 					if(pokeData.getMoves().get(i) != null) {
 						move = pokeData.getMoves().get(i);
 						p.getMovesLearning().add(move);
