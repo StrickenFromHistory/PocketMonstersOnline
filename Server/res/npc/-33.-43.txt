@@ -1,13 +1,27 @@
 [npc]
-Supernerd Markus
-down
-11
-24
-28
-Slowpoke,1
+Pokemaniac Miller
+left
+152
+33
+44
+Nidoking,17,Nidoqueen,17
 2
 -1
-1000
+0
+false
+false
+false
+[/npc]
+[npc]
+Supernerd Markus
+down
+195
+24
+28
+Slowpoke,19
+1
+-1
+1
 false
 false
 false
