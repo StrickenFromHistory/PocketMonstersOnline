@@ -1,7 +1,7 @@
 -- MySQL Administrator dump 1.4
 --
 -- ------------------------------------------------------
--- Server version	5.1.34-community
+-- Server version	5.1.34
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -22,70 +22,32 @@ CREATE DATABASE IF NOT EXISTS pokenet;
 USE pokenet;
 
 --
--- Definition of table `pn_bag`
+-- Definition of table `pokenet`.`pn_bag`
 --
 
-DROP TABLE IF EXISTS `pn_bag`;
-CREATE TABLE `pn_bag` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `member` int(11) DEFAULT NULL,
-  `item0` int(11) DEFAULT NULL,
-  `quantity0` int(11) DEFAULT NULL,
-  `item1` int(11) DEFAULT NULL,
-  `quantity1` int(11) DEFAULT NULL,
-  `item2` int(11) DEFAULT NULL,
-  `quantity2` int(11) DEFAULT NULL,
-  `item3` int(11) DEFAULT NULL,
-  `quantity3` int(11) DEFAULT NULL,
-  `item4` int(11) DEFAULT NULL,
-  `quantity4` int(11) DEFAULT NULL,
-  `item5` int(11) DEFAULT NULL,
-  `quantity5` int(11) DEFAULT NULL,
-  `item6` int(11) DEFAULT NULL,
-  `quantity6` int(11) DEFAULT NULL,
-  `item7` int(11) DEFAULT NULL,
-  `quantity7` int(11) DEFAULT NULL,
-  `item8` int(11) DEFAULT NULL,
-  `quantity8` int(11) DEFAULT NULL,
-  `item9` int(11) DEFAULT NULL,
-  `quantity9` int(11) DEFAULT NULL,
-  `item10` int(11) DEFAULT NULL,
-  `quantity10` int(11) DEFAULT NULL,
-  `item11` int(11) DEFAULT NULL,
-  `quantity11` int(11) DEFAULT NULL,
-  `item12` int(11) DEFAULT NULL,
-  `quantity12` int(11) DEFAULT NULL,
-  `item13` int(11) DEFAULT NULL,
-  `quantity13` int(11) DEFAULT NULL,
-  `item14` int(11) DEFAULT NULL,
-  `quantity14` int(11) DEFAULT NULL,
-  `item15` int(11) DEFAULT NULL,
-  `quantity15` int(11) DEFAULT NULL,
-  `item16` int(11) DEFAULT NULL,
-  `quantity16` int(11) DEFAULT NULL,
-  `item17` int(11) DEFAULT NULL,
-  `quantity17` int(11) DEFAULT NULL,
-  `item18` int(11) DEFAULT NULL,
-  `quantity18` int(11) DEFAULT NULL,
-  `item19` int(11) DEFAULT NULL,
-  `quantity19` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `pokenet`.`pn_bag`;
+CREATE TABLE  `pokenet`.`pn_bag` (
+  `item` int(11) NOT NULL,
+  `member` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pn_bag`
+-- Dumping data for table `pokenet`.`pn_bag`
 --
 
 /*!40000 ALTER TABLE `pn_bag` DISABLE KEYS */;
+LOCK TABLES `pn_bag` WRITE;
+UNLOCK TABLES;
 /*!40000 ALTER TABLE `pn_bag` ENABLE KEYS */;
 
 
 --
--- Definition of table `pn_box`
+-- Definition of table `pokenet`.`pn_box`
 --
 
-DROP TABLE IF EXISTS `pn_box`;
-CREATE TABLE `pn_box` (
+DROP TABLE IF EXISTS `pokenet`.`pn_box`;
+CREATE TABLE  `pokenet`.`pn_box` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member` int(11) DEFAULT NULL,
   `pokemon0` int(11) DEFAULT NULL,
@@ -122,19 +84,21 @@ CREATE TABLE `pn_box` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pn_box`
+-- Dumping data for table `pokenet`.`pn_box`
 --
 
 /*!40000 ALTER TABLE `pn_box` DISABLE KEYS */;
+LOCK TABLES `pn_box` WRITE;
+UNLOCK TABLES;
 /*!40000 ALTER TABLE `pn_box` ENABLE KEYS */;
 
 
 --
--- Definition of table `pn_members`
+-- Definition of table `pokenet`.`pn_members`
 --
 
-DROP TABLE IF EXISTS `pn_members`;
-CREATE TABLE `pn_members` (
+DROP TABLE IF EXISTS `pokenet`.`pn_members`;
+CREATE TABLE  `pokenet`.`pn_members` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(12) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
@@ -169,19 +133,21 @@ CREATE TABLE `pn_members` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pn_members`
+-- Dumping data for table `pokenet`.`pn_members`
 --
 
 /*!40000 ALTER TABLE `pn_members` DISABLE KEYS */;
+LOCK TABLES `pn_members` WRITE;
+UNLOCK TABLES;
 /*!40000 ALTER TABLE `pn_members` ENABLE KEYS */;
 
 
 --
--- Definition of table `pn_mypokes`
+-- Definition of table `pokenet`.`pn_mypokes`
 --
 
-DROP TABLE IF EXISTS `pn_mypokes`;
-CREATE TABLE `pn_mypokes` (
+DROP TABLE IF EXISTS `pokenet`.`pn_mypokes`;
+CREATE TABLE  `pokenet`.`pn_mypokes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member` int(11) DEFAULT NULL,
   `party` int(11) DEFAULT NULL,
@@ -198,19 +164,21 @@ CREATE TABLE `pn_mypokes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pn_mypokes`
+-- Dumping data for table `pokenet`.`pn_mypokes`
 --
 
 /*!40000 ALTER TABLE `pn_mypokes` DISABLE KEYS */;
+LOCK TABLES `pn_mypokes` WRITE;
+UNLOCK TABLES;
 /*!40000 ALTER TABLE `pn_mypokes` ENABLE KEYS */;
 
 
 --
--- Definition of table `pn_party`
+-- Definition of table `pokenet`.`pn_party`
 --
 
-DROP TABLE IF EXISTS `pn_party`;
-CREATE TABLE `pn_party` (
+DROP TABLE IF EXISTS `pokenet`.`pn_party`;
+CREATE TABLE  `pokenet`.`pn_party` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member` int(11) DEFAULT NULL,
   `pokemon0` int(11) DEFAULT NULL,
@@ -223,19 +191,21 @@ CREATE TABLE `pn_party` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pn_party`
+-- Dumping data for table `pokenet`.`pn_party`
 --
 
 /*!40000 ALTER TABLE `pn_party` DISABLE KEYS */;
+LOCK TABLES `pn_party` WRITE;
+UNLOCK TABLES;
 /*!40000 ALTER TABLE `pn_party` ENABLE KEYS */;
 
 
 --
--- Definition of table `pn_pokemon`
+-- Definition of table `pokenet`.`pn_pokemon`
 --
 
-DROP TABLE IF EXISTS `pn_pokemon`;
-CREATE TABLE `pn_pokemon` (
+DROP TABLE IF EXISTS `pokenet`.`pn_pokemon`;
+CREATE TABLE  `pokenet`.`pn_pokemon` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(24) DEFAULT NULL,
   `speciesName` varchar(32) DEFAULT NULL,
@@ -290,10 +260,12 @@ CREATE TABLE `pn_pokemon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pn_pokemon`
+-- Dumping data for table `pokenet`.`pn_pokemon`
 --
 
 /*!40000 ALTER TABLE `pn_pokemon` DISABLE KEYS */;
+LOCK TABLES `pn_pokemon` WRITE;
+UNLOCK TABLES;
 /*!40000 ALTER TABLE `pn_pokemon` ENABLE KEYS */;
 
 
