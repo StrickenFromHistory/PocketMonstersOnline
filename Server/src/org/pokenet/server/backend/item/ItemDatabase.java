@@ -64,11 +64,12 @@ public class ItemDatabase {
 	 */
 	public void reinitialise() {
 		Serializer serializer = new Persister();
-		File source = new File("./res/items.xml");
+		File source = new File("res/items.xml");
 		try {
 			m_instance = serializer.read(ItemDatabase.class, source);
 			System.out.println("INFO: Items database loaded.");
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.err.println("ERROR: Item database could not be loaded.");
 		}
 	}
