@@ -262,6 +262,11 @@ public class BattleManager {
 	}
 	
 	public void removeMoveLearning() {
+		try {
+			GameClient.getInstance().getUi().getNPCSpeech().advance();
+		} catch (Exception e) { 
+			GameClient.getInstance().getUi().nullSpeechFrame();
+		}
 		GameClient.getInstance().getDisplay().remove(m_moveLearning);
 	}
 }

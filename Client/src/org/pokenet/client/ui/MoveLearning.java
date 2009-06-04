@@ -13,15 +13,15 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.base.BattleButtonFactory;
 import org.pokenet.client.ui.base.ConfirmationDialog;
 
 /**
  * Handles move learning and evolution
+ * 
  * @author ZombieBear
- *
+ * 
  */
 public class MoveLearning extends Frame {
 	private Button move1, move2, move3, move4;
@@ -38,6 +38,7 @@ public class MoveLearning extends Frame {
 
 	/**
 	 * Default Constructor
+	 * 
 	 * @param pokeIndex
 	 * @param move
 	 * @param isMoveLearning
@@ -52,6 +53,7 @@ public class MoveLearning extends Frame {
 
 	/**
 	 * Starts the GUI
+	 * 
 	 * @param isMoveLearning
 	 */
 	public void initGUI() {
@@ -67,151 +69,159 @@ public class MoveLearning extends Frame {
 		m_bg.setLocation(0, 142);
 		getContentPane().add(m_bg);
 
-			m_movePane = new Container();
-			m_movePane.setBackground(new Color(0, 0, 0, 0));
-			m_movePane.setBounds(2, 140, 257, 201);
-			
-			move1 = BattleButtonFactory.getButton("");
-			move2 = BattleButtonFactory.getButton("");
-			move3 = BattleButtonFactory.getButton("");
-			move4 = BattleButtonFactory.getButton("");
+		m_movePane = new Container();
+		m_movePane.setBackground(new Color(0, 0, 0, 0));
+		m_movePane.setBounds(2, 140, 257, 201);
 
-			setResizable(false);
-			getTitleBar().setVisible(false);
+		move1 = BattleButtonFactory.getButton("");
+		move2 = BattleButtonFactory.getButton("");
+		move3 = BattleButtonFactory.getButton("");
+		move4 = BattleButtonFactory.getButton("");
 
-			// start attackPane
-			m_movePane.add(move1);
-			move1.setLocation(7, 10);
-			move1.setSize(116, 51);
-			move1.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
-					replaceMove(0);
-				}
-			});
-				pp1 = new Label();
-				pp1.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-				pp1.setBounds(7, 40, 110, 20);
-				m_movePane.add(pp1);
+		setResizable(false);
+		getTitleBar().setVisible(false);
 
+		// start attackPane
+		m_movePane.add(move1);
+		move1.setLocation(7, 10);
+		move1.setSize(116, 51);
+		move1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				replaceMove(0);
+			}
+		});
+		pp1 = new Label();
+		pp1.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
+		pp1.setBounds(7, 40, 110, 20);
+		m_movePane.add(pp1);
 
-			m_movePane.add(move2);
-			move2.setLocation(130, 10);
-			move2.setSize(116, 51);
-			move2.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
-					replaceMove(1);
-				}
-			});
-				pp2 = new Label();
-				pp2.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-				pp2.setBounds(130, 40, 110, 20);
-				m_movePane.add(pp2);
+		m_movePane.add(move2);
+		move2.setLocation(130, 10);
+		move2.setSize(116, 51);
+		move2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				replaceMove(1);
+			}
+		});
+		pp2 = new Label();
+		pp2.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
+		pp2.setBounds(130, 40, 110, 20);
+		m_movePane.add(pp2);
 
+		m_movePane.add(move3);
+		move3.setLocation(7, 65);
+		move3.setSize(116, 51);
+		move3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				replaceMove(2);
+			}
+		});
+		pp3 = new Label();
+		pp3.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
+		pp3.setBounds(7, 95, 110, 20);
+		m_movePane.add(pp3);
 
-			m_movePane.add(move3);
-			move3.setLocation(7, 65);
-			move3.setSize(116, 51);
-			move3.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
-					replaceMove(2);
-				}
-			});
-				pp3 = new Label();
-				pp3.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-				pp3.setBounds(7, 95, 110, 20);
-				m_movePane.add(pp3);
-			
+		m_movePane.add(move4);
+		move4.setLocation(130, 65);
+		move4.setSize(116, 51);
+		move4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				replaceMove(3);
+			}
+		});
+		pp4 = new Label();
+		pp4.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
+		pp4.setBounds(130, 95, 110, 20);
+		m_movePane.add(pp4);
 
-			m_movePane.add(move4);
-			move4.setLocation(130, 65);
-			move4.setSize(116, 51);
-			move4.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
-					replaceMove(3);
-				}
-			});
-			pp4 = new Label();
-			pp4.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-			pp4.setBounds(130, 95, 110, 20);
-			m_movePane.add(pp4);
-			
-			m_moveButtons.add(move1);
-			m_moveButtons.add(move2);
-			m_moveButtons.add(move3);
-			m_moveButtons.add(move4);
-			
-			m_pp.add(pp1);
-			m_pp.add(pp2);
-			m_pp.add(pp3);
-			m_pp.add(pp4);
-			
-			m_cancel = new Button("Cancel");
-			// TODO: REAL HEIGHT
-			m_cancel.setBounds(3, 122, 195, 80);
+		m_moveButtons.add(move1);
+		m_moveButtons.add(move2);
+		m_moveButtons.add(move3);
+		m_moveButtons.add(move4);
+
+		m_pp.add(pp1);
+		m_pp.add(pp2);
+		m_pp.add(pp3);
+		m_pp.add(pp4);
+
+		m_cancel = new Button("Cancel");
+		// TODO: REAL HEIGHT
+		m_cancel.setBounds(3, 122, 246, 77);
+		m_cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				GameClient.getInstance().getUi().getBattleManager().removeMoveLearning();
+			}
+		});
+		m_movePane.add(m_cancel);
+		
+		getContentPane().add(m_movePane);
 	}
 
 	/**
 	 * Handles move replacement
+	 * 
 	 * @param i
 	 */
 	private void replaceMove(int i) {
 		final int j = i;
-		if (m_moveButtons.get(i).getText().equals("")){
-			GameClient.getInstance().getPacketGenerator().write(
-					"Pm" + m_pokeIndex + i + m_move);
-			GameClient.getInstance().getUi().getBattleManager().removeMoveLearning();
-		} else{
-			m_replace = new ConfirmationDialog("Are you sure you want to foreget " 
-					+ m_moveButtons.get(i).getText() + " to learn " + m_move + "?");
-			ActionListener yes = new ActionListener() {
-				public void actionPerformed(ActionEvent e){
-					GameClient.getInstance().getPacketGenerator().write(
-							"Pm" + m_pokeIndex + j + m_move);
-					GameClient.getInstance().getDisplay().remove(m_replace);
-					m_replace = null;
-					GameClient.getInstance().getUi().getBattleManager().removeMoveLearning();
-				}
-			};
-			ActionListener no = new ActionListener() {
-				public void actionPerformed(ActionEvent e){
-					GameClient.getInstance().getDisplay().remove(m_replace);
-					m_replace = null;
-				}
-			};
-			m_replace.addYesListener(yes);
-			m_replace.addNoListener(no);
+		if (!GameClient.getInstance().getDisplay().containsChild(m_replace)) {
+			if (m_moveButtons.get(i).getText().equals("")) {
+				GameClient.getInstance().getPacketGenerator().write(
+						"Pm" + m_pokeIndex + i + m_move);
+				GameClient.getInstance().getUi().getBattleManager()
+				.removeMoveLearning();
+			} else {
+				m_replace = new ConfirmationDialog(
+						"Are you sure you want to foreget "
+						+ m_moveButtons.get(i).getText() + " to learn "
+						+ m_move + "?");
+				ActionListener yes = new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						GameClient.getInstance().getPacketGenerator().write(
+								"Pm" + m_pokeIndex + j + m_move);
+						GameClient.getInstance().getDisplay().remove(m_replace);
+						m_replace = null;
+						GameClient.getInstance().getUi().getBattleManager()
+						.removeMoveLearning();
+					}
+				};
+				ActionListener no = new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						GameClient.getInstance().getDisplay().remove(m_replace);
+						m_replace = null;
+					}
+				};
+				m_replace.addYesListener(yes);
+				m_replace.addNoListener(no);
+			}
 		}
 	}
-	
+
 	public void learnMove(int pokeIndex, String move) {
-		setTitle(GameClient.getInstance().getOurPlayer().getPokemon()[pokeIndex].getName()
-				+ " wnats to learn " + move);
-		
-		move1.setText(GameClient.getInstance().getOurPlayer()
-				.getPokemon()[m_pokeIndex].getMoves()[0]);
-		move2.setText(GameClient.getInstance().getOurPlayer()
-				.getPokemon()[m_pokeIndex].getMoves()[1]);
-		move3.setText(GameClient.getInstance().getOurPlayer()
-				.getPokemon()[m_pokeIndex].getMoves()[2]);
-		move4.setText(GameClient.getInstance().getOurPlayer()
-				.getPokemon()[m_pokeIndex].getMoves()[3]);
-		
+		GameClient.getInstance().getUi().talkToNPC(GameClient.getInstance().getOurPlayer()
+				.getPokemon()[pokeIndex].getName() + " wants to learn " + move);
+
+
+		move1.setText(GameClient.getInstance().getOurPlayer().getPokemon()[m_pokeIndex].getMoves()[0]);
+		move2.setText(GameClient.getInstance().getOurPlayer().getPokemon()[m_pokeIndex].getMoves()[1]);
+		move3.setText(GameClient.getInstance().getOurPlayer().getPokemon()[m_pokeIndex].getMoves()[2]);
+		move4.setText(GameClient.getInstance().getOurPlayer().getPokemon()[m_pokeIndex].getMoves()[3]);
+
 		for (int i = 0; i < 4; i++) {
-			if (m_moveButtons.get(i).getText().equals("")){
+			if (m_moveButtons.get(i).getText().equals("")) {
 				m_pp.get(i).setVisible(false);
-			}
-			else {
-				m_pp.get(i).setText(GameClient.getInstance().getOurPlayer().getPokemon()
-						[pokeIndex].getMovecurPP()[i] + "/" + GameClient.getInstance().getOurPlayer()
-						.getPokemon()[pokeIndex].getMovemaxPP()[i]);
+			} else {
+				m_pp.get(i).setText(GameClient.getInstance().getOurPlayer().getPokemon()[pokeIndex].
+						getMovecurPP()[i] + "/" + GameClient.getInstance().getOurPlayer().getPokemon()
+						[pokeIndex].getMovemaxPP()[i]);
 				m_pp.get(i).setVisible(true);
 			}
 		}
-		
+
 		m_movePane.setVisible(true);
 		m_canvas.draw(pokeIndex);
 	}
-	
+
 	/**
 	 * Centers the frame
 	 */
@@ -220,38 +230,42 @@ public class MoveLearning extends Frame {
 		int width = (int) GameClient.getInstance().getDisplay().getWidth();
 		int x = (width / 2) - 130;
 		int y = (height / 2) - 238;
-		this.setBounds(x, y, 259, 475);
+		this.setLocation(x, y);
 	}
 }
 
 /**
  * Canvas for Move Learning screen
+ * 
  * @author ZombieBear
- *
+ * 
  */
-class MoveLearnCanvas extends Container{
+class MoveLearnCanvas extends Container {
 	Label bg = new Label();
 	Label poke = new Label();
-	
-	public MoveLearnCanvas(){
+
+	public MoveLearnCanvas() {
 		setSize(257, 144);
 		setVisible(true);
-		LoadingList.setDeferredLoading(true);
+		bg.setBackground(Color.black);
+		bg.setOpaque(true);
+		// Background?
+		/*LoadingList.setDeferredLoading(true);
 		try {
 			bg = new Label(new Image("/res/ui/DP_darkgrass.png"));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
-		LoadingList.setDeferredLoading(false);
+		LoadingList.setDeferredLoading(false);*/
 		bg.setBounds(0, 0, 256, 144);
+		this.add(bg);
+		setY(1);
 	}
-	
+
 	public void draw(int pokeIndex) {
-		float y = GameClient.getInstance().getUi().getBattleManager().getMoveLearning().getY() + 20;
-		float x = GameClient.getInstance().getUi().getBattleManager().getMoveLearning().getX() + 1;
-		setLocation(x, y);
 		poke = new Label(GameClient.getInstance().getOurPlayer().getPokemon()[pokeIndex].getSprite());
 		poke.setSize(80, 80);
-		add(poke);
+		poke.setLocation(getWidth() / 2 - 40, getHeight() / 2 - 40);
+		this.add(poke);
 	}
 }

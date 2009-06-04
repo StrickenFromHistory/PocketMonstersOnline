@@ -92,7 +92,7 @@ public class BattleWindow extends Frame {
 		btnBag.setEnabled(false);
 		btnRun.setEnabled(false);
 
-		// cancel.setVisible(false);
+		cancel.setVisible(false);
 	}
 
 	/**
