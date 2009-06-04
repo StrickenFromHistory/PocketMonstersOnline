@@ -105,7 +105,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 					break;
 				case 'e':
 					//Player is allowing evolution
-					pokemonIndex = Integer.parseInt(message.charAt(2) + "");
+					pokemonIndex = Integer.parseInt(String.valueOf(message.charAt(2)));
 					if(p.getParty()[pokemonIndex] != null) {
 						p.getParty()[pokemonIndex].evolutionResponse(message.charAt(3) == '1', p);
 					}
