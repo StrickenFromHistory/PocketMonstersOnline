@@ -26,7 +26,6 @@ import org.pokenet.client.ui.base.BattleButtonFactory;
 public class BattleWindow extends Frame {
 	static final long serialVersionUID = -4351471892179339349L;
 
-	public Container confirmPane;
 	public Container endPane;
 	public Container attackPane;
 	public Container pokesContainer;
@@ -54,9 +53,6 @@ public class BattleWindow extends Frame {
 	public Button btnPoke;
 	public Button btnBag;
 	public Button btnRun;
-	public Label shouldReplace;
-	public Button yes;
-	public Button no;
 	public Button cancel;
 	public Button close;
 	private boolean isWild;
@@ -79,6 +75,59 @@ public class BattleWindow extends Frame {
 	}
 
 	/**
+	 * Disables moves
+	 */
+	public void disableMoves() {
+		move1.setEnabled(false);
+		move2.setEnabled(false);
+		move3.setEnabled(false);
+		move4.setEnabled(false);
+
+		pp1.setEnabled(false);
+		pp2.setEnabled(false);
+		pp3.setEnabled(false);
+		pp4.setEnabled(false);
+
+		btnPoke.setEnabled(false);
+		btnBag.setEnabled(false);
+		btnRun.setEnabled(false);
+
+		// cancel.setVisible(false);
+	}
+
+	/**
+	 * Enables moves
+	 */
+	public void enableMoves() {
+		btnPoke.setEnabled(true);
+		btnBag.setEnabled(true);
+		if (!isWild) {
+			btnRun.setEnabled(false);
+		} else {
+			btnRun.setEnabled(true);
+		}
+
+		pokeCancelBtn.setEnabled(true);
+		if (!move1.getText().equals("")) {
+			move1.setEnabled(true);
+			pp1.setEnabled(true);
+		}
+		if (!move2.getText().equals("")) {
+			move2.setEnabled(true);
+			pp2.setEnabled(true);
+		}
+		if (!move3.getText().equals("")) {
+			move3.setEnabled(true);
+			pp3.setEnabled(true);
+		}
+		if (!move4.getText().equals("")) {
+			move4.setEnabled(true);
+			pp4.setEnabled(true);
+		}
+		cancel.setVisible(false);
+	}
+
+	/**
 	 * Initializes the interface
 	 */
 	private void initComponents() {
@@ -90,7 +139,7 @@ public class BattleWindow extends Frame {
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
-		bg.setSize(256,203);
+		bg.setSize(256, 203);
 		bg.setLocation(0, 142);
 		getContentPane().add(bg);
 
@@ -101,32 +150,6 @@ public class BattleWindow extends Frame {
 		move2 = BattleButtonFactory.getButton("");
 		move3 = BattleButtonFactory.getButton("");
 		move4 = BattleButtonFactory.getButton("");
-
-		confirmPane = new Container();
-		confirmPane.setBackground(new Color(0, 0, 0, 0));
-		shouldReplace = new Label("Are you sure you want to replace this move?");
-		shouldReplace.pack();
-		yes = BattleButtonFactory.getButton("Replace");
-		yes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//TODO: Add code
-			}
-		});
-		yes.setSize(82, 48);
-		yes.setLocation(0, 30);
-		no = BattleButtonFactory.getButton("Don't Replace");
-		no.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//TODO: Add code
-			}
-		});
-		no.setSize(82, 48);
-		no.setLocation(0, 83);
-		confirmPane.add(shouldReplace);
-		confirmPane.add(yes);
-		confirmPane.add(no);
-		confirmPane.setVisible(false);
-		getContentPane().add(confirmPane);
 
 		setResizable(false);
 
@@ -190,12 +213,12 @@ public class BattleWindow extends Frame {
 		m_moveButtons.add(move2);
 		m_moveButtons.add(move3);
 		m_moveButtons.add(move4);
-		
+
 		m_ppLabels.add(pp1);
 		m_ppLabels.add(pp2);
 		m_ppLabels.add(pp3);
 		m_ppLabels.add(pp4);
-		
+
 		btnRun = BattleButtonFactory.getSmallButton("Run");
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -203,7 +226,7 @@ public class BattleWindow extends Frame {
 			}
 		});
 		attackPane.add(btnRun);
-		
+
 		btnRun.setBounds(97, 148, 60, 47);
 
 		btnBag = BattleButtonFactory.getSmallButton("Bag");
@@ -213,7 +236,7 @@ public class BattleWindow extends Frame {
 
 		btnBag.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				//TODO: Show bag
+				// TODO: Show bag
 			}
 		});
 
@@ -239,8 +262,7 @@ public class BattleWindow extends Frame {
 
 			}
 		});
-		
-		confirmPane.setBounds(2, 140, 257, 201);
+
 		attackPane.setBounds(2, 140, 257, 201);
 		getContentPane().add(attackPane);
 		// end attackPane
@@ -309,7 +331,7 @@ public class BattleWindow extends Frame {
 				switchPoke(5);
 			}
 		});
-		
+
 		m_pokeButtons.add(pokeBtn1);
 		m_pokeButtons.add(pokeBtn2);
 		m_pokeButtons.add(pokeBtn3);
@@ -358,7 +380,7 @@ public class BattleWindow extends Frame {
 		m_pokeInfo.add(info4);
 		m_pokeInfo.add(info5);
 		m_pokeInfo.add(info6);
-		
+
 		pokeCancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				showAttack();
@@ -366,8 +388,8 @@ public class BattleWindow extends Frame {
 		});
 		pokesContainer.setVisible(false);
 		getContentPane().add(pokesContainer);
-		//End pokesContainer
-		
+		// End pokesContainer
+
 		endPane = new Container();
 		endPane.setBackground(new Color(0, 0, 0, 0));
 		getContentPane().add(endPane);
@@ -388,6 +410,13 @@ public class BattleWindow extends Frame {
 	}
 
 	/**
+	 * Sends the run packer
+	 */
+	private void run() {
+		GameClient.getInstance().getPacketGenerator().write("br");
+	}
+
+	/**
 	 * Centers the battle window
 	 */
 	public void setCenter() {
@@ -399,56 +428,27 @@ public class BattleWindow extends Frame {
 	}
 
 	/**
-	 * Disables moves
+	 * Sets the move learning interface
 	 */
-	public void disableMoves() {
-		move1.setEnabled(false);
-		move2.setEnabled(false);
-		move3.setEnabled(false);
-		move4.setEnabled(false);
+	public void setUIToLearn(String moveName) {
+		showAttack();
 
-		pp1.setEnabled(false);
-		pp2.setEnabled(false);
-		pp3.setEnabled(false);
-		pp4.setEnabled(false);
-
-		btnPoke.setEnabled(false);
-		btnBag.setEnabled(false);
-		btnRun.setEnabled(false);
-
-		//cancel.setVisible(false);
+		move1.setEnabled(true);
+		move2.setEnabled(true);
+		move3.setEnabled(true);
+		move4.setEnabled(true);
+		cancel.setVisible(true);
+		cancel.setEnabled(true);
 	}
 
 	/**
-	 * Enables moves
+	 * Sets whether the battle is a wild pokemon
+	 * 
+	 * @param isWild
 	 */
-	public void enableMoves() {
-		btnPoke.setEnabled(true);
-		btnBag.setEnabled(true);
-		if (!isWild) {
-			btnRun.setEnabled(false);
-		} else {
-			btnRun.setEnabled(true);
-		}
-
-		pokeCancelBtn.setEnabled(true);
-		if (!move1.getText().equals("")) {
-			move1.setEnabled(true);
-			pp1.setEnabled(true);
-		}
-		if (!move2.getText().equals("")) {
-			move2.setEnabled(true);
-			pp2.setEnabled(true);
-		}
-		if (!move3.getText().equals("")) {
-			move3.setEnabled(true);
-			pp3.setEnabled(true);
-		}
-		if (!move4.getText().equals("")) {
-			move4.setEnabled(true);
-			pp4.setEnabled(true);
-		}
-		cancel.setVisible(false);
+	public void setWild(boolean isWild) {
+		this.isWild = isWild;
+		btnRun.setEnabled(isWild);
 	}
 
 	/**
@@ -487,50 +487,22 @@ public class BattleWindow extends Frame {
 	}
 
 	/**
-	 * Sets the move learning interface
+	 * Sends the pokemon switch packet
+	 * 
+	 * @param i
 	 */
-	public void setUIToLearn(String moveName) {
-		showAttack();
-
-		move1.setEnabled(true);
-		move2.setEnabled(true);
-		move3.setEnabled(true);
-		move4.setEnabled(true);
-		cancel.setVisible(true);
-		cancel.setEnabled(true);
+	private void switchPoke(int i) {
+		GameClient.getInstance().getPacketGenerator().write("bs" + i);
 	}
-	
+
 	/**
 	 * Sends a move packet
+	 * 
 	 * @param i
 	 */
-	private void useMove(int i){
-        disableMoves();
-        GameClient.getInstance().getPacketGenerator().write("bm" + i);
-        //GameClient.getInstance().getUi().getBattleManager().getTimeLine().getBattleSpeech().advance();
-	}
-	
-	/**
-	 * Sends the run packer
-	 */
-	private void run(){
-        GameClient.getInstance().getPacketGenerator().write("br");
-	}
-	
-	/**
-	 * Sends the pokemon switch packet
-	 * @param i
-	 */
-	private void switchPoke(int i){
-        GameClient.getInstance().getPacketGenerator().write("bs" + i);
-	}
-	
-	/**
-	 * Sets whether the battle is a wild pokemon
-	 * @param isWild
-	 */
-	public void setWild(boolean isWild){
-		this.isWild = isWild;
-		btnRun.setEnabled(isWild);
+	private void useMove(int i) {
+		disableMoves();
+		GameClient.getInstance().getPacketGenerator().write("bm" + i);
+		// GameClient.getInstance().getUi().getBattleManager().getTimeLine().getBattleSpeech().advance();
 	}
 }

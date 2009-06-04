@@ -5,6 +5,7 @@ import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.OurPokemon;
 import org.pokenet.client.backend.entity.Pokemon;
 import org.pokenet.client.ui.BattleWindow;
+import org.pokenet.client.ui.MoveLearning;
 
 /**
  * Handles battle events and controls the battle window
@@ -23,6 +24,7 @@ public class BattleManager {
 	private Pokemon m_curEnemyPoke;
 	private String m_enemy;
 	private boolean m_isWild;
+	private MoveLearning m_moveLearning;
 	
 	/**
 	 * Default Constructor
@@ -30,6 +32,7 @@ public class BattleManager {
 	public BattleManager() {
 		m_battle = new BattleWindow("Battle!");
 		m_timeLine = new BattleTimeLine();
+		m_moveLearning = new MoveLearning();
 	}
 
 	/**
@@ -243,5 +246,22 @@ public class BattleManager {
 	 */
 	public boolean isWild() {
 		return m_isWild;
+	}
+	
+	/**
+	 * Returns the Move Learning window
+	 * @return the Move Learning window
+	 */
+	public MoveLearning getMoveLearning() {
+		return m_moveLearning;
+	}
+	
+	public void learnMove(int pokeIndex, String move){
+		m_moveLearning.learnMove(pokeIndex, move);
+		GameClient.getInstance().getDisplay().add(m_moveLearning);
+	}
+	
+	public void removeMoveLearning() {
+		GameClient.getInstance().getDisplay().remove(m_moveLearning);
 	}
 }
