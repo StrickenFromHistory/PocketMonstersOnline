@@ -325,7 +325,7 @@ public class BattleCanvas extends Container {
 	 * @param status
 	 */
 	public void setStatus(int poke, String status){
-		if (poke != 0){
+		if (poke == 0){
 			if (status != "normal") {
 				playerStatus.setImage(m_statusIcons.get(status));
 			} else {
