@@ -94,8 +94,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 				switch(message.charAt(1)) {
 				case 'm':
 					//Player is allowing move to be learned
-					pokemonIndex = Integer.parseInt(message.charAt(2) + "");
-					int moveIndex = Integer.parseInt(message.charAt(3) + "");
+					pokemonIndex = Integer.parseInt(String.valueOf(message.charAt(2)));
+					int moveIndex = Integer.parseInt(String.valueOf(message.charAt(3)));
 					String move = message.substring(4);
 					if(p.getParty()[pokemonIndex] != null) {
 						if(p.getParty()[pokemonIndex].getMovesLearning().contains(move)) {
