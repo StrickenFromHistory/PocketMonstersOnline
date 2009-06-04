@@ -7,7 +7,7 @@ package org.pokenet.server.backend.entity;
  */
 public class Bag {
 	private BagItem[] m_items;
-	private int m_databaseId;
+	private int m_memberId;
 	
 	/**
 	 * Default constructor
@@ -76,18 +76,18 @@ public class Bag {
 	}
 	
 	/**
-	 * Sets the id of this bag in the database
+	 * Sets the member id of this bag
 	 * @param id
 	 */
-	public void setDatabaseId(int id) {
-		m_databaseId = id;
+	public void setMemberId(int id) {
+		m_memberId = id;
 	}
 	
 	/**
-	 * Returns this bag's database id
+	 * Returns this bag's member id
 	 * @return
 	 */
-	public int getDatabaseId() {
-		return m_databaseId;
+	public int getMemberId() {
+		return m_memberId;
 	}
 }

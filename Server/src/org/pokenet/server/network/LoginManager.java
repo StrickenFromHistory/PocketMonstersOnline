@@ -231,10 +231,9 @@ public class LoginManager implements Runnable {
 		//Send their Pokemon information to them
 		p.updateClientParty();
 		//Send bag to them
-		for(int i = 0; i < p.getBag().getItems().length; i++) {
-			
-		}
+//		p.updateClientBag();
 		//Send their friend list to them
+//		p.updateClientFriends();
 		//Send badges
 		p.updateClientBadges();
 	}
@@ -310,7 +309,7 @@ public class LoginManager implements Runnable {
 			}
 			p.setBoxes(boxes);
 			//Attach bag
-			p.setBag(getBagObject(m_database.query("SELECT * FROM pn_bag WHERE id='" + result.getInt("bag") + "'")));
+			p.setBag(getBagObject(m_database.query("SELECT * FROM pn_bag WHERE member='" + result.getInt("id") + "'")));
 			//Attach badges
 			p.generateBadges(result.getString("badges"));
 			return p;
@@ -434,10 +433,8 @@ public class LoginManager implements Runnable {
 		try {
 			data.first();
 			Bag b = new Bag();
-			b.setDatabaseId(data.getInt("id"));
-			for(int i = 0; i < 20; i++) {
-				if(data.getInt("item" + i) > 0)
-					b.addItem(data.getInt("item" + i), data.getInt("quantity" + i));
+			while(data.next()){
+				b.addItem(data.getInt("item"), data.getInt("quantity"));
 			}
 			return b;
 		} catch (Exception e) {
