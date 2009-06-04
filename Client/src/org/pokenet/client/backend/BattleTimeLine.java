@@ -88,7 +88,7 @@ public class BattleTimeLine {
 	 */
 	public void informExperienceGained(String[] data){
 		m_pokeName = data[0];
-		m_exp = Integer.parseInt(data[1]);
+		m_exp = (int)Double.parseDouble(data[1]);
 		addSpeech(m_translator.get(3));
 	}
 	
