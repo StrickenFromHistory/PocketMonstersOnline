@@ -98,16 +98,7 @@ public class RegistrationManager implements Runnable {
 			data = m_database.query("SELECT * FROM pn_members WHERE username='" + MySqlManager.parseSQL(info[0]) + "'");
 			data.first();
 			int playerId = data.getInt("id");
-			/*
-			 * Create the player's bag
-			 */
-			String bagBuilder = "";
-			for(int i = 0; i < 39; i++)
-				bagBuilder = bagBuilder + "'-1', ";
-			m_database.query("INSERT INTO pn_bag (member) VALUE ('" + playerId + "')");
-			data = m_database.query("SELECT * FROM pn_bag WHERE member='" + playerId + "'");
-			data.first();
-			m_database.query("UPDATE pn_members SET bag='" + data.getInt("id") + "' WHERE id='" + playerId + "'");
+			//Player's bag is now created "on the fly" as soon as player gets his first item. 
 			/*
 			 * Create the players party
 			 */
