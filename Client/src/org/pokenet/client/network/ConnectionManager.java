@@ -236,6 +236,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 				 * The 3rd character is the index of the pokemon in
 				 * the player's party and the rest is the move name
 				 */
+				GameClient.getInstance().getUi().getBattleManager().learnMove(Integer.parseInt(String.valueOf(
+						message.charAt(2))), message.substring(3));
 				break;
 			case 'e':
 				//EXP gain
@@ -255,7 +257,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'l':
 				//Level change
-				m_game.getOurPlayer().getPokemon()[Integer.parseInt(message.charAt(2) + "")].setLevel(Integer.parseInt(message.substring(3)));
+				String[] levelData = message.substring(2).split(",");
+				m_game.getOurPlayer().getPokemon()[Integer.parseInt(levelData[0])].setLevel(
+						Integer.parseInt(levelData[1]));
 				m_game.getUi().update();
 				break;
 			}
