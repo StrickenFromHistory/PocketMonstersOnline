@@ -122,6 +122,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 					}
 					break;
 				}
+				break;
 			case 's':
 				//Party swapping
 				p.swapPokemon(Integer.parseInt(message.substring(1, message.indexOf(','))), 
