@@ -232,6 +232,8 @@ public class LoginManager implements Runnable {
 		p.updateClientParty();
 		//Send bag to them
 //		p.updateClientBag();
+		//Send money
+		p.updateClientMoney();
 		//Send their friend list to them
 //		p.updateClientFriends();
 		//Send badges
