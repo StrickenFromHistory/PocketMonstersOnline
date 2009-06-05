@@ -311,7 +311,8 @@ public class LoginManager implements Runnable {
 			}
 			p.setBoxes(boxes);
 			//Attach bag
-			p.setBag(getBagObject(m_database.query("SELECT * FROM pn_bag WHERE member='" + result.getInt("id") + "'")));
+			p.setBag(getBagObject(m_database.query("SELECT * FROM pn_bag WHERE member='" + result.getInt("id") + "'"),p.getId()));
+
 			//Attach badges
 			p.generateBadges(result.getString("badges"));
 			return p;
@@ -431,10 +432,9 @@ public class LoginManager implements Runnable {
 	 * @param data
 	 * @return
 	 */
-	private Bag getBagObject(ResultSet data) {
+	private Bag getBagObject(ResultSet data, int memberid) {
 		try {
-			data.first();
-			Bag b = new Bag();
+			Bag b = new Bag(memberid);
 			while(data.next()){
 				b.addItem(data.getInt("item"), data.getInt("quantity"));
 			}

@@ -135,8 +135,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 					case 'b':
 						//Buy items. Sent as SbITEMID,QUANTITY
 						int id = Integer.parseInt(message.substring(2, message.indexOf(',')));
-						int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
-						p.buyItem(id, q);
+//						int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
+						p.buyItem(id,1);
 						break;
 					case 'f':
 						//Finished shopping

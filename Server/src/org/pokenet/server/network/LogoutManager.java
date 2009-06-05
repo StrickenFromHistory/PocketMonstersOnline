@@ -421,15 +421,15 @@ public class LogoutManager implements Runnable {
 		try {
 			//Destroy item data to prevent dupes. 
 			m_database.query("DELETE from pn_bag where member = '"+b.getMemberId()+"'");
-			for(int i = 0; i < b.getItems().length; i++) {
-				if(b.getItems()[i] != null) {
+			for(int i = 0; i < b.getItems().size(); i++) {
+				if(b.getItems().get(i) != null) {
 					/*
 					 * NOTE: Items are stored as values 1 - 999
 					 */
 					m_database.query("INSERT INTO pn_bag (member,item,quantity) VALUES ('" +
 							b.getMemberId()+"', '" + 
-							b.getItems()[i].getItemNumber()+"', '"+
-							b.getItems()[i].getQuantity()+"')");
+							b.getItems().get(i).getItemNumber()+"', '"+
+							b.getItems().get(i).getQuantity()+"')");
 				}
 			}
 			return true;

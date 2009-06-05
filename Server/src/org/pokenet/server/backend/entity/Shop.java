@@ -3,6 +3,8 @@ package org.pokenet.server.backend.entity;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.pokenet.server.backend.item.ItemDatabase;
+
 /**
  * Handles shops. Stored internally in npcs with a shop attribute.
  * @author shadowkanji
@@ -115,8 +117,8 @@ public class Shop implements Runnable {
 	 * @param itemName
 	 * @return
 	 */
-	public int getPriceForItem(String itemName) {
-		return m_prices.get(itemName.toUpperCase());
+	public int getPriceForItem(int itemid) {	
+		return ItemDatabase.getInstance().getItem(itemid).getPrice();
 	}
 	
 	/**
@@ -125,18 +127,20 @@ public class Shop implements Runnable {
 	 * @param quantity
 	 * @return
 	 */
-	public boolean buyItem(String itemName, int quantity) {
-		int stock = 0;
-		stock = m_stock.get(itemName.toUpperCase());
-		if(stock - quantity > 0) {
-			m_stock.put(itemName, (stock - quantity));
-			/*
-			 * Decrease delta by 15 seconds to restock the shop sooner
-			 */
-			m_delta = m_delta - 15000 >= 600000 ? m_delta - 15000 : 6000;
-			return true;
-		}
-		return false;
+	public boolean buyItem(int itemId, int quantity) {
+//		int stock = 0;
+//		stock = m_stock.get(itemName.toUpperCase());
+//		if(stock - quantity > 0) {
+//			m_stock.put(itemName, (stock - quantity));
+//			/*
+//			 * Decrease delta by 15 seconds to restock the shop sooner
+//			 */
+//			m_delta = m_delta - 15000 >= 600000 ? m_delta - 15000 : 6000;
+//			return true;
+//		}
+//		return false;
+		//TODO: Implement item stocks. 
+		return true;
 	}
 	
 	/**

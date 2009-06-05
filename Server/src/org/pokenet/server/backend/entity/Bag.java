@@ -1,19 +1,23 @@
 package org.pokenet.server.backend.entity;
 
+import java.util.ArrayList;
+
 /**
  * Represents a player's bag
  * @author shadowkanji
  *
  */
 public class Bag {
-	private BagItem[] m_items;
+	private ArrayList<BagItem> m_items;
 	private int m_memberId;
+	public static int m_bagsize = 30;//30 is the artificial bag size, right?
 	
 	/**
 	 * Default constructor
 	 */
-	public Bag() {
-		m_items = new BagItem[20];
+	public Bag(int memberid) {
+		m_memberId = memberid;
+		m_items = new ArrayList<BagItem>();
 	}
 	
 	/**
@@ -21,14 +25,11 @@ public class Bag {
 	 * @param id
 	 * @return
 	 */
-	public boolean hasSpace(int id) {
-		for(int i = 0; i < m_items.length; i++) {
-			if(m_items[i].getItemNumber() == id)
+	public boolean hasSpace(int itemid) {
+			if(m_items.size() < m_bagsize)
 				return true;
-			if(m_items[i] == null)
-				return true;
-		}
-		return false;
+			else
+				return false;
 	}
 	
 	/**
@@ -37,16 +38,29 @@ public class Bag {
 	 * @param quantity
 	 */
 	public boolean addItem(int itemNumber, int quantity) {
-		for(int i = 0; i < m_items.length; i++) {
-			if(m_items[i].getItemNumber() == itemNumber) {
-				m_items[i].setQuantity(m_items[i].getQuantity() + quantity);
+		int bagIndex = checkItem(itemNumber);
+		if(bagIndex != 0){
+			m_items.get(bagIndex).setQuantity(m_items.get(bagIndex).getQuantity()+quantity);
+			return true;
+		}else{
+			if(m_items.size()<30){
+				m_items.add(new BagItem(itemNumber,quantity));
 				return true;
-			} else if(m_items[i] == null) {
-				m_items[i] = new BagItem(itemNumber, quantity);
-				return true;
+			}else{
+				return false;
 			}
 		}
-		return false;
+			
+//		for(int i = 0; i < m_bagsize; i++) {
+//			if(m_items.get(i).getItemNumber() == itemNumber) {
+//				m_items.get(i).setQuantity(m_items.get(i).getQuantity() + quantity);
+//				return true;
+//			} else if(m_items.get(i) == null) {
+//				m_items.add(new BagItem(itemNumber, quantity));
+//				return true;
+//			}
+//		}
+//		return false;
 	}
 	
 	/**
@@ -56,12 +70,12 @@ public class Bag {
 	 * @return
 	 */
 	public boolean removeItem(int itemNumber, int quantity) {
-		for(int i = 0; i < m_items.length; i++) {
-			if(m_items[i].getItemNumber() == itemNumber) {
-				if(m_items[i].getQuantity() - quantity > 0)
-					m_items[i].setQuantity(m_items[i].getQuantity() - quantity);
+		for(int i = 0; i < m_items.size(); i++) {
+			if(m_items.get(i).getItemNumber() == itemNumber) {
+				if(m_items.get(i).getQuantity() - quantity > 0)
+					m_items.get(i).setQuantity(m_items.get(i).getQuantity() - quantity);
 				else
-					m_items[i] = null;
+					m_items.remove(i);
 				return true;
 			}
 		}
@@ -69,9 +83,25 @@ public class Bag {
 	}
 	
 	/**
+	 * Checks if item is in bag. Returns bagIndex if true, else returns 0. 
+	 * @param itemNumber
+	 * @param quantity
+	 */
+	public int checkItem(int itemNumber) {
+		int bagIndex = 0;
+		for(int i = 0; i < getItems().size(); i++) {
+			if(m_items.get(i).getItemNumber() == itemNumber){
+				bagIndex = i;
+				i = getItems().size();//End for loop. We found what we're looking for. 
+			}
+		}
+		return bagIndex;
+	}
+	
+	/**
 	 * Returns all the items in the bag
 	 */
-	public BagItem[] getItems() {
+	public ArrayList<BagItem> getItems() {
 		return m_items;
 	}
 	

@@ -808,20 +808,25 @@ public class PlayerChar extends Char implements Battleable {
 			return;
 		if(m_bag.hasSpace(id)) {
 			/* First, check if the player can afford this */
-			if(m_money - (q * m_currentShop.getPriceForItem(ItemDatabase.getInstance().getItem(id).getName())) >= 0) {
+			if(m_money - (q * m_currentShop.getPriceForItem(id)) >= 0) {
 				/* Then, check if the player has right amount of badges to buy the item */
-				switch(id) {
-				case 0:
-					//TODO: Check badge based on items that require x amount of badges to buy
-					break;
-				}
+//				switch(id) {
+//				case 0:
+//					//TODO: Check badge based on items that require x amount of badges to buy
+//					break;
+//				}
 				/* Finally, if the item is in stock, buy it */
-				if(m_currentShop.buyItem(ItemDatabase.getInstance().getItem(id).getName(), q)) {
-					m_money = m_money - (q * m_currentShop.getPriceForItem(ItemDatabase.getInstance().getItem(id).getName()));
+				if(m_currentShop.buyItem(id, q)) {
+					m_money = m_money - (q * m_currentShop.getPriceForItem(id));
 					m_bag.addItem(id, q);
 					this.updateClientMoney();
+					//Let player know he bought potion. 
 				}
+			}else{
+				//Return You have no money, fool!
 			}
+		}else{
+			//Send You cant carry any more items!
 		}
 	}
 	
