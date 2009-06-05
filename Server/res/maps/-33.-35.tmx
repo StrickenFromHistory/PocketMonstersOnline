@@ -9,6 +9,7 @@
   <property name="waterPokemonLevels" value="10-19;"/>
   <property name="waterPokemonChances" value="Magikarp,100;"/>
   <property name="wildProbability" value="10"/>
+  <property name="pvp" value="enforced"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
