@@ -213,7 +213,7 @@ public class Pokemon extends PokemonSpecies {
 		String move = "";
 		/* Generate a list of moves this Pokemon wants to learn */
 		m_movesLearning.clear();
-		for(int i = oldLevel; i < level; i++) {
+		for(int i = oldLevel; i <= level; i++) {
 			if(pokeData.getMoves().get(i) != null) {
 				move = pokeData.getMoves().get(i);
 				m_movesLearning.add(move);

@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
@@ -16,6 +17,7 @@ import org.pokenet.server.battle.PokemonSpecies;
 import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.feature.TimeService;
+import org.pokenet.server.network.ConnectionManager;
 
 /**
  * Represents a player
@@ -23,6 +25,11 @@ import org.pokenet.server.feature.TimeService;
  *
  */
 public class PlayerChar extends Char implements Battleable {
+	/*
+	 * An enum to store request types
+	 */
+	public enum RequestType { BATTLE, TRADE };
+	
 	private Bag m_bag;
 	private int m_battleId;
 	private Pokemon[] m_pokemon;
@@ -59,6 +66,66 @@ public class PlayerChar extends Char implements Battleable {
 	 * 36 - 41
 	 */
 	private byte [] m_badges;
+	/*
+	 * Stores the list of requests the player has sent
+	 */
+	private HashMap<String, RequestType> m_requests;
+	
+	/**
+	 * Constructor
+	 * NOTE: Minimal initialisations should occur here
+	 */
+	public PlayerChar() {
+		m_requests = new HashMap<String, RequestType>();
+	}
+	
+	/**
+	 * Stores a request the player has sent
+	 * @param username
+	 * @param r
+	 */
+	public void addRequest(String username, RequestType r) {
+		m_requests.put(username, r);
+	}
+	
+	/**
+	 * Removes a request
+	 * @param username
+	 */
+	public void removeRequest(String username) {
+		m_requests.remove(username);
+	}
+	
+	/**
+	 * Called when a player accepts a request sent by this player
+	 * @param username
+	 */
+	public void requestAccepted(String username) {
+		if(m_requests.containsKey(username)) {
+			switch(m_requests.get(username)) {
+			case BATTLE:
+				//TODO: Start PvP battle
+				break;
+			case TRADE:
+				//TODO: Start trade between players
+				break;
+			}
+		}
+	}
+	
+	/**
+	 * Clears the request list
+	 */
+	public void clearRequests() {
+		if(m_requests.size() > 0) {
+			for(String username : m_requests.keySet()) {
+				if(ConnectionManager.getPlayers().containsKey(username)) {
+					ConnectionManager.getPlayers().get(username).getSession().write("rc" + this.getName());
+				}
+			}
+			m_requests.clear();
+		}
+	}
 	
 	/**
 	 * Sets the current shop
@@ -371,7 +438,6 @@ public class PlayerChar extends Char implements Battleable {
 						m_map.isNpcBattle(this);
 					}
 				}
-				//TODO: Clear requests list
 				return true;
 			}
 		} else {
@@ -591,6 +657,8 @@ public class PlayerChar extends Char implements Battleable {
 	@Override
 	public void setMap(ServerMap map) {
 		super.setMap(map);
+		//Clear the requests list
+		clearRequests();
 		//Send the map switch packet to the client
 		m_session.write("ms" + map.getX() + "," + map.getY() + "," + (map.isWeatherForced() ? map.getWeatherId() : TimeService.getWeatherId()));
 		Char c;

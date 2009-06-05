@@ -7,6 +7,7 @@ import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.backend.entity.PlayerChar.RequestType;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.impl.WildBattleField;
@@ -146,19 +147,34 @@ public class ConnectionManager extends IoHandlerAdapter {
 				}
 				break;
 			case 'r':
+				String player = message.substring(2);
 				//A request was sent
 				switch(message.charAt(1)) {
 				case 'b':
 					//Battle Request rbUSERNAME
+					if(m_players.containsKey(player)) {
+						m_players.get(player).getSession().write("rb" + p.getName());
+						p.addRequest(player, RequestType.BATTLE);
+					}
 					break;
 				case 't':
-					//Battle Request rtUSERNAME
+					//Trade Request rtUSERNAME
+					if(m_players.containsKey(player)) {
+						m_players.get(player).getSession().write("rt" + p.getName());
+						p.addRequest(player, RequestType.TRADE);
+					}
 					break;
 				case 'a':
 					//Request accepted raUSERNAME
+					if(m_players.containsKey(player)) {
+						m_players.get(player).requestAccepted(p.getName());
+					}
 					break;
 				case 'c':
-					//Request canceled rcUSERNAME
+					//Request declined rcUSERNAME
+					if(m_players.containsKey(player)) {
+						m_players.get(player).removeRequest(p.getName());
+					}
 					break;
 				}
 				break;
