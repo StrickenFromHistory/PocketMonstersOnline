@@ -205,6 +205,7 @@ public class MoveLearning extends Frame {
 		GameClient.getInstance().getUi().talkToNPC(GameClient.getInstance().getOurPlayer()
 				.getPokemon()[pokeIndex].getName() + " wants to learn " + move);
 
+		m_move = move;
 
 		move1.setText(GameClient.getInstance().getOurPlayer().getPokemon()[m_pokeIndex].getMoves()[0]);
 		move2.setText(GameClient.getInstance().getOurPlayer().getPokemon()[m_pokeIndex].getMoves()[1]);
