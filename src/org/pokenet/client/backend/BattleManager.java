@@ -84,6 +84,7 @@ public class BattleManager {
 		} else {
 			setWild(true);
 		}
+		m_battle.setVisible(true);
 		m_enemyPokes = new Pokemon[pokeAmount];
 		getPlayerData();
 		m_battle.disableMoves();
@@ -99,6 +100,7 @@ public class BattleManager {
 	 */
 	public void endBattle() {
 		m_timeLine.endBattle();
+		m_battle.setVisible(false);
 		GameClient.getInstance().getDisplay().remove(m_battle);
 		while (GameClient.getInstance().getDisplay().containsChild(m_battle));
 		GameClient.changeTrack("newbark");
