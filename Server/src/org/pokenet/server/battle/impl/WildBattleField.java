@@ -156,6 +156,7 @@ public class WildBattleField extends BattleField {
 	public void informVictory(int winner) {
 		if(winner == 0) {
 			calculateExp();
+			m_player.removeTempStatusEffects();
 			m_player.getSession().write("b@w");
 		} else {
 			m_player.getSession().write("b@l");

@@ -194,6 +194,17 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
+	 * Removes temporary status effects such as StatChangeEffects
+	 */
+	public void removeTempStatusEffects() {
+		for(Pokemon pokemon: getParty()) {
+			if(pokemon != null) {
+				pokemon.removeStatusEffects(false);
+			}
+		}
+	}
+	
+	/**
 	 * Returns true if this player is accessing their box
 	 * @return
 	 */

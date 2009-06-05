@@ -56,6 +56,8 @@ import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
 import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
 import org.pokenet.server.battle.mechanics.polr.POLREvolution;
+import org.pokenet.server.battle.mechanics.statuses.ConfuseEffect;
+import org.pokenet.server.battle.mechanics.statuses.StatChangeEffect;
 import org.pokenet.server.battle.mechanics.statuses.StatusEffect;
 import org.pokenet.server.battle.mechanics.statuses.StatusListener;
 import org.pokenet.server.battle.mechanics.statuses.abilities.IntrinsicAbility;
@@ -85,7 +87,7 @@ public class Pokemon extends PokemonSpecies {
     transient private StatMultiplier[] m_multiplier;
     transient private StatMultiplier m_accuracy;
     transient private StatMultiplier m_evasion;
-    transient private List<StatusEffect> m_statuses;
+    transient private ArrayList<StatusEffect> m_statuses;
     @ElementArray
     transient private int[] m_pp;
     @ElementArray
@@ -821,18 +823,39 @@ public class Pokemon extends PokemonSpecies {
     }
     
     /**
-     * Cause this pokemon's stats to be calculated.
+     * Recalculates this Pokemon's stats. If reset is true, the Pokemon is also healed fully
+     * @param reset
      */
-    public void calculateStats(boolean resetHp) {
+    public void calculateStats(boolean reset) {
         m_stat = new int[6];
         m_multiplier = new StatMultiplier[m_stat.length];
+        if(reset)
+        	m_statuses.clear();
         for (int i = 0; i < m_stat.length; ++i) {
             m_stat[i] = m_mech.calculateStat(this, i);
             m_multiplier[i] = new StatMultiplier(false);
         }
-        if (resetHp) {
+        if(reset)
             m_hp = m_stat[S_HP];
-        }
+    }
+    
+    /**
+     * Removes temporary or all status effects
+     * @param all
+     */
+    public void removeStatusEffects(boolean all) {
+    	if(all) {
+    		m_statuses.clear();
+    	} else {
+    		StatusEffect e = null;
+    		for(int i = 0; i < m_statuses.size(); i++) {
+    			e = m_statuses.get(i);
+    			if(e != null && e instanceof StatChangeEffect || e instanceof ConfuseEffect) {
+    				m_statuses.remove(i);
+    			}
+    		}
+    		m_statuses.trimToSize();
+    	}
     }
     
     /**
@@ -843,7 +866,7 @@ public class Pokemon extends PokemonSpecies {
     	m_movesLearning = new ArrayList<String>();
         m_accuracy = new StatMultiplier(true);
         m_evasion = new StatMultiplier(true);
-        m_statuses = Collections.synchronizedList(new ArrayList<StatusEffect>());
+        m_statuses = (ArrayList<StatusEffect>) Collections.synchronizedList(new ArrayList<StatusEffect>());
         m_pp = new int[4];
         m_maxPp = new int[m_pp.length];
         m_fainted = false;
@@ -1038,7 +1061,7 @@ public class Pokemon extends PokemonSpecies {
      * Switch out this pokemon.
      */
     public void switchOut() {
-        List<StatusEffect> list = new ArrayList<StatusEffect>(m_statuses);
+        ArrayList<StatusEffect> list = new ArrayList<StatusEffect>(m_statuses);
         Iterator<StatusEffect> i = list.iterator();
         while (i.hasNext()) {
             StatusEffect effect = (StatusEffect)i.next();
