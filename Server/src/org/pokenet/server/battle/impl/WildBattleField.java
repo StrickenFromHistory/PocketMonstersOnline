@@ -419,6 +419,7 @@ public class WildBattleField extends BattleField {
 		 * First calculate earnings
 		 */
 		m_player.setMoney(m_player.getMoney() + 5);
+		m_player.updateClientMoney();
 		showMessage("You earned 5 PD!");
 		
 		/*
