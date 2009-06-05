@@ -642,6 +642,7 @@ public class GameClient extends BasicGame {
 		m_mapY = y;
 		m_isNewMap = true;
 		m_loading.setVisible(true);
+		m_ui.getReqWindow().clearOffers();
 		changeTrack("newbark");
 	}
 	

@@ -172,4 +172,16 @@ public class RequestDialog extends Frame{
     		m_update = true;
     	}
     }
+    
+    /**
+     * Clears all offers
+     */
+    public void clearOffers(){
+    	for (String name : m_offerUser) {
+    		GameClient.getInstance().getPacketGenerator().write("rc" + name);
+    		m_offers.remove(name);
+    		m_offerUser.remove(name);
+    		m_update = true;
+    	}
+    }
 }
