@@ -149,6 +149,8 @@ public class MoveLearning extends Frame {
 		m_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				GameClient.getInstance().getUi().getBattleManager().removeMoveLearning();
+				GameClient.getInstance().getPacketGenerator().write(
+						"PM" + m_pokeIndex + m_move);
 			}
 		});
 		m_movePane.add(m_cancel);
