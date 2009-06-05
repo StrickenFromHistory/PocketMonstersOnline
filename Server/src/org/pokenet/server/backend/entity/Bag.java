@@ -39,7 +39,7 @@ public class Bag {
 	 */
 	public boolean addItem(int itemNumber, int quantity) {
 		int bagIndex = checkItem(itemNumber);
-		if(bagIndex != 0){
+		if(bagIndex > -1){
 			m_items.get(bagIndex).setQuantity(m_items.get(bagIndex).getQuantity()+quantity);
 			return true;
 		}else{
@@ -88,11 +88,11 @@ public class Bag {
 	 * @param quantity
 	 */
 	public int checkItem(int itemNumber) {
-		int bagIndex = 0;
-		for(int i = 0; i < getItems().size(); i++) {
+		int bagIndex = -1;
+		for(int i = 0; i < m_items.size(); i++) {
 			if(m_items.get(i).getItemNumber() == itemNumber){
 				bagIndex = i;
-				i = getItems().size();//End for loop. We found what we're looking for. 
+				i = m_items.size();//End for loop. We found what we're looking for. 
 			}
 		}
 		return bagIndex;
