@@ -107,7 +107,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				case 'M':
 					//Player is not allowing the move to be learned
 					pokemonIndex = Integer.parseInt(String.valueOf(message.charAt(2)));
-					move = message.substring(4);
+					move = message.substring(3);
 					if(p.getParty()[pokemonIndex] != null) {
 						if(p.getParty()[pokemonIndex].getMovesLearning().contains(move)) {
 							p.getParty()[pokemonIndex].getMovesLearning().remove(move);
