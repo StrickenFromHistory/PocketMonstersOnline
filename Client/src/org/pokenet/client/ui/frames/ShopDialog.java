@@ -211,6 +211,7 @@ public class ShopDialog extends Frame {
 		m_itemLabels = new Label[m_items.size()];
 		m_itemStockPics = new Label[m_items.size()];
 		for(int i = 0;i<m_items.size();i++){
+			final int itemChosen = m_items.get(i).getId();
 			m_itemButtons[i] = new Button("");
 			m_itemButtons[i].setSize(300, 50);
 			if(i>0)
@@ -221,7 +222,7 @@ public class ShopDialog extends Frame {
 			m_itemButtons[i].setFont(GameClient.getFontLarge());
 			m_itemButtons[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-//					itemClicked("Pokeballs");
+					itemClicked(itemChosen);
 				}
 			});
 			getContentPane().add(m_itemButtons[i]);
@@ -328,6 +329,10 @@ public class ShopDialog extends Frame {
 		GameClient.getInstance().getPacketGenerator().write("Sf");
 		setVisible(false);
 		GameClient.getInstance().getDisplay().remove(this);
+	}
+	
+	public void itemClicked(int itemid) {
+		GameClient.getInstance().getPacketGenerator().write("Sb"+itemid+",1");
 	}
 	public void pack() {
 		
