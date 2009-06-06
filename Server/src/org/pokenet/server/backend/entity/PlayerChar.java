@@ -907,7 +907,22 @@ public class PlayerChar extends Char implements Battleable {
 			//Send You cant carry any more items!
 		}
 	}
-	
+	/**
+	 * Allows the player to sell an item
+	 * @param id
+	 * @param q
+	 */
+	public void sellItem(int id, int q) {
+		/* If the player isn't shopping, ignore this */
+		if(m_currentShop == null)
+			return;
+		if(m_bag.checkItem(id)>0) { //Guy does have the item he's selling. 
+			m_money = m_money + (q * m_currentShop.getPriceForItem(id));
+			m_bag.removeItem(id, q);
+			this.updateClientMoney();
+			//Let player know he bought potion. 
+		}
+	}
 	/**
 	 * Updates the player's money clientside
 	 */
