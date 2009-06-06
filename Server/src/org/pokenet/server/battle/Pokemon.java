@@ -830,7 +830,7 @@ public class Pokemon extends PokemonSpecies {
         m_stat = new int[6];
         m_multiplier = new StatMultiplier[m_stat.length];
         if(reset)
-        	m_statuses.clear();
+        	removeStatusEffects(true);
         for (int i = 0; i < m_stat.length; ++i) {
             m_stat[i] = m_mech.calculateStat(this, i);
             m_multiplier[i] = new StatMultiplier(false);
@@ -845,13 +845,14 @@ public class Pokemon extends PokemonSpecies {
      */
     public void removeStatusEffects(boolean all) {
     	if(all) {
-    		m_statuses.clear();
+    		for(int i = 0; i < m_statuses.size(); i++)
+    			this.removeStatus(m_statuses.get(i));
     	} else {
     		StatusEffect e = null;
     		for(int i = 0; i < m_statuses.size(); i++) {
     			e = m_statuses.get(i);
     			if(e != null && e instanceof StatChangeEffect || e instanceof ConfuseEffect) {
-    				m_statuses.remove(i);
+    				this.removeStatus(e);
     			}
     		}
     		m_statuses.trimToSize();
