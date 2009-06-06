@@ -867,7 +867,7 @@ public class Pokemon extends PokemonSpecies {
     	m_movesLearning = new ArrayList<String>();
         m_accuracy = new StatMultiplier(true);
         m_evasion = new StatMultiplier(true);
-        m_statuses = (ArrayList<StatusEffect>) Collections.synchronizedList(new ArrayList<StatusEffect>());
+        m_statuses = new ArrayList<StatusEffect>();
         m_pp = new int[4];
         m_maxPp = new int[m_pp.length];
         m_fainted = false;
