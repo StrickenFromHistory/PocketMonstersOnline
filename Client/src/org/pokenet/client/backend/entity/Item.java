@@ -8,6 +8,7 @@ import org.simpleframework.xml.ElementList;
 /**
  * Represents an item
  * @author shadowkanji
+ * @author Nushio
  */
 public class Item {
 	@Element
@@ -20,6 +21,8 @@ public class Item {
 	private String m_category;
 	@Element
 	private int m_price;
+	@Element
+	private int m_shop;
 	@ElementList
 	private ArrayList<ItemAttribute> m_attributes;
 	/* Handles item attributes, lets us know what we need to do with them */
@@ -66,7 +69,13 @@ public class Item {
 	public void setPrice(int s) {
 		m_price = s;
 	}
-	
+	/**
+	 * Sets the shop of the item
+	 * @param s
+	 */
+	public void setShop(int s) {
+		m_shop = s;
+	}
 	/**
 	 * Sets the name of the item
 	 * @param s
@@ -82,7 +91,13 @@ public class Item {
 	public void setId(int i) {
 		m_id = i;
 	}
-	
+	/**
+	 * Returns the shop of the item
+	 * @return
+	 */
+	public int getShop() {
+		return m_shop;
+	}
 	/**
 	 * Returns the description of the item
 	 * @return
