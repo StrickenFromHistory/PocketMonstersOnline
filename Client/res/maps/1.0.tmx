@@ -2,12 +2,12 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="76" height="38" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonLevels" value="28-30;28-28;28-28;28-28;32-32;30-30;30-30;"/>
   <property name="dayPokemonChances" value="Doduo,50;Raticate,15;Arbok,15;Quagsire,10;Ponyta,5;Dodrio,2;Sandslash,3;"/>
-  <property name="nightPokemonLevels" value="28-30;28-30;32-32;28-28;30-30;28-32;"/>
+  <property name="dayPokemonLevels" value="28-30;28-28;28-28;28-28;32-32;30-30;30-30;"/>
   <property name="nightPokemonChances" value="Quagsire,50;Raticate,20;Ponyta,5;Arbok,2;Sandslash,3;Noctowl,20;"/>
-  <property name="waterPokemonLevels" value="15-24;20-24;"/>
+  <property name="nightPokemonLevels" value="28-30;28-30;32-32;28-28;30-30;28-32;"/>
   <property name="waterPokemonChances" value="Tentacool,90;Tentacruel,10;"/>
+  <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
@@ -38,12 +38,12 @@
  </layer>
  <layer name="Water" width="76" height="38">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3YSwrAIBAEUbeB3P+AIQfJWvDXotBm6oFbCZVhFqYEAAAAAADg773Gj7vnbh/kVvY6cV4AnKO3r9j/udk2UXuNKrWJPGc9bk1274fZe11nqDbvO+5Xezmq7dOVZ/ZuR67f5eKU/+iCPhp6aSL0ar3fqG87EXqtRC8NvTT00tBLQy/NX3t93jVu6CAtAAA=
+   H4sIAAAAAAAAAO3YSwqAMBAE0WwF739A8SCuA+bTIZGOUw+yNEg5zMKUAAAAAAAA/N1H/3F3nfWD3MxeO84LgH209hX7PzfaJmqvXm9tIs9Zi1uT1fth9N7eZ76es9K8r7hf7eWotE9nntG7Hbm+l4tdvqML+mjopYnQq/b/Rv23E6HXTPTS0EtDLw29NPTS/LXXA+C2gRUgLQAA
   </data>
  </layer>
  <layer name="Water" width="76" height="76">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3Y4U3DMBCGYUsRoo3YAroKMElhkpZNyibtHAX2oPyISMNd7HNyiYneR7p/re18uZzahAAAAAAAAFC2xyqEJ0M9V9OdI2evj3UIn0p9rYefc3s504uhXp3yks6Rs9d9HcKDUps6fR2tjw7GvN6dem6svIbKzWXqnislL6+Mxr6u3WWNPXmZHXuefem575vvsZLm/766Lu2au5+z1NuIeXWfy9g+ffO9XT/Od9d1kzD/j0JWpxn6XrN1OldV/83rtv7ttZTzzDknNDunvpXyapfGKy9pjozx+1Ba37Ju871VJC8tN6+8pPuXMh9y1resG+urkvJqz4eh1e4Py7qpfVVCXv+xvPLqzivrfSy1vPJaSj+RF3nNkVfzPucg5NX8T7O8l1l6XinvBS19Rl7kRV7kRV5lFXnl5ZXCkpe2R86+FrHrmzIv67nn4n1tS0NWAAAAAAAAAAAAAAAAAAAA5foGPonz10BaAAA=
+   H4sIAAAAAAAAAO3Y723CMBCH4ZOiQom6RdtV2k4CrFFVgm4Cm9A5+mcP4ENECHbsc3KJG72PdN+I7fy4nCAiAAAAAAAAeXspRF4V9VYMd46UvX4WIr+e+lt0P+fydKaVotZGebnOkbLXYyny5KnnMn4dXx/tlHntjXqur7y6Ss1l6J7LJS+rjPq+r81pjS15qR1ann3Xc98230Plmv/b4rp899z8nKY+e8yr+VyG9mmb7/U6+364rruI+X9wZPU1Qt/7LI3OVZS3ec3LS6/FnGfMOeGzMepbV1718rHKyzVH+vh96Fpfs2513X0gr/eZyMfs9nqrvFzfX8x8SFlfs26or0J9NmRe9fnQter9oVk31Fc55fUfyyqv5rzSfo+5llVeU+kn8iKvMfKq3ufsHHlV/9M072WmnlfMe0FNn5EXeZEXeZFXXkVeaXnF0OTl2yNlX43Q/Q2Zl/bcY7G+t6khKwAAAAAAAAAAAAAAAAAAgHwdAcKqsNJAWgAA
   </data>
  </layer>
  <layer name="Collisions" width="82" height="38">
