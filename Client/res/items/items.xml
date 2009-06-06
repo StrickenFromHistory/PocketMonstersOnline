@@ -1,46 +1,29 @@
 <itemDatabase>
-
 	<m_items>
-
 		<entry>
-
 			<integer>1</integer>
-
 			<item>
-
 				<m_name>Potion</m_name>
-
 				<m_description>Basic healing item, 20hp</m_description>
-
 				<m_id>1</m_id>
-
 				<m_category>Potions</m_category>
-
+				<m_shop>0</m_shop>
 				<m_price>300</m_price>
-
 				<m_attributes>
-
 					<itemAttribute>POKEMON</itemAttribute>
-
 				</m_attributes>
-
 			</item>
-
 		</entry>
-
 		<entry>
-
 			<integer>2</integer>
-
 			<item>
-
 				<m_name>Super Potion</m_name>
-
 				<m_description>Next step from potion. 50hp</m_description>
 
 				<m_id>2</m_id>
 
 				<m_category>Potions</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>700</m_price>
 
@@ -67,6 +50,7 @@
 				<m_id>3</m_id>
 
 				<m_category>Potions</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1200</m_price>
 
@@ -93,6 +77,7 @@
 				<m_id>4</m_id>
 
 				<m_category>Potions</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2500</m_price>
 
@@ -114,11 +99,13 @@
 
 				<m_name>Full Restore</m_name>
 
-				<m_description>What happens when a max potion and a full heal have a baby.</m_description>
+				<m_description>What happens when a max potion and a full heal
+					have a baby.</m_description>
 
 				<m_id>5</m_id>
 
 				<m_category>Potions</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -145,6 +132,7 @@
 				<m_id>16</m_id>
 
 				<m_category>Medicine</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -171,6 +159,7 @@
 				<m_id>17</m_id>
 
 				<m_category>Medicine</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>200</m_price>
 
@@ -192,11 +181,13 @@
 
 				<m_name>Awakening</m_name>
 
-				<m_description>A bucket of water in the face of sleep</m_description>
+				<m_description>A bucket of water in the face of sleep
+				</m_description>
 
 				<m_id>18</m_id>
 
 				<m_category>Medicine</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>250</m_price>
 
@@ -223,6 +214,7 @@
 				<m_id>19</m_id>
 
 				<m_category>Medicine</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>250</m_price>
 
@@ -249,6 +241,7 @@
 				<m_id>20</m_id>
 
 				<m_category>Medicine</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>250</m_price>
 
@@ -275,6 +268,7 @@
 				<m_id>21</m_id>
 
 				<m_category>Medicine</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>600</m_price>
 
@@ -301,6 +295,7 @@
 				<m_id>22</m_id>
 
 				<m_category>Medicine</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>200</m_price>
 
@@ -327,6 +322,7 @@
 				<m_id>23</m_id>
 
 				<m_category>Medicine</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>500</m_price>
 
@@ -353,6 +349,7 @@
 				<m_id>35</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>200</m_price>
 
@@ -374,11 +371,13 @@
 
 				<m_name>Great Ball</m_name>
 
-				<m_description>Higher catch rate... try pressing a+b (nostalgia)</m_description>
+				<m_description>Higher catch rate... try pressing a+b
+					(nostalgia)</m_description>
 
 				<m_id>36</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>600</m_price>
 
@@ -405,6 +404,7 @@
 				<m_id>37</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1200</m_price>
 
@@ -431,6 +431,7 @@
 				<m_id>38</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>-1</m_price>
 
@@ -457,6 +458,7 @@
 				<m_id>39</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -483,6 +485,7 @@
 				<m_id>40</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -504,11 +507,13 @@
 
 				<m_name>Level Ball</m_name>
 
-				<m_description>The higher level you are in comparison, the better</m_description>
+				<m_description>The higher level you are in comparison, the better
+				</m_description>
 
 				<m_id>41</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -535,6 +540,7 @@
 				<m_id>42</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -556,11 +562,13 @@
 
 				<m_name>Moon Ball</m_name>
 
-				<m_description>Works well if the pokemon evolves with moon stone</m_description>
+				<m_description>Works well if the pokemon evolves with moon
+					stone</m_description>
 
 				<m_id>43</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -587,6 +595,7 @@
 				<m_id>44</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -608,11 +617,13 @@
 
 				<m_name>Fast Ball</m_name>
 
-				<m_description>Works well on pokemon with tendencies to flee</m_description>
+				<m_description>Works well on pokemon with tendencies to flee
+				</m_description>
 
 				<m_id>45</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -639,6 +650,7 @@
 				<m_id>46</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -660,11 +672,13 @@
 
 				<m_name>Love Ball</m_name>
 
-				<m_description>Works well if the pokemon are opposite genders</m_description>
+				<m_description>Works well if the pokemon are opposite genders
+				</m_description>
 
 				<m_id>47</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -686,11 +700,13 @@
 
 				<m_name>Luxury Ball</m_name>
 
-				<m_description>So you can buy love! will make pokemon closer to you</m_description>
+				<m_description>So you can buy love! will make pokemon closer to
+					you</m_description>
 
 				<m_id>48</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -712,11 +728,13 @@
 
 				<m_name>Premier Ball</m_name>
 
-				<m_description>For buying 10 poke balls... an 11th one free</m_description>
+				<m_description>For buying 10 poke balls... an 11th one free
+				</m_description>
 
 				<m_id>49</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -743,6 +761,7 @@
 				<m_id>50</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -769,6 +788,7 @@
 				<m_id>51</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -795,6 +815,7 @@
 				<m_id>52</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -816,11 +837,13 @@
 
 				<m_name>Repeat Ball</m_name>
 
-				<m_description>Works better on pokemon caught before</m_description>
+				<m_description>Works better on pokemon caught before
+				</m_description>
 
 				<m_id>53</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -847,6 +870,7 @@
 				<m_id>54</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -873,6 +897,7 @@
 				<m_id>55</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>300</m_price>
 
@@ -899,6 +924,7 @@
 				<m_id>56</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -925,6 +951,7 @@
 				<m_id>57</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -951,6 +978,7 @@
 				<m_id>58</m_id>
 
 				<m_category>Pokeball</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -977,6 +1005,7 @@
 				<m_id>70</m_id>
 
 				<m_category>Vitamins</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>9800</m_price>
 
@@ -998,11 +1027,13 @@
 
 				<m_name>Protein</m_name>
 
-				<m_description>Strengthens pokemon's attack EVs</m_description>
+				<m_description>Strengthens pokemon's attack EVs
+				</m_description>
 
 				<m_id>71</m_id>
 
 				<m_category>Vitamins</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>9800</m_price>
 
@@ -1029,6 +1060,7 @@
 				<m_id>72</m_id>
 
 				<m_category>Vitamins</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>9800</m_price>
 
@@ -1055,6 +1087,7 @@
 				<m_id>73</m_id>
 
 				<m_category>Vitamins</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>9800</m_price>
 
@@ -1081,6 +1114,7 @@
 				<m_id>74</m_id>
 
 				<m_category>Vitamins</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>9800</m_price>
 
@@ -1107,6 +1141,7 @@
 				<m_id>75</m_id>
 
 				<m_category>Vitamins</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>9800</m_price>
 
@@ -1133,6 +1168,7 @@
 				<m_id>76</m_id>
 
 				<m_category>Vitamins</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>9800</m_price>
 
@@ -1159,6 +1195,7 @@
 				<m_id>77</m_id>
 
 				<m_category>Vitamins</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>15000</m_price>
 
@@ -1180,11 +1217,13 @@
 
 				<m_name>Rare Candy</m_name>
 
-				<m_description>Provides the energy to allow pokemon level growth</m_description>
+				<m_description>Provides the energy to allow pokemon level
+					growth</m_description>
 
 				<m_id>78</m_id>
 
 				<m_category>Vitamins</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>-1</m_price>
 
@@ -1206,11 +1245,13 @@
 
 				<m_name>Repel</m_name>
 
-				<m_description>Repels the wild pokemon for 100 steps</m_description>
+				<m_description>Repels the wild pokemon for 100 steps
+				</m_description>
 
 				<m_id>85</m_id>
 
 				<m_category>Field</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>350</m_price>
 
@@ -1232,11 +1273,13 @@
 
 				<m_name>Super Repel</m_name>
 
-				<m_description>Repels the wild pokemon for 200 steps</m_description>
+				<m_description>Repels the wild pokemon for 200 steps
+				</m_description>
 
 				<m_id>86</m_id>
 
 				<m_category>Field</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>500</m_price>
 
@@ -1258,11 +1301,13 @@
 
 				<m_name>Max Repel</m_name>
 
-				<m_description>Repels the wild pokemon for 250 steps</m_description>
+				<m_description>Repels the wild pokemon for 250 steps
+				</m_description>
 
 				<m_id>87</m_id>
 
 				<m_category>Field</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>700</m_price>
 
@@ -1289,6 +1334,7 @@
 				<m_id>91</m_id>
 
 				<m_category>Field</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>250</m_price>
 
@@ -1315,6 +1361,7 @@
 				<m_id>92</m_id>
 
 				<m_category>Field</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>-1</m_price>
 
@@ -1341,6 +1388,7 @@
 				<m_id>93</m_id>
 
 				<m_category>Field</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>-1</m_price>
 
@@ -1367,6 +1415,7 @@
 				<m_id>94</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>-1</m_price>
 
@@ -1393,6 +1442,7 @@
 				<m_id>95</m_id>
 
 				<m_category>Other</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>-1</m_price>
 
@@ -1419,6 +1469,7 @@
 				<m_id>96</m_id>
 
 				<m_category>Other</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>-1</m_price>
 
@@ -1445,6 +1496,7 @@
 				<m_id>97</m_id>
 
 				<m_category>Field</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>-1</m_price>
 
@@ -1471,6 +1523,7 @@
 				<m_id>98</m_id>
 
 				<m_category>Field</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>-1</m_price>
 
@@ -1497,6 +1550,7 @@
 				<m_id>99</m_id>
 
 				<m_category>Field</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>-1</m_price>
 
@@ -1523,6 +1577,7 @@
 				<m_id>100</m_id>
 
 				<m_category>Field</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>-1</m_price>
 
@@ -1549,6 +1604,7 @@
 				<m_id>101</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -1575,6 +1631,7 @@
 				<m_id>126</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -1601,6 +1658,7 @@
 				<m_id>127</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -1627,6 +1685,7 @@
 				<m_id>128</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -1653,6 +1712,7 @@
 				<m_id>129</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -1679,6 +1739,7 @@
 				<m_id>130</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -1705,6 +1766,7 @@
 				<m_id>131</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -1731,6 +1793,7 @@
 				<m_id>132</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -1757,6 +1820,7 @@
 				<m_id>133</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -1783,6 +1847,7 @@
 				<m_id>134</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -1809,6 +1874,7 @@
 				<m_id>135</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -1835,6 +1901,7 @@
 				<m_id>150</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -1861,6 +1928,7 @@
 				<m_id>151</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -1887,6 +1955,7 @@
 				<m_id>152</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -1913,6 +1982,7 @@
 				<m_id>153</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -1939,6 +2009,7 @@
 				<m_id>154</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -1965,6 +2036,7 @@
 				<m_id>155</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -1991,6 +2063,7 @@
 				<m_id>156</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2012,11 +2085,13 @@
 
 				<m_name>Metal Coat</m_name>
 
-				<m_description>Allows evolution into steel type</m_description>
+				<m_description>Allows evolution into steel type
+				</m_description>
 
 				<m_id>157</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2043,6 +2118,7 @@
 				<m_id>158</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2069,6 +2145,7 @@
 				<m_id>159</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2090,11 +2167,13 @@
 
 				<m_name>Razor Claw</m_name>
 
-				<m_description>Sneasle item; raises critical hits</m_description>
+				<m_description>Sneasle item; raises critical hits
+				</m_description>
 
 				<m_id>160</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2121,6 +2200,7 @@
 				<m_id>161</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2147,6 +2227,7 @@
 				<m_id>162</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2173,6 +2254,7 @@
 				<m_id>163</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2199,6 +2281,7 @@
 				<m_id>164</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2225,6 +2308,7 @@
 				<m_id>165</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2251,6 +2335,7 @@
 				<m_id>166</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2277,6 +2362,7 @@
 				<m_id>167</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2303,6 +2389,7 @@
 				<m_id>168</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2329,6 +2416,7 @@
 				<m_id>169</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2355,6 +2443,7 @@
 				<m_id>170</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2381,6 +2470,7 @@
 				<m_id>171</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2407,6 +2497,7 @@
 				<m_id>172</m_id>
 
 				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2100</m_price>
 
@@ -2433,6 +2524,7 @@
 				<m_id>181</m_id>
 
 				<m_category>Breeding</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -2459,6 +2551,7 @@
 				<m_id>182</m_id>
 
 				<m_category>Breeding</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -2485,6 +2578,7 @@
 				<m_id>183</m_id>
 
 				<m_category>Breeding</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -2511,6 +2605,7 @@
 				<m_id>184</m_id>
 
 				<m_category>Breeding</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -2537,6 +2632,7 @@
 				<m_id>185</m_id>
 
 				<m_category>Breeding</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -2563,6 +2659,7 @@
 				<m_id>186</m_id>
 
 				<m_category>Breeding</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -2589,6 +2686,7 @@
 				<m_id>187</m_id>
 
 				<m_category>Breeding</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -2615,6 +2713,7 @@
 				<m_id>188</m_id>
 
 				<m_category>Breeding</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -2641,6 +2740,7 @@
 				<m_id>200</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2667,6 +2767,7 @@
 				<m_id>201</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2693,6 +2794,7 @@
 				<m_id>202</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2719,6 +2821,7 @@
 				<m_id>203</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2745,6 +2848,7 @@
 				<m_id>204</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2771,6 +2875,7 @@
 				<m_id>205</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2797,6 +2902,7 @@
 				<m_id>206</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2823,6 +2929,7 @@
 				<m_id>207</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2849,6 +2956,7 @@
 				<m_id>208</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2875,6 +2983,7 @@
 				<m_id>209</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2901,6 +3010,7 @@
 				<m_id>210</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2927,6 +3037,7 @@
 				<m_id>211</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2953,6 +3064,7 @@
 				<m_id>212</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -2979,6 +3091,7 @@
 				<m_id>213</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3005,6 +3118,7 @@
 				<m_id>214</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3031,6 +3145,7 @@
 				<m_id>215</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3057,6 +3172,7 @@
 				<m_id>216</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3083,6 +3199,7 @@
 				<m_id>217</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3109,6 +3226,7 @@
 				<m_id>218</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3135,6 +3253,7 @@
 				<m_id>219</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3161,6 +3280,7 @@
 				<m_id>220</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3187,6 +3307,7 @@
 				<m_id>221</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3213,6 +3334,7 @@
 				<m_id>222</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3239,6 +3361,7 @@
 				<m_id>223</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3265,6 +3388,7 @@
 				<m_id>224</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3291,6 +3415,7 @@
 				<m_id>225</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3317,6 +3442,7 @@
 				<m_id>226</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3343,6 +3469,7 @@
 				<m_id>227</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3369,6 +3496,7 @@
 				<m_id>228</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3395,6 +3523,7 @@
 				<m_id>229</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3421,6 +3550,7 @@
 				<m_id>230</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3447,6 +3577,7 @@
 				<m_id>231</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3473,6 +3604,7 @@
 				<m_id>232</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3499,6 +3631,7 @@
 				<m_id>233</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3525,6 +3658,7 @@
 				<m_id>234</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3551,6 +3685,7 @@
 				<m_id>235</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3577,6 +3712,7 @@
 				<m_id>236</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3603,6 +3739,7 @@
 				<m_id>237</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3629,6 +3766,7 @@
 				<m_id>238</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3655,6 +3793,7 @@
 				<m_id>239</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3681,6 +3820,7 @@
 				<m_id>240</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3707,6 +3847,7 @@
 				<m_id>241</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3733,6 +3874,7 @@
 				<m_id>242</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3759,6 +3901,7 @@
 				<m_id>243</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3785,6 +3928,7 @@
 				<m_id>244</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3811,6 +3955,7 @@
 				<m_id>245</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3837,6 +3982,7 @@
 				<m_id>246</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3863,6 +4009,7 @@
 				<m_id>247</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3889,6 +4036,7 @@
 				<m_id>248</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3915,6 +4063,7 @@
 				<m_id>249</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3941,6 +4090,7 @@
 				<m_id>250</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3967,6 +4117,7 @@
 				<m_id>251</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -3993,6 +4144,7 @@
 				<m_id>252</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -4019,6 +4171,7 @@
 				<m_id>253</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -4045,6 +4198,7 @@
 				<m_id>254</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -4071,6 +4225,7 @@
 				<m_id>255</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -4092,11 +4247,13 @@
 
 				<m_name>Starf Berry</m_name>
 
-				<m_description>Raises Critical hit ratio when weak</m_description>
+				<m_description>Raises Critical hit ratio when weak
+				</m_description>
 
 				<m_id>256</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -4118,11 +4275,13 @@
 
 				<m_name>Enigma Berry</m_name>
 
-				<m_description>Resores HP when hit by a supper effective attack</m_description>
+				<m_description>Resores HP when hit by a supper effective
+					attack</m_description>
 
 				<m_id>257</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -4149,6 +4308,7 @@
 				<m_id>258</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -4175,6 +4335,7 @@
 				<m_id>259</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -4201,6 +4362,7 @@
 				<m_id>260</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -4227,6 +4389,7 @@
 				<m_id>261</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>20</m_price>
 
@@ -4253,6 +4416,7 @@
 				<m_id>300</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4281,6 +4445,7 @@
 				<m_id>301</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4309,6 +4474,7 @@
 				<m_id>302</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4337,6 +4503,7 @@
 				<m_id>303</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4365,6 +4532,7 @@
 				<m_id>304</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4393,6 +4561,7 @@
 				<m_id>305</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4421,6 +4590,7 @@
 				<m_id>306</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4449,6 +4619,7 @@
 				<m_id>307</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4477,6 +4648,7 @@
 				<m_id>308</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4505,6 +4677,7 @@
 				<m_id>309</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4533,6 +4706,7 @@
 				<m_id>310</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4561,6 +4735,7 @@
 				<m_id>311</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4589,6 +4764,7 @@
 				<m_id>312</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4617,6 +4793,7 @@
 				<m_id>313</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4645,6 +4822,7 @@
 				<m_id>314</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4673,6 +4851,7 @@
 				<m_id>315</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4701,6 +4880,7 @@
 				<m_id>316</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4729,6 +4909,7 @@
 				<m_id>317</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4757,6 +4938,7 @@
 				<m_id>318</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4785,6 +4967,7 @@
 				<m_id>319</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4813,6 +4996,7 @@
 				<m_id>320</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4841,6 +5025,7 @@
 				<m_id>321</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4869,6 +5054,7 @@
 				<m_id>331</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4897,6 +5083,7 @@
 				<m_id>332</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4925,6 +5112,7 @@
 				<m_id>333</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4953,6 +5141,7 @@
 				<m_id>334</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -4981,6 +5170,7 @@
 				<m_id>335</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5009,6 +5199,7 @@
 				<m_id>336</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5037,6 +5228,7 @@
 				<m_id>337</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5065,6 +5257,7 @@
 				<m_id>338</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5093,6 +5286,7 @@
 				<m_id>339</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5121,6 +5315,7 @@
 				<m_id>340</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5149,6 +5344,7 @@
 				<m_id>341</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5177,6 +5373,7 @@
 				<m_id>342</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5205,6 +5402,7 @@
 				<m_id>343</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5233,6 +5431,7 @@
 				<m_id>344</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5261,6 +5460,7 @@
 				<m_id>345</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5289,6 +5489,7 @@
 				<m_id>346</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5317,6 +5518,7 @@
 				<m_id>350</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5343,6 +5545,7 @@
 				<m_id>351</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5369,6 +5572,7 @@
 				<m_id>352</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5395,6 +5599,7 @@
 				<m_id>353</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5421,6 +5626,7 @@
 				<m_id>354</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5447,6 +5653,7 @@
 				<m_id>355</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5468,11 +5675,13 @@
 
 				<m_name>Choice Scarf</m_name>
 
-				<m_description>Increases speed but can only use one move</m_description>
+				<m_description>Increases speed but can only use one move
+				</m_description>
 
 				<m_id>356</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -5494,11 +5703,13 @@
 
 				<m_name>Choice Specs</m_name>
 
-				<m_description>Increases Sp. attack but can only use one move</m_description>
+				<m_description>Increases Sp. attack but can only use one
+					move</m_description>
 
 				<m_id>357</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -5525,6 +5736,7 @@
 				<m_id>358</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5546,11 +5758,13 @@
 
 				<m_name>Destiny Knot</m_name>
 
-				<m_description>Both pokemon become infatuated at the same time</m_description>
+				<m_description>Both pokemon become infatuated at the same time
+				</m_description>
 
 				<m_id>359</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5577,6 +5791,7 @@
 				<m_id>360</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5603,6 +5818,7 @@
 				<m_id>361</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5629,6 +5845,7 @@
 				<m_id>362</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5655,6 +5872,7 @@
 				<m_id>363</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5676,11 +5894,13 @@
 
 				<m_name>Focus Sash</m_name>
 
-				<m_description>Can't be one hit KOed with full health</m_description>
+				<m_description>Can't be one hit KOed with full health
+				</m_description>
 
 				<m_id>364</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5707,6 +5927,7 @@
 				<m_id>365</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5733,6 +5954,7 @@
 				<m_id>366</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5759,6 +5981,7 @@
 				<m_id>367</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5780,11 +6003,13 @@
 
 				<m_name>Iron Ball</m_name>
 
-				<m_description>Cuts speed and cancel's flying type</m_description>
+				<m_description>Cuts speed and cancel's flying type
+				</m_description>
 
 				<m_id>368</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5811,6 +6036,7 @@
 				<m_id>369</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5837,6 +6063,7 @@
 				<m_id>370</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5863,6 +6090,7 @@
 				<m_id>371</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5884,11 +6112,13 @@
 
 				<m_name>Light Clay</m_name>
 
-				<m_description>Lengthens light screen and reflect</m_description>
+				<m_description>Lengthens light screen and reflect
+				</m_description>
 
 				<m_id>372</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5915,6 +6145,7 @@
 				<m_id>373</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5941,6 +6172,7 @@
 				<m_id>374</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5962,11 +6194,13 @@
 
 				<m_name>Metronome</m_name>
 
-				<m_description>Increases consecutive attacks</m_description>
+				<m_description>Increases consecutive attacks
+				</m_description>
 
 				<m_id>375</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -5993,6 +6227,7 @@
 				<m_id>376</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6019,6 +6254,7 @@
 				<m_id>377</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6045,6 +6281,7 @@
 				<m_id>378</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6071,6 +6308,7 @@
 				<m_id>379</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6097,6 +6335,7 @@
 				<m_id>380</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6123,6 +6362,7 @@
 				<m_id>381</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6149,6 +6389,7 @@
 				<m_id>382</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6175,6 +6416,7 @@
 				<m_id>383</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6196,11 +6438,13 @@
 
 				<m_name>Sticky Barb</m_name>
 
-				<m_description>Hurts use every turn but can latch on to other pokemon</m_description>
+				<m_description>Hurts use every turn but can latch on to other
+					pokemon</m_description>
 
 				<m_id>384</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6227,6 +6471,7 @@
 				<m_id>385</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6253,6 +6498,7 @@
 				<m_id>386</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -6279,6 +6525,7 @@
 				<m_id>387</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6305,6 +6552,7 @@
 				<m_id>388</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6331,6 +6579,7 @@
 				<m_id>389</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -6357,6 +6606,7 @@
 				<m_id>400</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6383,6 +6633,7 @@
 				<m_id>401</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6409,6 +6660,7 @@
 				<m_id>402</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6435,6 +6687,7 @@
 				<m_id>403</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6461,6 +6714,7 @@
 				<m_id>404</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6482,11 +6736,13 @@
 
 				<m_name>Purple Pokeblock</m_name>
 
-				<m_description>Raises coolness and something else</m_description>
+				<m_description>Raises coolness and something else
+				</m_description>
 
 				<m_id>405</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6508,11 +6764,13 @@
 
 				<m_name>Indigo Pokeblock</m_name>
 
-				<m_description>Raises beauty and something else</m_description>
+				<m_description>Raises beauty and something else
+				</m_description>
 
 				<m_id>406</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6534,11 +6792,13 @@
 
 				<m_name>Brown Pokeblock</m_name>
 
-				<m_description>Raises cuteness and something else</m_description>
+				<m_description>Raises cuteness and something else
+				</m_description>
 
 				<m_id>407</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6560,11 +6820,13 @@
 
 				<m_name>LiteBlue Pokeblock</m_name>
 
-				<m_description>Raises smartness and something else</m_description>
+				<m_description>Raises smartness and something else
+				</m_description>
 
 				<m_id>408</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6586,11 +6848,13 @@
 
 				<m_name>Olive Pokeblock</m_name>
 
-				<m_description>Raises toughness and something else</m_description>
+				<m_description>Raises toughness and something else
+				</m_description>
 
 				<m_id>409</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6612,11 +6876,13 @@
 
 				<m_name>Black Pokeblock</m_name>
 
-				<m_description>The flavors of the berries canceled out</m_description>
+				<m_description>The flavors of the berries canceled out
+				</m_description>
 
 				<m_id>410</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6643,6 +6909,7 @@
 				<m_id>411</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -6669,6 +6936,7 @@
 				<m_id>412</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -6695,6 +6963,7 @@
 				<m_id>413</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -6721,6 +6990,7 @@
 				<m_id>414</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6747,6 +7017,7 @@
 				<m_id>415</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6773,6 +7044,7 @@
 				<m_id>416</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6799,6 +7071,7 @@
 				<m_id>417</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6825,6 +7098,7 @@
 				<m_id>418</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6851,6 +7125,7 @@
 				<m_id>419</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -6872,11 +7147,13 @@
 
 				<m_name>Honey</m_name>
 
-				<m_description>Slather on a tree to attract pokemon</m_description>
+				<m_description>Slather on a tree to attract pokemon
+				</m_description>
 
 				<m_id>420</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -6898,11 +7175,13 @@
 
 				<m_name>Big Apple</m_name>
 
-				<m_description>An apple a day keeps the haunter away</m_description>
+				<m_description>An apple a day keeps the haunter away
+				</m_description>
 
 				<m_id>421</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -6929,6 +7208,7 @@
 				<m_id>422</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -6955,6 +7235,7 @@
 				<m_id>423</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -6981,6 +7262,7 @@
 				<m_id>424</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7002,11 +7284,13 @@
 
 				<m_name>Banana</m_name>
 
-				<m_description>Is that a banana in your pocket or are you just happy to see me?</m_description>
+				<m_description>Is that a banana in your pocket or are you just
+					happy to see me?</m_description>
 
 				<m_id>425</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7028,11 +7312,13 @@
 
 				<m_name>Grimy Food</m_name>
 
-				<m_description>A food that came out of a grimer, do you really want to eat it?</m_description>
+				<m_description>A food that came out of a grimer, do you really want
+					to eat it?</m_description>
 
 				<m_id>426</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7059,6 +7345,7 @@
 				<m_id>427</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7085,6 +7372,7 @@
 				<m_id>428</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7111,6 +7399,7 @@
 				<m_id>429</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7137,6 +7426,7 @@
 				<m_id>430</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7163,6 +7453,7 @@
 				<m_id>431</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7189,6 +7480,7 @@
 				<m_id>432</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7215,6 +7507,7 @@
 				<m_id>433</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7241,6 +7534,7 @@
 				<m_id>434</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7267,6 +7561,7 @@
 				<m_id>435</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7293,6 +7588,7 @@
 				<m_id>436</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7319,6 +7615,7 @@
 				<m_id>437</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7345,6 +7642,7 @@
 				<m_id>438</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7371,6 +7669,7 @@
 				<m_id>439</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7397,6 +7696,7 @@
 				<m_id>440</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7423,6 +7723,7 @@
 				<m_id>441</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7449,6 +7750,7 @@
 				<m_id>442</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7475,6 +7777,7 @@
 				<m_id>443</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7501,6 +7804,7 @@
 				<m_id>444</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7527,6 +7831,7 @@
 				<m_id>445</m_id>
 
 				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7548,11 +7853,13 @@
 
 				<m_name>Light Ball</m_name>
 
-				<m_description>Doubles Sp. attack and attack of pikachu</m_description>
+				<m_description>Doubles Sp. attack and attack of pikachu
+				</m_description>
 
 				<m_id>477</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -7576,11 +7883,13 @@
 
 				<m_name>Lucky Punch</m_name>
 
-				<m_description>Raises critical hit ratio of chansey</m_description>
+				<m_description>Raises critical hit ratio of chansey
+				</m_description>
 
 				<m_id>478</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -7604,11 +7913,13 @@
 
 				<m_name>Metal Powder</m_name>
 
-				<m_description>Raises defense and Sp. defense of ditto</m_description>
+				<m_description>Raises defense and Sp. defense of ditto
+				</m_description>
 
 				<m_id>479</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -7637,6 +7948,7 @@
 				<m_id>480</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -7660,11 +7972,13 @@
 
 				<m_name>Soul Dew</m_name>
 
-				<m_description>Increases Sp. attack and Sp. defense of latios and latias</m_description>
+				<m_description>Increases Sp. attack and Sp. defense of
+					latios and latias</m_description>
 
 				<m_id>481</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -7688,11 +8002,13 @@
 
 				<m_name>Stick</m_name>
 
-				<m_description>Increases the critical hit ratio of farfetch</m_description>
+				<m_description>Increases the critical hit ratio of farfetch
+				</m_description>
 
 				<m_id>482</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -7716,11 +8032,13 @@
 
 				<m_name>Thick Club</m_name>
 
-				<m_description>Doubles attack of cubone and marowak</m_description>
+				<m_description>Doubles attack of cubone and marowak
+				</m_description>
 
 				<m_id>483</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>100</m_price>
 
@@ -7749,6 +8067,7 @@
 				<m_id>490</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -7777,6 +8096,7 @@
 				<m_id>491</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -7805,6 +8125,7 @@
 				<m_id>492</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -7833,6 +8154,7 @@
 				<m_id>493</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -7861,6 +8183,7 @@
 				<m_id>494</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -7889,6 +8212,7 @@
 				<m_id>500</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>30</m_price>
 
@@ -7915,6 +8239,7 @@
 				<m_id>501</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>30</m_price>
 
@@ -7941,6 +8266,7 @@
 				<m_id>502</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>30</m_price>
 
@@ -7967,6 +8293,7 @@
 				<m_id>503</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>30</m_price>
 
@@ -7993,6 +8320,7 @@
 				<m_id>504</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>30</m_price>
 
@@ -8019,6 +8347,7 @@
 				<m_id>505</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>30</m_price>
 
@@ -8045,6 +8374,7 @@
 				<m_id>506</m_id>
 
 				<m_category>Tools</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>30</m_price>
 
@@ -8071,6 +8401,7 @@
 				<m_id>525</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>10000</m_price>
 
@@ -8097,6 +8428,7 @@
 				<m_id>550</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -8123,6 +8455,7 @@
 				<m_id>551</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -8149,6 +8482,7 @@
 				<m_id>552</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -8175,6 +8509,7 @@
 				<m_id>553</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -8201,6 +8536,7 @@
 				<m_id>554</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -8227,6 +8563,7 @@
 				<m_id>555</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -8253,6 +8590,7 @@
 				<m_id>556</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -8279,6 +8617,7 @@
 				<m_id>557</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -8305,6 +8644,7 @@
 				<m_id>558</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -8331,6 +8671,7 @@
 				<m_id>559</m_id>
 
 				<m_category>Held</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>50</m_price>
 
@@ -8357,6 +8698,7 @@
 				<m_id>576</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -8385,6 +8727,7 @@
 				<m_id>577</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -8413,6 +8756,7 @@
 				<m_id>578</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -8441,6 +8785,7 @@
 				<m_id>579</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>7500</m_price>
 
@@ -8469,6 +8814,7 @@
 				<m_id>580</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -8497,6 +8843,7 @@
 				<m_id>581</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -8525,6 +8872,7 @@
 				<m_id>582</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -8553,6 +8901,7 @@
 				<m_id>583</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -8581,6 +8930,7 @@
 				<m_id>584</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -8609,6 +8959,7 @@
 				<m_id>585</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>7500</m_price>
 
@@ -8637,6 +8988,7 @@
 				<m_id>586</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -8665,6 +9017,7 @@
 				<m_id>587</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -8693,6 +9046,7 @@
 				<m_id>588</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>7500</m_price>
 
@@ -8721,6 +9075,7 @@
 				<m_id>589</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -8749,6 +9104,7 @@
 				<m_id>590</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>7500</m_price>
 
@@ -8777,6 +9133,7 @@
 				<m_id>591</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -8805,6 +9162,7 @@
 				<m_id>592</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -8833,6 +9191,7 @@
 				<m_id>593</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -8861,6 +9220,7 @@
 				<m_id>594</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -8889,6 +9249,7 @@
 				<m_id>595</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -8917,6 +9278,7 @@
 				<m_id>596</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -8945,6 +9307,7 @@
 				<m_id>597</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -8973,6 +9336,7 @@
 				<m_id>598</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9001,6 +9365,7 @@
 				<m_id>599</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9029,6 +9394,7 @@
 				<m_id>600</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9057,6 +9423,7 @@
 				<m_id>601</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>7500</m_price>
 
@@ -9085,6 +9452,7 @@
 				<m_id>602</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9113,6 +9481,7 @@
 				<m_id>603</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9141,6 +9510,7 @@
 				<m_id>604</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>7500</m_price>
 
@@ -9169,6 +9539,7 @@
 				<m_id>605</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>7500</m_price>
 
@@ -9197,6 +9568,7 @@
 				<m_id>606</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9225,6 +9597,7 @@
 				<m_id>607</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9253,6 +9626,7 @@
 				<m_id>608</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9281,6 +9655,7 @@
 				<m_id>609</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9309,6 +9684,7 @@
 				<m_id>610</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>7500</m_price>
 
@@ -9337,6 +9713,7 @@
 				<m_id>611</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9365,6 +9742,7 @@
 				<m_id>612</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9393,6 +9771,7 @@
 				<m_id>613</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>7500</m_price>
 
@@ -9421,6 +9800,7 @@
 				<m_id>614</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9449,6 +9829,7 @@
 				<m_id>615</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9477,6 +9858,7 @@
 				<m_id>616</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9505,6 +9887,7 @@
 				<m_id>617</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -9533,6 +9916,7 @@
 				<m_id>618</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9561,6 +9945,7 @@
 				<m_id>619</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -9589,6 +9974,7 @@
 				<m_id>620</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9617,6 +10003,7 @@
 				<m_id>621</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9645,6 +10032,7 @@
 				<m_id>622</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9673,6 +10061,7 @@
 				<m_id>623</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9701,6 +10090,7 @@
 				<m_id>624</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9729,6 +10119,7 @@
 				<m_id>625</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9757,6 +10148,7 @@
 				<m_id>626</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9785,6 +10177,7 @@
 				<m_id>627</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9813,6 +10206,7 @@
 				<m_id>628</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9841,6 +10235,7 @@
 				<m_id>629</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9869,6 +10264,7 @@
 				<m_id>630</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9897,6 +10293,7 @@
 				<m_id>631</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9925,6 +10322,7 @@
 				<m_id>632</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -9953,6 +10351,7 @@
 				<m_id>633</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -9981,6 +10380,7 @@
 				<m_id>634</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -10009,6 +10409,7 @@
 				<m_id>635</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -10037,6 +10438,7 @@
 				<m_id>636</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -10065,6 +10467,7 @@
 				<m_id>637</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -10093,6 +10496,7 @@
 				<m_id>638</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10121,6 +10525,7 @@
 				<m_id>639</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>4000</m_price>
 
@@ -10149,6 +10554,7 @@
 				<m_id>640</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -10177,6 +10583,7 @@
 				<m_id>641</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10205,6 +10612,7 @@
 				<m_id>642</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10233,6 +10641,7 @@
 				<m_id>643</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -10261,6 +10670,7 @@
 				<m_id>644</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10289,6 +10699,7 @@
 				<m_id>645</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>1000</m_price>
 
@@ -10317,6 +10728,7 @@
 				<m_id>646</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -10345,6 +10757,7 @@
 				<m_id>647</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>4000</m_price>
 
@@ -10373,6 +10786,7 @@
 				<m_id>648</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10401,6 +10815,7 @@
 				<m_id>649</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -10429,6 +10844,7 @@
 				<m_id>650</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -10457,6 +10873,7 @@
 				<m_id>651</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10485,6 +10902,7 @@
 				<m_id>652</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -10513,6 +10931,7 @@
 				<m_id>653</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10541,6 +10960,7 @@
 				<m_id>654</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -10569,6 +10989,7 @@
 				<m_id>655</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -10597,6 +11018,7 @@
 				<m_id>656</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -10625,6 +11047,7 @@
 				<m_id>657</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -10653,6 +11076,7 @@
 				<m_id>658</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10681,6 +11105,7 @@
 				<m_id>659</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>4000</m_price>
 
@@ -10709,6 +11134,7 @@
 				<m_id>660</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10737,6 +11163,7 @@
 				<m_id>661</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10765,6 +11192,7 @@
 				<m_id>662</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10793,6 +11221,7 @@
 				<m_id>663</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>2000</m_price>
 
@@ -10821,6 +11250,7 @@
 				<m_id>664</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -10849,6 +11279,7 @@
 				<m_id>665</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>5500</m_price>
 
@@ -10877,6 +11308,7 @@
 				<m_id>666</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>4000</m_price>
 
@@ -10905,6 +11337,7 @@
 				<m_id>667</m_id>
 
 				<m_category>TM</m_category>
+				<m_shop>0</m_shop>
 
 				<m_price>3000</m_price>
 
@@ -10929,51 +11362,29 @@
 				<m_name>TM93 Surf</m_name>
 
 				<m_description>Teaches surf</m_description>
-
 				<m_id>668</m_id>
-
 				<m_category>TM</m_category>
-
+				<m_shop>0</m_shop>
 				<m_price>7500</m_price>
-
 				<m_attributes>
-
 					<itemAttribute>POKEMON</itemAttribute>
-
 					<itemAttribute>MOVESLOT</itemAttribute>
-
 				</m_attributes>
-
 			</item>
-
 		</entry>
-
 		<entry>
-
 			<integer>750</integer>
-
 			<item>
-
 				<m_name>Secret Potion</m_name>
-
 				<m_description>Known to cure psyduck headaches</m_description>
-
 				<m_id>750</m_id>
-
 				<m_category>Key</m_category>
-
+				<m_shop>0</m_shop>
 				<m_price>1000</m_price>
-
 				<m_attributes>
-
 					<itemAttribute>OTHER</itemAttribute>
-
 				</m_attributes>
-
 			</item>
-
 		</entry>
-
 	</m_items>
-
 </itemDatabase>
