@@ -16,6 +16,7 @@ public class BagItem {
 	 */
 	public BagItem(int itemNumber, int quantity) {
 		m_item = itemNumber;
+		m_quantity = quantity;
 	}
 	
 	/**
