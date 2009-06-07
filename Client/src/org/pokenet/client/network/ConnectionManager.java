@@ -101,14 +101,31 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 'S':
 			//Shop
-			List<Integer> merch = new ArrayList<Integer>();
-			String items = message.substring(1);
-			String[] merchData = items.split(",");
-			
-			for (int i = 1; i < merchData.length; i++) {
-				merch.add(Integer.parseInt(merchData[i]));
+			switch(message.charAt(1)) {
+			case 'l': //Shop List
+				List<Integer> merch = new ArrayList<Integer>();
+				String items = message.substring(2);
+				String[] merchData = items.split(",");
+				
+				for (int i = 1; i < merchData.length; i++) {
+					merch.add(Integer.parseInt(merchData[i]));
+				}
+				GameClient.getInstance().getDisplay().add(new ShopDialog(merch));
+				break;
+			case 'n': //N is for No Money
+				GameClient.messageDialog("You can't afford this item", GameClient.getInstance().getDisplay());
+				break;
+			case 'f': //F is for Full Pockets. Can't carry any more
+				GameClient.messageDialog("You can't carry any new items", GameClient.getInstance().getDisplay());
+				break;
+			case 'c': //Cant Carry more of that Type
+				GameClient.messageDialog("You can't carry any more "+message.substring(2), GameClient.getInstance().getDisplay());
+				break;
+			case 'b': //Bought Item
+				GameClient.messageDialog("You bought a "+message.substring(2), GameClient.getInstance().getDisplay());
+				break;
 			}
-			GameClient.getInstance().getDisplay().add(new ShopDialog(merch));
+			
 			break;
 		case 'B':
 			//Box access - receiving a string of pokedex numbers, e.g. B15,23,24,

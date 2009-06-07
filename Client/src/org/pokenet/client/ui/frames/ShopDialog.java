@@ -14,7 +14,6 @@ import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Item;
 import org.pokenet.client.backend.entity.PlayerItem;
-import org.pokenet.client.ui.base.MessageDialog;
 
 /**
  * The shop dialog
@@ -68,7 +67,8 @@ public class ShopDialog extends Frame {
 	public void initGUI(){
 		m_buy = new Button("Buy");
 		m_buy.setLocation(0,0);
-		m_buy.setSize(300,160);
+		m_buy.setSize(150,320);
+//		m_buy.setBackground(new Color(255,255,0));
 		m_buy.setFont(GameClient.getFontLarge());
 		m_buy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,8 +78,8 @@ public class ShopDialog extends Frame {
 		getContentPane().add(m_buy);
 		
 		m_sell = new Button("Sell");
-		m_sell.setLocation(0,161);
-		m_sell.setSize(300,160);
+		m_sell.setLocation(151,0);
+		m_sell.setSize(150,320);
 		m_sell.setFont(GameClient.getFontLarge());
 		m_sell.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
