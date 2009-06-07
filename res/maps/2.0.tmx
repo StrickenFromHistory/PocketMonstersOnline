@@ -33,7 +33,7 @@
  </layer>
  <layer name="Water" width="20" height="108">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3YSwrCQBBF0YIo+QyyCbNRcaUxCbgMbbDBgV3azYN8uAcKHMilE5OBZQYAAICjuZ/Sk9sZW7PZmVxVpzvflnvT+/40ot6vc63du7x6gzOlv8c3ofNodb0gnh8AAAAAgD2ZnJ3NItjbROHzueB/8557dZe/D/N6JfuXKnFN6t4o6IXvXXuzW6/r/TvqXuq9agp73h5Oeb2f1ux5E58RVe+I8wTTTKsmwCEAAA==
+   H4sIAAAAAAAAAO3YUQqCQBRG4QsWpQ9uojYardRUaBk60IBEc2uGH0w5H1zwIQ5j5YPXDAAAAHvzOKQnt9PVZoMzuapGd75/7vWv7+cs6n0719q9y9y7OlP6e3wSOs9a1wvi+QEAAAAA2JI+sacJ16NgbxOF62PBe/OWe6cmfx/m9Ur2L1XintS9TtALn7u1ZvdW1/t11L3352pY7PlKet4eTnm/S2v2vIn/EVVvjzMBri9DTsAhAAA=
   </data>
  </layer>
  <layer name="LedgesDown" width="20" height="108">
