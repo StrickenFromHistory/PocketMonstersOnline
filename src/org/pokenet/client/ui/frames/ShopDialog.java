@@ -14,6 +14,7 @@ import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Item;
 import org.pokenet.client.backend.entity.PlayerItem;
+import org.pokenet.client.ui.base.MessageDialog;
 
 /**
  * The shop dialog
@@ -30,6 +31,8 @@ public class ShopDialog extends Frame {
 	
 	List<Item> m_items;
 	private Button m_cancel;
+	private Button m_buy;
+	private Button m_sell;
 	// string being the item name and integer being item quantity
 //	private List<Integer> m_merch;
 
@@ -62,7 +65,58 @@ public class ShopDialog extends Frame {
 		}
 	}
 	
-	public void initGUI() {
+	public void initGUI(){
+		m_buy = new Button("Buy");
+		m_buy.setLocation(0,0);
+		m_buy.setSize(300,160);
+		m_buy.setFont(GameClient.getFontLarge());
+		m_buy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				buyGUI();
+			}
+		});
+		getContentPane().add(m_buy);
+		
+		m_sell = new Button("Sell");
+		m_sell.setLocation(0,161);
+		m_sell.setSize(300,160);
+		m_sell.setFont(GameClient.getFontLarge());
+		m_sell.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GameClient.messageDialog("Shop's not finished", GameClient.getInstance().getDisplay());
+			}
+		});
+		getContentPane().add(m_sell);
+		
+		m_cancel = new Button("Cancel");
+		m_cancel.setSize(300,56);
+		m_cancel.setLocation(0,321);
+		m_cancel.setFont(GameClient.getFontLarge());
+		m_cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cancelled();
+			}
+		});
+		getContentPane().add(m_cancel);
+		this.getResizer().setVisible(false);
+		getCloseButton().addActionListener(
+				new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						cancelled();
+					}
+				});
+		setTitle("PokeShop");
+		setResizable(false);
+		setHeight(400);
+		setWidth(300);
+		pack();
+		setVisible(true);
+	}
+	
+	public void buyGUI() {
+		m_buy.setVisible(false);
+		m_sell.setVisible(false);
+		m_cancel.setVisible(false);
 		m_categoryButtons = new Button[4];
 		m_categoryLabels = new Label[4];
 		
@@ -177,7 +231,14 @@ public class ShopDialog extends Frame {
 		m_cancel.setFont(GameClient.getFontLarge());
 		m_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cancelled();
+				for(int i=0;i<m_categoryLabels.length;i++){
+					getContentPane().remove(m_categoryLabels[i]);
+				}
+				for(int i=0;i<m_categoryButtons.length;i++){
+					getContentPane().remove(m_categoryButtons[i]);
+				}
+				getContentPane().remove(m_cancel);
+				initGUI();
 			}
 		});
 		getContentPane().add(m_cancel);
@@ -299,7 +360,7 @@ public class ShopDialog extends Frame {
 					getContentPane().remove(m_itemStockPics[i]);
 				}
 				getContentPane().remove(m_cancel);
-				initGUI();
+				buyGUI();
 			}
 		});
 		getContentPane().add(m_cancel);
@@ -349,3 +410,4 @@ public class ShopDialog extends Frame {
 		this.setBounds(x, y, 259, 475);
 	}
 }
+
