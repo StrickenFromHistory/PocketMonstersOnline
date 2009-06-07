@@ -102,9 +102,9 @@ public class NonPlayerChar extends Char {
 		}
 		if(m_isShop) {
 			//Send shop packet to display shop window clientside
-			p.getSession().write("S" + m_shop.getStockData());
+			p.getSession().write("Sl" + m_shop.getStockData());
 			p.setShopping(true);
-			p.setShop(new Shop());
+			p.setShop(m_shop);
 		}
 	}
 	

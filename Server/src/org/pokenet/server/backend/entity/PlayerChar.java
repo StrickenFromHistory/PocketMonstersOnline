@@ -9,6 +9,7 @@ import java.util.HashMap;
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.ServerMap;
+import org.pokenet.server.backend.item.ItemDatabase;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
@@ -898,13 +899,16 @@ public class PlayerChar extends Char implements Battleable {
 					m_money = m_money - (q * m_currentShop.getPriceForItem(id));
 					m_bag.addItem(id, q);
 					this.updateClientMoney();
-					//Let player know he bought potion. 
+					//Let player know he bought potion.
+					m_session.write("Sb" + ItemDatabase.getInstance().getItem(id).getName());
 				}
 			}else{
 				//Return You have no money, fool!
+				m_session.write("Sn");
 			}
 		}else{
 			//Send You cant carry any more items!
+			m_session.write("Sf");
 		}
 	}
 	/**
