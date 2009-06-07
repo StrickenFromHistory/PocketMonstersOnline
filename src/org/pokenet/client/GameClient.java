@@ -239,6 +239,8 @@ public class GameClient extends BasicGame {
 	 * Renders to the game window
 	 */
 	public void render(GameContainer gc, Graphics g) throws SlickException {
+		/* Clip the screen, no need to render what we're not seeing */
+		g.setWorldClip(-32, -32, 864, 664);
 		/*
 		 * If the player is playing, run this rendering algorithm for maps.
 		 * The uniqueness here is:
