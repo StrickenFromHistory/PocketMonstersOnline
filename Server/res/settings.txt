@@ -1,4 +1,5 @@
-pokenetacc.db.3599659.hostedresource.com
-pokenetacc
-pokenetacc
+isocron.net
+pokenet
+pokenetdb
 Your Server Name
+ 

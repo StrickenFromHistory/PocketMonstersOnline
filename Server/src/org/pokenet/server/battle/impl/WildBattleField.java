@@ -495,28 +495,28 @@ public class WildBattleField extends BattleField {
 					case Level:
 						if(evolution.getLevel() <= p.getLevel() + 1) {
 							p.setEvolution(evolution);
-							m_player.getSession().write("Pe" + index);
+							m_player.getSession().write("PE" + index);
 							return;
 						}
 						break;
 					case HappinessDay:
 						if(p.getHappiness() > 220 && !TimeService.isNight()) {
 							p.setEvolution(evolution);
-							m_player.getSession().write("Pe" + index);
+							m_player.getSession().write("PE" + index);
 							return;
 						}
 						break;
 					case HappinessNight:
 						if(p.getHappiness() > 220 && TimeService.isNight()) {
 							p.setEvolution(evolution);
-							m_player.getSession().write("Pe" + index);
+							m_player.getSession().write("PE" + index);
 							return;
 						}
 						break;
 					case Happiness:
 						if(p.getHappiness() > 220) {
 							p.setEvolution(evolution);
-							m_player.getSession().write("Pe" + index);
+							m_player.getSession().write("PE" + index);
 							return;
 						}
 						break;
