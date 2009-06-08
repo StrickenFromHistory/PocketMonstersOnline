@@ -184,8 +184,8 @@ public class PlayerChar extends Char implements Battleable {
                     for(int i = 0; i < pokemon.getMoves().length; i++) {
                     	if(pokemon.getMoves()[i] != null) {
                     		PokemonMove move = pokemon.getMoves()[i].getMove();
-                    		pokemon.setMaxPP(i, move.getPp() * (5 + pokemon.getPp(i)) / 5);
-                    		pokemon.setPp(i, move.getPp() * (5 + pokemon.getPp(i)) / 5);
+                    		pokemon.setPp(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
+                    		pokemon.setMaxPP(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
                     	}
                     }
             }
