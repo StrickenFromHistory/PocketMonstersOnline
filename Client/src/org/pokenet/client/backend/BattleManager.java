@@ -150,6 +150,9 @@ public class BattleManager {
 	public void switchPoke(int trainer, int pokeIndex){
 		if (trainer == 0) {
 			m_curPoke = GameClient.getInstance().getOurPlayer().getPokemon()[pokeIndex];
+			updateMoves();
+			m_timeLine.getBattleCanvas().drawOurPoke();
+			m_timeLine.getBattleCanvas().drawOurInfo();
 		} else {
 			m_curEnemyPoke = m_enemyPokes[pokeIndex];
 		}
@@ -161,10 +164,10 @@ public class BattleManager {
 	public void updatePokePane() {
 		for (int i = 0; i < 6; i++) {
 			try{
-				m_battle.m_pokeButtons.get(i).setText(m_ourPokes[0].getName());
-				m_battle.m_pokeInfo.get(i).setText("Lv: " + m_ourPokes[0].getLevel() + " HP:"
-						+ m_ourPokes[0].getCurHP() + "/" + m_ourPokes[0].getMaxHP());
-				if (m_ourPokes[0].getCurHP() <= 0)
+				m_battle.m_pokeButtons.get(i).setText(m_ourPokes[i].getName());
+				m_battle.m_pokeInfo.get(i).setText("Lv: " + m_ourPokes[i].getLevel() + " HP:"
+						+ m_ourPokes[i].getCurHP() + "/" + m_ourPokes[i].getMaxHP());
+				if (m_ourPokes[i].getCurHP() <= 0)
 					m_battle.m_pokeButtons.get(i).setEnabled(false);
 				else
 					m_battle.m_pokeButtons.get(i).setEnabled(true);

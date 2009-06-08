@@ -198,7 +198,6 @@ public class BattleWindow extends Frame {
 		attackPane.add(move4);
 		move4.setLocation(130, 65);
 		move4.setSize(116, 51);
-
 		move4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				useMove(3);

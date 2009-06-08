@@ -50,6 +50,9 @@ public class BattleCanvas extends Container {
 	 */
 	public void drawOurPoke(){
 		//TODO: Animate!
+		try {
+			remove(playerPoke);
+		} catch (Exception e) {}
 		playerPoke = new Label();
 		GameClient.getInstance().getUi().getBattleManager().getCurPoke().setBackSprite();
 		playerPoke = new Label(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getBackSprite());
@@ -75,6 +78,9 @@ public class BattleCanvas extends Container {
 	public void drawEnemyPoke(){
 		//TODO: Animate!
 		try{
+			try {
+				remove(enemyPoke);
+			} catch (Exception e) {}
 			enemyPoke = new Label (GameClient.getInstance().getUi().getBattleManager()
 					.getCurEnemyPoke().getSprite());
 			enemyPoke.setSize(80, 80);
@@ -117,7 +123,7 @@ public class BattleCanvas extends Container {
         				.getText()));
         playerNameLabel.setLocation(playerDataBG.getX() + 30, playerDataBG.getY() + 7);
         
-        playerLv = new Label("Lv:" + GameClient.getInstance().getUi().getBattleManager()
+        playerLv.setText("Lv:" + GameClient.getInstance().getUi().getBattleManager()
         		.getCurPoke().getLevel());
         playerLv.setFont(GameClient.getTrueTypeFont());
         playerLv.setForeground(Color.white);
@@ -148,7 +154,7 @@ public class BattleCanvas extends Container {
         		GameClient.getTrueTypeFont().getHeight(enemyNameLabel.getText()));
         enemyNameLabel.setLocation(enemyDataBG.getX() + 15, enemyDataBG.getY() + 7);
 
-        enemyLv = new Label("Lv: " + GameClient.getInstance().getUi().getBattleManager()
+        enemyLv.setText("Lv: " + GameClient.getInstance().getUi().getBattleManager()
         		.getCurEnemyPoke().getLevel());
         enemyLv.setFont(GameClient.getTrueTypeFont());
         enemyLv.setForeground(Color.white);
