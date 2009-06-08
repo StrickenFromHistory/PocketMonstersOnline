@@ -488,6 +488,29 @@ public class WildBattleField extends BattleField {
 				POLRDataEntry pokeData = DataService.getPOLRDatabase().getPokemonData(
 						DataService.getSpeciesDatabase().getPokemonByName(p.getSpeciesName()));
 				
+				/* This Pokemon just, levelled up! */
+				p.setHappiness(p.getHappiness() + 2);
+				p.calculateStats(false);
+				
+				int level = DataService.getBattleMechanics().calculateLevel(p);
+				int oldLevel = p.getLevel();
+				String move = "";
+				
+				/* Move learning */
+				p.getMovesLearning().clear();
+				for(int i = oldLevel; i <= level; i++) {
+					if(pokeData.getMoves().get(i) != null) {
+						move = pokeData.getMoves().get(i);
+						p.getMovesLearning().add(move);
+						m_player.getSession().write("Pm" + index + move);
+					}
+				}
+				
+				/* Save the level and update the client */
+				p.setLevel(level);
+				m_player.getSession().write("Pl" + index + "," + level);
+				showMessage(p.getSpeciesName() + " reached level " + level + "!");
+				
 				/* Handle evolution */
 				for(int i = 0; i < pokeData.getEvolutions().size(); i++) {
 					POLREvolution evolution = pokeData.getEvolutions().get(i);
@@ -524,28 +547,6 @@ public class WildBattleField extends BattleField {
 						break;
 					}
 				}
-				
-				/* This Pokemon just, levelled up! */
-				p.setHappiness(p.getHappiness() + 2);
-				p.calculateStats(false);
-				
-
-				int level = DataService.getBattleMechanics().calculateLevel(p);
-				int oldLevel = p.getLevel();
-				String move = "";
-				/* Move learning */
-				p.getMovesLearning().clear();
-				for(int i = oldLevel; i <= level; i++) {
-					if(pokeData.getMoves().get(i) != null) {
-						move = pokeData.getMoves().get(i);
-						p.getMovesLearning().add(move);
-						m_player.getSession().write("Pm" + index + move);
-					}
-				}
-				/* Save the level and update the client */
-				p.setLevel(level);
-				m_player.getSession().write("Pl" + index + "," + level);
-				showMessage(p.getSpeciesName() + " reached level " + level + "!");
 			}
 		}
 	}
