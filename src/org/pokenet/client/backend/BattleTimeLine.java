@@ -18,7 +18,7 @@ public class BattleTimeLine {
 	List<String> m_translator = new ArrayList<String>();
 	//Lines for REGEX needed for l10n
 	String m_pokeName, m_move, m_trainer;
-	int m_newHPValue, m_exp, m_dmg;
+	int m_newHPValue, m_exp, m_dmg, m_earnings, m_level;
 	private boolean m_isBattling;
 	
 	/**
@@ -226,6 +226,25 @@ public class BattleTimeLine {
 	}
 	
 	/**
+	 * Informs the player's earnings
+	 * @param money
+	 */
+	public void informMoneyGain(int money) {
+		m_earnings = money;
+		addSpeech(m_translator.get(19));
+	}
+	
+	/**
+	 * Informs the player's earnings
+	 * @param money
+	 */
+	public void informLevelUp(String poke, int level) {
+		m_pokeName = poke;
+		m_level = level;
+		addSpeech(m_translator.get(20));
+	}
+	
+	/**
 	 * Adds speech to the narrator and waits for it to be read before the next action is taken
 	 * @param msg
 	 */
@@ -289,6 +308,12 @@ public class BattleTimeLine {
 		}
 		if (line.contains("damageNum")){
 			line = line.replaceAll("damageNum", String.valueOf(m_dmg));
+		}
+		if (line.contains("earningsNum")){
+			line = line.replaceAll("earningsNum", String.valueOf(m_earnings));
+		}
+		if (line.contains("levelNum")){
+			line = line.replaceAll("levelNum", String.valueOf(m_level));
 		}
 		return line;
 	}
