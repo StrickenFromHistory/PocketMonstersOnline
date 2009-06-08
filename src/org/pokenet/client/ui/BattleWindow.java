@@ -427,22 +427,7 @@ public class BattleWindow extends Frame {
 	}
 
 	/**
-	 * Sets the move learning interface
-	 */
-	public void setUIToLearn(String moveName) {
-		showAttack();
-
-		move1.setEnabled(true);
-		move2.setEnabled(true);
-		move3.setEnabled(true);
-		move4.setEnabled(true);
-		cancel.setVisible(true);
-		cancel.setEnabled(true);
-	}
-
-	/**
 	 * Sets whether the battle is a wild pokemon
-	 * 
 	 * @param isWild
 	 */
 	public void setWild(boolean isWild) {
