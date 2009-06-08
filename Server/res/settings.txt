@@ -1,5 +1,0 @@
-isocron.net
-pokenet
-pokenetdb
-Your Server Name
- 
