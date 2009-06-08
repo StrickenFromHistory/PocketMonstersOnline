@@ -390,6 +390,20 @@ public abstract class BattleField {
     }
     
     /**
+     * Gets the party index of a pokemon
+     * @param p
+     * @return
+     */
+    public int getPokemonPartyIndex(Pokemon p) {
+		for (int i = 0; i < m_pokemon[p.getParty()].length; i++){
+			if (p.getDateCaught().equals(m_pokemon[p.getParty()][i].getDateCaught())){
+				return i;
+			}
+		}
+		return -1;
+    }
+    
+    /**
      * Get the name of a trainer by number.
      */
     public abstract String getTrainerName(int idx);

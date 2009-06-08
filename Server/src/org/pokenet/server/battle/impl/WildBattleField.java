@@ -141,7 +141,9 @@ public class WildBattleField extends BattleField {
 	@Override
 	public void informSwitchInPokemon(int trainer, Pokemon poke) {
 		if(trainer == 0 && m_player != null) {
-			m_player.getSession().write("bS" + m_player.getName() + "," + poke.getSpeciesName());
+
+			m_player.getSession().write("bS" + m_player.getName() + "," + poke.getSpeciesName() + "," + trainer +
+					"," + getPokemonPartyIndex(poke));
 		}
 	}
 
