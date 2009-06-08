@@ -582,7 +582,11 @@ public class Pokemon extends PokemonSpecies {
          */
         String [] abilities = PokemonSpecies.getDefaultData().getPossibleAbilities(ps.getName());
         /* First select an ability randomly */
-        String ab = abilities[random.nextInt(abilities.length)];
+        String ab = "";
+        if(abilities.length == 1)
+        	ab = abilities[0];
+        else
+        	ab = abilities[random.nextInt(abilities.length)];
         /*
          * Unfortunately, all Pokemon have two possible ability slots but some only have one.
          * If the null slot was selected, select the other slot

@@ -238,12 +238,16 @@ public class LogoutManager implements Runnable {
 							}
 							//Save all pokemon first
 							for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
-								if(p.getBoxes()[i].getPokemon(j).getId() == -1) {
-									if(!saveNewPokemon(p.getBoxes()[i].getPokemon(j), m_database))
-										return false;
-								} else {
-									if(!savePokemon(p.getBoxes()[i].getPokemon(j)))
-										return false;
+								if(p.getBoxes()[i].getPokemon(j) != null) {
+									if(p.getBoxes()[i].getPokemon(j).getId() == -1) {
+										/* This is a new Pokemon, create it in the database */
+										if(!saveNewPokemon(p.getBoxes()[i].getPokemon(j), m_database))
+											return false;
+									} else {
+										/* Update an existing pokemon */
+										if(!savePokemon(p.getBoxes()[i].getPokemon(j)))
+											return false;
+									}
 								}
 							}
 							//Now save all references to the box

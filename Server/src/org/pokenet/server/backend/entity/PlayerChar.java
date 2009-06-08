@@ -619,7 +619,7 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
-	 * Catches a Pokemon
+	 * Stores a caught Pokemon in the player's party or box
 	 * @param p
 	 */
 	public void catchPokemon(Pokemon p) {
@@ -627,7 +627,33 @@ public class PlayerChar extends Char implements Battleable {
 		String date = new SimpleDateFormat ("yyyy-MM-dd:HH-mm-ss").format (d);
 		p.setDateCaught(date);
 		p.setOriginalTrainer(this.getName());
-		//TODO: Add the pokemon to the party/box
+		p.setDatabaseID(-1);
+		/* See if there is space in the player's party */
+		for(int i = 0; i < 6; i++) {
+			if(m_pokemon[i] == null) {
+				m_pokemon[i] = p;
+				updateClientParty(i);
+				return;
+			}
+		}
+		/* Else, find space in a box */
+		for(int i = 0; i < m_boxes.length; i++) {
+			if(m_boxes[i] != null) {
+				/* Find space in an existing box */
+				for(int j = 0; j < m_boxes[i].getPokemon().length; j++)
+					if(m_boxes[i].getPokemon(j) == null) {
+						m_boxes[i].setPokemon(j, p) ;
+						return;
+					}
+			} else {
+				/* We need a new box */
+				m_boxes[i] = new PokemonBox();
+				m_boxes[i].setDatabaseId(-1);
+				m_boxes[i].setPokemon(new Pokemon[20]);
+				m_boxes[i].setPokemon(0, p);
+				return;
+			}
+		}
 	}
 	
 	/**
