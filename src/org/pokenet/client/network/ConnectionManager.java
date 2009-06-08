@@ -94,7 +94,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 's':
 			//Party swapping. Received as s0,5. Pokemons in party at 0 and 5 were swapped around
-			m_game.getOurPlayer().swapPokemon(Integer.parseInt(message.substring(1, message.indexOf(','))),Integer.parseInt(message.substring(message.indexOf(',') + 1)) );
+			m_game.getOurPlayer().swapPokemon(Integer.parseInt(message.substring(1, message.indexOf(','))),
+					Integer.parseInt(message.substring(message.indexOf(',') + 1)) );
 			GameClient.getInstance().getUi().refreshParty();
 //			details = message.substring(3).split(",");
 //			m_game.getOurPlayer().setPokemon(Integer.parseInt(message.substring(2, 3)), details);
@@ -119,7 +120,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 				GameClient.messageDialog("You can't carry any new items", GameClient.getInstance().getDisplay());
 				break;
 			case 'c': //Cant Carry more of that Type
-				GameClient.messageDialog("You can't carry any more "+message.substring(2), GameClient.getInstance().getDisplay());
+				GameClient.messageDialog("You can't carry any more "+message.substring(2), 
+						GameClient.getInstance().getDisplay());
 				break;
 			case 'b': //Bought Item
 				GameClient.messageDialog("You bought a "+message.substring(2), GameClient.getInstance().getDisplay());
@@ -177,11 +179,13 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'F':
 				//A pokemon fainted -> bFPOKEMON
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informFaintedPoke(message.substring(2));
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informFaintedPoke(
+						message.substring(2));
 				break;
 			case 'M':
 				//A move was used -> bMPOKEMON,MOVENAME
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informMoveUsed(message.substring(2).split(","));
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informMoveUsed(
+						message.substring(2).split(","));
 				break;
 			case 'm':
 				//Move requested
@@ -189,15 +193,18 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case '.':
 				//Exp gain -> b.POKEMON,EXPAMOUNT
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informExperienceGained(message.substring(2).split(","));
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informExperienceGained(
+						message.substring(2).split(","));
 				break;
 			case 'e':
 				//A Pokemon received a status effect -> beTRAINER.POKEMON,EFFECT
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusChanged(Integer.parseInt(String.valueOf(message.charAt(2))), message.substring(3).split(","));
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusChanged(
+						Integer.parseInt(String.valueOf(message.charAt(2))), message.substring(3).split(","));
 				break;
 			case 'E':
 				//A Pokemon had a status effect removed -> bEPOKEMON,EFFECT
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusHealed(Integer.parseInt(String.valueOf(message.charAt(2))), message.substring(3).split(","));
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusHealed(
+						Integer.parseInt(String.valueOf(message.charAt(2))), message.substring(3).split(","));
 				break;
 			case 's':
 				//Switch in Pokemon requested
@@ -205,7 +212,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'S':
 				//A switch occured -> bSTRAINERNAME,NEWPOKEMON
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informSwitch(message.substring(2).split(","));
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informSwitch(
+						message.substring(2).split(","));
 				break;
 			case 'h':
 				/*
@@ -216,11 +224,13 @@ public class ConnectionManager extends IoHandlerAdapter {
 				switch(message.charAt(2)) {
 				case '0':
 					//Our pokemon's health
-					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informHealthChanged(message.substring(2).split(","), 0);
+					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informHealthChanged(
+							message.substring(2).split(","), 0);
 					break;
 				case '1':
 					//Enemy pokemon's health
-					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informHealthChanged(message.substring(2).split(","), 1);
+					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informHealthChanged(
+							message.substring(2).split(","), 1);
 					break;
 				}
 				break;
@@ -271,6 +281,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				 * with a 0 at the end if the evolution was cancelled
 				 * or a 1 if it was allowed, e.g. PE10
 				 */
+				GameClient.getInstance().getUi().tryEvolve(Integer.parseInt(String.valueOf(message.charAt(2))));
 				break;
 			case 'l':
 				//Level change
@@ -559,7 +570,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case '2':
 				//Server full
-				GameClient.messageDialog("This server is full, please try another", GameClient.getInstance().getDisplay());
+				GameClient.messageDialog("This server is full, please try another", 
+						GameClient.getInstance().getDisplay());
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().showLogin();
 				break;
