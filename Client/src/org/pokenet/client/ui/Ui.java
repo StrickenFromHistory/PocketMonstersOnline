@@ -11,6 +11,7 @@ import org.newdawn.slick.SlickException;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.entity.PlayerItem;
+import org.pokenet.client.ui.base.ConfirmationDialog;
 import org.pokenet.client.ui.base.HUDButtonFactory;
 import org.pokenet.client.ui.base.ImageButton;
 import org.pokenet.client.ui.base.ListBox;
@@ -51,6 +52,7 @@ public class Ui extends Frame {
 	private TradeDialog m_trade;
     private boolean m_isOption;
     private static final int UI_WIDTH = 32*7;
+    private ConfirmationDialog m_evolveDialog;
 	
 	/**
 	 * Default constructor
@@ -508,8 +510,30 @@ public class Ui extends Frame {
     	m_trade = null;
     }
     
+    /**
+     * Returns the trade dialog
+     * @return the trade dialog
+     */
     public TradeDialog getTrade() {
     	return m_trade;
+    }
+    
+    public void tryEvolve(int pokeIndex) {
+    	final int index = pokeIndex;
+    	ActionListener yes = new ActionListener() {
+    		public void actionPerformed(ActionEvent e) {
+    			GameClient.getInstance().getPacketGenerator().write("Pe1" + index);
+    			GameClient.getInstance().getDisplay().remove(m_evolveDialog);
+    		}
+    	};
+    	ActionListener no = new ActionListener() {
+    		public void actionPerformed(ActionEvent e) {
+    			GameClient.getInstance().getPacketGenerator().write("Pe0");
+    			GameClient.getInstance().getDisplay().remove(m_evolveDialog);
+    		}
+    	};
+    	m_evolveDialog = new ConfirmationDialog(GameClient.getInstance().getOurPlayer().getPokemon()
+    			[pokeIndex].getName() + " is trying to evolve.", yes, no);
     }
 }
  
