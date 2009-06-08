@@ -518,6 +518,10 @@ public class Ui extends Frame {
     	return m_trade;
     }
     
+    /**
+     * A pokemon wants to evolve
+     * @param pokeIndex
+     */
     public void tryEvolve(int pokeIndex) {
     	final int index = pokeIndex;
     	ActionListener yes = new ActionListener() {

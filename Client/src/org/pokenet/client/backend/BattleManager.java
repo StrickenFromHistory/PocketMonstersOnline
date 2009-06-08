@@ -277,11 +277,19 @@ public class BattleManager {
 		return m_moveLearning;
 	}
 	
+	/**
+	 * A pokemon wants to learn a move
+	 * @param pokeIndex
+	 * @param move
+	 */
 	public void learnMove(int pokeIndex, String move){
 		m_moveLearning.learnMove(pokeIndex, move);
 		GameClient.getInstance().getDisplay().add(m_moveLearning);
 	}
 	
+	/**
+	 * Removes the Move Learning window
+	 */
 	public void removeMoveLearning() {
 		try {
 			GameClient.getInstance().getUi().getNPCSpeech().advance();
