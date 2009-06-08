@@ -133,6 +133,8 @@ public class BattleTimeLine {
 		m_canvas.drawOurInfo();
 		m_canvas.drawEnemyPoke();
 		m_canvas.drawEnemyInfo();
+		GameClient.getInstance().getUi().getBattleManager().switchPoke(Integer.parseInt(data[2]),
+				Integer.parseInt(data[3]));
 		addSpeech(m_translator.get(5));
 	}
 	
