@@ -247,6 +247,17 @@ public class ConnectionManager extends IoHandlerAdapter {
 					break;
 				}
 				break;
+			case '$':
+				//Receiving earnings
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informMoneyGain(Integer.parseInt(
+						message.substring(2)));
+				break;
+			case 'l':
+				//Inform pokemon level up
+				final String[] levelData = message.substring(2).split(",");
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informLevelUp(levelData[0],
+						Integer.parseInt(levelData[1]));
+				break;
 			}
 			break;
 		case 'P':

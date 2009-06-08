@@ -419,9 +419,10 @@ public class WildBattleField extends BattleField {
 		/*
 		 * First calculate earnings
 		 */
-		m_player.setMoney(m_player.getMoney() + 5);
+		int money = 5;
+		m_player.setMoney(m_player.getMoney() + money);
 		m_player.updateClientMoney();
-		showMessage("You earned 5 PD!");
+		m_player.getSession().write("b$" + money);
 		
 		/*
 		 * Secondly, calculate EVs and exp
@@ -509,7 +510,7 @@ public class WildBattleField extends BattleField {
 				/* Save the level and update the client */
 				p.setLevel(level);
 				m_player.getSession().write("Pl" + index + "," + level);
-				showMessage(p.getSpeciesName() + " reached level " + level + "!");
+				m_player.getSession().write("bl" + p.getSpeciesName() + "," + level);
 				
 				/* Handle evolution */
 				for(int i = 0; i < pokeData.getEvolutions().size(); i++) {
