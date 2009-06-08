@@ -91,6 +91,7 @@ public class ChatDialog extends Frame {
     		m_possibleChats.setBackground(m_chatType.getBackground());
     		setSize(206, 320);
     		m_chatType.grabFocus();
+    		setResizable(false);
     	} catch (Exception e) {
     		e.printStackTrace();
     	}
@@ -313,6 +314,8 @@ class ChatWidget extends Container{
      * Lays out the scrolling buttons
      */
 	public void layoutScrollButtons(){
+		/* Removed till later versions due to bugs
+		
 		int buttonWidth = 16;
 		m_up.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -340,7 +343,7 @@ class ChatWidget extends Container{
 		} else {
 			m_up.setVisible(true);
 			m_down.setVisible(true);
-		}
+		}*/
 	}
     
 	/**
