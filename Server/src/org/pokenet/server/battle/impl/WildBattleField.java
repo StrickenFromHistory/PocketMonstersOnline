@@ -493,7 +493,7 @@ public class WildBattleField extends BattleField {
 					POLREvolution evolution = pokeData.getEvolutions().get(i);
 					switch(evolution.getType()) {
 					case Level:
-						if(evolution.getLevel() == p.getLevel() + 1) {
+						if(evolution.getLevel() <= p.getLevel() + 1) {
 							p.setEvolution(evolution);
 							m_player.getSession().write("Pe" + index);
 							return;
