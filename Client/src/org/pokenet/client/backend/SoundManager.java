@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import org.newdawn.slick.Music;
-import org.newdawn.slick.SlickException;
+import org.pokenet.client.GameClient;
 
 /**
  * Handles music throughout the game
@@ -14,7 +14,7 @@ import org.newdawn.slick.SlickException;
  */
 public class SoundManager extends Thread{
 	private HashMap<String, Music> m_files;
-	private HashMap<String, String> m_fileList;
+	private HashMap<String, String> m_fileList, m_locations;
 	protected String m_trackName;
 	private boolean m_muted = false, m_tracksLoaded = false, m_trackChanged = true, m_isRunning = false;
 
@@ -26,6 +26,7 @@ public class SoundManager extends Thread{
 	public SoundManager() {
 		m_files = new HashMap<String, Music>();
 		loadFileList();
+		loadLocations();
 	}
 	
 	/**
@@ -49,6 +50,27 @@ public class SoundManager extends Thread{
 			System.err.println("Failed to load music");
 		}
 	}
+
+	/**
+	 * Loads the locations and their respective keys
+	 */
+	private void loadLocations() {
+		try {
+			Scanner reader = new Scanner(new File("res/language/english/_MUSICKEYS.txt"));
+			m_locations = new HashMap<String, String>();
+
+			String f = null;
+			while (reader.hasNext()) {
+				f = reader.nextLine();
+				String[] addFile = f.split(":", 2);
+				System.out.println(addFile[0] + ", " + addFile[1]);
+				m_locations.put(addFile[0], addFile[1]);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	
 	/**
 	 * Loads the files
@@ -92,6 +114,17 @@ public class SoundManager extends Thread{
 	public void setTrack(String key){
 		if (key != m_trackName){
 			m_trackName = key;
+			m_trackChanged = true;
+		}
+	}
+	
+	/**
+	 * Sets the track according to the player's location
+	 * @param key
+	 */
+	public void setTrackByLocation(String key){
+		if (m_locations.get(key) != m_trackName){
+			m_trackName = m_locations.get(key);
 			m_trackChanged = true;
 		}
 	}
