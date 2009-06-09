@@ -103,7 +103,8 @@ public class BattleManager {
 		m_battle.setVisible(false);
 		GameClient.getInstance().getDisplay().remove(m_battle);
 		while (GameClient.getInstance().getDisplay().containsChild(m_battle));
-		GameClient.changeTrack("newbark");
+		GameClient.getSoundPlayer().setTrackByLocation(GameClient.getInstance().getMapMatrix()
+				.getCurrentMap().getName());
 	}
 
 	/**
