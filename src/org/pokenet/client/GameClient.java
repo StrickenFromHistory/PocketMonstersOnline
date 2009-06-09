@@ -204,7 +204,6 @@ public class GameClient extends BasicGame {
 		 */
 		if(m_isNewMap && m_loading.isVisible()) {
 			m_mapMatrix.loadMaps(m_mapX, m_mapY, gc.getGraphics());
-			m_soundPlayer.setTrackByLocation(m_mapMatrix.getCurrentMap().getName());
 			while(m_ourPlayer == null);
 			m_mapMatrix.getCurrentMap().setXOffset(400 - m_ourPlayer.getX(), false);
 			m_mapMatrix.getCurrentMap().setYOffset(300 - m_ourPlayer.getY(), false);
@@ -648,6 +647,7 @@ public class GameClient extends BasicGame {
 		m_isNewMap = true;
 		m_loading.setVisible(true);
 		m_ui.getReqWindow().clearOffers();
+		m_soundPlayer.setTrackByLocation(m_mapMatrix.getMapName(x, y));
 	}
 	
 	/**
