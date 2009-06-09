@@ -16,3 +16,5 @@ Tin Tower:tintower
 Olivine Lighthouse:lighthouse
 Dragons Den:dragonsden
 Pokemon Center:pokecenter
+Gym:introandgym
+RoA:ruinsofalph

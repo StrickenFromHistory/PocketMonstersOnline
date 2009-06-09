@@ -77,6 +77,16 @@
 -49,-41,Pokemon Center
 -49,-44,Pokemon Center
 -49,-46,Pokemon Center
+-31,-35,Gym
+-32,-43,Gym
+-35,-35,Gym
+-38,-38,Gym
+-45,-45,Gym
+-46,-46,Gym
+-49,-37,Gym
+-49,-42,Gym
+-50,-50,Gym
+-36 -49,RoA
 
 
 
