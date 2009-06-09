@@ -50,6 +50,29 @@ public class SpeechFrame extends Frame {
     }
     
     /**
+     * Constructs a SpeechFrame, uses Seconds between next line. 
+     * @param speech
+     * @param seconds
+     */
+    public SpeechFrame(String speech, int seconds) {
+            speechQueue = new LinkedList<String>();
+            for (String line : speech.split("/n")) {
+                    speechQueue.add(line);
+            }
+            triangulate();
+            initGUI();
+            this.advance();
+//            this.advance();
+//            while(canAdvance()){
+//	            try {
+//					wait(seconds*1000);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+//	            advance();
+//            }
+    }
+    /**
      * Sends a packet when finished showing dialog
      * @param printed
      */

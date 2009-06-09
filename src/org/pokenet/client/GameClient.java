@@ -335,6 +335,8 @@ public class GameClient extends BasicGame {
 				};
 				m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
 				getUi().getDisplay().add(m_confirm);
+			}else{
+				System.exit(0);
 			}
 		}
 		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()

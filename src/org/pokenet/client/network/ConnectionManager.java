@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
+import org.lwjgl.util.Timer;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.Translator;
 import org.pokenet.client.backend.entity.OurPlayer;
@@ -16,6 +17,8 @@ import org.pokenet.client.ui.frames.ShopDialog;
 /**
  * Handles packets received from the server
  * @author shadowkanji
+ * @author ZombieBear
+ * @author Nushio
  *
  */
 public class ConnectionManager extends IoHandlerAdapter {
@@ -55,6 +58,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 	/**
 	 * Once a message is received, this method is called
 	 */
+	@SuppressWarnings("static-access")
 	public void messageReceived(IoSession session, Object m) {
 		List<String> translated = new ArrayList<String>();
 		translated = Translator.translate("_LOGIN");
@@ -113,7 +117,6 @@ public class ConnectionManager extends IoHandlerAdapter {
 				List<Integer> merch = new ArrayList<Integer>();
 				String items = message.substring(2);
 				String[] merchData = items.split(",");
-				
 				for (int i = 1; i < merchData.length; i++) {
 					merch.add(Integer.parseInt(merchData[i]));
 				}
@@ -130,7 +133,20 @@ public class ConnectionManager extends IoHandlerAdapter {
 						GameClient.getInstance().getDisplay());
 				break;
 			case 'b': //Bought Item
-				GameClient.messageDialog("You bought a "+message.substring(2), GameClient.getInstance().getDisplay());
+				try {
+					GameClient.getInstance().getUi().getNPCSpeech().advance();
+				} catch (Exception e) {}
+				GameClient.getInstance().getUi().talkToNPC(
+						"You bought a " + message.substring(2));
+				Timer m_timer = new Timer();
+				m_timer.tick();
+				if (m_timer.getTime() >= 0.5) {
+					try {
+						GameClient.getInstance().getUi().getNPCSpeech()
+								.advance();
+					} catch (Exception e) {}
+					m_timer.reset();
+				}
 				break;
 			}
 			
