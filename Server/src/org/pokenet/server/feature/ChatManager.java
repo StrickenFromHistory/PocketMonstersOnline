@@ -1,4 +1,4 @@
-package org.pokenet.server.network;
+package org.pokenet.server.feature;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;

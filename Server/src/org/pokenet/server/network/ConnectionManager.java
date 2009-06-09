@@ -292,10 +292,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'F':
 				//Friend list
+				String friend = message.substring(2);
 				switch(message.charAt(1)) {
 				case 'a':
 					//Add a friend
-					p.addFriend(message.substring(2));
+					if(m_players.containsKey(friend));
+						p.addFriend(message.substring(2));
 					break;
 				case 'r':
 					//Remove a friend

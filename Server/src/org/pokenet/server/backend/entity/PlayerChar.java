@@ -371,6 +371,8 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param username
 	 */
 	public void addFriend(String username) {
+		if(m_friends == null)
+			m_friends = new ArrayList<String>();
 		if(m_friends.size() < 10) {
 			m_friends.add(username);
 			m_session.write("Fa" + username);
@@ -382,6 +384,10 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param username
 	 */
 	public void removeFriend(String username) {
+		if(m_friends == null) {
+			m_friends = new ArrayList<String>();
+			return;
+		}
 		for(int i = 0; i < m_friends.size(); i++) {
 			if(m_friends.get(i).equalsIgnoreCase(username)) {
 				m_friends.remove(i);

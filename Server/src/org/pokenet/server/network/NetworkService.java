@@ -11,6 +11,7 @@ import org.apache.mina.filter.executor.ExecutorFilter;
 import org.apache.mina.transport.socket.nio.SocketAcceptor;
 import org.apache.mina.transport.socket.nio.SocketAcceptorConfig;
 import org.apache.mina.transport.socket.nio.SocketSessionConfig;
+import org.pokenet.server.feature.ChatManager;
 import org.pokenet.server.network.codec.PokenetCodecFactory;
 
 /**
