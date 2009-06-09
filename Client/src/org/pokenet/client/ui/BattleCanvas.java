@@ -42,6 +42,7 @@ public class BattleCanvas extends Container {
 	public BattleCanvas(){
 		setSize(257, 144);
 		setVisible(true);
+		loadImages();
 		loadStatusIcons();
 	}
 	
@@ -73,6 +74,20 @@ public class BattleCanvas extends Container {
 	}
 	
 	/**
+	 * Loads images that can't be loading on startBattle()
+	 */
+	public void loadImages(){
+        LoadingList.setDeferredLoading(true);
+		try {
+			enemyHPBar = new Label(new Image("/res/battle/HPBar.png"));
+			playerHPBar = new Label(new Image("/res/battle/HPBar.png"));
+		} catch (SlickException e) {}
+		LoadingList.setDeferredLoading(false);
+		enemyHPBar.setSize(98, 11);
+		playerHPBar.setSize(98, 11);
+	}
+	
+	/**
 	 * Draws the enemy's Pokemon
 	 */
 	public void drawEnemyPoke(){
@@ -101,21 +116,10 @@ public class BattleCanvas extends Container {
 		enemyNameLabel = new Label();
 		playerDataBG = new Label();
 		enemyDataBG = new Label();
-		playerHPBar = new Label();
-		enemyHPBar = new Label();
 		playerLv = new Label();
 		enemyLv = new Label();
 		playerStatus = new Label();
 		enemyStatus = new Label();
-		
-        LoadingList.setDeferredLoading(true);
-		try {
-			enemyHPBar = new Label(new Image("/res/battle/HPBar.png"));
-			playerHPBar = new Label(new Image("/res/battle/HPBar.png"));
-		} catch (SlickException e) {}
-		LoadingList.setDeferredLoading(false);
-		enemyHPBar.setSize(98, 11);
-		playerHPBar.setSize(98, 11);
 	}
 	
 	/**
