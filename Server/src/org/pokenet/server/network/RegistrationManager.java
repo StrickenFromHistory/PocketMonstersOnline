@@ -73,6 +73,19 @@ public class RegistrationManager implements Runnable {
 				}
 			} catch (Exception e) {}
 			/*
+			 * Check if an account is already registered with the email
+			 */
+			data = m_database.query("SELECT * FROM pn_members WHERE email='" + MySqlManager.parseSQL(info[2]) + "'");
+			data.first();
+			try {				
+				if(data != null && data.getString("email") != null && data.getString("email").equalsIgnoreCase(MySqlManager.parseSQL(info[2]))) {
+					session.resumeRead();
+					session.resumeWrite();
+					session.write("r5");
+					return;
+				}
+			} catch (Exception e) {}
+			/*
 			 * Check if user is not trying to register their starter as a non-starter Pokemon
 			 */
 			if(!(s == 1 || s == 4 || s == 7 || s == 152 || s == 155 || s == 158 || s == 252 || s == 255 || s == 258

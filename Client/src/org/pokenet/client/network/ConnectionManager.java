@@ -655,6 +655,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoginScreen().getRegistration().enableRegistration();
 				m_game.getLoadingScreen().setVisible(false);
 				break;
+			case '5':
+				//TODO: Email already in use
+				break;
 			}
 			break;
 		}
