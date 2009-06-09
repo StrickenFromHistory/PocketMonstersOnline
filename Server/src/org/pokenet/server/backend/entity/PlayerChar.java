@@ -745,7 +745,7 @@ public class PlayerChar extends Char implements Battleable {
 				/* We need a new box */
 				m_boxes[i] = new PokemonBox();
 				m_boxes[i].setDatabaseId(-1);
-				m_boxes[i].setPokemon(new Pokemon[20]);
+				m_boxes[i].setPokemon(new Pokemon[30]);
 				m_boxes[i].setPokemon(0, p);
 				return;
 			}
@@ -994,8 +994,12 @@ public class PlayerChar extends Char implements Battleable {
 				if(m_boxes[j].getPokemon(i) != null)
 					packet = packet + m_boxes[j].getPokemon(i).getSpeciesNumber() + ",";
 			}
-			if(!packet.equalsIgnoreCase(""))
-				m_session.write("B" + packet);
+			m_session.write("B" + packet);
+		} else {
+			m_boxes[j] = new PokemonBox();
+			m_boxes[j].setDatabaseId(-1);
+			m_boxes[j].setPokemon(new Pokemon[30]);
+			m_session.write("B");
 		}
 	}
 	

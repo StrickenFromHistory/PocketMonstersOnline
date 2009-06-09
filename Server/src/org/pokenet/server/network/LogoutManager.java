@@ -226,18 +226,8 @@ public class LogoutManager implements Runnable {
 						if(p.getBoxes()[i] != null) {
 							if(p.getBoxes()[i].getDatabaseId() == -1) {
 								//New box
-								m_database.query("INSERT INTO pn_box(member, pokemon0, pokemon1, pokemon2, " +
-										"pokemon3, pokemon4, pokemon5, pokemon 6, pokemon7, pokemon8, pokemon9, " +
-										"pokemon10, pokemon11, pokemon12, pokemon13, pokemon14, pokemon15, pokemon16, " +
-										"pokemon17, pokemon18, pokemon19, pokemon20, pokemon21, pokemon22, pokemon23, " +
-										"pokemon24, pokemon25, pokemon26, pokemon27, pokemon28, pokemon29, pokemon30) " +
-										"VALUES ('" + p.getId() + "'," +
-										"'-1','-1','-1','-1','-1'," +
-										"'-1','-1','-1','-1','-1'," +
-										"'-1','-1','-1','-1','-1'," +
-										"'-1','-1','-1','-1','-1'," +
-										"'-1','-1','-1','-1','-1'," +
-										"'-1','-1','-1','-1','-1')");
+								m_database.query("INSERT INTO pn_box(member) " +
+										"VALUES ('" + p.getId() + "')");
 								ResultSet result = m_database.query("SELECT * FROM pn_box WHERE member='" + p.getId() + "'");
 								result.last();
 								p.getBoxes()[i].setDatabaseId(result.getInt("id"));
@@ -258,8 +248,10 @@ public class LogoutManager implements Runnable {
 							}
 							//Now save all references to the box
 							for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
-								m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "' " +
+								if(p.getBoxes()[i].getPokemon(j) != null) {
+									m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "' " +
 										"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
+								}
 							}
 						}
 					}
