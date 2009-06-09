@@ -17,6 +17,14 @@ public class NPCSpeechFrame extends SpeechFrame {
     }
     
     /**
+	 * Modified constructor, sets time to auto-skip to the next line. 
+	 * @param text
+	 * @param seconds
+	 */
+    public NPCSpeechFrame(String text,int seconds) {
+        super(text,seconds);
+    }
+    /**
      * Sends a packet when finished displaying text
      */
     public void advancedPast(String advancedMe) {
