@@ -449,6 +449,7 @@ public class BattleWindow extends Frame {
 	 * Shows the Bag Pane
 	 */
 	public void showBag() {
+		GameClient.getInstance().getPacketGenerator().write("pib35");
 		attackPane.setVisible(false);
 		endPane.setVisible(false);
 		pokesContainer.setVisible(false);
