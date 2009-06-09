@@ -291,7 +291,7 @@ public class Pokemon {
          * @param move
          */
         public void setMoves(int index, String move) {
-        	m_moves[index] = move;
+        	this.m_moves[index] = move;
         }
         
         /**
