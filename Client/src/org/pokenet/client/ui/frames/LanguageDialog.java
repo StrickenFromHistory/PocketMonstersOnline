@@ -46,11 +46,11 @@ public class LanguageDialog extends Frame {
 		 * Create all the server buttons
 		 */
 		try {
-			m_languages = new Button[5];
+			m_languages = new Button[8];
 			
 			
 			m_languages[0] = new Button("English");
-			m_languages[0].setSize(280, 40);
+			m_languages[0].setSize(280, 24);
 			m_languages[0].setLocation(30, 42);
 			m_languages[0].setVisible(true);
 			m_languages[0].addActionListener(new ActionListener() {
@@ -61,8 +61,8 @@ public class LanguageDialog extends Frame {
 			this.add(m_languages[0]);
 			
 			m_languages[1] = new Button("Espanol");
-			m_languages[1].setSize(280, 40);
-			m_languages[1].setLocation(30, 90);
+			m_languages[1].setSize(280, 24);
+			m_languages[1].setLocation(30, 70);
 			m_languages[1].setVisible(true);
 			m_languages[1].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -72,8 +72,8 @@ public class LanguageDialog extends Frame {
 			this.add(m_languages[1]);
 			
 			m_languages[2] = new Button("Francais");
-			m_languages[2].setSize(280, 40);
-			m_languages[2].setLocation(30, 138);
+			m_languages[2].setSize(280, 24);
+			m_languages[2].setLocation(30, 98);
 			m_languages[2].setVisible(true);
 			m_languages[2].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -83,8 +83,8 @@ public class LanguageDialog extends Frame {
 			this.add(m_languages[2]);
 			
 			m_languages[3] = new Button("Portugues");
-			m_languages[3].setSize(280, 40);
-			m_languages[3].setLocation(30, 186);
+			m_languages[3].setSize(280, 24);
+			m_languages[3].setLocation(30, 126);
 			m_languages[3].setVisible(true);
 			m_languages[3].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -95,8 +95,8 @@ public class LanguageDialog extends Frame {
 			this.add(m_languages[3]);
 			
 			m_languages[4] = new Button("Suomi");
-			m_languages[4].setSize(280, 40);
-			m_languages[4].setLocation(30, 236);
+			m_languages[4].setSize(280, 24);
+			m_languages[4].setLocation(30, 154);
 			m_languages[4].setVisible(true);
 			m_languages[4].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -105,6 +105,42 @@ public class LanguageDialog extends Frame {
 				}
 			});
 			this.add(m_languages[4]);
+			
+			m_languages[5] = new Button("Italiano");
+			m_languages[5].setSize(280, 24);
+			m_languages[5].setLocation(30, 182);
+			m_languages[5].setVisible(true);
+			m_languages[5].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					GameClient.setLanguage("italian");
+					
+				}
+			});
+			this.add(m_languages[5]);
+			
+			m_languages[6] = new Button("Nederlands");
+			m_languages[6].setSize(280, 24);
+			m_languages[6].setLocation(30, 210);
+			m_languages[6].setVisible(true);
+			m_languages[6].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					GameClient.setLanguage("dutch");
+					
+				}
+			});
+			this.add(m_languages[6]);
+			
+			m_languages[7] = new Button("Deutsch");
+			m_languages[7].setSize(280, 24);
+			m_languages[7].setLocation(30, 238);
+			m_languages[7].setVisible(true);
+			m_languages[7].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					GameClient.setLanguage("german");
+					
+				}
+			});
+			this.add(m_languages[7]);
 			
 			this.setVisible(true);
 		
