@@ -1,5 +1,8 @@
 package org.pokenet.client.ui.frames;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
@@ -23,7 +26,7 @@ import org.pokenet.client.ui.base.ConfirmationDialog;
 public class TradeDialog extends Frame {
 	private ToggleButton[] m_ourPokes;
 	private ToggleButton[] m_theirPokes;
-	private int[] m_pokes;
+	private List<Pokemon> m_pokes;
 	private Button m_makeOfferBtn;
 	private Button m_tradeBtn;
 	private Button m_cancelBtn;
@@ -37,9 +40,9 @@ public class TradeDialog extends Frame {
 	/**
 	 * Default constructor
 	 */
-	public TradeDialog(int[] pokes, String trainerName){
-		m_pokes = pokes;
+	public TradeDialog(String trainerName){
 		initGUI();
+		m_pokes = new ArrayList<Pokemon>();
 		setVisible(true);
 		setTitle("Trade with " + trainerName);
 		setCenter();
@@ -191,15 +194,6 @@ public class TradeDialog extends Frame {
 			m_theirPokes[i] = new ToggleButton();
 			m_theirPokes[i].setSize(32, 32);
 			m_theirPokes[i].setVisible(true);
-            LoadingList.setDeferredLoading(true);
-            if (i < m_pokes.length){
-            	try {
-            		m_theirPokes[i].setImage(new Image(Pokemon.getIconPathByIndex(m_pokes[i])));
-            	} catch (SlickException e){
-            		System.out.println("CAN'T LOAD OTHER POKE IMAGE: " + i);
-            	}
-			}
-            LoadingList.setDeferredLoading(false);
 			m_theirPokes[i].setGlassPane(true);
 			getContentPane().add(m_theirPokes[i]);
 
@@ -290,5 +284,22 @@ public class TradeDialog extends Frame {
 		int x = (width / 2) - ((int)getWidth()/2);
 		int y = (height / 2) - ((int)getHeight()/2);
 		this.setLocation(x, y);
+	}
+	
+	/**
+	 * Adds a pokemon to the other player's side
+	 * @param data
+	 */
+	public void addPoke(int index, String[] data) {
+        LoadingList.setDeferredLoading(true);
+        try {
+        	m_theirPokes[index].setImage(new Image(Pokemon.getIconPathByIndex(Integer.parseInt(data[0]))));
+        } catch (SlickException e){
+        	System.out.println("CAN'T LOAD OTHER POKE IMAGE: " + index);
+     	}
+        LoadingList.setDeferredLoading(false);
+        
+        Pokemon tempPoke = new Pokemon();
+        m_pokes.add(tempPoke);
 	}
 }

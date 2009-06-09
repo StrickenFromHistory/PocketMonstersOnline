@@ -73,12 +73,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 			//Trade
 			switch(message.charAt(1)) {
 			case 's':
-				//Start trade TsPOKEIDNUMS,TRAINERNAME
-				String[] tradeData = message.split(",");
-				int[] pokeNums = new int[tradeData.length - 1];
-				for (int i = 0; i < tradeData.length; i++)
-					pokeNums[i] = Integer.parseInt(tradeData[i]);
-				GameClient.getInstance().getUi().startTrade(pokeNums, tradeData[tradeData.length - 1]);
+				//Start trade TsTRAINERNAME
+				GameClient.getInstance().getUi().startTrade(message.substring(2));
 				break;
 			case 'o':
 				//An offer was made ToPOKEINDEX,MONEYNUM
@@ -90,6 +86,11 @@ public class ConnectionManager extends IoHandlerAdapter {
 				//The offer was cancelled
 				GameClient.getInstance().getUi().stopTrade();
 				break;
+			case 'i':
+				//A pokemon is being added to the trade dialog TiPOKEINDEX,POKEDATA
+				String[] data = message.substring(3).split(",");
+				GameClient.getInstance().getUi().getTrade().addPoke(Integer.parseInt(String.valueOf(
+						message.charAt(2))), data);
 			}
 			break;
 		case 's':
