@@ -823,6 +823,8 @@ public class PlayerChar extends Char implements Battleable {
 		 */
 		if(packet.length() > 2)
 			m_session.write(packet);
+		/* Prevent another step being taken */
+		m_nextMovement = null;
 	}
 	
 	/**

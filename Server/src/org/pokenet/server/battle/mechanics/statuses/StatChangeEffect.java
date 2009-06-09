@@ -130,11 +130,13 @@ public class StatChangeEffect extends StatusEffect {
     public void unapply(Pokemon p) {
         StatMultiplier mul = getMultiplier(p);
         for (int i = 0; i < m_undo; ++i) {
-            if (m_raise) {
-                mul.decreaseMultiplier();
-            } else {
-                mul.increaseMultiplier();
-            }
+        	if(mul != null) {
+        		if (m_raise) {
+                    mul.decreaseMultiplier();
+                } else {
+                    mul.increaseMultiplier();
+                }
+        	}
         }
     }
     
