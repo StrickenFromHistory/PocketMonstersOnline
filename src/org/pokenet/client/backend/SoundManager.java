@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import org.lwjgl.openal.OpenALException;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
@@ -14,11 +13,10 @@ import org.newdawn.slick.SlickException;
  *
  */
 public class SoundManager extends Thread{
-	private HashMap<String, String> m_fileList;
+	private HashMap<String, Music> m_files;
 	protected String m_trackName;
-	private boolean m_muted, m_trackChanged = true, m_isRunning = false;
-	private Music m_music;
-	
+	private boolean m_muted = false, m_trackChanged = true, m_isRunning = false;
+
 	private final String m_audioPath = "res/music/";
 
 	/**
@@ -34,13 +32,18 @@ public class SoundManager extends Thread{
 	private void loadFileList() {
 		try {
 			Scanner reader = new Scanner(new File(m_audioPath+"index.txt"));
-			m_fileList = new HashMap<String, String>();
+			m_files = new HashMap<String, Music>();
 
 			String f = null;
 			while (reader.hasNext()) {
 				f = reader.nextLine();
-				String[] addFile = f.split(":", 2);
-				m_fileList.put(addFile[0], addFile[1]);
+				if (f.charAt(1) != '*'){
+					System.out.println(f);
+					String[] addFile = f.split(":", 2);
+					try {
+						m_files.put(addFile[0], new Music(m_audioPath + addFile[1]));
+					} catch (Exception e) {e.printStackTrace();}
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -54,38 +57,17 @@ public class SoundManager extends Thread{
 	@Override
 	public void run() {
 		while (m_isRunning){
-			try {
-				if (m_trackChanged){
+			if (m_trackChanged){
+				try{
 					m_trackChanged = false;
-					System.out.println("Playing: " + m_fileList.get(m_trackName));
-					m_music = new Music(m_audioPath + m_fileList.get(m_trackName), true);
-					if (m_muted)
-						m_music.setVolume(0);
-					else
-						m_music.setVolume(1);
-					play();
+					System.out.println("Playing: " + m_files.get(m_trackName));
+					m_files.get(m_trackName).loop();
+				} catch (Exception e){
+					System.err.println("Failed to load " +  m_files.get(m_trackName));
+					m_trackChanged = false;
 				}
-			} catch (SlickException e){
-				System.err.println("Failed to load " +  m_fileList.get(m_trackName));
-				m_music = null;
-				m_trackChanged = false;
 			}
 		}
-	}
-	
-	/**
-	 * Plays the track
-	 */
-	public void play(){
-		try {
-			if (m_muted)
-				m_music.setVolume(0);
-			else
-				m_music.setVolume(1);
-			m_music.play();
-			m_music.loop();
-		} catch (NullPointerException e){}
-		catch (OpenALException e){}
 	}
 	
 	/**
@@ -103,8 +85,8 @@ public class SoundManager extends Thread{
 	 * Starts the thread
 	 */
 	public void start(){
-		super.start();
 		m_isRunning = true;
+		super.start();
 	}
 	
 	/**
@@ -112,9 +94,17 @@ public class SoundManager extends Thread{
 	 * @param mute
 	 */
 	public void mute(boolean mute){
-		m_muted = mute;
-		if (m_muted && m_music != null){
-			m_music.setVolume(0);
-		}
+		m_muted = false;
+		try {
+			if (mute){
+				for (String key : m_files.keySet()){
+					m_files.get(key).setVolume(0);
+				}
+			} else {
+				for (String key : m_files.keySet()){
+					m_files.get(key).setVolume(1);
+				}
+			}
+		} catch (Exception e) {}
 	}
 }
