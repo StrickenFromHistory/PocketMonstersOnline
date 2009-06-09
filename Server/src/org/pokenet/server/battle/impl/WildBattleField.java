@@ -434,7 +434,7 @@ public class WildBattleField extends BattleField {
 		int [] evs = poke.getEffortPoints();
 		
 		double exp = (DataService.getBattleMechanics().calculateExpGain
-			(m_wildPoke, m_participatingPokemon.size(), false)) / 2;
+			(m_wildPoke, m_participatingPokemon.size()));
 		if(exp == 0)
 			exp = 1;
 		/*
