@@ -231,7 +231,9 @@ public class ClientMapMatrix {
 				f = reader.nextLine();
 				if (f.charAt(0) != '*'){
 					final String[] details = f.split(",");
-					m_mapNames.put(details[0] + ", " + details[1], details[2]);
+					try{
+						m_mapNames.put(details[0] + ", " + details[1], details[2]);
+					} catch (Exception e) {System.out.println(details[0] + " " + details[1]);}
 				}
 			}
 		} catch (Exception e) {

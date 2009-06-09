@@ -205,6 +205,7 @@ public class GameClient extends BasicGame {
 		if(m_isNewMap && m_loading.isVisible()) {
 			m_mapMatrix.loadMaps(m_mapX, m_mapY, gc.getGraphics());
 			while(m_ourPlayer == null);
+			m_mapMatrix.getCurrentMap().setName(m_mapMatrix.getMapName(m_mapX, m_mapY));
 			m_mapMatrix.getCurrentMap().setXOffset(400 - m_ourPlayer.getX(), false);
 			m_mapMatrix.getCurrentMap().setYOffset(300 - m_ourPlayer.getY(), false);
 			m_mapMatrix.recalibrate();
