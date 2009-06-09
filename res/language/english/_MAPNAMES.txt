@@ -15,7 +15,7 @@
 3,-1,Viridian City
 3,-2,Route 2
 3,-3,Pewter City
-2,0,Route 25
+2,0,Route 26
 2,-1,Route 22
 *Johto exteriors:
 1,0,Route 27
