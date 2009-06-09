@@ -93,7 +93,7 @@ public class Trade {
 	 * @param o
 	 */
 	public void setOffer(PlayerChar p, int poke, int money) {
-		if(p.getMoney() >= money && p.getParty()[poke] != null) {
+		if(p.getMoney() >= money) {
 			TradeObject [] o = new TradeObject[2];
 			o[0] = new TradeObject();
 			o[0].setId(poke);
@@ -157,9 +157,15 @@ public class Trade {
 				for(int j = 0; j < o1.length; j++) {
 					switch(o1[j].getType()) {
 					case POKEMON:
-						/* Store the Pokemon temporarily */
-						temp[0] = player1.getParty()[o1[j].getId()];
-						player1.getParty()[o1[j].getId()] = null;
+						/* 
+						 * An id greater than 5 or less an 0 is sent 
+						 * if no pokemon is being traded 
+						 */
+						if(o1[j].getId() >= 0 && o1[j].getId() <= 5) {
+							/* Store the Pokemon temporarily */
+							temp[0] = player1.getParty()[o1[j].getId()];
+							player1.getParty()[o1[j].getId()] = null;
+						}
 						break;
 					case MONEY:
 						/* Ensure there was money offered */
@@ -177,9 +183,15 @@ public class Trade {
 				for(int j = 0; j < o2.length; j++) {
 					switch(o2[j].getType()) {
 					case POKEMON:
-						/* Store the Pokemon temporarily */
-						temp[1] = player2.getParty()[o2[j].getId()];
-						player2.getParty()[o2[j].getId()] = null;
+						/* 
+						 * An id greater than 5 or less an 0 is sent 
+						 * if no pokemon is being traded 
+						 */
+						if(o2[j].getId() >= 0 && o2[j].getId() <= 5) {
+							/* Store the Pokemon temporarily */
+							temp[1] = player2.getParty()[o2[j].getId()];
+							player2.getParty()[o2[j].getId()] = null;
+						}
 						break;
 					case MONEY:
 						/* Ensure there was money offered */
