@@ -91,6 +91,11 @@ public class ConnectionManager extends IoHandlerAdapter {
 				String[] data = message.substring(3).split(",");
 				GameClient.getInstance().getUi().getTrade().addPoke(Integer.parseInt(String.valueOf(
 						message.charAt(2))), data);
+				break;
+			case 'f':
+				//Trading is done
+				GameClient.getInstance().getUi().stopTrade();
+				break;
 			}
 			break;
 		case 's':
