@@ -5,14 +5,12 @@ import java.util.List;
 
 import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
-import org.lwjgl.util.Timer;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.Translator;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
 import org.pokenet.client.backend.time.WeatherService.Weather;
-import org.pokenet.client.ui.frames.ShopDialog;
 
 /**
  * Handles packets received from the server
@@ -58,7 +56,6 @@ public class ConnectionManager extends IoHandlerAdapter {
 	/**
 	 * Once a message is received, this method is called
 	 */
-	@SuppressWarnings("static-access")
 	public void messageReceived(IoSession session, Object m) {
 		List<String> translated = new ArrayList<String>();
 		translated = Translator.translate("_LOGIN");
@@ -120,7 +117,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				for (int i = 1; i < merchData.length; i++) {
 					merch.add(Integer.parseInt(merchData[i]));
 				}
-				GameClient.getInstance().getDisplay().add(new ShopDialog(merch));
+				GameClient.getInstance().getUi().startShop(merch);
 				break;
 			case 'n': //N is for No Money
 				GameClient.messageDialog("You can't afford this item", GameClient.getInstance().getDisplay());
@@ -138,15 +135,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 				} catch (Exception e) {}
 				GameClient.getInstance().getUi().talkToNPC(
 						"You bought a " + message.substring(2));
-				Timer m_timer = new Timer();
-				m_timer.tick();
-				if (m_timer.getTime() >= 0.5) {
-					try {
-						GameClient.getInstance().getUi().getNPCSpeech()
-								.advance();
-					} catch (Exception e) {}
-					m_timer.reset();
-				}
+				GameClient.getInstance().getUi().getShop().m_timer.reset();
+				GameClient.getInstance().getUi().getShop().m_timer.resume();
 				break;
 			}
 			
