@@ -107,6 +107,15 @@ public class BattleCanvas extends Container {
 		enemyLv = new Label();
 		playerStatus = new Label();
 		enemyStatus = new Label();
+		
+        LoadingList.setDeferredLoading(true);
+		try {
+			enemyHPBar = new Label(new Image("/res/battle/HPBar.png"));
+			playerHPBar = new Label(new Image("/res/battle/HPBar.png"));
+		} catch (SlickException e) {}
+		LoadingList.setDeferredLoading(false);
+		enemyHPBar.setSize(98, 11);
+		playerHPBar.setSize(98, 11);
 	}
 	
 	/**
@@ -275,12 +284,7 @@ public class BattleCanvas extends Container {
         }
         updateEnemyHP(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP());
         
-        LoadingList.setDeferredLoading(true);
-		try {
-			enemyHPBar = new Label(new Image("/res/battle/HPBar.png"));
-		} catch (SlickException e) {}
-		LoadingList.setDeferredLoading(false);
-		enemyHPBar.setBounds(enemyNameLabel.getX(), 40, 98, 11);
+        enemyHPBar.setLocation(enemyNameLabel.getX(), 40); 
 		enemyHP.setLocation(enemyHPBar.getX() + 23, enemyHPBar.getY() + 3);
 		
 		add(enemyHPBar);
@@ -313,12 +317,7 @@ public class BattleCanvas extends Container {
 
         updatePlayerHP(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP());
         
-        LoadingList.setDeferredLoading(true);
-		try {
-			playerHPBar = new Label(new Image("/res/battle/HPBar.png"));
-		} catch (SlickException e) {}
-		LoadingList.setDeferredLoading(false);
-		playerHPBar.setBounds(playerLv.getX() + playerLv.getWidth() - 98, 125, 98, 11);
+        playerHPBar.setLocation(playerLv.getX() + playerLv.getWidth() - 98, 125); 
 		playerHP.setLocation(playerHPBar.getX() + 23, playerHPBar.getY() + 3);
 		
 		add(playerHPBar);
