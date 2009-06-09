@@ -6,6 +6,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.ServerMap;
+import org.pokenet.server.backend.entity.PlayerChar.Language;
 
 /**
  * Handles chat messages sent by players
@@ -50,8 +51,8 @@ public class ChatManager implements Runnable {
 	 * @param mapX
 	 * @param mapY
 	 */
-	public void queueLocalChatMessage(String message, int mapX, int mapY) {
-		m_localQueue.add(new Object[]{message, String.valueOf(mapX), String.valueOf(mapY)});
+	public void queueLocalChatMessage(String message, int mapX, int mapY, Language l) {
+		m_localQueue.add(new Object[]{message, String.valueOf(mapX), String.valueOf(mapY), l});
 	}
 	
 	/**
@@ -73,23 +74,19 @@ public class ChatManager implements Runnable {
 		IoSession s;
 		while(true) {
 			//Send next local chat message
-			synchronized(m_localQueue) {
-				if(m_localQueue.peek() != null) {
-					o = m_localQueue.poll();
-					m = GameServer.getServiceManager().getMovementService().
-						getMapMatrix().getMapByGamePosition(Integer.parseInt((String) o[1]), Integer.parseInt((String) o[2]));
-					if(m != null)
-						m.sendToAll("Cl" + ((String)o[0]));
-				}
+			if(m_localQueue.peek() != null) {
+				o = m_localQueue.poll();
+				m = GameServer.getServiceManager().getMovementService().
+					getMapMatrix().getMapByGamePosition(Integer.parseInt((String) o[1]), Integer.parseInt((String) o[2]));
+				if(m != null)
+					m.sendChatMessage((String) o[0], (Language) o[3]);
 			}
 			//Send next private chat message
-			synchronized(m_privateQueue) {
-				if(m_privateQueue.peek() != null) {
-					o = m_privateQueue.poll();
-					s = (IoSession) o[0];
-					if(s.isConnected() && !s.isClosing())
-						s.write("Cp" + ((String) o[1]) + "," + ((String) o[2]));
-				}
+			if(m_privateQueue.peek() != null) {
+				o = m_privateQueue.poll();
+				s = (IoSession) o[0];
+				if(s.isConnected() && !s.isClosing())
+					s.write("Cp" + ((String) o[1]) + "," + ((String) o[2]));
 			}
 			try {
 				Thread.sleep(250);

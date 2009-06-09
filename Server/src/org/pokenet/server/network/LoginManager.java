@@ -11,6 +11,7 @@ import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.Bag;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.PokemonBox;
+import org.pokenet.server.backend.entity.PlayerChar.Language;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.PokemonSpecies;
@@ -47,10 +48,11 @@ public class LoginManager implements Runnable {
 	/**
 	 * Attempts to login a player. Upon success, it sends a packet to the player to inform them they are logged in.
 	 * @param session
+	 * @param l
 	 * @param username
 	 * @param password
 	 */
-	private void attemptLogin(IoSession session, String username, String password) {
+	private void attemptLogin(IoSession session, char l, String username, String password) {
 		PlayerChar p;
 		try {
 			//Check if we haven't reach the player limit
@@ -85,18 +87,19 @@ public class LoginManager implements Runnable {
 						p.setLastLoginTime(time);
 						p.getSession().close();
 						p.setSession(session);
+						p.setLanguage(Language.values()[Integer.parseInt(String.valueOf(l))]);
 						m_database.query("UPDATE pn_members SET lastLoginServer='" + MySqlManager.parseSQL(GameServer.getServerName()) + "', lastLoginTime='" + time + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 						m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getLocalAddress() + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 						session.setAttribute("player", p);
 						GameServer.getServiceManager().getMovementService().removePlayer(username);
 						this.initialiseClient(p, session);
 					} else
-						this.login(username, session, result);
+						this.login(username, l, session, result);
 				} else if(result.getString("lastLoginServer").equalsIgnoreCase("null")) {
 					/*
 					 * They are not logged in elsewhere, log them in
 					 */
-					this.login(username, session, result);
+					this.login(username, l, session, result);
 				} else {
 					/*
 					 * They are logged in somewhere else.
@@ -106,7 +109,7 @@ public class LoginManager implements Runnable {
 						return;
 					else {
 						//The server they were on went down and they are trying to login elsewhere
-						this.login(username, session, result);
+						this.login(username, l, session, result);
 					}
 				}
 			} else {
@@ -146,15 +149,17 @@ public class LoginManager implements Runnable {
 		IoSession session;
 		String username;
 		String password;
+		char l;
 		while(m_isRunning) {
 			synchronized(m_loginQueue) {
 				try {
 					if(m_loginQueue.peek() != null) {
 						o = m_loginQueue.poll();
 						session = (IoSession) o[0];
-						username = (String) o[1];
+						l = ((String) o[1]).charAt(0);
+						username = ((String) o[1]).substring(1);
 						password = (String) o[2];
-						this.attemptLogin(session, username, password);
+						this.attemptLogin(session, l, username, password);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -184,10 +189,11 @@ public class LoginManager implements Runnable {
 	/**
 	 * Logs in a player
 	 * @param username
+	 * @param language
 	 * @param session
 	 * @param result
 	 */
-	private void login(String username, IoSession session, ResultSet result) {
+	private void login(String username, char language, IoSession session, ResultSet result) {
 		//They are not logged in elsewhere, set the current login to the current server
 		long time = System.currentTimeMillis();
 		/*
@@ -196,6 +202,7 @@ public class LoginManager implements Runnable {
 		PlayerChar p = getPlayerObject(result);
 		p.setLastLoginTime(time);
 		p.setSession(session);
+		p.setLanguage(Language.values()[Integer.parseInt(String.valueOf(language))]);
 		/*
 		 * Update the database with login information
 		 */

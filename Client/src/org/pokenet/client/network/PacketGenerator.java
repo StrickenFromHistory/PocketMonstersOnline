@@ -1,6 +1,7 @@
 package org.pokenet.client.network;
 
 import org.apache.mina.common.IoSession;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Player.Direction;
 
 /**
@@ -42,7 +43,25 @@ public class PacketGenerator {
 	 * @param password
 	 */
 	public void login(String username, String password) {
-		m_session.write("l" + username + "," + (getPasswordHash(password)));
+		char language = '0';
+		if(GameClient.getLanguage().equalsIgnoreCase("english")) {
+			language = '0';
+		} else if(GameClient.getLanguage().equalsIgnoreCase("portugese")) {
+			language = '1';
+		} else if(GameClient.getLanguage().equalsIgnoreCase("italian")) {
+			language = '2';
+		} else if(GameClient.getLanguage().equalsIgnoreCase("french")) {
+			language = '3';
+		} else if(GameClient.getLanguage().equalsIgnoreCase("finnish")) {
+			language = '4';
+		} else if(GameClient.getLanguage().equalsIgnoreCase("spannish")) {
+			language = '5';
+		} else if(GameClient.getLanguage().equalsIgnoreCase("dutch")) {
+			language = '6';
+		} else if(GameClient.getLanguage().equalsIgnoreCase("german")) {
+			language = '7';
+		}
+		m_session.write("l" + language + username + "," + (getPasswordHash(password)));
 	}
 	
 	/**

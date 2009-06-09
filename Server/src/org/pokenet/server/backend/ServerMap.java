@@ -8,6 +8,7 @@ import java.util.Random;
 import org.pokenet.server.backend.entity.Char;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.backend.entity.PlayerChar.Language;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
@@ -228,6 +229,19 @@ public class ServerMap {
 				DataLoader d = new DataLoader(f, this);
 			} catch (Exception e) {
 				
+			}
+		}
+	}
+	
+	/**
+	 * Sends a chat message to everyone of the same language
+	 * @param message
+	 * @param l
+	 */
+	public void sendChatMessage(String message, Language l) {
+		for(int i = 0; i < m_players.size(); i++) {
+			if(m_players.get(i).getLanguage() == l) {
+				m_players.get(i).getSession().write("Cl" + message);
 			}
 		}
 	}

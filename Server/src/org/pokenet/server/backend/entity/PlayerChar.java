@@ -29,7 +29,12 @@ public class PlayerChar extends Char implements Battleable {
 	 * An enum to store request types
 	 */
 	public enum RequestType { BATTLE, TRADE };
+	/*
+	 * An enum to store the player's selected language
+	 */
+	public enum Language { ENGLISH, PORTUGESE, ITALIAN, FRENCH, FINNISH, SPANISH, GERMAN, DUTCH }
 	
+	private Language m_language;
 	private Bag m_bag;
 	private int m_battleId;
 	private Pokemon[] m_pokemon;
@@ -72,6 +77,22 @@ public class PlayerChar extends Char implements Battleable {
 	 * Stores the list of requests the player has sent
 	 */
 	private HashMap<String, RequestType> m_requests;
+	
+	/**
+	 * Returns the preferred language of the user
+	 * @return
+	 */
+	public Language getLanguage() {
+		return m_language;
+	}
+	
+	/**
+	 * Sets this player's preferred language
+	 * @param l
+	 */
+	public void setLanguage(Language l) {
+		m_language = l;
+	}
 	
 	/**
 	 * Returns true if the player is trading

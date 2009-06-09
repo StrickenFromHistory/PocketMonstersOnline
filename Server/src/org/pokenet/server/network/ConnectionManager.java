@@ -338,7 +338,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 						p.getSession().write("Cl" + m_players.size() + " players online");
 					else
 						GameServer.getServiceManager().getNetworkService().getChatManager().
-								queueLocalChatMessage("<" + p.getName() + "> " + mes, p.getMapX(), p.getMapY());
+								queueLocalChatMessage("<" + p.getName() + "> " + mes, p.getMapX(), p.getMapY(), p.getLanguage());
 					break;
 				case 'p':
 					//Private chat
