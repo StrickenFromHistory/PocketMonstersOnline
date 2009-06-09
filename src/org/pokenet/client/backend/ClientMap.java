@@ -64,7 +64,7 @@ public class ClientMap extends TiledMap {
 						Iterator<Player> it = m_mapMatrix.getPlayers().iterator();
 						while(it.hasNext()) {
 							p = it.next();
-							if (p.getSprite() != 0 && (p.getY() >= mapY * 32 - 39) && (p.getY() <= mapY * 32 + 32)
+							if(p != null && p.getSprite() != 0 && (p.getY() >= mapY * 32 - 39) && (p.getY() <= mapY * 32 + 32)
 									&& (p.getCurrentImage() != null)) {
 								p.getCurrentImage().draw(m_xOffset + p.getX() - 4, m_yOffset + p.getY());
 								m_graphics.drawString(p.getUsername(), m_xOffset + (p.getX()
