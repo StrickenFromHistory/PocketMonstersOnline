@@ -51,3 +51,9 @@
 -7,-2,Route 41
 -7,-3,Route 40
 -8,-2,Cianwood City
+*Johto interiors(selected):
+-50, -42,Dark Cave
+-50, -42,Dark Cave
+-50, -44,Sprout Tower
+-50, -45,Sprout Tower
+-50, -46,Sprout Tower
