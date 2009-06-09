@@ -11,3 +11,8 @@ Olivine City:violet
 Cianwood City:ecruteak
 Mahogany Town:cherrywood
 Blackthorn City:azalea
+Burned Tower:burnedtower
+Tin Tower:tintower
+Olivine Lighthouse:lighthouse
+Dragons Den:dragonsden
+Pokemon Center:pokecenter

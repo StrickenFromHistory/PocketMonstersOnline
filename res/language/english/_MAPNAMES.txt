@@ -52,8 +52,32 @@
 -7,-3,Route 40
 -8,-2,Cianwood City
 *Johto interiors(selected):
--50, -42,Dark Cave
--50, -42,Dark Cave
--50, -44,Sprout Tower
--50, -45,Sprout Tower
--50, -46,Sprout Tower
+-50,-42,Dark Cave
+-50,-42,Dark Cave
+-50,-44,Sprout Tower
+-50,-45,Sprout Tower
+-50,-46,Sprout Tower
+-34,-33,Olivine Lighthouse
+-35,-34,Olivine Lighthouse
+-36,-35,Olivine Lighthouse
+-37,-36,Olivine Lighthouse
+-38,-37,Olivine Lighthouse
+-39,-38,Olivine Lighthouse
+-33,-35,Dragons Den
+-33,-39,Tin Tower
+-42,-42,Burned Tower
+-43,-43,Burned Tower
+-32,-33,Pokemon Center
+-32,-34,Pokemon Center
+-32,-40,Pokemon Center
+-33,-34,Pokemon Center
+-33,-38,Pokemon Center
+-49,-35,Pokemon Center
+-49,-38,Pokemon Center
+-49,-41,Pokemon Center
+-49,-44,Pokemon Center
+-49,-46,Pokemon Center
+
+
+
+
