@@ -89,7 +89,8 @@ public class NonPlayerChar extends Char {
 		/* If this NPC wasn't a trainer, handle other possibilities */
 		String speech = this.getSpeech();
 		if(!speech.equalsIgnoreCase("")) {
-			p.getSession().write("Cn" + speech);
+			if(!p.isShopping())//Dont send if player is shopping!
+				p.getSession().write("Cn" + speech);
 		}
 		if(m_isBox) {
 			//Send the data for the player's first box, they may change this later
@@ -102,9 +103,11 @@ public class NonPlayerChar extends Char {
 		}
 		if(m_isShop) {
 			//Send shop packet to display shop window clientside
-			p.getSession().write("Sl" + m_shop.getStockData());
-			p.setShopping(true);
-			p.setShop(m_shop);
+			if(!p.isShopping()){ //Dont display if user's shopping
+				p.getSession().write("Sl" + m_shop.getStockData());
+				p.setShopping(true);
+				p.setShop(m_shop);
+			}
 		}
 	}
 	
