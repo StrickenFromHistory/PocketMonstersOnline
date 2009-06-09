@@ -1,5 +1,4 @@
 ﻿*Key:FileName
-opening:loginscreen.ogg
 newbark:1-New Bark.ogg
 cherrygrove:2-Cherrygrove Town.ogg
 violet:3-Violet Town.ogg
