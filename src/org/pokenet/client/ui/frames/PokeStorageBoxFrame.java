@@ -58,7 +58,8 @@ public class PokeStorageBoxFrame extends Frame {
 		LoadingList.setDeferredLoading(true);
 		for (int i = 0; i <= 29; i++) {
 			try {
-				m_buttons[i].setImage(new Image(Pokemon
+				if(m_pokeNums[i] >= 0)
+					m_buttons[i].setImage(new Image(Pokemon
 						.getIconPathByIndex(m_pokeNums[i] + 1)));
 			} catch (SlickException e) {
 				e.printStackTrace();

@@ -144,11 +144,23 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 'B':
 			//Box access - receiving a string of pokedex numbers, e.g. B15,23,24,
-			String[] indexes = message.substring(1).split(",");
-	    	int[] pokes = new int[indexes.length];
-	    	for (int i = 0; i < pokes.length; i++){
-	    		pokes[i] = Integer.parseInt(indexes[i]);
-	    	}
+			int[] pokes = new int[30];
+			/*
+			 * NOTE: -1 identifies that no pokemon is in a slot
+			 */
+			if(message.length() > 1) {
+				String[] indexes = message.substring(1).split(",");
+		    	for (int i = 0; i < 30; i++){
+		    		if(indexes.length > i)
+		    			pokes[i] = Integer.parseInt(indexes[i]);
+		    		else
+		    			pokes[i] = -1;
+		    	}
+			} else {
+				for (int i = 0; i < pokes.length; i++){
+		    		pokes[i] = -1;
+		    	}
+			}
 			if (GameClient.getInstance().getUi().getStorageBox() == null){
 				GameClient.getInstance().getUi().useStorageBox(pokes);
 			} else {
