@@ -9,7 +9,9 @@ import mdes.slick.sui.Label;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
+import org.lwjgl.util.Timer;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Item;
@@ -27,6 +29,7 @@ public class ShopDialog extends Frame {
 	private Label[] m_itemPics;
 	private Label[] m_itemLabels;
 	private Label[] m_itemStockPics;
+	public Timer m_timer;
 	
 	List<Item> m_items;
 	private Button m_cancel;
@@ -37,6 +40,8 @@ public class ShopDialog extends Frame {
 
 	public ShopDialog(List<Integer> merch) {
 //		m_merch = merch;
+		m_timer = new Timer();
+		m_timer.pause();
 		setCenter();
 		initGUI();
 	}
@@ -104,7 +109,8 @@ public class ShopDialog extends Frame {
 					public void actionPerformed(ActionEvent e) {
 						cancelled();
 					}
-				});
+				}
+		);
 		setTitle("PokeShop");
 		setResizable(false);
 		setHeight(400);
@@ -408,6 +414,17 @@ public class ShopDialog extends Frame {
 		int x = (width / 2) - 130;
 		int y = (height / 2) - 238;
 		this.setBounds(x, y, 259, 475);
+	}
+	
+	@Override
+	public void update(GUIContext container, int delta) {
+		Timer.tick();
+		if (m_timer.getTime() >= 3) {
+			try {
+				GameClient.getInstance().getUi().getNPCSpeech().advance();
+				m_timer.pause();
+			} catch (Exception e) {}
+		}
 	}
 }
 

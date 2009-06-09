@@ -1,5 +1,7 @@
 package org.pokenet.client.ui;
 
+import java.util.List;
+
 import mdes.slick.sui.Display;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
@@ -25,6 +27,7 @@ import org.pokenet.client.ui.frames.OptionsDialog;
 import org.pokenet.client.ui.frames.PartyInfoDialog;
 import org.pokenet.client.ui.frames.PokeStorageBoxFrame;
 import org.pokenet.client.ui.frames.RequestDialog;
+import org.pokenet.client.ui.frames.ShopDialog;
 import org.pokenet.client.ui.frames.TownMap;
 import org.pokenet.client.ui.frames.TradeDialog;
 
@@ -50,6 +53,7 @@ public class Ui extends Frame {
 	private PokeStorageBoxFrame m_storageBox;
 	private TownMap m_map;
 	private TradeDialog m_trade;
+	private ShopDialog m_shop;
     private boolean m_isOption;
     private static final int UI_WIDTH = 32*7;
     private ConfirmationDialog m_evolveDialog;
@@ -517,6 +521,32 @@ public class Ui extends Frame {
     public TradeDialog getTrade() {
     	return m_trade;
     }
+    
+    /**
+     * Opens a store
+     * @param pokeNums
+     * @param trainer
+     */
+    public void startShop(List<Integer> merch){
+    	m_shop = new ShopDialog(merch);
+    	m_display.add(m_shop);
+    }
+    
+    /**
+     * Closes the store
+     */
+    public void stopShop(){
+    	m_display.remove(m_shop);
+    	m_shop = null;
+    }
+    
+    /**
+     * Returns the shop dialog
+     * @return the shop dialog
+     */
+    public ShopDialog getShop() {
+    	return m_shop;
+    }    
     
     /**
      * A pokemon wants to evolve
