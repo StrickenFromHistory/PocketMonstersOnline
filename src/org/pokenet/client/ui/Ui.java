@@ -432,8 +432,8 @@ public class Ui extends Frame {
 	 * @param pokes
 	 * @param player
 	 */
-	public void openTrade(int[] pokes, String player){
-		new TradeDialog(pokes, player);
+	public void openTrade(String player){
+		new TradeDialog(player);
 	}
 	
     
@@ -497,8 +497,8 @@ public class Ui extends Frame {
      * @param pokeNums
      * @param trainer
      */
-    public void startTrade(int[] pokeNums, String trainer){
-    	m_trade = new TradeDialog(pokeNums, trainer);
+    public void startTrade(String trainer){
+    	m_trade = new TradeDialog(trainer);
     	m_display.add(m_trade);
     }
     
