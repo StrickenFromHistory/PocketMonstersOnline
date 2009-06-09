@@ -305,19 +305,27 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'T':
 				//Trade packets
-				switch (message.charAt(1)){
-				case 'o':
-					//Make an offer ToPOKENUM,MONEYAMOUNT
-					break;
-				case 't':
-					//Ready to perform the trade
-					break;
-				case 'c':
-					//Cancel the offer
-					break;
-				case 'C':
-					//Cancel the trade
-					break;
+				if(p.isTrading()) {
+					switch (message.charAt(1)){
+					case 'o':
+						//Make an offer ToPOKENUM,MONEYAMOUNT
+						details = message.substring(2).split(",");
+						p.getTrade().setOffer(p, Integer.parseInt(String.valueOf(details[0])) , 
+								Integer.parseInt(String.valueOf(details[1])));
+						break;
+					case 't':
+						//Ready to perform the trade
+						p.setTradeOfferAccepted(true);
+						break;
+					case 'c':
+						//Cancel the offer
+						p.setTradeOfferAccepted(false);
+						break;
+					case 'C':
+						//Cancel the trade
+						p.getTrade().endTrade();
+						break;
+					}
 				}
 				break;
 			case 'C':

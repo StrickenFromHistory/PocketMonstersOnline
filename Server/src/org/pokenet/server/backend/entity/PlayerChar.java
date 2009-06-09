@@ -55,6 +55,8 @@ public class PlayerChar extends Char implements Battleable {
 	private int m_adminLevel = 0;
 	private boolean m_isMuted;
 	private Shop m_currentShop = null;
+	private Trade m_trade = null;
+	private boolean m_isReadyToTrade = false;
 	/*
 	 * Badges are stored as bytes. 0 = not obtained, 1 = obtained
 	 * Stored as following:
@@ -70,6 +72,60 @@ public class PlayerChar extends Char implements Battleable {
 	 * Stores the list of requests the player has sent
 	 */
 	private HashMap<String, RequestType> m_requests;
+	
+	/**
+	 * Returns true if the player is trading
+	 * @return
+	 */
+	public boolean isTrading() {
+		return m_trade != null;
+	}
+	
+	/**
+	 * Returns the trade that the player is involved in
+	 * @return
+	 */
+	public Trade getTrade() {
+		return m_trade;
+	}
+	
+	/**
+	 * Sets the trade this player is involved in
+	 * @param t
+	 */
+	public void setTrade(Trade t) {
+		m_trade = t;
+	}
+	
+	/**
+	 * Returns true if the player accepted the trade offer
+	 * @return
+	 */
+	public boolean acceptedTradeOffer() {
+		return m_isReadyToTrade;
+	}
+	
+	/**
+	 * Sets if this player accepted the trade offer
+	 * @param b
+	 * @return
+	 */
+	public void setTradeOfferAccepted(boolean b) {
+		m_isReadyToTrade = b;
+		if(b)
+			m_trade.checkForExecution();
+	}
+	
+	/**
+	 * Stops this player trading
+	 */
+	public void endTrading() {
+		m_isTalking = false;
+		m_isReadyToTrade = false;
+		m_trade = null;
+		if(m_session != null && m_session.isConnected())
+			m_session.write("Tf");
+	}
 	
 	/**
 	 * Constructor
@@ -107,7 +163,12 @@ public class PlayerChar extends Char implements Battleable {
 				//TODO: Start PvP battle
 				break;
 			case TRADE:
-				//TODO: Start trade between players
+				/* Set the player as talking so they can't move */
+				m_isTalking = true;
+				/* Create the trade */
+				PlayerChar otherPlayer = ConnectionManager.getPlayers().get(username);
+				m_trade = new Trade(this, otherPlayer);
+				otherPlayer.setTrade(m_trade);
 				break;
 			}
 		}
@@ -628,6 +689,14 @@ public class PlayerChar extends Char implements Battleable {
 		p.setDateCaught(date);
 		p.setOriginalTrainer(this.getName());
 		p.setDatabaseID(-1);
+		addPokemon(p);
+	}
+	
+	/**
+	 * Adds a pokemon to this player's party or box
+	 * @param p
+	 */
+	public void addPokemon(Pokemon p) {
 		/* See if there is space in the player's party */
 		for(int i = 0; i < 6; i++) {
 			if(m_pokemon[i] == null) {

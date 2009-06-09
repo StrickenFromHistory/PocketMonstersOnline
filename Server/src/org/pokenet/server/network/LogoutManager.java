@@ -145,6 +145,12 @@ public class LogoutManager implements Runnable {
 			ResultSet data = m_database.query("SELECT * FROM pn_members WHERE id='" + p.getId() +  "'");
 			data.first();
 			if(data.getLong("lastLoginTime") == p.getLastLoginTime()) {
+				/* Check they are not trading */
+				if(p.isTrading()) {
+					/* If the trade is still executing, don't save them yet */
+					if(!p.getTrade().endTrade())
+						return false;
+				}
 				/*
 				 * Update the player row
 				 */
