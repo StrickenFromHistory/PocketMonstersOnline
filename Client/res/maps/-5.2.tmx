@@ -2,12 +2,12 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="57" height="65" tilewidth="16" tileheight="16">
  <properties>
- <property name="dayPokemonLevels" value="5-5;5-5;7-7;7-7;6-6;7-7;5-5;"/>
   <property name="dayPokemonChances" value="Caterpie,30;Weedle,30;Metapod,15;Kakuna,10;Paras,5;Pidgey,5;Zubat,5;"/>
-  <property name="nightPokemonLevels" value="5-7;5-6;6-6;5-5;7-7;7-7;"/>
+  <property name="dayPokemonLevels" value="5-5;5-5;7-7;7-7;6-6;7-7;5-5;"/>
   <property name="nightPokemonChances" value="Oddish,50;Zubat,10;Paras,5;Venonat,25;Psyduck,5;Hoothoot,5;"/>
-  <property name="waterPokemonLevels" value="10-19;15-19;"/>
+  <property name="nightPokemonLevels" value="5-7;5-6;6-6;5-5;7-7;7-7;"/>
   <property name="waterPokemonChances" value="Psyduck,90;Golduck,10;"/>
+  <property name="waterPokemonLevels" value="10-19;15-19;"/>
   <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="32"/>
   <property name="yOffsetModifier" value="0"/>
@@ -21,7 +21,7 @@
  </tileset>
  <layer name="Walkable" width="57" height="65">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2a0Q2CMBCGC/juDOok4CS6ie7hiO5gSWgCTSg92tK783/40kRT/T96vSKxM8Z0RC6NMdeJW0OfLwE46gCOOoCjDuCoA6pjO0H9njZhbi1HStbvaTnvaM/UWvWzhxxG1y7wvgbH+RwpjpSsUmtVq2OOrEc79tZrmLgXOB9rrl8taniO/dz1dDfu+QzOjntybl0rro5HocUx5MHd0e+Na/c43D22/HLk53gNcq8RN8cSdcjFce0coObjvk9Tz0wNvSjUV6U6AcAR7KU4Un+zgXj+offDsX6+nI7z1z7n5Sgd3zHWT1LP3FuTOZ7ncXcEAAAAHDHPaKSfNWN+918Tf5Tu6O7dYvykOjpPzevoWNt/vWVgQEnHh+XJgJLr+7K8GVC7zgEAAAAASvED5DzmtOQ5AAA=
+   H4sIAAAAAAAAAO2a4Q3CIBBGW+t/Z1AnqU6im+gejugOtokkFYXeAb0e5/eSLxgTKi9cgTY2DZ992zSHd45twgUqAI42gKMN4GgDONoAjt9sJumIeW4/+23Ka0ThOnbeZ3/sMf/R1fWRJLVW3bg5jtM+kuQ4cuq1hloNjduiI6cmtdRqP3id3jm3aWPmzJ/7XpLSThRnacdxPXdrumu54fRbwzFlnCFPyjXWcPSxWKs+JT1qdPTXxtAZh7KnrMmcX+qe6F9rDSjzZ9UxpQ41Ov4aR2gf4DpqP+fk7pmxGpCktAO1riXJvbdSIwkcbTuW2CO0O5ZI7JlNkn+o1dS1vybHOeBYl+P09x+7z9aaI9Uv9z2XJmKOOZ6asFCrSznAURY4whGOeh0p72hKnNUl+eXo/mvit7U7urMbxa9WR+dpeR7n7sd+yElBlnS8DLkqSAnHUG5D7gqypKOWAAAAAOA/eQEI1xTA5DkAAA==
   </data>
  </layer>
  <layer name="Grass" width="57" height="65">

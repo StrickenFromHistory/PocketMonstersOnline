@@ -2,12 +2,12 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="56" height="42" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonLevels" value="12-12;12-12;14-14;12-12;13-13;14-14;10-10;12-12;12-12;"/>
   <property name="dayPokemonChances" value="Nidoran-m,15;Nidoran-f,15;Pidgey,15;Snubbull,15;Growlithe,10;Drowzee,10;Abra,10;Jigglypuff,9;Yanma,1;"/>
-  <property name="nightPokemonLevels" value="12-12;12-12;14-14;14-14;13-13;10-10;12-12;12-12;"/>
+  <property name="dayPokemonLevels" value="12-12;12-12;14-14;12-12;13-13;14-14;10-10;12-12;12-12;"/>
   <property name="nightPokemonChances" value="Nidoran-m,15;Nidoran-f,15;Drowzee,15;Hoothoot,15;Psyduck,20;Abra,10;Jigglypuff,9;Yanma,1;"/>
-  <property name="waterPokemonLevels" value="15-24;20-24;"/>
+  <property name="nightPokemonLevels" value="12-12;12-12;14-14;14-14;13-13;10-10;12-12;12-12;"/>
   <property name="waterPokemonChances" value="Psyduck,90;Golduck,10;"/>
+  <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="-320"/>
   <property name="yOffsetModifier" value="-12"/>
@@ -18,7 +18,7 @@
  <tileset firstgid="3073" source="Tileset 3.tsx"/>
  <layer name="Walkable" width="56" height="42">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3YQQqDMBBG4cnoYXvN1pNY22XvYAoKIWiIixJe+i8+XQQhj1FB3cz8gjlaLl5Dcg9mU2i/j190PaJXtHTYN8em50Z9LLeO+z5jeX77OtG+9+/5qC9db71Xza+s1+evto9+r5aevx4a876zFmJb7fzI/v39Qqc+NvWxqY8t7Xtv/2Jy5P9Oad8Z8lxDPPiB0fvoq5mr+njUx6Y+NvWxqY9NfWzqY1MfW/rdO3j7/eRWV/bVDcAkAAA=
+   H4sIAAAAAAAAAO2YYQ6DIAyFgXnYXXPzJM7t5+4wTDQhtVU6ChXCS974IXV+vhVlxvA0ec/MmhJyq1P1sMaMVuBEwkrlW7ie3m/vuUG+yTO9VrfEt9XVwPdv3d3Uwcdh3OZ/Bzw/eFxb3GsIr30ZMb7wuLZi83PAreUH+aj1BR7XFocPjjF84W9Vg5dznzHGo/7DGEtLOj+Yl3Y/cp8NcIzJT7Mfc/cfxqc1nik2v1bYKD6sTkO58sNqtNTzo+fH8Gkrd37/fp+ESq+ftT//Put/MdCj5d9LCUnnRznMtbRS87P+wyEeHN6XteVHmerL0kpho+qP1tXa8qPm9fzyq+e3n9fz6/mVUs9vPy8lv9J8Gvlp5Silq72fSavz1a1a+Kh9T2zdGd/R3iqHpbSdL9z33tz1+H4fX2nzwCQAAA==
   </data>
  </layer>
  <layer name="Grass" width="56" height="42">
