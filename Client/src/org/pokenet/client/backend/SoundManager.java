@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import org.newdawn.slick.Music;
-import org.pokenet.client.GameClient;
 
 /**
  * Handles music throughout the game
@@ -16,7 +15,7 @@ public class SoundManager extends Thread{
 	private HashMap<String, Music> m_files;
 	private HashMap<String, String> m_fileList, m_locations;
 	protected String m_trackName;
-	private boolean m_muted = false, m_tracksLoaded = false, m_trackChanged = true, m_isRunning = false;
+	private boolean m_tracksLoaded = false, m_trackChanged = true, m_isRunning = false;
 
 	private final String m_audioPath = "res/music/";
 
@@ -123,6 +122,7 @@ public class SoundManager extends Thread{
 	 * @param key
 	 */
 	public void setTrackByLocation(String key){
+		System.out.println(key + ", " + m_locations.get(key));
 		if (m_locations.get(key) != m_trackName){
 			m_trackName = m_locations.get(key);
 			m_trackChanged = true;
@@ -142,7 +142,6 @@ public class SoundManager extends Thread{
 	 * @param mute
 	 */
 	public void mute(boolean mute){
-		m_muted = false;
 		try {
 			if (mute){
 				for (String key : m_files.keySet()){
