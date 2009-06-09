@@ -132,6 +132,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 			case 'b': //Bought Item
 				try {
 					GameClient.getInstance().getUi().getNPCSpeech().advance();
+					GameClient.getInstance().getUi().getNPCSpeech().advance();
 				} catch (Exception e) {}
 				GameClient.getInstance().getUi().talkToNPC(
 						"You bought a " + message.substring(2));

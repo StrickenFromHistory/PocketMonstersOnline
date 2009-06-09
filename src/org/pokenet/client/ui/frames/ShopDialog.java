@@ -394,8 +394,7 @@ public class ShopDialog extends Frame {
 	
 	public void cancelled() {
 		GameClient.getInstance().getPacketGenerator().write("Sf");
-		setVisible(false);
-		GameClient.getInstance().getDisplay().remove(this);
+		GameClient.getInstance().getUi().stopShop();
 	}
 	
 	public void itemClicked(int itemid) {
