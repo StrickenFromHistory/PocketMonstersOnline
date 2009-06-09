@@ -1,4 +1,3 @@
-*Kanto exteriors:
 7,0,Route 12
 6,0,Route 11
 5,0,Vermillion City
@@ -17,7 +16,6 @@
 3,-3,Pewter City
 2,0,Route 26
 2,-1,Route 22
-*Johto exteriors:
 1,0,Route 27
 0,0,New Bark Town
 0,-1,Route 45
@@ -51,7 +49,6 @@
 -7,-2,Route 41
 -7,-3,Route 40
 -8,-2,Cianwood City
-*Johto interiors(selected):
 -50,-42,Dark Cave
 -50,-43,Dark Cave
 -50,-44,Sprout Tower
@@ -87,7 +84,3 @@
 -49,-42,Gym
 -50,-50,Gym
 -36 -49,RoA
-
-
-
-
