@@ -62,8 +62,8 @@ public class Ui extends Frame {
 	 * Default constructor
 	 */
 	public Ui(Display display) {
-		this.setSize(48, 284);
-		this.setLocation(0, -24);
+		this.setSize(800, 66);
+		this.setLocation(0, 534);
 		this.setBackground(new Color(0, 0, 0, 75));
 		this.setResizable(false);
 		this.setDraggable(false);
@@ -84,14 +84,14 @@ public class Ui extends Frame {
 
 		m_moneyLabel.setText("$0");
 		m_moneyLabel.pack();
-		m_moneyLabel.setLocation(4, 242);
+		m_moneyLabel.setLocation(222, 6);
 		m_moneyLabel.setVisible(true);
-		m_moneyLabel.setFont(GameClient.getFontSmall());
+		m_moneyLabel.setFont(GameClient.getFontLarge());
 		m_moneyLabel.setForeground(new Color(255, 255, 255));
 		this.add(m_moneyLabel);
 		
 		this.add(GameClient.getInstance().getTimeService());
-		
+		GameClient.getInstance().getTimeService().setX(745);
 		this.getTitleBar().setVisible(false);
 
 		m_chat.setLocation(GameClient.getInstance().getDisplay().getWidth()
@@ -160,7 +160,7 @@ public class Ui extends Frame {
         for (int i = 0; i < m_buttons.length; i++){
         	m_buttons[i].pack();
         	getContentPane().add(m_buttons[i]);
-        	m_buttons[i].setLocation(6, 22 + (32 * i) + (5 * i));
+        	m_buttons[i].setLocation(5 + (32 * i) + (5 * i), 7);
         }
 	}
 	
@@ -255,7 +255,7 @@ public class Ui extends Frame {
 		} else {
 			hideHUD();
 			m_requestsForm.setWidth(UI_WIDTH);
-			m_requestsForm.setLocation(48, 0);
+			m_requestsForm.setLocation(m_buttons[3].getX(),  556 - m_requestsForm.getHeight());
 			m_requestsForm.setDraggable(false);
 			getDisplay().add(m_requestsForm);
 		}
@@ -307,7 +307,7 @@ public class Ui extends Frame {
 			m_bagForm.setSize(pane.getWidth(), 
 					pane.getHeight() + badges.getHeight() + m_bagForm.getTitleBar().getHeight());
 			getDisplay().add(m_bagForm);
-			m_bagForm.setLocation(48, 0);
+			m_bagForm.setLocation(m_buttons[1].getX(),  556 - m_bagForm.getHeight());
 			m_bagForm.setDraggable(false);
 		}
     }
@@ -324,7 +324,7 @@ public class Ui extends Frame {
 			m_teamInfo = new PartyInfoDialog(GameClient.getInstance().getOurPlayer()
 					.getPokemon());
 			m_teamInfo.setWidth(UI_WIDTH);
-			m_teamInfo.setLocation(48, 0);
+			m_teamInfo.setLocation(m_buttons[0].getX(), 556 - m_teamInfo.getHeight());
 			m_teamInfo.setDraggable(false);
 			getDisplay().add(m_teamInfo);
 		}
@@ -342,7 +342,7 @@ public class Ui extends Frame {
 			m_isOption = true;
 			m_optionsForm = new OptionsDialog();
 			m_optionsForm.setWidth(UI_WIDTH);
-			m_optionsForm.setLocation(48, 0);
+			m_optionsForm.setLocation(m_buttons[4].getX(), 556 - m_optionsForm.getHeight());
 			m_optionsForm.setDraggable(false);
 			getDisplay().add(m_optionsForm);
 		}
@@ -360,7 +360,7 @@ public class Ui extends Frame {
 			m_helpForm = new HelpWindow();
 			m_helpForm.setWidth(UI_WIDTH);
 			m_helpForm.setHeight(300);
-			m_helpForm.setLocation(48, 0);
+			m_helpForm.setLocation(m_buttons[5].getX(), 556 - m_helpForm.getHeight());
 			getDisplay().add(m_helpForm);
 		}
     }
@@ -374,7 +374,7 @@ public class Ui extends Frame {
 			hideHUD();
 		} else {
 			hideHUD();
-			m_map.setLocation(48, 0);
+			m_map.setLocation(m_buttons[2].getX(),  556 - m_map.getHeight());
 			m_map.setVisible(true);
 		}
     }
