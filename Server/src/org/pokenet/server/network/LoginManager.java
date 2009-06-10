@@ -238,7 +238,7 @@ public class LoginManager implements Runnable {
 		//Send their Pokemon information to them
 		p.updateClientParty();
 		//Send bag to them
-//		p.updateClientBag();
+		p.updateClientBag();
 		//Send money
 		p.updateClientMoney();
 		//Send their friend list to them

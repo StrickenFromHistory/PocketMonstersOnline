@@ -99,6 +99,22 @@ public class Bag {
 	}
 	
 	/**
+	 * Checks if item is in bag. Returns quantity of items.  
+	 * @param itemNumber
+	 * @param quantity
+	 */
+	public int getItemQuantity(int itemNumber) {
+		int quantity = 0;
+		for(int i = 0; i < m_items.size(); i++) {
+			if(m_items.get(i).getItemNumber() == itemNumber){
+				quantity = m_items.get(i).getQuantity();
+				i = m_items.size();//End for loop. We found what we're looking for. 
+			}
+		}
+		return quantity;
+	}
+	
+	/**
 	 * Returns all the items in the bag
 	 */
 	public ArrayList<BagItem> getItems() {
