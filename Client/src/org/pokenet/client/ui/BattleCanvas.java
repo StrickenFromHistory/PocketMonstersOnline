@@ -388,8 +388,6 @@ public class BattleCanvas extends Container {
 		enemyNameLabel = null;
 		playerDataBG = null;
 		enemyDataBG = null;
-		playerHPBar = null;
-		enemyHPBar = null;
 		playerLv = null;
 		enemyLv = null;
 		playerStatus = null;
