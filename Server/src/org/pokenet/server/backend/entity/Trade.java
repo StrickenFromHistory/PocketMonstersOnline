@@ -119,9 +119,10 @@ public class Trade {
 		Iterator<PlayerChar> i = m_offers.keySet().iterator();
 		while(i.hasNext()) {
 			PlayerChar player = i.next();
-			if(player != p) {
+			if(player.getId() != p.getId()) {
 				/* This is player we want to send data to */
 				player.getSession().write("To" + poke + "," + money);
+				return;
 			}
 		}
 	}
@@ -214,6 +215,7 @@ public class Trade {
 				player1.updateClientMoney();
 				player2.updateClientMoney();
 				/* End the trade */
+				m_isExecuting = false;
 				endTrade();
 			}
 		}
@@ -223,7 +225,7 @@ public class Trade {
 	 * Returns true if the trade was ended
 	 */
 	public boolean endTrade() {
-		if(m_isExecuting) {
+		if(!m_isExecuting) {
 			Iterator<PlayerChar> i = m_offers.keySet().iterator();
 			while(i.hasNext()) {
 				i.next().endTrading();
