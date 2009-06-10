@@ -22,7 +22,7 @@ public class TimeService extends Label implements Runnable {
 		this.pack();
 		this.setLocation(4, 4);
 		this.setVisible(true);
-		this.setFont(GameClient.getFontSmall());
+		this.setFont(GameClient.getFontLarge());
 		this.setForeground(new Color(255, 255, 255));
 		m_thread = new Thread(this);
 	}
