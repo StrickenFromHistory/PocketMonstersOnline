@@ -88,7 +88,7 @@ public class BattleManager {
 		m_enemyPokes = new Pokemon[pokeAmount];
 		getPlayerData();
 		m_battle.disableMoves();
-		updateMoves(0);
+		updateMoves();
 		updatePokePane();
 		m_timeLine.startBattle();
 		GameClient.getInstance().getDisplay().add(m_battle);
@@ -120,7 +120,7 @@ public class BattleManager {
 	 * @param int pokeIndex
 	 */
 	public void updateMoves(int pokeIndex) {
-		for (int i = 0; i < 3; i++){
+		for (int i = 0; i < 4; i++){
 			if (m_ourPokes[pokeIndex].getMoves()[i] != null) {
 				m_battle.m_moveButtons.get(i).setText(m_ourPokes[pokeIndex].getMoves()[i]);
 				m_battle.m_ppLabels.get(i).setText(m_ourPokes[pokeIndex].getMovecurPP()[i] + "/"
@@ -136,11 +136,12 @@ public class BattleManager {
 	 * Updates moves with the current poke
 	 */
 	public void updateMoves() {
-		for (int i = 0; i < 3; i++){
+		for (int i = 0; i < 4; i++){
 			if (m_curPoke.getMoves()[i] != null) {
 				m_battle.m_moveButtons.get(i).setText(m_curPoke.getMoves()[i]);
 				m_battle.m_ppLabels.get(i).setText(m_curPoke.getMovecurPP()[i] + "/"
 						+ m_curPoke.getMovemaxPP()[i]);
+				System.out.println(m_curPoke.getMoves()[i]);
 			} else {
 				m_battle.m_moveButtons.get(i).setText("");
 				m_battle.m_ppLabels.get(i).setText("");
