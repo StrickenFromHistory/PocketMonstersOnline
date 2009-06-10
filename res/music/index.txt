@@ -1,5 +1,4 @@
-﻿*Key:FileName
-newbark:1-New Bark.ogg
+﻿newbark:1-New Bark.ogg
 cherrygrove:2-Cherrygrove Town.ogg
 violet:3-Violet Town.ogg
 azalea:4-Azalea Town.ogg
