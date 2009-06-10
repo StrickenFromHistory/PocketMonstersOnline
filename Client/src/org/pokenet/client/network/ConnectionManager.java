@@ -614,6 +614,16 @@ public class ConnectionManager extends IoHandlerAdapter {
 			}
 		
 			break;
+		case 'I': //I is for Items
+			switch(message.charAt(1)) {
+			case 'u': //Update item totals
+				details = message.substring(2).split(",");
+				GameClient.getInstance().getOurPlayer().addItem(Integer.parseInt(details[0]),Integer.parseInt(details[1]));
+				break;
+			case 'r': //Remove item to bag
+				break;
+			}
+			break;
 		case 'r':
 			switch(message.charAt(1)) {
 			case 't':

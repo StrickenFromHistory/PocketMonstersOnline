@@ -1,5 +1,7 @@
 package org.pokenet.client.backend.entity;
 
+import java.util.ArrayList;
+
 import org.pokenet.client.backend.entity.Enums.Poketype;
 
 /**
@@ -9,7 +11,7 @@ import org.pokenet.client.backend.entity.Enums.Poketype;
  */
 public class OurPlayer extends Player {
 	private OurPokemon [] m_pokemon;
-	private PlayerItem [] m_items;
+	private ArrayList<PlayerItem> m_items;
     private String[] m_badges = new String[0];
 	private int m_money;
 	
@@ -18,7 +20,7 @@ public class OurPlayer extends Player {
 	 */
 	public OurPlayer() {
 		m_pokemon = new OurPokemon[6];
-		m_items = new PlayerItem[6];
+		m_items = new ArrayList<PlayerItem>();
 		m_badges = new String[0];
 		m_money = 0;
 	}
@@ -59,7 +61,7 @@ public class OurPlayer extends Player {
 	 * Returns our player's bag
 	 * @return
 	 */
-	public PlayerItem[] getItems() {
+	public ArrayList<PlayerItem> getItems() {
 		return m_items;
 	}
 	
@@ -69,14 +71,15 @@ public class OurPlayer extends Player {
 	 * @param quantity
 	 */
 	public void addItem(int number, int quantity) {
-		for(int i = 0; i < m_items.length; i++) {
-			if(m_items[i] != null && m_items[i].getNumber() == number) {
-				m_items[i].setQuantity(m_items[i].getQuantity() + quantity);
-				return;
-			} else if(m_items[i] == null) {
-				m_items[i] = new PlayerItem(number, quantity);
-				return;
+		boolean exists = false;
+		for(int i = 0; i < m_items.size(); i++) {
+			if(m_items.get(i) != null && m_items.get(i).getNumber() == number) {
+				m_items.get(i).setQuantity(quantity);
+				exists = true;
 			}
+		}
+		if(!exists){
+			m_items.add(new PlayerItem(number, quantity));
 		}
 	}
 	
@@ -86,15 +89,32 @@ public class OurPlayer extends Player {
 	 * @param quantity
 	 */
 	public void removeItem(int number, int quantity) {
-		for(int i = 0; i < m_items.length; i++) {
-			if(m_items[i] != null && m_items[i].getNumber() == number) {
-				if(m_items[i].getQuantity() - quantity > 0)
-					m_items[i].setQuantity(m_items[i].getQuantity() - quantity);
+		for(int i = 0; i < m_items.size(); i++) {
+			if(m_items.get(i) != null && m_items.get(i).getNumber() == number) {
+				if(m_items.get(i).getQuantity() - quantity > 0)
+					m_items.get(i).setQuantity(m_items.get(i).getQuantity() - quantity);
 				else
-					m_items[i] = null;
+					m_items.remove(i);
 				return;
 			}
 		}
+	}
+	
+	/**
+	 * Gets item quantity from bag. 
+	 * @param number
+	 */
+	public int getItemQuantity(int number) {
+		int quantity = 0;
+		for(int i = 0; i < m_items.size(); i++) {
+			if(m_items.get(i) != null && m_items.get(i).getItem().getId() == number) {
+				quantity = m_items.get(i).getQuantity(); //Return quantity
+				return quantity;
+			} else {
+				quantity = 0; //Player doesnt own item
+			}
+		}
+		return quantity;
 	}
 	
 	/**

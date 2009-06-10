@@ -12,6 +12,7 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.PlayerItem;
 
 /**
@@ -32,14 +33,21 @@ public abstract class BagDialog extends Container {
          * Default Constructor
          * @param bag
          */
-        public BagDialog(PlayerItem[] bag) {
+        public BagDialog(ArrayList<PlayerItem> bag) {
         	//Lets Fake the Bag for now.
         	m_items = new ArrayList<PlayerItem>();
-        	m_items.add(new PlayerItem(1,20));
-        	m_items.add(new PlayerItem(2,20));
-        	m_items.add(new PlayerItem(3,20));
-        	m_items.add(new PlayerItem(4,20));
-        	m_items.add(new PlayerItem(5,20));
+        	m_items.add(new PlayerItem(1,GameClient.getInstance().getOurPlayer().getItemQuantity(1)));
+        	m_items.add(new PlayerItem(2,GameClient.getInstance().getOurPlayer().getItemQuantity(2)));
+        	m_items.add(new PlayerItem(3,GameClient.getInstance().getOurPlayer().getItemQuantity(3)));
+        	m_items.add(new PlayerItem(4,GameClient.getInstance().getOurPlayer().getItemQuantity(4)));
+        	m_items.add(new PlayerItem(5,GameClient.getInstance().getOurPlayer().getItemQuantity(5)));
+        	
+//        	m_items = new ArrayList<PlayerItem>();
+//        	m_items.add(new PlayerItem(1,20));
+//        	m_items.add(new PlayerItem(2,20));
+//        	m_items.add(new PlayerItem(3,20));
+//        	m_items.add(new PlayerItem(4,20));
+//        	m_items.add(new PlayerItem(5,20));
 //                 
 //                Item potion1 = new Item(1,20);
 //                Item potion2 = new Item(2,20);
