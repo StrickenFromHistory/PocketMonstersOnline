@@ -88,6 +88,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 			 * Player is logged in, allow interaction with their player object
 			 */
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
+			p.lastPacket = System.currentTimeMillis();
 			switch(message.charAt(0)) {
 			case 'P':
 				//Pokemon interaction

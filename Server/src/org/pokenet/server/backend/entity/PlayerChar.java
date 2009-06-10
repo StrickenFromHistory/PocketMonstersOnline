@@ -60,6 +60,13 @@ public class PlayerChar extends Char implements Battleable {
 	private int m_adminLevel = 0;
 	private boolean m_isMuted;
 	private Shop m_currentShop = null;
+	/*
+	 * Kicking timer
+	 */
+	public long lastPacket = 0;
+	/*
+	 * Trade stuff
+	 */
 	private Trade m_trade = null;
 	private boolean m_isReadyToTrade = false;
 	/*

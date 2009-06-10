@@ -5,6 +5,7 @@ import org.pokenet.server.backend.item.ItemDatabase;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.feature.JythonService;
 import org.pokenet.server.feature.TimeService;
+import org.pokenet.server.network.IdleTimer;
 import org.pokenet.server.network.NetworkService;
 
 /**
@@ -18,6 +19,7 @@ public class ServiceManager {
 	private DataService m_dataService;
 	private TimeService m_timeService;
 	private JythonService m_jythonService;
+	private IdleTimer m_idleTimer;
 	
 	/**
 	 * Default constructor
@@ -31,6 +33,7 @@ public class ServiceManager {
 		m_dataService = new DataService();
 		m_networkService = new NetworkService();
 		m_movementService = new MovementService();
+		m_idleTimer = new IdleTimer();
 	}
 	
 	/**
@@ -84,6 +87,7 @@ public class ServiceManager {
 		m_movementService.start();
 		m_networkService.start();
 		m_timeService.start();
+		m_idleTimer.start();
 		ItemDatabase db = new ItemDatabase();
 		db.reinitialise();
 		System.out.println("INFO: Service Manager startup completed.");
@@ -97,6 +101,7 @@ public class ServiceManager {
 		 * Stopping services is very delicate and must be done in the following order to avoid
 		 * leaving player objects in a non-concurrent state.
 		 */
+		m_idleTimer.stop();
 		m_timeService.stop();
 		m_movementService.stop();
 		m_networkService.stop();
