@@ -76,6 +76,7 @@ public class Ui extends Frame {
 		m_requestsForm = new RequestDialog();
 		
 		m_map = new TownMap();
+		m_map.setAlwaysOnTop(true);
 		
 		m_map.setVisible(false);
 		m_display.add(m_map);
