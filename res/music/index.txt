@@ -1,4 +1,5 @@
-﻿newbark:1-New Bark.ogg
+﻿introandgym:20-Title&Gym.ogg
+newbark:1-New Bark.ogg
 cherrygrove:2-Cherrygrove Town.ogg
 violet:3-Violet Town.ogg
 azalea:4-Azalea Town.ogg
@@ -15,4 +16,4 @@ dragonsden:14-Dragon Den.ogg
 pokecenter:15-PokeCenter.ogg
 pvnpc:18-GSBattle PvNPC.ogg
 pvgymleader:19-PvGymLeader.ogg
-introandgym:20-Title&Gym.ogg
+route::20-Title&Gym.ogg

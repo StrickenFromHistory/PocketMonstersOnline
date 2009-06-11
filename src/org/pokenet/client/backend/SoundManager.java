@@ -119,7 +119,10 @@ public class SoundManager extends Thread{
 	 * Sets the track according to the player's location
 	 * @param key
 	 */
-	public void setTrackByLocation(String key){
+	public void setTrackByLocation(String track){
+		String key = track;
+		if (key.substring(0, 4).equalsIgnoreCase("Route"))
+			key = "Route";
 		if (m_locations.get(key) != m_trackName){
 			m_trackName = m_locations.get(key);
 			m_trackChanged = true;

@@ -18,3 +18,4 @@ Dragons Den:dragonsden
 Pokemon Center:pokecenter
 Gym:introandgym
 RoA:ruinsofalph
+Route:route
