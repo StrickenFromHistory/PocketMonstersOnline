@@ -17,18 +17,19 @@ import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.Translator;
 
 public class OptionsDialog extends Frame {
-	private HashMap<String, String> options;
-	private Muffin muffin = new FileMuffin();
+	private HashMap<String, String> m_options;
+	private Muffin m_muffin = new FileMuffin();
 
-	private Button save;
+	private Button m_save;
 
-	private CheckBox fullScreen;
-	private CheckBox muteSound;
+	private CheckBox m_fullScreen;
+	private CheckBox m_muteSound;
+	private CheckBox m_disableMaps;
 
 	// private SimpleColorPicker learnColor;
 
 	public OptionsDialog() {
-		options = GameClient.getOptions();
+		m_options = GameClient.getOptions();
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		initGUI();
@@ -36,7 +37,7 @@ public class OptionsDialog extends Frame {
 
 	@Override
 	public void setVisible(boolean state) {
-		options = GameClient.getOptions();
+		m_options = GameClient.getOptions();
 		super.setVisible(state);
 	}
 
@@ -53,30 +54,37 @@ public class OptionsDialog extends Frame {
 		setBackground(new Color(0, 0, 0, 70));
 		{
 			
-			fullScreen = new CheckBox(translated.get(16));
-			fullScreen.pack();
-			fullScreen.setLocation(10, 10);
+			m_fullScreen = new CheckBox(translated.get(16));
+			m_fullScreen.pack();
+			m_fullScreen.setLocation(10, 10);
 
-			fullScreen.setSelected(Boolean.parseBoolean(options
+			m_fullScreen.setSelected(Boolean.parseBoolean(m_options
 					.get("fullScreen")));
-			getContentPane().add(fullScreen);
+			getContentPane().add(m_fullScreen);
 		}
 		{
-			muteSound = new CheckBox(translated.get(17));
-			muteSound.pack();
-			muteSound.setLocation(150, 10);
+			m_muteSound = new CheckBox(translated.get(17));
+			m_muteSound.pack();
+			m_muteSound.setLocation(150, 10);
 
-			muteSound.setSelected(Boolean.parseBoolean(options
+			m_muteSound.setSelected(Boolean.parseBoolean(m_options
 					.get("soundMuted")));
-			getContentPane().add(muteSound);
+			getContentPane().add(m_muteSound);
 		}
 		{
-			save = new Button(translated.get(18));
-			save.setSize(50, 25);
-			save.setLocation(150, 45);
-			getContentPane().add(save);
+			m_disableMaps = new CheckBox(translated.get(48));
+			m_disableMaps.pack();
+			m_disableMaps.setLocation(10, 45);
+			m_disableMaps.setSelected(!Boolean.parseBoolean(m_options.get("surroundingMaps")));
+			getContentPane().add(m_disableMaps);
+		}
+		{
+			m_save = new Button(translated.get(18));
+			m_save.setSize(50, 25);
+			m_save.setLocation(88, 74);
+			getContentPane().add(m_save);
 
-			save.addActionListener(new ActionListener() {
+			m_save.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {
 						List<String> translated = Translator.translate("_GUI");
@@ -86,20 +94,24 @@ public class OptionsDialog extends Frame {
 						 * learnColor.getColorHexLabel(). getText());
 						 */
 
-						options.remove("fullScreen");
-						options.put("fullScreen", Boolean.toString(fullScreen
+						m_options.remove("fullScreen");
+						m_options.put("fullScreen", Boolean.toString(m_fullScreen
 								.isSelected()));
 
-						options.remove("soundMuted");
-						options.put("soundMuted", Boolean.toString(muteSound
+						m_options.remove("soundMuted");
+						m_options.put("soundMuted", Boolean.toString(m_muteSound
 								.isSelected()));
 						
-						if (muteSound.isSelected())
+						m_options.remove("surroundingMaps");
+						m_options.put("surroundingMaps", Boolean.toString(!m_disableMaps.isSelected()));
+						GameClient.setLoadSurroundingMaps(!m_disableMaps.isSelected());
+						
+						if (m_muteSound.isSelected())
 							GameClient.getSoundPlayer().mute(true); 
 						else
 							GameClient.getSoundPlayer().mute(false);
 						
-						muffin.saveFile(options, "options.dat");
+						m_muffin.saveFile(m_options, "options.dat");
 						GameClient
 								.messageDialog(
 										translated.get(19),
@@ -112,7 +124,7 @@ public class OptionsDialog extends Frame {
 			});
 		}
 		setTitle(translated.get(15));
-		setSize(400, 100);
+		setSize(400, 128);
 		setResizable(false);
 		this.getTitleBar().getCloseButton().setVisible(false);
 	}

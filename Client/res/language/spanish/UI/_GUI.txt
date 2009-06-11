@@ -46,3 +46,4 @@ Cambio:
 Solo dinero
 Pelea
 Cambio
+Deshabilitar Entorno Mapas

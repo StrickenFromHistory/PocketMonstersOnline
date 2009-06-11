@@ -42,7 +42,7 @@ public class ClientMapMatrix {
 		/*
 		 * Loads the main map and surrounding maps
 		 */
-		if(mapX >= -30) {
+		if(mapX >= -30 && GameClient.loadSurroundingMaps()) {
 			/*
 			 * Exterior, load surrounding maps
 			 */

@@ -45,4 +45,5 @@ Pedido Recebido
 Troca:
 Dinheiro apenas
 Batalha
-Troca 
+Troca
+Desactivar Circundantes Mapas
