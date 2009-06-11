@@ -43,6 +43,7 @@ public class SpeechFrame extends Frame {
     public SpeechFrame(String speech) {
     	getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
+		this.setBorderRendered(false);
 		speechQueue = new LinkedList<String>();
 		for (String line : speech.split("/n")) {
 			speechQueue.add(line);
