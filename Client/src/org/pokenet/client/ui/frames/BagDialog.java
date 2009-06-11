@@ -57,10 +57,10 @@ public abstract class BagDialog extends Container {
         	//Assign Repel Fave
         	if(GameClient.getInstance().getOurPlayer().getItemQuantity(87)>0){
         		m_items.add(new PlayerItem(87,GameClient.getInstance().getOurPlayer().getItemQuantity(87)));
-        	}else if(GameClient.getInstance().getOurPlayer().getItemQuantity(88)>0){
-        		m_items.add(new PlayerItem(88,GameClient.getInstance().getOurPlayer().getItemQuantity(88)));
+        	}else if(GameClient.getInstance().getOurPlayer().getItemQuantity(86)>0){
+        		m_items.add(new PlayerItem(86,GameClient.getInstance().getOurPlayer().getItemQuantity(86)));
         	}else {
-        		m_items.add(new PlayerItem(89,GameClient.getInstance().getOurPlayer().getItemQuantity(89)));
+        		m_items.add(new PlayerItem(85,GameClient.getInstance().getOurPlayer().getItemQuantity(85)));
         	}
         	
         	//Assign EscapeRope Fave
