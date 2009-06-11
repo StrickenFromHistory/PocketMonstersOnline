@@ -63,7 +63,7 @@ public class Ui extends Frame {
 	 */
 	public Ui(Display display) {
 		this.setSize(800, 66);
-		this.setLocation(0, 534);
+		this.setLocation(0, -getTitleBar().getHeight());
 		this.setBackground(new Color(0, 0, 0, 75));
 		this.setResizable(false);
 		this.setDraggable(false);
@@ -96,7 +96,7 @@ public class Ui extends Frame {
 		this.getTitleBar().setVisible(false);
 
 		m_chat.setLocation(GameClient.getInstance().getDisplay().getWidth()
-				- m_chat.getWidth(), 0);
+				- m_chat.getWidth(), 67 - getTitleBar().getHeight());
 		m_display.add(m_chat);
 		m_display.add(this);
 	}
@@ -256,7 +256,7 @@ public class Ui extends Frame {
 		} else {
 			hideHUD();
 			m_requestsForm.setWidth(UI_WIDTH);
-			m_requestsForm.setLocation(m_buttons[3].getX(),  556 - m_requestsForm.getHeight());
+			m_requestsForm.setLocation(m_buttons[3].getX(),  67 - getTitleBar().getHeight());
 			m_requestsForm.setDraggable(false);
 			getDisplay().add(m_requestsForm);
 		}
@@ -308,7 +308,7 @@ public class Ui extends Frame {
 			m_bagForm.setSize(pane.getWidth(), 
 					pane.getHeight() + badges.getHeight() + m_bagForm.getTitleBar().getHeight());
 			getDisplay().add(m_bagForm);
-			m_bagForm.setLocation(m_buttons[1].getX(),  556 - m_bagForm.getHeight());
+			m_bagForm.setLocation(m_buttons[1].getX(),  67 - getTitleBar().getHeight());
 			m_bagForm.setDraggable(false);
 		}
     }
@@ -325,7 +325,7 @@ public class Ui extends Frame {
 			m_teamInfo = new PartyInfoDialog(GameClient.getInstance().getOurPlayer()
 					.getPokemon());
 			m_teamInfo.setWidth(UI_WIDTH);
-			m_teamInfo.setLocation(m_buttons[0].getX(), 556 - m_teamInfo.getHeight());
+			m_teamInfo.setLocation(m_buttons[0].getX(), 67 - getTitleBar().getHeight());
 			m_teamInfo.setDraggable(false);
 			getDisplay().add(m_teamInfo);
 		}
@@ -343,7 +343,7 @@ public class Ui extends Frame {
 			m_isOption = true;
 			m_optionsForm = new OptionsDialog();
 			m_optionsForm.setWidth(UI_WIDTH);
-			m_optionsForm.setLocation(m_buttons[4].getX(), 556 - m_optionsForm.getHeight());
+			m_optionsForm.setLocation(m_buttons[4].getX(), 67 - getTitleBar().getHeight());
 			m_optionsForm.setDraggable(false);
 			getDisplay().add(m_optionsForm);
 		}
@@ -361,7 +361,7 @@ public class Ui extends Frame {
 			m_helpForm = new HelpWindow();
 			m_helpForm.setWidth(UI_WIDTH);
 			m_helpForm.setHeight(300);
-			m_helpForm.setLocation(m_buttons[5].getX(), 556 - m_helpForm.getHeight());
+			m_helpForm.setLocation(m_buttons[5].getX(), 67 - getTitleBar().getHeight());
 			getDisplay().add(m_helpForm);
 		}
     }
@@ -375,7 +375,7 @@ public class Ui extends Frame {
 			hideHUD();
 		} else {
 			hideHUD();
-			m_map.setLocation(m_buttons[2].getX(),  556 - m_map.getHeight());
+			m_map.setLocation(m_buttons[2].getX(),  67 - getTitleBar().getHeight());
 			m_map.setVisible(true);
 		}
     }
