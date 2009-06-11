@@ -16,4 +16,4 @@ dragonsden:14-Dragon Den.ogg
 pokecenter:15-PokeCenter.ogg
 pvnpc:18-GSBattle PvNPC.ogg
 pvgymleader:19-PvGymLeader.ogg
-route::20-Title&Gym.ogg
+route:20-Title&Gym.ogg
