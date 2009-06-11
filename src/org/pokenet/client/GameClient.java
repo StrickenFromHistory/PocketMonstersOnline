@@ -85,6 +85,7 @@ public class GameClient extends BasicGame {
 	private ConfirmationDialog m_confirm;
 	private PlayerPopupDialog m_playerDialog;
     private static SoundManager m_soundPlayer;
+    private static boolean m_loadSurroundingMaps = true;
     
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
@@ -96,13 +97,16 @@ public class GameClient extends BasicGame {
 			if (options == null) {
 				options = new HashMap<String,String>();
 				options.put("soundMuted", String.valueOf(false));
+				options.put("surroundingMaps", String.valueOf(true));
 			}
 			m_instance = new GameClient("Pokenet: Fearless Feebas");
 			m_soundPlayer = new SoundManager();
 			m_soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
 			m_soundPlayer.start();
 			m_soundPlayer.setTrack("introandgym");
+			m_loadSurroundingMaps = Boolean.parseBoolean(options.get("surroundingMaps"));
 		} catch (IOException e) { 
+			m_loadSurroundingMaps = true;
 			e.printStackTrace();
 		}
 	}
@@ -496,7 +500,8 @@ public class GameClient extends BasicGame {
 	 */
 	public static void main(String [] args) {
 		try {
-			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet: Fearless Feebas"), 800, 600, Boolean.parseBoolean(options.get("fullScreen")));
+			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet: Fearless Feebas"),
+					800, 600, Boolean.parseBoolean(options.get("fullScreen")));
 			gc.setTargetFrameRate(50);
 			gc.start();
 		} catch (Exception e) {
@@ -739,6 +744,22 @@ public class GameClient extends BasicGame {
      */
 	public static void changeTrack(String fileKey){
 		m_soundPlayer.setTrack(fileKey);
+	}
+	
+	/**
+	 * Returns false if the user has disabled surrounding map loading
+	 * @return
+	 */
+	public static boolean loadSurroundingMaps() {
+		return m_loadSurroundingMaps;
+	}
+	
+	/**
+	 * Sets if the client should load surrounding maps
+	 * @param b
+	 */
+	public static void setLoadSurroundingMaps(boolean b) {
+		m_loadSurroundingMaps = b;
 	}
     
     /**

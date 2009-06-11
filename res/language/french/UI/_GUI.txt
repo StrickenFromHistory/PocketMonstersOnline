@@ -17,14 +17,14 @@ Options
 Full Screen view
 Mute
 Save
-Changes will not take effect until you restart.
-Pokenet: Online Help
-The movement buttons are the /narrow keys and/or WASD keys.
-The C key toggles the chat/nwindow.
-Use spacebar to talk to NPC(Non/nPlayer Character) and to continue/non the speech popup./n
-Use the /w USERNAME TEXT/ncommand to whisper to other/nplayers. 
-Use the /playercount command to/nsee how many players are online.
-If you have four badges, press/nshift to surf on water. 
+Changes may not take effect until you restart.
+Pokenet Help
+Arrow keys or WASD keys/nMovement/n/n
+Spacebar/nTalk/n/n
+Right-click/nInteract with other players/n/n
+Use the whisper option to start a private chat. 
+Type the /playercount command into local chat to see how many players are online./n
+For more information, go to www.pokedev.org
 Chat: Local
 You must accept Terms of Service (ToS) before registering.
 Male
@@ -46,3 +46,4 @@ Trade:
 Money only
 Battle
 Trade
+Disable Surrounding Maps
