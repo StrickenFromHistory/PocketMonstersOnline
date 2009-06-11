@@ -63,7 +63,7 @@ public class PlayerChar extends Char implements Battleable {
 	/*
 	 * Kicking timer
 	 */
-	public long lastPacket = 0;
+	public long lastPacket = System.currentTimeMillis();
 	/*
 	 * Trade stuff
 	 */
