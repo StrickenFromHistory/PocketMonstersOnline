@@ -10,7 +10,6 @@ import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
 import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.PlayerItem;
@@ -34,46 +33,51 @@ public abstract class BagDialog extends Container {
          * @param bag
          */
         public BagDialog(ArrayList<PlayerItem> bag) {
-        	//Lets Fake the Bag for now.
         	m_items = new ArrayList<PlayerItem>();
-        	m_items.add(new PlayerItem(1,GameClient.getInstance().getOurPlayer().getItemQuantity(1)));
-        	m_items.add(new PlayerItem(2,GameClient.getInstance().getOurPlayer().getItemQuantity(2)));
-        	m_items.add(new PlayerItem(3,GameClient.getInstance().getOurPlayer().getItemQuantity(3)));
-        	m_items.add(new PlayerItem(4,GameClient.getInstance().getOurPlayer().getItemQuantity(4)));
-        	m_items.add(new PlayerItem(5,GameClient.getInstance().getOurPlayer().getItemQuantity(5)));
+        	//Assign Potion Fave
+        	if(GameClient.getInstance().getOurPlayer().getItemQuantity(4)>0){
+        		m_items.add(new PlayerItem(4,GameClient.getInstance().getOurPlayer().getItemQuantity(4)));
+        	}else if(GameClient.getInstance().getOurPlayer().getItemQuantity(3)>0){
+        		m_items.add(new PlayerItem(3,GameClient.getInstance().getOurPlayer().getItemQuantity(3)));
+        	}else if(GameClient.getInstance().getOurPlayer().getItemQuantity(2)>0){
+        		m_items.add(new PlayerItem(2,GameClient.getInstance().getOurPlayer().getItemQuantity(2)));
+        	}else {
+        		m_items.add(new PlayerItem(1,GameClient.getInstance().getOurPlayer().getItemQuantity(1)));
+        	}
         	
-//        	m_items = new ArrayList<PlayerItem>();
-//        	m_items.add(new PlayerItem(1,20));
-//        	m_items.add(new PlayerItem(2,20));
-//        	m_items.add(new PlayerItem(3,20));
-//        	m_items.add(new PlayerItem(4,20));
-//        	m_items.add(new PlayerItem(5,20));
-//                 
-//                Item potion1 = new Item(1,20);
-//                Item potion2 = new Item(2,20);
-//                Item potion3 = new Item(3,20);
-//                Item potion4 = new Item(4,20);
-//                Item potion5 = new Item(5,20);
-//                Item[] bags = new Item[5];
-//                bags[0] = potion1;
-//                bags[1] = potion2;
-//                bags[2] = potion3;
-//                bags[3] = potion4;
-//                bags[4] = potion5;
-//                
-////                for (Item s : bags) {
-//                for(int i = 0;i < bags.length; i++){
-//                	Item s = bags[i];
-//                        if (m_items.containsValue(s.getNumber())) {
-//                                int quantity = m_items.get(s.getNumber());
-//                                m_items.remove(s);
-//                                m_items.put(s, quantity);
-//                        } else {
-//                                if (s != null)
-//                                        m_items.put(s, 1);
-//                        }
-//                }
-                initGUI();
+        	//Assign Antidote Fave
+        	if(GameClient.getInstance().getOurPlayer().getItemQuantity(5)>0){
+        		m_items.add(new PlayerItem(5,GameClient.getInstance().getOurPlayer().getItemQuantity(5)));
+        	}else if(GameClient.getInstance().getOurPlayer().getItemQuantity(21)>0){
+        		m_items.add(new PlayerItem(21,GameClient.getInstance().getOurPlayer().getItemQuantity(21)));
+        	}else {
+        		m_items.add(new PlayerItem(16,GameClient.getInstance().getOurPlayer().getItemQuantity(16)));
+        	}
+        	
+        	//Assign Repel Fave
+        	if(GameClient.getInstance().getOurPlayer().getItemQuantity(87)>0){
+        		m_items.add(new PlayerItem(87,GameClient.getInstance().getOurPlayer().getItemQuantity(87)));
+        	}else if(GameClient.getInstance().getOurPlayer().getItemQuantity(88)>0){
+        		m_items.add(new PlayerItem(88,GameClient.getInstance().getOurPlayer().getItemQuantity(88)));
+        	}else {
+        		m_items.add(new PlayerItem(89,GameClient.getInstance().getOurPlayer().getItemQuantity(89)));
+        	}
+        	
+        	//Assign EscapeRope Fave
+        	m_items.add(new PlayerItem(91,GameClient.getInstance().getOurPlayer().getItemQuantity(91)));
+        	
+        	//Assign PokeBall Fave
+        	if(GameClient.getInstance().getOurPlayer().getItemQuantity(38)>0){
+        		m_items.add(new PlayerItem(38,GameClient.getInstance().getOurPlayer().getItemQuantity(38)));
+        	}else if(GameClient.getInstance().getOurPlayer().getItemQuantity(37)>0){
+        		m_items.add(new PlayerItem(37,GameClient.getInstance().getOurPlayer().getItemQuantity(37)));
+        	}else if(GameClient.getInstance().getOurPlayer().getItemQuantity(36)>0){
+        		m_items.add(new PlayerItem(36,GameClient.getInstance().getOurPlayer().getItemQuantity(36)));
+        	}else {
+        		m_items.add(new PlayerItem(35,GameClient.getInstance().getOurPlayer().getItemQuantity(35)));
+        	}
+        
+        	initGUI();
         }
         
         /**
@@ -91,19 +95,18 @@ public abstract class BagDialog extends Container {
         	for (int i = 0; i < m_items.size(); i++) {
         		final int j = i;
         		m_itemButtons[i] = new Button("       x" + m_items.get(i).getQuantity());
-        		m_itemIcon[i] = new Label();
-        		m_itemIcon[i].setSize(32, 32);
+        		m_itemButtons[i].setToolTipText(m_items.get(i).getItem().getName());
+        		LoadingList.setDeferredLoading(true);
         		try {
-        			LoadingList.setDeferredLoading(true);
-        			Image itemImage = new Image("/res/items/" + m_items.get(i).getNumber() + ".png");
-        			m_itemIcon[i].setImage(itemImage);
+        			m_itemIcon[i] = new Label();
+            		m_itemIcon[i].setSize(32, 32);
+        			m_itemIcon[i].setImage(new Image("res/items/" + m_items.get(i).getNumber() + ".png"));
         			m_itemIcon[i].setGlassPane(true);
-					LoadingList.setDeferredLoading(false);
 					m_itemButtons[i].add(m_itemIcon[i]);
-				} catch (SlickException e1) {
-//					// TODO Auto-generated catch block
+				} catch (Exception e1) {
 //					e1.printStackTrace();
 				}
+				LoadingList.setDeferredLoading(false);
         		m_itemButtons[i].addActionListener(new ActionListener() {
         			public void actionPerformed(ActionEvent e) {
         				itemClicked(m_items.get(j));
