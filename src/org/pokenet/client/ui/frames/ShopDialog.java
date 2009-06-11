@@ -47,6 +47,8 @@ public class ShopDialog extends Frame {
 	}
 	
 	public void categoryClicked(int name) {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 //		packetGen.write("x" + name);
 		m_items = new ArrayList<Item>();
 		switch(name){

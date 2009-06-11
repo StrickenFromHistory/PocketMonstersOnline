@@ -29,7 +29,8 @@ public class OptionsDialog extends Frame {
 
 	public OptionsDialog() {
 		options = GameClient.getOptions();
-
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		initGUI();
 	}
 

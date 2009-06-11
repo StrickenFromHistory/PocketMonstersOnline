@@ -32,6 +32,8 @@ public class ServerDialog extends Frame {
 	 * Default constructor
 	 */
 	public ServerDialog() {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		m_black = new Color(0, 0, 0);
 		List<String> translate = Translator.translate("_LOGIN");
 		

@@ -14,6 +14,8 @@ public class Notification extends Frame {
 	private Label m_text;
 	
 	public Notification(String message) {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		this.setSize(96, 64);
 		this.setBackground(new Color(0, 0, 0, 75));
 		

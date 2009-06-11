@@ -62,6 +62,8 @@ public class Ui extends Frame {
 	 * Default constructor
 	 */
 	public Ui(Display display) {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		this.setSize(800, 66);
 		this.setLocation(0, -getTitleBar().getHeight());
 		this.setBackground(new Color(0, 0, 0, 75));
@@ -272,6 +274,8 @@ public class Ui extends Frame {
 		} else {
 			hideHUD();
 			m_bagForm = new Frame();
+			m_bagForm.getContentPane().setX(m_bagForm.getContentPane().getX() - 1);
+			m_bagForm.getContentPane().setY(m_bagForm.getContentPane().getY() + 1);
 			m_bagForm.setBackground(new Color(0, 0, 0, 70));
 			m_bagForm.setResizable(false);
 			m_bagForm.setDraggable(false);

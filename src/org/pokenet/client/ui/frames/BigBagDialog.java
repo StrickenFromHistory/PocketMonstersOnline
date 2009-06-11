@@ -34,6 +34,8 @@ public class BigBagDialog extends Frame {
 //	private List<Integer> m_merch;
 
 	public BigBagDialog() {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 //		m_merch = merch;
 //		packetGen = out;
 		setCenter();

@@ -57,6 +57,8 @@ public class ChatDialog extends Frame {
      * Initializes the user interface
      */
     private void initGUI() {
+    	getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
     	this.setMinimumSize(206, 160);
     	this.setLocation(48, 0);
     	try {

@@ -46,6 +46,8 @@ public class FriendListDialog extends Frame {
 	 * Initializes the interface
 	 */
 	public void initGUI() {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		setBackground(new Color(0, 0, 0, 200));
 		setTitle("Friends");
 		setSize(170, 180);

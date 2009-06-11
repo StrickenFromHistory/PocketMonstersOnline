@@ -19,6 +19,8 @@ public class MessageDialog extends Frame{
      * @param container
      */
 	public MessageDialog(String message, Container container){
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		Container label = new Container();
 		String[] lines = message.split("\n");
 		

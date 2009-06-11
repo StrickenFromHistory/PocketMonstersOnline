@@ -28,6 +28,8 @@ public class LoginDialog extends Frame {
 	 * Default constructor
 	 */
 	public LoginDialog() {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		List<String> translated = Translator.translate("_LOGIN");
 		this.setBorderRendered(false);
 		this.getTitleBar().setVisible(false);

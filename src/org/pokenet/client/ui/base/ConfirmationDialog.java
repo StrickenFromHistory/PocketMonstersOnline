@@ -23,6 +23,8 @@ public class ConfirmationDialog extends Frame{
 
 	public ConfirmationDialog(String text){
 		super("Awaiting confirmation");
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		Container m_label = new Container();
 		String[] m_lines = text.split("\n");
 		

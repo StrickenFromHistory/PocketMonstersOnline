@@ -39,6 +39,8 @@ public class RequestDialog extends Frame{
      * Initializes the user interface
      */
     public void initGUI(){
+    	getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
     	List<String> translated = Translator.translate("_GUI");
         getTitleBar().getCloseButton().setVisible(false);
         setTitle(translated.get(33));
