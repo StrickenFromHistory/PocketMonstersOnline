@@ -41,12 +41,14 @@ public class SpeechFrame extends Frame {
      * @param speech
      */
     public SpeechFrame(String speech) {
-            speechQueue = new LinkedList<String>();
-            for (String line : speech.split("/n")) {
-                    speechQueue.add(line);
-            }
-            triangulate();
-            initGUI();
+    	getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
+		speechQueue = new LinkedList<String>();
+		for (String line : speech.split("/n")) {
+			speechQueue.add(line);
+		}
+		triangulate();
+		initGUI();
     }
     
     /**
@@ -55,13 +57,13 @@ public class SpeechFrame extends Frame {
      * @param seconds
      */
     public SpeechFrame(String speech, int seconds) {
-            speechQueue = new LinkedList<String>();
-            for (String line : speech.split("/n")) {
-                    speechQueue.add(line);
-            }
-            triangulate();
-            initGUI();
-            this.advance();
+    	speechQueue = new LinkedList<String>();
+    	for (String line : speech.split("/n")) {
+    		speechQueue.add(line);
+    	}
+    	triangulate();
+    	initGUI();
+    	this.advance();
 //            this.advance();
 //            while(canAdvance()){
 //	            try {
@@ -138,32 +140,33 @@ public class SpeechFrame extends Frame {
     			speechDisplay.setText("");
     			if (stringToPrint != null)
     				advancedPast(stringToPrint);
-    			stringToPrint = speechQueue.poll();
-    			if (stringToPrint != null) {
-    				animAction = new TimerTask() {
-    					public void run() {
-    						if (speechDisplay.getText().equals(stringToPrint)) {
-    							animAction = null;
-    							try {
-    								cancel();
-    							} catch (IllegalStateException e) { }
-    							triangulate();
-    						} else {
-    							try {
-    								speechDisplay.setText(stringToPrint.substring(0, speechDisplay.getText().length() + 1));
-    							} catch (StringIndexOutOfBoundsException e) {
-    								speechDisplay.setText(stringToPrint);
-    							}
+    				stringToPrint = speechQueue.poll();
+    				if (stringToPrint != null) {
+    					animAction = new TimerTask() {
+    						public void run() {
+    							if (speechDisplay.getText().equals(stringToPrint)) {
+    								animAction = null;
+    								try {
+    									cancel();
+    								} catch (IllegalStateException e) { }
+    								triangulate();
+    							} else {
+    								try {
+    									speechDisplay.setText(stringToPrint.substring(0, speechDisplay
+    											.getText().length() + 1));
+    								} catch (StringIndexOutOfBoundsException e) {
+    									speechDisplay.setText(stringToPrint);
+    								}
     						}
-    					}};
-    					try {
-    						printingTimer.schedule(animAction, 0, 30);}
-    					catch (Exception e) { 
-    						animAction = null;
-    						e.printStackTrace();
-    					}
-    					advancing(stringToPrint);
-    			}
+    					}};	
+    						try {
+    							printingTimer.schedule(animAction, 0, 30);}
+    						catch (Exception e) { 
+    							animAction = null;
+    							e.printStackTrace();
+    						}
+    						advancing(stringToPrint);
+    				}
     		}
     	} else {
     		speechDisplay.setText("");

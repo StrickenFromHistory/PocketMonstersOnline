@@ -30,6 +30,8 @@ public class PokemonInfoDialog extends Frame{
         }
        
         public void initGUI(OurPokemon poke){
+        	getContentPane().setX(getContentPane().getX() - 1);
+    		getContentPane().setY(getContentPane().getY() + 1);
         	List<String> translated = Translator.translate("_GUI");
                 this.setBackground(new Color(255,255,255,200));
                 int x = 70;

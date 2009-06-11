@@ -18,6 +18,8 @@ public class LoadingScreen extends Frame {
 	 * Default constructor
 	 */
 	public LoadingScreen() {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		try {
 			this.setSize(800, 632);
 			this.setBackground(new Color(255, 255, 255, 70));

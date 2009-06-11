@@ -23,6 +23,8 @@ public class PlayerPopupDialog extends Frame{
 	 * @param player
 	 */
 	public PlayerPopupDialog(String player){
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		m_name = new Label(player);
 		m_name.setFont(GameClient.getFontSmall());
 		m_name.setForeground(Color.white);

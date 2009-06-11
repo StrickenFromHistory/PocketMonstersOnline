@@ -68,6 +68,8 @@ public class BattleWindow extends Frame {
 	 * @param wild
 	 */
 	public BattleWindow(String title) {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		setTitle(title);
 		initComponents();
 		setCenter();

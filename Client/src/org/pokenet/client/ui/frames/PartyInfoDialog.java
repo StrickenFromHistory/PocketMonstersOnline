@@ -55,6 +55,8 @@ public class PartyInfoDialog extends Frame {
 	 * Initializes interface
 	 */
 	public void initGUI() {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		int y = 0;
 		this.getTitleBar().getCloseButton().setVisible(false);
 		this.setFont(GameClient.getFontSmall());

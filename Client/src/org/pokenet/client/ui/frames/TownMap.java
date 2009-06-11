@@ -38,6 +38,8 @@ public class TownMap extends Frame {
 	 */
 	public TownMap() {
 		super("World Map");
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		m_mapName = new Label();
 		m_playerLoc = new Label();
 		m_timer = new Timer();

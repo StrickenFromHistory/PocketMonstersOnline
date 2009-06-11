@@ -37,6 +37,8 @@ public class PokeStorageBoxFrame extends Frame {
 	 * @throws SlickException
 	 */
 	public PokeStorageBoxFrame(int[] pokes){
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		m_pokeNums = pokes;
 		m_boxIndex = 0;
 		m_boxNum = m_boxIndex + 1;

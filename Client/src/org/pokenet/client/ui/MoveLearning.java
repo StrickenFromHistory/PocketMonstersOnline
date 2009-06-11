@@ -44,6 +44,8 @@ public class MoveLearning extends Frame {
 	 * @param isMoveLearning
 	 */
 	public MoveLearning() {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		m_canvas = new MoveLearnCanvas();
 		getContentPane().add(m_canvas);
 		setSize(259, 369);

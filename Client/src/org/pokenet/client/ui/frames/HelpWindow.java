@@ -28,6 +28,8 @@ public class HelpWindow extends Frame{
 	 * Initializes the interface
 	 */
     private void initGUI() {
+    	getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
     	List<String> translated = Translator.translate("_GUI");
     	this.getTitleBar().getCloseButton().setVisible(false);
     	this.setTitle(translated.get(20));

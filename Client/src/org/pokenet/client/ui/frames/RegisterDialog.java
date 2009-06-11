@@ -34,6 +34,8 @@ public class RegisterDialog extends Frame{
 	 * Default constructor
 	 */
 	public RegisterDialog() {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		List<String> translated = Translator.translate("_LOGIN");
 		this.setVisible(false);
 		this.setSize(320, 320);

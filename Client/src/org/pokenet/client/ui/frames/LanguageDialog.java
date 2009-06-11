@@ -22,6 +22,8 @@ public class LanguageDialog extends Frame {
 	 * Default constructor
 	 */
 	public LanguageDialog() {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		m_black = new Color(0, 0, 0);
 		
 		this.setSize(350, 320);

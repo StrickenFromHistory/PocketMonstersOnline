@@ -41,6 +41,8 @@ public class TradeDialog extends Frame {
 	 * Default constructor
 	 */
 	public TradeDialog(String trainerName){
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		initGUI();
 		m_pokes = new ArrayList<Pokemon>();
 		setVisible(true);
