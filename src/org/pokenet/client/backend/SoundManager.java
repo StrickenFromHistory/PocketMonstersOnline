@@ -62,7 +62,6 @@ public class SoundManager extends Thread{
 			while (reader.hasNext()) {
 				f = reader.nextLine();
 				String[] addFile = f.split(":", 2);
-				System.out.println(addFile[0] + ", " + addFile[1]);
 				m_locations.put(addFile[0], addFile[1]);
 			}
 		} catch (Exception e) {
@@ -78,7 +77,6 @@ public class SoundManager extends Thread{
 		for (String key : m_fileList.keySet()){
 			try {
 				m_files.put(key, new Music(m_audioPath + m_fileList.get(key)));
-				System.out.println("Loaded " + m_fileList.get(key));
 			} catch (Exception e) {e.printStackTrace();}
 		}
 		m_tracksLoaded = true;
@@ -122,7 +120,6 @@ public class SoundManager extends Thread{
 	 * @param key
 	 */
 	public void setTrackByLocation(String key){
-		System.out.println(key + ", " + m_locations.get(key));
 		if (m_locations.get(key) != m_trackName){
 			m_trackName = m_locations.get(key);
 			m_trackChanged = true;
