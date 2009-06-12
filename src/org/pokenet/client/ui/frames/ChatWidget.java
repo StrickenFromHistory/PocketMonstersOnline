@@ -65,13 +65,8 @@ class ChatWidget extends Container{
 	}
 
 	public void addLine(String line) {
-		System.err.println("Added line: " + line);
 		m_contents.add(line);
 		wrap();
-		if (m_wrappedText.size() - m_maxLines > 0 && m_scrollIndex != m_wrappedText.size() - m_maxLines - 1)
-			m_scrollIndex = m_wrappedText.size() - m_maxLines;
-		else if (m_scrollIndex != m_wrappedText.size() - m_maxLines - 1)
-			m_scrollIndex = 0;
 		scroll(0);
 	}
 
@@ -120,8 +115,9 @@ class ChatWidget extends Container{
     		m_shownChat.get(i).setForeground(m_foreColor);
     		m_shownChat.get(i).setLocation(0, y);
     		try {
-    			m_shownChat.get(i).setText(m_wrappedText.get(m_wrappedText.size() - 
-    					m_maxLines + i + m_scrollIndex ));
+    			m_shownChat.get(i).setText(m_wrappedText.get(
+    			m_scrollIndex + i 		
+    			));
     		} catch (Exception e) {}
     		m_shownChat.get(i).pack();
     		add(m_shownChat.get(i));
