@@ -67,7 +67,7 @@ class ChatWidget extends Container{
 	public void addLine(String line) {
 		m_contents.add(line);
 		wrap();
-		scroll(0);
+		scroll(1);
 	}
 
     /**
