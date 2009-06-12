@@ -78,7 +78,6 @@ public class PlayerPopupDialog extends Frame{
 		m_whisper.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				GameClient.getInstance().getUi().getChat().addChat(m_name.getText());
-				GameClient.getInstance().getUi().getChat().setCurrentChat(m_name.getText());
 				destroy();
 			}
 		});
