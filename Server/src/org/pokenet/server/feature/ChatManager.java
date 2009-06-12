@@ -62,7 +62,7 @@ public class ChatManager implements Runnable {
 	 * @param sender
 	 */
 	public void queuePrivateMessage(String message, IoSession receiver, String sender) {
-		m_privateQueue.add(new Object[]{message, receiver, sender});
+		m_privateQueue.add(new Object[]{receiver, sender, message});
 	}
 	
 	/**
