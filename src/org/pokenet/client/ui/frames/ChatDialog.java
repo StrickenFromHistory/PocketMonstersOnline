@@ -2,18 +2,13 @@ package org.pokenet.client.ui.frames;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-import mdes.slick.sui.Button;
-import mdes.slick.sui.Container;
 import mdes.slick.sui.Frame;
-import mdes.slick.sui.Label;
 import mdes.slick.sui.TextField;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 import mdes.slick.sui.event.MouseAdapter;
 import mdes.slick.sui.event.MouseEvent;
-import mdes.slick.sui.skin.simple.SimpleArrowButton;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.gui.GUIContext;
@@ -23,374 +18,162 @@ import org.pokenet.client.ui.base.ComboBox;
 /**
  * Chat Dialog
  * @author ZombieBear
- *
+ * 
  */
-@SuppressWarnings("deprecation")
 public class ChatDialog extends Frame {
-	static final long serialVersionUID = 8126828445828668638L;
+	private HashMap<String, ArrayList<String>> m_availableChats = new HashMap<String, ArrayList<String>>();
+	private Color m_backColor = new Color(0, 0, 0, 85);
 
-	private HashMap<String, ChatWidget> m_availableChats;
-	
-    private TextField m_chatType;
-    private ComboBox m_possibleChats;
-    private String m_currentChat;
-    
-    private Color m_backColor = new Color(0, 0, 0, 85);
-    private Color m_foreColor = new Color(255, 255, 255);
+	private String m_curChat;
+	private Color m_foreColor = new Color(255, 255, 255);
+	private TextField m_inputBox = new TextField();
+	private ComboBox m_possibleChats = new ComboBox();
+	private ChatWidget m_chatWidget = new ChatWidget();
 
-    public TextField getChatBox() {
-            return m_chatType;
-    }
-
-    /**
-     * Default constructor
-     * @param packet
-     */
-    public ChatDialog(String name) {
-    	super();
-    	this.setTitle(name);
-    	this.setName(name);
-    	initGUI();
-    }
-
-    /**
-     * Initializes the user interface
-     */
-    private void initGUI() {
-    	getContentPane().setX(getContentPane().getX() - 1);
-		getContentPane().setY(getContentPane().getY() + 1);
-    	this.setMinimumSize(206, 160);
-    	this.setLocation(48, 0);
-    	try {
-    		setBackground(m_backColor);
-    		setForeground(m_foreColor);
-    		
-    		m_currentChat = "Local";
-    		m_availableChats = new HashMap<String, ChatWidget>();
-    		m_availableChats.put("Local", new ChatWidget(m_foreColor));
-    		
-    		m_possibleChats = new ComboBox();
-    		m_possibleChats.addElement("Local");
-    		m_possibleChats.setForeground(m_foreColor);
-    		getContentPane().add(m_possibleChats);
-
-    		getContentPane().add(m_availableChats.get("Local"));
-    		
-    		m_chatType = new TextField();
-    		m_chatType.setName("chatType");
-    		getContentPane().add(m_chatType);
-    		m_chatType.addActionListener(new ActionListener() {
-    			public void actionPerformed(ActionEvent evt) {
-    				chatTypeActionPerformed(evt);
-    			}
-    		});
-
-    		this.getResizer().addMouseListener(new MouseAdapter() {
-    			public void mouseDragged(MouseEvent event) {
-    				repositionUI();
-    			}
-    		});
-    		m_possibleChats.setBackground(m_chatType.getBackground());
-    		setSize(206, 320);
-    		m_chatType.grabFocus();
-    		setResizable(false);
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	}
-    }
-
-    /**
-     * Sends the packet over to the server
-     * @param evt
-     */
-    private void chatTypeActionPerformed(ActionEvent evt) {
-    	if (m_chatType.getText() != null && m_chatType.getText().length() != 0) {
-    		if (m_currentChat.equalsIgnoreCase("local"))
-    			GameClient.getInstance().getPacketGenerator().write("Cl" + m_chatType.getText());
-    		else
-    			GameClient.getInstance().getPacketGenerator().write("Cp" + m_currentChat + "," 
-    					+ m_chatType.getText());
-    	}
-    	m_chatType.setText("");
-    	m_chatType.grabFocus();
-    }
-
-    /**
-     * Drops focus
-     */
-    public void dropFocus() {
-    	m_chatType.releaseFocus();
-    }
-
-    /**
-     * Repositions UI elements
-     */
-    public void repositionUI(){
-    	m_possibleChats.setSize(getWidth(), 15);
-    	m_possibleChats.setLocation(0, 0);
-    	
-    	m_availableChats.get(m_currentChat).setSize(getWidth(), getHeight() - m_chatType.getHeight()
-    			- getTitleBar().getHeight() - m_possibleChats.getHeight());
-    	m_availableChats.get(m_currentChat).setLocation(0, m_possibleChats.getHeight() + m_possibleChats.getY());
-
-		m_chatType.setSize(getWidth(), 25);
-		m_chatType.setLocation(0, getHeight() - m_chatType.getHeight() - getTitleBar().getHeight());
-    }
-
-    /**
-     * Returns the foreground color
-     * @return the foreground color
-     */
-    public Color getForeColor(){
-    	return m_foreColor;
-    }
-    
-    /**
-     * Adds a line to a chat, creates the private chat if it doesn't exist
-     * @param chat
-     * @param line
-     */
-    public void addChatLine(String chat, String line){
-    	try {
-    		m_availableChats.get(chat).addLine(line);
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    		addChat(chat);
-    		m_availableChats.get(chat).addLine(line);
-    	}
-    }
-    
-    /**
-     * Creates a new Chat Widget
-     * @param chat
-     */
-    public void addChat(String chat){
-    	m_availableChats.put(chat, new ChatWidget(m_foreColor));
-    	m_possibleChats.addElement(chat);
-    }
-    
-    /**
-     * Sets the current chat
-     * @param chat
-     */
-    public void setCurrentChat(String chat){
-    	m_currentChat = chat;
-    	m_possibleChats.setSelected(chat);
-    	setTitle("Chat: " + m_currentChat);
-    }
-    
-    @Override
-    public void update(GUIContext container, int delta){
-    	super.update(container, delta);
-    	if (m_currentChat != m_possibleChats.getSelected()){
-    		getContentPane().remove(m_availableChats.get(m_currentChat));
-    		m_currentChat = m_possibleChats.getSelected();
-    		repositionUI();
-    		m_availableChats.get(m_currentChat).setForeground(m_foreColor);
-    		getContentPane().add(m_availableChats.get(m_currentChat));
-    		setTitle("Chat: " + m_currentChat);
-    	}
-    }
-    
-    @Override
-    public void setSize(float width, float height){
-		super.setSize(width, height);
-    	try{
-    		repositionUI();
-    	} catch (NullPointerException e) {}
-    }
-}
-
-/**
- * The widget where the chat is actually displayed
- * @author ZombieBear
- *
- */
-class ChatWidget extends Container{
-    private List<String> m_contents;
-	List<String> m_wrappedText = new ArrayList<String>();
-	
-    private int m_scrollIndex = 0; 
-	public int m_maxLines;
-    private Label[] m_chatShown;
-	private Button m_up, m_down;
-    private Color m_foreColor;
-    private boolean m_canScroll = true, m_isWrapped = false;
-	
-    /**
-     * Default Constructor
-     */
-    @SuppressWarnings("deprecation")
-	public ChatWidget(Color foreColor){
-    	m_foreColor = foreColor;
-    	m_maxLines = (int)(getHeight() / GameClient.getFontSmall().getHeight("X"));
-		m_chatShown = new Label[m_maxLines];
-		m_contents = new ArrayList<String>();
-		m_up = new SimpleArrowButton(SimpleArrowButton.FACE_UP);
-		m_down = new SimpleArrowButton(SimpleArrowButton.FACE_DOWN);
-		layoutScrollButtons();
-    }
-    
-    /**
-     * Adds a line to the chat
-     * @param line
-     */
-    public void addLine(String line){
-    	m_contents.add(line);
-    	if (m_maxLines >= m_contents.size()){
-    		scroll(0);
-    	} else {
-    		scroll(1);
-    	}
-    }
-    
-    /**
-     * Handles scrolling and text display
-     * @param indexMod
-     */
-    public void scroll(int indexMod){
-    	if (m_canScroll) {
-    		m_canScroll = false;
-    		m_isWrapped = false;
-    		
-    		for (int i = 0; i < m_chatShown.length; i++){
-    			try {
-    				remove(m_chatShown[i]);
-    			}
-    			catch (NullPointerException e) {}
-    			catch (Exception e) {e.printStackTrace();}
-    		}
-    		m_maxLines = (int)(getHeight() / GameClient.getFontSmall().getHeight("X") - 1);
-    		m_chatShown = new Label[m_maxLines];
-
-    		//Handles the buttons' availability
-    		layoutScrollButtons();
-    		m_scrollIndex = m_scrollIndex + indexMod;
-
-    		if (m_scrollIndex == 0)
-    			m_up.setEnabled(false);
-    		else
-    			m_up.setEnabled(true);
-
-    		if (m_scrollIndex + m_maxLines >= m_contents.size())
-    			m_down.setEnabled(false);
-    		else
-    			m_down.setEnabled(true);
-
-    		wrap();
-    		while (!m_isWrapped);
-		
-    		//Handles Chat drawing
-    		int y = 0;
-    	
-    		for (int i = 0; i < m_chatShown.length; i++){
-    			try {
-    				m_chatShown[i].setText(m_wrappedText.get(m_wrappedText.size() - m_chatShown.length + i));
-    			} catch (NullPointerException e) {
-    				m_chatShown[i] = new Label(m_wrappedText.get(m_wrappedText.size() - m_chatShown.length + i));
-    			} catch (Exception e) {
-    				m_chatShown[i] = new Label();
-    			}
-    			m_chatShown[i].setFont(GameClient.getFontSmall());
-    			m_chatShown[i].setForeground(m_foreColor);
-    			m_chatShown[i].setLocation(0, y);
-    			m_chatShown[i].pack();
-    			add(m_chatShown[i]);
-
-    			y += GameClient.getFontSmall().getHeight("X");
-    		}
-    		m_canScroll = true;
-    	}
-    }
-    
-    /**
-     * Sets the foreground color
-     * @param c
-     */
-    public void setForeColor(Color c) {
-    	m_foreColor = c;
-    	scroll(0);
-    }
-    
-    /**
-     * Lays out the scrolling buttons
-     */
-	public void layoutScrollButtons(){
-		/* Removed till later versions due to bugs
-		
-		int buttonWidth = 16;
-		m_up.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				scroll(-1);
-			}
-		});
-		m_up.setEnabled(false);
-		m_up.setSize(buttonWidth, buttonWidth);
-		m_up.setLocation(getWidth() - buttonWidth, 0);
-		
-		m_down.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				scroll(1);
-			}
-		});
-		m_down.setSize(buttonWidth, buttonWidth);
-		m_down.setLocation((float)getWidth() - buttonWidth, (float)(getHeight() - 2.5 * buttonWidth));
-		
-		add(m_up);
-		add(m_down);
-		
-		if (m_contents.size() < m_maxLines){
-			m_up.setVisible(false);
-			m_down.setVisible(false);
-		} else {
-			m_up.setVisible(true);
-			m_down.setVisible(true);
-		}*/
+	public ChatDialog() {
+		initGUI();
+		m_possibleChats.addElement("Local");
+		m_availableChats.put("Local", new ArrayList<String>());
+		m_curChat = "Local";
+		setTitle("Chat: " + m_curChat);
 	}
-    
+
 	/**
-	 * Returns a List<String> with the wrapped text for the chat labels.
-	 * @return a List<String> with the wrapped text for the chat labels.
+	 * Sends the packet over to the server
+	 * @param evt
 	 */
-	public void wrap(){
-		m_wrappedText.clear();
-		
-		for (int i = m_scrollIndex; i < (m_scrollIndex + m_maxLines); i++) {
-			if (m_contents.size() != 0)
-				try{
-					if (GameClient.getFontSmall().getWidth(m_contents.get(i)) <= getWidth()){
-						m_wrappedText.add(m_contents.get(i));
-					} else {
-						String loopLine = new String();
-						ArrayList<String> loopList = new ArrayList<String>();
-						loopLine = m_contents.get(i);
-						loopList.add(m_contents.get(i));
-						while (GameClient.getFontSmall().getWidth(loopLine) > getWidth()){
-							int linesToDrop = 1;
-							while (GameClient.getFontSmall().getWidth(loopList.get(
-									loopList.size() - 1)) > getWidth()){
-								loopList.add(loopLine.substring(0, loopLine.length() 
-										- linesToDrop));
-								linesToDrop++;
-							}
-							m_wrappedText.add(loopList.get(loopList.size() - 1));
-							loopLine = loopLine.substring(loopList.get(
-									loopList.size() - 1).length());
-							loopList.add(loopLine);
-						}
-						m_wrappedText.add(loopLine);
-					}
-				} catch (IndexOutOfBoundsException e) {}
-				catch (Exception e) {e.printStackTrace();}
+	private void chatTypeActionPerformed(ActionEvent evt) {
+		if (m_inputBox.getText() != null && m_inputBox.getText().length() != 0) {
+			if (m_possibleChats.getSelected().equalsIgnoreCase("local"))
+				GameClient.getInstance().getPacketGenerator().write(
+						"Cl" + m_inputBox.getText());
+			else {
+				GameClient.getInstance().getPacketGenerator().write(
+						"Cp" + m_possibleChats.getSelected() + ","
+								+ m_inputBox.getText());
+				addChatLine(m_possibleChats.getSelected(), "<" + 
+						GameClient.getInstance().getOurPlayer().getUsername() + "> " 
+						+ m_inputBox.getText());
+			}
 		}
-		m_isWrapped = true;
+		m_inputBox.setText("");
+		m_inputBox.grabFocus();
 	}
-	
-    @Override
-    public void setSize(float width, float height){
+
+	/**
+	 * Returns the chat box
+	 * @return the chat box
+	 */
+	public TextField getChatBox() {
+		return m_inputBox;
+	}
+
+	/**
+	 * Initializes the user interface
+	 */
+	private void initGUI() {
+		// Hack to properly align the conten pane in a slick frame
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
+		
+		// Sets the frame's colors
+		setBackground(m_backColor);
+		setForeground(m_foreColor);
+
+		// Chat Selection
+		m_possibleChats.setForeground(m_foreColor);
+		getContentPane().add(m_possibleChats);
+
+		// Chat Widget
+		m_chatWidget.setForeColor(m_foreColor);
+		getContentPane().add(m_chatWidget);
+
+		// Input box
+		getContentPane().add(m_inputBox);
+		m_inputBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				chatTypeActionPerformed(evt);
+			}
+		});
+		m_inputBox.grabFocus();
+
+		// Repositions UI dynamically when the user resizes the window
+		getResizer().addMouseListener(new MouseAdapter() {
+			public void mouseDragged(MouseEvent event) {
+				repositionUI();
+			}
+		});
+
+		setSize(206, 320);
+	}
+
+	/**
+	 * Repositions UI elements
+	 */
+	public void repositionUI() {
+		try {
+			m_possibleChats.setSize(getWidth(), 15);
+			m_possibleChats.setLocation(0, 0);
+
+			m_chatWidget.setLocation(0, 15);
+			m_chatWidget.setSize(getWidth(), getHeight()
+					- getTitleBar().getHeight() - 40);
+
+			m_inputBox.setSize(getWidth(), 25);
+			m_inputBox.setLocation(0, getHeight() - m_inputBox.getHeight()
+					- getTitleBar().getHeight());
+		} catch (Exception e) {
+		}
+	}
+
+	/**
+	 * Drops focus
+	 */
+	public void dropFocus() {
+		m_inputBox.releaseFocus();
+	}
+
+	/**
+	 * Adds a line to a chat, creates the private chat if it doesn't exist
+	 * @param chat
+	 * @param line
+	 */
+	public void addChatLine(String chat, String line) {
+		if (m_availableChats.containsKey(chat)) {
+			m_availableChats.get(chat).add(line);
+			//if (m_possibleChats.getSelected().equalsIgnoreCase(chat))
+			//	m_chatWidget.addLine(line);
+		} else {
+			addChat(chat);
+			m_availableChats.get(chat).add(line);
+			m_chatWidget.addLine(line);
+		}
+	}
+
+	/**
+	 * Creates a new private chat channel
+	 * @param chat
+	 */
+	public void addChat(String chat) {
+		m_availableChats.put(chat, new ArrayList<String>());
+		m_possibleChats.addElement(chat);
+		m_possibleChats.setSelected(chat);
+	}
+
+	@Override
+	public void setSize(float width, float height) {
 		super.setSize(width, height);
-		m_maxLines = (int)(getHeight() / GameClient.getFontSmall().getHeight("X"));
-		m_chatShown = new Label[m_maxLines];
-		scroll(0);
-    }
+		repositionUI();
+	}
+
+	@Override
+	public void update(GUIContext container, int delta) {
+		super.update(container, delta);
+		if (!m_curChat.equalsIgnoreCase(m_possibleChats.getSelected())) {
+			m_curChat = m_possibleChats.getSelected();
+			m_chatWidget.addContents(m_availableChats.get(m_possibleChats
+					.getSelected()));
+			setTitle("Chat: " + m_possibleChats.getSelected());
+		}
+	}
 }
