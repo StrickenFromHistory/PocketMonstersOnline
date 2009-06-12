@@ -74,7 +74,7 @@ public class Ui extends Frame {
 		
 		m_display = display;
 		
-		m_chat = new ChatDialog("Chat: Local");
+		m_chat = new ChatDialog();
 		m_requestsForm = new RequestDialog();
 		
 		m_map = new TownMap();
@@ -97,8 +97,7 @@ public class Ui extends Frame {
 		GameClient.getInstance().getTimeService().setX(745);
 		this.getTitleBar().setVisible(false);
 
-		m_chat.setLocation(GameClient.getInstance().getDisplay().getWidth()
-				- m_chat.getWidth(), 67 - getTitleBar().getHeight());
+		m_chat.setLocation(0, GameClient.getInstance().getDisplay().getHeight() - m_chat.getHeight());
 		m_display.add(m_chat);
 		m_display.add(this);
 	}

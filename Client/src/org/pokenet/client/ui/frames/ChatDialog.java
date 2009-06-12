@@ -104,7 +104,8 @@ public class ChatDialog extends Frame {
 			}
 		});
 
-		setSize(206, 320);
+		setMinimumSize(80, 80);
+		setSize(400, 195);
 	}
 
 	/**
