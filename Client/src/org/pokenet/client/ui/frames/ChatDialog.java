@@ -142,8 +142,8 @@ public class ChatDialog extends Frame {
 	public void addChatLine(String chat, String line) {
 		if (m_availableChats.containsKey(chat)) {
 			m_availableChats.get(chat).add(line);
-			//if (m_possibleChats.getSelected().equalsIgnoreCase(chat))
-			//	m_chatWidget.addLine(line);
+			if (m_possibleChats.getSelected().equalsIgnoreCase(chat))
+				m_chatWidget.addLine(line);
 		} else {
 			addChat(chat);
 			m_availableChats.get(chat).add(line);
