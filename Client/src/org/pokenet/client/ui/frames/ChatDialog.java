@@ -163,6 +163,14 @@ public class ChatDialog extends Frame {
 	}
 
 	@Override
+	public void setForeground(Color c){
+		super.setForeground(c);
+		try{
+			m_chatWidget.setForeColor(c);
+		} catch (Exception e) {}
+	}
+	
+	@Override
 	public void setSize(float width, float height) {
 		super.setSize(width, height);
 		repositionUI();
