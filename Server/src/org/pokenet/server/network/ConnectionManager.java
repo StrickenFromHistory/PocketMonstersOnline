@@ -216,10 +216,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 						case 'm':
 							//Mute player
 							m_players.get(message.substring(2)).setMuted(true);
+							m_players.get(message.substring(2)).getSession().write("!You have been muted.");
 							break;
 						case 'u':
 							//Unmute player
 							m_players.get(message.substring(2)).setMuted(false);
+							m_players.get(message.substring(2)).getSession().write("!You have been unmuted.");
 							break;
 						case 'k':
 							m_players.get(message.substring(2)).getSession().write("!You have been kicked from the server.");

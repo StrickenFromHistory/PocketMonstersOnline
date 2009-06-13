@@ -14,6 +14,7 @@ import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.PokemonSpecies;
+import org.pokenet.server.battle.impl.PvPBattleField;
 import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.feature.TimeService;
@@ -186,15 +187,16 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void requestAccepted(String username) {
 		if(m_requests.containsKey(username)) {
+			PlayerChar otherPlayer = ConnectionManager.getPlayers().get(username);
 			switch(m_requests.get(username)) {
 			case BATTLE:
-				//TODO: Start PvP battle
+				m_battleField = new PvPBattleField(
+						DataService.getBattleMechanics(),this, otherPlayer);
 				break;
 			case TRADE:
 				/* Set the player as talking so they can't move */
 				m_isTalking = true;
 				/* Create the trade */
-				PlayerChar otherPlayer = ConnectionManager.getPlayers().get(username);
 				m_trade = new Trade(this, otherPlayer);
 				otherPlayer.setTrade(m_trade);
 				break;
