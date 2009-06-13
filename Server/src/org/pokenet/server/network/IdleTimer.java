@@ -8,7 +8,6 @@ import org.pokenet.server.backend.entity.PlayerChar;
 public class IdleTimer implements Runnable {
 	private boolean m_isRunning = false;
 	
-	@Override
 	public void run() {
 		while(m_isRunning) {
 			/*

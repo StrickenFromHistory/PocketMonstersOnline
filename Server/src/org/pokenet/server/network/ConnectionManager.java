@@ -221,6 +221,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 							//Unmute player
 							m_players.get(message.substring(2)).setMuted(false);
 							break;
+						case 'k':
+							m_players.get(message.substring(2)).getSession().write("!You have been kicked from the server.");
+							m_players.get(message.substring(2)).getSession().close();
+							break;
 						case 'w':
 							//Change weather on current map
 							switch(message.charAt(2)) {
@@ -339,9 +343,11 @@ public class ConnectionManager extends IoHandlerAdapter {
 					String mes = message.substring(2);
 					if(mes.equalsIgnoreCase("/playercount"))
 						p.getSession().write("Cl" + m_players.size() + " players online");
-					else
-						GameServer.getServiceManager().getNetworkService().getChatManager().
-								queueLocalChatMessage("<" + p.getName() + "> " + mes, p.getMapX(), p.getMapY(), p.getLanguage());
+					else {
+						if(!p.isMuted())
+							GameServer.getServiceManager().getNetworkService().getChatManager().
+							queueLocalChatMessage("<" + p.getName() + "> " + mes, p.getMapX(), p.getMapY(), p.getLanguage());
+					}
 					break;
 				case 'p':
 					//Private chat
