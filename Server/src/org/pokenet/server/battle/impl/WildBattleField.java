@@ -184,7 +184,6 @@ public class WildBattleField extends BattleField {
 	public void queueMove(int trainer, BattleTurn move)
 			throws MoveQueueException {
 		if (m_turn[trainer] == null) {
-			System.out.println("Queueing move for trainer No." + trainer);
             if (move.getId() == -1) {
             	if(m_dispatch == null && (trainer == 0 && m_turn[1] != null)) {
             		m_dispatch = new Thread(new Runnable() {
@@ -258,7 +257,6 @@ public class WildBattleField extends BattleField {
 		if(m_dispatch != null)
 			return;
 		if(m_turn[0] != null && m_turn[1] != null) {
-			System.out.println("Executing Turn");
          	m_dispatch = new Thread(new Runnable() {
                  public void run() {
                      executeTurn(m_turn);

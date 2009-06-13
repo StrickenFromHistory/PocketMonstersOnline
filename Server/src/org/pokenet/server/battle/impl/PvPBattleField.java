@@ -201,7 +201,85 @@ public class PvPBattleField extends BattleField {
 	@Override
 	public void queueMove(int trainer, BattleTurn move)
 			throws MoveQueueException {
-		
+		if (m_turn[trainer] == null) {
+            if (move.getId() == -1) {
+            	if(m_dispatch == null && ((trainer == 0 && m_turn[1] != null) 
+            			|| (trainer == 1 && m_turn[0] != null))) {
+            		m_dispatch = new Thread(new Runnable() {
+                        public void run() {
+                            executeTurn(m_turn);
+                            m_dispatch = null;
+                        }
+                    });
+                    m_dispatch.start();
+        			return;
+            	}
+            } else {
+                    if (this.getActivePokemon()[trainer].isFainted()) {
+                            if (!move.isMoveTurn()) {
+                                    this.switchInPokemon(trainer, move.getId());
+                                    requestMoves();
+                                    return;
+                            } else {
+                                    if (getAliveCount(trainer) > 0) {
+                                    	requestPokemonReplacement(trainer);
+                                    	return;
+                                    } else {
+                                    	if(trainer == 0)
+                                    		this.informVictory(1);
+                                    	else
+                                    		this.informVictory(0);
+                                    }
+                            }
+                    } else {
+                            if (move.isMoveTurn()) {
+                                    if (getActivePokemon()[trainer].mustStruggle())
+                                            m_turn[trainer] = BattleTurn.getMoveTurn(-1);
+                                    else {
+                                            if (this.getActivePokemon()[trainer].getPp(move.getId()) <= 0) {
+                                                    if (trainer == 0) {
+                                                    	m_players[0].getSession().write("b!Sorry, the move " +
+                                                                            this.getActivePokemon()[trainer].getMoveName(
+                                                                                            move.getId()) + " has no PP left. " +
+                                                            "Select a different move.");
+                                                        requestMove(0);
+                                                    } else {
+                                                    	m_players[1].getSession().write("b!Sorry, the move " +
+                                                                this.getActivePokemon()[trainer].getMoveName(
+                                                                                move.getId()) + " has no PP left. " +
+                                                    	"Select a different move.");
+                                                    	requestMove(1);
+                                                    }
+                                                  	return;
+                                            } else {
+                                                    m_turn[trainer] = move;
+                                            }
+                                    }
+                            } else {
+                                    if (this.m_pokemon[trainer][move.getId()].isActive()) {
+                                    	 m_turn[trainer] = move;
+                                    } else {
+                                        requestMove(trainer);
+                                        return;
+                                    }
+                            }
+                    }
+            }
+		}
+		if(m_dispatch != null)
+			return;
+		if(m_turn[0] != null && m_turn[1] != null) {
+         	m_dispatch = new Thread(new Runnable() {
+                 public void run() {
+                     executeTurn(m_turn);
+                     for (int i = 0; i < m_participants; ++i) {
+                         m_turn[i] = null;
+                     }
+                     m_dispatch = null;
+                 }
+             });
+            m_dispatch.start();
+         }
 	}
 
 	@Override
