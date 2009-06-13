@@ -188,7 +188,7 @@ public class Ui extends Frame {
 		case 'p':
 			//Private Chat
 			String [] details = m.substring(1).split(",");
-			m_chat.addChatLine(details[0], details[1]);
+			m_chat.addChatLine(details[0], "<" + details[0] + "> " + details[1]);
 			break;
 		}
 	}

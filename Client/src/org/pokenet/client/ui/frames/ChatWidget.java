@@ -54,7 +54,6 @@ class ChatWidget extends Container{
 	 * @param text
 	 */
 	public void setContents(List<String> text) {
-		m_contents.clear();
 		m_contents = text;
 		wrap();
 		scroll(0);
