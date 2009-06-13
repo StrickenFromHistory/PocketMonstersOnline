@@ -53,23 +53,26 @@ class ChatWidget extends Container{
 	 * Adds the contents to be used for display
 	 * @param text
 	 */
-	public void addContents(List<String> text) {
+	public void setContents(List<String> text) {
 		m_contents.clear();
 		m_contents = text;
 		wrap();
-		if (m_wrappedText.size() - m_maxLines > 0)
-			m_scrollIndex = m_wrappedText.size() - m_maxLines;
-		else
-			m_scrollIndex = 0;
 		scroll(0);
 	}
 
-	public void addLine(String line) {
-		m_contents.add(line);
+	/**
+	 * Scrolls after adding a line
+	 * @param line
+	 */
+	public void addLine() {
 		wrap();
+		if (m_wrappedText.size() - m_maxLines >= 0)
+			m_scrollIndex = m_wrappedText.size() - m_maxLines;
+		else
+			m_scrollIndex = -1;
 		scroll(1);
 	}
-
+	
     /**
      * Handles scrolling and text display
      * @param indexMod
@@ -115,9 +118,7 @@ class ChatWidget extends Container{
     		m_shownChat.get(i).setForeground(m_foreColor);
     		m_shownChat.get(i).setLocation(0, y);
     		try {
-    			m_shownChat.get(i).setText(m_wrappedText.get(
-    			m_scrollIndex + i 		
-    			));
+    			m_shownChat.get(i).setText(m_wrappedText.get(m_scrollIndex + i));
     		} catch (Exception e) {}
     		m_shownChat.get(i).pack();
     		add(m_shownChat.get(i));

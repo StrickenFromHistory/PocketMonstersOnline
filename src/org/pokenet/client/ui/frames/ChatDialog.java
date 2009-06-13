@@ -24,7 +24,7 @@ public class ChatDialog extends Frame {
 	private HashMap<String, ArrayList<String>> m_availableChats = new HashMap<String, ArrayList<String>>();
 	private Color m_backColor = new Color(0, 0, 0, 85);
 
-	private String m_curChat;
+	private String m_curChat = "";
 	private Color m_foreColor = new Color(255, 255, 255);
 	private TextField m_inputBox = new TextField();
 	private ComboBox m_possibleChats = new ComboBox();
@@ -34,8 +34,6 @@ public class ChatDialog extends Frame {
 		initGUI();
 		m_possibleChats.addElement("Local");
 		m_availableChats.put("Local", new ArrayList<String>());
-		m_curChat = "Local";
-		setTitle("Chat: " + m_curChat);
 	}
 
 	/**
@@ -142,12 +140,11 @@ public class ChatDialog extends Frame {
 	public void addChatLine(String chat, String line) {
 		if (m_availableChats.containsKey(chat)) {
 			m_availableChats.get(chat).add(line);
-			if (m_possibleChats.getSelected().equalsIgnoreCase(chat))
-				m_chatWidget.addLine(line);
+			m_chatWidget.addLine();
 		} else {
 			addChat(chat);
 			m_availableChats.get(chat).add(line);
-			m_chatWidget.addLine(line);
+			m_chatWidget.addLine();
 		}
 	}
 
@@ -172,7 +169,7 @@ public class ChatDialog extends Frame {
 		super.update(container, delta);
 		if (!m_curChat.equalsIgnoreCase(m_possibleChats.getSelected())) {
 			m_curChat = m_possibleChats.getSelected();
-			m_chatWidget.addContents(m_availableChats.get(m_possibleChats
+			m_chatWidget.setContents(m_availableChats.get(m_possibleChats
 					.getSelected()));
 			setTitle("Chat: " + m_possibleChats.getSelected());
 		}
