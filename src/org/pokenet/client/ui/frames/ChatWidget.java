@@ -67,7 +67,7 @@ class ChatWidget extends Container{
 	public void addLine() {
 		wrap();
 		if (m_wrappedText.size() - m_maxLines >= 0)
-			m_scrollIndex = m_wrappedText.size() - m_maxLines;
+			m_scrollIndex = m_wrappedText.size() - m_maxLines - 1;
 		else
 			m_scrollIndex = -1;
 		scroll(1);
