@@ -10,11 +10,14 @@ import mdes.slick.sui.TextField;
 import mdes.slick.sui.ToggleButton;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
+import mdes.slick.sui.event.MouseAdapter;
+import mdes.slick.sui.event.MouseEvent;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.entity.OurPokemon;
 import org.pokenet.client.backend.entity.Pokemon;
 import org.pokenet.client.ui.base.ConfirmationDialog;
 
@@ -26,7 +29,7 @@ import org.pokenet.client.ui.base.ConfirmationDialog;
 public class TradeDialog extends Frame {
 	private ToggleButton[] m_ourPokes;
 	private ToggleButton[] m_theirPokes;
-	private List<Pokemon> m_pokes;
+	private PokemonInfoDialog[] m_theirPokeInfo;
 	private Button m_makeOfferBtn;
 	private Button m_tradeBtn;
 	private Button m_cancelBtn;
@@ -44,7 +47,6 @@ public class TradeDialog extends Frame {
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		initGUI();
-		m_pokes = new ArrayList<Pokemon>();
 		setVisible(true);
 		setTitle("Trade with " + trainerName);
 		setCenter();
@@ -55,8 +57,8 @@ public class TradeDialog extends Frame {
 	 * Sends the offer to the server
 	 */
 	private void makeOffer(){
-		//TODO: Make packet
-		GameClient.getInstance().getPacketGenerator().write("to" + m_offerNum + "," + m_ourMoneyOffer.getText());
+		GameClient.getInstance().getPacketGenerator().write("to" + m_offerNum + "," + 
+				m_ourMoneyOffer.getText());
 		m_makeOfferBtn.setText("Cancel Offer");
 		for (int i = 0; i < 6; i++){
 			m_ourPokes[i].setGlassPane(true);
@@ -148,6 +150,7 @@ public class TradeDialog extends Frame {
 	private void initGUI(){
 		m_ourPokes = new ToggleButton[6];
 		m_theirPokes = new ToggleButton[6];
+		m_theirPokeInfo = new PokemonInfoDialog[6];
 		m_ourMoneyOffer = new TextField();
 		m_makeOfferBtn = new Button();
 		m_tradeBtn = new Button();
@@ -172,7 +175,8 @@ public class TradeDialog extends Frame {
 			m_ourPokes[i].setVisible(true);
 			try {
 				GameClient.getInstance().getOurPlayer().getPokemon()[i].setIcon();
-				m_ourPokes[i].setImage(GameClient.getInstance().getOurPlayer().getPokemon()[i].getIcon());
+				m_ourPokes[i].setImage(GameClient.getInstance().getOurPlayer()
+						.getPokemon()[i].getIcon());
 			} catch (NullPointerException e){
 				m_ourPokes[i].setGlassPane(true);
 				System.out.println("NO POKE: " + i);
@@ -293,15 +297,39 @@ public class TradeDialog extends Frame {
 	 * @param data
 	 */
 	public void addPoke(int index, String[] data) {
-        LoadingList.setDeferredLoading(true);
+        final int j = index;
+		LoadingList.setDeferredLoading(true);
         try {
-        	m_theirPokes[index].setImage(new Image(Pokemon.getIconPathByIndex(Integer.parseInt(data[0]))));
+        	m_theirPokes[index].setImage(new Image(Pokemon.getIconPathByIndex(
+        			Integer.parseInt(data[0]))));
         } catch (SlickException e){
         	System.out.println("CAN'T LOAD OTHER POKE IMAGE: " + index);
      	}
         LoadingList.setDeferredLoading(false);
         
-        Pokemon tempPoke = new Pokemon();
-        m_pokes.add(tempPoke);
+        // Load pokemon data
+        OurPokemon tempPoke = new OurPokemon().initTradePokemon(data);
+        
+        // Create a pokemon information panel with stats
+        // for informed decisions during trade
+        m_theirPokeInfo[index] = new PokemonInfoDialog(tempPoke);
+        m_theirPokeInfo[index].setVisible(false);
+        m_theirPokeInfo[index].setAlwaysOnTop(true);
+        m_theirPokeInfo[index].setLocation(m_theirPokes[index].getX(),
+        		m_theirPokes[index].getY() + 32);
+        GameClient.getInstance().getDisplay().add(m_theirPokeInfo[index]);
+        m_theirPokes[index].addMouseListener(new MouseAdapter() {
+        	@Override
+			public void mouseEntered(MouseEvent e) {
+				super.mouseEntered(e);
+				m_theirPokeInfo[j].setVisible(true);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				super.mouseExited(e);
+				m_theirPokeInfo[j].setVisible(false);
+			}
+        });
 	}
 }
