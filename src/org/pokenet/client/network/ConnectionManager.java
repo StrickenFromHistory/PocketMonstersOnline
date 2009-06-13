@@ -66,6 +66,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 		switch(message.charAt(0)) {
 		case '!':
 			//Server notification
+			GameClient.messageDialog(message.substring(1), 
+					GameClient.getInstance().getDisplay());
 			break;
 		case 'q':
 			//Server notification
