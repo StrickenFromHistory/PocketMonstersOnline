@@ -76,6 +76,7 @@ public class TradeDialog extends Frame {
 		for (int i = 0; i < 6; i++){
 			m_ourPokes[i].setGlassPane(false);
 		}
+		m_tradeBtn.setEnabled(false);
 	}
 	
 	/**
@@ -134,6 +135,7 @@ public class TradeDialog extends Frame {
 		}
 		m_theirPokes[index].setSelected(true);
 		m_theirMoneyOffer.setText("$" + cash);
+		m_tradeBtn.setEnabled(true);
 	}
 	
 	/**
@@ -144,6 +146,7 @@ public class TradeDialog extends Frame {
 			m_theirPokes[i].setSelected(false);
 		}
 		m_theirMoneyOffer.setText("$0");
+		m_tradeBtn.setEnabled(false);
 	}
 	
 	/**
@@ -185,9 +188,15 @@ public class TradeDialog extends Frame {
 
 			m_ourPokes[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-					m_offerNum = j;
-					m_ourPokes[j].setSelected(true);
-					untoggleOthers(j);
+					if (m_offerNum == j){
+						m_offerNum = -1;
+						m_ourPokes[j].setSelected(false);
+						untoggleOthers(j);
+					} else {
+						m_offerNum = j;
+						m_ourPokes[j].setSelected(true);
+						untoggleOthers(j);
+					}
 				};
 			});
 			
