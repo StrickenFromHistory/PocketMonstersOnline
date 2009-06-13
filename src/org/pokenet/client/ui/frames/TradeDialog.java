@@ -35,7 +35,7 @@ public class TradeDialog extends Frame {
 	private TextField m_ourMoneyOffer;
 	private ActionListener m_offerListener;
 	private ConfirmationDialog m_confirm;
-	private int m_offerNum;
+	private int m_offerNum = 6;
 	
 	/**
 	 * Default constructor
@@ -189,7 +189,7 @@ public class TradeDialog extends Frame {
 			m_ourPokes[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
 					if (m_offerNum == j){
-						m_offerNum = -1;
+						m_offerNum = 6;
 						m_ourPokes[j].setSelected(false);
 						untoggleOthers(j);
 					} else {
@@ -312,9 +312,7 @@ public class TradeDialog extends Frame {
         try {
         	m_theirPokes[index].setImage(new Image(Pokemon.getIconPathByIndex(
         			Integer.parseInt(data[0]))));
-        } catch (SlickException e){
-        	System.out.println("CAN'T LOAD OTHER POKE IMAGE: " + index);
-     	}
+        } catch (SlickException e){}
         LoadingList.setDeferredLoading(false);
         
         // Load pokemon data
