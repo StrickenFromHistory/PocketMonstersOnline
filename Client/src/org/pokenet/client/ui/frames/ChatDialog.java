@@ -13,7 +13,7 @@ import mdes.slick.sui.event.MouseEvent;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.gui.GUIContext;
 import org.pokenet.client.GameClient;
-import org.pokenet.client.backend.ModeratorManager;
+import org.pokenet.client.backend.ModerationManager;
 import org.pokenet.client.ui.base.ComboBox;
 
 /**
@@ -45,14 +45,14 @@ public class ChatDialog extends Frame {
 		if (m_inputBox.getText() != null && m_inputBox.getText().length() != 0) {
 			if (m_possibleChats.getSelected().equalsIgnoreCase("local"))
 				if (m_inputBox.getText().charAt(0) == '/')
-					ModeratorManager.parseLine(m_inputBox.getText());
+					ModerationManager.parseLine(m_inputBox.getText());
 				else {
 					GameClient.getInstance().getPacketGenerator().write("Cl" 
 							+ m_inputBox.getText());
 				}
 			else {
 				if (m_inputBox.getText().charAt(0) == '/')
-					ModeratorManager.parseLine(m_inputBox.getText());
+					ModerationManager.parseLine(m_inputBox.getText());
 				else{
 					GameClient.getInstance().getPacketGenerator().write(
 							"Cp" + m_possibleChats.getSelected() + ","

@@ -8,7 +8,7 @@ import org.pokenet.client.network.PacketGenerator;
  * @author ZombieBear
  *
  */
-public class ModeratorManager {
+public class ModerationManager {
 	private static PacketGenerator m_ioSession = GameClient.getInstance().getPacketGenerator();
 	
 	public static void parseLine(String x){
@@ -19,6 +19,10 @@ public class ModeratorManager {
 		// Unmute
 		else if (x.substring(0, 6).equalsIgnoreCase("unmute ")) {
 			m_ioSession.write("Mu" + x.substring(7));
+		}
+		// Kick
+		else if (x.substring(0, 4).equalsIgnoreCase("kick ")) {
+			m_ioSession.write("Mk" + x.substring(7));
 		}
 		// Change Weather
 		else if (x.substring(0, 7).equalsIgnoreCase("weather ")) {
