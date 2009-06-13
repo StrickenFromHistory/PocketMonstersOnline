@@ -54,8 +54,13 @@ public class TradeDialog extends Frame {
 	 * Sends the offer to the server
 	 */
 	private void makeOffer(){
-		GameClient.getInstance().getPacketGenerator().write("to" + m_offerNum + "," + 
-				m_ourMoneyOffer.getText());
+		if (!m_ourMoneyOffer.getText().equals("")){
+			GameClient.getInstance().getPacketGenerator().write("To" + m_offerNum + "," + 
+					m_ourMoneyOffer.getText());
+		} else {
+			GameClient.getInstance().getPacketGenerator().write("To" + m_offerNum + ",0");
+		}
+			
 		m_makeOfferBtn.setText("Cancel Offer");
 		for (int i = 0; i < 6; i++){
 			m_ourPokes[i].setGlassPane(true);
