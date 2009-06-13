@@ -13,6 +13,7 @@ import mdes.slick.sui.event.MouseEvent;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.gui.GUIContext;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.ModeratorManager;
 import org.pokenet.client.ui.base.ComboBox;
 
 /**
@@ -43,15 +44,23 @@ public class ChatDialog extends Frame {
 	private void chatTypeActionPerformed(ActionEvent evt) {
 		if (m_inputBox.getText() != null && m_inputBox.getText().length() != 0) {
 			if (m_possibleChats.getSelected().equalsIgnoreCase("local"))
-				GameClient.getInstance().getPacketGenerator().write(
-						"Cl" + m_inputBox.getText());
+				if (m_inputBox.getText().charAt(0) == '/')
+					ModeratorManager.parseLine(m_inputBox.getText());
+				else {
+					GameClient.getInstance().getPacketGenerator().write("Cl" 
+							+ m_inputBox.getText());
+				}
 			else {
-				GameClient.getInstance().getPacketGenerator().write(
-						"Cp" + m_possibleChats.getSelected() + ","
-								+ m_inputBox.getText());
-				addChatLine(m_possibleChats.getSelected(), "<" + 
-						GameClient.getInstance().getOurPlayer().getUsername() + "> " 
-						+ m_inputBox.getText());
+				if (m_inputBox.getText().charAt(0) == '/')
+					ModeratorManager.parseLine(m_inputBox.getText());
+				else{
+					GameClient.getInstance().getPacketGenerator().write(
+							"Cp" + m_possibleChats.getSelected() + ","
+							+ m_inputBox.getText());
+					addChatLine(m_possibleChats.getSelected(), "<" + 
+							GameClient.getInstance().getOurPlayer().getUsername() + "> " 
+							+ m_inputBox.getText());
+				}
 			}
 		}
 		m_inputBox.setText("");
