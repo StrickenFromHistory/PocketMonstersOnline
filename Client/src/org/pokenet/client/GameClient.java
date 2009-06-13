@@ -385,7 +385,7 @@ public class GameClient extends BasicGame {
 					m_ui.toggleOptions();
 				} else if (key == (Input.KEY_6)) {
 					m_ui.toggleHelp();
-				} 
+				}
 			}
 		}
 		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() &&

@@ -22,7 +22,7 @@ public class PokemonInfoDialog extends Frame{
         public void loadImage(OurPokemon poke){
                 LoadingList.setDeferredLoading(true);
                 poke.setSprite();
-                icon.setImage(poke.getSprite().getSubImage(0, 0, 80, 80));
+                icon.setImage(poke.getSprite());
                 icon.setSize(60,60);
                 icon.setLocation(5, 5);
                 this.add(icon);
@@ -30,7 +30,8 @@ public class PokemonInfoDialog extends Frame{
         }
        
         public void initGUI(OurPokemon poke){
-        	getContentPane().setX(getContentPane().getX() - 1);
+        	
+        	try{getContentPane().setX(getContentPane().getX() - 1);
     		getContentPane().setY(getContentPane().getY() + 1);
         	List<String> translated = Translator.translate("_GUI");
                 this.setBackground(new Color(255,255,255,200));
@@ -99,6 +100,7 @@ public class PokemonInfoDialog extends Frame{
                 setSize(270, 310);
                 setResizable(false);
                 setTitle(poke.getName());
+        	} catch (Exception e) {e.printStackTrace();}
         }
        
         public int setSpriteNumber(int x) {

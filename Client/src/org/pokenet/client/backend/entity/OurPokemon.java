@@ -11,6 +11,7 @@ import org.newdawn.slick.Image;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
+import org.pokenet.client.backend.entity.Enums.Poketype;
 
 public class OurPokemon extends Pokemon {
         private Image m_backSprite;
@@ -200,5 +201,54 @@ public class OurPokemon extends Pokemon {
         public void setNature(String nature) {
                 this.m_nature = nature;
         }
+        
+        /**
+         * Generates a pokemon object for the trade display
+         * @param info
+         * @return
+         */
+        public OurPokemon initTradePokemon(String[] info) {
+    		/*
+    		 * Set sprite, name, gender and hp
+    		 */
+    		setSpriteNumber(Integer.parseInt(info[0]));
+    		setName(info[1]);
+    		setCurHP(Integer.parseInt(info[5]));
+    		setGender(Integer.parseInt(info[3]));
+    		if(info[4].equalsIgnoreCase("0"))
+    			setShiny(false);
+    		else
+    			setShiny(true);
+    		setMaxHP(Integer.parseInt(info[2]));
+    		/*
+    		 * Stats
+    		 */
+    		setAtk(Integer.parseInt(info[6]));
+    		setDef(Integer.parseInt(info[7]));
+    		setSpeed(Integer.parseInt(info[8]));
+    		setSpatk(Integer.parseInt(info[9]));
+    		setSpdef(Integer.parseInt(info[10]));
+    		setType1(Poketype.valueOf(info[11]));
+    		if(info[12] != null && !info[12].equalsIgnoreCase("")) {
+    			setType2(Poketype.valueOf(info[12]));
+    		}
+    		setExp(Integer.parseInt(info[13].substring(0, info[13].indexOf('.'))));
+    		setLevel(Integer.parseInt(info[14]));
+    		setAbility(info[15]);
+    		setNature(info[16]);
+    		/*
+    		 * Moves
+    		 */
+    		String [] moves = new String[4];
+    		for(int j = 0; j < 4; j++) {
+    			if(j < info.length - 17 && info[j + 17] != null)
+    				moves[j] = info[j + 17];
+    			else
+    				moves[j] = "";
+    		}
+    		setMoves(moves);
+
+    		return this;
+    	}
 }
 
