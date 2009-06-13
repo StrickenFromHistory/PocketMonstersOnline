@@ -147,6 +147,16 @@ public class ChatDialog extends Frame {
 			m_chatWidget.addLine();
 		}
 	}
+	
+	/**
+	 * Adds a system message to your chat
+	 * @param message
+	 */
+	public void addSystemMessage(String message){
+		for (String s : m_availableChats.keySet())
+			m_availableChats.get(s).add(message);
+		m_chatWidget.addLine();
+	}
 
 	/**
 	 * Creates a new private chat channel

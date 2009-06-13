@@ -1,8 +1,5 @@
 package org.pokenet.client.ui.frames;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
