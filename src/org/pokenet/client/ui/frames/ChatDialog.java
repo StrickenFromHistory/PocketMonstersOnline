@@ -153,9 +153,13 @@ public class ChatDialog extends Frame {
 	 * @param chat
 	 */
 	public void addChat(String chat) {
-		m_availableChats.put(chat, new ArrayList<String>());
-		m_possibleChats.addElement(chat);
-		m_possibleChats.setSelected(chat);
+		if (!m_availableChats.containsKey(chat)){
+			m_availableChats.put(chat, new ArrayList<String>());
+			m_possibleChats.addElement(chat);
+			m_possibleChats.setSelected(chat);
+		} else {
+			m_possibleChats.setSelected(chat);
+		}
 	}
 
 	@Override
