@@ -81,7 +81,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'o':
 				//An offer was made ToPOKEINDEX,MONEYNUM
-				String[] offerData = message.split(",");
+				String[] offerData = message.substring(2).split(",");
 				GameClient.getInstance().getUi().getTrade().getOffer(Integer.parseInt(offerData[0]), 
 						Integer.parseInt(offerData[1]));
 				break;

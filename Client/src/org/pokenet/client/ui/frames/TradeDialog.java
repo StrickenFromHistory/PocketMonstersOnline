@@ -181,7 +181,6 @@ public class TradeDialog extends Frame {
 						.getPokemon()[i].getIcon());
 			} catch (NullPointerException e){
 				m_ourPokes[i].setGlassPane(true);
-				System.out.println("NO POKE: " + i);
 			}
 
 			m_ourPokes[i].addActionListener(new ActionListener() {
