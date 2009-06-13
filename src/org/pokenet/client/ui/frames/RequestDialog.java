@@ -68,6 +68,8 @@ public class RequestDialog extends Frame{
     			m_offers.put(username, new Button("Trade"));
     			m_update = true;
     		}
+    		GameClient.getInstance().getUi().getChat().addSystemMessage("*" + username + 
+    				" sent you a trade request.");
     	}
     	else if(request.equalsIgnoreCase("battle")) {
     		if (!m_offerUser.contains(username)){
@@ -75,6 +77,8 @@ public class RequestDialog extends Frame{
     			m_offers.put(username, new Button("Battle"));
     			m_update = true;
     		}
+    		GameClient.getInstance().getUi().getChat().addSystemMessage("*" + username + 
+				" would like to battle!");
     	}
     }
 

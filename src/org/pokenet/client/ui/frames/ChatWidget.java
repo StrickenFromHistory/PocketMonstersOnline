@@ -124,6 +124,9 @@ class ChatWidget extends Container{
     		m_shownChat.get(i).setLocation(0, y);
     		try {
     			m_shownChat.get(i).setText(m_wrappedText.get(m_scrollIndex + i));
+    			// Make system messages red
+    			if (m_wrappedText.get(m_scrollIndex + i).charAt(0) == '*')
+    				m_shownChat.get(i).setForeground(Color.red);
     		} catch (Exception e) {}
     		m_shownChat.get(i).pack();
     		add(m_shownChat.get(i));
