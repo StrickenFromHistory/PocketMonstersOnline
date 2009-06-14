@@ -242,7 +242,9 @@ public class TradeDialog extends Frame {
 				ActionListener yes = new ActionListener(){
 					public void actionPerformed(ActionEvent evt) {
 						performTrade();
-						setVisible(true);
+					 	getDisplay().remove(m_confirm);
+						m_confirm = null;
+						setVisible(false);
 					}
 				
 				};
