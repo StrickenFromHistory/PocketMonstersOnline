@@ -628,6 +628,23 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 'r':
 			switch(message.charAt(1)) {
+			case '!':
+				//A notification regarding the request
+				switch(message.charAt(2)) {
+				case '0':
+					//The player logged out
+					break;
+				case '1':
+					//Players must stand beside each other to battle
+					break;
+				case '2':
+					//PvP is disabled on this map
+					break;
+				case '3':
+					//You must be within 3 squares to force this player to battle
+					break;
+				}
+				break;
 			case 't':
 				//Trade Request
 				GameClient.getInstance().getUi().getReqWindow().addRequest(message.substring(2), "trade");
