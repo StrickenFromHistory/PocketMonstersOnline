@@ -16,10 +16,10 @@ public class IdleTimer implements Runnable {
 			 */
 			try {
 				for(PlayerChar p : ConnectionManager.getPlayers().values()) {
-					if(System.currentTimeMillis() - p.lastPacket >= 300000)
+					if(System.currentTimeMillis() - p.lastPacket >= 900000)
 						p.forceLogout();
 				}
-				Thread.sleep(5000);
+				Thread.sleep(30000);
 			} catch (Exception e) {}
 			
 		}
