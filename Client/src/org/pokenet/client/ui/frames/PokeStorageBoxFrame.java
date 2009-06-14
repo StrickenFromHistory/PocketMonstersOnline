@@ -11,9 +11,11 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Pokemon;
+import org.pokenet.client.ui.base.ComboBox;
 import org.pokenet.client.ui.base.ProgressBar;
 
 /**
@@ -23,11 +25,12 @@ import org.pokenet.client.ui.base.ProgressBar;
  * 
  */
 public class PokeStorageBoxFrame extends Frame {
-	ToggleButton[] m_buttons = new ToggleButton[30];
-	int[] m_pokeNums = new int[30];
-	int m_buttonChosen = 0;
-	Button m_switchPoke, m_close, m_changeBox, m_release;
-	int m_boxNum, m_boxIndex;
+	private ToggleButton[] m_buttons = new ToggleButton[30];
+	private int[] m_pokeNums = new int[30];
+	private int m_buttonChosen = 0;
+	private ComboBox m_changeBox;
+	private Button m_switchPoke, m_close, m_release;
+	private int m_boxNum, m_boxIndex;
 
 	/**
 	 * Default constructor
@@ -118,7 +121,7 @@ public class PokeStorageBoxFrame extends Frame {
 
 		m_switchPoke = new Button();
 		m_close = new Button();
-		m_changeBox = new Button();
+		m_changeBox = new ComboBox();
 		m_release = new Button();
 
 		m_switchPoke.setText("Switch");
@@ -136,24 +139,19 @@ public class PokeStorageBoxFrame extends Frame {
 			}
 		});
 
-		m_changeBox.setText("Box 1");
-		m_changeBox.pack();
+		m_changeBox.addElement("Box 1");
+		m_changeBox.addElement("Box 2");
+		m_changeBox.addElement("Box 3");
+		m_changeBox.addElement("Box 4");
+		m_changeBox.addElement("Box 5");
+		m_changeBox.addElement("Box 6");
+		m_changeBox.addElement("Box 7");
+		m_changeBox.addElement("Box 8");
+		m_changeBox.addElement("Box 9");
+		
+		m_changeBox.setSize(50, 15);
 		m_changeBox.setLocation(m_switchPoke.getX() + m_switchPoke.getWidth(),
 				192);
-		m_changeBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				disableButtons();
-				if (m_boxIndex < 13){
-					m_boxIndex += 1;
-					m_boxNum += 1;
-				} else {
-					m_boxIndex = 0;
-					m_boxNum = 1;
-				}
-				GameClient.getInstance().getPacketGenerator().write("Br" + (m_boxIndex));
-				setTitle("Box Number " + String.valueOf(m_boxNum));
-			}
-		});
 
 		m_release.setText("Release");
 		m_release.pack();
@@ -272,6 +270,18 @@ public class PokeStorageBoxFrame extends Frame {
 		m_pokeNums = pokes;
 		loadImages();
 		enableButtons();
+	}
+	
+	@Override
+	public void update(GUIContext container, int delta){
+		super.update(container, delta);
+		if (m_changeBox.getSelectedIndex() != m_boxIndex){
+			m_boxIndex = m_changeBox.getSelectedIndex();
+			m_boxNum = m_boxIndex + 1;
+			disableButtons();
+			GameClient.getInstance().getPacketGenerator().write("Br" + (m_boxIndex));
+			setTitle("Box Number " + String.valueOf(m_boxNum));
+		}
 	}
 }
 

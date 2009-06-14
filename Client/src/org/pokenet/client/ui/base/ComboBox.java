@@ -84,7 +84,7 @@ public class ComboBox extends Container{
 			}
 			
 			@Override
-			public void mouseReleased(MouseEvent e){
+			public void mousePressed(MouseEvent e){
 				if (m_itemSelector == null){
 					m_itemSelector = new ItemSelector(m_this, 5, m_elements.toArray(new String[m_elements.size()]),
 						(int)getWidth(), (int)m_arrow.getWidth());
@@ -114,6 +114,14 @@ public class ComboBox extends Container{
 	 */
 	public String getSelected(){
 		return m_selected;
+	}
+	
+	/**
+	 * Returns the selected item's index
+	 * @return the selected item's index
+	 */
+	public int getSelectedIndex(){
+		return m_elements.indexOf(m_selected);
 	}
 	
 	/**
