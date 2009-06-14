@@ -33,11 +33,8 @@ public class FriendListDialog extends Frame {
 	 * Default Constructor
 	 * @param friends
 	 */
-	public FriendListDialog(String[] friends) {
+	public FriendListDialog() {
 		m_friends = new ArrayList<String>();
-		for (int i = 0; i < friends.length; i++){
-			m_friends.add(friends[i]);
-		}
 		m_index = 0;
 		initGUI();
 	}
@@ -48,7 +45,7 @@ public class FriendListDialog extends Frame {
 	public void initGUI() {
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
-		setBackground(new Color(0, 0, 0, 200));
+		setBackground(new Color(0, 0, 0, 85));
 		setTitle("Friends");
 		setSize(170, 180);
 	
@@ -59,8 +56,8 @@ public class FriendListDialog extends Frame {
 			}
 		});
 		m_up.setEnabled(false);
-		m_up.setSize(22, 22);
-		m_up.setLocation(getWidth() - 26, 3);
+		m_up.setSize(15, 15);
+		m_up.setLocation(getWidth() - 15, 0);
 		getContentPane().add(m_up);
 		m_down = new SimpleArrowButton(SimpleArrowButton.FACE_DOWN);
 		if (m_friends.size() <= 10)
@@ -70,8 +67,8 @@ public class FriendListDialog extends Frame {
 				scroll(1);
 			}
 		});
-		m_down.setSize(22, 22);
-		m_down.setLocation(getWidth() - 26, 131);
+		m_down.setSize(15, 15);
+		m_down.setLocation(getWidth() - 15, getHeight() - 15 - getTitleBar().getHeight());
 		getContentPane().add(m_down);
 		scroll(0);
 		

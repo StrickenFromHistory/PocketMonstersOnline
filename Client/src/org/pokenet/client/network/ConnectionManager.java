@@ -542,7 +542,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				switch(message.charAt(1)) {
 				case 'i':
 					//Initialise
-					GameClient.getInstance().getUi().setFriendsList(message.substring(2).split(","));
+					GameClient.getInstance().getUi().initFriendsList(message.substring(2).split(","));
 					break;
 				case 'a':
 					//A friend was added
