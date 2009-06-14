@@ -133,7 +133,8 @@ public class TradeDialog extends Frame {
 		for (int i = 0; i < 6; i++){
 			m_theirPokes[i].setSelected(false);
 		}
-		m_theirPokes[index].setSelected(true);
+		if (index < 6)
+			m_theirPokes[index].setSelected(true);
 		m_theirMoneyOffer.setText("$" + cash);
 		m_tradeBtn.setEnabled(true);
 	}
