@@ -15,15 +15,17 @@ import org.pokenet.server.feature.TimeService;
 
 /**
  * A class which handles PvP battles
+ * 
  * @author shadowkanji
- *
+ * 
  */
 public class PvPBattleField extends BattleField {
-	private PlayerChar [] m_players;
+	private PlayerChar[] m_players;
 	private BattleTurn[] m_turn = new BattleTurn[2];
 
 	/**
 	 * Constructor
+	 * 
 	 * @param mech
 	 * @param p1
 	 * @param p2
@@ -57,27 +59,32 @@ public class PvPBattleField extends BattleField {
 		applyWeather();
 		requestMoves();
 	}
-	
+
 	/**
 	 * Sends pokemon data for PlayerChar p to receiver
+	 * 
 	 * @param p
 	 * @param receiver
 	 */
 	private void sendPokemonData(PlayerChar p, PlayerChar receiver) {
-		for(int i = 0; i < p.getParty().length; i++) {
-			if(p.getParty()[i] != null) {
-				receiver.getSession().write("bP" + i + "," + p.getParty()[i].getName() +
-						"," + p.getParty()[i].getLevel() + "," + p.getParty()[i].getGender() + ","
-						+ p.getParty()[i].getHealth() + "," + p.getParty()[i].getStat(0) + "," +
-						p.getParty()[i].getSpeciesNumber() + "," + p.getParty()[i].isShiny());
+		for (int i = 0; i < p.getParty().length; i++) {
+			if (p.getParty()[i] != null) {
+				receiver.getSession().write(
+						"bP" + i + "," + p.getParty()[i].getName() + ","
+								+ p.getParty()[i].getLevel() + ","
+								+ p.getParty()[i].getGender() + ","
+								+ p.getParty()[i].getHealth() + ","
+								+ p.getParty()[i].getStat(0) + ","
+								+ p.getParty()[i].getSpeciesNumber() + ","
+								+ p.getParty()[i].isShiny());
 			}
 		}
 	}
 
 	@Override
 	public void applyWeather() {
-		if(m_players[0].getMap().isWeatherForced()) {
-			switch(m_players[0].getMap().getWeather()) {
+		if (m_players[0].getMap().isWeatherForced()) {
+			switch (m_players[0].getMap().getWeather()) {
 			case NORMAL:
 				return;
 			case RAIN:
@@ -94,7 +101,7 @@ public class PvPBattleField extends BattleField {
 			}
 		} else {
 			FieldEffect f = TimeService.getWeatherEffect();
-			if(f != null) {
+			if (f != null) {
 				this.applyEffect(f);
 			}
 		}
@@ -118,14 +125,16 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void informPokemonFainted(int trainer, int idx) {
-		m_players[0].getSession().write("bF" + this.getParty(trainer)[idx].getSpeciesName());
-		m_players[1].getSession().write("bF" + this.getParty(trainer)[idx].getSpeciesName());
+		m_players[0].getSession().write(
+				"bF" + this.getParty(trainer)[idx].getSpeciesName());
+		m_players[1].getSession().write(
+				"bF" + this.getParty(trainer)[idx].getSpeciesName());
 	}
 
 	@Override
 	public void informPokemonHealthChanged(Pokemon poke, int change) {
-		if(poke != null) {
-			if(poke == m_players[0].getParty()[0]) {
+		if (poke != null) {
+			if (poke == m_players[0].getParty()[0]) {
 				m_players[0].getSession().write("bh0," + change);
 				m_players[1].getSession().write("bh1," + change);
 			} else {
@@ -137,49 +146,63 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void informStatusApplied(Pokemon poke, StatusEffect eff) {
-		if(poke != null) {
-			if(poke == m_players[0].getParty()[0]) {
-				m_players[0].getSession().write("be0" + poke.getSpeciesName() + "," + eff.getName());
-				m_players[1].getSession().write("be0" + poke.getSpeciesName() + "," + eff.getName());
+		if (poke != null) {
+			if (poke == m_players[0].getParty()[0]) {
+				m_players[0].getSession().write(
+						"be0" + poke.getSpeciesName() + "," + eff.getName());
+				m_players[1].getSession().write(
+						"be0" + poke.getSpeciesName() + "," + eff.getName());
 			} else {
-				m_players[0].getSession().write("be1" + poke.getSpeciesName() + "," + eff.getName());
-				m_players[1].getSession().write("be1" + poke.getSpeciesName() + "," + eff.getName());
+				m_players[0].getSession().write(
+						"be1" + poke.getSpeciesName() + "," + eff.getName());
+				m_players[1].getSession().write(
+						"be1" + poke.getSpeciesName() + "," + eff.getName());
 			}
 		}
 	}
 
 	@Override
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
-		if(poke != null) {
-			if(poke == m_players[0].getParty()[0]) {
-				m_players[0].getSession().write("bE0" + poke.getSpeciesName() + "," + eff.getName());
-				m_players[1].getSession().write("bE0" + poke.getSpeciesName() + "," + eff.getName());
+		if (poke != null) {
+			if (poke == m_players[0].getParty()[0]) {
+				m_players[0].getSession().write(
+						"bE0" + poke.getSpeciesName() + "," + eff.getName());
+				m_players[1].getSession().write(
+						"bE0" + poke.getSpeciesName() + "," + eff.getName());
 			} else {
-				m_players[0].getSession().write("bE1" + poke.getSpeciesName() + "," + eff.getName());
-				m_players[1].getSession().write("bE1" + poke.getSpeciesName() + "," + eff.getName());
+				m_players[0].getSession().write(
+						"bE1" + poke.getSpeciesName() + "," + eff.getName());
+				m_players[1].getSession().write(
+						"bE1" + poke.getSpeciesName() + "," + eff.getName());
 			}
 		}
 	}
 
 	@Override
 	public void informSwitchInPokemon(int trainer, Pokemon poke) {
-		if(trainer == 0) {
-			m_players[0].getSession().write("bS" + m_players[0].getName() + "," + poke.getSpeciesName() + "," + trainer +
-					"," + getPokemonPartyIndex(poke));
-			m_players[1].getSession().write("bS" + m_players[0].getName() + "," + poke.getSpeciesName() + "," + trainer +
-					"," + getPokemonPartyIndex(poke));
+		if (trainer == 0) {
+			m_players[0].getSession().write(
+					"bS" + m_players[0].getName() + "," + poke.getSpeciesName()
+							+ "," + trainer + "," + getPokemonPartyIndex(poke));
+			m_players[1].getSession().write(
+					"bS" + m_players[0].getName() + "," + poke.getSpeciesName()
+							+ "," + trainer + "," + getPokemonPartyIndex(poke));
 		} else {
-			m_players[0].getSession().write("bS" + m_players[1].getName() + "," + poke.getSpeciesName() + "," + trainer +
-					"," + getPokemonPartyIndex(poke));
-			m_players[1].getSession().write("bS" + m_players[1].getName() + "," + poke.getSpeciesName() + "," + trainer +
-					"," + getPokemonPartyIndex(poke));
+			m_players[0].getSession().write(
+					"bS" + m_players[1].getName() + "," + poke.getSpeciesName()
+							+ "," + trainer + "," + getPokemonPartyIndex(poke));
+			m_players[1].getSession().write(
+					"bS" + m_players[1].getName() + "," + poke.getSpeciesName()
+							+ "," + trainer + "," + getPokemonPartyIndex(poke));
 		}
 	}
 
 	@Override
 	public void informUseMove(Pokemon poke, String name) {
-		m_players[0].getSession().write("bM" + poke.getSpeciesName() + "," + name);
-		m_players[1].getSession().write("bM" + poke.getSpeciesName() + "," + name);
+		m_players[0].getSession().write(
+				"bM" + poke.getSpeciesName() + "," + name);
+		m_players[1].getSession().write(
+				"bM" + poke.getSpeciesName() + "," + name);
 	}
 
 	@SuppressWarnings("deprecation")
@@ -187,7 +210,7 @@ public class PvPBattleField extends BattleField {
 	public void informVictory(int winner) {
 		m_players[0].removeTempStatusEffects();
 		m_players[1].removeTempStatusEffects();
-		if(winner == 0) {
+		if (winner == 0) {
 			m_players[0].getSession().write("b@w");
 			m_players[1].getSession().write("b@l");
 			m_players[1].lostBattle();
@@ -200,83 +223,95 @@ public class PvPBattleField extends BattleField {
 		m_players[1].setBattling(false);
 		if (m_dispatch != null) {
 			/*
-			 * This very bad programming but shoddy does it
-			 * and forces us to do it
+			 * This very bad programming but shoddy does it and forces us to do
+			 * it
 			 */
-            Thread t = m_dispatch;
-            m_dispatch = null;
-            t.stop();
+			Thread t = m_dispatch;
+			m_dispatch = null;
+			t.stop();
 		}
-        dispose();
+		dispose();
 	}
 
 	@Override
 	public void queueMove(int trainer, BattleTurn move)
 			throws MoveQueueException {
+		// The trainer has no turn queued.
 		if (m_turn[trainer] == null) {
-            if (move.getId() == -1) {
-            	if(m_dispatch == null && ((trainer == 0 && m_turn[1] != null) 
-            			|| (trainer == 1 && m_turn[0] != null))) {
-            		m_dispatch = new Thread(new Runnable() {
-            			public void run() {
-            				executeTurn(m_turn);
-            				m_dispatch = null;
-            			}
-            		});
-            		m_dispatch.start();
-            		return;
-            	}
-            } else {
-            	if (this.getActivePokemon()[trainer].isFainted()) {
-            		if (!move.isMoveTurn()) {
-            			this.switchInPokemon(trainer, move.getId());
-            			requestMoves();
-            			return;
-            		} else {	
-            			if (getAliveCount(trainer) > 0) {
-            				requestPokemonReplacement(trainer);
-            				return;
-            			} else {
-            				if(trainer == 0)
-            					this.informVictory(1);
-            				else
-            					this.informVictory(0);
-            			}
-            		}
-            	} else {
-            		if (move.isMoveTurn()) {
-            			if (getActivePokemon()[trainer].mustStruggle())
-            				m_turn[trainer] = BattleTurn.getMoveTurn(-1);
-            			else {
-            				if (this.getActivePokemon()[trainer].getPp(move.getId()) <= 0) {
-            					if (trainer == 0) {
-            						m_players[0].getSession().write("bp" + this.getActivePokemon()
-            								[trainer].getMoveName(move.getId()));
-            						requestMove(0);
-            					} else {
-            						m_players[1].getSession().write("bp" + this.getActivePokemon()
-            								[trainer].getMoveName(move.getId()));
-            						requestMove(1);
-            					}
-            					return;
-            				} else {
-            					m_turn[trainer] = move;
-            				}
-            			}
-            		} else {
-            			if (this.m_pokemon[trainer][move.getId()].isActive()) {
-            				m_turn[trainer] = move;
-            			} else {
-            				requestMove(trainer);
-            				return;
-            			}
-            		}
-            	}
-            }
+			if (move.getId() == -1) {
+				if (m_dispatch == null
+						&& ((trainer == 0 && m_turn[1] != null) ||
+								(trainer == 1 && m_turn[0] != null))) {
+					m_dispatch = new Thread(new Runnable() {
+						public void run() {
+							executeTurn(m_turn);
+							m_dispatch = null;
+						}
+					});
+					m_dispatch.start();
+					return;
+				}
+			} else {
+				// Handle a fainted pokemon
+				if (this.getActivePokemon()[trainer].isFainted()) {
+					if (!move.isMoveTurn()) {
+						this.switchInPokemon(trainer, move.getId());
+						requestMoves();
+						return;
+					} else {
+						// The player still has pokemon left
+						if (getAliveCount(trainer) > 0) {
+							requestPokemonReplacement(trainer);
+							return;
+						} else {
+							// the player has no pokemon left. Announce winner
+							if (trainer == 0)
+								this.informVictory(1);
+							else
+								this.informVictory(0);
+						}
+					}
+				} else {
+					// The turn was used to attack!
+					if (move.isMoveTurn()) {
+						// Handles Struggle
+						if (getActivePokemon()[trainer].mustStruggle())
+							m_turn[trainer] = BattleTurn.getMoveTurn(-1);
+						else {
+							// The move has no more PP. Tell the client!
+							if (this.getActivePokemon()[trainer].getPp(move
+									.getId()) <= 0) {
+								if (trainer == 0) {
+									m_players[0]
+											.getSession()
+											.write("bp"+ this.getActivePokemon()
+													[trainer].getMoveName(move.getId()));
+								} else {
+									m_players[1]
+											.getSession()
+											.write("bp"+ this.getActivePokemon()
+													[trainer].getMoveName(move.getId()));
+								}
+								return;
+							} else {
+								// Assign the move to the turn
+								m_turn[trainer] = move;
+							}
+						}
+					} else {
+						if (this.m_pokemon[trainer][move.getId()].isActive()) {
+							m_turn[trainer] = move;
+						} else {
+							requestMove(trainer);
+							return;
+						}
+					}
+				}
+			}
 		}
-		if(m_dispatch != null)
+		if (m_dispatch != null)
 			return;
-		if(m_turn[0] != null && m_turn[1] != null) {
+		if (m_turn[0] != null && m_turn[1] != null) {
 			m_dispatch = new Thread(new Runnable() {
 				public void run() {
 					executeTurn(m_turn);
@@ -292,26 +327,31 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void refreshActivePokemon() {
-		m_players[0].getSession().write("bh0" + this.getActivePokemon()[0].getHealth());
-		m_players[0].getSession().write("bh1" + this.getActivePokemon()[1].getHealth());
-		
-		m_players[1].getSession().write("bh0" + this.getActivePokemon()[1].getHealth());
-		m_players[1].getSession().write("bh1" + this.getActivePokemon()[0].getHealth());
+		m_players[0].getSession().write(
+				"bh0" + this.getActivePokemon()[0].getHealth());
+		m_players[0].getSession().write(
+				"bh1" + this.getActivePokemon()[1].getHealth());
+
+		m_players[1].getSession().write(
+				"bh0" + this.getActivePokemon()[1].getHealth());
+		m_players[1].getSession().write(
+				"bh1" + this.getActivePokemon()[0].getHealth());
 	}
 
 	@Override
 	public void requestAndWaitForSwitch(int party) {
 		requestPokemonReplacement(party);
-        if (!m_replace[party]) {
-            return;
-        }
-        do {
-            synchronized (m_dispatch) {
-                try {
-                    m_dispatch.wait(1000);
-                } catch (InterruptedException e) {}
-            }
-        } while ((m_replace != null) && m_replace[party]);
+		if (!m_replace[party]) {
+			return;
+		}
+		do {
+			synchronized (m_dispatch) {
+				try {
+					m_dispatch.wait(1000);
+				} catch (InterruptedException e) {
+				}
+			}
+		} while ((m_replace != null) && m_replace[party]);
 	}
 
 	@Override
@@ -322,8 +362,8 @@ public class PvPBattleField extends BattleField {
 	@Override
 	protected void requestMoves() {
 		clearQueue();
-		if(this.getActivePokemon()[0].isActive() &&
-                this.getActivePokemon()[1].isActive()) {
+		if (this.getActivePokemon()[0].isActive()
+				&& this.getActivePokemon()[1].isActive()) {
 			m_players[0].getSession().write("bm");
 			m_players[1].getSession().write("bm");
 		}
