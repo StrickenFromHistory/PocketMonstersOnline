@@ -39,15 +39,21 @@ public class PvPBattleField extends BattleField {
 		m_players[0] = p1;
 		m_players[1] = p2;
 		/*
-		 * Set battle ids
-		 */
-		p1.setBattleId(0);
-		p2.setBattleId(1);
-		/*
 		 * Set the battlefield for the players
 		 */
 		p1.setBattleField(this);
 		p2.setBattleField(this);
+		/*
+		 *Set the player to battling 
+		 */
+		p1.setBattling(true);
+		p2.setBattling(true);
+		/*
+		 * Set battle ids
+		 */
+		p1.setBattleId(0);
+		p2.setBattleId(1);
+
 		/*
 		 * Send battle initialisation packets
 		 */
@@ -155,12 +161,12 @@ public class PvPBattleField extends BattleField {
 				m_players[0].getSession().write(
 						"be0" + poke.getSpeciesName() + "," + eff.getName());
 				m_players[1].getSession().write(
-						"be0" + poke.getSpeciesName() + "," + eff.getName());
+						"be1" + poke.getSpeciesName() + "," + eff.getName());
 			} else {
 				m_players[0].getSession().write(
 						"be1" + poke.getSpeciesName() + "," + eff.getName());
 				m_players[1].getSession().write(
-						"be1" + poke.getSpeciesName() + "," + eff.getName());
+						"be0" + poke.getSpeciesName() + "," + eff.getName());
 			}
 		}
 	}
@@ -240,7 +246,6 @@ public class PvPBattleField extends BattleField {
 	@Override
 	public void queueMove(int trainer, BattleTurn move)
 			throws MoveQueueException {
-		System.err.println("MOVE QUEUEING");
 		// The trainer has no turn queued.
 		if (m_turn[trainer] == null) {
 			if (move.getId() == -1) {
