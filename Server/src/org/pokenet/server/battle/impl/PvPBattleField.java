@@ -44,14 +44,18 @@ public class PvPBattleField extends BattleField {
 		p1.setBattleId(0);
 		p2.setBattleId(1);
 		/*
-		 * Set the battlefield for player 2
+		 * Set the battlefield for the players
 		 */
+		p1.setBattleField(this);
 		p2.setBattleField(this);
 		/*
 		 * Send battle initialisation packets
 		 */
 		p1.getSession().write("bi0");
 		p2.getSession().write("bi0");
+		/* Send the enemy's name to both players*/
+		p1.getSession().write("bn" + p2.getName());
+		p2.getSession().write("bn" + p1.getName());	
 		/* Send pokemon data to both players */
 		sendPokemonData(p1, p2);
 		sendPokemonData(p2, p1);
@@ -236,6 +240,7 @@ public class PvPBattleField extends BattleField {
 	@Override
 	public void queueMove(int trainer, BattleTurn move)
 			throws MoveQueueException {
+		System.err.println("MOVE QUEUEING");
 		// The trainer has no turn queued.
 		if (m_turn[trainer] == null) {
 			if (move.getId() == -1) {
@@ -311,6 +316,7 @@ public class PvPBattleField extends BattleField {
 		}
 		if (m_dispatch != null)
 			return;
+		// Both turns are ready to be performed 
 		if (m_turn[0] != null && m_turn[1] != null) {
 			m_dispatch = new Thread(new Runnable() {
 				public void run() {
