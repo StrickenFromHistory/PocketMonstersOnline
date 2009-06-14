@@ -119,7 +119,7 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void informPokemonHealthChanged(Pokemon poke, int change) {
-		if(getActivePokemon()[0] == poke) {
+		if(poke == m_players[0].getParty()[0]) {
 			m_players[0].getSession().write("bh0," + change);
 			m_players[1].getSession().write("bh1," + change);
 		} else {
@@ -130,7 +130,7 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void informStatusApplied(Pokemon poke, StatusEffect eff) {
-		if(poke == getActivePokemon()[0]) {
+		if(poke == m_players[0].getParty()[0]) {
 			m_players[0].getSession().write("be0" + poke.getSpeciesName() + "," + eff.getName());
 			m_players[1].getSession().write("be0" + poke.getSpeciesName() + "," + eff.getName());
 		} else {
@@ -141,7 +141,7 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
-		if(poke == getActivePokemon()[0]) {
+		if(poke == m_players[0].getParty()[0]) {
 			m_players[0].getSession().write("bE0" + poke.getSpeciesName() + "," + eff.getName());
 			m_players[1].getSession().write("bE0" + poke.getSpeciesName() + "," + eff.getName());
 		} else {
