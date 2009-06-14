@@ -9,6 +9,7 @@ import java.util.HashMap;
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.ServerMap;
+import org.pokenet.server.backend.ServerMap.PvPType;
 import org.pokenet.server.backend.item.ItemDatabase;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.DataService;
@@ -111,6 +112,13 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
+	 * Cancels this player's trade offer
+	 */
+	public void cancelTradeOffer() {
+		
+	}
+	
+	/**
 	 * Returns the trade that the player is involved in
 	 * @return
 	 */
@@ -170,6 +178,28 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param r
 	 */
 	public void addRequest(String username, RequestType r) {
+		/* Check if it is a battle request on a pvp enforced map */
+		if(r == RequestType.BATTLE) {
+			/* 
+			 * If the player is on the same map and 
+			 * within 3 squares of the player, start the battle
+			 */
+			if(this.getMap().getPvPType() == PvPType.ENFORCED) {
+				PlayerChar otherPlayer = ConnectionManager.getPlayers().get(username);
+				if(this.getMap() == otherPlayer.getMap()) {
+					if(otherPlayer.getX() >= this.getX() - 96 || 
+							otherPlayer.getX() <= this.getX() + 96 ||
+							otherPlayer.getY() >= this.getY() - 96 ||
+							otherPlayer.getY() <= this.getY() + 96) {
+						/* This is a valid battle, start it */
+						m_battleField = new PvPBattleField(
+								DataService.getBattleMechanics(),this, otherPlayer);
+						return;
+					}
+				}
+			}
+		}
+		/* Else, add the request */
 		m_requests.put(username, r);
 	}
 	
@@ -190,6 +220,55 @@ public class PlayerChar extends Char implements Battleable {
 			PlayerChar otherPlayer = ConnectionManager.getPlayers().get(username);
 			switch(m_requests.get(username)) {
 			case BATTLE:
+				/* First, ensure both players are on the same map */
+				if(otherPlayer.getMap() != this.getMap())
+					return;
+				/* 
+				 * Based on the map's pvp type, check this battle is possible
+				 * If pvp is enforced, it will be started when the offer is made
+				 */
+				switch(this.getMap().getPvPType()) {
+				case DISABLED:
+					/* Some maps have pvp disabled */
+					return;
+				case ENABLED:
+					/* 
+					 * For maps with pvp enabled, players must be beside each other
+					 * and facing each other
+					 */
+					switch(this.getFacing()) {
+					case Up:
+						if(otherPlayer.getFacing() != Direction.Down
+								|| otherPlayer.getX() != this.getX()
+								|| otherPlayer.getY() - 32 != this.getY()) {
+							return;
+						}
+						break;
+					case Down:
+						if(otherPlayer.getFacing() != Direction.Up
+								|| otherPlayer.getX() != this.getX()
+								|| otherPlayer.getY() + 32 != this.getY()) {
+							return;
+						}
+						break;
+					case Left:
+						if(otherPlayer.getFacing() != Direction.Right
+								|| otherPlayer.getY() != this.getY()
+								|| otherPlayer.getX() + 32 != this.getX()) {
+							return;
+						}
+						break;
+					case Right:
+						if(otherPlayer.getFacing() != Direction.Left
+								|| otherPlayer.getY() != this.getY()
+								|| otherPlayer.getX() - 32 != this.getX()) {
+							return;
+						}
+						break;
+					}
+					break;
+				}
+				/* This is a valid battle, start it */
 				m_battleField = new PvPBattleField(
 						DataService.getBattleMechanics(),this, otherPlayer);
 				break;

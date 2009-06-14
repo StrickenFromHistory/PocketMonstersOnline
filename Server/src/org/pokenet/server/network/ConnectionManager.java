@@ -328,7 +328,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 						break;
 					case 'c':
 						//Cancel the offer
-						p.setTradeOfferAccepted(false);
+						p.cancelTradeOffer();
 						break;
 					case 'C':
 						//Cancel the trade

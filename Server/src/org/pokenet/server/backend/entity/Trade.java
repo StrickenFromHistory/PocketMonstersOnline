@@ -110,6 +110,27 @@ public class Trade {
 	}
 	
 	/**
+	 * Cancels an offer from a player
+	 * @param p
+	 */
+	public void cancelOffer(PlayerChar p) {
+		Iterator<PlayerChar> it = m_offers.keySet().iterator();
+		PlayerChar otherPlayer = null;
+		/* Find the other player */
+		while(it.hasNext()) {
+			PlayerChar temp = it.next();
+			if(temp != p) {
+				otherPlayer = temp;
+			}
+		}
+		/* Check the other player hasn't accepted a previous offer */
+		if(!otherPlayer.acceptedTradeOffer()) {
+			m_offers.put(p, null);
+			otherPlayer.getSession().write("Tc");
+		}
+	}
+	
+	/**
 	 * Sends offer information from one player to another
 	 * @param p
 	 * @param poke
@@ -151,6 +172,10 @@ public class Trade {
 			PlayerChar player2 = it.next();
 			TradeObject [] o1 = m_offers.get(player1);
 			TradeObject [] o2 = m_offers.get(player2);
+			
+			/* Ensure each player has made an offer */
+			if(o1 == null || o2 == null)
+				return;
 			
 			/* Keep checking no player has left the trade */
 			if(player1 != null && player2 != null) {

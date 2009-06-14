@@ -25,7 +25,7 @@ import tiled.core.TileLayer;
  *
  */
 public class ServerMap {
-	public enum PvPType { DISABLE, ENABLED, ENFORCED }
+	public enum PvPType { DISABLED, ENABLED, ENFORCED }
 	
 	//Stores the width, heigth, x, y and offsets of this map
 	private int m_width;
@@ -93,6 +93,22 @@ public class ServerMap {
 		
 		m_players = new ArrayList<PlayerChar>();
 		m_npcs = new ArrayList<NonPlayerChar>();
+		
+		/*
+		 * Load pvp settings
+		 */
+		try {
+			String type = map.getProperties().getProperty("pvp");
+			if(type.equalsIgnoreCase("disabled")) {
+				m_pvpType = PvPType.DISABLED;
+			} else if(type.equalsIgnoreCase("enabled")) {
+				m_pvpType = PvPType.ENABLED;
+			} else {
+				m_pvpType = PvPType.ENFORCED;
+			}
+		} catch (Exception e) {
+			m_pvpType = PvPType.ENABLED;
+		}
 		
 		/*
 		 * Add enforced weather if any
@@ -245,6 +261,14 @@ public class ServerMap {
 				m_players.get(i).getSession().write("Cl" + message);
 			}
 		}
+	}
+	
+	/**
+	 * Returns the pvp type of the map
+	 * @return
+	 */
+	public PvPType getPvPType() {
+		return m_pvpType;
 	}
 	
 	/**
