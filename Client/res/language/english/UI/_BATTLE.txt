@@ -19,3 +19,4 @@ pokeName is paralyzed! It might be unable to move
 pokeName fell asleep!
 You got $earningsNum for winning!
 pokeName reached level levelNum!
+moveName has no PP. Please select a new move.
