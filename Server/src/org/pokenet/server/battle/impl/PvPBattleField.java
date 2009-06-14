@@ -37,6 +37,11 @@ public class PvPBattleField extends BattleField {
 		m_players[0] = p1;
 		m_players[1] = p2;
 		/*
+		 * Set battle ids
+		 */
+		p1.setBattleId(0);
+		p2.setBattleId(1);
+		/*
 		 * Set the battlefield for player 2
 		 */
 		p2.setBattleField(this);
