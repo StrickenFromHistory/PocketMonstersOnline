@@ -115,7 +115,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * Cancels this player's trade offer
 	 */
 	public void cancelTradeOffer() {
-		
+		m_trade.cancelOffer(this);
 	}
 	
 	/**
@@ -195,6 +195,8 @@ public class PlayerChar extends Char implements Battleable {
 						m_battleField = new PvPBattleField(
 								DataService.getBattleMechanics(),this, otherPlayer);
 						return;
+					} else {
+						m_session.write("r!3");
 					}
 				}
 			}
@@ -216,70 +218,84 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param username
 	 */
 	public void requestAccepted(String username) {
-		if(m_requests.containsKey(username)) {
-			PlayerChar otherPlayer = ConnectionManager.getPlayers().get(username);
-			switch(m_requests.get(username)) {
-			case BATTLE:
-				/* First, ensure both players are on the same map */
-				if(otherPlayer.getMap() != this.getMap())
-					return;
-				/* 
-				 * Based on the map's pvp type, check this battle is possible
-				 * If pvp is enforced, it will be started when the offer is made
-				 */
-				switch(this.getMap().getPvPType()) {
-				case DISABLED:
-					/* Some maps have pvp disabled */
-					return;
-				case ENABLED:
+		PlayerChar otherPlayer = ConnectionManager.getPlayers().get(username);
+		if(otherPlayer != null) {
+			if(m_requests.containsKey(username)) {
+				switch(m_requests.get(username)) {
+				case BATTLE:
+					/* First, ensure both players are on the same map */
+					if(otherPlayer.getMap() != this.getMap())
+						return;
 					/* 
-					 * For maps with pvp enabled, players must be beside each other
-					 * and facing each other
+					 * Based on the map's pvp type, check this battle is possible
+					 * If pvp is enforced, it will be started when the offer is made
 					 */
-					switch(this.getFacing()) {
-					case Up:
-						if(otherPlayer.getFacing() != Direction.Down
-								|| otherPlayer.getX() != this.getX()
-								|| otherPlayer.getY() - 32 != this.getY()) {
-							return;
-						}
-						break;
-					case Down:
-						if(otherPlayer.getFacing() != Direction.Up
-								|| otherPlayer.getX() != this.getX()
-								|| otherPlayer.getY() + 32 != this.getY()) {
-							return;
-						}
-						break;
-					case Left:
-						if(otherPlayer.getFacing() != Direction.Right
-								|| otherPlayer.getY() != this.getY()
-								|| otherPlayer.getX() + 32 != this.getX()) {
-							return;
-						}
-						break;
-					case Right:
-						if(otherPlayer.getFacing() != Direction.Left
-								|| otherPlayer.getY() != this.getY()
-								|| otherPlayer.getX() - 32 != this.getX()) {
-							return;
+					switch(this.getMap().getPvPType()) {
+					case DISABLED:
+						/* Some maps have pvp disabled */
+						otherPlayer.getSession().write("r!2");
+						m_session.write("r!2");
+						return;
+					case ENABLED:
+						/* 
+						 * For maps with pvp enabled, players must be beside each other
+						 * and facing each other
+						 */
+						switch(this.getFacing()) {
+						case Up:
+							if(otherPlayer.getFacing() != Direction.Down
+									|| otherPlayer.getX() != this.getX()
+									|| otherPlayer.getY() - 32 != this.getY()) {
+								otherPlayer.getSession().write("r!1");
+								m_session.write("r!1");
+								return;
+							}
+							break;
+						case Down:
+							if(otherPlayer.getFacing() != Direction.Up
+									|| otherPlayer.getX() != this.getX()
+									|| otherPlayer.getY() + 32 != this.getY()) {
+								otherPlayer.getSession().write("r!1");
+								m_session.write("r!1");
+								return;
+							}
+							break;
+						case Left:
+							if(otherPlayer.getFacing() != Direction.Right
+									|| otherPlayer.getY() != this.getY()
+									|| otherPlayer.getX() + 32 != this.getX()) {
+								otherPlayer.getSession().write("r!1");
+								m_session.write("r!1");
+								return;
+							}
+							break;
+						case Right:
+							if(otherPlayer.getFacing() != Direction.Left
+									|| otherPlayer.getY() != this.getY()
+									|| otherPlayer.getX() - 32 != this.getX()) {
+								otherPlayer.getSession().write("r!1");
+								m_session.write("r!1");
+								return;
+							}
+							break;
 						}
 						break;
 					}
+					/* This is a valid battle, start it */
+					m_battleField = new PvPBattleField(
+							DataService.getBattleMechanics(),this, otherPlayer);
+					break;
+				case TRADE:
+					/* Set the player as talking so they can't move */
+					m_isTalking = true;
+					/* Create the trade */
+					m_trade = new Trade(this, otherPlayer);
+					otherPlayer.setTrade(m_trade);
 					break;
 				}
-				/* This is a valid battle, start it */
-				m_battleField = new PvPBattleField(
-						DataService.getBattleMechanics(),this, otherPlayer);
-				break;
-			case TRADE:
-				/* Set the player as talking so they can't move */
-				m_isTalking = true;
-				/* Create the trade */
-				m_trade = new Trade(this, otherPlayer);
-				otherPlayer.setTrade(m_trade);
-				break;
 			}
+		} else {
+			m_session.write("r!0");
 		}
 	}
 	
