@@ -34,7 +34,6 @@ public class ServerMap {
 	private int m_y;
 	private int m_xOffsetModifier;
 	private int m_yOffsetModifier;
-	@SuppressWarnings("unused")
 	private PvPType m_pvpType = PvPType.ENABLED;
 	private ServerMapMatrix m_mapMatrix;
 	private Weather m_forcedWeather = null;
