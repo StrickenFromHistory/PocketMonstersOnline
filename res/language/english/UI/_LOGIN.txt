@@ -39,3 +39,4 @@ Pokemon is a registered trademark of Nintendo (1995 - Present)./n/n
 Contributors:
 Fshy, ZombieBear, Ryan, Pivot,/nIlentcape, Sienide, TMKCodes, Drawig,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, Kiwii, PokeRemixStudio
 You have been disconnected from the game server.
+The e-mail address you have entered is already in use.

@@ -636,12 +636,15 @@ public class ConnectionManager extends IoHandlerAdapter {
 					break;
 				case '1':
 					//Players must stand beside each other to battle
+					GameClient.getInstance().getUi().getChat().addSystemMessage("You must be standing next to and facing the person you want to battle.");
 					break;
 				case '2':
 					//PvP is disabled on this map
+					GameClient.getInstance().getUi().getChat().addSystemMessage("You are not allowed to PvP in this map.");
 					break;
 				case '3':
 					//You must be within 3 squares to force this player to battle
+					GameClient.getInstance().getUi().getChat().addSystemMessage("You must be within 3 squares of this player to battle.");
 					break;
 				}
 				break;
@@ -685,7 +688,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoadingScreen().setVisible(false);
 				break;
 			case '5':
-				//TODO: Email already in use
+				GameClient.messageDialog(translated.get(41), GameClient.getInstance().getDisplay());
+				m_game.getLoginScreen().getRegistration().enableRegistration();
+				m_game.getLoadingScreen().setVisible(false);
 				break;
 			}
 			break;
