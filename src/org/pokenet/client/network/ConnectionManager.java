@@ -181,12 +181,16 @@ public class ConnectionManager extends IoHandlerAdapter {
 				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informNoPP(message.substring(2));
 				break;
 			case 'P':
-				//Recieve enemy poke data -> bPINDEX,NAME,LEVEL,GENDER,MAXHP,CURHP,SPRITENUM,ISSHINY
+				//Receive enemy poke data -> bPINDEX,NAME,LEVEL,GENDER,MAXHP,CURHP,SPRITENUM,ISSHINY
 				String[] data = message.substring(2).split(",");
 				GameClient.getInstance().getUi().getBattleManager().setEnemyPoke(Integer.parseInt(data[0]),
 						data[1], Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(
 								data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), 
 								Boolean.valueOf(data[7]));
+				break;
+			case 'n':
+				//Receive the enemy trainer's name
+				GameClient.getInstance().getUi().getBattleManager().setEnemyName(message.substring(2));
 				break;
 			case '!':
 				//Other battle message not specified by packets below

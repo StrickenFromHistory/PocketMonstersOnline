@@ -71,6 +71,14 @@ public class BattleManager {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Sets the enemy's name
+	 * @param name
+	 */
+	public void setEnemyName(String name) {
+		m_enemy = name;
+	}
 
 	/**
 	 * Starts a new BattleWindow and BattleCanvas
@@ -149,6 +157,12 @@ public class BattleManager {
 		}
 	}
 
+	
+	/**
+	 * Switch a pokemon
+	 * @param trainer
+	 * @param pokeIndex
+	 */
 	public void switchPoke(int trainer, int pokeIndex){
 		if (trainer == 0) {
 			m_curPoke = GameClient.getInstance().getOurPlayer().getPokemon()[pokeIndex];
