@@ -178,6 +178,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'p':
 				//No PP left for move -> bpMOVENAME
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informNoPP(message.substring(2));
 				break;
 			case 'P':
 				//Recieve enemy poke data -> bPINDEX,NAME,LEVEL,GENDER,MAXHP,CURHP,SPRITENUM,ISSHINY

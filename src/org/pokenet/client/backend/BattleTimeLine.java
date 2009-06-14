@@ -141,9 +141,15 @@ public class BattleTimeLine {
 	/**
 	 * Informs that a pokemon switch is required
 	 */
-	public void informSwitchRequested(){
+	public void informSwitchRequested() {
 		GameClient.getInstance().getUi().getBattleManager().getBattleWindow().showPokePane(true);
 		addSpeech(m_translator.get(6));
+	}
+	
+	public void informNoPP(String move) {
+		m_move = move;
+		GameClient.getInstance().getUi().getBattleManager().requestMoves();
+		addSpeech(m_translator.get(21));
 	}
 	
 	/**
