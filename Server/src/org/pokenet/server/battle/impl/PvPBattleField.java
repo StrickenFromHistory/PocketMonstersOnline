@@ -178,12 +178,12 @@ public class PvPBattleField extends BattleField {
 				m_players[0].getSession().write(
 						"bE0" + poke.getSpeciesName() + "," + eff.getName());
 				m_players[1].getSession().write(
-						"bE0" + poke.getSpeciesName() + "," + eff.getName());
+						"bE1" + poke.getSpeciesName() + "," + eff.getName());
 			} else {
 				m_players[0].getSession().write(
 						"bE1" + poke.getSpeciesName() + "," + eff.getName());
 				m_players[1].getSession().write(
-						"bE1" + poke.getSpeciesName() + "," + eff.getName());
+						"bE0" + poke.getSpeciesName() + "," + eff.getName());
 			}
 		}
 	}
