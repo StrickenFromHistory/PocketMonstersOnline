@@ -237,53 +237,11 @@ public class PlayerChar extends Char implements Battleable {
 						m_session.write("r!2");
 						return;
 					case ENABLED:
-						/* 
-						 * For maps with pvp enabled, players must be beside each other
-						 * and facing each other
-						 */
-						switch(this.getFacing()) {
-						case Up:
-							if(otherPlayer.getFacing() != Direction.Down
-									|| otherPlayer.getX() != this.getX()
-									|| otherPlayer.getY() - 32 != this.getY()) {
-								otherPlayer.getSession().write("r!1");
-								m_session.write("r!1");
-								return;
-							}
-							break;
-						case Down:
-							if(otherPlayer.getFacing() != Direction.Up
-									|| otherPlayer.getX() != this.getX()
-									|| otherPlayer.getY() + 32 != this.getY()) {
-								otherPlayer.getSession().write("r!1");
-								m_session.write("r!1");
-								return;
-							}
-							break;
-						case Left:
-							if(otherPlayer.getFacing() != Direction.Right
-									|| otherPlayer.getY() != this.getY()
-									|| otherPlayer.getX() + 32 != this.getX()) {
-								otherPlayer.getSession().write("r!1");
-								m_session.write("r!1");
-								return;
-							}
-							break;
-						case Right:
-							if(otherPlayer.getFacing() != Direction.Left
-									|| otherPlayer.getY() != this.getY()
-									|| otherPlayer.getX() - 32 != this.getX()) {
-								otherPlayer.getSession().write("r!1");
-								m_session.write("r!1");
-								return;
-							}
-							break;
-						}
+						/* This is a valid battle, start it */
+						m_battleField = new PvPBattleField(
+								DataService.getBattleMechanics(),this, otherPlayer);
 						break;
 					}
-					/* This is a valid battle, start it */
-					m_battleField = new PvPBattleField(
-							DataService.getBattleMechanics(),this, otherPlayer);
 					break;
 				case TRADE:
 					/* Set the player as talking so they can't move */
