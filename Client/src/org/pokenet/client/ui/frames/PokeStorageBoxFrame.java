@@ -276,7 +276,6 @@ public class PokeStorageBoxFrame extends Frame {
 	public void update(GUIContext container, int delta){
 		super.update(container, delta);
 		if (m_changeBox.getSelectedIndex() != m_boxIndex){
-			System.out.println(m_changeBox.getSelectedIndex());
 			m_boxIndex = m_changeBox.getSelectedIndex();
 			m_boxNum = m_boxIndex + 1;
 			disableButtons();
