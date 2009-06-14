@@ -56,6 +56,11 @@ public class HUDButtonFactory {
                         rollovers.put("map", getRolloverImage("map"));
                         downs.put("map", getDownImage("map"));
                         
+                        // -- Friends Buttons --
+                        normals.put("friends", getNormalImage("friends"));
+                        rollovers.put("friends", getRolloverImage("friends"));
+                        downs.put("friends", getDownImage("friends"));
+                        
                         font = new AngelCodeFont(
                                 "/res/fonts/dp-small.fnt",
                                 "/res/fonts/dp-small.png");

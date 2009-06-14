@@ -84,6 +84,7 @@ public class PlayerPopupDialog extends Frame{
 		m_addFriend.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				GameClient.getInstance().getPacketGenerator().write("Fa" + m_name.getText());
+				GameClient.getInstance().getUi().getFriendsList().addFriend(m_name.getText());
 				destroy();
 			}
 		});

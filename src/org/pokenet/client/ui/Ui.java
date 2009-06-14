@@ -38,7 +38,7 @@ import org.pokenet.client.ui.frames.TradeDialog;
  *
  */
 public class Ui extends Frame {
-	private FriendListDialog m_friendList;
+	private FriendListDialog m_friendsList;
 	private ChatDialog m_chat;
 	private ImageButton [] m_buttons;
 	private Display m_display;
@@ -76,6 +76,10 @@ public class Ui extends Frame {
 		
 		m_chat = new ChatDialog();
 		m_requestsForm = new RequestDialog();
+
+		m_friendsList = new FriendListDialog();
+		m_friendsList.setVisible(false);
+		m_display.add(m_friendsList);
 		
 		m_map = new TownMap();
 		m_map.setAlwaysOnTop(true);
@@ -87,7 +91,7 @@ public class Ui extends Frame {
 
 		m_moneyLabel.setText("$0");
 		m_moneyLabel.pack();
-		m_moneyLabel.setLocation(222, 6);
+		m_moneyLabel.setLocation(m_buttons[m_buttons.length - 1].getX() + 37, 6);
 		m_moneyLabel.setVisible(true);
 		m_moneyLabel.setFont(GameClient.getFontLarge());
 		m_moneyLabel.setForeground(new Color(255, 255, 255));
@@ -114,7 +118,7 @@ public class Ui extends Frame {
 	 * Starts the HUD buttons
 	 */
 	public void startButtons(){
-		m_buttons = new ImageButton[6];
+		m_buttons = new ImageButton[7];
 		
         m_buttons[0] = HUDButtonFactory.getButton("pokemon");
         m_buttons[0].addActionListener(new ActionListener() {
@@ -138,22 +142,29 @@ public class Ui extends Frame {
         	}
         });
 
-        m_buttons[3] = HUDButtonFactory.getButton("requests");
+        m_buttons[3] = HUDButtonFactory.getButton("friends");
 		m_buttons[3].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				toggleFriends();
+			}
+		});
+        
+        m_buttons[4] = HUDButtonFactory.getButton("requests");
+		m_buttons[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				toggleRequests();
 			}
 		});
 
-		m_buttons[4] = HUDButtonFactory.getButton("options");
-		m_buttons[4].addActionListener(new ActionListener() {
+		m_buttons[5] = HUDButtonFactory.getButton("options");
+		m_buttons[5].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				toggleOptions();
 			}
 		});
 		
-        m_buttons[5] = HUDButtonFactory.getButton("help");
-        m_buttons[5].addActionListener(new ActionListener() {
+        m_buttons[6] = HUDButtonFactory.getButton("help");
+        m_buttons[6].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		toggleHelp();
         	}
@@ -257,7 +268,7 @@ public class Ui extends Frame {
 		} else {
 			hideHUD();
 			m_requestsForm.setWidth(UI_WIDTH);
-			m_requestsForm.setLocation(m_buttons[3].getX(),  67 - getTitleBar().getHeight());
+			m_requestsForm.setLocation(m_buttons[4].getX(),  67 - getTitleBar().getHeight());
 			m_requestsForm.setDraggable(false);
 			getDisplay().add(m_requestsForm);
 		}
@@ -346,7 +357,7 @@ public class Ui extends Frame {
 			m_isOption = true;
 			m_optionsForm = new OptionsDialog();
 			m_optionsForm.setWidth(UI_WIDTH);
-			m_optionsForm.setLocation(m_buttons[4].getX(), 67 - getTitleBar().getHeight());
+			m_optionsForm.setLocation(m_buttons[5].getX(), 67 - getTitleBar().getHeight());
 			m_optionsForm.setDraggable(false);
 			getDisplay().add(m_optionsForm);
 		}
@@ -364,13 +375,13 @@ public class Ui extends Frame {
 			m_helpForm = new HelpWindow();
 			m_helpForm.setWidth(UI_WIDTH);
 			m_helpForm.setHeight(300);
-			m_helpForm.setLocation(m_buttons[5].getX(), 67 - getTitleBar().getHeight());
+			m_helpForm.setLocation(m_buttons[6].getX(), 67 - getTitleBar().getHeight());
 			getDisplay().add(m_helpForm);
 		}
     }
     
     /**
-     * Toggles the Help Pane
+     * Toggles the Map Pane
      */
     public void toggleMap(){
     	if (m_map.isVisible()) {
@@ -380,6 +391,20 @@ public class Ui extends Frame {
 			hideHUD();
 			m_map.setLocation(m_buttons[2].getX(),  67 - getTitleBar().getHeight());
 			m_map.setVisible(true);
+		}
+    }
+    
+    /**
+     * Toggles the Friends Pane
+     */
+    public void toggleFriends(){
+    	if (m_friendsList.isVisible()) {
+    		m_friendsList.setVisible(false);
+			hideHUD();
+		} else {
+			hideHUD();
+			m_friendsList.setLocation(m_buttons[3].getX(),  67 - getTitleBar().getHeight());
+			m_friendsList.setVisible(true);
 		}
     }
         
@@ -397,6 +422,7 @@ public class Ui extends Frame {
             if (m_helpForm != null) m_helpForm.setVisible(false);
             m_helpForm = null;
             if (m_map.isVisible()) m_map.setVisible(false);
+            if (m_friendsList.isVisible()) m_friendsList.setVisible(false);
     }
     
     /**
@@ -482,15 +508,7 @@ public class Ui extends Frame {
 	 * @return the Friends List
 	 */
 	public FriendListDialog getFriendsList() {
-		return m_friendList;
-	}
-	
-	/**
-	 * Sets the Friends List
-	 * @param friends
-	 */
-	public void setFriendsList(String[] friends){
-		m_friendList = new FriendListDialog(friends);
+		return m_friendsList;
 	}
 	
 	/**
@@ -550,7 +568,16 @@ public class Ui extends Frame {
      */
     public ShopDialog getShop() {
     	return m_shop;
-    }    
+    }
+    
+	/**
+	 * Initializes the Friends List
+	 * @param friends
+	 */
+	public void initFriendsList(String[] friends){
+		for (int i =0; i < friends.length; i++)
+			m_friendsList.addFriend(friends[i]);
+	}
     
     /**
      * A pokemon wants to evolve

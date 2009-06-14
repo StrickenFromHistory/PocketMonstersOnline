@@ -380,10 +380,12 @@ public class GameClient extends BasicGame {
 				} else if (key == (Input.KEY_3)) {
 					m_ui.toggleMap();
 				} else if (key == (Input.KEY_4)) {
-					m_ui.toggleRequests();
+					m_ui.toggleFriends();
 				} else if (key == (Input.KEY_5)) {
-					m_ui.toggleOptions();
+					m_ui.toggleRequests();
 				} else if (key == (Input.KEY_6)) {
+					m_ui.toggleOptions();
+				} else if (key == (Input.KEY_7)) {
 					m_ui.toggleHelp();
 				}
 			}
