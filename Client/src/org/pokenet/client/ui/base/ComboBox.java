@@ -120,8 +120,16 @@ public class ComboBox extends Container{
 	 * Returns the selected item's index
 	 * @return the selected item's index
 	 */
-	public int getSelectedIndex(){
+	public int getSelectedIndex() {
 		return m_elements.indexOf(m_selected);
+	}
+	
+	/**
+	 * Returns true if an item is being selected
+	 * @return true if an item is being selected
+	 */
+	public boolean isSelecting() {
+		return m_itemSelector != null;
 	}
 	
 	/**
@@ -279,7 +287,7 @@ class ItemSelector extends Frame{
 				
 				@Override
 				public void mouseReleased(MouseEvent e){
-					m_selected = j;
+					m_selected = j + m_index;
 					m_choiceMade = true;
 				}
 			});

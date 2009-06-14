@@ -149,9 +149,9 @@ public class PokeStorageBoxFrame extends Frame {
 		m_changeBox.addElement("Box 8");
 		m_changeBox.addElement("Box 9");
 		
-		m_changeBox.setSize(50, 15);
+		m_changeBox.setSize(55, 15);
 		m_changeBox.setLocation(m_switchPoke.getX() + m_switchPoke.getWidth(),
-				192);
+				197);
 
 		m_release.setText("Release");
 		m_release.pack();
@@ -276,6 +276,7 @@ public class PokeStorageBoxFrame extends Frame {
 	public void update(GUIContext container, int delta){
 		super.update(container, delta);
 		if (m_changeBox.getSelectedIndex() != m_boxIndex){
+			System.out.println(m_changeBox.getSelectedIndex());
 			m_boxIndex = m_changeBox.getSelectedIndex();
 			m_boxNum = m_boxIndex + 1;
 			disableButtons();
