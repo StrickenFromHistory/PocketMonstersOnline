@@ -409,6 +409,10 @@ public class WildBattleField extends BattleField {
 	 * @param p
 	 */
 	public void throwPokeball(PokeBall p) {
+		/* Ensure user doesn't throw a Pokeball while battling */
+		while(m_dispatch != null) {
+			try { Thread.sleep(500); } catch (Exception e){}
+		}
 		switch(p) {
 		case POKEBALL:
 			showMessage(m_player.getName() + " threw a Pokeball!");

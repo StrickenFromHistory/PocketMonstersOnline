@@ -13,13 +13,39 @@ import org.pokenet.server.battle.mechanics.polr.POLREvolution;
 import org.pokenet.server.battle.mechanics.polr.POLREvolution.EvoTypes;
 
 /**
- * Processes an item
+ * Processes an item using a thread
  * @author shadowkanji
  *
  */
-public class ItemProcessor {
+public class ItemProcessor implements Runnable {
 	/* An enum which handles Pokeball types */
 	public enum PokeBall { POKEBALL, GREATBALL, ULTRABALL, MASTERBALL };
+	private PlayerChar m_player;
+	private String [] m_details;
+	
+	/**
+	 * Constructor
+	 * @param p
+	 * @param details
+	 */
+	public ItemProcessor(PlayerChar p, String [] details) {
+		m_player = p;
+		m_details = details;
+	}
+	
+	/**
+	 * Executes the item usage
+	 */
+	public void run() {
+		String [] data = new String[m_details.length - 1];
+		for(int i = 1; i < m_details.length; i++)
+			data[i - 1] = m_details[i];
+		if(useItem(m_player, Integer.parseInt(m_details[0]), data)) {
+			m_player.getBag().removeItem(Integer.parseInt(m_details[0]), 1);
+			m_player.getSession().write("I" + m_details[0] + "," + 1);
+		}
+	}
+	
 	/**
 	 * Uses an item in the player's bag. Returns true if it was used.
 	 * @param p
@@ -39,8 +65,10 @@ public class ItemProcessor {
 		if(i.getAttributes().contains(ItemAttribute.MOVESLOT)) {
 			/* TMs & HMs */
 			try {
+				/* Can't use a TM/HM during battle */
 				if(p.isBattling())
 					return false;
+				/* Player is not in battle, learn the move */
 				poke = p.getParty()[Integer.parseInt(data[0])];
 				poke.learnMove(Integer.parseInt(data[1]), i.getName().substring(5));
 				p.getSession().write("PM" + data[0] + data[1] + i.getName().substring(5));
@@ -81,6 +109,10 @@ public class ItemProcessor {
 					} catch (Exception e) {}
 				}
 			} else if(i.getCategory().equalsIgnoreCase("EVOLUTION")) {
+				/* Evolution items can't be used in battle */
+				if(p.isBattling())
+					return false;
+				/* Get the pokemon's evolution data */
 				poke = p.getParty()[Integer.parseInt(data[0])];
 				POLRDataEntry pokeData = DataService.getPOLRDatabase()
 				.getPokemonData(
@@ -88,7 +120,14 @@ public class ItemProcessor {
 								.getPokemonByName(poke.getSpeciesName()));
 				for(int j = 0; j < pokeData.getEvolutions().size(); j++) {
 					POLREvolution evolution = pokeData.getEvolutions().get(j);
+					/*
+					 * Check if this pokemon evolves by item
+					 */
 					if(evolution.getType() == EvoTypes.Item) {
+						/*
+						 * Check if the item is an evolution stone
+						 * If so, evolve the Pokemon
+						 */
 						if(i.getName().equalsIgnoreCase("FIRE STONE")
 								|| evolution.getAttribute().equalsIgnoreCase("FIRESTONE")) {
 							poke.setEvolution(evolution);
