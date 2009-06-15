@@ -29,7 +29,7 @@ import org.pokenet.server.feature.TimeService;
 public class WildBattleField extends BattleField {
 	private PlayerChar m_player;
 	private Pokemon m_wildPoke;
-	BattleTurn[] m_turn = new BattleTurn[2];
+	private BattleTurn[] m_turn = new BattleTurn[2];
 	private int m_runCount;
 	Set<Pokemon> m_participatingPokemon = new LinkedHashSet<Pokemon>();
 

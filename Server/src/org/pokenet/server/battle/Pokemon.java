@@ -171,6 +171,131 @@ public class Pokemon extends PokemonSpecies {
     }
     
     /**
+     * Returns true if this Pokemon is weak against Pokemon b
+     * @param b
+     * @return
+     */
+    public boolean hasTypeWeakness(Pokemon b) {
+    	switch(this.getTypes()[0].getType()) {
+    	case 0:
+    		/* NORMAL - Weak against Fighting */
+    		if(b.getTypes()[0].getType() == 6)
+    			return true;
+    		break;
+    	case 1:
+    		/* FIRE - Weak against Ground, Rock, Water */
+    		if(b.getTypes()[0].getType() == 8 ||
+    				b.getTypes()[0].getType() == 12 ||
+    				b.getTypes()[0].getType() == 2)
+    			return true;
+    		break;
+    	case 2:
+    		/* WATER - Weak against Electric, Grass */
+    		if(b.getTypes()[0].getType() == 3 ||
+    				b.getTypes()[0].getType() == 4)
+    			return true;
+    		break;
+    	case 3:
+    		/* ELECTRIC - Weak against Ground */
+    		if(b.getTypes()[0].getType() == 8)
+    			return true;
+    		break;
+    	case 4:
+    		/* GRASS - Weak against Bug, Fire, Flying, Ice, Poison */
+    		if(b.getTypes()[0].getType() == 11 ||
+    				b.getTypes()[0].getType() == 1 ||
+    				b.getTypes()[0].getType() == 9 ||
+    				b.getTypes()[0].getType() == 5 ||
+    				b.getTypes()[0].getType() == 7)
+    			return true;
+    		break;
+    	case 5:
+    		/* ICE - Weak against Fighting, Fire, Rock, Steel */
+    		if(b.getTypes()[0].getType() == 6 ||
+    				b.getTypes()[0].getType() == 1 ||
+    				b.getTypes()[0].getType() == 12 ||
+    				b.getTypes()[0].getType() == 16)
+    			return true;
+    		break;
+    	case 6:
+    		/* FIGHTING - Weak against Flying, Psychic */
+    		if(b.getTypes()[0].getType() == 9 ||
+    				b.getTypes()[0].getType() == 10)
+    			return true;
+    		break;
+    	case 7:
+    		/* POISON - Weak against Ground, Psychic */
+    		if(b.getTypes()[0].getType() == 8 ||
+    				b.getTypes()[0].getType() == 10)
+    			return true;
+    		break;
+    	case 8:
+    		/* GROUND - Weak against Ice, Grass, Water */
+    		if(b.getTypes()[0].getType() == 5 ||
+    				b.getTypes()[0].getType() == 4 ||
+    				b.getTypes()[0].getType() == 2)
+    			return true;
+    		break;
+    	case 9:
+    		/* FLYING - Weak against Electric, Ice, Rock */
+    		if(b.getTypes()[0].getType() == 3 ||
+    				b.getTypes()[0].getType() == 5 ||
+    				b.getTypes()[0].getType() == 12)
+    			return true;
+    		break;
+    	case 10:
+    		/* PSYCHIC - Weak against Bug, Dark, Ghost */
+    		if(b.getTypes()[0].getType() == 11 ||
+    				b.getTypes()[0].getType() == 15 ||
+    				b.getTypes()[0].getType() == 13)
+    			return true;
+    		break;
+    	case 11:
+    		/* BUG - Weak against Flying, Fire, Rock */
+    		if(b.getTypes()[0].getType() == 9 ||
+    				b.getTypes()[0].getType() == 1 ||
+    				b.getTypes()[0].getType() == 12)
+    			return true;
+    		break;
+    	case 12:
+    		/* ROCK - Weak against Fighting, Grass, Ground, Steel, Water */
+    		if(b.getTypes()[0].getType() == 6 ||
+    				b.getTypes()[0].getType() == 4 ||
+    				b.getTypes()[0].getType() == 8 ||
+    				b.getTypes()[0].getType() == 16 ||
+    				b.getTypes()[0].getType() == 2)
+    			return true;
+    		break;
+    	case 13:
+    		/* GHOST - Weak against Dark, Ghost */
+    		if(b.getTypes()[0].getType() == 13 ||
+    				b.getTypes()[0].getType() == 15)
+    			return true;
+    		break;
+    	case 14:
+    		/* DRAGON - Weak against Dragon, Ice */
+    		if(b.getTypes()[0].getType() == 14 ||
+    				b.getTypes()[0].getType() == 5)
+    			return true;
+    		break;
+    	case 15:
+    		/* DARK - Weak against Bug, Fighting */
+    		if(b.getTypes()[0].getType() == 6 ||
+    				b.getTypes()[0].getType() == 11)
+    			return true;
+    		break;
+    	case 16:
+    		/* STEEL - Weak against Fire, Fighting, Ground */
+    		if(b.getTypes()[0].getType() == 1 ||
+    				b.getTypes()[0].getType() == 6 ||
+    				b.getTypes()[0].getType() == 8)
+    			return true;
+    		break;
+    	}
+    	return false;
+    }
+    
+    /**
      * Returns true if this Pokemon is waiting to evolve
      * @return
      */

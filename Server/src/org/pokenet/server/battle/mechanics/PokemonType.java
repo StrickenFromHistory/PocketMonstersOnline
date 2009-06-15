@@ -199,4 +199,12 @@ public class PokemonType implements Serializable {
     public String toString() {
         return m_types[m_type];
     }
+    
+    /**
+     * Returns the Pokemon type's id
+     * @return
+     */
+    public int getType() {
+    	return m_type;
+    }
 }

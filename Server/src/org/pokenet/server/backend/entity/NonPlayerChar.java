@@ -117,6 +117,25 @@ public class NonPlayerChar extends Char {
 	 * @return
 	 */
 	public boolean canSee(PlayerChar p) {
+		Random r = new Random();
+		switch(this.getFacing()) {
+		case Up:
+			if(p.getY() >= this.getY() - (32 * (r.nextInt(4) + 1)))
+				return true;
+			break;
+		case Down:
+			if(p.getY() <= this.getY() + (32 * (r.nextInt(4) + 1)))
+				return true;
+			break;
+		case Left:
+			if(p.getX() >= this.getX() - (32 * (r.nextInt(4) + 1)))
+				return true;
+			break;
+		case Right:
+			if(p.getX() <= this.getX() + (32 * (r.nextInt(4) + 1)))
+				return true;
+			break;
+		}
 		return false;
 	}
 	
