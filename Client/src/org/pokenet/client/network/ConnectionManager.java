@@ -207,6 +207,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 					//Our player lost
 					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informLoss();
 					break;
+				case 'p':
+					//Our player caught the Pokemon
+					break;
 				}
 				break;
 			case 'F':
@@ -302,12 +305,22 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'm':
 				/*
-				 * Move learning, received as (for example) Pm0EMBER
+				 * Move learning by levelling up, received as (for example) Pm0EMBER
 				 * The 3rd character is the index of the pokemon in
 				 * the player's party and the rest is the move name
+				 * NOTE: This packet is for informing the client a move wants to be learned
+				 * if the client allows the move learning, the server does not send a reply
+				 * to confirm it was learned, as it is ensured it is learned
 				 */
 				GameClient.getInstance().getUi().getBattleManager().learnMove(Integer.parseInt(String.valueOf(
 						message.charAt(2))), message.substring(3));
+				break;
+			case 'M':
+				/* Move learning by TM, this packet is confirmation that the moved was learned */
+				m_game.getOurPlayer().getPokemon()[Integer.parseInt(String.valueOf(message.charAt(2)))]
+				                                   .setMoves(Integer.parseInt(String.valueOf(message.charAt(3)))
+				                                		   , message.substring(4));
+				GameClient.getInstance().getUi().update();
 				break;
 			case 'e':
 				//EXP gain
@@ -332,6 +345,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getOurPlayer().getPokemon()[Integer.parseInt(levelData[0])].setLevel(
 						Integer.parseInt(levelData[1]));
 				m_game.getUi().update();
+				break;
+			case 'h':
+				//HP Change - through item usage
+				m_game.getOurPlayer().getPokemon()[Integer.parseInt(String.valueOf(message.charAt(2)))]
+				                                   .setCurHP(Integer.parseInt(message.substring(3)));
+				GameClient.getInstance().getUi().update();
 				break;
 			}
 			break;
@@ -627,7 +646,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 				details = message.substring(2).split(",");
 				GameClient.getInstance().getOurPlayer().addItem(Integer.parseInt(details[0]),Integer.parseInt(details[1]));
 				break;
-			case 'r': //Remove item to bag
+			case 'r': //Remove item from bag
+				details = message.substring(2).split(",");
+				m_game.getOurPlayer().removeItem(Integer.parseInt(details[0]), Integer.parseInt(details[1]));
 				break;
 			}
 			break;

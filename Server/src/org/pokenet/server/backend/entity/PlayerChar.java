@@ -1113,7 +1113,7 @@ public class PlayerChar extends Char implements Battleable {
 		/* If the player isn't shopping, ignore this */
 		if(m_currentShop == null)
 			return;
-		if(m_bag.checkItem(id)>0) { //Guy does have the item he's selling. 
+		if(m_bag.containsItem(id)>0) { //Guy does have the item he's selling. 
 			m_money = m_money + (q * m_currentShop.getPriceForItem(id));
 			m_bag.removeItem(id, q);
 			this.updateClientMoney();

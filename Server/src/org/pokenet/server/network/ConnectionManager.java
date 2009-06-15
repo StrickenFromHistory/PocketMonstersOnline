@@ -6,6 +6,7 @@ import java.util.Iterator;
 import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
+import org.pokenet.server.backend.ItemProcessor;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar.RequestType;
 import org.pokenet.server.backend.entity.Positionable.Direction;
@@ -23,6 +24,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 	private LoginManager m_loginManager;
 	private LogoutManager m_logoutManager;
 	private RegistrationManager m_regManager;
+	private ItemProcessor m_itemProcessor;
 	
 	/**
 	 * Constructor
@@ -33,6 +35,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 		m_loginManager = login;
 		m_logoutManager = logout;
 		m_regManager = new RegistrationManager();
+		m_itemProcessor = new ItemProcessor();
 		m_regManager.start();
 	}
 	
@@ -322,6 +325,17 @@ public class ConnectionManager extends IoHandlerAdapter {
 					//Remove a friend
 					p.removeFriend(message.substring(2));
 					break;
+				}
+				break;
+			case 'I':
+				//Use an item, applies inside and outside of battle
+				details = message.substring(1).split(",");
+				String [] data = new String[details.length - 1];
+				for(int i = 1; i < details.length; i++)
+					data[i - 1] = details[i];
+				if(m_itemProcessor.useItem(p, Integer.parseInt(details[0]), data)) {
+					p.getBag().removeItem(Integer.parseInt(details[0]), 1);
+					p.getSession().write("I" + details[0] + "," + 1);
 				}
 				break;
 			case 'T':

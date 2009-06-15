@@ -38,7 +38,7 @@ public class Bag {
 	 * @param quantity
 	 */
 	public boolean addItem(int itemNumber, int quantity) {
-		int bagIndex = checkItem(itemNumber);
+		int bagIndex = containsItem(itemNumber);
 		if(bagIndex > -1){
 			m_items.get(bagIndex).setQuantity(m_items.get(bagIndex).getQuantity()+quantity);
 			return true;
@@ -87,12 +87,12 @@ public class Bag {
 	 * @param itemNumber
 	 * @param quantity
 	 */
-	public int checkItem(int itemNumber) {
+	public int containsItem(int itemNumber) {
 		int bagIndex = -1;
 		for(int i = 0; i < m_items.size(); i++) {
 			if(m_items.get(i).getItemNumber() == itemNumber){
 				bagIndex = i;
-				i = m_items.size();//End for loop. We found what we're looking for. 
+				break;//End for loop. We found what we're looking for. 
 			}
 		}
 		return bagIndex;
@@ -135,5 +135,14 @@ public class Bag {
 	 */
 	public int getMemberId() {
 		return m_memberId;
+	}
+	
+	/**
+	 * Returns true if the bag contains the item
+	 * @param itemId
+	 * @return
+	 */
+	public boolean contains(int itemId) {
+		return false;
 	}
 }

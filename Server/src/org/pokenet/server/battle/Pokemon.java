@@ -740,7 +740,12 @@ public class Pokemon extends PokemonSpecies {
     	return p;
     }
     
-    /**
+    private static int generateGender(int possibleGenders) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
      * Load a team from a file and return the ModData used by the team.
      */
     public static ModData loadTeam(File f, Pokemon[] team) {
@@ -1769,25 +1774,27 @@ public class Pokemon extends PokemonSpecies {
                     display = -m_hp;
                 }
             }
-            m_field.informPokemonHealthChanged(this, display);
-            if ((result <= 0) && !throughSubstitute) {
-                boolean live = false;
-                if (hasEffect(MoveList.EndureEffect.class)) {
-                    m_field.showMessage(getName() + " endured the attack!");
-                    live = true;
-                } else if ((m_hp == max) && hasItem("Focus Sash")) {
-                    m_field.showMessage(getName() + " hung on using its Focus Sash!");
-                    live = true;
-                    setItem(null);
-                } else if (hasItem("Focus Band")) {
-                    if (m_field.getRandom().nextDouble() <= 0.1) {
-                        m_field.showMessage(getName() + " hung on using its Focus Band!");
-                        live = true;
-                    }
-                }
-                if (live) {
-                    hp = -m_hp + 1;
-                }
+            if(m_field != null) {
+            	m_field.informPokemonHealthChanged(this, display);
+            	 if ((result <= 0) && !throughSubstitute) {
+                     boolean live = false;
+                     if (hasEffect(MoveList.EndureEffect.class)) {
+                         m_field.showMessage(getName() + " endured the attack!");
+                         live = true;
+                     } else if ((m_hp == max) && hasItem("Focus Sash")) {
+                         m_field.showMessage(getName() + " hung on using its Focus Sash!");
+                         live = true;
+                         setItem(null);
+                     } else if (hasItem("Focus Band")) {
+                         if (m_field.getRandom().nextDouble() <= 0.1) {
+                             m_field.showMessage(getName() + " hung on using its Focus Band!");
+                             live = true;
+                         }
+                     }
+                     if (live) {
+                         hp = -m_hp + 1;
+                     }
+                 }
             }
             m_hp += hp;
             if (m_hp <= 0) {
@@ -2153,11 +2160,6 @@ public class Pokemon extends PokemonSpecies {
             m_maxPp[idx] = m_move[idx].getMove().getPp();
             setPp(idx, m_move[idx].getMove().getPp());
 		}
-	}
-
-	public static int generateGender(int possibleGenders) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 	
 	/**

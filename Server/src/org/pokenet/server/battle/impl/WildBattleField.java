@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import org.pokenet.server.backend.ItemProcessor.PokeBall;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.BattleTurn;
@@ -400,6 +401,63 @@ public class WildBattleField extends BattleField {
 			} catch (MoveQueueException e) {
 				e.printStackTrace();
 			}
+		}
+	}
+	
+	/**
+	 * Throws a Pokeball
+	 * @param p
+	 */
+	public void throwPokeball(PokeBall p) {
+		switch(p) {
+		case POKEBALL:
+			showMessage(m_player.getName() + " threw a Pokeball!");
+			if(getMechanics().isCaught(m_wildPoke, 
+					getMechanics().getRandom().nextInt(255), 1.0, 1)) {
+				m_player.catchPokemon(m_wildPoke);
+				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
+				m_player.getSession().write("b@p");
+				m_player.setBattling(false);
+				dispose();
+			} else
+				showMessage("...but it failed!");
+			break;
+		case GREATBALL:
+			showMessage(m_player.getName() + " threw a Great Ball!");
+			if(getMechanics().isCaught(m_wildPoke, 
+					getMechanics().getRandom().nextInt(255), 1.5, 1)) {
+				m_player.catchPokemon(m_wildPoke);
+				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
+				m_player.getSession().write("b@p");
+				m_player.setBattling(false);
+				dispose();
+			} else
+				showMessage("...but it failed!");
+			break;
+		case ULTRABALL:
+			showMessage(m_player.getName() + " threw an Ultra Ball!");
+			if(getMechanics().isCaught(m_wildPoke, 
+					getMechanics().getRandom().nextInt(255), 2.0, 1)) {
+				m_player.catchPokemon(m_wildPoke);
+				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
+				m_player.getSession().write("b@p");
+				m_player.setBattling(false);
+				dispose();
+			} else
+				showMessage("...but it failed!");
+			break;
+		case MASTERBALL:
+			showMessage(m_player.getName() + " threw a Master Ball!");
+			if(getMechanics().isCaught(m_wildPoke, 
+					getMechanics().getRandom().nextInt(255), 255.0, 1)) {
+				m_player.catchPokemon(m_wildPoke);
+				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
+				m_player.getSession().write("b@p");
+				m_player.setBattling(false);
+				dispose();
+			} else
+				showMessage("...but it failed!");
+			break;
 		}
 	}
 
