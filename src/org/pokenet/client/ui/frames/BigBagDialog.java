@@ -66,117 +66,54 @@ public class BigBagDialog extends Frame {
 	}
 	
 	public void initGUI() {
-		m_categoryButtons = new Button[4];
-		m_categoryLabels = new Label[4];
+		m_categoryButtons = new Button[5];
+		m_categoryLabels = new Label[5];
 		
-		m_categoryButtons[0] = new Button(" ");
-		LoadingList.setDeferredLoading(true);
-		try{
-			m_categoryButtons[0].setImage(new Image("res/ui/shop/pokeball.png"));
-		}catch(Exception e){
-			e.printStackTrace();
+		for(int i = 0; i < m_categoryButtons.length;i++){
+			m_categoryLabels[i] = new Label(i+"");
+			if(i==0)
+				m_categoryLabels[i].setLocation(0,0);
+			else if(i>0 && i<6)
+				m_categoryLabels[i].setLocation(m_categoryLabels[i-1].getLocation().x+80, 0);
+			else if(i==6)
+				m_categoryLabels[i].setLocation(0,80);
+			else
+				m_categoryLabels[i].setLocation(m_categoryLabels[i-1].getLocation().x+80, 80);
+			m_categoryLabels[i].setGlassPane(true);
+			m_categoryLabels[i].setZIndex(1000);
+			m_categoryLabels[i].setSize(80,80);
+			m_categoryLabels[i].setFont(GameClient.getFontLarge());
+			
+			m_categoryButtons[i] = new Button(" ");
+			LoadingList.setDeferredLoading(true);
+//			try{
+//				m_categoryButtons[0].setImage(new Image("res/ui/shop/pokeball.png"));
+//			}catch(Exception e){
+//				e.printStackTrace();
+//			}
+			LoadingList.setDeferredLoading(false);
+			m_categoryButtons[i].setSize(80, 80);
+			if(i==0)
+				m_categoryButtons[i].setLocation(0,0);
+			else if(i>0 && i<6)
+				m_categoryButtons[i].setLocation(m_categoryButtons[i-1].getLocation().x+80,0);
+			else if(i==6)
+				m_categoryButtons[i].setLocation(0,80);
+			else
+				m_categoryButtons[i].setLocation(m_categoryButtons[i-1].getLocation().x+80,80);
+			m_categoryButtons[i].setFont(GameClient.getFontLarge());
+			m_categoryButtons[i].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+//					categoryClicked(0);
+				}
+			});
+			m_categoryButtons[i].add(m_categoryLabels[i]);
+			getContentPane().add(m_categoryButtons[i]);
 		}
-		LoadingList.setDeferredLoading(false);
-		m_categoryButtons[0].setSize(150, 160);
-		m_categoryButtons[0].setLocation(0,0);
-		m_categoryButtons[0].setFont(GameClient.getFontLarge());
-		m_categoryButtons[0].addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				categoryClicked(0);
-			}
-		});
-		getContentPane().add(m_categoryButtons[0]);
-		
-		m_categoryLabels[0] = new Label("Pokeballs");
-		m_categoryLabels[0].setLocation(0,0);
-		m_categoryLabels[0].setGlassPane(true);
-		m_categoryLabels[0].setZIndex(1000);
-		m_categoryLabels[0].setSize(150,10);
-		m_categoryLabels[0].setFont(GameClient.getFontLarge());
-		getContentPane().add(m_categoryLabels[0]);
-		
-		m_categoryButtons[1] = new Button(" ");
-		LoadingList.setDeferredLoading(true);
-		try{
-			m_categoryButtons[1].setImage(new Image("res/ui/shop/potion.png"));
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		LoadingList.setDeferredLoading(false);
-		m_categoryButtons[1].setSize(150, 160);
-		m_categoryButtons[1].setLocation(151, 0);
-		m_categoryButtons[1].setFont(GameClient.getFontLarge());
-		m_categoryButtons[1].addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				categoryClicked(1);
-			}
-		});
-		getContentPane().add(m_categoryButtons[1]);
-		
-		m_categoryLabels[1] = new Label("Potions");
-		m_categoryLabels[1].setLocation(151,0);
-		m_categoryLabels[1].setGlassPane(true);
-		m_categoryLabels[1].setFont(GameClient.getFontLarge());
-		m_categoryLabels[1].setZIndex(1000);
-		m_categoryLabels[1].setSize(150,10);
-		getContentPane().add(m_categoryLabels[1]);
-		
-		m_categoryButtons[2] = new Button(" ");
-		LoadingList.setDeferredLoading(true);
-		try{
-			m_categoryButtons[2].setImage(new Image("res/ui/shop/status.png"));
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		LoadingList.setDeferredLoading(false);
-		m_categoryButtons[2].setSize(150, 160);
-		m_categoryButtons[2].setLocation(0,161);
-		m_categoryButtons[2].setFont(GameClient.getFontLarge());
-		m_categoryButtons[2].addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				categoryClicked(2);
-			}
-		});
-		getContentPane().add(m_categoryButtons[2]);
-		
-		m_categoryLabels[2] = new Label("Status Heals");
-		m_categoryLabels[2].setLocation(0,161);
-		m_categoryLabels[2].setGlassPane(true);
-		m_categoryLabels[2].setFont(GameClient.getFontLarge());
-		m_categoryLabels[2].setZIndex(1000);
-		m_categoryLabels[2].setSize(150,10);
-		getContentPane().add(m_categoryLabels[2]);
-		
-		m_categoryButtons[3] = new Button(" ");
-		LoadingList.setDeferredLoading(true);
-		try{
-			m_categoryButtons[3].setImage(new Image("res/ui/shop/field.png"));
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		LoadingList.setDeferredLoading(false);
-		m_categoryButtons[3].setSize(150, 160);
-		m_categoryButtons[3].setLocation(151,161);
-		m_categoryButtons[3].setFont(GameClient.getFontLarge());
-		m_categoryButtons[3].addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				categoryClicked(3);
-			}
-		});
-		getContentPane().add(m_categoryButtons[3]);
-		
-		m_categoryLabels[3] = new Label("Field Tools");
-		m_categoryLabels[3].setLocation(151,161);
-		m_categoryLabels[3].setGlassPane(true);
-		m_categoryLabels[3].setFont(GameClient.getFontLarge());
-		m_categoryLabels[3].setZIndex(1000);
-		m_categoryLabels[3].setSize(150,10);
-		getContentPane().add(m_categoryLabels[3]);
-
-		
-		m_cancel = new Button("Cancel");
-		m_cancel.setSize(300,56);
-		m_cancel.setLocation(0,321);
+				
+		m_cancel = new Button("Close");
+		m_cancel.setSize(400,32);
+		m_cancel.setLocation(0,144);
 		m_cancel.setFont(GameClient.getFontLarge());
 		m_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -194,10 +131,11 @@ public class BigBagDialog extends Frame {
 				});
 		setTitle("Bag");
 		setResizable(false);
-		setHeight(400);
-		setWidth(300);
+		setHeight(200);
+		setWidth(m_categoryButtons.length*80);
 		pack();
 		setVisible(true);
+		setCenter();
 	}
 	
 	private void initItems() {
@@ -342,8 +280,8 @@ public class BigBagDialog extends Frame {
 	public void setCenter() {
 		int height = (int) GameClient.getInstance().getDisplay().getHeight();
 		int width = (int) GameClient.getInstance().getDisplay().getWidth();
-		int x = (width / 2) - 130;
-		int y = (height / 2) - 238;
-		this.setBounds(x, y, 259, 475);
+		int x = (width / 2) - 400;
+		int y = (height / 2) - 200;
+		this.setBounds(x, y, this.getWidth(), this.getHeight());
 	}
 }
