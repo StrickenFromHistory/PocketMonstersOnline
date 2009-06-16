@@ -36,6 +36,9 @@ public class NpcBattleField extends BattleField {
 		m_player = p;
 		m_npc = n;
 
+		/* Start the battle */
+		m_player.getSession().write("bi0");
+
 		/* Set the player's battle id */
 		m_player.setBattleId(0);
 		/* Send enemy name and pokemon data */
