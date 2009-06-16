@@ -220,7 +220,8 @@ public class NpcBattleField extends BattleField {
 			} else {
 				// Handle a fainted pokemon
 				if (this.getActivePokemon()[trainer].isFainted()) {
-					if (!move.isMoveTurn()) {
+					if (!move.isMoveTurn() && this.getParty(trainer)[move.getId()] != null
+							&& this.getParty(trainer)[move.getId()].getHealth() > 0) {
 						this.switchInPokemon(trainer, move.getId());
 						requestMoves();
 						return;
@@ -261,7 +262,9 @@ public class NpcBattleField extends BattleField {
 							}
 						}
 					} else {
-						if (this.getActivePokemon()[trainer].isActive()) {
+						if (this.getActivePokemon()[trainer].isActive() && 
+								this.getParty(trainer)[move.getId()] != null &&
+								this.getParty(trainer)[move.getId()].getHealth() > 0) {
 							m_turn[trainer] = move;
 						} else {
 							requestMove(trainer);

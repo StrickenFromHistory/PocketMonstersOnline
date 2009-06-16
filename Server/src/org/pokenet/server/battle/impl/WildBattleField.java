@@ -209,7 +209,8 @@ public class WildBattleField extends BattleField {
 				}
 			} else {
 				if (this.getActivePokemon()[trainer].isFainted()) {
-					if (!move.isMoveTurn()) {
+					if (!move.isMoveTurn() && this.getParty(trainer)[move.getId()] != null
+							&& this.getParty(trainer)[move.getId()].getHealth() > 0) {
 						this.switchInPokemon(trainer, move.getId());
 						requestMoves();
 						if (!m_participatingPokemon
@@ -252,7 +253,9 @@ public class WildBattleField extends BattleField {
 							}
 						}
 					} else {
-						if (this.getActivePokemon()[trainer].isActive()) {
+						if (this.getActivePokemon()[trainer].isActive() && 
+								this.getParty(trainer)[move.getId()] != null &&
+								this.getParty(trainer)[move.getId()].getHealth() > 0) {
 							m_turn[trainer] = move;
 						} else {
 							if (trainer == 0) {
