@@ -93,7 +93,7 @@ public class NonPlayerChar extends Char {
 				p.getSession().write("Cn" + speech);
 		}
 		/* If this NPC is a sprite selection npc */
-		if(this.getName().equalsIgnoreCase("Spriter")) {
+		if(m_name.equalsIgnoreCase("Spriter")) {
 			p.setSpriting(true);
 			p.getSession().write("SS");
 			return;
