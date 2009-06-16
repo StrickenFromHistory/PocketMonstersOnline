@@ -461,9 +461,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'S':
 				//Sprite change
-				p = m_game.getMapMatrix().getPlayer(Integer.parseInt(message.substring(2)));
+				details = message.substring(2).split(",");
+				p = m_game.getMapMatrix().getPlayer(Integer.parseInt(details[0]));
 				if(p != null) {
-					p.setSprite(Integer.parseInt(message.substring(2)));
+					p.setSprite(Integer.parseInt(details[1]));
 					p.loadSpriteImage();
 				}
 				break;
