@@ -14,6 +14,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.gui.GUIContext;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.ui.base.ConfirmationDialog;
 import org.pokenet.client.ui.base.ListBox;
 
 public class SpriteChooserDialog extends Frame {
@@ -77,53 +78,22 @@ public class SpriteChooserDialog extends Frame {
 			public void actionPerformed(ActionEvent e) {
 				GameClient.getInstance().getDisplay().remove(thisDialog);
 
-				final Frame confirm = new Frame("New sprite character..");
-				confirm.getCloseButton().setVisible(false);
-
-				confirm.setResizable(false);
-
-				confirm.setLocationRelativeTo(null);
-
-				Label yousure1 = new Label(
-						"Are you sure you want to change sprites?");
-				yousure1.pack();
-				confirm.setSize(yousure1.getWidth() + 5, 100);
-
-				Label yousure2 = new Label("It'll cost you P1000!");
-				yousure2.pack();
-				yousure2.setLocation(0, 20);
-
-				Button yes = new Button("Yes");
-				yes.pack();
-				yes.setLocation(5, confirm.getHeight()
-						- confirm.getTitleBar().getHeight() - yes.getHeight()
-						- 5);
-				yes.addActionListener(new ActionListener() {
+				final ConfirmationDialog confirm = new ConfirmationDialog("Are you sure you want to change sprites?\nIt'll cost you P1000!");
+				confirm.addYesListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						confirm.setVisible(false);
 						GameClient.getInstance().getDisplay().remove(confirm);
-
-						GameClient.getInstance().getUi().update();
 
 						GameClient.getInstance().getPacketGenerator().write(
-								"S" + getChoice());
+								"S" + m_spriteList.getSelectedName());
 					}
 				});
-				Button no = new Button("No");
-				no.pack();
-				no.setLocation(yes.getWidth() + 15, confirm.getHeight()
-						- confirm.getTitleBar().getHeight() - no.getHeight()
-						- 5);
-				no.addActionListener(new ActionListener() {
+				confirm.addNoListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						confirm.setVisible(false);
 						GameClient.getInstance().getDisplay().remove(confirm);
 					}
 				});
-				confirm.getContentPane().add(yousure1);
-				confirm.getContentPane().add(yousure2);
-				confirm.getContentPane().add(yes);
-				confirm.getContentPane().add(no);
 
 				GameClient.getInstance().getDisplay().add(confirm);
 			}
