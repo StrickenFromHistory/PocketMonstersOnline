@@ -75,7 +75,7 @@ public class OptionsDialog extends Frame {
 			m_disableMaps = new CheckBox(translated.get(48));
 			m_disableMaps.pack();
 			m_disableMaps.setLocation(10, 45);
-			m_disableMaps.setSelected(!Boolean.parseBoolean(m_options.get("surroundingMaps")));
+			m_disableMaps.setSelected(Boolean.parseBoolean(m_options.get("disableMaps")));
 			getContentPane().add(m_disableMaps);
 		}
 		{
@@ -102,9 +102,9 @@ public class OptionsDialog extends Frame {
 						m_options.put("soundMuted", Boolean.toString(m_muteSound
 								.isSelected()));
 						
-						m_options.remove("surroundingMaps");
-						m_options.put("surroundingMaps", Boolean.toString(!m_disableMaps.isSelected()));
-						GameClient.setLoadSurroundingMaps(!m_disableMaps.isSelected());
+						m_options.remove("disableMaps");
+						m_options.put("disableMaps", Boolean.toString(m_disableMaps.isSelected()));
+						GameClient.setDisableMaps(m_disableMaps.isSelected());
 						
 						if (m_muteSound.isSelected())
 							GameClient.getSoundPlayer().mute(true); 
