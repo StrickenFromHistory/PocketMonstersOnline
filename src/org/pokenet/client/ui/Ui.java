@@ -218,10 +218,14 @@ public class Ui extends Frame {
      * @param p
      */
     public void update(){
-    	m_moneyLabel.setText("$" + String.valueOf(GameClient.getInstance()
-    			.getOurPlayer().getMoney()));
-    	m_moneyLabel.pack();
-    	m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokemon());
+    	try{
+    		m_moneyLabel.setText("$" + String.valueOf(GameClient.getInstance()
+    				.getOurPlayer().getMoney()));
+    		m_moneyLabel.pack();
+    	} catch (Exception e) {System.out.println("Failed to update money");}
+    	try{
+    		m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokemon());
+    	} catch (Exception e) {System.out.println("Failed to update pokemon data");}
     }
     
     /**
