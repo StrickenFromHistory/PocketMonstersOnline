@@ -319,29 +319,6 @@ public class ServerMap {
 	 * @param w
 	 */
 	public void setWeather(Weather w) {
-		switch(w){
-		case NORMAL:
-			for (PlayerChar p : m_players)
-				p.getSession().write("cwn");
-			break;
-		case FOG:
-			for (PlayerChar p : m_players)
-				p.getSession().write("cwf");
-			break;
-		case RAIN:
-			for (PlayerChar p : m_players)
-				p.getSession().write("cwr");
-			break;
-		case HAIL:
-			for (PlayerChar p : m_players)
-				p.getSession().write("cws");
-			break;
-		case SANDSTORM:
-			for (PlayerChar p : m_players)
-				p.getSession().write("cwS");
-			break;
-		}
-
 		m_forcedWeather = w;
 	}
 	
