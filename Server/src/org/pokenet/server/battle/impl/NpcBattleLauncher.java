@@ -45,13 +45,13 @@ public class NpcBattleLauncher implements Runnable {
 				m_player.setFacing(Direction.Down);
 				break;
 			case Down:
-				m_player.setFacing(Direction.Down);
+				m_player.setFacing(Direction.Up);
 				break;
 			case Left:
-				m_player.setFacing(Direction.Down);
+				m_player.setFacing(Direction.Right);
 				break;
 			case Right:
-				m_player.setFacing(Direction.Down);
+				m_player.setFacing(Direction.Left);
 				break;
 			}
 			/* While the player isn't blocked, move the player towards the npc */
