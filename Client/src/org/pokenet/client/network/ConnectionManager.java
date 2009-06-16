@@ -324,14 +324,14 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getOurPlayer().getPokemon()[Integer.parseInt(String.valueOf(message.charAt(2)))]
 				                                   .setMoves(Integer.parseInt(String.valueOf(message.charAt(3)))
 				                                		   , message.substring(4));
-				GameClient.getInstance().getUi().update();
+				GameClient.getInstance().getUi().update(false);
 				break;
 			case 'e':
 				//EXP gain
 				int p1 = Integer.parseInt(String.valueOf(message.charAt(2)));
 				int exp = m_game.getOurPlayer().getPokemon()[p1].getExp() + Integer.parseInt(message.substring(3));
 				m_game.getOurPlayer().getPokemon()[p1].setExp(exp);
-				m_game.getUi().update();
+				m_game.getUi().update(false);
 				break;
 			case 'E':
 				/*
@@ -348,13 +348,13 @@ public class ConnectionManager extends IoHandlerAdapter {
 				String[] levelData = message.substring(2).split(",");
 				m_game.getOurPlayer().getPokemon()[Integer.parseInt(levelData[0])].setLevel(
 						Integer.parseInt(levelData[1]));
-				m_game.getUi().update();
+				m_game.getUi().update(false);
 				break;
 			case 'h':
 				//HP Change - through item usage
 				m_game.getOurPlayer().getPokemon()[Integer.parseInt(String.valueOf(message.charAt(2)))]
 				                                   .setCurHP(Integer.parseInt(message.substring(3)));
-				GameClient.getInstance().getUi().update();
+				GameClient.getInstance().getUi().update(false);
 				break;
 			}
 			break;
@@ -415,7 +415,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 			case 'M':
 				//Money change
 				m_game.getOurPlayer().setMoney(Integer.parseInt(message.substring(2)));
-				GameClient.getInstance().getUi().update();
+				GameClient.getInstance().getUi().update(false);
 				break;
 			case 'H':
 				//Pokes were healed
@@ -425,7 +425,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 								GameClient.getInstance().getOurPlayer().getPokemon()[i].getMaxHP());
 					}
 				}
-				GameClient.getInstance().getUi().update();
+				GameClient.getInstance().getUi().update(true);
 				break;
 			case 'D':
 				//Facing down
