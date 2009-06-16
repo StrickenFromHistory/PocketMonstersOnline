@@ -249,10 +249,6 @@ public class BattleCanvas extends Container {
 			enemyDataBG = new Label(new Image("/res/battle/singleEnemyBox3.png"));
 		} catch (SlickException e) {
 			e.printStackTrace();
-		} try {
-			enemyHPBar = new Label(new Image("/res/battle/HPBar.png"));
-		} catch (SlickException e) {
-			e.printStackTrace();
 		}
 		LoadingList.setDeferredLoading(false);
 		add(bgPic);
