@@ -215,7 +215,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'M':
 				//Moderation
-				if(p.getAdminLevel() > 0) {
+				if(message.charAt(1) == 'c') {
+					p.getSession().write("Cl" + m_players.size() + " players online");
+				} else if(p.getAdminLevel() > 0) {
 					try {
 						switch(message.charAt(1)) {
 						case 'm':
@@ -369,13 +371,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 				case 'l':
 					//Local chat
 					String mes = message.substring(2);
-					if(mes.equalsIgnoreCase("/playercount"))
-						p.getSession().write("Cl" + m_players.size() + " players online");
-					else {
-						if(!p.isMuted())
-							GameServer.getServiceManager().getNetworkService().getChatManager().
-							queueLocalChatMessage("<" + p.getName() + "> " + mes, p.getMapX(), p.getMapY(), p.getLanguage());
-					}
+					if(!p.isMuted())
+						GameServer.getServiceManager().getNetworkService().getChatManager().
+						queueLocalChatMessage("<" + p.getName() + "> " + mes, p.getMapX(), p.getMapY(), p.getLanguage());
 					break;
 				case 'p':
 					//Private chat
