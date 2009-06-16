@@ -36,7 +36,7 @@ public class NpcBattleLauncher implements Runnable {
 			 * A movement request from the client could mess things up.
 			 */
 			m_player.setBattling(true);
-			m_npc.talkToPlayer(m_player);
+			m_npc.challengePlayer(m_player);
 			/* Sleep for a moment */
 			Thread.sleep(1000);
 			/* Make the player face the npc */

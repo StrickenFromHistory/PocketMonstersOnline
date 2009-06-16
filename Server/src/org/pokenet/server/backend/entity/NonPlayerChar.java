@@ -75,6 +75,17 @@ public class NonPlayerChar extends Char {
 	}
 	
 	/**
+	 * Challenges a player (NOTE: Should only be called from NpcBattleLauncher)
+	 * @param p
+	 */
+	public void challengePlayer(PlayerChar p) {
+		String speech = this.getSpeech();
+		if(!speech.equalsIgnoreCase("")) {
+			p.getSession().write("Cn" + speech);
+		}
+	}
+	
+	/**
 	 * Talks to a player
 	 * @param p
 	 */
