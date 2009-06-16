@@ -307,9 +307,9 @@ public class NpcBattleField extends BattleField {
 
 	@Override
 	public void requestAndWaitForSwitch(int party) {
+		requestPokemonReplacement(party);
 		if (party == 0) {
 			/* Request a switch from the player */
-			requestPokemonReplacement(party);
 			if (!m_replace[party]) {
 				return;
 			}
@@ -322,15 +322,6 @@ public class NpcBattleField extends BattleField {
 					}
 				}
 			} while ((m_replace != null) && m_replace[party]);
-		} else {
-			/* Get a new pokemon from the npc */
-			int index = 0;
-			while(this.getParty(1)[index] == null ||
-					this.getParty(1)[index].getHealth() <= 0
-					|| this.getParty(1)[index] == getActivePokemon()[1]) {
-				index = this.getMechanics().getRandom().nextInt(6);
-			}
-			this.switchInPokemon(1, index);
 		}
 	}
 
@@ -347,13 +338,7 @@ public class NpcBattleField extends BattleField {
 					/* The npc should switch out a different Pokemon */
 					/* 50:50 chance they will switch */
 					if(this.getMechanics().getRandom().nextInt(2) == 0) {
-						int index = 0;
-						while(this.getParty(1)[index] == null ||
-								this.getParty(1)[index] == getActivePokemon()[1] ||
-								this.getParty(1)[index].getHealth() <= 0) {
-							index = getMechanics().getRandom().nextInt(6);
-						}
-						queueMove(1, BattleTurn.getSwitchTurn(index));
+						requestPokemonReplacement(1);
 						return;
 					}
 				}
@@ -383,11 +368,37 @@ public class NpcBattleField extends BattleField {
 		} else {
 			/* Request Pokemon replacement from npc */
 			try {
-				int index = 0;
-				while(this.getParty(1)[index] == null ||
-						this.getParty(1)[index].getHealth() < 1)
-					index = getMechanics().getRandom().nextInt(6);
-				this.queueMove(1, BattleTurn.getSwitchTurn(index));
+				Thread t = Thread.currentThread();
+				/*
+				 * Ensure we're not queueing a switch inside the dispatch thread,
+				 * this will cause an infinite loop.
+				 * So if it is the dispatch thread, we'll respond in a new thread
+				 */
+				if(t == m_dispatch) {
+					Thread nt = new Thread(new Runnable() {
+						public void run() {
+							try {
+								/* Sleep for a moment to allow dispatch thread to finish */
+								Thread.sleep(1500);
+								/* Carry out the switch */
+								requestPokemonReplacement(1);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+					nt.start();
+				} else {
+					/*
+					 * This is outside the dispatch thread,
+					 * safe to respond like this
+					 */
+					int index = 0;
+					while(this.getParty(1)[index] == null ||
+							this.getParty(1)[index].getHealth() < 1)
+						index = getMechanics().getRandom().nextInt(6);
+					this.queueMove(1, BattleTurn.getSwitchTurn(index));
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
