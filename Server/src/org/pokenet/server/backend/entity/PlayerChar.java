@@ -1179,7 +1179,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * Updates the client with their sprite
 	 */
 	public void updateClientSprite() {
-		m_session.write("cS" + m_sprite);
+		m_session.write("cS" + m_id + "," + m_sprite);
 	}
 	
 	/**

@@ -155,7 +155,6 @@ public class ConnectionManager extends IoHandlerAdapter {
 				} else if(p.isSpriting()) {
 					//Sprite changing
 					p.setSprite(Integer.parseInt(message.substring(1)));
-					p.updateClientSprite();
 					p.setSpriting(false);
 				}
 				break;
