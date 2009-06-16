@@ -30,6 +30,7 @@ import org.pokenet.client.ui.base.ProgressBar;
 public class PartyInfoDialog extends Frame {
 	Container[] m_container = new Container[6];
 	Label[] m_pokeBall = new Label[6];
+	Label[] m_hpBar = new Label[6];
 	Label[] m_pokeIcon = new Label[6];
 	Label[] m_pokeName = new Label[6];
 	Label[] m_level = new Label[6];
@@ -57,7 +58,7 @@ public class PartyInfoDialog extends Frame {
 	public void initGUI() {
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
-		int y = 0;
+		int y = -8;
 		this.getTitleBar().getCloseButton().setVisible(false);
 		this.setFont(GameClient.getFontSmall());
 		this.setBackground(new Color(0, 0, 0, 85));
@@ -67,11 +68,30 @@ public class PartyInfoDialog extends Frame {
 			m_container[i] = new Container();
 			m_container[i].setSize(170, 42);
 			m_container[i].setVisible(true);
-			m_container[i].setLocation(0, y+10);
+			m_container[i].setLocation(2, y+10);
 			m_container[i].setBackground(new Color(0, 0, 0, 0));
 			y += 41;
 			getContentPane().add(m_container[i]);
 			m_container[i].setOpaque(true);
+			try {
+				Label tempLabel = new Label(); 
+				if (i ==0)
+					tempLabel = new Label(new Image("/res/ui/party_info/partyActive.png"));
+				else
+					tempLabel = new Label(new Image("/res/ui/party_info/partyInactive.png"));
+				
+				tempLabel.setSize(170, 42);
+				tempLabel.setY(-4);
+				m_container[i].add(tempLabel);
+			} catch (Exception e) {e.printStackTrace();}
+			
+			try{
+				m_hpBar[i] = new Label(new Image("/res/ui/party_info/HPBar.png"));
+				m_hpBar[i].setSize(98, 11);
+				m_hpBar[i].setVisible(false);
+				m_container[i].add(m_hpBar[i]);
+			} catch (Exception e) {e.printStackTrace();}
+			
 			try {
 				m_container[i].add(m_pokeBall[i]);
 				m_pokeBall[i].setLocation(4, 4);
@@ -111,9 +131,8 @@ public class PartyInfoDialog extends Frame {
 				m_level[i].setLocation(m_pokeName[i].getX()
 						+ m_pokeName[i].getWidth() + 10, m_pokeName[i].getY());
 				m_container[i].add(m_hp[i]);
-				m_hp[i].setSize(114, 10);
-				m_hp[i].setLocation(40, m_pokeName[i].getY()
-						+ m_pokeName[i].getHeight() + 5);
+				m_hp[i].setSize(72, 5);
+				m_hp[i].setLocation(m_hpBar[i].getX() + 23, m_hpBar[i].getY() + 3);
 				if (i != 0) {
 					m_switchUp[i] = new SimpleArrowButton(
 							SimpleArrowButton.FACE_UP);
@@ -141,7 +160,6 @@ public class PartyInfoDialog extends Frame {
 					m_switchDown[i].setWidth(16);
 					m_switchDown[i].setX(24);
 					m_container[i].add(m_switchDown[i]);
-
 				}
 			} catch (NullPointerException e) {
 				//e.printStackTrace();
@@ -150,7 +168,7 @@ public class PartyInfoDialog extends Frame {
 		update(m_pokes);
 		this.getTitleBar().setGlassPane(true);
 		this.setResizable(false);
-		this.setSize(170, 288);
+		this.setSize(170, 270);
 		List<String> translated = Translator.translate("_GUI");
 		this.setTitle(translated.get(0));
 	}
@@ -252,9 +270,12 @@ public class PartyInfoDialog extends Frame {
 
 					m_pokeBall[i].setLocation(4, 4);
 					m_pokeIcon[i].setLocation(2, 3);
-					m_pokeName[i].setLocation(40, 5);
-					m_hp[i].setLocation(40, m_pokeName[i].getY()
-							+ m_pokeName[i].getHeight() + 5);
+					m_pokeName[i].setLocation(45, 5);
+					m_hpBar[i].setLocation(45, m_pokeName[i].getY()
+							+ m_pokeName[i].getHeight() + 3);
+					m_hp[i].setLocation(m_hpBar[i].getX() + 23, 
+							m_hpBar[i].getY() + 3);
+					m_hpBar[i].setVisible(true);
 					m_hp[i].setVisible(true);
 					if (i != 0)
 						m_switchUp[i].setVisible(true);
@@ -265,6 +286,7 @@ public class PartyInfoDialog extends Frame {
 						m_switchUp[i].setVisible(false);
 					if (i != 5)
 						m_switchDown[i].setVisible(false);
+					m_hpBar[i].setVisible(false);
 					m_hp[i].setVisible(false);
 					m_level[i].setText("");
 					m_level[i].pack();

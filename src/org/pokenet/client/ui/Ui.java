@@ -126,6 +126,7 @@ public class Ui extends Frame {
         		togglePokemon();
         	}
         });
+        m_buttons[0].setToolTipText("Pokemon");
 
 		m_buttons[1] = HUDButtonFactory.getButton("bag");
         m_buttons[1].addActionListener(new ActionListener() {
@@ -133,7 +134,7 @@ public class Ui extends Frame {
         		toggleBag();
         	}
         });
-        
+        m_buttons[1].setToolTipText("Bag");
 
 		m_buttons[2] = HUDButtonFactory.getButton("map");
         m_buttons[2].addActionListener(new ActionListener() {
@@ -141,6 +142,7 @@ public class Ui extends Frame {
         		toggleMap();
         	}
         });
+        m_buttons[2].setToolTipText("Map");
 
         m_buttons[3] = HUDButtonFactory.getButton("friends");
 		m_buttons[3].addActionListener(new ActionListener() {
@@ -148,6 +150,7 @@ public class Ui extends Frame {
 				toggleFriends();
 			}
 		});
+		m_buttons[3].setToolTipText("Friends");
         
         m_buttons[4] = HUDButtonFactory.getButton("requests");
 		m_buttons[4].addActionListener(new ActionListener() {
@@ -155,6 +158,7 @@ public class Ui extends Frame {
 				toggleRequests();
 			}
 		});
+		m_buttons[4].setToolTipText("Requests");
 
 		m_buttons[5] = HUDButtonFactory.getButton("options");
 		m_buttons[5].addActionListener(new ActionListener() {
@@ -162,6 +166,7 @@ public class Ui extends Frame {
 				toggleOptions();
 			}
 		});
+		m_buttons[5].setToolTipText("Options");
 		
         m_buttons[6] = HUDButtonFactory.getButton("help");
         m_buttons[6].addActionListener(new ActionListener() {
@@ -169,6 +174,7 @@ public class Ui extends Frame {
         		toggleHelp();
         	}
         });
+        m_buttons[6].setToolTipText("Help");
 
         for (int i = 0; i < m_buttons.length; i++){
         	m_buttons[i].pack();
@@ -342,8 +348,9 @@ public class Ui extends Frame {
 			hideHUD();
 			m_teamInfo = new PartyInfoDialog(GameClient.getInstance().getOurPlayer()
 					.getPokemon());
-			m_teamInfo.setWidth(UI_WIDTH);
-			m_teamInfo.setLocation(m_buttons[0].getX(), 67 - getTitleBar().getHeight());
+			m_teamInfo.setWidth(175);
+			m_teamInfo.setLocation(m_buttons[0].getX(), 67 - getTitleBar().getHeight() * 2);
+			m_teamInfo.getTitleBar().setVisible(false);
 			m_teamInfo.setDraggable(false);
 			getDisplay().add(m_teamInfo);
 		}
