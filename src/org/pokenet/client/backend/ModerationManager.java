@@ -24,6 +24,10 @@ public class ModerationManager {
 		else if (x.substring(0, 5).equalsIgnoreCase("kick ")) {
 			m_ioSession.write("Mk" + x.substring(5));
 		}
+		// Player count
+		else if (x.substring(0, 11).equalsIgnoreCase("playercount")) {
+			m_ioSession.write("Mc");
+		}
 		// Change Weather
 		else if (x.substring(0, 8).equalsIgnoreCase("weather ")) {
 			// Normal
