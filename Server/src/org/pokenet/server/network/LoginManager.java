@@ -405,7 +405,7 @@ public class LoginManager implements Runnable {
 				/*
 				 * Sets the stats
 				 */
-				p.setRawStat(0, data.getInt("hp"));
+				p.setHealth(data.getInt("hp"));
 				p.setRawStat(1, data.getInt("atk"));
 				p.setRawStat(2, data.getInt("def"));
 				p.setRawStat(3, data.getInt("speed"));

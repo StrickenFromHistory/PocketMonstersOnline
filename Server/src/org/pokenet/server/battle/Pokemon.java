@@ -304,6 +304,14 @@ public class Pokemon extends PokemonSpecies {
     }
     
     /**
+     * Sets the Pokemon's HP
+     * @param h
+     */
+    public void setHealth(int h) {
+    	m_hp = h;
+    }
+    
+    /**
      * Sets if this Pokemon is waiting to evolve and
      * the evolution it is waiting to go to
      * @param e
