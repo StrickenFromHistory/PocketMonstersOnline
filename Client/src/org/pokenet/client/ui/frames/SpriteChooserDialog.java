@@ -70,7 +70,6 @@ public class SpriteChooserDialog extends Frame {
 		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GameClient.getInstance().getDisplay().remove(thisDialog);
-				GameClient.getInstance().getPacketGenerator().write("F");
 			}
 		});
 
@@ -119,9 +118,6 @@ public class SpriteChooserDialog extends Frame {
 					public void actionPerformed(ActionEvent e) {
 						confirm.setVisible(false);
 						GameClient.getInstance().getDisplay().remove(confirm);
-
-						GameClient.getInstance().getPacketGenerator()
-								.write("F");
 					}
 				});
 				confirm.getContentPane().add(yousure1);
