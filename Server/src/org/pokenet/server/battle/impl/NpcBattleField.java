@@ -35,9 +35,11 @@ public class NpcBattleField extends BattleField {
 		/* Store the player and npc */
 		m_player = p;
 		m_npc = n;
+
 		/* Set the player's battle id */
 		m_player.setBattleId(0);
-		/* Send pokemon data */
+		/* Send enemy name and pokemon data */
+		m_player.getSession().write("bn" + m_npc.getName());
 		sendPokemonData(p);
 		/* Apply weather and request moves */
 		applyWeather();
