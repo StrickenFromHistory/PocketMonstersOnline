@@ -13,21 +13,22 @@ public class ModerationManager {
 	
 	public static void parseLine(String x){
 		// Mute
-		if (x.substring(0, 4).equalsIgnoreCase("mute ")) {
+		if (x.substring(0, 5).equalsIgnoreCase("mute ")) {
 			m_ioSession.write("Mm" + x.substring(5));
 		}
 		// Unmute
-		else if (x.substring(0, 6).equalsIgnoreCase("unmute ")) {
+		else if (x.substring(0, 7).equalsIgnoreCase("unmute ")) {
 			m_ioSession.write("Mu" + x.substring(7));
 		}
 		// Kick
-		else if (x.substring(0, 4).equalsIgnoreCase("kick ")) {
-			m_ioSession.write("Mk" + x.substring(7));
+		else if (x.substring(0, 5).equalsIgnoreCase("kick ")) {
+			m_ioSession.write("Mk" + x.substring(5));
 		}
 		// Change Weather
-		else if (x.substring(0, 7).equalsIgnoreCase("weather ")) {
+		else if (x.substring(0, 8).equalsIgnoreCase("weather ")) {
 			// Normal
-			if (x.substring(8).equalsIgnoreCase("normal"))
+			if (x.substring(8).equalsIgnoreCase("normal") ||
+					x.substring(8).equalsIgnoreCase("sunny"))
 				m_ioSession.write("Mun");
 			// Rain
 			else if (x.substring(8).equalsIgnoreCase("rain"))
@@ -39,9 +40,12 @@ public class ModerationManager {
 			// Fog
 			else if (x.substring(8).equalsIgnoreCase("fog"))
 				m_ioSession.write("Muf");
+			// Fog
+			else if (x.substring(8).equalsIgnoreCase("sandstorm"))
+				m_ioSession.write("MuS");
 		}
 		// Stop server
-		else if (x.substring(0, 3).equalsIgnoreCase("stop")) {
+		else if (x.substring(0, 4).equalsIgnoreCase("stop")) {
 			m_ioSession.write("Ms");
 		}
 	}
