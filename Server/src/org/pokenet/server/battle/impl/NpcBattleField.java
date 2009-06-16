@@ -254,6 +254,7 @@ public class NpcBattleField extends BattleField {
 													[trainer].getMoveName(move.getId()));
 								} else {
 									/* Get another move from the npc */
+									requestMove(1);
 								}
 								return;
 							} else {
@@ -273,6 +274,11 @@ public class NpcBattleField extends BattleField {
 					}
 				}
 			}
+		}
+		/* Ensures the npc selected a move */
+		if(trainer == 0 && m_turn[0] != null && m_turn[1] == null) {
+			requestMove(1);
+			return;
 		}
 		if (m_dispatch != null)
 			return;
@@ -319,9 +325,9 @@ public class NpcBattleField extends BattleField {
 		} else {
 			/* Get a new pokemon from the npc */
 			int index = 0;
-			while(this.getParty(1)[index] != null && 
-					this.getParty(1)[index].getHealth() == 0
-					&& this.getParty(1)[index] != getActivePokemon()[1]) {
+			while(this.getParty(1)[index] == null ||
+					this.getParty(1)[index].getHealth() <= 0
+					|| this.getParty(1)[index] == getActivePokemon()[1]) {
 				index = this.getMechanics().getRandom().nextInt(6);
 			}
 			this.switchInPokemon(1, index);
