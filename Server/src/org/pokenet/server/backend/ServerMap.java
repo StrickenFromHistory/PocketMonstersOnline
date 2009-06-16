@@ -725,7 +725,7 @@ public class ServerMap {
 		NonPlayerChar n = null;
 		for(int i = 0; i < m_npcs.size(); i++) {
 			n = m_npcs.get(i);
-			if(n != null && n.isTrainer() && !n.isGymLeader() && !n.hasBattled(p.getName())) {
+			if(n != null && n.isTrainer() && !n.isGymLeader()) {
 				/*
 				 * For the npc to be able to challenge the player, the must be on the same
 				 * axis as the player, the x axis or the y axis

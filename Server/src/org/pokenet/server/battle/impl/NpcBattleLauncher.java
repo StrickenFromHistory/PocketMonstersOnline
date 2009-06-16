@@ -21,6 +21,8 @@ public class NpcBattleLauncher implements Runnable {
 	 */
 	public NpcBattleLauncher(NonPlayerChar n, PlayerChar p) {
 		m_npc = n;
+		/* Ensure the NPC cannot battle anyone else */
+		m_npc.setLastBattleTime(System.currentTimeMillis());
 		m_player = p;
 	}
 	

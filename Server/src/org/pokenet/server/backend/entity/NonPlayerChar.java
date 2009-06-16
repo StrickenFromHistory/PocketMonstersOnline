@@ -30,8 +30,7 @@ public class NonPlayerChar extends Char {
 	private int m_badge = -1;
 	private ArrayList<Integer> m_speech;
 	private Shop m_shop = null;
-	//Store a list of players they have battled
-	private ArrayList<String> m_battles;
+	private long m_lastBattle = 0;
 	
 	/**
 	 * Constructor
@@ -51,20 +50,28 @@ public class NonPlayerChar extends Char {
 	}
 	
 	/**
-	 * Returns true if this npc has battled the specified player already
-	 * @param name
+	 * Returns true if this NPC can battle
 	 * @return
 	 */
-	public boolean hasBattled(String name) {
-		return m_battles.contains(name);
+	public boolean canBattle() {
+		return m_lastBattle == 0;
 	}
 	
 	/**
-	 * Adds a player to its list of players battled
-	 * @param name
+	 * Sets the time this NPC last battled
+	 * @param l
 	 */
-	public void battled(String name) {
-		m_battles.add(name);
+	public void setLastBattleTime(long l) {
+		m_lastBattle = l;
+	}
+	
+	/**
+	 * Returns the time this NPC last battled
+	 * NOTE: Is valued 0 if the NPC is able to battle
+	 * @return
+	 */
+	public long getLastBattleTime() {
+		return m_lastBattle;
 	}
 	
 	/**
@@ -72,19 +79,14 @@ public class NonPlayerChar extends Char {
 	 * @param p
 	 */
 	public void talkToPlayer(PlayerChar p) {
-		if(m_possiblePokemon != null && m_minPartySize > 0) {
-			if(this.hasBattled(p.getName())) {
-				//TODO: Write victory message
-				return;
-			} else {
-				String speech = this.getSpeech();
-				if(!speech.equalsIgnoreCase("")) {
-					p.getSession().write("Cn" + speech);
-				}
-				p.setBattling(true);
-				p.setBattleField(new NpcBattleField(DataService.getBattleMechanics(), p, this));
-				return;
+		if(m_possiblePokemon != null && m_minPartySize > 0 && canBattle()) {
+			String speech = this.getSpeech();
+			if(!speech.equalsIgnoreCase("")) {
+				p.getSession().write("Cn" + speech);
 			}
+			p.setBattling(true);
+			p.setBattleField(new NpcBattleField(DataService.getBattleMechanics(), p, this));
+			return;
 		}
 		/* If this NPC wasn't a trainer, handle other possibilities */
 		String speech = this.getSpeech();
@@ -126,24 +128,26 @@ public class NonPlayerChar extends Char {
 	 * @return
 	 */
 	public boolean canSee(PlayerChar p) {
-		Random r = new Random();
-		switch(this.getFacing()) {
-		case Up:
-			if(p.getY() >= this.getY() - (32 * (r.nextInt(4) + 1)))
-				return true;
-			break;
-		case Down:
-			if(p.getY() <= this.getY() + (32 * (r.nextInt(4) + 1)))
-				return true;
-			break;
-		case Left:
-			if(p.getX() >= this.getX() - (32 * (r.nextInt(4) + 1)))
-				return true;
-			break;
-		case Right:
-			if(p.getX() <= this.getX() + (32 * (r.nextInt(4) + 1)))
-				return true;
-			break;
+		if(canBattle()) {
+			Random r = new Random();
+			switch(this.getFacing()) {
+			case Up:
+				if(p.getY() >= this.getY() - (32 * (r.nextInt(4) + 1)))
+					return true;
+				break;
+			case Down:
+				if(p.getY() <= this.getY() + (32 * (r.nextInt(4) + 1)))
+					return true;
+				break;
+			case Left:
+				if(p.getX() >= this.getX() - (32 * (r.nextInt(4) + 1)))
+					return true;
+				break;
+			case Right:
+				if(p.getX() <= this.getX() + (32 * (r.nextInt(4) + 1)))
+					return true;
+				break;
+			}
 		}
 		return false;
 	}
@@ -232,7 +236,6 @@ public class NonPlayerChar extends Char {
 	 */
 	public void setPossiblePokemon(HashMap<String, Integer> pokes) {
 		m_possiblePokemon = pokes;
-		m_battles = new ArrayList<String>();
 	}
 	
 	/**

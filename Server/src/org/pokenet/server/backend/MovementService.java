@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.battle.impl.NpcSleepTimer;
 
 import tiled.io.xml.XMLMapTransformer;
 
@@ -17,6 +18,7 @@ public class MovementService {
 	private MovementManager [] m_movementManager;
 	private ServerMapMatrix m_mapMatrix;
 	private ServerMap m_tempMap;
+	private NpcSleepTimer m_sleepTimer;
 	
 	/**
 	 * Default constructor
@@ -24,6 +26,7 @@ public class MovementService {
 	public MovementService() {
 		m_movementManager = new MovementManager[GameServer.getMovementThreadAmount()];
 		m_mapMatrix = new ServerMapMatrix();
+		m_sleepTimer = new NpcSleepTimer();
 	}
 	
 	/**
@@ -125,6 +128,7 @@ public class MovementService {
 	 */
 	public void start() {
 		this.reloadMaps(true);
+		m_sleepTimer.start();
 		for(int i = 0; i < m_movementManager.length; i++) {
 			m_movementManager[i] = new MovementManager();
 			m_movementManager[i].start();
@@ -136,6 +140,7 @@ public class MovementService {
 	 * Stops the movement service
 	 */
 	public void stop() {
+		m_sleepTimer.stop();
 		for(int i = 0; i < m_movementManager.length; i++) {
 			m_movementManager[i].stop();
 		}
