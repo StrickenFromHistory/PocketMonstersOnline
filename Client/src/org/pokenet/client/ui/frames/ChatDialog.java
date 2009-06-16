@@ -43,17 +43,17 @@ public class ChatDialog extends Frame {
 	 */
 	private void chatTypeActionPerformed(ActionEvent evt) {
 		if (m_inputBox.getText() != null && m_inputBox.getText().length() != 0) {
-			if (m_possibleChats.getSelected().equalsIgnoreCase("local"))
-				if (m_inputBox.getText().charAt(0) == '/')
-					ModerationManager.parseLine(m_inputBox.getText());
-				else {
+			if (m_possibleChats.getSelected().equalsIgnoreCase("local")){
+				if (m_inputBox.getText().charAt(0) == '/'){
+					ModerationManager.parseLine(m_inputBox.getText().substring(1));
+				} else {
 					GameClient.getInstance().getPacketGenerator().write("Cl" 
 							+ m_inputBox.getText());
 				}
-			else {
-				if (m_inputBox.getText().charAt(0) == '/')
-					ModerationManager.parseLine(m_inputBox.getText());
-				else{
+			} else {
+				if (m_inputBox.getText().charAt(0) == '/') {
+					ModerationManager.parseLine(m_inputBox.getText().substring(1));
+				} else {
 					GameClient.getInstance().getPacketGenerator().write(
 							"Cp" + m_possibleChats.getSelected() + ","
 							+ m_inputBox.getText());

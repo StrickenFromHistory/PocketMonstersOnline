@@ -319,6 +319,23 @@ public class ServerMap {
 	 * @param w
 	 */
 	public void setWeather(Weather w) {
+		if (w == Weather.NORMAL) {
+			for (PlayerChar p : m_players)
+				p.getSession().write("cwn");
+		} else if (w == Weather.FOG) {
+			for (PlayerChar p : m_players) 
+				p.getSession().write("cwf");
+		} else if (w == Weather.RAIN) {
+			for (PlayerChar p : m_players)
+				p.getSession().write("cwr");
+		} else if (w ==Weather.HAIL) {
+			for (PlayerChar p : m_players)
+				p.getSession().write("cwh");
+		} else if (w == Weather.SANDSTORM) {
+			for (PlayerChar p : m_players)
+				p.getSession().write("cwS");
+		}
+		
 		m_forcedWeather = w;
 	}
 	

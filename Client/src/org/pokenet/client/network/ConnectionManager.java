@@ -387,6 +387,31 @@ public class ConnectionManager extends IoHandlerAdapter {
 					break;
 				}
 				break;
+			case 'W':
+				//Weather Change
+				switch(message.charAt(2)) {
+				case 'n':
+					//Normal
+					m_game.getWeatherService().setWeather(Weather.NORMAL);
+					break;
+				case 'r':
+					//Rain
+					m_game.getWeatherService().setWeather(Weather.RAIN);
+					break;
+				case 'h':
+					//Hail
+					m_game.getWeatherService().setWeather(Weather.HAIL);
+					break;
+				case 'f':
+					//Fog
+					m_game.getWeatherService().setWeather(Weather.FOG);
+					break;
+				case 'S':
+					//Sandstorm
+					m_game.getWeatherService().setWeather(Weather.SANDSTORM);
+					break;
+				}
+				break;
 			case 'M':
 				//Money change
 				m_game.getOurPlayer().setMoney(Integer.parseInt(message.substring(2)));

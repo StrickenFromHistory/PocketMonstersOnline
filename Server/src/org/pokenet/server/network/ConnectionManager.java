@@ -252,6 +252,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 								//Fog
 								p.getMap().setWeather(Weather.FOG);
 								break;
+							case 'S':
+								//Fog
+								p.getMap().setWeather(Weather.SANDSTORM);
+								break;
 							}
 						case 's':
 							if(p.getAdminLevel() == 2) {
