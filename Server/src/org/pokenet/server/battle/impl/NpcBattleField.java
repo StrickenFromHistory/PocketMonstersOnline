@@ -172,6 +172,7 @@ public class NpcBattleField extends BattleField {
 					"bM" + poke.getSpeciesName() + "," + name);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void informVictory(int winner) {
 		if (winner == 0) {
