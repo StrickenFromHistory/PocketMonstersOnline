@@ -85,7 +85,7 @@ public class GameClient extends BasicGame {
 	private ConfirmationDialog m_confirm;
 	private PlayerPopupDialog m_playerDialog;
     private static SoundManager m_soundPlayer;
-    private static boolean m_loadSurroundingMaps = true;
+    private static boolean m_disableMaps = true;
     
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
@@ -97,16 +97,16 @@ public class GameClient extends BasicGame {
 			if (options == null) {
 				options = new HashMap<String,String>();
 				options.put("soundMuted", String.valueOf(false));
-				options.put("surroundingMaps", String.valueOf(true));
+				options.put("disableMaps", String.valueOf(false));
 			}
 			m_instance = new GameClient("Pokenet: Fearless Feebas");
 			m_soundPlayer = new SoundManager();
 			m_soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
 			m_soundPlayer.start();
 			m_soundPlayer.setTrack("introandgym");
-			m_loadSurroundingMaps = Boolean.parseBoolean(options.get("surroundingMaps"));
+			m_disableMaps = Boolean.parseBoolean(options.get("disableMaps"));
 		} catch (IOException e) { 
-			m_loadSurroundingMaps = true;
+			m_disableMaps = true;
 			e.printStackTrace();
 		}
 	}
@@ -752,16 +752,16 @@ public class GameClient extends BasicGame {
 	 * Returns false if the user has disabled surrounding map loading
 	 * @return
 	 */
-	public static boolean loadSurroundingMaps() {
-		return m_loadSurroundingMaps;
+	public static boolean disableMaps() {
+		return m_disableMaps;
 	}
 	
 	/**
 	 * Sets if the client should load surrounding maps
 	 * @param b
 	 */
-	public static void setLoadSurroundingMaps(boolean b) {
-		m_loadSurroundingMaps = b;
+	public static void setDisableMaps(boolean b) {
+		m_disableMaps = b;
 	}
     
     /**
