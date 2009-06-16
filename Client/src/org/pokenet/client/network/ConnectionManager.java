@@ -11,6 +11,7 @@ import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
 import org.pokenet.client.backend.time.WeatherService.Weather;
+import org.pokenet.client.ui.frames.SpriteChooserDialog;
 
 /**
  * Handles packets received from the server
@@ -140,6 +141,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 						"You bought a " + message.substring(2));
 				GameClient.getInstance().getUi().getShop().m_timer.reset();
 				GameClient.getInstance().getUi().getShop().m_timer.resume();
+				break;
+			case 'S': //Sprite selection
+				GameClient.getInstance().getDisplay().add(new SpriteChooserDialog());
 				break;
 			}
 			
