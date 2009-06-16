@@ -342,9 +342,9 @@ public class NpcBattleField extends BattleField {
 					/* 50:50 chance they will switch */
 					if(this.getMechanics().getRandom().nextInt(2) == 0) {
 						int index = 0;
-						while(this.getParty(1)[index] != null && 
-								this.getParty(1)[index] == getActivePokemon()[1] &&
-								this.getParty(1)[index].getHealth() > 0) {
+						while(this.getParty(1)[index] == null ||
+								this.getParty(1)[index] == getActivePokemon()[1] ||
+								this.getParty(1)[index].getHealth() <= 0) {
 							index = getMechanics().getRandom().nextInt(6);
 						}
 						queueMove(1, BattleTurn.getSwitchTurn(index));
@@ -378,8 +378,8 @@ public class NpcBattleField extends BattleField {
 			/* Request Pokemon replacement from npc */
 			try {
 				int index = 0;
-				while(this.getParty(1)[index] != null && 
-						this.getParty(1)[index].getHealth() > 0)
+				while(this.getParty(1)[index] == null ||
+						this.getParty(1)[index].getHealth() < 1)
 					index = getMechanics().getRandom().nextInt(6);
 				this.queueMove(1, BattleTurn.getSwitchTurn(index));
 			} catch (Exception e) {
