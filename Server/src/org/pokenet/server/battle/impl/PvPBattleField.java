@@ -309,7 +309,7 @@ public class PvPBattleField extends BattleField {
 							}
 						}
 					} else {
-						if (this.m_pokemon[trainer][move.getId()].isActive()) {
+						if (this.getActivePokemon()[trainer].isActive()) {
 							m_turn[trainer] = move;
 						} else {
 							requestMove(trainer);

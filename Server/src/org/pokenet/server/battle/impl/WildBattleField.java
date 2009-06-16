@@ -252,7 +252,7 @@ public class WildBattleField extends BattleField {
 							}
 						}
 					} else {
-						if (this.m_pokemon[trainer][move.getId()].isActive()) {
+						if (this.getActivePokemon()[trainer].isActive()) {
 							m_turn[trainer] = move;
 						} else {
 							if (trainer == 0) {
