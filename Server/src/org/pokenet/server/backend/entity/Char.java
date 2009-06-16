@@ -13,7 +13,7 @@ public class Char implements Positionable {
 	private long m_lastMovement = System.currentTimeMillis();
 	protected int m_sprite, m_mapX, m_mapY, m_x, m_y, m_id;
 	private boolean m_isVisible, m_isSurfing;
-	private String m_name;
+	protected String m_name;
 	protected ServerMap m_map;
 	
 	/**
@@ -108,7 +108,7 @@ public class Char implements Positionable {
 	 * Returns the name of the char
 	 */
 	public String getName() {
-		return m_name;
+		return m_name.equalsIgnoreCase("SPRITER") ? "" : m_name;
 	}
 	
 	/**

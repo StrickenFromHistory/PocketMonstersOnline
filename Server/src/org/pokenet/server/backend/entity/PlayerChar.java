@@ -45,6 +45,7 @@ public class PlayerChar extends Char implements Battleable {
 	private boolean m_isShopping = false;
 	private boolean m_isTalking = false;
 	private boolean m_isBoxing = false;
+	private boolean m_isSpriting = false;
 	private IoSession m_session = null;
 	private int m_money;
 	private ResultSet m_databasePokemon;
@@ -86,6 +87,24 @@ public class PlayerChar extends Char implements Battleable {
 	 * Stores the list of requests the player has sent
 	 */
 	private HashMap<String, RequestType> m_requests;
+	
+	/**
+	 * Sets if this player is interacting with
+	 * a sprite selection npc
+	 * @param b
+	 */
+	public void setSpriting(boolean b) {
+		m_isSpriting = b;
+	}
+	
+	/**
+	 * Returns true if this player is
+	 * interacting with a sprite selection npc
+	 * @return
+	 */
+	public boolean isSpriting() {
+		return m_isSpriting;
+	}
 	
 	/**
 	 * Returns the preferred language of the user
@@ -1154,6 +1173,13 @@ public class PlayerChar extends Char implements Battleable {
 		for(int i = 0; i < this.getBag().getItems().size(); i++) {
 			updateClientBag(i);
 		}
+	}
+	
+	/**
+	 * Updates the client with their sprite
+	 */
+	public void updateClientSprite() {
+		m_session.write("cS" + m_sprite);
 	}
 	
 	/**

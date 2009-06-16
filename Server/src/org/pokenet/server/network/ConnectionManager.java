@@ -152,6 +152,11 @@ public class ConnectionManager extends IoHandlerAdapter {
 						p.setShopping(false);
 						break;
 					}
+				} else if(p.isSpriting()) {
+					//Sprite changing
+					p.setSprite(Integer.parseInt(message.substring(2)));
+					p.updateClientSprite();
+					p.setSpriting(false);
 				}
 				break;
 			case 'r':

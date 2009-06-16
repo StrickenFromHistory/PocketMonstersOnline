@@ -92,15 +92,24 @@ public class NonPlayerChar extends Char {
 			if(!p.isShopping())//Dont send if player is shopping!
 				p.getSession().write("Cn" + speech);
 		}
+		/* If this NPC is a sprite selection npc */
+		if(this.getName().equalsIgnoreCase("Spriter")) {
+			p.setSpriting(true);
+			p.getSession().write("SS");
+			return;
+		}
+		/* Box access */
 		if(m_isBox) {
 			//Send the data for the player's first box, they may change this later
 			p.setBoxing(true);
 			p.sendBoxInfo(0);
 		}
+		/* Healer */
 		if(m_isHeal) {
 			p.healPokemon();
 			p.setLastHeal(p.getX(), p.getY(), p.getMapX(), p.getMapY());
 		}
+		/* Shop access */
 		if(m_isShop) {
 			//Send shop packet to display shop window clientside
 			if(!p.isShopping()){ //Dont display if user's shopping
