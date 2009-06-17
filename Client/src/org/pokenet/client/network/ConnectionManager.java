@@ -1,6 +1,7 @@
 package org.pokenet.client.network;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.mina.common.IoHandlerAdapter;
@@ -114,13 +115,13 @@ public class ConnectionManager extends IoHandlerAdapter {
 			//Shop
 			switch(message.charAt(1)) {
 			case 'l': //Shop List
-				List<Integer> merch = new ArrayList<Integer>();
-				String items = message.substring(2);
-				String[] merchData = items.split(",");
-				for (int i = 1; i < merchData.length; i++) {
-					merch.add(Integer.parseInt(merchData[i]));
+				HashMap<Integer, Integer> stock = new HashMap<Integer, Integer>();
+				String[] merchData = message.substring(2).split(",");
+				for (int i = 0; i < merchData.length; i++) {
+					final String[] tempStockData = merchData[i].split(":");
+					stock.put(Integer.parseInt(tempStockData[0]), Integer.parseInt(tempStockData[1]));
 				}
-				GameClient.getInstance().getUi().startShop(merch);
+				GameClient.getInstance().getUi().startShop(stock);
 				break;
 			case 'n': //N is for No Money
 				GameClient.messageDialog("You can't afford this item", GameClient.getInstance().getDisplay());

@@ -1,6 +1,6 @@
 package org.pokenet.client.ui;
 
-import java.util.List;
+import java.util.HashMap;
 
 import mdes.slick.sui.Display;
 import mdes.slick.sui.Frame;
@@ -563,8 +563,8 @@ public class Ui extends Frame {
      * @param pokeNums
      * @param trainer
      */
-    public void startShop(List<Integer> merch){
-    	m_shop = new ShopDialog(merch);
+    public void startShop(HashMap<Integer, Integer> stock){
+    	m_shop = new ShopDialog(stock);
     	m_display.add(m_shop);
     }
     

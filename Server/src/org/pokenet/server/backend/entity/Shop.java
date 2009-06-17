@@ -73,13 +73,12 @@ public class Shop implements Runnable {
 	 */
 	public String getStockData() {
 		String result = "";
-		Iterator<Integer> it = m_stock.keySet().iterator();
-		while(it.hasNext()) {
-			result = m_stock.get(it.next()) + ",";
-		}
+		for (int i : m_stock.keySet())
+			result = result + i + ":" + m_stock.get(i) + ",";
 		/*
 		 * Return the data string without the trailing comma
 		 */
+		System.out.println(result);
 		return result.substring(0, result.length() - 1);
 	}
 	

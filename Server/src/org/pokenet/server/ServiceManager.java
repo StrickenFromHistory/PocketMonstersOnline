@@ -84,12 +84,12 @@ public class ServiceManager {
 		 * Start the network service first as it needs to bind the address/port to the game server.
 		 * Then start all other services with TimeService last.
 		 */
+		ItemDatabase db = new ItemDatabase();
+		db.reinitialise();
 		m_movementService.start();
 		m_networkService.start();
 		m_timeService.start();
 		m_idleTimer.start();
-		ItemDatabase db = new ItemDatabase();
-		db.reinitialise();
 		System.out.println("INFO: Service Manager startup completed.");
 	}
 	

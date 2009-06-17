@@ -236,8 +236,10 @@ public class NonPlayerChar extends Char {
 	public void setShopKeeper(boolean b) {
 		m_isShop = b;
 		if(b) {
+			try{
 			m_shop = new Shop();
 			m_shop.start();
+			} catch (Exception e){e.printStackTrace();}
 		}
 	}
 	
