@@ -46,7 +46,7 @@ public class WildBattleField extends BattleField {
 		/* Send information to client */
 		p.setBattling(true);
 		p.setBattleId(0);
-		p.getSession().write("bi1");
+		p.getSession().write("bi11");
 		p.getSession().write(
 				"bP0," + wild.getName() + "," + wild.getLevel() + ","
 						+ wild.getGender() + "," + wild.getHealth() + ","

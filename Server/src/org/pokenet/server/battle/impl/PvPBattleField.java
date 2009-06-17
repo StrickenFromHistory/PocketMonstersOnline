@@ -57,8 +57,8 @@ public class PvPBattleField extends BattleField {
 		/*
 		 * Send battle initialisation packets
 		 */
-		p1.getSession().write("bi0");
-		p2.getSession().write("bi0");
+		p1.getSession().write("bi0" + p2.getPartyCount());
+		p2.getSession().write("bi0" + p1.getPartyCount());
 		/* Send the enemy's name to both players*/
 		p1.getSession().write("bn" + p2.getName());
 		p2.getSession().write("bn" + p1.getName());	
