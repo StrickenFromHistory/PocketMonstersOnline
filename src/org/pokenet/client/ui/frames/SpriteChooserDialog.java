@@ -27,7 +27,7 @@ public class SpriteChooserDialog extends Frame {
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		m_sprites = new ArrayList<String>();
-		for (int i = 0; i <= 218; i++) {
+		for (int i = 1; i <= 218; i++) {
 			m_sprites.add(String.valueOf(i));
 		}
 
