@@ -1,6 +1,8 @@
 package org.pokenet.client.ui;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Label;
@@ -34,7 +36,9 @@ public class BattleCanvas extends Container {
 	private Label enemyLv;
 	private Label playerStatus;
 	private Label enemyStatus;
+	private List<Label> m_enemyPokeballs = new ArrayList<Label>();
 	private HashMap<String, Image> m_statusIcons = new HashMap<String, Image>();
+	private HashMap<String, Image> m_pokeballIcons = new HashMap<String, Image>();
 
 	/**
 	 * Default constructor
@@ -43,6 +47,7 @@ public class BattleCanvas extends Container {
 		setSize(257, 144);
 		setVisible(true);
 		loadImages();
+		startPokeballs();
 		loadStatusIcons();
 	}
 	
@@ -74,6 +79,21 @@ public class BattleCanvas extends Container {
 	}
 	
 	/**
+	 * Initializes the pokeballs for trainer battles
+	 */
+	public void startPokeballs(){
+		m_enemyPokeballs.clear();
+		int x = 1;
+		for (int i = 0; i < 6; i++){
+			m_enemyPokeballs.add(new Label());
+			m_enemyPokeballs.get(i).setSize(14, 14);
+			m_enemyPokeballs.get(i).setImage(m_pokeballIcons.get("empty"));
+			m_enemyPokeballs.get(i).setLocation(125 + 14 * x + x * 5, 3);
+			x++;
+		}
+	}
+	
+	/**
 	 * Loads images that can't be loading on startBattle()
 	 */
 	public void loadImages(){
@@ -82,6 +102,12 @@ public class BattleCanvas extends Container {
 			enemyHPBar = new Label(new Image("/res/battle/HPBar.png"));
 			playerHPBar = new Label(new Image("/res/battle/HPBar.png"));
 		} catch (SlickException e) {}
+		try{
+			m_pokeballIcons.put("empty", new Image("/res/battle/ballempty.png"));
+			m_pokeballIcons.put("normal", new Image("/res/battle/ballnormal.png"));
+			m_pokeballIcons.put("status", new Image("/res/battle/ballstatus.png"));
+			m_pokeballIcons.put("fainted", new Image("/res/battle/ballfainted.png"));
+		} catch (SlickException e) {e.printStackTrace();}
 		LoadingList.setDeferredLoading(false);
 		enemyHPBar.setSize(98, 11);
 		playerHPBar.setSize(98, 11);
@@ -365,14 +391,50 @@ public class BattleCanvas extends Container {
 	}
 	
 	/**
+	 * Shows pokeballs
+	 */
+	public void showPokeballs(){
+		for (Label l : m_enemyPokeballs){
+			if (!containsChild(l))
+				add(l);
+		}
+	}
+	
+	/**
+	 * Hides pokeballs
+	 */
+	public void hidePokeballs(){
+		for (Label l : m_enemyPokeballs){
+			l.setImage(m_pokeballIcons.get("empty"));
+			try{
+				remove(l);
+			} catch (Exception e){}
+		}
+	}
+	
+	/**
+	 * Sets the image for the pokeballs
+	 * @param i
+	 * @param key
+	 */
+	public void setPokeballImage(int i, String key){
+		System.out.println("BLAH! " + i + " " + key);
+		m_enemyPokeballs.get(i).setImage(m_pokeballIcons.get(key));
+	}
+	
+	/**
 	 * Centers the battle window
 	 */
 	public void positionCanvas() {
-		float y = GameClient.getInstance().getUi().getBattleManager().getBattleWindow().getY() + 20;
+		float y = GameClient.getInstance().getUi().getBattleManager().getBattleWindow().getY() 
+		 	+ GameClient.getInstance().getUi().getBattleManager().getBattleWindow().getTitleBar().getHeight();
 		float x = GameClient.getInstance().getUi().getBattleManager().getBattleWindow().getX() + 1;
 		setLocation(x, y);
 	}
 	
+	/**
+	 * Stops the canvas
+	 */
 	public void stop() {
 		this.removeAll();
 		playerHP = null;
@@ -388,5 +450,6 @@ public class BattleCanvas extends Container {
 		enemyLv = null;
 		playerStatus = null;
 		enemyStatus = null;
+		hidePokeballs();
 	}
 }
