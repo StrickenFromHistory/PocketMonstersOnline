@@ -11,8 +11,8 @@ import org.pokenet.server.backend.item.ItemDatabase;
  *
  */
 public class Shop implements Runnable {
-	private HashMap<String, Integer> m_stock;
-	private HashMap<String, Integer> m_prices;
+	private HashMap<Integer, Integer> m_stock;
+	private HashMap<Integer, Integer> m_prices;
 	/*
 	 * Delta represents how often the stock should be updated
 	 * 
@@ -25,44 +25,15 @@ public class Shop implements Runnable {
 	private boolean m_isRunning = false;
 	
 	public Shop() {
-		m_stock = new HashMap<String, Integer>();
-		m_prices = new HashMap<String, Integer>();
+		m_stock = new HashMap<Integer, Integer>();
+		m_prices = new HashMap<Integer, Integer>();
 		/*
-		 * Generate all the items stock
+		 * Generate all the item stocks amd prices
 		 */
-	    m_stock.put("POTION", 100);
-	    m_stock.put("SUPER POTION", 100);
-	    m_stock.put("HYPER POTION", 100);
-	    m_stock.put("MAX POTION", 100);
-	    m_stock.put("POKEBALL", 100);
-	    m_stock.put("GREAT BALL", 100);
-	    m_stock.put("ULTRA BALL", 100);
-	    m_stock.put("PARALYZ HEAL", 100);
-	    m_stock.put("ANTIDOTE", 100);
-	    m_stock.put("AWAKENING", 100);
-	    m_stock.put("BURN HEAL", 100);
-	    m_stock.put("ICE HEAL", 100);
-	    m_stock.put("FULL HEAL", 100);
-	    m_stock.put("REPEL", 100);
-	    m_stock.put("SUPER REPEL", 100);
-	    /*
-	     * Generate all item prices
-	     */
-	   m_prices.put("POTION", 300);
-	   m_prices.put("SUPER POTION", 700);
-	   m_prices.put("HYPER POTION", 1200);
-	   m_prices.put("MAX POTION", 2500);
-	   m_prices.put("POKEBALL", 200);
-	   m_prices.put("GREAT BALL", 2000);
-	   m_prices.put("ULTRA BALL", 10000);
-	   m_prices.put("PARALYZ HEAL", 200);
-	   m_prices.put("ANTIDOTE", 100);
-	   m_prices.put("AWAKENING", 250);
-	   m_prices.put("BURN HEAL", 250);
-	   m_prices.put("ICE HEAL", 250);
-	   m_prices.put("FULL HEAL", 600);
-	   m_prices.put("REPEL", 350);
-	   m_prices.put("SUPER REPEL", 700);
+	    for (int i : ItemDatabase.getInstance().getShopItems()){
+	    	m_stock.put(i, 100);
+	    	m_prices.put(i, ItemDatabase.getInstance().getItem(i).getPrice());
+	    }
 	    /*
 	     * Set delta to 20 minutes
 	     */
@@ -77,8 +48,8 @@ public class Shop implements Runnable {
 			/*
 			 * Loop through all stock updating each quantity by 25
 			 */
-			Iterator<String> it = m_stock.keySet().iterator();
-			String s;
+			Iterator<Integer> it = m_stock.keySet().iterator();
+			int s;
 			while(it.hasNext()) {
 				s = it.next();
 				int q = m_stock.get(s);
@@ -102,7 +73,7 @@ public class Shop implements Runnable {
 	 */
 	public String getStockData() {
 		String result = "";
-		Iterator<String> it = m_stock.keySet().iterator();
+		Iterator<Integer> it = m_stock.keySet().iterator();
 		while(it.hasNext()) {
 			result = m_stock.get(it.next()) + ",";
 		}

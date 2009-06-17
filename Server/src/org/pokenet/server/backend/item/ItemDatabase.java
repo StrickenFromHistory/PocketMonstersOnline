@@ -15,6 +15,7 @@ import org.simpleframework.xml.core.Persister;
  * The item database
  * @author shadowkanji
  * @author Nushio
+ * @author ZombieBear
  */
 @Root
 public class ItemDatabase {
@@ -84,14 +85,14 @@ public class ItemDatabase {
 	
 	/**
 	 * Returns the instance of item database
-	 * @return
+	 * @return the instance of item database
 	 */
 	public static ItemDatabase getInstance() {
 		return m_instance;
 	}
 	/**
 	 * Returns the instance of items in the database
-	 * @return
+	 * @return the instance of items in the database
 	 */
 	public static List<Item> getCategoryItems(String category) {
 		List<Item> itemList = new ArrayList<Item>();
@@ -104,20 +105,17 @@ public class ItemDatabase {
 		}
 		return itemList;
 	}
-	
+
 	/**
-	 * Returns the instance of items in the database
-	 * @return
+	 * Returns the ids of the items that should be added to the shop
+	 * @return the ids of the items that should be added to the shop
 	 */
-	public static List<Item> getShopItems(int shop) {
-		List<Item> itemList = new ArrayList<Item>();
-		for(int i=0;i<=m_instance.m_items.size();i++){
-			try{
-				Item item = m_instance.m_items.get(i);
-				if(item.getShop()==shop)
-					itemList.add(item);
-			}catch(Exception e){}
+	public List<Integer> getShopItems(){
+		List<Integer> shopItems = new ArrayList<Integer>();
+		for (int i : m_items.keySet()){
+			if (m_items.get(i).getShop() == 1)
+				shopItems.add(i);
 		}
-		return itemList;
+		return shopItems;
 	}
 }
