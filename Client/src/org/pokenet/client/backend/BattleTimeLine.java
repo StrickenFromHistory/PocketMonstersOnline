@@ -110,6 +110,9 @@ public class BattleTimeLine {
 		} else if (data[1].equalsIgnoreCase("sleep")){
 			addSpeech(m_translator.get(18));
 		}
+		if (trainer == 1)
+			m_canvas.setPokeballImage(GameClient.getInstance().getUi()
+					.getBattleManager().getCurEnemyIndex(), "status");
 	}
 
 	/**
@@ -181,6 +184,11 @@ public class BattleTimeLine {
 			data[0] = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getName();
 		}
 		
+		if (i == 1 && m_newHPValue == 0){
+			m_canvas.setPokeballImage(GameClient.getInstance().getUi().getBattleManager().getCurEnemyIndex(), 
+					"fainted");
+		}
+			
 		if (Integer.parseInt(data[1]) <= 0){
 			addSpeech(m_translator.get(7));
 			addSpeech(m_translator.get(8));

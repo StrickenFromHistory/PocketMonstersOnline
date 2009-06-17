@@ -22,6 +22,7 @@ public class BattleManager {
 	private OurPokemon m_curPoke;
 	private int m_curPokeIndex;
 	private Pokemon m_curEnemyPoke;
+	private int m_curEnemyIndex;
 	private String m_enemy;
 	private boolean m_isWild;
 	private MoveLearning m_moveLearning;
@@ -50,6 +51,7 @@ public class BattleManager {
 	 */
 	private void setEnemyData() {
 		m_curEnemyPoke = m_enemyPokes[0];
+		m_curEnemyIndex = 0;
 		try{
 			m_timeLine.getBattleCanvas().drawEnemyPoke();
 		} catch (Exception e) {
@@ -167,11 +169,13 @@ public class BattleManager {
 	public void switchPoke(int trainer, int pokeIndex){
 		if (trainer == 0) {
 			m_curPoke = GameClient.getInstance().getOurPlayer().getPokemon()[pokeIndex];
+			m_curPokeIndex = pokeIndex;
 			updateMoves();
 			m_timeLine.getBattleCanvas().drawOurPoke();
 			m_timeLine.getBattleCanvas().drawOurInfo();
 		} else {
 			m_curEnemyPoke = m_enemyPokes[pokeIndex];
+			m_curEnemyIndex = pokeIndex;
 		}
 	}
 	
@@ -221,6 +225,14 @@ public class BattleManager {
 	 */
 	public int getCurPokeIndex(){
 		return m_curPokeIndex;
+	}
+
+	/**
+	 * Returns the active enemy pokemon's index in party
+	 * @return
+	 */
+	public int getCurEnemyIndex(){
+		return m_curEnemyIndex;
 	}
 	
 	/**
