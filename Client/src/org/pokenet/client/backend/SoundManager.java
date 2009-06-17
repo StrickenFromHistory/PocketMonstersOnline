@@ -39,10 +39,12 @@ public class SoundManager extends Thread{
 			String f = null;
 			while (reader.hasNext()) {
 				f = reader.nextLine();
-				if (f.charAt(1) != '*'){
-					String[] addFile = f.split(":", 2);
-					m_fileList.put(addFile[0], addFile[1]);
-				}
+				String[] addFile = f.substring(1).split(":", 2);
+				try{
+					if (f.charAt(1) != '*'){
+						m_fileList.put(addFile[0], addFile[1]);
+					}
+				} catch (Exception e) {System.err.println("Failed to add file: " + addFile[1]);}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -62,7 +64,9 @@ public class SoundManager extends Thread{
 			while (reader.hasNext()) {
 				f = reader.nextLine();
 				String[] addFile = f.split(":", 2);
-				m_locations.put(addFile[0], addFile[1]);
+				try{
+					m_locations.put(addFile[0], addFile[1]);
+				} catch (Exception e) {e.printStackTrace();}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -142,16 +146,18 @@ public class SoundManager extends Thread{
 	 * @param mute
 	 */
 	public void mute(boolean mute){
-		try {
-			if (mute){
-				for (String key : m_files.keySet()){
+		if (mute){
+			for (String key : m_files.keySet()){
+				try{
 					m_files.get(key).setVolume(0);
-				}
-			} else {
-				for (String key : m_files.keySet()){
-					m_files.get(key).setVolume(1);
-				}
+				} catch (Exception e){}
 			}
-		} catch (Exception e) {}
+		} else {
+			for (String key : m_files.keySet()){
+				try{
+					m_files.get(key).setVolume(1);
+				} catch (Exception e){}
+			}
+		}
 	}
 }
