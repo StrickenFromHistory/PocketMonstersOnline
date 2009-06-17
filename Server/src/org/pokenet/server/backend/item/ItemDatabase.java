@@ -90,7 +90,7 @@ public class ItemDatabase {
 		return m_instance;
 	}
 	/**
-	 * Returns the instance of item database
+	 * Returns the instance of items in the database
 	 * @return
 	 */
 	public static List<Item> getCategoryItems(String category) {
@@ -99,6 +99,22 @@ public class ItemDatabase {
 			try{
 				Item item = m_instance.m_items.get(i);
 				if(item.getCategory().equals(category))
+					itemList.add(item);
+			}catch(Exception e){}
+		}
+		return itemList;
+	}
+	
+	/**
+	 * Returns the instance of items in the database
+	 * @return
+	 */
+	public static List<Item> getShopItems(int shop) {
+		List<Item> itemList = new ArrayList<Item>();
+		for(int i=0;i<=m_instance.m_items.size();i++){
+			try{
+				Item item = m_instance.m_items.get(i);
+				if(item.getShop()==shop)
 					itemList.add(item);
 			}catch(Exception e){}
 		}
