@@ -352,17 +352,19 @@ public class BattleCanvas extends Container {
 	
 	/**
 	 * Sets the status image
-	 * @param poke
+	 * @param trainer
 	 * @param status
 	 */
-	public void setStatus(int poke, String status){
-		if (poke == 0){
+	public void setStatus(int trainer, String status){
+		if (trainer == 0){
+			// The player's pokemon
 			if (status != "normal") {
 				playerStatus.setImage(m_statusIcons.get(status));
 			} else {
 				playerStatus.setImage(null);
 			}
 		} else {
+			// The enemy's pokemon
 			if (status != "normal") {
 				enemyStatus.setImage(m_statusIcons.get(status));
 			} else {
