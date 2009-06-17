@@ -1,7 +1,9 @@
 package org.pokenet.client.ui.frames;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
@@ -36,10 +38,14 @@ public class ShopDialog extends Frame {
 	private Button m_buy;
 	private Button m_sell;
 	// string being the item name and integer being item quantity
-//	private List<Integer> m_merch;
+	private List<Integer> m_merch = new ArrayList<Integer>();
+	private HashMap<Integer, Integer> m_stock;
 
-	public ShopDialog(List<Integer> merch) {
-//		m_merch = merch;
+	public ShopDialog(HashMap<Integer, Integer> stock) {
+		for (Integer i : stock.keySet()){
+			m_merch.add(i);
+		}
+		m_stock = stock;
 		m_timer = new Timer();
 		m_timer.pause();
 		setCenter();
