@@ -3,7 +3,6 @@ package org.pokenet.client.ui.frames;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
@@ -37,7 +36,6 @@ public class ShopDialog extends Frame {
 	private Button m_cancel;
 	private Button m_buy;
 	private Button m_sell;
-	// string being the item name and integer being item quantity
 	private List<Integer> m_merch = new ArrayList<Integer>();
 	private HashMap<Integer, Integer> m_stock;
 
@@ -53,31 +51,42 @@ public class ShopDialog extends Frame {
 	}
 	
 	public void categoryClicked(int name) {
-		getContentPane().setX(getContentPane().getX() - 1);
-		getContentPane().setY(getContentPane().getY() + 1);
-//		packetGen.write("x" + name);
 		m_items = new ArrayList<Item>();
 		switch(name){
 		case 0:
-			m_items = PlayerItem.generatePokeballs();
+			for (int i : m_merch){
+				if (PlayerItem.getItem(i).getCategory().equals("Pokeball"))
+					m_items.add(PlayerItem.getItem(i));
+			}
 			initItems();
 			break;
 		case 1:
-			m_items = PlayerItem.generatePotions();
+			for (int i : m_merch){
+				if (PlayerItem.getItem(i).getCategory().equals("Potions"))
+					m_items.add(PlayerItem.getItem(i));
+			}
 			initItems();
 			break;
 		case 2:
-			m_items = PlayerItem.generateStatusHeals();
+			for (int i : m_merch){
+				if (PlayerItem.getItem(i).getCategory().equals("Medicine"))
+					m_items.add(PlayerItem.getItem(i));
+			}
 			initItems();
 			break;
 		case 3:
-			m_items = PlayerItem.generateFieldItems();
+			for (int i : m_merch){
+				if (PlayerItem.getItem(i).getCategory().equals("Field"))
+					m_items.add(PlayerItem.getItem(i));
+			}
 			initItems();
 			break;
 		}
 	}
 	
 	public void initGUI(){
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		m_buy = new Button("Buy");
 		m_buy.setLocation(0,0);
 		m_buy.setSize(150,320);
@@ -321,13 +330,13 @@ public class ShopDialog extends Frame {
 			try{
 				LoadingList.setDeferredLoading(true);
 				String stock = "empty";
-//				if(m_items.get(i).getAvailable()>=100||m_items.size()==-1){
+				if(m_stock.get(m_items.get(i).getId()) >= 100 || m_items.size() == -1){
 					stock = "full";
-//				}else if(m_items.get(i).getAvailable()<100&&m_items.get(i).getAvailable()>=60){
-//					stock = "half";
-//				}else if(m_items.get(i).getAvailable()<60&&m_items.get(i).getAvailable()>=30){
-//					stock = "halfempty";
-//				}
+				} else if (m_stock.get(m_items.get(i).getId()) < 100 && m_stock.get(m_items.get(i).getId()) >= 60){
+					stock = "half";
+				} else if (m_stock.get(m_items.get(i).getId()) < 60 && m_stock.get(m_items.get(i).getId()) >= 30){
+					stock = "halfempty";
+				}
 				m_itemStockPics[i] = new Label(new Image("/res/ui/shop/"+stock+".png"));
 				LoadingList.setDeferredLoading(false);
 				m_itemStockPics[i].setGlassPane(true);
