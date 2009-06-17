@@ -12,7 +12,6 @@ public class ModerationManager {
 	private static PacketGenerator m_ioSession = GameClient.getInstance().getPacketGenerator();
 	
 	public static void parseLine(String x){
-		System.out.println(x.length());
 		// Mute
 		if (x.length() >= 5 && x.substring(0, 5).equalsIgnoreCase("mute ")) {
 			m_ioSession.write("Mm" + x.substring(5));
