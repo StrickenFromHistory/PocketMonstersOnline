@@ -62,9 +62,10 @@ public class BattleManager {
 		}
 		try{
 			if(!m_isWild){
-				// TODO: Draw pokeballs equal to the enemy's pokemon count
+				m_timeLine.getBattleCanvas().showPokeballs();
 				m_timeLine.addSpeech(m_enemy + " sent out " + m_curEnemyPoke.getName());
 			} else{
+				m_timeLine.getBattleCanvas().hidePokeballs();
 				m_timeLine.addSpeech("A wild " + m_curEnemyPoke.getName() + " attacked!");
 			}
 		} catch (Exception e) {
@@ -249,6 +250,11 @@ public class BattleManager {
 			int spriteNum,
 			boolean isShiny){
 
+		if (curHP != 0)
+			m_timeLine.getBattleCanvas().setPokeballImage(index, "normal");
+		else
+			m_timeLine.getBattleCanvas().setPokeballImage(index, "fainted");
+		
 		m_enemyPokes[index] = new Pokemon();
 		m_enemyPokes[index].setName(name);
 		m_enemyPokes[index].setLevel(level);
@@ -257,6 +263,7 @@ public class BattleManager {
 		m_enemyPokes[index].setCurHP(curHP);
 		m_enemyPokes[index].setSpriteNumber(spriteNum);
 		m_enemyPokes[index].setShiny(isShiny);
+		
 		try {
 			m_enemyPokes[index].setSprite();
 		} catch  (Exception e) {

@@ -178,8 +178,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 			//Battle information
 			switch(message.charAt(1)) {
 			case 'i':
-				//Battle started -> biISWILD
-				GameClient.getInstance().getUi().getBattleManager().startBattle(message.charAt(2), 1);
+				//Battle started -> biISWILD,POKEAMOUNT
+				GameClient.getInstance().getUi().getBattleManager().startBattle(message.charAt(2), 
+						Integer.parseInt(message.substring(3)));
 				break;
 			case 'p':
 				//No PP left for move -> bpMOVENAME
