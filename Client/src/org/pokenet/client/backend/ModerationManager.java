@@ -12,24 +12,25 @@ public class ModerationManager {
 	private static PacketGenerator m_ioSession = GameClient.getInstance().getPacketGenerator();
 	
 	public static void parseLine(String x){
+		System.out.println(x.length());
 		// Mute
-		if (x.substring(0, 5).equalsIgnoreCase("mute ")) {
+		if (x.length() >= 5 && x.substring(0, 5).equalsIgnoreCase("mute ")) {
 			m_ioSession.write("Mm" + x.substring(5));
 		}
 		// Unmute
-		else if (x.substring(0, 7).equalsIgnoreCase("unmute ")) {
+		else if (x.length() >= 7 && x.substring(0, 7).equalsIgnoreCase("unmute ")) {
 			m_ioSession.write("Mu" + x.substring(7));
 		}
 		// Kick
-		else if (x.substring(0, 5).equalsIgnoreCase("kick ")) {
+		else if (x.length() >= 5 && x.substring(0, 5).equalsIgnoreCase("kick ")) {
 			m_ioSession.write("Mk" + x.substring(5));
 		}
 		// Player count
-		else if (x.substring(0, 11).equalsIgnoreCase("playercount")) {
+		else if (x.length() >= 11 && x.substring(0, 11).equalsIgnoreCase("playercount")) {
 			m_ioSession.write("Mc");
 		}
 		// Change Weather
-		else if (x.substring(0, 8).equalsIgnoreCase("weather ")) {
+		else if (x.length() >= 8 && x.substring(0, 8).equalsIgnoreCase("weather ")) {
 			// Normal
 			if (x.substring(8).equalsIgnoreCase("normal") ||
 					x.substring(8).equalsIgnoreCase("sunny"))
@@ -49,7 +50,7 @@ public class ModerationManager {
 				m_ioSession.write("MuS");
 		}
 		// Stop server
-		else if (x.substring(0, 4).equalsIgnoreCase("stop")) {
+		else if (x.length() >= 4 && x.substring(0, 4).equalsIgnoreCase("stop")) {
 			m_ioSession.write("Ms");
 		}
 	}
