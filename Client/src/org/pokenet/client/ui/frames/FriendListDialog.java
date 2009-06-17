@@ -171,6 +171,8 @@ class PopUp extends Frame{
 	 * @param friend
 	 */
 	public PopUp(String friend){
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		m_name = new Label(friend);
 		m_name.setFont(GameClient.getFontSmall());
 		m_name.setForeground(Color.white);
