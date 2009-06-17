@@ -131,7 +131,7 @@ public class ShopDialog extends Frame {
 		setTitle("PokeShop");
 		setResizable(false);
 		setHeight(400);
-		setWidth(300);
+		setWidth(301);
 		pack();
 		setVisible(true);
 	}
