@@ -396,9 +396,10 @@ public abstract class BattleField {
      */
     public int getPokemonPartyIndex(Pokemon p) {
 		for (int i = 0; i < m_pokemon[p.getParty()].length; i++){
-			if (p.getDateCaught().equals(m_pokemon[p.getParty()][i].getDateCaught())){
+			if (p.getDateCaught() != null && p.getDateCaught().equals(m_pokemon[p.getParty()][i].getDateCaught())){
 				return i;
-			}
+			} else if(p == m_pokemon[0][i] || p == m_pokemon[1][i])
+				return i;
 		}
 		return -1;
     }
