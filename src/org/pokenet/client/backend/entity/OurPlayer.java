@@ -130,13 +130,13 @@ public class OurPlayer extends Player {
 		m_pokemon[i] = new OurPokemon();
 		m_pokemon[i].setSpriteNumber(Integer.parseInt(info[0]));
 		m_pokemon[i].setName(info[1]);
-		m_pokemon[i].setCurHP(Integer.parseInt(info[5]));
+		m_pokemon[i].setCurHP(Integer.parseInt(info[2]));
 		m_pokemon[i].setGender(Integer.parseInt(info[3]));
 		if(info[4].equalsIgnoreCase("0"))
 			m_pokemon[i].setShiny(false);
 		else
 			m_pokemon[i].setShiny(true);
-		m_pokemon[i].setMaxHP(Integer.parseInt(info[2]));
+		m_pokemon[i].setMaxHP(Integer.parseInt(info[5]));
 		/*
 		 * Stats
 		 */
