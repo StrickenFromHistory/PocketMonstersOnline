@@ -363,6 +363,7 @@ public class NpcBattleField extends BattleField {
 		if(i == 0) {
 			/* Request Pokemon replacement from player */
 			m_player.getSession().write("bs");
+			requestMove(1);
 		} else {
 			/* Request Pokemon replacement from npc */
 			try {
@@ -396,6 +397,7 @@ public class NpcBattleField extends BattleField {
 							this.getParty(1)[index].getHealth() < 1)
 						index = getMechanics().getRandom().nextInt(6);
 					this.queueMove(1, BattleTurn.getSwitchTurn(index));
+					requestMove(0);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
