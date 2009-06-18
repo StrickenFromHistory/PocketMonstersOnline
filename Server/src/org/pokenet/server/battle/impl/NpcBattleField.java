@@ -37,7 +37,7 @@ public class NpcBattleField extends BattleField {
 		m_npc = n;
 
 		/* Start the battle */
-		m_player.getSession().write("bi0" + m_pokemon[1].length);
+		m_player.getSession().write("bi0" + getAliveCount(1));
 		/* Send enemy's Pokemon data */
 		sendPokemonData(p);
 		/* Set the player's battle id */
@@ -45,7 +45,7 @@ public class NpcBattleField extends BattleField {
 		/* Send enemy name */
 		m_player.getSession().write("bn" + m_npc.getName());
 		/* Apply weather and request moves */
-		applyWeather();
+		//applyWeather();
 		requestMoves();
 	}
 	

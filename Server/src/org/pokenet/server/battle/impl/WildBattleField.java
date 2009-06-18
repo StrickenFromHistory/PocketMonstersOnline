@@ -59,7 +59,7 @@ public class WildBattleField extends BattleField {
 		m_participatingPokemon.add(p.getParty()[0]);
 
 		/* Call methods */
-		applyWeather();
+		//applyWeather();
 		requestMoves();
 	}
 
