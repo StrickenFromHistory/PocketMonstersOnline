@@ -55,8 +55,10 @@ public class NpcBattleLauncher implements Runnable {
 				break;
 			}
 			/* While the player isn't blocked, move the player towards the npc */
-			while(m_player.forceMove()) {
-				Thread.sleep(250);
+			synchronized(m_player) {
+				while(m_player.forceMove()) {
+					Thread.sleep(250);
+				}
 			}
 			/* Start the NPC battle */
 			m_player.ensureHealthyPokemon();

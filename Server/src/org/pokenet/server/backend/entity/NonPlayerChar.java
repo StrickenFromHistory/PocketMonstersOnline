@@ -139,7 +139,7 @@ public class NonPlayerChar extends Char {
 	 * @return
 	 */
 	public boolean canSee(PlayerChar p) {
-		if(canBattle()) {
+		if(canBattle() && !p.isBattling()) {
 			Random r = new Random();
 			switch(this.getFacing()) {
 			case Up:
