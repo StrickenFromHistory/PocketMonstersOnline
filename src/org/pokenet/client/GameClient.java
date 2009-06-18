@@ -640,6 +640,12 @@ public class GameClient extends BasicGame {
 	public void reset() {
 		m_packetGen = null;
 		m_host = "";
+		try {
+			if(this.getUi().getBattleManager() != null)
+				this.getUi().getBattleManager().endBattle();
+			if(this.getUi().getNPCSpeech() != null)
+				this.getUi().getNPCSpeech().setVisible(false);
+		} catch (Exception e) {}
 		m_login.setVisible(true);
 		m_login.showLanguageSelect();
 	}
