@@ -38,12 +38,12 @@ public class NpcBattleField extends BattleField {
 
 		/* Start the battle */
 		m_player.getSession().write("bi0" + m_pokemon[1].length);
-
+		/* Send enemy's Pokemon data */
+		sendPokemonData(p);
 		/* Set the player's battle id */
 		m_player.setBattleId(0);
-		/* Send enemy name and pokemon data */
+		/* Send enemy name */
 		m_player.getSession().write("bn" + m_npc.getName());
-		sendPokemonData(p);
 		/* Apply weather and request moves */
 		applyWeather();
 		requestMoves();
@@ -123,7 +123,7 @@ public class NpcBattleField extends BattleField {
 	@Override
 	public void informPokemonHealthChanged(Pokemon poke, int change) {
 		if (m_player != null) {
-			if (getActivePokemon()[0] == poke) {
+			if (getActivePokemon()[0].compareTo(poke) == 0) {
 				m_player.getSession().write("bh0," + change);
 			} else {
 				m_player.getSession().write("bh1," + change);
@@ -134,7 +134,7 @@ public class NpcBattleField extends BattleField {
 	@Override
 	public void informStatusApplied(Pokemon poke, StatusEffect eff) {
 		if (m_player != null) {
-			if (poke == getActivePokemon()[0])
+			if (getActivePokemon()[0].compareTo(poke) == 0)
 				m_player.getSession().write(
 						"be0" + poke.getSpeciesName() + "," + eff.getName());
 			else
@@ -146,7 +146,7 @@ public class NpcBattleField extends BattleField {
 	@Override
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
 		if (m_player != null) {
-			if (poke == getActivePokemon()[0])
+			if (getActivePokemon()[0].compareTo(poke) == 0)
 				m_player.getSession().write(
 						"bE0" + poke.getSpeciesName() + "," + eff.getName());
 			else

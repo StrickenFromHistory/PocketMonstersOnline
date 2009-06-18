@@ -2004,6 +2004,22 @@ public class Pokemon extends PokemonSpecies {
     public ArrayList<String> getMovesLearning() {
     	return m_movesLearning;
     }
+    
+    /**
+     * Returns 0 if they are the same Pokemon
+     * @param p
+     * @return
+     */
+    public int compareTo(Pokemon p) {
+    	if(this.getDateCaught() != null && p.getDateCaught() != null 
+    			&& p.getDateCaught().compareTo(p.getDateCaught()) == 0)
+    		return 0;
+    	if(this.getDatabaseID() != -1 && p.getDatabaseID() != -1 && p.getDatabaseID() == this.getDatabaseID())
+    		return 0;
+    	if(p.equals(this))
+    		return 0;
+    	return -1;
+    }
 
     /**
      * Reinitialises the Pokemon
