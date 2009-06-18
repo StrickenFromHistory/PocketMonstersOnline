@@ -195,6 +195,7 @@ public class WildBattleField extends BattleField {
 	@Override
 	public void queueMove(int trainer, BattleTurn move)
 			throws MoveQueueException {
+		/* Ensure they haven't queued a move already */
 		if (m_turn[trainer] == null) {
 			if (move.getId() == -1) {
 				if (m_dispatch == null && (trainer == 0 && m_turn[1] != null)) {
@@ -211,12 +212,10 @@ public class WildBattleField extends BattleField {
 				if (this.getActivePokemon()[trainer].isFainted()) {
 					if (!move.isMoveTurn() && this.getParty(trainer)[move.getId()] != null
 							&& this.getParty(trainer)[move.getId()].getHealth() > 0) {
-						this.switchInPokemon(trainer, move.getId());
-						requestMoves();
+						m_turn[trainer] = move;
 						if (!m_participatingPokemon
 								.contains(getActivePokemon()[0]))
 							m_participatingPokemon.add(getActivePokemon()[0]);
-						return;
 					} else {
 						if (trainer == 0 && getAliveCount(0) > 0) {
 							if (getAliveCount(0) > 0) {
