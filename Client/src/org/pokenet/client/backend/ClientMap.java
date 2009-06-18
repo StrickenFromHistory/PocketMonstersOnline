@@ -208,7 +208,7 @@ public class ClientMap extends TiledMap {
 	 * @return
 	 */
 	private boolean isNewMap(int x, int y) {
-		return x < 0 || x > this.getWidth() * 32 || y < 0 || y > this.getHeight() * 32;
+		return x < 0 || x >= this.getWidth() * 32 || y < 0 || y >= this.getHeight() * 32;
 	}
 	
 	/**
