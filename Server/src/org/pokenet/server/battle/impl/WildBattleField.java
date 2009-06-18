@@ -212,10 +212,8 @@ public class WildBattleField extends BattleField {
 				if (this.getActivePokemon()[trainer].isFainted()) {
 					if (!move.isMoveTurn() && this.getParty(trainer)[move.getId()] != null
 							&& this.getParty(trainer)[move.getId()].getHealth() > 0) {
-						if(m_dispatch != null)
-							this.switchInPokemon(trainer, move.getId());
-						else
-							m_turn[trainer] = move;
+						switchInPokemon(trainer, move.getId());
+						requestMoves();
 						if (!m_participatingPokemon
 								.contains(getActivePokemon()[0]))
 							m_participatingPokemon.add(getActivePokemon()[0]);

@@ -266,10 +266,8 @@ public class PvPBattleField extends BattleField {
 				if (this.getActivePokemon()[trainer].isFainted()) {
 					if (!move.isMoveTurn() && this.getParty(trainer)[move.getId()] != null
 							&& this.getParty(trainer)[move.getId()].getHealth() > 0) {
-						if(m_dispatch != null)
-							this.switchInPokemon(trainer, move.getId());
-						else
-							m_turn[trainer] = move;
+						switchInPokemon(trainer, move.getId());
+						requestMoves();
 					} else {
 						// The player still has pokemon left
 						if (getAliveCount(trainer) > 0) {

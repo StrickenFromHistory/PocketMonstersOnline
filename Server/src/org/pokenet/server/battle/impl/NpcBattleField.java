@@ -222,10 +222,8 @@ public class NpcBattleField extends BattleField {
 				if (this.getActivePokemon()[trainer].isFainted()) {
 					if (!move.isMoveTurn() && this.getParty(trainer)[move.getId()] != null
 							&& this.getParty(trainer)[move.getId()].getHealth() > 0) {
-						if(m_dispatch != null)
-							this.switchInPokemon(trainer, move.getId());
-						else
-							m_turn[trainer] = move;
+						switchInPokemon(trainer, move.getId());
+						requestMoves();
 					} else {
 						// The player still has pokemon left
 						if (getAliveCount(trainer) > 0) {
@@ -366,7 +364,6 @@ public class NpcBattleField extends BattleField {
 		if(i == 0) {
 			/* Request Pokemon replacement from player */
 			m_player.getSession().write("bs");
-			requestMove(1);
 		} else {
 			/* Request Pokemon replacement from npc */
 			try {
@@ -397,10 +394,10 @@ public class NpcBattleField extends BattleField {
 					 */
 					int index = 0;
 					while(this.getParty(1)[index] == null ||
-							this.getParty(1)[index].getHealth() < 1)
+							this.getParty(1)[index].getHealth() < 1 ||
+							this.getParty(1)[index] == getActivePokemon()[1])
 						index = getMechanics().getRandom().nextInt(6);
 					this.queueMove(1, BattleTurn.getSwitchTurn(index));
-					requestMove(0);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
