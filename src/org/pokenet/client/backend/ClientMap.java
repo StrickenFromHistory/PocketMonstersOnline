@@ -221,20 +221,20 @@ public class ClientMap extends TiledMap {
 		int newX = 0, newY = 0;
         switch (d) {
         case Up:
-                newX = p.getX();
-                newY = p.getY() - 32;
+                newX = p.getServerX();
+                newY = p.getServerY() - 32;
                 break;
         case Down:
-                newX = p.getX();
-                newY = p.getY() + 32;
+                newX = p.getServerX();
+                newY = p.getServerY() + 32;
                 break;
         case Left:
-                newX = p.getX() - 32;
-                newY = p.getY();
+                newX = p.getServerX() - 32;
+                newY = p.getServerY();
                 break;
         case Right:
-                newX = p.getX() + 32;
-                newY = p.getY();
+                newX = p.getServerX() + 32;
+                newY = p.getServerY();
                 break;
         }
         if(isNewMap(newX, newY))
