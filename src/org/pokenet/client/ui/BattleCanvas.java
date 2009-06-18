@@ -359,8 +359,12 @@ public class BattleCanvas extends Container {
 		if (trainer == 0){
 			// The player's pokemon
 			if (status != "normal") {
+				GameClient.getInstance().getUi().getBattleManager().getOurStatuses().put(
+						GameClient.getInstance().getUi().getBattleManager().getCurPokeIndex(), status);
 				playerStatus.setImage(m_statusIcons.get(status));
 			} else {
+				GameClient.getInstance().getUi().getBattleManager().getOurStatuses().remove(
+						GameClient.getInstance().getUi().getBattleManager().getCurPokeIndex());
 				playerStatus.setImage(null);
 			}
 		} else {

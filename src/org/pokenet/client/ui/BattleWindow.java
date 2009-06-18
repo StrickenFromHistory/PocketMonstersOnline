@@ -1,6 +1,7 @@
 package org.pokenet.client.ui;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import mdes.slick.sui.Button;
@@ -33,12 +34,6 @@ public class BattleWindow extends Frame {
 	public Button move2;
 	public Button move3;
 	public Button move4;
-	public Label info1;
-	public Label info2;
-	public Label info3;
-	public Label info4;
-	public Label info5;
-	public Label info6;
 	public Label pp1;
 	public Label pp2;
 	public Label pp3;
@@ -60,7 +55,9 @@ public class BattleWindow extends Frame {
 	public List<Label> m_ppLabels = new ArrayList<Label>();
 	public List<Button> m_pokeButtons = new ArrayList<Button>();
 	public List<Label> m_pokeInfo = new ArrayList<Label>();
-
+	public List<Label> m_pokeStatus = new ArrayList<Label>();
+	public HashMap<String, Image> m_statusIcons = new HashMap<String, Image>();
+	
 	/**
 	 * Default constructor
 	 * 
@@ -71,11 +68,31 @@ public class BattleWindow extends Frame {
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		setTitle(title);
+		loadStatusIcons();
 		initComponents();
 		setCenter();
 		setSize(259, 369);
 	}
 
+	/**
+	 * Loads the status icons
+	 */
+	public void loadStatusIcons(){
+		LoadingList.setDeferredLoading(true);
+		try{
+			m_statusIcons.put("Poison", new Image("/res/battle/PSN.png"));
+		} catch (SlickException e) {e.printStackTrace();} try{
+			m_statusIcons.put("Sleep", new Image("/res/battle/SLP.png"));
+		} catch (SlickException e) {e.printStackTrace();} try{
+			m_statusIcons.put("Freze", new Image("/res/battle/FRZ.png"));
+		} catch (SlickException e) {e.printStackTrace();} try{
+			m_statusIcons.put("Burn", new Image("/res/battle/BRN.png"));
+		} catch (SlickException e) {e.printStackTrace();} try{
+			m_statusIcons.put("Paralysis", new Image("/res/battle/PAR.png"));
+		} catch (SlickException e) {e.printStackTrace();}
+		LoadingList.setDeferredLoading(false);
+	}
+	
 	/**
 	 * Disables moves
 	 */
@@ -275,7 +292,7 @@ public class BattleWindow extends Frame {
 
 		pokeBtn1 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn1);
-		pokeBtn1.setBounds(8, 8, 112, 26);
+		pokeBtn1.setBounds(8, 8, 116, 51);
 
 		pokeBtn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -285,7 +302,7 @@ public class BattleWindow extends Frame {
 
 		pokeBtn2 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn2);
-		pokeBtn2.setBounds(128, 8, 112, 26);
+		pokeBtn2.setBounds(128, 8, 116, 51);
 
 		pokeBtn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -295,7 +312,7 @@ public class BattleWindow extends Frame {
 
 		pokeBtn3 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn3);
-		pokeBtn3.setBounds(8, 57, 112, 26);
+		pokeBtn3.setBounds(8, 59, 116, 51);
 
 		pokeBtn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -305,7 +322,7 @@ public class BattleWindow extends Frame {
 
 		pokeBtn4 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn4);
-		pokeBtn4.setBounds(128, 57, 112, 26);
+		pokeBtn4.setBounds(128, 59, 116, 51);
 
 		pokeBtn4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -315,7 +332,7 @@ public class BattleWindow extends Frame {
 
 		pokeBtn5 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn5);
-		pokeBtn5.setBounds(8, 107, 112, 26);
+		pokeBtn5.setBounds(8, 110, 116, 51);
 
 		pokeBtn5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -325,7 +342,7 @@ public class BattleWindow extends Frame {
 
 		pokeBtn6 = BattleButtonFactory.getButton(" ");
 		pokesContainer.add(pokeBtn6);
-		pokeBtn6.setBounds(128, 107, 112, 26);
+		pokeBtn6.setBounds(128, 110, 116, 51);
 
 		pokeBtn6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -340,48 +357,29 @@ public class BattleWindow extends Frame {
 		m_pokeButtons.add(pokeBtn5);
 		m_pokeButtons.add(pokeBtn6);
 
+		for (int i = 0; i < 6; i++){
+			Label status = new Label();
+			status.setSize(30, 12);
+			status.setGlassPane(true);
+			m_pokeButtons.get(i).add(status);
+			status.setLocation(6, 5);
+			
+			Label info = new Label();
+			m_pokeButtons.get(i).add(info);
+			info.setText("                               ");
+			info.setLocation(3, 34);
+			info.setSize(107, 14);
+			info.setForeground(Color.white);
+			info.setGlassPane(true);
+			info.setFont(GameClient.getFontSmall());
+			m_pokeInfo.add(info);
+		}
+
 		pokeCancelBtn = BattleButtonFactory.getSmallButton("Cancel");
 		pokesContainer.add(pokeCancelBtn);
-		pokeCancelBtn.setLocation(128, 140);
+		pokeCancelBtn.setLocation(162, 161);
 		pokeCancelBtn.setSize(82, 48);
-
-		info1 = new Label();
-		pokesContainer.add(info1);
-		info1.setText("                               ");
-		info1.setBounds(8, 37, 107, 14);
-
-		info2 = new Label();
-		pokesContainer.add(info2);
-		info2.setText("                               ");
-		info2.setBounds(128, 37, 107, 14);
-
-		info3 = new Label();
-		pokesContainer.add(info3);
-		info3.setText("                               ");
-		info3.setBounds(8, 88, 107, 14);
-
-		info4 = new Label();
-		pokesContainer.add(info4);
-		info4.setText("                               ");
-		info4.setBounds(128, 88, 107, 14);
-
-		info5 = new Label();
-		pokesContainer.add(info5);
-		info5.setText("                               ");
-		info5.setBounds(8, 139, 107, 14);
-
-		info6 = new Label();
-		pokesContainer.add(info6);
-		info6.setText("                               ");
-		info6.setBounds(128, 139, 107, 14);
-
-		m_pokeInfo.add(info1);
-		m_pokeInfo.add(info2);
-		m_pokeInfo.add(info3);
-		m_pokeInfo.add(info4);
-		m_pokeInfo.add(info5);
-		m_pokeInfo.add(info6);
-
+		
 		pokeCancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				showAttack();

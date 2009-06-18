@@ -1,5 +1,8 @@
 package org.pokenet.client.backend;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.OurPokemon;
@@ -26,6 +29,7 @@ public class BattleManager {
 	private String m_enemy;
 	private boolean m_isWild;
 	private MoveLearning m_moveLearning;
+	private Map<Integer, String> m_ourStatuses = new HashMap<Integer, String>();
 	
 	/**
 	 * Default Constructor
@@ -188,6 +192,11 @@ public class BattleManager {
 				m_battle.m_pokeButtons.get(i).setText(m_ourPokes[i].getName());
 				m_battle.m_pokeInfo.get(i).setText("Lv: " + m_ourPokes[i].getLevel() + " HP:"
 						+ m_ourPokes[i].getCurHP() + "/" + m_ourPokes[i].getMaxHP());
+				if (m_ourStatuses.containsKey(i) && m_battle.m_statusIcons.containsKey(m_ourStatuses.get(i))){
+					m_battle.m_pokeStatus.get(i).setImage(m_battle.m_statusIcons.get(m_ourStatuses.get(i)));
+				} else {
+					m_battle.m_pokeStatus.get(i).setImage(null);
+				}
 				if (m_ourPokes[i].getCurHP() <= 0)
 					m_battle.m_pokeButtons.get(i).setEnabled(false);
 				else
@@ -332,5 +341,13 @@ public class BattleManager {
 			GameClient.getInstance().getUi().nullSpeechFrame();
 		}
 		GameClient.getInstance().getDisplay().remove(m_moveLearning);
+	}
+	
+	/**
+	 * Returns a list of our pokes who are affected by statuses
+	 * @return a list of our pokes who are affected by statuses
+	 */
+	public Map<Integer, String> getOurStatuses(){
+		return m_ourStatuses;
 	}
 }
