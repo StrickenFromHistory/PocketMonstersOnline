@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.tiled.Layer;
 import org.newdawn.slick.tiled.TiledMap;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
@@ -201,14 +202,80 @@ public class ClientMap extends TiledMap {
 	}
 	
 	/**
+	 * Returns true if x or y if off the map
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	private boolean isNewMap(int x, int y) {
+		return x < 0 || x > this.getWidth() * 32 || y < 0 || y > this.getHeight() * 32;
+	}
+	
+	/**
 	 * Returns true if the player is colliding with an object
 	 * @param p
 	 * @param d
 	 * @return
 	 */
 	public boolean isColliding(Player p, Direction d) {
+		int newX = 0, newY = 0;
+        switch (d) {
+        case Up:
+                newX = p.getX();
+                newY = p.getY() - 32;
+                break;
+        case Down:
+                newX = p.getX();
+                newY = p.getY() + 32;
+                break;
+        case Left:
+                newX = p.getX() - 32;
+                newY = p.getY();
+                break;
+        case Right:
+                newX = p.getX() + 32;
+                newY = p.getY();
+                break;
+        }
+        if(isNewMap(newX, newY))
+        	return false;
+        int collisionLayer = getLayer("Collisions").getTileID(newX / 32, (newY + 8) / 32);
+        int ledgeLayer = 0;
+        try {
+        	if(p.getDirection() != Direction.Right) {
+        		ledgeLayer = getLayer("LedgesRight").getTileID(newX / 32, (newY + 8) / 32);
+        	} else if(p.getDirection() != Direction.Left) {
+        		ledgeLayer = getLayer("LedgesLeft").getTileID(newX / 32, (newY + 8) / 32);
+        	} else if(p.getDirection() != Direction.Down) {
+        		ledgeLayer = getLayer("LedgesDown").getTileID(newX / 32, (newY + 8) / 32);
+        	}
+        } catch (Exception e) {
+        	ledgeLayer = 0;
+        }
+        if(ledgeLayer + collisionLayer != 0)
+        	return true;
 		return false;
 	}
+	
+	/**
+	 * Returns a layer by its index
+	 * @param layer
+	 * @return
+	 */
+	 private Layer getLayer(int layer) {
+         return (Layer)layers.get(layer);
+	 }
+
+	
+	 /**
+	  * Returns a layer by its name
+	  * @param layer
+	  * @return
+	  */
+	 private Layer getLayer(String layer) {
+        int idx = this.getLayerIndex(layer);
+        return getLayer(idx);
+	 }
 	
 	/**
 	 * Sets the y offset and recalibrates surrounding maps if calibrate is true
