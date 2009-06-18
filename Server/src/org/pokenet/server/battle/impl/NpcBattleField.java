@@ -395,7 +395,7 @@ public class NpcBattleField extends BattleField {
 					int index = 0;
 					while(this.getParty(1)[index] == null ||
 							this.getParty(1)[index].getHealth() < 1 ||
-							this.getParty(1)[index] == getActivePokemon()[1])
+							this.getParty(1)[index].compareTo(getActivePokemon()[1]) == 0)
 						index = getMechanics().getRandom().nextInt(6);
 					this.queueMove(1, BattleTurn.getSwitchTurn(index));
 				}

@@ -397,13 +397,13 @@ public abstract class BattleField {
     public int getPokemonPartyIndex(Pokemon p) {
     	/* Check player 1 */
 		for (int i = 0; i < m_pokemon[0].length; i++){
-			if (m_pokemon[0][i].compareTo(p) == 0) {
+			if (m_pokemon[0][i] != null && m_pokemon[0][i].compareTo(p) == 0) {
 				return i;
 			}
 		}
 		/* Check player 2 */
 		for (int i = 0; i < m_pokemon[1].length; i++){
-			if (m_pokemon[1][i].compareTo(p) == 0) {
+			if (m_pokemon[1][i] != null && m_pokemon[1][i].compareTo(p) == 0) {
 				return i;
 			}
 		}
