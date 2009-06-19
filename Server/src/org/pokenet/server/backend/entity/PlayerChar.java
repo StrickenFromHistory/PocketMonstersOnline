@@ -89,6 +89,14 @@ public class PlayerChar extends Char implements Battleable {
 	private HashMap<String, RequestType> m_requests;
 	
 	/**
+	 * Constructor
+	 * NOTE: Minimal initialisations should occur here
+	 */
+	public PlayerChar() {
+		m_requests = new HashMap<String, RequestType>();
+	}
+	
+	/**
 	 * Sets if this player is interacting with
 	 * a sprite selection npc
 	 * @param b
@@ -181,14 +189,6 @@ public class PlayerChar extends Char implements Battleable {
 		m_trade = null;
 		if(m_session != null && m_session.isConnected())
 			m_session.write("Tf");
-	}
-	
-	/**
-	 * Constructor
-	 * NOTE: Minimal initialisations should occur here
-	 */
-	public PlayerChar() {
-		m_requests = new HashMap<String, RequestType>();
 	}
 	
 	/**
@@ -476,14 +476,6 @@ public class PlayerChar extends Char implements Battleable {
 				return;
 			}
 		}
-	}
-	
-	/**
-	 * Sets the badges this player has
-	 * @param badges
-	 */
-	public void setBadges(byte [] badges) {
-		m_badges = badges;
 	}
 	
 	/**
@@ -946,6 +938,25 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public boolean isShopping() {
 		return m_isShopping;
+	}
+	
+	/**
+	 * Sets the badges this player has
+	 * @param badges
+	 */
+	public void setBadges(byte [] badges) {
+		m_badges = badges;
+	}
+	
+	/**
+	 * Adds a badge to the player's badge collection
+	 * @param num
+	 */
+	public void addBadge(int num) {
+		if(num >= 0 && num < m_badges.length) {
+			m_badges[num] = 1;
+			updateClientBadges();
+		}
 	}
 	
 	/**

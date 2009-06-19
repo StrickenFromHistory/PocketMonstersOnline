@@ -183,6 +183,9 @@ public class NpcBattleField extends BattleField {
 		if (winner == 0) {
 			m_player.removeTempStatusEffects();
 			m_player.getSession().write("b@w");
+			if(m_npc.isGymLeader()) {
+				m_player.addBadge(m_npc.getBadge());
+			}
 		} else {
 			m_player.getSession().write("b@l");
 			m_player.lostBattle();

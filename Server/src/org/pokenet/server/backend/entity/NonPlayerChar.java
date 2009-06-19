@@ -178,7 +178,7 @@ public class NonPlayerChar extends Char {
 	 * @return
 	 */
 	public boolean isGymLeader() {
-		return m_badge != -1;
+		return m_badge > -1;
 	}
 	
 	/**
