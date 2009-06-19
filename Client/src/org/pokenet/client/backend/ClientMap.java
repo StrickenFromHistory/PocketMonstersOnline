@@ -279,6 +279,12 @@ public class ClientMap extends TiledMap {
 			if (getTileProperty(getLayer("Walkable").getTileID(newX / 32, (newY + 8) / 32), "Reflection", "")
 					.equalsIgnoreCase("true"))
 				return true;
+			
+			for (int i = 0; i < getLayerCount(); i++){
+				if (getTileProperty(getLayer(i).getTileID(newX / 32, (newY + 8) / 32), "Reflection", "")
+						.equalsIgnoreCase("true"))
+					return true;
+			}
 			} catch (Exception e) {}
 		return false;
 	}
