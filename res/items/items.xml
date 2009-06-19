@@ -7,7 +7,7 @@
 				<m_description>Basic healing item, 20hp</m_description>
 				<m_id>1</m_id>
 				<m_category>Potions</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 				<m_price>300</m_price>
 				<m_attributes>
 					<itemAttribute>POKEMON</itemAttribute>
@@ -23,7 +23,7 @@
 				<m_id>2</m_id>
 
 				<m_category>Potions</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 
 				<m_price>700</m_price>
 
@@ -132,7 +132,7 @@
 				<m_id>16</m_id>
 
 				<m_category>Medicine</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 
 				<m_price>100</m_price>
 
@@ -159,7 +159,7 @@
 				<m_id>17</m_id>
 
 				<m_category>Medicine</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 
 				<m_price>200</m_price>
 
@@ -187,7 +187,7 @@
 				<m_id>18</m_id>
 
 				<m_category>Medicine</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 
 				<m_price>250</m_price>
 
@@ -214,7 +214,7 @@
 				<m_id>19</m_id>
 
 				<m_category>Medicine</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 
 				<m_price>250</m_price>
 
@@ -241,7 +241,7 @@
 				<m_id>20</m_id>
 
 				<m_category>Medicine</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 
 				<m_price>250</m_price>
 
@@ -349,7 +349,7 @@
 				<m_id>35</m_id>
 
 				<m_category>Pokeball</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 
 				<m_price>200</m_price>
 
@@ -377,7 +377,7 @@
 				<m_id>36</m_id>
 
 				<m_category>Pokeball</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 
 				<m_price>600</m_price>
 
@@ -754,9 +754,9 @@
 
 			<item>
 
-				<m_name>Works better on bugs and water pokemon </m_name>
+				<m_name>Net Ball</m_name>
 
-				<m_description>ModMe</m_description>
+				<m_description>Works better on bugs and water pokemon </m_description>
 
 				<m_id>50</m_id>
 
@@ -1251,7 +1251,7 @@
 				<m_id>85</m_id>
 
 				<m_category>Field</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 
 				<m_price>350</m_price>
 
@@ -1279,7 +1279,7 @@
 				<m_id>86</m_id>
 
 				<m_category>Field</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 
 				<m_price>500</m_price>
 
@@ -1334,7 +1334,7 @@
 				<m_id>91</m_id>
 
 				<m_category>Field</m_category>
-				<m_shop>0</m_shop>
+				<m_shop>1</m_shop>
 
 				<m_price>250</m_price>
 
@@ -2328,7 +2328,7 @@
 
 			<item>
 
-				<m_name>ThunderStone</m_name>
+				<m_name>Thunder Stone</m_name>
 
 				<m_description>Allows electric type evolution</m_description>
 
@@ -2495,6 +2495,33 @@
 				<m_description>Prevents evolution</m_description>
 
 				<m_id>172</m_id>
+
+				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
+
+				<m_price>2100</m_price>
+
+				<m_attributes>
+
+					<itemAttribute>POKEMON</itemAttribute>
+
+				</m_attributes>
+
+			</item>
+
+		</entry>
+
+		<entry>
+
+			<integer>173</integer>
+
+			<item>
+
+				<m_name>Leaf Stone</m_name>
+
+				<m_description>Allows plant type evolution</m_description>
+
+				<m_id>173</m_id>
 
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
@@ -2711,6 +2738,33 @@
 				<m_description>Raises water moves</m_description>
 
 				<m_id>188</m_id>
+
+				<m_category>Breeding</m_category>
+				<m_shop>0</m_shop>
+
+				<m_price>100</m_price>
+
+				<m_attributes>
+
+					<itemAttribute>POKEMON</itemAttribute>
+
+				</m_attributes>
+
+			</item>
+
+		</entry>
+
+		<entry>
+
+			<integer>189</integer>
+
+			<item>
+
+				<m_name>Pure Incense</m_name>
+
+				<m_description>Prevents wild pokemon encounters if holder is first in party</m_description>
+
+				<m_id>189</m_id>
 
 				<m_category>Breeding</m_category>
 				<m_shop>0</m_shop>
@@ -4844,7 +4898,7 @@
 
 			<item>
 
-				<m_name>Platinum Orb</m_name>
+				<m_name>Griseous Orb</m_name>
 
 				<m_description>Giratina's signature item</m_description>
 
