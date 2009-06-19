@@ -81,6 +81,7 @@ public class Pokemon extends PokemonSpecies {
     @Element
     transient private String m_dateCaught;
     transient private int m_hp;
+    transient private int [] m_contestStat = new int[5];
     @ElementArray
     transient private int[] m_stat;
     @ElementArray
@@ -156,7 +157,7 @@ public class Pokemon extends PokemonSpecies {
     // Battle mechanics.
     private BattleMechanics m_mech;
 
-    // Constants representing each statistic.
+    /* Constants representing each statistic. */
     public static final int S_HP = 0;
     public static final int S_ATTACK = 1;
     public static final int S_DEFENCE = 2;
@@ -165,9 +166,33 @@ public class Pokemon extends PokemonSpecies {
     public static final int S_SPDEFENCE = 5;
     public static final int S_ACCURACY = 6;
     public static final int S_EVASION = 7;
+    /* Content stats */
+    public static final int S_BEAUTY = 0;
+    public static final int S_CUTE = 1;
+    public static final int S_SMART = 2;
+    public static final int S_COOL = 3;
+    public static final int S_TOUGH = 4;
     
     public enum ExpTypes {
         MEDIUM, ERRATIC, FLUCTUATING, PARABOLIC, FAST, SLOW
+    }
+    
+    /**
+     * Sets the contest stat of the pokemon. NOTE: Use S_BEAUTY, S_CUTE, etc. for i
+     * @param i
+     * @param amount
+     */
+    public void setContestStat(int i, int amount) {
+    	m_contestStat[i] = amount <= 255 ? amount : 255;
+    }
+    
+    /**
+     * Returns the contest of the pokemon.
+     * NOTE: Use S_BEAUTY, S_CUTE, etc.
+     * @param i
+     */
+    public int getContestStat(int i) {
+    	return m_contestStat[i];
     }
     
     /**
