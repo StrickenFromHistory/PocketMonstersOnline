@@ -4,6 +4,7 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.Layer;
 import org.newdawn.slick.tiled.TiledMap;
@@ -28,6 +29,7 @@ public class ClientMap extends TiledMap {
 	private ClientMapMatrix m_mapMatrix;
 	private int m_walkableLayer, m_lastRendered;
 	private String m_name;
+	private Image m_grassOverlay;
 	
 	private Graphics m_graphics;
 
@@ -39,6 +41,9 @@ public class ClientMap extends TiledMap {
 	 */
 	public ClientMap(String ref, String tileSetsLocation) throws SlickException {
 		super(ref, tileSetsLocation);
+		try{
+			m_grassOverlay = new Image("/res/ui/grass_overlay.png");
+		} catch (Exception e) {e.printStackTrace();}
 		m_xOffsetModifier = Integer.parseInt(getMapProperty("xOffsetModifier",
 		"0").trim());
 		m_yOffsetModifier = Integer.parseInt(getMapProperty("yOffsetModifier",
@@ -71,6 +76,12 @@ public class ClientMap extends TiledMap {
 								if (shouldReflect(p)){
 									p.getCurrentImage().getFlippedCopy(false, true).draw(m_xOffset + p.getX()
 											- 4, m_yOffset + p.getY() + 32);
+								}
+								if (wasOnGrass(p)){
+									m_grassOverlay.draw(m_xOffset + p.getPrevX(), m_yOffset + p.getPrevY() + 9);
+								}
+								if (isOnGrass(p)){
+									m_grassOverlay.draw(m_xOffset + p.getServerX(), m_yOffset + p.getServerY() + 9);
 								}
 								m_graphics.drawString(p.getUsername(), m_xOffset + (p.getX()
 										- (m_graphics.getFont().getWidth(p.getUsername()) / 2)) + 16, m_yOffset + p.getY()
@@ -282,6 +293,54 @@ public class ClientMap extends TiledMap {
 			
 			for (int i = 0; i < getLayerCount(); i++){
 				if (getTileProperty(getLayer(i).getTileID(newX / 32, (newY + 8) / 32), "Reflection", "")
+						.equalsIgnoreCase("true"))
+					return true;
+			}
+			} catch (Exception e) {}
+		return false;
+	}
+	
+	/**
+	 * Returns true if the grass overlay should be drawn
+	 * @param p
+	 * @return
+	 */
+	public boolean isOnGrass(Player p) {
+		int newX = 0, newY = 0;
+		newX = p.getServerX();
+		newY = p.getServerY();
+
+		try {
+			if (getTileProperty(getLayer("Walkable").getTileID(newX / 32, (newY + 8) / 32), "Grass", "")
+					.equalsIgnoreCase("true"))
+				return true;
+			
+			for (int i = 0; i < getLayerCount(); i++){
+				if (getTileProperty(getLayer(i).getTileID(newX / 32, (newY + 8) / 32), "Grass", "")
+						.equalsIgnoreCase("true"))
+					return true;
+			}
+			} catch (Exception e) {}
+		return false;
+	}
+	
+		/**
+	 * Returns true if a the previous grass overlay should be drawn
+	 * @param p
+	 * @return
+	 */
+	public boolean wasOnGrass(Player p) {
+		int newX = 0, newY = 0;
+		newX = p.getPrevX();
+		newY = p.getPrevY();
+
+		try {
+			if (getTileProperty(getLayer("Walkable").getTileID(newX / 32, (newY + 8) / 32), "Grass", "")
+					.equalsIgnoreCase("true"))
+				return true;
+			
+			for (int i = 0; i < getLayerCount(); i++){
+				if (getTileProperty(getLayer(i).getTileID(newX / 32, (newY + 8) / 32), "Grass", "")
 						.equalsIgnoreCase("true"))
 					return true;
 			}
