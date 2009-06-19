@@ -56,6 +56,8 @@ public class WeatherService {
 			return m_systems[2];
 		case FOG:
 			return m_systems[3];
+		case NORMAL:
+			return null;
 		default:
 			return null;
 		}
