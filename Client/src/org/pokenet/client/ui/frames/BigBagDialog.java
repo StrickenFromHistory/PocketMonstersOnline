@@ -9,11 +9,14 @@ import mdes.slick.sui.Label;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Item;
 import org.pokenet.client.backend.entity.PlayerItem;
+import org.pokenet.client.ui.base.ImageButton;
 
 /**
  * The big bag dialog
@@ -21,12 +24,7 @@ import org.pokenet.client.backend.entity.PlayerItem;
  *
  */
 public class BigBagDialog extends Frame {
-	private Button[] m_categoryButtons;
-	private Label[] m_categoryLabels;
-	private Button[] m_itemButtons;
-	private Label[] m_itemPics;
-	private Label[] m_itemLabels;
-	private Label[] m_itemStockPics;
+	private ImageButton[] m_categoryButtons;
 	
 	List<Item> m_items;
 	private Button m_cancel;
@@ -43,46 +41,54 @@ public class BigBagDialog extends Frame {
 	}
 	
 	public void initGUI() {
-		m_categoryButtons = new Button[5];
-		m_categoryLabels = new Label[5];
+		m_categoryButtons = new ImageButton[5];
+		
+		
 		
 		for(int i = 0; i < m_categoryButtons.length;i++){
-			m_categoryLabels[i] = new Label(i+"");
-			if(i==0)
-				m_categoryLabels[i].setLocation(0,0);
-			else
-				m_categoryLabels[i].setLocation(m_categoryLabels[i-1].getLocation().x+50, 80);
-			m_categoryLabels[i].setGlassPane(true);
-			m_categoryLabels[i].setZIndex(1000);
-			m_categoryLabels[i].setSize(40,40);
-			m_categoryLabels[i].setFont(GameClient.getFontLarge());
-			
-			m_categoryButtons[i] = new Button(" ");
-			LoadingList.setDeferredLoading(true);
-//			try{
-//				m_categoryButtons[0].setImage(new Image("res/ui/shop/pokeball.png"));
-//			}catch(Exception e){
-//				e.printStackTrace();
-//			}
-			LoadingList.setDeferredLoading(false);
-			m_categoryButtons[i].setSize(40, 40);
+			try{
+				Image bagcat = new Image("res/ui/bag/bag_normal.png");
+				Image berriescat = new Image("res/ui/bag/berries_normal.png");
+				Image pokecat = new Image("res/ui/bag/pokeballs_normal.png");
+				Image potioncat = new Image("res/ui/bag/potions_normal.png");
+				Image tmscat = new Image("res/ui/bag/tms_normal.png");
+				
+				if(i==0)
+					m_categoryButtons[i] = new ImageButton(bagcat, bagcat, bagcat);
+				else if(i==1)
+					m_categoryButtons[i] = new ImageButton(potioncat, potioncat, potioncat);
+				else if(i==2)
+					m_categoryButtons[i] = new ImageButton(berriescat, berriescat, berriescat);
+				else if(i==3)
+					m_categoryButtons[i] = new ImageButton(pokecat, pokecat, pokecat);
+				else if(i==4)
+					m_categoryButtons[i] = new ImageButton(tmscat, tmscat, tmscat);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			m_categoryButtons[i].setSize(40,40);
 			if(i==0)
 				m_categoryButtons[i].setLocation(80,10);
 			else
 				m_categoryButtons[i].setLocation(m_categoryButtons[i-1].getLocation().x+65, 10);
 			m_categoryButtons[i].setFont(GameClient.getFontLarge());
+			m_categoryButtons[i].setOpaque(false);
 			m_categoryButtons[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 //					categoryClicked(0);
 				}
 			});
-			m_categoryButtons[i].add(m_categoryLabels[i]);
 			getContentPane().add(m_categoryButtons[i]);
 		}
 		
-		Label bagicon = new Label("Bag");
+		Label bagicon = new Label("");
 		bagicon.setSize(40,40);
-		bagicon.setLocation(20,10);
+		LoadingList.setDeferredLoading(true);
+		try {
+			bagicon.setImage(new Image("res/ui/bag/front.png"));
+		} catch (SlickException e1) {}
+		LoadingList.setDeferredLoading(false);
+		bagicon.setLocation(18,0);
 		bagicon.setFont(GameClient.getFontLarge());
 		getContentPane().add(bagicon);
 		
@@ -166,6 +172,7 @@ public class BigBagDialog extends Frame {
 						cancelled();
 					}
 				});
+		this.setBackground(new Color(0, 0, 0, 75));
 		setTitle("Bag");
 		setResizable(false);
 		setHeight(250);
