@@ -2,6 +2,7 @@ package org.pokenet.server.battle;
 
 import java.io.File;
 
+import org.pokenet.server.backend.item.DropDatabase;
 import org.pokenet.server.battle.mechanics.JewelMechanics;
 import org.pokenet.server.battle.mechanics.moves.MoveList;
 import org.pokenet.server.battle.mechanics.moves.MoveSetData;
@@ -19,6 +20,7 @@ public class DataService {
 	private static JewelMechanics m_mechanics;
 	private static MoveList m_moveList;
 	private static MoveSetData m_moveSetData;
+	private static DropDatabase m_dropData;
 	
 	/**
 	 * Default constructor. Loads data immediately.
@@ -30,6 +32,8 @@ public class DataService {
 			m_moveSetData = new MoveSetData();
 			m_speciesData = new PokemonSpeciesData();
 			m_mechanics = new JewelMechanics(5);
+			m_dropData = new DropDatabase();
+			m_dropData.reinitialise();
 			JewelMechanics.loadMoveTypes("res/movetypes.txt");
 			File f = new File(".");
 			m_moveSetData = stream.read(MoveSetData.class, new File(f.getCanonicalPath() + "/res/movesets.xml"));
@@ -48,6 +52,14 @@ public class DataService {
 	 */
 	public static PokemonSpeciesData getSpeciesDatabase() {
 		return m_speciesData;
+	}
+	
+	/**
+	 * Returns the drop database
+	 * @return
+	 */
+	public static DropDatabase getDropDatabase() {
+		return m_dropData;
 	}
 	
 	/**

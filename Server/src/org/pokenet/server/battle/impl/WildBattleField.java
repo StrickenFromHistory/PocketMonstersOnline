@@ -502,10 +502,15 @@ public class WildBattleField extends BattleField {
 		/*
 		 * First calculate earnings
 		 */
-		int money = 5;
-		m_player.setMoney(m_player.getMoney() + money);
-		m_player.updateClientMoney();
-		m_player.getSession().write("b$" + money);
+		int item = DataService.getDropDatabase().getRandomItem(m_wildPoke.getSpeciesName());
+		if(item > -1) {
+			m_player.getBag().addItem(item, 1);
+		} else {
+			int money = 5;
+			m_player.setMoney(m_player.getMoney() + money);
+			m_player.updateClientMoney();
+			m_player.getSession().write("b$" + money);
+		}
 
 		/*
 		 * Secondly, calculate EVs and exp
