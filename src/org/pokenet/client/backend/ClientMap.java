@@ -68,6 +68,10 @@ public class ClientMap extends TiledMap {
 							if(p != null && p.getSprite() != 0 && (p.getY() >= mapY * 32 - 39) && (p.getY() <= mapY * 32 + 32)
 									&& (p.getCurrentImage() != null)) {
 								p.getCurrentImage().draw(m_xOffset + p.getX() - 4, m_yOffset + p.getY());
+								if (shouldReflect(p)){
+									p.getCurrentImage().getFlippedCopy(false, true).draw(m_xOffset + p.getX()
+											- 4, m_yOffset + p.getY() + 32);
+								}
 								m_graphics.drawString(p.getUsername(), m_xOffset + (p.getX()
 										- (m_graphics.getFont().getWidth(p.getUsername()) / 2)) + 16, m_yOffset + p.getY()
 										- 36);
@@ -254,6 +258,28 @@ public class ClientMap extends TiledMap {
         }
         if(ledgeLayer + collisionLayer != 0)
         	return true;
+		return false;
+	}
+	
+	/**
+	 * Returns true if a reflection should be drawn
+	 * @param p
+	 * @return
+	 */
+	public boolean shouldReflect(Player p) {
+		int newX = 0, newY = 0;
+		newX = p.getServerX();
+		newY = p.getServerY() + 32;
+
+		try {
+			if (getTileProperty(getLayer("Water").getTileID(newX / 32, (newY + 8) / 32), "Reflection", "")
+					.equalsIgnoreCase("true"))
+				return true;
+
+			if (getTileProperty(getLayer("Walkable").getTileID(newX / 32, (newY + 8) / 32), "Reflection", "")
+					.equalsIgnoreCase("true"))
+				return true;
+			} catch (Exception e) {}
 		return false;
 	}
 	
