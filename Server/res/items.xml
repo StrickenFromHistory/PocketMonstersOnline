@@ -754,9 +754,9 @@
 
 			<item>
 
-				<m_name>Works better on bugs and water pokemon </m_name>
+				<m_name>Net Ball</m_name>
 
-				<m_description>ModMe</m_description>
+				<m_description>Works better on bugs and water pokemon </m_description>
 
 				<m_id>50</m_id>
 
@@ -2328,7 +2328,7 @@
 
 			<item>
 
-				<m_name>ThunderStone</m_name>
+				<m_name>Thunder Stone</m_name>
 
 				<m_description>Allows electric type evolution</m_description>
 
@@ -2495,6 +2495,33 @@
 				<m_description>Prevents evolution</m_description>
 
 				<m_id>172</m_id>
+
+				<m_category>Evolution</m_category>
+				<m_shop>0</m_shop>
+
+				<m_price>2100</m_price>
+
+				<m_attributes>
+
+					<itemAttribute>POKEMON</itemAttribute>
+
+				</m_attributes>
+
+			</item>
+
+		</entry>
+
+		<entry>
+
+			<integer>173</integer>
+
+			<item>
+
+				<m_name>Leaf Stone</m_name>
+
+				<m_description>Allows plant type evolution</m_description>
+
+				<m_id>173</m_id>
 
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
@@ -2711,6 +2738,33 @@
 				<m_description>Raises water moves</m_description>
 
 				<m_id>188</m_id>
+
+				<m_category>Breeding</m_category>
+				<m_shop>0</m_shop>
+
+				<m_price>100</m_price>
+
+				<m_attributes>
+
+					<itemAttribute>POKEMON</itemAttribute>
+
+				</m_attributes>
+
+			</item>
+
+		</entry>
+
+		<entry>
+
+			<integer>189</integer>
+
+			<item>
+
+				<m_name>Pure Incense</m_name>
+
+				<m_description>Prevents wild pokemon encounters if holder is first in party</m_description>
+
+				<m_id>189</m_id>
 
 				<m_category>Breeding</m_category>
 				<m_shop>0</m_shop>
@@ -4844,7 +4898,7 @@
 
 			<item>
 
-				<m_name>Platinum Orb</m_name>
+				<m_name>Griseous Orb</m_name>
 
 				<m_description>Giratina's signature item</m_description>
 
