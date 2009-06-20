@@ -95,7 +95,7 @@ public class ClientMap extends TiledMap {
 								}
 								m_graphics.drawString(p.getUsername(), m_xOffset + (p.getX()
 										- (m_graphics.getFont().getWidth(p.getUsername()) / 2)) + 16, m_yOffset + p.getY()
-										- 9);
+										- 36);
 							}
 						}
 					}
