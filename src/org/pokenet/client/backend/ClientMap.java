@@ -79,17 +79,14 @@ public class ClientMap extends TiledMap {
 								}
 								if (wasOnGrass(p) && isOnGrass(p)){
 									switch (p.getDirection()){
-									case Down:
-										//m_grassOverlay.copy().draw(m_xOffset + p.getServerX(), m_yOffset + p.getServerY() - 32 + 9);
-										break;
 									case Up:
-										m_grassOverlay.draw(m_xOffset + p.getServerX(), m_yOffset + p.getServerY() + 32 + 9);
+										m_grassOverlay.draw(m_xOffset + p.getServerX(), m_yOffset + p.getServerY() + 32 + 8);
 										break;
 									case Left:
-										m_grassOverlay.copy().draw(m_xOffset + p.getServerX() + 32, m_yOffset + p.getServerY() + 9);
+										m_grassOverlay.copy().draw(m_xOffset + p.getServerX() + 32, m_yOffset + p.getServerY() + 8);
 										break;
 									case Right:
-										m_grassOverlay.copy().draw(m_xOffset + p.getServerX() - 32, m_yOffset + p.getServerY() + 9);
+										m_grassOverlay.copy().draw(m_xOffset + p.getServerX() - 32, m_yOffset + p.getServerY() + 8);
 										break;
 									}
 								}
