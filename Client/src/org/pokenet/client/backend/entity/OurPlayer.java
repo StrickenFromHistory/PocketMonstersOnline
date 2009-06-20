@@ -123,51 +123,55 @@ public class OurPlayer extends Player {
 	 * @param information
 	 */
 	public void setPokemon(int i, String [] info) {
-		/*
-		 * Set sprite, name, gender and hp
-		 */
-		System.out.println(info.length);
-		m_pokemon[i] = new OurPokemon();
-		m_pokemon[i].setSpriteNumber(Integer.parseInt(info[0]));
-		m_pokemon[i].setName(info[1]);
-		m_pokemon[i].setCurHP(Integer.parseInt(info[2]));
-		m_pokemon[i].setGender(Integer.parseInt(info[3]));
-		if(info[4].equalsIgnoreCase("0"))
-			m_pokemon[i].setShiny(false);
-		else
-			m_pokemon[i].setShiny(true);
-		m_pokemon[i].setMaxHP(Integer.parseInt(info[5]));
-		/*
-		 * Stats
-		 */
-		m_pokemon[i].setAtk(Integer.parseInt(info[6]));
-		m_pokemon[i].setDef(Integer.parseInt(info[7]));
-		m_pokemon[i].setSpeed(Integer.parseInt(info[8]));
-		m_pokemon[i].setSpatk(Integer.parseInt(info[9]));
-		m_pokemon[i].setSpdef(Integer.parseInt(info[10]));
-		m_pokemon[i].setType1(Poketype.valueOf(info[11]));
-		if(info[12] != null && !info[12].equalsIgnoreCase("")) {
-			m_pokemon[i].setType2(Poketype.valueOf(info[12]));
-		}
-		m_pokemon[i].setExp(Integer.parseInt(info[13].substring(0, info[13].indexOf('.'))));
-		m_pokemon[i].setLevel(Integer.parseInt(info[14]));
-		m_pokemon[i].setAbility(info[15]);
-		m_pokemon[i].setNature(info[16]);
-		/*
-		 * Moves
-		 */
-		String [] moves = new String[4];
-		for(int j = 0; j < 4; j++) {
-			if(j < info.length - 17 && info[j + 17] != null)
-				moves[j] = info[j + 17];
+		if(info == null) {
+			m_pokemon[i] = null;
+		} else {
+			/*
+			 * Set sprite, name, gender and hp
+			 */
+			System.out.println(info.length);
+			m_pokemon[i] = new OurPokemon();
+			m_pokemon[i].setSpriteNumber(Integer.parseInt(info[0]));
+			m_pokemon[i].setName(info[1]);
+			m_pokemon[i].setCurHP(Integer.parseInt(info[2]));
+			m_pokemon[i].setGender(Integer.parseInt(info[3]));
+			if(info[4].equalsIgnoreCase("0"))
+				m_pokemon[i].setShiny(false);
 			else
-				moves[j] = "";
+				m_pokemon[i].setShiny(true);
+			m_pokemon[i].setMaxHP(Integer.parseInt(info[5]));
+			/*
+			 * Stats
+			 */
+			m_pokemon[i].setAtk(Integer.parseInt(info[6]));
+			m_pokemon[i].setDef(Integer.parseInt(info[7]));
+			m_pokemon[i].setSpeed(Integer.parseInt(info[8]));
+			m_pokemon[i].setSpatk(Integer.parseInt(info[9]));
+			m_pokemon[i].setSpdef(Integer.parseInt(info[10]));
+			m_pokemon[i].setType1(Poketype.valueOf(info[11]));
+			if(info[12] != null && !info[12].equalsIgnoreCase("")) {
+				m_pokemon[i].setType2(Poketype.valueOf(info[12]));
+			}
+			m_pokemon[i].setExp(Integer.parseInt(info[13].substring(0, info[13].indexOf('.'))));
+			m_pokemon[i].setLevel(Integer.parseInt(info[14]));
+			m_pokemon[i].setAbility(info[15]);
+			m_pokemon[i].setNature(info[16]);
+			/*
+			 * Moves
+			 */
+			String [] moves = new String[4];
+			for(int j = 0; j < 4; j++) {
+				if(j < info.length - 17 && info[j + 17] != null)
+					moves[j] = info[j + 17];
+				else
+					moves[j] = "";
+			}
+			m_pokemon[i].setMoves(moves);
+			
+			m_pokemon[i].setSprite();
+			m_pokemon[i].setBackSprite();
+			m_pokemon[i].setIcon();
 		}
-		m_pokemon[i].setMoves(moves);
-		
-		m_pokemon[i].setSprite();
-		m_pokemon[i].setBackSprite();
-		m_pokemon[i].setIcon();
 	}
 	
 	/**

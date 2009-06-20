@@ -97,6 +97,26 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
+	 * Swaps pokemon between box and party 
+	 * @param box
+	 * @param boxSlot
+	 * @param partySlot
+	 */
+	public void swapFromBox(int box, int boxSlot, int partySlot) {
+		/* Make sure we're not swapping two empty slots */
+		if(m_pokemon[partySlot] != null || m_boxes[box].getPokemon(boxSlot) != null) {
+			Pokemon temp = m_pokemon[partySlot];
+			m_pokemon[partySlot] = m_boxes[box].getPokemon(boxSlot);
+			m_boxes[box].setPokemon(boxSlot, temp);
+			if(m_pokemon[partySlot] != null) {
+				updateClientParty(partySlot);
+			} else {
+				m_session.write("PN" + partySlot);
+			}
+		}
+	}
+	
+	/**
 	 * Sets if this player is interacting with
 	 * a sprite selection npc
 	 * @param b

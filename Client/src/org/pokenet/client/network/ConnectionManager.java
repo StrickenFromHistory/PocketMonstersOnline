@@ -304,6 +304,11 @@ public class ConnectionManager extends IoHandlerAdapter {
 		case 'P':
 			//Pokemon information
 			switch(message.charAt(1)) {
+			case 'N':
+				//A pokemon left the party
+				m_game.getOurPlayer().setPokemon(Integer.parseInt(String.valueOf(message.charAt(2))), null);
+				m_game.getUi().refreshParty();
+				break;
 			case 'i':
 				//Initialise a pokemon
 				details = message.substring(3).split(",");
