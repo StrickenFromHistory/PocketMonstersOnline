@@ -77,15 +77,28 @@ public class ClientMap extends TiledMap {
 									p.getCurrentImage().getFlippedCopy(false, true).draw(m_xOffset + p.getX()
 											- 4, m_yOffset + p.getY() + 32);
 								}
-								if (wasOnGrass(p)){
-									m_grassOverlay.draw(m_xOffset + p.getPrevX(), m_yOffset + p.getPrevY() + 9);
+								if (wasOnGrass(p) && isOnGrass(p)){
+									switch (p.getDirection()){
+									case Down:
+										//m_grassOverlay.copy().draw(m_xOffset + p.getServerX(), m_yOffset + p.getServerY() - 32 + 9);
+										break;
+									case Up:
+										m_grassOverlay.draw(m_xOffset + p.getServerX(), m_yOffset + p.getServerY() + 32 + 9);
+										break;
+									case Left:
+										m_grassOverlay.copy().draw(m_xOffset + p.getServerX() + 32, m_yOffset + p.getServerY() + 9);
+										break;
+									case Right:
+										m_grassOverlay.copy().draw(m_xOffset + p.getServerX() - 32, m_yOffset + p.getServerY() + 9);
+										break;
+									}
 								}
-								if (isOnGrass(p)){
+								if (isOnGrass(p) && p.getY() <= p.getServerY()){
 									m_grassOverlay.draw(m_xOffset + p.getServerX(), m_yOffset + p.getServerY() + 9);
 								}
 								m_graphics.drawString(p.getUsername(), m_xOffset + (p.getX()
 										- (m_graphics.getFont().getWidth(p.getUsername()) / 2)) + 16, m_yOffset + p.getY()
-										- 36);
+										- 9);
 							}
 						}
 					}
@@ -331,9 +344,25 @@ public class ClientMap extends TiledMap {
 	 */
 	public boolean wasOnGrass(Player p) {
 		int newX = 0, newY = 0;
-		newX = p.getPrevX();
-		newY = p.getPrevY();
 
+		newX = p.getServerX();
+		newY = p.getServerY();
+
+		switch (p.getDirection()){
+		case Up:
+			newY += 32;
+			break;
+		case Down:
+			newY -= 32;
+			break;
+		case Left:
+			newX += 32;
+			break;
+		case Right:
+			newX -= 32;
+			break;
+		}
+		
 		try {
 			if (getTileProperty(getLayer("Walkable").getTileID(newX / 32, (newY + 8) / 32), "Grass", "")
 					.equalsIgnoreCase("true"))
