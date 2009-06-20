@@ -647,6 +647,9 @@ public class GameClient extends BasicGame {
 				this.getUi().getBattleManager().endBattle();
 			if(this.getUi().getNPCSpeech() != null)
 				this.getUi().getNPCSpeech().setVisible(false);
+			if(this.getUi().getChat() != null)
+				this.getUi().getChat().setVisible(false);
+			this.getUi().setVisible(false);
 		} catch (Exception e) {}
 		m_login.setVisible(true);
 		m_login.showLanguageSelect();
