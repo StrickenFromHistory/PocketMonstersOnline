@@ -254,6 +254,9 @@ public class LogoutManager implements Runnable {
 								if(p.getBoxes()[i].getPokemon(j) != null) {
 									m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "' " +
 										"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
+								} else {
+									m_database.query("UPDATE pn_box SET pokemon" + j + "='-1' " +
+											"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
 								}
 							}
 						}

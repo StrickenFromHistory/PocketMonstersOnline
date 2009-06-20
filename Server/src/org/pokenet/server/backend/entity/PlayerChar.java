@@ -20,6 +20,7 @@ import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.feature.TimeService;
 import org.pokenet.server.network.ConnectionManager;
+import org.pokenet.server.network.MySqlManager;
 
 /**
  * Represents a player
@@ -94,6 +95,36 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public PlayerChar() {
 		m_requests = new HashMap<String, RequestType>();
+	}
+	
+	/**
+	 * Releases a pokemon from box
+	 * @param box
+	 * @param slot
+	 */
+	public void releasePokemon(int box, int slot) {
+		/* Check if the pokemon exists */
+		if(m_boxes[box].getPokemon(slot) != null) {
+			if(m_boxes[box].getPokemon(slot).getDatabaseID() > -1
+					&& m_boxes[box].getDatabaseId() > -1) {
+				/* This box exists and the pokemon exists in the database */
+				int id = m_boxes[box].getPokemon(slot).getDatabaseID();
+				MySqlManager m = new MySqlManager();
+				if(m.connect(GameServer.getDatabaseHost(), 
+						GameServer.getDatabaseUsername(),
+						GameServer.getDatabasePassword())) {
+					m.selectDatabase(GameServer.getDatabaseName());
+					m.query("DELETE FROM pn_pokemon WHERE id='" + id + "'");
+					m.close();
+				}
+			} else {
+				/*
+				 * This Pokemon or box has not been saved to the
+				 * database yet so just null it.
+				 */
+				m_boxes[box].setPokemon(slot, null);
+			}
+		}
 	}
 	
 	/**

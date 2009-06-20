@@ -206,6 +206,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 						break;
 					case 'R':
 						//Releasing a pokemon from storage - sent as BRBOXNUM,BOXSLOT
+						details = message.substring(2).split(",");
+						p.releasePokemon(Integer.parseInt(details[0]), Integer.parseInt(details[1]));
 						break;
 					case 's':
 						//Swap pokemon between box and party - sent as BsBOXNUM,BOXSLOT,PARTYSLOT, e.g.Bs0,1,0
