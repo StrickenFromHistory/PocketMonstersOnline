@@ -1646,7 +1646,7 @@ public class MoveList {
                 Pokemon[] teammates = user.getTeammates();
                 for (int i = 0; i < teammates.length; ++i) {
                     Pokemon p = teammates[i];
-                    if (p.isFainted() || (sound && p.hasAbility("Soundproof")))
+                    if (p == null || p.isFainted() || (sound && p.hasAbility("Soundproof")))
                         continue;
                     p.removeStatus(StatusEffect.SPECIAL_EFFECT_LOCK);
                 }
