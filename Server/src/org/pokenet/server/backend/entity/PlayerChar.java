@@ -52,7 +52,6 @@ public class PlayerChar extends Char implements Battleable {
 	private ResultSet m_databasePokemon;
 	private ArrayList<String> m_friends;
 	private long m_lastLogin;
-	private double m_npcMultiplier;
 	private int m_skillHerb = 0;
 	private int m_skillCraft = 0;
 	private int m_skillFish = 0;
@@ -571,6 +570,10 @@ public class PlayerChar extends Char implements Battleable {
 		return r;
 	}
 	
+	/**
+	 * Returns the highest level pokemon in the player's party
+	 * @return
+	 */
 	public int getHighestLevel() {
 		int h = 0;
 		for(int i = 0; i < m_pokemon.length; i++) {
@@ -702,22 +705,6 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public int getMoney() {
 		return m_money;
-	}
-	
-	/**
-	 * Sets the npc multiplier. Used for exp gain for NPC battles.
-	 * @param m
-	 */
-	public void setNpcMultiplier(double m) {
-		m_npcMultiplier = m;
-	}
-	
-	/**
-	 * Returns the npc multiplier
-	 * @return
-	 */
-	public double getNpcMultiplier() {
-		return m_npcMultiplier;
 	}
 	
 	/**

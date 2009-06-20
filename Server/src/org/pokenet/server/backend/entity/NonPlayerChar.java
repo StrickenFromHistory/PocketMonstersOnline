@@ -62,7 +62,9 @@ public class NonPlayerChar extends Char {
 	 * @param l
 	 */
 	public void setLastBattleTime(long l) {
-		m_lastBattle = l;
+		/* Only set this if they are not gym leaders */
+		if(!isGymLeader())
+			m_lastBattle = l;
 	}
 	
 	/**
@@ -139,7 +141,7 @@ public class NonPlayerChar extends Char {
 	 * @return
 	 */
 	public boolean canSee(PlayerChar p) {
-		if(canBattle() && !p.isBattling()) {
+		if(!p.isBattling() && !isGymLeader() && canBattle()) {
 			Random r = new Random();
 			switch(this.getFacing()) {
 			case Up:

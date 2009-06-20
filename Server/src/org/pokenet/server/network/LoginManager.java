@@ -272,7 +272,6 @@ public class LoginManager implements Runnable {
 			//Set money and skills
 			p.setSprite(result.getInt("sprite"));
 			p.setMoney(result.getInt("money"));
-			p.setNpcMultiplier(Double.parseDouble(result.getString("npcMul")));
 			p.setHerbalismExp(result.getInt("skHerb"));
 			p.setCraftingExp(result.getInt("skCraft"));
 			p.setFishingExp(result.getInt("skFish"));
@@ -403,6 +402,15 @@ public class LoginManager implements Runnable {
 				p.setDatabaseID(data.getInt("id"));
 				p.setDateCaught(data.getString("date"));
 				p.setIsFainted(Boolean.parseBoolean(data.getString("isFainted")));
+				/*
+				 * Contest stats (beauty, cute, etc.)
+				 */
+				String [] cstats = data.getString("").split(",");
+				p.setContestStat(0, Integer.parseInt(cstats[0]));
+				p.setContestStat(1, Integer.parseInt(cstats[1]));
+				p.setContestStat(2, Integer.parseInt(cstats[2]));
+				p.setContestStat(3, Integer.parseInt(cstats[3]));
+				p.setContestStat(4, Integer.parseInt(cstats[4]));
 				/*
 				 * Sets the stats
 				 */

@@ -167,9 +167,6 @@ public class LogoutManager implements Runnable {
 				m_database.query("UPDATE pn_members SET " +
 						"sprite='" + p.getSprite() + "', " +
 						"money='" + p.getMoney() + "', " +
-						"npcMul='" + (String.valueOf(p.getNpcMultiplier()).length() > 20 ?
-								String.valueOf(p.getNpcMultiplier()).substring(0, 20) :
-									String.valueOf(p.getNpcMultiplier())) + "', " +
 						"skHerb='" + p.getHerbalismExp() + "', " +
 						"skCraft='" + p.getCraftingExp() + "', " +
 						"skFish='" + p.getFishingExp() + "', " +
@@ -301,7 +298,7 @@ public class LogoutManager implements Runnable {
 			 */
 			db.query("INSERT INTO pn_pokemon" +
 					"(name, speciesName, exp, baseExp, expType, isFainted, level, happiness, " +
-					"gender, nature, abilityName, itemName, isShiny, originalTrainerName, date)" +
+					"gender, nature, abilityName, itemName, isShiny, originalTrainerName, date, contestStats)" +
 					"VALUES (" +
 					"'" + MySqlManager.parseSQL(p.getName()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getSpeciesName()) +"', " +
@@ -317,7 +314,8 @@ public class LogoutManager implements Runnable {
 					"'" + MySqlManager.parseSQL(p.getItemName()) +"', " +
 					"'" + String.valueOf(p.isShiny()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getOriginalTrainer()) + "', " +
-					"'" + MySqlManager.parseSQL(p.getDateCaught()) + "')");
+					"'" + MySqlManager.parseSQL(p.getDateCaught()) + "', " +
+					"'" + p.getContestStatsAsString() + "')");
 			/*
 			 * Get the pokemon's database id and attach it to the pokemon.
 			 * This needs to be done so it can be attached to the player in the database later.
@@ -406,7 +404,8 @@ public class LogoutManager implements Runnable {
 					"nature='" + MySqlManager.parseSQL(p.getNature().getName()) +"', " +
 					"abilityName='" + MySqlManager.parseSQL(p.getAbility().getName()) +"', " +
 					"itemName='" + MySqlManager.parseSQL(p.getItemName()) +"', " +
-					"isShiny='" + String.valueOf(p.isShiny()) +"' " +
+					"isShiny='" + String.valueOf(p.isShiny()) +"', " +
+					"contestStats='" + p.getContestStatsAsString() +"' " +
 					"WHERE id='" + p.getDatabaseID() + "'");
 			m_database.query("UPDATE pn_pokemon SET move0='" + MySqlManager.parseSQL(p.getMove(0).getName()) +
 					"', move1='" + (p.getMove(1) == null ? "null" : MySqlManager.parseSQL(p.getMove(1).getName())) +

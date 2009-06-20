@@ -178,6 +178,19 @@ public class Pokemon extends PokemonSpecies {
     }
     
     /**
+     * Returns this pokemon's contest stats in string format
+     * NOTE: Only used for saving MySQL
+     * @return
+     */
+    public String getContestStatsAsString() {
+    	return m_contestStat[0] + "," +
+    		m_contestStat[1] + "," +
+    		m_contestStat[2] + "," +
+    		m_contestStat[3] + "," +
+    		m_contestStat[4];
+    }
+    
+    /**
      * Sets the contest stat of the pokemon. NOTE: Use S_BEAUTY, S_CUTE, etc. for i
      * @param i
      * @param amount
