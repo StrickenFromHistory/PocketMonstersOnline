@@ -56,6 +56,10 @@ public abstract class BattleField {
      */
     protected int m_participants = 2;
     /*
+     * Stores if we are waiting for a switch
+     */
+    protected boolean m_isWaiting = false;
+    /*
      * Store lists of spectators and effects
      */
 	private ArrayList<PlayerChar> m_spectators = new ArrayList<PlayerChar>();

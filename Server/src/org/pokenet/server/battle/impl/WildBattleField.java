@@ -195,6 +195,19 @@ public class WildBattleField extends BattleField {
 	@Override
 	public void queueMove(int trainer, BattleTurn move)
 			throws MoveQueueException {
+		/* Handle forced switches */
+		if(m_isWaiting && m_replace != null && m_replace[trainer]) {
+			if(!move.isMoveTurn()) {
+				if(getActivePokemon()[trainer].compareTo(this.getParty(trainer)[move.getId()]) != 0) {
+					this.switchInPokemon(trainer, move.getId());
+					m_replace[trainer] = false;
+					m_isWaiting = false;
+					return;
+				}
+			}
+			requestPokemonReplacement(trainer);
+			return;
+		}
 		/* Ensure they haven't queued a move already */
 		if (m_turn[trainer] == null) {
 			/* Handle Pokemon being unhappy and ignoring you */
@@ -328,6 +341,7 @@ public class WildBattleField extends BattleField {
 			if (!m_replace[party]) {
 				return;
 			}
+			m_isWaiting = true;
 			do {
 				synchronized (m_dispatch) {
 					try {
