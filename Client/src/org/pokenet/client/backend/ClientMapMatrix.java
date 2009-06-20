@@ -48,26 +48,24 @@ public class ClientMapMatrix {
 			 */
 			for(int x = -1; x < 2; x++) {
 				for(int y = -1; y < 2; y++) {
-					if(!(x == -1 && y == -1)) {
-						f = new File("res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
-						if(f.exists()) {
-							try {
-								m_mapMatrix[x + 1][y + 1] = new ClientMap("res/maps/" + String.valueOf((mapX + x))
-										+ "." + String.valueOf((mapY + y)) + ".tmx","res/maps");
-								m_mapMatrix[x + 1][y + 1].setMapMatrix(this);
-								m_mapMatrix[x + 1][y + 1].setGraphics(g);
-								m_mapMatrix[x + 1][y + 1].setMapX(x + 1);
-								m_mapMatrix[x + 1][y + 1].setMapY(y + 1);
-								m_mapMatrix[x + 1][y + 1].setCurrent(x == 0 && y == 0);
-								System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
-										"to MapMatrix[" + (x + 1) + "][" + (y + 1) + "]");
-								m_mapMatrix[x + 1][y + 1].setName(getMapName(mapX, mapY));
-							} catch (Exception e) {
-								m_mapMatrix[x + 1][y + 1] = null;
-							}
-						} else {
+					f = new File("res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
+					if(f.exists()) {
+						try {
+							m_mapMatrix[x + 1][y + 1] = new ClientMap("res/maps/" + String.valueOf((mapX + x))
+									+ "." + String.valueOf((mapY + y)) + ".tmx","res/maps");
+							m_mapMatrix[x + 1][y + 1].setMapMatrix(this);
+							m_mapMatrix[x + 1][y + 1].setGraphics(g);
+							m_mapMatrix[x + 1][y + 1].setMapX(x + 1);
+							m_mapMatrix[x + 1][y + 1].setMapY(y + 1);
+							m_mapMatrix[x + 1][y + 1].setCurrent(x == 0 && y == 0);
+							System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
+									"to MapMatrix[" + (x + 1) + "][" + (y + 1) + "]");
+							m_mapMatrix[x + 1][y + 1].setName(getMapName(mapX, mapY));
+						} catch (Exception e) {
 							m_mapMatrix[x + 1][y + 1] = null;
 						}
+					} else {
+						m_mapMatrix[x + 1][y + 1] = null;
 					}
 				}
 			}
