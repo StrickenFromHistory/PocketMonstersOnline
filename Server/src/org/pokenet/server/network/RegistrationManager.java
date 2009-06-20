@@ -201,7 +201,7 @@ public class RegistrationManager implements Runnable {
 			 */
 			db.query("INSERT INTO pn_pokemon" +
 					"(name, speciesName, exp, baseExp, expType, isFainted, level, happiness, " +
-					"gender, nature, abilityName, itemName, isShiny, originalTrainerName, date)" +
+					"gender, nature, abilityName, itemName, isShiny, originalTrainerName, date, contestStats)" +
 					"VALUES (" +
 					"'" + MySqlManager.parseSQL(p.getName()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getSpeciesName()) +"', " +
@@ -213,11 +213,12 @@ public class RegistrationManager implements Runnable {
 					"'" + p.getHappiness() +"', " +
 					"'" + p.getGender() +"', " +
 					"'" + MySqlManager.parseSQL(p.getNature().getName()) +"', " +
-					"'" + MySqlManager.parseSQL(p.getAbilityName()) +"', " +
+					"'" + MySqlManager.parseSQL(p.getAbility().getName()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getItemName()) +"', " +
 					"'" + String.valueOf(p.isShiny()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getOriginalTrainer()) + "', " +
-					"'" + MySqlManager.parseSQL(p.getDateCaught()) + "')");
+					"'" + MySqlManager.parseSQL(p.getDateCaught()) + "', " +
+					"'" + p.getContestStatsAsString() + "')");
 			/*
 			 * Get the pokemon's database id and attach it to the pokemon.
 			 * This needs to be done so it can be attached to the player in the database later.

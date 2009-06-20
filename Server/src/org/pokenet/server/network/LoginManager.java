@@ -405,7 +405,7 @@ public class LoginManager implements Runnable {
 				/*
 				 * Contest stats (beauty, cute, etc.)
 				 */
-				String [] cstats = data.getString("").split(",");
+				String [] cstats = data.getString("contestStats").split(",");
 				p.setContestStat(0, Integer.parseInt(cstats[0]));
 				p.setContestStat(1, Integer.parseInt(cstats[1]));
 				p.setContestStat(2, Integer.parseInt(cstats[2]));
