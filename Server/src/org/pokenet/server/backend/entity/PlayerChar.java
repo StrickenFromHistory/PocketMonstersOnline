@@ -1261,7 +1261,7 @@ public class PlayerChar extends Char implements Battleable {
 							this.getParty()[i].getTypes()[1] != null ? this.getParty()[i].getTypes()[1] + "," : ",") +
 							this.getParty()[i].getExp() + "," +
 							this.getParty()[i].getLevel() + "," +
-							this.getParty()[i].getAbilityName() + "," +
+							this.getParty()[i].getAbility().getName() + "," +
 							this.getParty()[i].getNature().getName() + "," +
 					(this.getParty()[i].getMoves()[0] != null ? this.getParty()[i].getMoves()[0].getName() : "") + "," +
 					(this.getParty()[i].getMoves()[1] != null ? this.getParty()[i].getMoves()[1].getName() : "") + "," +
@@ -1278,29 +1278,6 @@ public class PlayerChar extends Char implements Battleable {
 	public void updateClientBag(int i) {
 		if(this.getBag().getItems().get(i) != null) {
 			m_session.write("Iu"+this.getBag().getItems().get(i).getItemNumber()+","+this.getBag().getItems().get(i).getQuantity());
-//			m_session.write("Pi" + i + PokemonSpecies.getDefaultData().getPokemonByName(this.getParty()[i].getSpeciesName()) + "," +
-//					this.getParty()[i].getName() + "," +
-//					this.getParty()[i].getHealth() + "," +
-//					this.getParty()[i].getGender() + "," +
-//					(this.getParty()[i].isShiny() ? 1 : 0) + "," +
-//					this.getParty()[i].getStat(0) + "," +
-//					this.getParty()[i].getStat(1) + "," +
-//					this.getParty()[i].getStat(2) + "," +
-//					this.getParty()[i].getStat(3) + "," +
-//					this.getParty()[i].getStat(4) + "," +
-//					this.getParty()[i].getStat(5) + "," +
-//					this.getParty()[i].getTypes()[0] + "," +
-//					(this.getParty()[i].getTypes().length > 1 &&
-//							this.getParty()[i].getTypes()[1] != null ? this.getParty()[i].getTypes()[1] + "," : ",") +
-//							this.getParty()[i].getExp() + "," +
-//							this.getParty()[i].getLevel() + "," +
-//							this.getParty()[i].getAbilityName() + "," +
-//							this.getParty()[i].getNature().getName() + "," +
-//					(this.getParty()[i].getMoves()[0] != null ? this.getParty()[i].getMoves()[0].getName() : "") + "," +
-//					(this.getParty()[i].getMoves()[1] != null ? this.getParty()[i].getMoves()[1].getName() : "") + "," +
-//					(this.getParty()[i].getMoves()[2] != null ? this.getParty()[i].getMoves()[2].getName() : "") + "," +
-//					(this.getParty()[i].getMoves()[3] != null ? this.getParty()[i].getMoves()[3].getName() : "")
-//			);
 		}
 	}
 }

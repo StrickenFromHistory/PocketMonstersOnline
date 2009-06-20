@@ -8,7 +8,10 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.Bag;
 import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.battle.PokemonSpecies;
+import org.pokenet.server.battle.mechanics.statuses.abilities.IntrinsicAbility;
 
 /**
  * Handles logging players out
@@ -276,6 +279,21 @@ public class LogoutManager implements Runnable {
 	private boolean saveNewPokemon(Pokemon p, MySqlManager db) {
 		try {
 			/*
+			 * Due to issues with Pokemon not receiving abilities,
+			 * we're going to ensure they have one
+			 */
+			if(p.getAbility() == null || p.getAbilityName() == null 
+					|| p.getAbilityName().equalsIgnoreCase("")) {
+				String [] abilities = PokemonSpecies.getDefaultData().getPossibleAbilities(p.getSpeciesName());
+		        /* First select an ability randomly */
+		        String ab = "";
+		        if(abilities.length == 1)
+		        	ab = abilities[0];
+		        else
+		        	ab = abilities[DataService.getBattleMechanics().getRandom().nextInt(abilities.length)];
+		        p.setAbility(IntrinsicAbility.getInstance(ab), true);
+			}
+			/*
 			 * Insert the Pokemon into the database
 			 */
 			db.query("INSERT INTO pn_pokemon" +
@@ -292,7 +310,7 @@ public class LogoutManager implements Runnable {
 					"'" + p.getHappiness() +"', " +
 					"'" + p.getGender() +"', " +
 					"'" + MySqlManager.parseSQL(p.getNature().getName()) +"', " +
-					"'" + MySqlManager.parseSQL(p.getAbilityName()) +"', " +
+					"'" + MySqlManager.parseSQL(p.getAbility().getName()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getItemName()) +"', " +
 					"'" + String.valueOf(p.isShiny()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getOriginalTrainer()) + "', " +
@@ -355,6 +373,21 @@ public class LogoutManager implements Runnable {
 	private boolean savePokemon(Pokemon p) {
 		try {
 			/*
+			 * Due to issues with Pokemon not receiving abilities,
+			 * we're going to ensure they have one
+			 */
+			if(p.getAbility() == null || p.getAbilityName() == null 
+					|| p.getAbilityName().equalsIgnoreCase("")) {
+				String [] abilities = PokemonSpecies.getDefaultData().getPossibleAbilities(p.getSpeciesName());
+		        /* First select an ability randomly */
+		        String ab = "";
+		        if(abilities.length == 1)
+		        	ab = abilities[0];
+		        else
+		        	ab = abilities[DataService.getBattleMechanics().getRandom().nextInt(abilities.length)];
+		        p.setAbility(IntrinsicAbility.getInstance(ab), true);
+			}
+			/*
 			 * Update the pokemon in the database
 			 */
 			m_database.query("UPDATE pn_pokemon SET " +
@@ -368,7 +401,7 @@ public class LogoutManager implements Runnable {
 					"happiness='" + p.getHappiness() +"', " +
 					"gender='" + p.getGender() +"', " +
 					"nature='" + MySqlManager.parseSQL(p.getNature().getName()) +"', " +
-					"abilityName='" + MySqlManager.parseSQL(p.getAbilityName()) +"', " +
+					"abilityName='" + MySqlManager.parseSQL(p.getAbility().getName()) +"', " +
 					"itemName='" + MySqlManager.parseSQL(p.getItemName()) +"', " +
 					"isShiny='" + String.valueOf(p.isShiny()) +"' " +
 					"WHERE id='" + p.getDatabaseID() + "'");

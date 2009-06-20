@@ -551,6 +551,9 @@ public class Pokemon extends PokemonSpecies {
         m_level = level;
         m_move = moves;
         m_abilityName = ability;
+        if(m_ability == null) {
+        	m_ability = IntrinsicAbility.getInstance(ability);
+        }
         m_itemName = item;
         m_ppUp = ppUps;
         m_name = species.getName();

@@ -390,7 +390,6 @@ public class LoginManager implements Runnable {
 							data.getInt("ppUp3")
 						});
 				p.reinitialise();
-				p.setAbility(IntrinsicAbility.getInstance(data.getString("abilityName")), false);
 				/*
 				 * Set exp, nickname, isShiny and exp gain type
 				 */
