@@ -1,7 +1,6 @@
 package org.pokenet.client.backend.entity;
 
 import org.newdawn.slick.Image;
-import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.SpriteFactory;
 
 /**
@@ -13,8 +12,6 @@ public class Player {
 	private static SpriteFactory m_spriteFactory;
 	protected int m_x;
 	protected int m_y;
-	protected int m_prevX;
-	protected int m_prevY;
 	protected int m_svrX;
 	protected int m_svrY;
 	protected int m_id;
@@ -38,7 +35,6 @@ public class Player {
 	 * Moves this player right
 	 */
 	public void moveRight() {
-		m_prevX = m_svrX;
 		m_svrX += 32;
 		m_isAnimating = true;
 	}
@@ -47,7 +43,6 @@ public class Player {
 	 * Moves this player left
 	 */
 	public void moveLeft() {
-		m_prevX = m_svrX;
 		m_svrX -= 32;
 		m_isAnimating = true;
 	}
@@ -56,7 +51,6 @@ public class Player {
 	 * Moves this player down
 	 */
 	public void moveDown() {
-		m_prevY = m_svrY + 32;
 		m_svrY += 32;
 		m_isAnimating = true;
 	}
@@ -65,7 +59,6 @@ public class Player {
 	 * Moves this player up
 	 */
 	public void moveUp() {
-		m_prevY = m_svrY - 32;
 		m_svrY -= 32;
 		m_isAnimating = true;
 	}
@@ -85,23 +78,7 @@ public class Player {
 	public int getX() {
 		return m_x;
 	}
-	
-	/**
-	 * Returns this player's previous x co-ordinate
-	 * @return
-	 */
-	public int getPrevX() {
-		return m_prevX;
-	}
 
-	/**
-	 * Returns this player's previous y co-ordinate
-	 * @return
-	 */
-	public int getPrevY() {
-		return m_prevY;
-	}
-	
 	/**
 	 * Sets this player's x co-ordinate on the server
 	 * @param x
