@@ -248,6 +248,26 @@ public class PvPBattleField extends BattleField {
 			throws MoveQueueException {
 		// The trainer has no turn queued.
 		if (m_turn[trainer] == null) {
+			/* Handle Pokemon being unhappy and ignoring you */
+			if(!getActivePokemon()[trainer].isFainted()) {
+				if(getActivePokemon()[trainer].getHappiness() <= 40) {
+					/* Pokemon is unhappy, they'll do what they feel like */
+					showMessage(getActivePokemon()[trainer].getSpeciesName() + " is unhappy!");
+					int moveID = getMechanics().getRandom().nextInt(4);
+					while (getActivePokemon()[trainer].getMove(moveID) == null)
+						moveID = getMechanics().getRandom().nextInt(4);
+					move = BattleTurn.getMoveTurn(moveID);
+				} else if(getActivePokemon()[trainer].getHappiness() < 70) {
+					/* Pokemon is partially unhappy, 50% chance they'll listen to you */
+					if(getMechanics().getRandom().nextInt(2) == 1) {
+						showMessage(getActivePokemon()[trainer].getSpeciesName() + " is unhappy!");
+						int moveID = getMechanics().getRandom().nextInt(4);
+						while (getActivePokemon()[trainer].getMove(moveID) == null)
+							moveID = getMechanics().getRandom().nextInt(4);
+						move = BattleTurn.getMoveTurn(moveID);
+					}
+				}
+			}
 			if (move.getId() == -1) {
 				if (m_dispatch == null
 						&& ((trainer == 0 && m_turn[1] != null) ||

@@ -327,6 +327,13 @@ public class PlayerChar extends Char implements Battleable {
 		 */
 		healPokemon();
 		/*
+		 * Make the Pokemon unhappy
+		 */
+		for(int i = 0; i < m_pokemon.length; i++) {
+			if(m_pokemon[i] != null)
+				m_pokemon[i].setHappiness(20);
+		}
+		/*
 		 * Now warp them to the last place they were healed
 		 */
 		m_x = m_healX;
@@ -608,6 +615,17 @@ public class PlayerChar extends Char implements Battleable {
 								this.getMap().getWildPokemon(this));
 					} else {
 						m_map.isNpcBattle(this);
+					}
+					/* If it wasn't a battle see should we increase happiness */
+					if(this.getX() % 32 == 0 || (this.getY() + 8) % 32 == 0) {
+						for(int i = 0; i < m_pokemon.length; i++) {
+							/* 
+							 * Pokemon only have their happiness 
+							 * increased by walking if it is below 70
+							 */
+							if(m_pokemon[i] != null && m_pokemon[i].getHappiness() < 70)
+								m_pokemon[i].setHappiness(m_pokemon[i].getHappiness() + 1);
+						}
 					}
 				}
 				return true;

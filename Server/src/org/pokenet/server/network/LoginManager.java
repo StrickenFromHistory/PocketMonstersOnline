@@ -18,6 +18,7 @@ import org.pokenet.server.battle.PokemonSpecies;
 import org.pokenet.server.battle.Pokemon.ExpTypes;
 import org.pokenet.server.battle.mechanics.PokemonNature;
 import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
+import org.pokenet.server.battle.mechanics.statuses.abilities.IntrinsicAbility;
 import org.pokenet.server.feature.TimeService;
 
 /**
@@ -389,6 +390,7 @@ public class LoginManager implements Runnable {
 							data.getInt("ppUp3")
 						});
 				p.reinitialise();
+				p.setAbility(IntrinsicAbility.getInstance(data.getString("abilityName")), false);
 				/*
 				 * Set exp, nickname, isShiny and exp gain type
 				 */
