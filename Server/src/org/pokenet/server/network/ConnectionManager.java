@@ -389,8 +389,14 @@ public class ConnectionManager extends IoHandlerAdapter {
 				case 'p':
 					//Private chat
 					details = message.substring(2).split(",");
+					try{
 					GameServer.getServiceManager().getNetworkService().getChatManager().
 						queuePrivateMessage(details[1], m_players.get(details[0]).getSession(), p.getName());
+					}
+					catch(NullPointerException e) {
+						GameServer.getServiceManager().getNetworkService().getChatManager().
+						queuePrivateMessage("Note: This user is not online", p.getSession(), details[0]);
+					}
 					break;
 				case 't':
 					//Start talking
