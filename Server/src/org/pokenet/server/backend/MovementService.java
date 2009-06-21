@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.backend.map.ServerMap;
+import org.pokenet.server.backend.map.ServerMapMatrix;
 import org.pokenet.server.battle.impl.NpcSleepTimer;
 
 import tiled.io.xml.XMLMapTransformer;

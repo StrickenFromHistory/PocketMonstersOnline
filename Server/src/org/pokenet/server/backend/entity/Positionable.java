@@ -20,7 +20,7 @@
 
 package org.pokenet.server.backend.entity;
 
-import org.pokenet.server.backend.ServerMap;
+import org.pokenet.server.backend.map.ServerMap;
 import org.simpleframework.xml.Root;
 
 /**

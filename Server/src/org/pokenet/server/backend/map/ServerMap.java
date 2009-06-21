@@ -1,10 +1,13 @@
-package org.pokenet.server.backend;
+package org.pokenet.server.backend.map;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import org.pokenet.server.backend.DataLoader;
+import org.pokenet.server.backend.MapItem;
+import org.pokenet.server.backend.WarpTile;
 import org.pokenet.server.backend.entity.Char;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
@@ -51,12 +54,12 @@ public class ServerMap {
 	private HashMap<String, Integer> m_waterPokemonChances;
 	private int m_wildProbability;
 	//The following stores collision information
-	private TileLayer m_blocked = null;
-	private TileLayer m_surf = null;
-	private TileLayer m_grass = null;
-	private TileLayer m_ledgesDown = null;
-	private TileLayer m_ledgesLeft = null;
-	private TileLayer m_ledgesRight = null;
+	private ServerTileLayer m_blocked = null;
+	private ServerTileLayer m_surf = null;
+	private ServerTileLayer m_grass = null;
+	private ServerTileLayer m_ledgesDown = null;
+	private ServerTileLayer m_ledgesLeft = null;
+	private ServerTileLayer m_ledgesRight = null;
 	//Misc
 	private Random m_random = DataService.getBattleMechanics().getRandom();
 	
@@ -76,17 +79,17 @@ public class ServerMap {
 		 */
 		for(int i = 0; i < map.getTotalLayers(); i++) {
 			if(map.getLayer(i).getName().equalsIgnoreCase("Grass")) {
-				m_grass = (TileLayer) map.getLayer(i);
+				m_grass = new ServerTileLayer((TileLayer) map.getLayer(i));
 			} else if(map.getLayer(i).getName().equalsIgnoreCase("Collisions")) {
-				m_blocked = (TileLayer) map.getLayer(i);
+				m_blocked = new ServerTileLayer((TileLayer) map.getLayer(i));
 			} else if(map.getLayer(i).getName().equalsIgnoreCase("LedgesLeft")) {
-				m_ledgesLeft = (TileLayer) map.getLayer(i);
+				m_ledgesLeft = new ServerTileLayer((TileLayer) map.getLayer(i));
 			} else if(map.getLayer(i).getName().equalsIgnoreCase("LedgesRight")) {
-				m_ledgesRight = (TileLayer) map.getLayer(i);
+				m_ledgesRight = new ServerTileLayer((TileLayer) map.getLayer(i));
 			} else if(map.getLayer(i).getName().equalsIgnoreCase("LedgesDown")) {
-				m_ledgesDown = (TileLayer) map.getLayer(i);
+				m_ledgesDown = new ServerTileLayer((TileLayer) map.getLayer(i));
 			} else if(map.getLayer(i).getName().equalsIgnoreCase("Water")) {
-				m_surf = (TileLayer) map.getLayer(i);
+				m_surf = new ServerTileLayer((TileLayer) map.getLayer(i));
 			}
 		}
 		

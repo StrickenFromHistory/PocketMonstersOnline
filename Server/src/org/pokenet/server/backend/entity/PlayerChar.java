@@ -8,9 +8,9 @@ import java.util.HashMap;
 
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
-import org.pokenet.server.backend.ServerMap;
-import org.pokenet.server.backend.ServerMap.PvPType;
 import org.pokenet.server.backend.item.ItemDatabase;
+import org.pokenet.server.backend.map.ServerMap;
+import org.pokenet.server.backend.map.ServerMap.PvPType;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;

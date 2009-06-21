@@ -3,8 +3,8 @@ package org.pokenet.server.battle.impl;
 import java.util.Random;
 
 import org.pokenet.server.GameServer;
-import org.pokenet.server.backend.ServerMap;
 import org.pokenet.server.backend.entity.NonPlayerChar;
+import org.pokenet.server.backend.map.ServerMap;
 
 /**
  * A thread which wakes sleeping NPCs (NPCs sleep for ~15 minutes after battle)

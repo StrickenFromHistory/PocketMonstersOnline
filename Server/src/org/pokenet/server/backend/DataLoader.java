@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
+import org.pokenet.server.backend.map.ServerMap;
 
 /**
  * Handles NPC and WarpTile Loading

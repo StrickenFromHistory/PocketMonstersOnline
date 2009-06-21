@@ -1,6 +1,6 @@
 package org.pokenet.server.backend.entity;
 
-import org.pokenet.server.backend.ServerMap;
+import org.pokenet.server.backend.map.ServerMap;
 
 /**
  * Base class for a character. Note: Originally this implemented Battleable but not all chars are battleable
