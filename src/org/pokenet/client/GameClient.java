@@ -394,7 +394,7 @@ public class GameClient extends BasicGame {
 		}
 		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() &&
 				!m_ui.getChat().isActive() && !getDisplay().containsChild(getUi().getBattleManager()
-						.getMoveLearning())) {
+						.getMoveLearning()) && !getDisplay().containsChild(getUi().getShop())) {
 			if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(getUi().getBattleManager()
 					.getBattleWindow()) ){
 				m_packetGen.write("Ct");
