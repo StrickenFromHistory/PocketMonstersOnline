@@ -3,12 +3,14 @@ package org.pokenet.client.backend.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.newdawn.slick.Image;
 import org.pokenet.client.backend.ItemDatabase;
 
 public class PlayerItem {
 	private int m_number;
 	private Item m_item;
 	private int m_quantity;
+	private Image m_bagImage;
 	
 	/**
      * Default constructor
@@ -20,6 +22,9 @@ public class PlayerItem {
             m_number = number;
             m_quantity = quantity;
             m_item = getItem(m_number);
+            try {
+            	m_bagImage = new Image("res/items/48/" + number + ".png");
+            } catch (Exception e){}
     }
 	
 	public int getNumber() {
@@ -40,7 +45,10 @@ public class PlayerItem {
 	public void setItem(Item item) {
 		this.m_item = item;
 	}
-
+	public Image getBagImage(){
+		return m_bagImage;
+	}
+	
 	public static List<Item> generatePokeballs(){
 		List<Item> m_items = new ArrayList<Item>();
 		m_items = ItemDatabase.getCategoryItems("Pokeball");
