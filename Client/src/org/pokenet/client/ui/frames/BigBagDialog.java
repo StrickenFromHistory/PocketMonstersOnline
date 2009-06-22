@@ -175,10 +175,16 @@ public class BigBagDialog extends Frame {
 
 		// Item Buttons and Stock Labels
 		for (int i = 0; i < 4; i++) {
+			final int j = i;
 			// Starts the item buttons
 			Button item = new Button();
 			item.setSize(60, 60);
 			item.setLocation(50 + (80 * i), 85);
+			item.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					useItem(j);
+				}
+			});
 			m_itemBtns.add(item);
 			getContentPane().add(item);
 
@@ -261,10 +267,14 @@ public class BigBagDialog extends Frame {
 			// Update items and stocks
 			for (int i = 0; i < 5; i++) {
 				try {
-					m_itemBtns.get(i).setToolTipText(
+					m_itemBtns.get(i).setName(
 							String.valueOf(m_items.get(m_curCategory).get(
 									m_scrollIndex.get(m_curCategory) + i)
-									.getItem().getName()));
+									.getNumber()));
+					m_itemBtns.get(i).setToolTipText(
+							m_items.get(m_curCategory).get(
+									m_scrollIndex.get(m_curCategory) + i)
+									.getItem().getName());
 					m_itemBtns.get(i).setImage(
 							m_items.get(m_curCategory).get(
 									m_scrollIndex.get(m_curCategory) + i)
@@ -283,6 +293,15 @@ public class BigBagDialog extends Frame {
 				}
 			}
 		}
+	}
+	
+	/**
+	 * An item was used!
+	 * @param i
+	 */
+	public void useItem(int i) {
+		GameClient.getInstance().getPacketGenerator().write("I" + m_itemBtns.get(i).getName());
+		closeBag();
 	}
 
 	/**
