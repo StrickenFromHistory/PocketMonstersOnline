@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.newdawn.slick.Image;
+import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.backend.ItemDatabase;
 
 public class PlayerItem {
@@ -23,8 +24,10 @@ public class PlayerItem {
             m_quantity = quantity;
             m_item = getItem(m_number);
             try {
-            	m_bagImage = new Image("res/items/48/" + number + ".png");
-            } catch (Exception e){}
+            	LoadingList.setDeferredLoading(true);
+            	m_bagImage = new Image("res/items/48/" + m_item.getId() + ".png");
+            	LoadingList.setDeferredLoading(false);
+            } catch (Exception e){e.printStackTrace();}
     }
 	
 	public int getNumber() {
