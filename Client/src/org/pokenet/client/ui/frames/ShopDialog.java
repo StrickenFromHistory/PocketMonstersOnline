@@ -313,7 +313,7 @@ public class ShopDialog extends Frame {
 			
 			try{
 				LoadingList.setDeferredLoading(true);
-				m_itemPics[i] = new Label(new Image("/res/items/"+m_items.get(i).getId()+".png"));
+				m_itemPics[i] = new Label(new Image("/res/items/24/" + m_items.get(i).getId() + ".png"));
 				LoadingList.setDeferredLoading(false);
 				m_itemPics[i].setGlassPane(true);
 				m_itemPics[i].setSize(32,32);
