@@ -563,8 +563,10 @@ public class Ui extends Frame {
      * @param trainer
      */
     public void startShop(HashMap<Integer, Integer> stock){
-    	m_shop = new ShopDialog(stock);
-    	m_display.add(m_shop);
+    	if (!m_display.containsChild(m_shop)) {
+    		m_shop = new ShopDialog(stock);
+    		m_display.add(m_shop);
+    	}
     }
     
     /**
