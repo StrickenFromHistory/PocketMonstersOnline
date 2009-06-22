@@ -317,7 +317,6 @@ public class Ui extends Frame {
 					getDisplay().remove(m_bagForm);
 					m_bagForm = null;
 					BigBagDialog bbg = new BigBagDialog();
-					bbg.initGUI();
 					getDisplay().add(bbg);
 				}
 			};
