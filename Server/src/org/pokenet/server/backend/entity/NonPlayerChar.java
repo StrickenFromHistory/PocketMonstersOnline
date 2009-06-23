@@ -308,13 +308,10 @@ public class NonPlayerChar extends Char {
 				//Select a random Pokemon
 				name = (String) m_possiblePokemon.keySet().toArray()[r.nextInt(m_possiblePokemon.keySet().size())];
 				level = m_possiblePokemon.get(name);
-				//Ensure levels are the similiar
-				while(level < p.getHighestLevel() - 3) {
+				/* Level scaling */
+				/*while(level < p.getHighestLevel() - 3) {
 					level = r.nextInt(p.getHighestLevel() + 5);
-				}
-				/* Ensure the npc doesn't have pokemon greater than level 100 */
-				if(level > 100)
-					level = 100;
+				}*/
 				poke = Pokemon.getRandomPokemon(name, level);
 				party[i] = poke;
 			}
