@@ -48,7 +48,8 @@ public class BigBagDialog extends Frame {
 		// Load the player's items and sort them by category
 		for (PlayerItem item : GameClient.getInstance().getOurPlayer().getItems()) {
 			// Field items
-			if (item.getItem().getCategory().equalsIgnoreCase("Field")) {
+			if (item.getItem().getCategory().equalsIgnoreCase("Field") ||
+					item.getItem().getCategory().equalsIgnoreCase("Evolution")) {
 				m_items.get(0).add(item);
 			}
 			// Potions and medicine
