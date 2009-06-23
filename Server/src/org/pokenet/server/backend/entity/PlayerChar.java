@@ -1177,9 +1177,9 @@ public class PlayerChar extends Char implements Battleable {
 					m_bag.addItem(id, q);
 					this.updateClientMoney();
 					//Let player know he bought potion.
-					m_session.write("Sb" + ItemDatabase.getInstance().getItem(id).getName());
+					m_session.write("Sb" + ItemDatabase.getInstance().getItem(id).getId());
 					//Update player inventory
-					m_session.write("Iu" + ItemDatabase.getInstance().getItem(id).getId()+","+m_bag.getItemQuantity(id));
+					m_session.write("Iu" + ItemDatabase.getInstance().getItem(id).getId() + "," + m_bag.getItemQuantity(id));
 				}
 			}else{
 				//Return You have no money, fool!

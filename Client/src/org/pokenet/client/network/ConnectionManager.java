@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.ItemDatabase;
 import org.pokenet.client.backend.Translator;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
@@ -139,7 +140,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 					GameClient.getInstance().getUi().getNPCSpeech().advance();
 				} catch (Exception e) {}
 				GameClient.getInstance().getUi().talkToNPC(
-						"You bought a " + message.substring(2));
+						"You bought a " + ItemDatabase.getInstance().
+						getItem(Integer.parseInt(message.substring(2))).getName());
 				GameClient.getInstance().getUi().getShop().m_timer.reset();
 				GameClient.getInstance().getUi().getShop().m_timer.resume();
 				break;

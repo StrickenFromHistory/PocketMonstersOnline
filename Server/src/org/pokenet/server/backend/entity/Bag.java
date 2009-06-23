@@ -26,7 +26,7 @@ public class Bag {
 	 * @return
 	 */
 	public boolean hasSpace(int itemid) {
-			if(m_items.size() < m_bagsize)
+			if(containsItem(itemid) >= 0 || m_items.size() < m_bagsize)
 				return true;
 			else
 				return false;
@@ -50,17 +50,6 @@ public class Bag {
 				return false;
 			}
 		}
-			
-//		for(int i = 0; i < m_bagsize; i++) {
-//			if(m_items.get(i).getItemNumber() == itemNumber) {
-//				m_items.get(i).setQuantity(m_items.get(i).getQuantity() + quantity);
-//				return true;
-//			} else if(m_items.get(i) == null) {
-//				m_items.add(new BagItem(itemNumber, quantity));
-//				return true;
-//			}
-//		}
-//		return false;
 	}
 	
 	/**
@@ -83,7 +72,7 @@ public class Bag {
 	}
 	
 	/**
-	 * Checks if item is in bag. Returns bagIndex if true, else returns 0. 
+	 * Checks if item is in bag. Returns bagIndex if true, else returns -1. 
 	 * @param itemNumber
 	 * @param quantity
 	 */
