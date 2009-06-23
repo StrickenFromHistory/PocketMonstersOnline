@@ -4,8 +4,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import org.pokenet.server.backend.entity.TradeObject.TradeType;
+import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.PokemonSpecies;
+import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
+import org.pokenet.server.battle.mechanics.polr.POLREvolution;
+import org.pokenet.server.battle.mechanics.polr.POLREvolution.EvoTypes;
 
 /**
  * A trade between two players
@@ -236,6 +240,49 @@ public class Trade {
 					player1.addPokemon(temp[1]);
 				if(temp[0] != null)
 					player2.addPokemon(temp[0]);
+				
+				/* Evolution checks */
+				for(int i = 0; i < 2; i++) {
+					if(temp[i] != null) {
+						/*
+						 * Find if the pokemon is in the player's party
+						 * If not, we can't evolve it
+						 */
+						int index = -1;
+						if(i == 0 && player2.getPokemonIndex(temp[i]) > -1) {
+							index = player2.getPokemonIndex(temp[i]);
+						} else if(i == 1 && player1.getPokemonIndex(temp[i]) > -1) {
+							index = player2.getPokemonIndex(temp[i]);
+						} else {
+							continue;
+						}
+						if(index > -1) {
+							/*
+							 * See if this Pokemon evolves by trade
+							 */
+							POLRDataEntry pokeData = DataService.getPOLRDatabase()
+							.getPokemonData(
+									DataService.getSpeciesDatabase()
+											.getPokemonByName(temp[i].getSpeciesName()));
+							POLREvolution evolution = null;
+							for(int j = 0; j < pokeData.getEvolutions().size(); j++) {
+								/*
+								 * If it evolves by trade, tell the client
+								 */
+								evolution = pokeData.getEvolutions().get(j);
+								if(evolution != null && evolution.getType() == EvoTypes.Trade) {
+									temp[i].setEvolution(evolution);
+									if(i == 0)
+										player2.getSession().write("PE" + index);
+									else
+										player1.getSession().write("PE" + index);
+									break;
+								}
+							}
+						}
+					}
+				}
+				
 				/* Update the money */
 				player1.updateClientMoney();
 				player2.updateClientMoney();

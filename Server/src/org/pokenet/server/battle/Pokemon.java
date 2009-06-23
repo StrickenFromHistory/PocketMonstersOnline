@@ -365,41 +365,43 @@ public class Pokemon extends PokemonSpecies {
      * @param p  - The player that owns the Pokemon
      */
     public void evolutionResponse(boolean allow, PlayerChar p) {
-    	/* Get the index of the Pokemon in the player's party */
-    	int index = p.getPokemonIndex(this);
+    	if(m_evolution != null) {
+    		/* Get the index of the Pokemon in the player's party */
+        	int index = p.getPokemonIndex(this);
 
-    	if(allow) {
-    		/* The player is allowing evolution, evolve the Pokemon */
-    		this.evolve(DataService.getSpeciesDatabase().getSpecies(
-    				DataService.getSpeciesDatabase().getPokemonByName(m_evolution.getEvolveTo())));
+        	if(allow) {
+        		/* The player is allowing evolution, evolve the Pokemon */
+        		this.evolve(DataService.getSpeciesDatabase().getSpecies(
+        				DataService.getSpeciesDatabase().getPokemonByName(m_evolution.getEvolveTo())));
+        	}
+        	/* Retrieve the Pokemon data */
+        	POLRDataEntry pokeData = DataService.getPOLRDatabase().getPokemonData(
+    				DataService.getSpeciesDatabase().getPokemonByName(getSpeciesName()));
+        	
+    		setHappiness(m_happiness + 2);
+    		calculateStats(false);
+    		
+    		/* Now learn any moves that need learning */
+    		int level = DataService.getBattleMechanics().calculateLevel(this);
+    		int oldLevel = getLevel();
+    		String move = "";
+    		/* Generate a list of moves this Pokemon wants to learn */
+    		m_movesLearning.clear();
+    		for(int i = oldLevel; i <= level; i++) {
+    			if(pokeData.getMoves().get(i) != null) {
+    				move = pokeData.getMoves().get(i);
+    				m_movesLearning.add(move);
+    			}
+    		}
+    		/* Save the Pokemon's level */
+    		setLevel(level);
+    		/* Update the client with new Pokemon information */
+    		p.updateClientParty(index);
+    		/* Inform the client this Pokemon wants to learn new moves */
+    		for(int i = 0; i < m_movesLearning.size(); i++) {
+    			p.getSession().write("Pm" + index + m_movesLearning.get(i));
+    		}
     	}
-    	/* Retrieve the Pokemon data */
-    	POLRDataEntry pokeData = DataService.getPOLRDatabase().getPokemonData(
-				DataService.getSpeciesDatabase().getPokemonByName(getSpeciesName()));
-    	
-		setHappiness(m_happiness + 2);
-		calculateStats(false);
-		
-		/* Now learn any moves that need learning */
-		int level = DataService.getBattleMechanics().calculateLevel(this);
-		int oldLevel = getLevel();
-		String move = "";
-		/* Generate a list of moves this Pokemon wants to learn */
-		m_movesLearning.clear();
-		for(int i = oldLevel; i <= level; i++) {
-			if(pokeData.getMoves().get(i) != null) {
-				move = pokeData.getMoves().get(i);
-				m_movesLearning.add(move);
-			}
-		}
-		/* Save the Pokemon's level */
-		setLevel(level);
-		/* Update the client with new Pokemon information */
-		p.updateClientParty(index);
-		/* Inform the client this Pokemon wants to learn new moves */
-		for(int i = 0; i < m_movesLearning.size(); i++) {
-			p.getSession().write("Pm" + index + m_movesLearning.get(i));
-		}
     }
     
     /**
@@ -2052,10 +2054,10 @@ public class Pokemon extends PokemonSpecies {
      * @return
      */
     public int compareTo(Pokemon p) {
+    	if(this.getDatabaseID() != -1 && p.getDatabaseID() != -1 && p.getDatabaseID() == this.getDatabaseID())
+    		return 0;
     	if(this.getDateCaught() != null && p.getDateCaught() != null 
     			&& p.getDateCaught().compareTo(p.getDateCaught()) == 0)
-    		return 0;
-    	if(this.getDatabaseID() != -1 && p.getDatabaseID() != -1 && p.getDatabaseID() == this.getDatabaseID())
     		return 0;
     	if(p.equals(this))
     		return 0;
