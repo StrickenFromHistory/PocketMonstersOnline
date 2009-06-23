@@ -405,6 +405,7 @@ class ItemPopup extends Frame{
 		m_give = new Button("Give");
 		m_give.setSize(100,25);
 		m_give.setLocation(0, m_use.getY() + 25);
+		m_give.setEnabled(false);
 		m_give.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){
 				giveItem(m_id);
