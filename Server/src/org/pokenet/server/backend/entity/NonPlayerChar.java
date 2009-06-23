@@ -8,6 +8,10 @@ import org.pokenet.server.GameServer;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.impl.NpcBattleField;
+import org.pokenet.server.network.ProtocolHandler;
+import org.pokenet.server.network.message.ChatMessage;
+import org.pokenet.server.network.message.SpriteSelectMessage;
+import org.pokenet.server.network.message.ChatMessage.ChatMessageType;
 
 /**
  * Represents a Non Playable Character
@@ -83,7 +87,8 @@ public class NonPlayerChar extends Char {
 	public void challengePlayer(PlayerChar p) {
 		String speech = this.getSpeech();
 		if(!speech.equalsIgnoreCase("")) {
-			p.getSession().write("Cn" + speech);
+			ProtocolHandler.writeMessage(p.getSession(), 
+					new ChatMessage(ChatMessageType.NPC, speech));
 		}
 	}
 	
@@ -95,7 +100,8 @@ public class NonPlayerChar extends Char {
 		if(m_possiblePokemon != null && m_minPartySize > 0 && canBattle()) {
 			String speech = this.getSpeech();
 			if(!speech.equalsIgnoreCase("")) {
-				p.getSession().write("Cn" + speech);
+				ProtocolHandler.writeMessage(p.getSession(), 
+						new ChatMessage(ChatMessageType.NPC, speech));
 			}
 			p.setBattling(true);
 			p.setBattleField(new NpcBattleField(DataService.getBattleMechanics(), p, this));
@@ -105,12 +111,13 @@ public class NonPlayerChar extends Char {
 		String speech = this.getSpeech();
 		if(!speech.equalsIgnoreCase("")) {
 			if(!p.isShopping())//Dont send if player is shopping!
-				p.getSession().write("Cn" + speech);
+				ProtocolHandler.writeMessage(p.getSession(), 
+						new ChatMessage(ChatMessageType.NPC, speech));
 		}
 		/* If this NPC is a sprite selection npc */
 		if(m_name.equalsIgnoreCase("Spriter")) {
 			p.setSpriting(true);
-			p.getSession().write("SS");
+			ProtocolHandler.writeMessage(p.getSession(), new SpriteSelectMessage());
 			return;
 		}
 		/* Box access */

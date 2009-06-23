@@ -14,6 +14,7 @@ import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.feature.TimeService.Weather;
 import org.pokenet.server.network.message.PokenetMessage;
+import org.pokenet.server.network.message.RequestMessage;
 
 /**
  * Handles packets received from the player
@@ -171,14 +172,16 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				case 'b':
 					//Battle Request rbUSERNAME
 					if(m_players.containsKey(player)) {
-						m_players.get(player).getSession().write("rb" + p.getName());
+						ProtocolHandler.writeMessage(m_players.get(player).getSession(), 
+								new RequestMessage(RequestType.BATTLE, p.getName()));
 						p.addRequest(player, RequestType.BATTLE);
 					}
 					break;
 				case 't':
 					//Trade Request rtUSERNAME
 					if(m_players.containsKey(player)) {
-						m_players.get(player).getSession().write("rt" + p.getName());
+						ProtocolHandler.writeMessage(m_players.get(player).getSession(), 
+								new RequestMessage(RequestType.TRADE, p.getName()));
 						p.addRequest(player, RequestType.TRADE);
 					}
 					break;
