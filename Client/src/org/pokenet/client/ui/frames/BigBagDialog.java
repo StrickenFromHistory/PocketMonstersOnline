@@ -8,6 +8,8 @@ import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
+import mdes.slick.sui.event.MouseAdapter;
+import mdes.slick.sui.event.MouseEvent;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
@@ -22,19 +24,20 @@ import org.pokenet.client.ui.base.ImageButton;
  * The big bag dialog
  * 
  * @author Nushio
+ * @author ZombieBear
  * 
  */
 public class BigBagDialog extends Frame {
-	private ImageButton[] m_categoryButtons;
-	private ArrayList<Button> m_itemBtns = new ArrayList<Button>();
-	private ArrayList<Label> m_stockLabels = new ArrayList<Label>();
-	private Button m_leftButton, m_rightButton, m_cancel;
-	private ItemPopup m_popup;
+	protected ImageButton[] m_categoryButtons;
+	protected ArrayList<Button> m_itemBtns = new ArrayList<Button>();
+	protected ArrayList<Label> m_stockLabels = new ArrayList<Label>();
+	protected Button m_leftButton, m_rightButton, m_cancel;
+	protected ItemPopup m_popup;
 
 	private HashMap<Integer, ArrayList<PlayerItem>> m_items = new HashMap<Integer, ArrayList<PlayerItem>>();
 	private HashMap<Integer, Integer> m_scrollIndex = new HashMap<Integer, Integer>();
-	private int m_curCategory = 0;
-	boolean m_update = false;
+	protected int m_curCategory = 0;
+	protected boolean m_update = false;
 
 	public BigBagDialog() {
 		getContentPane().setX(getContentPane().getX() - 1);
@@ -238,6 +241,14 @@ public class BigBagDialog extends Frame {
 				closeBag();
 			}
 		});
+		getContentPane().addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseReleased(MouseEvent e) {
+						super.mouseReleased(e);
+						destroyPopup();
+					}
+				});
+
 		setBackground(new Color(0, 0, 0, 75));
 		setTitle("Bag");
 		setResizable(false);
@@ -328,7 +339,7 @@ public class BigBagDialog extends Frame {
 	 */
 	public void destroyPopup() {
 		if (getDisplay().containsChild(m_popup)){
-			getDisplay().remove(m_popup);
+			m_popup.destroyPopup();
 			m_popup = null;
 		}
 	}
@@ -345,12 +356,25 @@ public class BigBagDialog extends Frame {
 	}
 }
 
+/**
+ * The use dialog for items
+ * @author ZombieBear
+ *
+ */
 class ItemPopup extends Frame{
 	private Label m_name;
 	private Button m_use;
 	private Button m_give;
 	private Button m_destroy;
+	private Button m_cancel;
+	private TeamPopup m_team;
 	
+	/**
+	 * Default Constructor
+	 * @param item
+	 * @param id
+	 * @param useOnPokemon
+	 */
 	public ItemPopup(String item, int id, boolean useOnPokemon){
 		final int m_id = id;
 		final boolean m_useOnPoke = useOnPokemon;
@@ -398,11 +422,27 @@ class ItemPopup extends Frame{
 		});
 		getContentPane().add(m_destroy);
 		
+		// Destroy the item
+		m_cancel = new Button("Cancel");
+		m_cancel.setSize(100,25);
+		m_cancel.setLocation(0, m_destroy.getY() + 25);
+		m_cancel.addActionListener(new ActionListener(){
+			public void actionPerformed (ActionEvent e){ 
+				destroyPopup();
+			}
+		});
+		getContentPane().add(m_cancel);
+		
 		// Frame configuration
+		addMouseListener(new MouseAdapter(){
+			@Override
+			public void mousePressed(MouseEvent e) {
+				destroyPopup();
+			}
+		});
 		setBackground(new Color(0,0,0,150));
-		setSize(100, 115);
+		setSize(100, 140);
 		getTitleBar().setVisible(false);
-		getTitleBar().setHeight(0);
 		setVisible(true);
 		setResizable(false);
 		setAlwaysOnTop(true);
@@ -411,7 +451,9 @@ class ItemPopup extends Frame{
 	/**
 	 * Destroys the popup
 	 */
-	private void destroyPopup() {
+	public void destroyPopup() {
+		getDisplay().remove(m_team);
+		m_team = null;
 		getDisplay().remove(this);
 	}
 	
@@ -421,7 +463,18 @@ class ItemPopup extends Frame{
 	 * @param usedOnPoke
 	 */
 	public void useItem(int id, boolean usedOnPoke){
-		
+		if (getDisplay().containsChild(m_team))
+			getDisplay().remove(m_team);
+		m_team = null;
+		if (usedOnPoke) {
+			setAlwaysOnTop(false);
+			m_team = new TeamPopup(this, id, true);
+			m_team.setLocation(m_use.getAbsoluteX() + getWidth(), m_use.getAbsoluteY() - 15);
+			getDisplay().add(m_team);
+		} else {
+			GameClient.getInstance().getPacketGenerator().write("I" + id);
+			destroyPopup();
+		}
 	}
 
 	/**
@@ -429,6 +482,86 @@ class ItemPopup extends Frame{
 	 * @param id
 	 */
 	public void giveItem(int id){
+		setAlwaysOnTop(false);
+		if (getDisplay().containsChild(m_team))
+			getDisplay().remove(m_team);
+		m_team = null;
+		m_team = new TeamPopup(this, id, false);
+		m_team.setLocation(m_give.getAbsoluteX() + getWidth(), m_give.getAbsoluteY() - 15);
+		getDisplay().add(m_team);
+	}
+}
+
+/**
+ * PopUp that lists the player's pokemon in order to use/give an item
+ * @author administrator
+ *
+ */
+class TeamPopup extends Frame{
+	ItemPopup m_parent;
+	Label m_details;
+	
+	/**
+	 * Default constructor
+	 * @param itemId
+	 * @param use
+	 * @param useOnPoke
+	 */
+	public TeamPopup(ItemPopup parent, int itemId, boolean use) {
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		
+		m_parent = parent;
+		final int m_item = itemId;
+		final boolean m_use = use;
+		
+		int y = 0;
+		for (int i = 0; i < GameClient.getInstance().getOurPlayer().getPokemon().length; i++) {
+			try{
+				final Label tempLabel = new Label(GameClient.getInstance().getOurPlayer().getPokemon()[i].getName());
+				final int j = i;
+				tempLabel.setSize(100, 15);
+				tempLabel.setFont(GameClient.getFontSmall());
+				tempLabel.setForeground(Color.white);
+				tempLabel.setLocation(0, y);
+				tempLabel.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseReleased(MouseEvent e) {
+						super.mouseReleased(e);
+						processItemUse(m_use, m_item, j);
+					}
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						super.mouseEntered(e);
+						tempLabel.setForeground(new Color(255, 215, 0));
+					}
+					@Override
+					public void mouseExited(MouseEvent e) {
+						super.mouseExited(e);
+						tempLabel.setForeground(new Color(255, 255, 255));
+					}
+				});
+				y += 18;
+				getContentPane().add(tempLabel);
+			} catch (Exception e) {}
+		}
+		
+		// Frame configuration
+		setBackground(new Color(0,0,0,150));
+		setSize(100, 115);
+		getTitleBar().setVisible(false);
+		setVisible(true);
+		setResizable(false);
+		setAlwaysOnTop(true);
+	}
+	
+	public void processItemUse(boolean use, int id, int pokeIndex){
+		if (use) {
+			GameClient.getInstance().getPacketGenerator().write("I" + id + "," + pokeIndex);
+		} else {
+			// TODO: Write packet
+			GameClient.getInstance().getPacketGenerator().write("");
+		}
+		m_parent.destroyPopup();
 	}
 }
