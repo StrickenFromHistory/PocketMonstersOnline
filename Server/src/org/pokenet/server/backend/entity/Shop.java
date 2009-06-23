@@ -78,7 +78,6 @@ public class Shop implements Runnable {
 		/*
 		 * Return the data string without the trailing comma
 		 */
-		System.out.println(result);
 		return result.substring(0, result.length() - 1);
 	}
 	
@@ -98,19 +97,17 @@ public class Shop implements Runnable {
 	 * @return
 	 */
 	public boolean buyItem(int itemId, int quantity) {
-//		int stock = 0;
-//		stock = m_stock.get(itemName.toUpperCase());
-//		if(stock - quantity > 0) {
-//			m_stock.put(itemName, (stock - quantity));
-//			/*
-//			 * Decrease delta by 15 seconds to restock the shop sooner
-//			 */
-//			m_delta = m_delta - 15000 >= 600000 ? m_delta - 15000 : 6000;
-//			return true;
-//		}
-//		return false;
-		//TODO: Implement item stocks. 
-		return true;
+		int stock = 0;
+		stock = m_stock.get(itemId);
+		if(stock - quantity > 0) {
+			m_stock.put(itemId, (stock - quantity));
+			/*
+			 * Decrease delta by 15 seconds to restock the shop sooner
+			 */
+			m_delta = m_delta - 15000 >= 600000 ? m_delta - 15000 : 6000;
+			return true;
+		}
+		return false;
 	}
 	
 	/**
