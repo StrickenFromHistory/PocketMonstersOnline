@@ -106,9 +106,10 @@ public class LoginManager implements Runnable {
 					 * They are logged in somewhere else.
 					 * Check if the server is up, if it is, don't log them in. If not, log them in
 					 */
-					if(InetAddress.getByName(result.getString("lastLoginServer")).isReachable(5000))
+					if(InetAddress.getByName(result.getString("lastLoginServer")).isReachable(5000)) {
+						session.write("l3");
 						return;
-					else {
+					} else {
 						//The server they were on went down and they are trying to login elsewhere
 						this.login(username, l, session, result);
 					}

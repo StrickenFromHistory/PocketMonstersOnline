@@ -680,6 +680,14 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().showLogin();
 				break;
+			case '3':
+				//You are logged in elsewhere
+				GameClient.messageDialog("You are still being logged out of another server,\n" +
+						"please try again later.", 
+						GameClient.getInstance().getDisplay());
+				m_game.getLoadingScreen().setVisible(false);
+				m_game.getLoginScreen().showLogin();
+				break;
 			}
 		
 			break;
