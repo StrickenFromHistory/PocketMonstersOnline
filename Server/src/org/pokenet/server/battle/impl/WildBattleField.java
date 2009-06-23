@@ -274,7 +274,7 @@ public class WildBattleField extends BattleField {
 							if (this.getActivePokemon()[trainer].getPp(move
 									.getId()) <= 0) {
 								if (trainer == 0) {
-									showMessage("bp" + this.getActivePokemon()[trainer]
+									m_player.getSession().write("bp" + this.getActivePokemon()[trainer]
 													.getMoveName(move.getId()));
 									requestMove(0);
 								} else {
