@@ -1,6 +1,8 @@
 package org.pokenet.server.backend.entity;
 
 import org.pokenet.server.backend.map.ServerMap;
+import org.pokenet.server.network.message.MoveMessage;
+import org.pokenet.server.network.message.SpriteChangeMessage;
 
 /**
  * Base class for a character. Note: Originally this implemented Battleable but not all chars are battleable
@@ -94,7 +96,7 @@ public class Char implements Positionable {
 		m_sprite = sprite;
 		//Inform everyone of sprite change
 		if(m_map != null)
-			m_map.sendToAll("cS" + m_id + "," + this.getSprite());
+			m_map.sendToAll(new SpriteChangeMessage(m_id, this.getSprite()));
 	}
 
 	/**
@@ -131,19 +133,19 @@ public class Char implements Positionable {
 				switch(m_nextMovement) {
 				case Up:
 					m_facing = Direction.Up;
-					m_map.sendToAll("cU" + m_id);
+					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, true));
 					break;
 				case Down:
 					m_facing = Direction.Down;
-					m_map.sendToAll("cD" + m_id);
+					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, true));
 					break;
 				case Left:
 					m_facing = Direction.Left;
-					m_map.sendToAll("cL" + m_id);
+					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, true));
 					break;
 				case Right:
 					m_facing = Direction.Right;
-					m_map.sendToAll("cR" + m_id);
+					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, true));
 					break;
 				}
 				m_nextMovement = null;
@@ -154,22 +156,22 @@ public class Char implements Positionable {
 				case Up:
 					m_y -= 32;
 					m_facing = Direction.Up;
-					m_map.sendToAll("U" + m_id);
+					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, false));
 					break;
 				case Down:
 					m_y += 32;
 					m_facing = Direction.Down;
-					m_map.sendToAll("D" + m_id);
+					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, false));
 					break;
 				case Left:
 					m_x -= 32;
 					m_facing = Direction.Left;
-					m_map.sendToAll("L" + m_id);
+					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, false));
 					break;
 				case Right:
 					m_x += 32;
 					m_facing = Direction.Right;
-					m_map.sendToAll("R" + m_id);
+					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, false));
 					break;
 				}
 				m_nextMovement = null;
@@ -250,7 +252,7 @@ public class Char implements Positionable {
 	public void setSurfing(boolean b) {
 		m_isSurfing = b;
 		if(m_map != null)
-			m_map.sendToAll("cS" + m_id + "," + this.getSprite());
+			m_map.sendToAll(new SpriteChangeMessage(m_id, this.getSprite()));
 	}
 	
 	/**
@@ -275,20 +277,7 @@ public class Char implements Positionable {
 	public void setFacing(Direction d) {
 		m_facing = d;
 		if(m_map != null) {
-			switch(d) {
-			case Up:
-				m_map.sendToAll("cU" + m_id);
-				break;
-			case Down:
-				m_map.sendToAll("cD" + m_id);
-				break;
-			case Left:
-				m_map.sendToAll("cL" + m_id);
-				break;
-			case Right:
-				m_map.sendToAll("cR" + m_id);
-				break;
-			}
+			m_map.sendToAll(new MoveMessage(d, m_id, true));
 		}
 	}
 }

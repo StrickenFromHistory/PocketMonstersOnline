@@ -19,7 +19,7 @@ import org.pokenet.server.network.codec.PokenetCodecFactory;
  * @author shadowkanji
  */
 public class NetworkService {
-	private ConnectionManager m_connectionManager;
+	private ProtocolHandler m_connectionManager;
 	private LoginManager m_loginManager;
 	private LogoutManager m_logoutManager;
 	private IoAcceptor m_acceptor;
@@ -32,7 +32,7 @@ public class NetworkService {
 		m_logoutManager = new LogoutManager();
 		m_loginManager = new LoginManager(m_logoutManager);
 		m_chatManager = new ChatManager[3];
-		m_connectionManager = new ConnectionManager(m_loginManager, m_logoutManager);
+		m_connectionManager = new ProtocolHandler(m_loginManager, m_logoutManager);
 	}
 	
 	/**
@@ -68,7 +68,7 @@ public class NetworkService {
 	 * Returns the connection manager (packet handler)
 	 * @return
 	 */
-	public ConnectionManager getConnectionManager() {
+	public ProtocolHandler getConnectionManager() {
 		return m_connectionManager;
 	}
 	

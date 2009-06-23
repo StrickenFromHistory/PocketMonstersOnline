@@ -13,13 +13,14 @@ import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.feature.TimeService.Weather;
+import org.pokenet.server.network.message.PokenetMessage;
 
 /**
  * Handles packets received from the player
  * @author shadowkanji
  *
  */
-public class ConnectionManager extends IoHandlerAdapter {
+public class ProtocolHandler extends IoHandlerAdapter {
 	private static HashMap<String, PlayerChar> m_players;
 	private LoginManager m_loginManager;
 	private LogoutManager m_logoutManager;
@@ -30,7 +31,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 	 * @param login
 	 * @param logout
 	 */
-	public ConnectionManager(LoginManager login, LogoutManager logout) {
+	public ProtocolHandler(LoginManager login, LogoutManager logout) {
 		m_loginManager = login;
 		m_logoutManager = logout;
 		m_regManager = new RegistrationManager();
@@ -469,5 +470,14 @@ public class ConnectionManager extends IoHandlerAdapter {
 	 */
 	public static int getPlayerCount() {
 		return m_players.keySet().size();
+	}
+	
+	/**
+	 * Writes the message to the session
+	 * @param session
+	 * @param m
+	 */
+	public static void writeMessage(IoSession session, PokenetMessage m) {
+		session.write(m.getMessage());
 	}
 }

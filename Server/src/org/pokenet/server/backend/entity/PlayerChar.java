@@ -19,7 +19,7 @@ import org.pokenet.server.battle.impl.PvPBattleField;
 import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.feature.TimeService;
-import org.pokenet.server.network.ConnectionManager;
+import org.pokenet.server.network.ProtocolHandler;
 import org.pokenet.server.network.MySqlManager;
 
 /**
@@ -254,7 +254,7 @@ public class PlayerChar extends Char implements Battleable {
 			 * within 3 squares of the player, start the battle
 			 */
 			if(this.getMap().getPvPType() == PvPType.ENFORCED) {
-				PlayerChar otherPlayer = ConnectionManager.getPlayers().get(username);
+				PlayerChar otherPlayer = ProtocolHandler.getPlayers().get(username);
 				if(this.getMap() == otherPlayer.getMap()) {
 					if(otherPlayer.getX() >= this.getX() - 96 || 
 							otherPlayer.getX() <= this.getX() + 96 ||
@@ -287,7 +287,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param username
 	 */
 	public void requestAccepted(String username) {
-		PlayerChar otherPlayer = ConnectionManager.getPlayers().get(username);
+		PlayerChar otherPlayer = ProtocolHandler.getPlayers().get(username);
 		if(otherPlayer != null) {
 			if(m_requests.containsKey(username)) {
 				switch(m_requests.get(username)) {
@@ -332,8 +332,8 @@ public class PlayerChar extends Char implements Battleable {
 	public void clearRequests() {
 		if(m_requests.size() > 0) {
 			for(String username : m_requests.keySet()) {
-				if(ConnectionManager.getPlayers().containsKey(username)) {
-					ConnectionManager.getPlayers().get(username).getSession().write("rc" + this.getName());
+				if(ProtocolHandler.getPlayers().containsKey(username)) {
+					ProtocolHandler.getPlayers().get(username).getSession().write("rc" + this.getName());
 				}
 			}
 			m_requests.clear();

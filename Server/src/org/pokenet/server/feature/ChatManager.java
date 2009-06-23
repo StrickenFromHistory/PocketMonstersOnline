@@ -7,6 +7,9 @@ import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar.Language;
 import org.pokenet.server.backend.map.ServerMap;
+import org.pokenet.server.network.ProtocolHandler;
+import org.pokenet.server.network.message.ChatMessage;
+import org.pokenet.server.network.message.ChatMessage.ChatMessageType;
 
 /**
  * Handles chat messages sent by players
@@ -86,7 +89,8 @@ public class ChatManager implements Runnable {
 				o = m_privateQueue.poll();
 				s = (IoSession) o[0];
 				if(s.isConnected() && !s.isClosing())
-					s.write("Cp" + ((String) o[1]) + "," + ((String) o[2]));
+					ProtocolHandler.writeMessage(s, new ChatMessage(
+							ChatMessageType.PRIVATE, ((String) o[2])));
 			}
 			try {
 				Thread.sleep(250);

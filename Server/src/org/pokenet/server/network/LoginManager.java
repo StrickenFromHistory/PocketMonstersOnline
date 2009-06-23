@@ -57,7 +57,7 @@ public class LoginManager implements Runnable {
 		PlayerChar p;
 		try {
 			//Check if we haven't reach the player limit
-			if(ConnectionManager.getPlayerCount() >= GameServer.getMaxPlayers()) {
+			if(ProtocolHandler.getPlayerCount() >= GameServer.getMaxPlayers()) {
 				session.write("l2");
 				return;
 			}
@@ -83,8 +83,8 @@ public class LoginManager implements Runnable {
 					 * They are already logged in on this server.
 					 * Attach the session to the existing player if they exist, if not, just log them in
 					 */
-					if(ConnectionManager.getPlayers().containsKey(username)) {
-						p = ConnectionManager.getPlayers().get(username);
+					if(ProtocolHandler.getPlayers().containsKey(username)) {
+						p = ProtocolHandler.getPlayers().get(username);
 						p.setLastLoginTime(time);
 						p.getSession().close();
 						p.setSession(session);
@@ -218,7 +218,7 @@ public class LoginManager implements Runnable {
 		 * Add them to the list of players
 		 */
 		if(m_players == null) {
-			m_players = ConnectionManager.getPlayers();
+			m_players = ProtocolHandler.getPlayers();
 		}
 		m_players.put(username, p);
 		GameServer.getInstance().updatePlayerCount();

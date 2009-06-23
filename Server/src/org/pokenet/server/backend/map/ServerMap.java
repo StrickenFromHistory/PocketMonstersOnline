@@ -18,6 +18,10 @@ import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.impl.NpcBattleLauncher;
 import org.pokenet.server.feature.TimeService;
 import org.pokenet.server.feature.TimeService.Weather;
+import org.pokenet.server.network.ProtocolHandler;
+import org.pokenet.server.network.message.ChatMessage;
+import org.pokenet.server.network.message.PokenetMessage;
+import org.pokenet.server.network.message.ChatMessage.ChatMessageType;
 
 import tiled.core.Map;
 import tiled.core.TileLayer;
@@ -260,7 +264,9 @@ public class ServerMap {
 	public void sendChatMessage(String message, Language l) {
 		for(int i = 0; i < m_players.size(); i++) {
 			if(m_players.get(i).getLanguage() == l) {
-				m_players.get(i).getSession().write("Cl" + message);
+				ProtocolHandler.writeMessage(
+						m_players.get(i).getSession(),
+						new ChatMessage(ChatMessageType.LOCAL, message));
 			}
 		}
 	}
@@ -845,9 +851,9 @@ public class ServerMap {
 	 * Sends a packet to all players on the map
 	 * @param message
 	 */
-	public void sendToAll(String message) {
+	public void sendToAll(PokenetMessage m) {
 		for(int i = 0; i < m_players.size(); i++) {
-			m_players.get(i).getSession().write(message);
+			ProtocolHandler.writeMessage(m_players.get(i).getSession(), m);
 		}
 	}
 	
