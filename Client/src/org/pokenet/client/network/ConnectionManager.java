@@ -184,6 +184,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 				GameClient.getInstance().getUi().getBattleManager().startBattle(message.charAt(2), 
 						Integer.parseInt(message.substring(3)));
 				break;
+			case 'I':
+				//Won an item in battle
+				String item = ItemDatabase.getInstance().getItem(message.substring(2)).getName();
+				break;
 			case 'p':
 				//No PP left for move -> bpMOVENAME
 				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informNoPP(message.substring(2));
