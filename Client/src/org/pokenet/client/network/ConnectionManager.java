@@ -90,7 +90,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'c':
 				//The offer was cancelled
-				GameClient.getInstance().getUi().stopTrade();
+				GameClient.getInstance().getUi().getTrade().cancelTheirOffer();
 				break;
 			case 'i':
 				//A pokemon is being added to the trade dialog TiPOKEINDEX,POKEDATA
