@@ -21,6 +21,11 @@ import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.feature.TimeService;
 import org.pokenet.server.network.ProtocolHandler;
 import org.pokenet.server.network.MySqlManager;
+import org.pokenet.server.network.message.ItemMessage;
+import org.pokenet.server.network.message.SpriteChangeMessage;
+import org.pokenet.server.network.message.shop.ShopBuyMessage;
+import org.pokenet.server.network.message.shop.ShopNoMoneyMessage;
+import org.pokenet.server.network.message.shop.ShopNoSpaceMessage;
 
 /**
  * Represents a player
@@ -1177,17 +1182,20 @@ public class PlayerChar extends Char implements Battleable {
 					m_bag.addItem(id, q);
 					this.updateClientMoney();
 					//Let player know he bought potion.
-					m_session.write("Sb" + ItemDatabase.getInstance().getItem(id).getId());
+					ProtocolHandler.writeMessage(m_session, 
+							new ShopBuyMessage(ItemDatabase.getInstance().getItem(id).getId()));
 					//Update player inventory
-					m_session.write("Iu" + ItemDatabase.getInstance().getItem(id).getId() + "," + m_bag.getItemQuantity(id));
+					ProtocolHandler.writeMessage(m_session, new ItemMessage(true, 
+							ItemDatabase.getInstance().getItem(id).getId(), 
+							m_bag.getItemQuantity(id)));
 				}
 			}else{
 				//Return You have no money, fool!
-				m_session.write("Sn");
+				ProtocolHandler.writeMessage(m_session, new ShopNoMoneyMessage());
 			}
 		}else{
 			//Send You cant carry any more items!
-			m_session.write("Sf");
+			ProtocolHandler.writeMessage(m_session, new ShopNoSpaceMessage());
 		}
 	}
 	/**
@@ -1202,7 +1210,9 @@ public class PlayerChar extends Char implements Battleable {
 		if(m_bag.containsItem(id) > -1) { //Guy does have the item he's selling. 
 			m_money = m_money + m_currentShop.sellItem(id, q);
 			m_bag.removeItem(id, q);
-			m_session.write("Ir" + id + "," + q);
+			ProtocolHandler.writeMessage(m_session, new ItemMessage(false, 
+					ItemDatabase.getInstance().getItem(id).getId(), 
+					m_bag.getItemQuantity(id)));
 			this.updateClientMoney();
 		}
 	}
@@ -1246,7 +1256,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * Updates the client with their sprite
 	 */
 	public void updateClientSprite() {
-		m_session.write("cS" + m_id + "," + m_sprite);
+		ProtocolHandler.writeMessage(m_session, new SpriteChangeMessage(m_id, m_sprite));
 	}
 	
 	/**
@@ -1310,8 +1320,9 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void updateClientBag(int i) {
 		if(this.getBag().getItems().get(i) != null) {
-			m_session.write("Iu" + this.getBag().getItems().get(i).getItemNumber() + "," + 
-					this.getBag().getItems().get(i).getQuantity());
+			ProtocolHandler.writeMessage(m_session, new ItemMessage(true, 
+					getBag().getItems().get(i).getItemNumber(), 
+					getBag().getItems().get(i).getQuantity()));
 		}
 	}
 }

@@ -12,6 +12,7 @@ import org.pokenet.server.network.ProtocolHandler;
 import org.pokenet.server.network.message.ChatMessage;
 import org.pokenet.server.network.message.SpriteSelectMessage;
 import org.pokenet.server.network.message.ChatMessage.ChatMessageType;
+import org.pokenet.server.network.message.shop.ShopStockMessage;
 
 /**
  * Represents a Non Playable Character
@@ -135,7 +136,7 @@ public class NonPlayerChar extends Char {
 		if(m_isShop) {
 			//Send shop packet to display shop window clientside
 			if(!p.isShopping()){ //Dont display if user's shopping
-				p.getSession().write("Sl" + m_shop.getStockData());
+				ProtocolHandler.writeMessage(p.getSession(), new ShopStockMessage(m_shop.getStockData()));
 				p.setShopping(true);
 				p.setShop(m_shop);
 			}
