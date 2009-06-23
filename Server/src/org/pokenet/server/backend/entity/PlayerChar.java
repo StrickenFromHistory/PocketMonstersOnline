@@ -1199,11 +1199,11 @@ public class PlayerChar extends Char implements Battleable {
 		/* If the player isn't shopping, ignore this */
 		if(m_currentShop == null)
 			return;
-		if(m_bag.containsItem(id)>0) { //Guy does have the item he's selling. 
-			m_money = m_money + (q * m_currentShop.getPriceForItem(id));
+		if(m_bag.containsItem(id) > -1) { //Guy does have the item he's selling. 
+			m_money = m_money + m_currentShop.sellItem(id, q);
 			m_bag.removeItem(id, q);
+			m_session.write("Ir" + id + "," + q);
 			this.updateClientMoney();
-			//Let player know he bought potion. 
 		}
 	}
 	/**
@@ -1310,7 +1310,8 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void updateClientBag(int i) {
 		if(this.getBag().getItems().get(i) != null) {
-			m_session.write("Iu"+this.getBag().getItems().get(i).getItemNumber()+","+this.getBag().getItems().get(i).getQuantity());
+			m_session.write("Iu" + this.getBag().getItems().get(i).getItemNumber() + "," + 
+					this.getBag().getItems().get(i).getQuantity());
 		}
 	}
 }

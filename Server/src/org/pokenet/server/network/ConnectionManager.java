@@ -134,18 +134,19 @@ public class ConnectionManager extends IoHandlerAdapter {
 			case 'S':
 				//Shop interaction
 				if(p.isShopping()) {
+					int item = -1;
 					switch(message.charAt(1)) {
 					case 'b':
 						//Buy items. Sent as SbITEMID,QUANTITY
-						int id = Integer.parseInt(message.substring(2, message.indexOf(',')));
-//						int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
-						p.buyItem(id,1);
+						item = Integer.parseInt(message.substring(2, message.indexOf(',')));
+						//int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
+						p.buyItem(item, 1);
 						break;
 					case 's':
 						//Sell items. Sent as SsITEMID,QUANTITY
-						int itemid = Integer.parseInt(message.substring(2, message.indexOf(',')));
-//						int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
-						p.sellItem(itemid,1);
+						item = Integer.parseInt(message.substring(2, message.indexOf(',')));
+						//int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
+						p.sellItem(item, 1);
 						break;
 					case 'f':
 						//Finished shopping

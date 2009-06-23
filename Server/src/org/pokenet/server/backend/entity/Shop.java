@@ -111,6 +111,15 @@ public class Shop implements Runnable {
 	}
 	
 	/**
+	 * Returns the amount the item was sold for
+	 * @param itemId
+	 * @param quantity
+	 * @return
+	 */
+	public int sellItem(int itemId, int quantity) {
+		return ((getPriceForItem(itemId) / 2) * quantity);
+	}
+	/**
 	 * Starts the restocking thread
 	 */
 	public void start() {
