@@ -29,6 +29,7 @@ public class BigBagDialog extends Frame {
 	private ArrayList<Button> m_itemBtns = new ArrayList<Button>();
 	private ArrayList<Label> m_stockLabels = new ArrayList<Label>();
 	private Button m_leftButton, m_rightButton, m_cancel;
+	private ItemPopup m_popup;
 
 	private HashMap<Integer, ArrayList<PlayerItem>> m_items = new HashMap<Integer, ArrayList<PlayerItem>>();
 	private HashMap<Integer, Integer> m_scrollIndex = new HashMap<Integer, Integer>();
@@ -137,6 +138,7 @@ public class BigBagDialog extends Frame {
 			m_categoryButtons[i].setOpaque(false);
 			m_categoryButtons[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					destroyPopup();
 					m_curCategory = j;
 					m_update = true;
 				}
@@ -165,6 +167,7 @@ public class BigBagDialog extends Frame {
 		m_leftButton.setLocation(15, 95);
 		m_leftButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				destroyPopup();
 				int i = m_scrollIndex.get(m_curCategory) - 1;
 				m_scrollIndex.remove(m_curCategory);
 				m_scrollIndex.put(m_curCategory, i);
@@ -182,6 +185,7 @@ public class BigBagDialog extends Frame {
 			item.setLocation(50 + (80 * i), 85);
 			item.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					destroyPopup();
 					useItem(j);
 				}
 			});
@@ -205,6 +209,7 @@ public class BigBagDialog extends Frame {
 		m_rightButton.setLocation(365, 95);
 		m_rightButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				destroyPopup();
 				int i = m_scrollIndex.get(m_curCategory) + 1;
 				m_scrollIndex.remove(m_curCategory);
 				m_scrollIndex.put(m_curCategory, i);
@@ -219,6 +224,7 @@ public class BigBagDialog extends Frame {
 		m_cancel.setLocation(0, 195);
 		m_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				destroyPopup();
 				closeBag();
 			}
 		});
@@ -228,6 +234,7 @@ public class BigBagDialog extends Frame {
 		getResizer().setVisible(false);
 		getCloseButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				destroyPopup();
 				closeBag();
 			}
 		});
@@ -300,8 +307,30 @@ public class BigBagDialog extends Frame {
 	 * @param i
 	 */
 	public void useItem(int i) {
-		GameClient.getInstance().getPacketGenerator().write("I" + m_itemBtns.get(i).getName());
-		closeBag();
+		destroyPopup();
+		if (m_curCategory == 0 || m_curCategory == 3){
+			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
+					m_itemBtns.get(i).getName()), false);
+			m_popup.setLocation(m_itemBtns.get(i).getAbsoluteX(), m_itemBtns.get(i).getAbsoluteY() 
+					+ m_itemBtns.get(i).getHeight() - getTitleBar().getHeight());
+			getDisplay().add(m_popup);
+		} else {
+			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
+					m_itemBtns.get(i).getName()), true);
+			m_popup.setLocation(m_itemBtns.get(i).getAbsoluteX(), m_itemBtns.get(i).getAbsoluteY() 
+					+ m_itemBtns.get(i).getHeight() - getTitleBar().getHeight());
+			getDisplay().add(m_popup);
+		}
+	}
+	
+	/**
+	 * Destroys the item popup
+	 */
+	public void destroyPopup() {
+		if (getDisplay().containsChild(m_popup)){
+			getDisplay().remove(m_popup);
+			m_popup = null;
+		}
 	}
 
 	/**
@@ -313,5 +342,93 @@ public class BigBagDialog extends Frame {
 		int x = (width / 2) - 200;
 		int y = (height / 2) - 200;
 		this.setBounds(x, y, this.getWidth(), this.getHeight());
+	}
+}
+
+class ItemPopup extends Frame{
+	private Label m_name;
+	private Button m_use;
+	private Button m_give;
+	private Button m_destroy;
+	
+	public ItemPopup(String item, int id, boolean useOnPokemon){
+		final int m_id = id;
+		final boolean m_useOnPoke = useOnPokemon;
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
+		
+		// Item name label
+		m_name = new Label(item);
+		m_name.setFont(GameClient.getFontSmall());
+		m_name.setForeground(Color.white);
+		m_name.pack();
+		m_name.setLocation(0,0);
+		getContentPane().add(m_name);
+		
+		// Use button
+		m_use = new Button("Use");
+		m_use.setSize(100,25);
+		m_use.setLocation(0, m_name.getY() + m_name.getHeight() + 3);
+		m_use.addActionListener(new ActionListener(){
+			public void actionPerformed (ActionEvent e){
+				useItem(m_id, m_useOnPoke);
+			}
+		});
+		getContentPane().add(m_use);
+
+		// Give to a pokemon to hold
+		m_give = new Button("Give");
+		m_give.setSize(100,25);
+		m_give.setLocation(0, m_use.getY() + 25);
+		m_give.addActionListener(new ActionListener(){
+			public void actionPerformed (ActionEvent e){
+				giveItem(m_id);
+			}
+		});
+		getContentPane().add(m_give);
+
+		// Destroy the item
+		m_destroy = new Button("Destroy");
+		m_destroy.setSize(100,25);
+		m_destroy.setLocation(0, m_give.getY() + 25);
+		m_destroy.addActionListener(new ActionListener(){
+			public void actionPerformed (ActionEvent e){
+				destroyPopup();
+			}
+		});
+		getContentPane().add(m_destroy);
+		
+		// Frame configuration
+		setBackground(new Color(0,0,0,150));
+		setSize(100, 115);
+		getTitleBar().setVisible(false);
+		getTitleBar().setHeight(0);
+		setVisible(true);
+		setResizable(false);
+		setAlwaysOnTop(true);
+	}
+	
+	/**
+	 * Destroys the popup
+	 */
+	private void destroyPopup() {
+		getDisplay().remove(this);
+	}
+	
+	/**
+	 * Use the item. usedOnPoke determine whether the item should be applied to a pokemon
+	 * @param id
+	 * @param usedOnPoke
+	 */
+	public void useItem(int id, boolean usedOnPoke){
+		
+	}
+
+	/**
+	 * Give the item to a pokemon
+	 * @param id
+	 */
+	public void giveItem(int id){
+		
 	}
 }
