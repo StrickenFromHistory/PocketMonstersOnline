@@ -17,7 +17,7 @@ public class SoundManager extends Thread{
 	protected String m_trackName;
 	private boolean m_tracksLoaded = false, m_trackChanged = true, m_isRunning = false;
 
-	private final String m_audioPath = "res/music/";
+	private final String m_audioPath = "./res/music/";
 
 	/**
 	 * Default Constructor
@@ -57,7 +57,7 @@ public class SoundManager extends Thread{
 	 */
 	private void loadLocations() {
 		try {
-			Scanner reader = new Scanner(new File("res/language/english/_MUSICKEYS.txt"));
+			Scanner reader = new Scanner(new File("./res/language/english/_MUSICKEYS.txt"));
 			m_locations = new HashMap<String, String>();
 
 			String f = null;

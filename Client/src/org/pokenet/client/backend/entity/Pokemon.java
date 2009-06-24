@@ -73,7 +73,7 @@ public class Pokemon {
         			pathGender = 3;
 
         		try {
-        			path = "/res/pokemon/front/" + isShiny + index + "-"
+        			path = "./res/pokemon/front/" + isShiny + index + "-"
         				+ pathGender + ".png";
         			System.out.println(path);
         			m_sprite = new Image(path.toString());
@@ -82,7 +82,7 @@ public class Pokemon {
         				pathGender = 2;
         			else
         				pathGender = 3;
-        			path = "/res/pokemon/front/" + isShiny + index + "-"
+        			path = "./res/pokemon/front/" + isShiny + index + "-"
         				+ pathGender + ".png";
         			System.out.println(path);
         			m_sprite = new Image(path.toString());
@@ -119,7 +119,7 @@ public class Pokemon {
                                 index = String.valueOf(m_spriteNum);
                         }
                        
-                        path = "/res/pokemon/icons/" + index + ".gif";
+                        path = "./res/pokemon/icons/" + index + ".gif";
                                
                         m_icon = new Image(path.toString());
                         LoadingList.setDeferredLoading(false);
@@ -421,7 +421,7 @@ public class Pokemon {
         		index = String.valueOf(i);
         	}
                
-                path = "/res/pokemon/icons/" + index + ".gif";
+                path = "./res/pokemon/icons/" + index + ".gif";
                 return path;
         }
 }
