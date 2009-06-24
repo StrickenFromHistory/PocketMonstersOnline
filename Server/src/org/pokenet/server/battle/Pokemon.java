@@ -2072,10 +2072,10 @@ public class Pokemon extends PokemonSpecies {
      * @return
      */
     public int compareTo(Pokemon p) {
-    	if(this.getDatabaseID() != -1 && p.getDatabaseID() != -1 && p.getDatabaseID() == this.getDatabaseID())
-    		return 0;
     	if(this.getDateCaught() != null && p.getDateCaught() != null 
-    			&& p.getDateCaught().compareTo(p.getDateCaught()) == 0)
+    			&& p.getDateCaught().equalsIgnoreCase(this.getDateCaught()))
+    		return 0;
+    	if(this.getDatabaseID() != -1 && p.getDatabaseID() != -1 && p.getDatabaseID() == this.getDatabaseID())
     		return 0;
     	if(p.getSpeciesName() == this.getSpeciesName() && p.getStat(0) == this.getStat(0) && 
     			p.getStat(1) == this.getStat(1))
