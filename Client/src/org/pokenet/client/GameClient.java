@@ -142,8 +142,8 @@ public class GameClient extends BasicGame {
 		fi = getClass().getResourceAsStream("/res/fonts/dp-small.png");
 		m_fontSmall = new AngelCodeFont("/res/fonts/dp-small.fnt", f, fi);
 		Player.loadSpriteFactory();
-		/*m_trueTypeFont = new TrueTypeFont(new java.awt.Font("res/fonts/pokeFont.ttf",
-				java.awt.Font.BOLD, 14), false);/
+		m_trueTypeFont = new TrueTypeFont(new java.awt.Font("res/fonts/pokeFont.ttf",
+				java.awt.Font.BOLD, 14), false);
 		
 		/*
 		 * Time/Weather Services

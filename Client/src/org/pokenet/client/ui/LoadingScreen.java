@@ -1,5 +1,7 @@
 package org.pokenet.client.ui;
 
+import java.io.InputStream;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 
@@ -27,7 +29,8 @@ public class LoadingScreen extends Frame {
 			this.setResizable(false);
 			this.getTitleBar().setVisible(false);
 			
-			m_bg = new Label(new Image("./res/ui/loading.png"));
+			InputStream f = getClass().getResourceAsStream("/res/ui/loading.png");
+			m_bg = new Label(new Image(f, "/res/ui/loading.png", false));
 			m_bg.pack();
 			m_bg.setLocation(400 - (m_bg.getWidth() / 2), 300 - (m_bg.getHeight() /2));
 			m_bg.setVisible(true);
