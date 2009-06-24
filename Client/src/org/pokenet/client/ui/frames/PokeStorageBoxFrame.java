@@ -455,7 +455,7 @@ class TeamForBox extends Frame {
 	 * @param teamIndex
 	 */
 	public void switchPokes(int boxNum, int boxIndex, int teamIndex) {
-		GameClient.getInstance().getPacketGenerator().write("Bs" + boxNum + "," + boxIndex + ","
+		GameClient.getInstance().getPacketGenerator().write("Bs" + (boxNum - 1) + "," + boxIndex + ","
 				+ teamIndex);
 	}
 }
