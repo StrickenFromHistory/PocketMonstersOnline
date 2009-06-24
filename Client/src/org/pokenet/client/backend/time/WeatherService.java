@@ -1,5 +1,7 @@
 package org.pokenet.client.backend.time;
 
+import java.io.InputStream;
+
 import org.newdawn.slick.loading.LoadingList;
 import org.newdawn.slick.particles.ParticleIO;
 import org.newdawn.slick.particles.ParticleSystem;
@@ -28,14 +30,19 @@ public class WeatherService {
 		
 		try {
 			LoadingList.setDeferredLoading(true);
+			InputStream f;
 			//Rain
-			m_systems[0] = ParticleIO.loadConfiguredSystem("res/effects/rain/rain.xml");
+			f = getClass().getResourceAsStream("/res/effects/rain/rain.xml");
+			m_systems[0] = ParticleIO.loadConfiguredSystem(f);
 			//Hail
-			m_systems[1] = ParticleIO.loadConfiguredSystem("res/effects/hail/snow.xml");
+			f = getClass().getResourceAsStream("res/effects/hail/snow.xml");
+			m_systems[1] = ParticleIO.loadConfiguredSystem(f);
 			//Sandstorm
-			m_systems[2] = ParticleIO.loadConfiguredSystem("res/effects/sandstorm/sand.xml");
+			f = getClass().getResourceAsStream("res/effects/sandstorm/sand.xml");
+			m_systems[2] = ParticleIO.loadConfiguredSystem(f);
 			//Fog
-			m_systems[3] = ParticleIO.loadConfiguredSystem("res/effects/fog/fog.xml");
+			f = getClass().getResourceAsStream("res/effects/fog/fog.xml");
+			m_systems[3] = ParticleIO.loadConfiguredSystem(f);
 			LoadingList.setDeferredLoading(false);
 		} catch (Exception e) {
 			e.printStackTrace();
