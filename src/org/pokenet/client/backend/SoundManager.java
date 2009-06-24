@@ -1,6 +1,8 @@
 package org.pokenet.client.backend;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -17,7 +19,7 @@ public class SoundManager extends Thread{
 	protected String m_trackName;
 	private boolean m_tracksLoaded = false, m_trackChanged = true, m_isRunning = false;
 
-	private final String m_audioPath = "./res/music/";
+	private final String m_audioPath = "/PokenetClient/res/music/";
 
 	/**
 	 * Default Constructor
@@ -33,12 +35,12 @@ public class SoundManager extends Thread{
 	 */
 	private void loadFileList() {
 		try {
-			Scanner reader = new Scanner(new File(m_audioPath+"index.txt"));
+			BufferedReader stream = new BufferedReader(new InputStreamReader(
+					getClass().getResourceAsStream(m_audioPath + "index.txt")));
 			m_fileList = new HashMap<String, String>();
 
-			String f = null;
-			while (reader.hasNext()) {
-				f = reader.nextLine();
+			String f;
+			while ((f = stream.readLine()) != null) {
 				String[] addFile = f.substring(1).split(":", 2);
 				try{
 					if (f.charAt(1) != '*'){
@@ -57,12 +59,12 @@ public class SoundManager extends Thread{
 	 */
 	private void loadLocations() {
 		try {
-			Scanner reader = new Scanner(new File("./res/language/english/_MUSICKEYS.txt"));
+			BufferedReader stream = new BufferedReader(new InputStreamReader(
+					getClass().getResourceAsStream("/PokenetClient/res/language/english/_MUSICKEYS.txt")));
 			m_locations = new HashMap<String, String>();
 
-			String f = null;
-			while (reader.hasNext()) {
-				f = reader.nextLine();
+			String f;
+			while ((f = stream.readLine()) != null) {
 				String[] addFile = f.split(":", 2);
 				try{
 					m_locations.put(addFile[0], addFile[1]);
