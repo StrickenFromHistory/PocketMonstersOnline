@@ -19,13 +19,15 @@ import org.pokenet.server.battle.impl.PvPBattleField;
 import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.feature.TimeService;
-import org.pokenet.server.network.ProtocolHandler;
 import org.pokenet.server.network.MySqlManager;
+import org.pokenet.server.network.ProtocolHandler;
 import org.pokenet.server.network.message.ItemMessage;
 import org.pokenet.server.network.message.SpriteChangeMessage;
 import org.pokenet.server.network.message.shop.ShopBuyMessage;
+import org.pokenet.server.network.message.shop.ShopNoItemMessage;
 import org.pokenet.server.network.message.shop.ShopNoMoneyMessage;
 import org.pokenet.server.network.message.shop.ShopNoSpaceMessage;
+import org.pokenet.server.network.message.shop.ShopSellMessage;
 
 /**
  * Represents a player
@@ -1181,7 +1183,7 @@ public class PlayerChar extends Char implements Battleable {
 					m_money = m_money - (q * m_currentShop.getPriceForItem(id));
 					m_bag.addItem(id, q);
 					this.updateClientMoney();
-					//Let player know he bought potion.
+					//Let player know he bought the item
 					ProtocolHandler.writeMessage(m_session, 
 							new ShopBuyMessage(ItemDatabase.getInstance().getItem(id).getId()));
 					//Update player inventory
@@ -1210,10 +1212,18 @@ public class PlayerChar extends Char implements Battleable {
 		if(m_bag.containsItem(id) > -1) { //Guy does have the item he's selling. 
 			m_money = m_money + m_currentShop.sellItem(id, q);
 			m_bag.removeItem(id, q);
+			//Tell the client to remove the item from the player's inventory
 			ProtocolHandler.writeMessage(m_session, new ItemMessage(false, 
-					ItemDatabase.getInstance().getItem(id).getId(), 
-					m_bag.getItemQuantity(id)));
+					ItemDatabase.getInstance().getItem(id).getId(), q));
+			//Update the client's money
 			this.updateClientMoney();
+			//Let player know he sold the item.
+			ProtocolHandler.writeMessage(m_session, 
+					new ShopSellMessage(ItemDatabase.getInstance().getItem(id).getId()));
+		} else {
+			//Return You don't have that item, fool!
+			ProtocolHandler.writeMessage(m_session, new ShopNoItemMessage(ItemDatabase.getInstance()
+					.getItem(id).getName()));
 		}
 	}
 	/**
