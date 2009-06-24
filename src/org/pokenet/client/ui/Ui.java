@@ -277,9 +277,9 @@ public class Ui extends Frame {
     public void toggleRequests(){
     	if (getDisplay().containsChild(m_requestsForm)) {
 			getDisplay().remove(m_requestsForm);      
-			hideHUD();
+			hideHUDElements();
 		} else {
-			hideHUD();
+			hideHUDElements();
 			m_requestsForm.setWidth(UI_WIDTH);
 			m_requestsForm.setLocation(m_buttons[4].getX(),  67 - getTitleBar().getHeight());
 			m_requestsForm.setDraggable(false);
@@ -293,9 +293,9 @@ public class Ui extends Frame {
     public void toggleBag(){
     	if (m_bagForm != null) {
 			getDisplay().remove(m_bagForm);
-			hideHUD();
+			hideHUDElements();
 		} else {
-			hideHUD();
+			hideHUDElements();
 			m_bagForm = new Frame();
 			m_bagForm.getContentPane().setX(m_bagForm.getContentPane().getX() - 1);
 			m_bagForm.getContentPane().setY(m_bagForm.getContentPane().getY() + 1);
@@ -345,9 +345,9 @@ public class Ui extends Frame {
     public void togglePokemon(){
     	if (m_teamInfo != null) {
 			getDisplay().remove(m_teamInfo);
-			hideHUD();
+			hideHUDElements();
 		} else {
-			hideHUD();
+			hideHUDElements();
 			m_teamInfo = new PartyInfoDialog(GameClient.getInstance().getOurPlayer()
 					.getPokemon());
 			m_teamInfo.setWidth(175);
@@ -364,9 +364,9 @@ public class Ui extends Frame {
     public void toggleOptions(){
     	if (m_optionsForm != null) {
 			getDisplay().remove(m_optionsForm);
-			hideHUD();
+			hideHUDElements();
 		} else {
-			hideHUD();
+			hideHUDElements();
 			m_isOption = true;
 			m_optionsForm = new OptionsDialog();
 			m_optionsForm.setWidth(UI_WIDTH);
@@ -382,9 +382,9 @@ public class Ui extends Frame {
     public void toggleHelp(){
     	if (m_helpForm != null) {
 			getDisplay().remove(m_helpForm);
-			hideHUD();
+			hideHUDElements();
 		} else {
-			hideHUD();
+			hideHUDElements();
 			m_helpForm = new HelpWindow();
 			m_helpForm.setWidth(UI_WIDTH);
 			m_helpForm.setHeight(300);
@@ -399,9 +399,9 @@ public class Ui extends Frame {
     public void toggleMap(){
     	if (m_map.isVisible()) {
 			m_map.setVisible(false);
-			hideHUD();
+			hideHUDElements();
 		} else {
-			hideHUD();
+			hideHUDElements();
 			m_map.setLocation(m_buttons[2].getX(),  67 - getTitleBar().getHeight());
 			m_map.setVisible(true);
 		}
@@ -413,9 +413,9 @@ public class Ui extends Frame {
     public void toggleFriends(){
     	if (m_friendsList.isVisible()) {
     		m_friendsList.setVisible(false);
-			hideHUD();
+			hideHUDElements();
 		} else {
-			hideHUD();
+			hideHUDElements();
 			m_friendsList.setLocation(m_buttons[3].getX(),  67 - getTitleBar().getHeight());
 			m_friendsList.setVisible(true);
 		}
@@ -424,7 +424,7 @@ public class Ui extends Frame {
     /**
      * Hides all HUD elements
      */
-    private void hideHUD() {
+    private void hideHUDElements() {
             if (m_display.containsChild(m_requestsForm)) m_display.remove(m_requestsForm);
             if (m_bagForm != null) m_bagForm.setVisible(false);
             m_bagForm = null;
@@ -436,6 +436,19 @@ public class Ui extends Frame {
             m_helpForm = null;
             if (m_map.isVisible()) m_map.setVisible(false);
             if (m_friendsList.isVisible()) m_friendsList.setVisible(false);
+    }
+    
+    /**
+     * Hides the HUD
+     * @param hide
+     */
+    public void hideHUD(boolean hide) {
+    	if (hide){
+    		hideHUDElements();
+    		setVisible(false);
+    	} else {
+    		setVisible(true);
+    	}
     }
     
     /**

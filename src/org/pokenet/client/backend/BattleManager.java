@@ -94,6 +94,7 @@ public class BattleManager {
 	 */
 	public void startBattle(char isWild,
 			int pokeAmount) {
+		GameClient.getInstance().getUi().hideHUD(true);
 		if (isWild == '0'){
 			setWild(false);
 		} else {
@@ -114,6 +115,7 @@ public class BattleManager {
 	 * Ends the battle
 	 */
 	public void endBattle() {
+		GameClient.getInstance().getUi().hideHUD(false);
 		m_timeLine.endBattle();
 		m_battle.setVisible(false);
 		GameClient.getInstance().getDisplay().remove(m_battle);
