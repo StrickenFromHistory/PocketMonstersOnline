@@ -17,6 +17,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.base.BattleButtonFactory;
+import org.pokenet.client.ui.frames.BattleBag;
 
 /**
  * Battle window interface
@@ -50,6 +51,7 @@ public class BattleWindow extends Frame {
 	public Button btnRun;
 	public Button cancel;
 	public Button close;
+	public BattleBag m_bag;
 	private boolean isWild;
 	public List<Button> m_moveButtons = new ArrayList<Button>();
 	public List<Label> m_ppLabels = new ArrayList<Label>();
@@ -449,11 +451,11 @@ public class BattleWindow extends Frame {
 	 * Shows the Bag Pane
 	 */
 	public void showBag() {
-		GameClient.getInstance().getPacketGenerator().write("pib35");
 		attackPane.setVisible(false);
 		endPane.setVisible(false);
 		pokesContainer.setVisible(false);
-		// bagPane.setVisible(true);
+		m_bag = new BattleBag();
+		getDisplay().add(m_bag);
 	}
 
 	/**

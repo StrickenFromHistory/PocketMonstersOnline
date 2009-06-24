@@ -322,13 +322,13 @@ public class BigBagDialog extends Frame {
 		destroyPopup();
 		if (m_curCategory == 0 || m_curCategory == 3){
 			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
-					m_itemBtns.get(i).getName()), false);
+					m_itemBtns.get(i).getName()), false, false);
 			m_popup.setLocation(m_itemBtns.get(i).getAbsoluteX(), m_itemBtns.get(i).getAbsoluteY() 
 					+ m_itemBtns.get(i).getHeight() - getTitleBar().getHeight());
 			getDisplay().add(m_popup);
 		} else {
 			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
-					m_itemBtns.get(i).getName()), true);
+					m_itemBtns.get(i).getName()), true, false);
 			m_popup.setLocation(m_itemBtns.get(i).getAbsoluteX(), m_itemBtns.get(i).getAbsoluteY() 
 					+ m_itemBtns.get(i).getHeight() - getTitleBar().getHeight());
 			getDisplay().add(m_popup);
@@ -375,10 +375,12 @@ class ItemPopup extends Frame{
 	 * @param item
 	 * @param id
 	 * @param useOnPokemon
+	 * @param isBattle
 	 */
-	public ItemPopup(String item, int id, boolean useOnPokemon){
+	public ItemPopup(String item, int id, boolean useOnPokemon, boolean isBattle){
 		final int m_id = id;
 		final boolean m_useOnPoke = useOnPokemon;
+		final boolean m_isBattle = isBattle;
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		
@@ -396,27 +398,30 @@ class ItemPopup extends Frame{
 		m_use.setLocation(0, m_name.getY() + m_name.getHeight() + 3);
 		m_use.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){
-				useItem(m_id, m_useOnPoke);
+				useItem(m_id, m_useOnPoke, m_isBattle);
 			}
 		});
 		getContentPane().add(m_use);
 
-		// Give to a pokemon to hold
-		m_give = new Button("Give");
-		m_give.setSize(100,25);
-		m_give.setLocation(0, m_use.getY() + 25);
-		m_give.setEnabled(false);
-		m_give.addActionListener(new ActionListener(){
-			public void actionPerformed (ActionEvent e){
-				giveItem(m_id);
-			}
-		});
-		getContentPane().add(m_give);
-
+		if (!isBattle){
+			m_give = new Button("Give");
+			m_give.setSize(100,25);
+			m_give.setLocation(0, m_use.getY() + 25);
+			m_give.setEnabled(false);
+			m_give.addActionListener(new ActionListener(){
+				public void actionPerformed (ActionEvent e){
+					giveItem(m_id);
+				}
+			});
+			getContentPane().add(m_give);
+		}
 		// Destroy the item
 		m_destroy = new Button("Destroy");
 		m_destroy.setSize(100,25);
-		m_destroy.setLocation(0, m_give.getY() + 25);
+		if (!isBattle)
+			m_destroy.setLocation(0, m_give.getY() + 25);
+		else
+			m_destroy.setLocation(0, m_use.getY() + 25);
 		m_destroy.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){
 				destroyPopup();
@@ -443,7 +448,10 @@ class ItemPopup extends Frame{
 			}
 		});
 		setBackground(new Color(0,0,0,150));
-		setSize(100, 140);
+		if (!isBattle)
+			setSize(100, 140);
+		else
+			setSize(100, 115);
 		getTitleBar().setVisible(false);
 		setVisible(true);
 		setResizable(false);
@@ -464,17 +472,20 @@ class ItemPopup extends Frame{
 	 * @param id
 	 * @param usedOnPoke
 	 */
-	public void useItem(int id, boolean usedOnPoke){
+	public void useItem(int id, boolean usedOnPoke, boolean isBattle){
 		if (getDisplay().containsChild(m_team))
 			getDisplay().remove(m_team);
 		m_team = null;
 		if (usedOnPoke) {
 			setAlwaysOnTop(false);
-			m_team = new TeamPopup(this, id, true);
+			m_team = new TeamPopup(this, id, true, isBattle);
 			m_team.setLocation(m_use.getAbsoluteX() + getWidth(), m_use.getAbsoluteY() - 15);
 			getDisplay().add(m_team);
 		} else {
-			GameClient.getInstance().getPacketGenerator().write("I" + id);
+			if (isBattle)
+				GameClient.getInstance().getPacketGenerator().write("bi" + id);
+			else
+				GameClient.getInstance().getPacketGenerator().write("I" + id);
 			destroyPopup();
 		}
 	}
@@ -488,7 +499,7 @@ class ItemPopup extends Frame{
 		if (getDisplay().containsChild(m_team))
 			getDisplay().remove(m_team);
 		m_team = null;
-		m_team = new TeamPopup(this, id, false);
+		m_team = new TeamPopup(this, id, false, false);
 		m_team.setLocation(m_give.getAbsoluteX() + getWidth(), m_give.getAbsoluteY() - 15);
 		getDisplay().add(m_team);
 	}
@@ -509,14 +520,15 @@ class TeamPopup extends Frame{
 	 * @param use
 	 * @param useOnPoke
 	 */
-	public TeamPopup(ItemPopup parent, int itemId, boolean use) {
+	public TeamPopup(ItemPopup parent, int itemId, boolean use, boolean isBattle) {
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
-		
+
 		m_parent = parent;
 		final int m_item = itemId;
 		final boolean m_use = use;
-		
+		final boolean m_isBattle = isBattle;
+
 		int y = 0;
 		for (int i = 0; i < GameClient.getInstance().getOurPlayer().getPokemon().length; i++) {
 			try{
@@ -530,7 +542,7 @@ class TeamPopup extends Frame{
 					@Override
 					public void mouseReleased(MouseEvent e) {
 						super.mouseReleased(e);
-						processItemUse(m_use, m_item, j);
+						processItemUse(m_use, m_item, j, m_isBattle);
 					}
 					@Override
 					public void mouseEntered(MouseEvent e) {
@@ -557,11 +569,16 @@ class TeamPopup extends Frame{
 		setAlwaysOnTop(true);
 	}
 	
-	public void processItemUse(boolean use, int id, int pokeIndex){
+	public void processItemUse(boolean use, int id, int pokeIndex, boolean isBattle){
 		if (use) {
-			GameClient.getInstance().getPacketGenerator().write("I" + id + "," + pokeIndex);
+			if (isBattle) {
+				GameClient.getInstance().getPacketGenerator().write("bi" + id + "," + pokeIndex);
+				GameClient.getInstance().getUi().getBattleManager().getBattleWindow().m_bag.closeBag();
+			} else {
+				GameClient.getInstance().getPacketGenerator().write("I" + id + "," + pokeIndex);
+			}
 		} else {
-			// TODO: Write packet
+			// TODO: Write "Give" packet
 			GameClient.getInstance().getPacketGenerator().write("");
 		}
 		m_parent.destroyPopup();
