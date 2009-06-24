@@ -109,8 +109,6 @@ public class ConnectionManager extends IoHandlerAdapter {
 			m_game.getOurPlayer().swapPokemon(Integer.parseInt(message.substring(1, message.indexOf(','))),
 					Integer.parseInt(message.substring(message.indexOf(',') + 1)) );
 			GameClient.getInstance().getUi().refreshParty();
-//			details = message.substring(3).split(",");
-//			m_game.getOurPlayer().setPokemon(Integer.parseInt(message.substring(2, 3)), details);
 			break;
 		case 'S':
 			//Shop
@@ -187,6 +185,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 			case 'I':
 				//Won an item in battle
 				String item = ItemDatabase.getInstance().getItem(message.substring(2)).getName();
+				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informItemDropped(item);
 				break;
 			case 'p':
 				//No PP left for move -> bpMOVENAME
