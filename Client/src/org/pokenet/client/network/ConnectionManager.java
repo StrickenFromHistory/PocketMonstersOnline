@@ -184,7 +184,8 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case 'I':
 				//Won an item in battle
-				String item = ItemDatabase.getInstance().getItem(message.substring(2)).getName();
+				String item = ItemDatabase.getInstance().getItem(Integer.parseInt(message.substring(2))).getName();
+				GameClient.getInstance().getOurPlayer().addItem(Integer.parseInt(message.substring(2)), 1);
 				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informItemDropped(item);
 				break;
 			case 'p':
