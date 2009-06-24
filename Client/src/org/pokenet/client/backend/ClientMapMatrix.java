@@ -220,10 +220,10 @@ public class ClientMapMatrix {
 		try {
 			Scanner reader;
 			try{
-				reader = new Scanner(new File("res/language/" + GameClient.getLanguage()
+				reader = new Scanner(new File("./res/language/" + GameClient.getLanguage()
 						+ "/_MAPNAMES.txt"));
 			} catch (Exception e){
-				reader = new Scanner(new File("res/language/english/_MAPNAMES.txt"));
+				reader = new Scanner(new File("./res/language/english/_MAPNAMES.txt"));
 			}
 			
 			String f = null;

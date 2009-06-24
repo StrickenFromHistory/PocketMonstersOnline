@@ -27,7 +27,7 @@ public class LoadingScreen extends Frame {
 			this.setResizable(false);
 			this.getTitleBar().setVisible(false);
 			
-			m_bg = new Label(new Image("res/ui/loading.png"));
+			m_bg = new Label(new Image("./res/ui/loading.png"));
 			m_bg.pack();
 			m_bg.setLocation(400 - (m_bg.getWidth() / 2), 300 - (m_bg.getHeight() /2));
 			m_bg.setVisible(true);
