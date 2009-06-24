@@ -66,6 +66,7 @@ public class MovementManager implements Runnable {
 					try {
 						m_players.get(i).move();
 					} catch (Exception e) {
+						e.printStackTrace();
 						m_players.get(i).forceLogout();
 					}
 				}
