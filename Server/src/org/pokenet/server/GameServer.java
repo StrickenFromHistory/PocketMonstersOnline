@@ -3,6 +3,7 @@ package org.pokenet.server;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -28,12 +29,12 @@ import org.pokenet.server.network.ProtocolHandler;
  * Here are the different settings:
  * -low
  * 		< 1.86ghz
- * 		< 512MB Ram
+ * 		< 256MB Ram
  * 		< 1mbps Up/Down Connection
  * 		75 Players
  * -medium
  * 		< 2ghz
- * 		1GB Ram
+ * 		512MB - 1GB Ram
  * 		1mbps Up/Down Connection
  * 		200 Players
  * -high
@@ -385,6 +386,19 @@ public class GameServer {
 	 * @param args
 	 */
 	public static void main(String [] args) {
+		/*
+		 * Pipe errors to a file
+		 */
+		try {
+			PrintStream p = new PrintStream(new File("./errors.txt"));
+			System.setErr(p);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		/*
+		 * Server settings
+		 */
 		Options options = new Options();
 		options.addOption("s","settings", true, "Can be low, medium, or high.");
 		options.addOption("p","players", true, "Sets the max number of players.");
