@@ -278,6 +278,7 @@ public class WildBattleField extends BattleField {
 						if (!m_participatingPokemon
 								.contains(getActivePokemon()[0]))
 							m_participatingPokemon.add(getActivePokemon()[0]);
+						return;
 					} else {
 						if (trainer == 0 && getAliveCount(0) > 0) {
 							if (getAliveCount(0) > 0) {

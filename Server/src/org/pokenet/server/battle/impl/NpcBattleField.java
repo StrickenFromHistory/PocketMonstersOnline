@@ -286,6 +286,7 @@ public class NpcBattleField extends BattleField {
 							&& this.getParty(trainer)[move.getId()].getHealth() > 0) {
 						switchInPokemon(trainer, move.getId());
 						requestMoves();
+						return;
 					} else {
 						// The player still has pokemon left
 						if (getAliveCount(trainer) > 0) {
