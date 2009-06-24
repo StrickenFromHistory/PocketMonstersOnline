@@ -182,13 +182,13 @@ public class NpcBattleField extends BattleField {
 						new SwitchMessage(m_player.getName(),
 								poke.getSpeciesName(),
 								trainer,
-								getPokemonPartyIndex(poke)));
+								getPokemonPartyIndex(trainer, poke)));
 			} else {
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new SwitchMessage(m_npc.getName(),
 								poke.getSpeciesName(),
 								trainer,
-								getPokemonPartyIndex(poke)));
+								getPokemonPartyIndex(trainer, poke)));
 			}
 		}
 	}

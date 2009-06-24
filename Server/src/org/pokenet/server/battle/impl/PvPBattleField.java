@@ -220,28 +220,29 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void informSwitchInPokemon(int trainer, Pokemon poke) {
+		int pokeIndex = getPokemonPartyIndex(trainer, poke);
 		if (trainer == 0) {
 			ProtocolHandler.writeMessage(m_players[0].getSession(), 
 					new SwitchMessage(m_players[0].getName(),
 							poke.getSpeciesName(),
 							trainer,
-							getPokemonPartyIndex(poke)));
+							pokeIndex));
 			ProtocolHandler.writeMessage(m_players[1].getSession(), 
 					new SwitchMessage(m_players[0].getName(),
 							poke.getSpeciesName(),
 							trainer,
-							getPokemonPartyIndex(poke)));
+							pokeIndex));
 		} else {
 			ProtocolHandler.writeMessage(m_players[0].getSession(), 
 					new SwitchMessage(m_players[1].getName(),
 							poke.getSpeciesName(),
 							trainer,
-							getPokemonPartyIndex(poke)));
+							pokeIndex));
 			ProtocolHandler.writeMessage(m_players[1].getSession(), 
 					new SwitchMessage(m_players[1].getName(),
 							poke.getSpeciesName(),
 							trainer,
-							getPokemonPartyIndex(poke)));
+							pokeIndex));
 		}
 	}
 

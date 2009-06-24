@@ -180,7 +180,7 @@ public class WildBattleField extends BattleField {
 					new SwitchMessage(m_player.getName(),
 							poke.getSpeciesName(),
 							trainer,
-							getPokemonPartyIndex(poke)));
+							getPokemonPartyIndex(trainer, poke)));
 		}
 	}
 
