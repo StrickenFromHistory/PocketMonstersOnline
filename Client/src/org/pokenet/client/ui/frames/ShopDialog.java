@@ -15,8 +15,11 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.ItemDatabase;
 import org.pokenet.client.backend.entity.Item;
 import org.pokenet.client.backend.entity.PlayerItem;
+import org.pokenet.client.ui.base.ConfirmationDialog;
+import org.pokenet.client.ui.base.ListBox;
 
 /**
  * The shop dialog
@@ -90,7 +93,6 @@ public class ShopDialog extends Frame {
 		m_buy = new Button("Buy");
 		m_buy.setLocation(0,0);
 		m_buy.setSize(150,320);
-//		m_buy.setBackground(new Color(255,255,0));
 		m_buy.setFont(GameClient.getFontLarge());
 		m_buy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -105,7 +107,7 @@ public class ShopDialog extends Frame {
 		m_sell.setFont(GameClient.getFontLarge());
 		m_sell.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GameClient.messageDialog("Shop's not finished", GameClient.getInstance().getDisplay());
+				sellGUI();
 			}
 		});
 		getContentPane().add(m_sell);
@@ -134,6 +136,50 @@ public class ShopDialog extends Frame {
 		setWidth(301);
 		pack();
 		setVisible(true);
+	}
+	
+	public void sellGUI() {
+		String[] m_items = new String[GameClient.getInstance().getOurPlayer().getItems().size()];
+		for (int i = 0; i < m_items.length; i++) {
+			m_items[i] = GameClient.getInstance().getOurPlayer().getItems().get(i).getItem().getName();
+		}
+		
+		final ListBox m_sellList = new ListBox(m_items);
+		
+		Button m_sellButton = new Button("Sell");
+		m_sellButton.setFont(GameClient.getFontLarge());
+		m_sellButton.setSize(getWidth(), 35);
+		m_sellButton.setLocation(0, m_cancel.getY() - 35);
+		m_sellButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e){
+				final ConfirmationDialog m_confirm = new ConfirmationDialog("Are you sure you want to sell " 
+						+ m_sellList.getSelectedName() + " for $" + (ItemDatabase.getInstance().getItem(
+								m_sellList.getSelectedName()).getPrice() / 2) + "?");
+				m_confirm.addYesListener(new ActionListener(){
+					@Override
+					public void actionPerformed(ActionEvent e){
+						GameClient.getInstance().getPacketGenerator().write("Ss" + ItemDatabase.getInstance()
+								.getItem(m_sellList.getSelectedName()).getId() + ",");
+						GameClient.getInstance().getDisplay().remove(m_confirm);
+					}
+				});
+				m_confirm.addNoListener(new ActionListener(){
+					@Override
+					public void actionPerformed(ActionEvent e){
+						GameClient.getInstance().getDisplay().remove(m_confirm);
+					}
+				});
+			}
+		});
+		
+		m_sellList.setSize(getWidth(), m_sellButton.getY());
+		// Start the UI
+		m_buy.setVisible(false);
+		m_sell.setVisible(false);
+		
+		getContentPane().add(m_sellList);
+		getContentPane().add(m_sellButton);
 	}
 	
 	public void buyGUI() {
