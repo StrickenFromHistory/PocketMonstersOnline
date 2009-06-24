@@ -355,6 +355,7 @@ public class PvPBattleField extends BattleField {
 								this.informVictory(1);
 							else
 								this.informVictory(0);
+							return;
 						}
 					}
 				} else {
