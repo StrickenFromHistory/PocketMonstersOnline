@@ -1,5 +1,6 @@
 package org.pokenet.client.ui;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,13 +39,15 @@ public class LoginScreen extends Window {
 	 */
 	public LoginScreen() {
 		try {
+			InputStream f;
 //			m_bgColor = new Color(255, 255, 255, 70);
 			List<String> translated = new ArrayList<String>();
 			translated = Translator.translate("_LOGIN");
 			/*
 			 * Load the background image
 			 */
-			m_bg = new Label(new Image("res/pokenet.png"));
+			f = getClass().getResourceAsStream("/res/pokenet.png");
+			m_bg = new Label(new Image(f, "bg", false));
 			m_bg.pack();
 			m_bg.setLocation(0, 0);
 			m_bg.setVisible(true);
