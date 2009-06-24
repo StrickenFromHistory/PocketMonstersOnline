@@ -1,6 +1,8 @@
 package org.pokenet.client.backend;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -48,7 +50,7 @@ public class ClientMapMatrix {
 			 */
 			for(int x = -1; x < 2; x++) {
 				for(int y = -1; y < 2; y++) {
-					f = new File("./res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
+					f = new File("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
 					if(f.exists()) {
 						try {
 							m_mapMatrix[x + 1][y + 1] = new ClientMap("./res/maps/" + String.valueOf((mapX + x))
@@ -106,23 +108,25 @@ public class ClientMapMatrix {
 		 */
 		if(m_speech.size() > 0)
 			m_speech.clear();
-		f = new File(".");
 		try {
-			f = new File(f.getCanonicalPath() + "/res/language/" + GameClient.getLanguage() + "/NPC/" + mapX + "." + mapY + ".txt");
-			if(f.exists()) {
-				Scanner reader = new Scanner(f);
-				while(reader.hasNextLine()) {
-					m_speech.add(reader.nextLine());
+			try {
+				BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(
+						"/res/language/" + GameClient.getLanguage() + "/NPC/" + mapX + "." + mapY + ".txt")));
+						
+				String line;
+				while((line = reader.readLine()) != null) {
+					m_speech.add(line);
 				}
-			}else{ //In case of emergencies, load english!
+			} catch (NullPointerException e) { //In case of emergencies, load english!
 				try{
-					f = new File(".");
-					f = new File(f.getCanonicalFile()+ "/res/language/english/NPC/" + mapX + "." + mapY + ".txt");
-					Scanner reader = new Scanner(f);
-					while(reader.hasNextLine()) {
-						m_speech.add(reader.nextLine());
+					BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(
+							"/res/language/english/NPC/" + mapX + "." + mapY + ".txt")));
+							
+					String line;
+					while((line = reader.readLine()) != null) {
+						m_speech.add(line);
 					}
-				}catch(Exception e){
+				}catch(Exception e2){
 					m_speech.add("\n"); //If there's no english, display default line. 
 				}
 				
