@@ -84,25 +84,25 @@ public class BigBagDialog extends Frame {
 			final int j = i;
 			try {
 				Image[] bagcat = new Image[] {
-						new Image("res/ui/bag/bag_normal.png"),
-						new Image("res/ui/bag/bag_hover.png"),
-						new Image("res/ui/bag/bag_pressed.png") };
+						new Image("./res/ui/bag/bag_normal.png"),
+						new Image("./res/ui/bag/bag_hover.png"),
+						new Image("./res/ui/bag/bag_pressed.png") };
 				Image[] potioncat = new Image[] {
-						new Image("res/ui/bag/potions_normal.png"),
-						new Image("res/ui/bag/potions_hover.png"),
-						new Image("res/ui/bag/potions_pressed.png") };
+						new Image("./res/ui/bag/potions_normal.png"),
+						new Image("./res/ui/bag/potions_hover.png"),
+						new Image("./res/ui/bag/potions_pressed.png") };
 				Image[] berriescat = new Image[] {
-						new Image("res/ui/bag/berries_normal.png"),
-						new Image("res/ui/bag/berries_hover.png"),
-						new Image("res/ui/bag/berries_pressed.png") };
+						new Image("./res/ui/bag/berries_normal.png"),
+						new Image("./res/ui/bag/berries_hover.png"),
+						new Image("./res/ui/bag/berries_pressed.png") };
 				Image[] pokecat = new Image[] {
-						new Image("res/ui/bag/pokeballs_normal.png"),
-						new Image("res/ui/bag/pokeballs_hover.png"),
-						new Image("res/ui/bag/pokeballs_pressed.png") };
+						new Image("./res/ui/bag/pokeballs_normal.png"),
+						new Image("./res/ui/bag/pokeballs_hover.png"),
+						new Image("./res/ui/bag/pokeballs_pressed.png") };
 				Image[] tmscat = new Image[] {
-						new Image("res/ui/bag/tms_normal.png"),
-						new Image("res/ui/bag/tms_hover.png"),
-						new Image("res/ui/bag/tms_pressed.png") };
+						new Image("./res/ui/bag/tms_normal.png"),
+						new Image("./res/ui/bag/tms_hover.png"),
+						new Image("./res/ui/bag/tms_pressed.png") };
 
 				switch (i) {
 				case 0:
@@ -156,7 +156,7 @@ public class BigBagDialog extends Frame {
 
 		LoadingList.setDeferredLoading(true);
 		try {
-			bagicon.setImage(new Image("res/ui/bag/front.png"));
+			bagicon.setImage(new Image("./res/ui/bag/front.png"));
 		} catch (SlickException e1) {
 		}
 		LoadingList.setDeferredLoading(false);

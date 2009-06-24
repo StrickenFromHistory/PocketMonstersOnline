@@ -99,14 +99,14 @@ public class BattleCanvas extends Container {
 	public void loadImages(){
         LoadingList.setDeferredLoading(true);
 		try {
-			enemyHPBar = new Label(new Image("/res/battle/HPBar.png"));
-			playerHPBar = new Label(new Image("/res/battle/HPBar.png"));
+			enemyHPBar = new Label(new Image("./res/battle/HPBar.png"));
+			playerHPBar = new Label(new Image("./res/battle/HPBar.png"));
 		} catch (SlickException e) {}
 		try{
-			m_pokeballIcons.put("empty", new Image("/res/battle/ballempty.png"));
-			m_pokeballIcons.put("normal", new Image("/res/battle/ballnormal.png"));
-			m_pokeballIcons.put("status", new Image("/res/battle/ballstatus.png"));
-			m_pokeballIcons.put("fainted", new Image("/res/battle/ballfainted.png"));
+			m_pokeballIcons.put("empty", new Image("./res/battle/ballempty.png"));
+			m_pokeballIcons.put("normal", new Image("./res/battle/ballnormal.png"));
+			m_pokeballIcons.put("status", new Image("./res/battle/ballstatus.png"));
+			m_pokeballIcons.put("fainted", new Image("./res/battle/ballfainted.png"));
 		} catch (SlickException e) {e.printStackTrace();}
 		LoadingList.setDeferredLoading(false);
 		enemyHPBar.setSize(98, 11);
@@ -264,15 +264,15 @@ public class BattleCanvas extends Container {
 	public void drawBackground(){
 		LoadingList.setDeferredLoading(true);
 		try {
-			bgPic = new Label(new Image("/res/ui/DP_darkgrass.png"));
+			bgPic = new Label(new Image("./res/ui/DP_darkgrass.png"));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		} try {
-			playerDataBG = new Label(new Image("/res/battle/singlePlayerBox3.png"));
+			playerDataBG = new Label(new Image("./res/battle/singlePlayerBox3.png"));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		} try {
-			enemyDataBG = new Label(new Image("/res/battle/singleEnemyBox3.png"));
+			enemyDataBG = new Label(new Image("./res/battle/singleEnemyBox3.png"));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
@@ -383,15 +383,15 @@ public class BattleCanvas extends Container {
 	public void loadStatusIcons(){
 		LoadingList.setDeferredLoading(true);
 		try{
-			m_statusIcons.put("Poison", new Image("/res/battle/PSN.png"));
+			m_statusIcons.put("Poison", new Image("./res/battle/PSN.png"));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Sleep", new Image("/res/battle/SLP.png"));
+			m_statusIcons.put("Sleep", new Image("./res/battle/SLP.png"));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Freze", new Image("/res/battle/FRZ.png"));
+			m_statusIcons.put("Freze", new Image("./res/battle/FRZ.png"));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Burn", new Image("/res/battle/BRN.png"));
+			m_statusIcons.put("Burn", new Image("./res/battle/BRN.png"));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Paralysis", new Image("/res/battle/PAR.png"));
+			m_statusIcons.put("Paralysis", new Image("./res/battle/PAR.png"));
 		} catch (SlickException e) {e.printStackTrace();}
 		LoadingList.setDeferredLoading(false);
 	}

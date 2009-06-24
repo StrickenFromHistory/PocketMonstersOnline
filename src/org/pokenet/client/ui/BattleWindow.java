@@ -82,15 +82,15 @@ public class BattleWindow extends Frame {
 	public void loadStatusIcons(){
 		LoadingList.setDeferredLoading(true);
 		try{
-			m_statusIcons.put("Poison", new Image("/res/battle/PSN.png"));
+			m_statusIcons.put("Poison", new Image("./res/battle/PSN.png"));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Sleep", new Image("/res/battle/SLP.png"));
+			m_statusIcons.put("Sleep", new Image("./res/battle/SLP.png"));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Freze", new Image("/res/battle/FRZ.png"));
+			m_statusIcons.put("Freze", new Image("./res/battle/FRZ.png"));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Burn", new Image("/res/battle/BRN.png"));
+			m_statusIcons.put("Burn", new Image("./res/battle/BRN.png"));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Paralysis", new Image("/res/battle/PAR.png"));
+			m_statusIcons.put("Paralysis", new Image("./res/battle/PAR.png"));
 		} catch (SlickException e) {e.printStackTrace();}
 		LoadingList.setDeferredLoading(false);
 	}
@@ -156,7 +156,7 @@ public class BattleWindow extends Frame {
 		this.setBackground(new Color(0, 0, 0, 0));
 		Label bg = new Label();
 		try {
-			bg = new Label(new Image("/res/ui/bg.png"));
+			bg = new Label(new Image("./res/ui/bg.png"));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
