@@ -477,7 +477,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * than 0 HP at the front
 	 */
 	public void ensureHealthyPokemon() {
-		if(m_pokemon[0].getHealth() == 0) {
+		if(m_pokemon[0] == null || m_pokemon[0].getHealth() == 0) {
 			for(int i = 1; i < 6; i++) {
 				if(m_pokemon[i] != null && m_pokemon[i].getHealth() > 0) {
 					swapPokemon(0, i);
