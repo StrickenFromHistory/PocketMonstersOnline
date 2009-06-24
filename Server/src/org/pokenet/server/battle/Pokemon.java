@@ -2077,7 +2077,8 @@ public class Pokemon extends PokemonSpecies {
     	if(this.getDateCaught() != null && p.getDateCaught() != null 
     			&& p.getDateCaught().compareTo(p.getDateCaught()) == 0)
     		return 0;
-    	if(p == this)
+    	if(p.getSpeciesName() == this.getSpeciesName() && p.getStat(0) == this.getStat(0) && 
+    			p.getStat(1) == this.getStat(1))
     		return 0;
     	return -1;
     }
