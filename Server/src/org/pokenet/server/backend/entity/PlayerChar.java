@@ -1160,7 +1160,7 @@ public class PlayerChar extends Char implements Battleable {
 				if(m_boxes[j].getPokemon(i) != null)
 					packet = packet + m_boxes[j].getPokemon(i).getSpeciesNumber() + ",";
 				else
-					packet = packet + "!,";
+					packet = packet + ",";
 			}
 			m_session.write("B" + packet);
 		} else {
