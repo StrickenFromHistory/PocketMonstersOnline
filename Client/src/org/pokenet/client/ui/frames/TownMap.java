@@ -1,10 +1,10 @@
 package org.pokenet.client.ui.frames;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
 
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Frame;
@@ -87,19 +87,19 @@ public class TownMap extends Frame {
 	 */
 	public void loadLocations() {
 		try {
-			Scanner reader;
+			BufferedReader reader;
 			try{
-				reader = new Scanner(new File("res/language/" + GameClient.getLanguage()
-						+ "/UI/_MAP.txt"));
+				reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("res/language/" 
+						+ GameClient.getLanguage() + "/UI/_MAP.txt")));
 			} catch (Exception e){
-				reader = new Scanner(new File("res/language/english/UI/_MAP.txt"));
+				reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(
+						"res/language/english/UI/_MAP.txt")));
 			}
 			m_containers = new HashMap<String, Container>();
 			m_locations = new ArrayList<String>();
 			
-			String f = null;
-			while (reader.hasNext()) {
-				f = reader.nextLine();
+			String f;
+			while ((f = reader.readLine()) != null) {
 				if (f.charAt(0) != '*'){
 					final String[] details = f.split(",");
 					m_locations.add(details[0]);
