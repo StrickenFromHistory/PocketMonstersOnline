@@ -475,7 +475,8 @@ public class NpcBattleField extends BattleField {
 
 	@Override
 	public void showMessage(String message) {
-		ProtocolHandler.writeMessage(m_player.getSession(), 
+		if(m_player != null)
+			ProtocolHandler.writeMessage(m_player.getSession(), 
 				new BattleMessage(message));
 	}
 

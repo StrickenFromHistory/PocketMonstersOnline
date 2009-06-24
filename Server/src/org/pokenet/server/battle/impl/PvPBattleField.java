@@ -469,10 +469,14 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void showMessage(String message) {
-		ProtocolHandler.writeMessage(m_players[0].getSession(), 
-				new BattleMessage(message));
-		ProtocolHandler.writeMessage(m_players[1].getSession(), 
-				new BattleMessage(message));
+		if(m_players != null) {
+			if(m_players[0] != null)
+				ProtocolHandler.writeMessage(m_players[0].getSession(), 
+					new BattleMessage(message));
+			if(m_players[1] != null)
+				ProtocolHandler.writeMessage(m_players[1].getSession(), 
+					new BattleMessage(message));
+		}
 	}
 
 }
