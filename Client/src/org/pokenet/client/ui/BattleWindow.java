@@ -256,7 +256,7 @@ public class BattleWindow extends Frame {
 
 		btnBag.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				// TODO: Show bag
+				showBag();
 			}
 		});
 
