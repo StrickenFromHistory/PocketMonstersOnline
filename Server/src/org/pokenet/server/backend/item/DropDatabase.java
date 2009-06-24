@@ -52,7 +52,7 @@ public class DropDatabase {
 	public int getRandomItem(String pokemon) {
 		pokemon = pokemon.toUpperCase();
 		int size = m_database.get(pokemon).size();
-		if(size > 0) {
+		if(size > 0 && DataService.getBattleMechanics().getRandom().nextInt(99) < 30) {
 			int r = 100;
 			ArrayList<DropData> m_items = m_database.get(pokemon);
 			ArrayList<Integer> m_result = new ArrayList<Integer>();
