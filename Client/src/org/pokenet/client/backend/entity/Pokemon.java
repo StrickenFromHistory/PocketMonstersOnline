@@ -1,5 +1,7 @@
 package org.pokenet.client.backend.entity;
 
+import java.io.InputStream;
+
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
@@ -48,6 +50,7 @@ public class Pokemon {
          */
         public void setSprite() {
         	try{
+        		InputStream f;
         		LoadingList.setDeferredLoading(true);
         		String path = new String();
         		String index, isShiny = new String();
@@ -73,19 +76,19 @@ public class Pokemon {
         			pathGender = 3;
 
         		try {
-        			path = "./res/pokemon/front/" + isShiny + index + "-"
+        			path = "/res/pokemon/front/" + isShiny + index + "-"
         				+ pathGender + ".png";
-        			System.out.println(path);
-        			m_sprite = new Image(path.toString());
+        			f = getClass().getResourceAsStream(path);
+        			m_sprite = new Image(f, path.toString(), false);
         		} catch (Exception e) {
         			if(pathGender == 3)
         				pathGender = 2;
         			else
         				pathGender = 3;
-        			path = "./res/pokemon/front/" + isShiny + index + "-"
+        			path = "/res/pokemon/front/" + isShiny + index + "-"
         				+ pathGender + ".png";
-        			System.out.println(path);
-        			m_sprite = new Image(path.toString());
+        			f = getClass().getResourceAsStream(path);
+        			m_sprite = new Image(f, path.toString(), false);
         			e.printStackTrace();
         		}
         		LoadingList.setDeferredLoading(false);
@@ -105,6 +108,7 @@ public class Pokemon {
          */
         public void setIcon() {
                 try{
+                		InputStream f;
                         LoadingList.setDeferredLoading(true);
                         String path = new String();
                         String index = new String();
@@ -120,8 +124,8 @@ public class Pokemon {
                         }
                        
                         path = "./res/pokemon/icons/" + index + ".gif";
-                               
-                        m_icon = new Image(path.toString());
+                        f = getClass().getResourceAsStream(path);
+            			m_sprite = new Image(f, path.toString(), false);
                         LoadingList.setDeferredLoading(false);
                 }catch (SlickException e){e.printStackTrace();}
         }      
@@ -421,7 +425,7 @@ public class Pokemon {
         		index = String.valueOf(i);
         	}
                
-                path = "./res/pokemon/icons/" + index + ".gif";
+                path = "/res/pokemon/icons/" + index + ".gif";
                 return path;
         }
 }

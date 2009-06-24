@@ -1,5 +1,7 @@
 package org.pokenet.client.backend.entity;
 
+import java.io.InputStream;
+
 import org.newdawn.slick.Image;
 
 /**
@@ -53,6 +55,7 @@ public class OurPokemon extends Pokemon {
          */
         public void setBackSprite() {
         	try{
+        		InputStream f;
         		LoadingList.setDeferredLoading(true);
         		String path = new String();
         		String index, isShiny = new String();
@@ -89,7 +92,8 @@ public class OurPokemon extends Pokemon {
         			else {
         				path = "/res/pokemon/back/" + isShiny + index + "-0.png";
         			}
-        			m_backSprite = new Image(path.toString());
+        			f = getClass().getResourceAsStream(path);
+        			m_backSprite = new Image(f, path.toString(), false);
         			e.printStackTrace();
         		}
         		LoadingList.setDeferredLoading(false);
