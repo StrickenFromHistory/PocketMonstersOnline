@@ -504,7 +504,7 @@ class ItemPopup extends Frame{
 
 /**
  * PopUp that lists the player's pokemon in order to use/give an item
- * @author administrator
+ * @author ZombieBear
  *
  */
 class TeamPopup extends Frame{
@@ -566,6 +566,13 @@ class TeamPopup extends Frame{
 		setAlwaysOnTop(true);
 	}
 	
+	/**
+	 * Send the server a packet to inform it an item was used
+	 * @param use
+	 * @param id
+	 * @param pokeIndex
+	 * @param isBattle
+	 */
 	public void processItemUse(boolean use, int id, int pokeIndex, boolean isBattle){
 		if (use) {
 			GameClient.getInstance().getPacketGenerator().write("I" + id + "," + pokeIndex);
