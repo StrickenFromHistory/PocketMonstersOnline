@@ -24,7 +24,7 @@ import org.pokenet.client.ui.base.ListBox;
 /**
  * The shop dialog
  * @author Nushio
- *
+ * @author ZombieBear
  */
 public class ShopDialog extends Frame {
 	private Button[] m_categoryButtons;
