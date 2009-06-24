@@ -1,12 +1,14 @@
 package org.pokenet.client.ui.base;
 
 
+import java.io.InputStream;
 import java.util.HashMap;
 
 import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.Font;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.pokenet.client.GameClient;
 
 public class HUDButtonFactory {
         private static HashMap<String, Image> rollovers;
@@ -61,9 +63,7 @@ public class HUDButtonFactory {
                         rollovers.put("friends", getRolloverImage("friends"));
                         downs.put("friends", getDownImage("friends"));
                         
-                        font = new AngelCodeFont(
-                                "/res/fonts/dp-small.fnt",
-                                "/res/fonts/dp-small.png");
+                        font = GameClient.getFontSmall();
                         //LoadingList.setDeferredLoading(false);
                 } catch (SlickException e) {
                     System.out.println("Failed to create HUD buttons");    
@@ -75,15 +75,18 @@ public class HUDButtonFactory {
         private static Font font;
         
         private static Image getRolloverImage(String text) throws SlickException {
-                return new Image("/res/ui/" + text + "_32x32.png");
+        	InputStream f = GameClient.class.getResourceAsStream("/res/ui/" + text + "_32x32.png");
+                return new Image(f, "/res/ui/" + text + "_32x32.png", false);
         }
         
         private static Image getNormalImage(String text) throws SlickException {
-                return new Image("/res/ui/" + text + "_32x32.png");
+        	InputStream f = GameClient.class.getResourceAsStream("/res/ui/" + text + "_32x32.png");
+                return new Image(f, "/res/ui/" + text + "_32x32.png", false);
         }
         
         private static Image getDownImage(String text) throws SlickException {
-                return new Image("/res/ui/" + text + "Pressed_32x32.png");
+        	InputStream f = GameClient.class.getResourceAsStream("/res/ui/" + text + "Pressed_32x32.png");
+                return new Image(f, "/res/ui/" + text + "Pressed_32x32.png", false);
         }
         
         public static ImageButton getButton(String text) {

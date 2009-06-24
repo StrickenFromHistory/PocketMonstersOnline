@@ -123,7 +123,7 @@ public class Pokemon {
                                 index = String.valueOf(m_spriteNum);
                         }
                        
-                        path = "./res/pokemon/icons/" + index + ".gif";
+                        path = "/res/pokemon/icons/" + index + ".gif";
                         f = getClass().getResourceAsStream(path);
             			m_sprite = new Image(f, path.toString(), false);
                         LoadingList.setDeferredLoading(false);

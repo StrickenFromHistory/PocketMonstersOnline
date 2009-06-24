@@ -35,13 +35,13 @@ public class WeatherService {
 			f = getClass().getResourceAsStream("/res/effects/rain/rain.xml");
 			m_systems[0] = ParticleIO.loadConfiguredSystem(f);
 			//Hail
-			f = getClass().getResourceAsStream("res/effects/hail/snow.xml");
+			f = getClass().getResourceAsStream("/res/effects/hail/snow.xml");
 			m_systems[1] = ParticleIO.loadConfiguredSystem(f);
 			//Sandstorm
-			f = getClass().getResourceAsStream("res/effects/sandstorm/sand.xml");
+			f = getClass().getResourceAsStream("/res/effects/sandstorm/sand.xml");
 			m_systems[2] = ParticleIO.loadConfiguredSystem(f);
 			//Fog
-			f = getClass().getResourceAsStream("res/effects/fog/fog.xml");
+			f = getClass().getResourceAsStream("/res/effects/fog/fog.xml");
 			m_systems[3] = ParticleIO.loadConfiguredSystem(f);
 			LoadingList.setDeferredLoading(false);
 		} catch (Exception e) {
