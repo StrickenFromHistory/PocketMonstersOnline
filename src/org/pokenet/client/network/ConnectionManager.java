@@ -132,6 +132,10 @@ public class ConnectionManager extends IoHandlerAdapter {
 				GameClient.messageDialog("You can't carry any more "+message.substring(2), 
 						GameClient.getInstance().getDisplay());
 				break;
+			case 'd': //You don't have the item you're trying to sell!
+				GameClient.messageDialog("You don't have a "+message.substring(2), 
+						GameClient.getInstance().getDisplay());
+				break;
 			case 'b': //Bought Item
 				try {
 					GameClient.getInstance().getUi().getNPCSpeech().advance();
@@ -143,6 +147,17 @@ public class ConnectionManager extends IoHandlerAdapter {
 				GameClient.getInstance().getUi().getShop().m_timer.reset();
 				GameClient.getInstance().getUi().getShop().m_timer.resume();
 				break;
+			case 's': //Sold Item
+				try {
+					GameClient.getInstance().getUi().getNPCSpeech().advance();
+					GameClient.getInstance().getUi().getNPCSpeech().advance();
+				} catch (Exception e) {}
+				GameClient.getInstance().getUi().talkToNPC(
+						"You sold a " + ItemDatabase.getInstance().
+						getItem(Integer.parseInt(message.substring(2))).getName());
+				GameClient.getInstance().getUi().getShop().m_timer.reset();
+				GameClient.getInstance().getUi().getShop().m_timer.resume();
+				break;	
 			case 'S': //Sprite selection
 				GameClient.getInstance().getDisplay().add(new SpriteChooserDialog());
 				break;
