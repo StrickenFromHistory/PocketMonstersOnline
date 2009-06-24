@@ -109,6 +109,9 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param slot
 	 */
 	public void releasePokemon(int box, int slot) {
+		/* If the box doesn't exist, return */
+		if(m_boxes[box] == null)
+			return;
 		/* Check if the pokemon exists */
 		if(m_boxes[box].getPokemon(slot) != null) {
 			if(m_boxes[box].getPokemon(slot).getDatabaseID() > -1
@@ -140,6 +143,11 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param partySlot
 	 */
 	public void swapFromBox(int box, int boxSlot, int partySlot) {
+		/* Ensure the box exists */
+		if(m_boxes[box] == null) {
+			m_boxes[box] = new PokemonBox();
+			m_boxes[box].setDatabaseId(-1);
+		}
 		/* Make sure we're not swapping two empty slots */
 		if(m_pokemon[partySlot] != null || m_boxes[box].getPokemon(boxSlot) != null) {
 			Pokemon temp = m_pokemon[partySlot];
