@@ -151,13 +151,11 @@ public class ShopDialog extends Frame {
 		m_sellButton.setSize(getWidth(), 35);
 		m_sellButton.setLocation(0, m_cancel.getY() - 35);
 		m_sellButton.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e){
 				final ConfirmationDialog m_confirm = new ConfirmationDialog("Are you sure you want to sell " 
 						+ m_sellList.getSelectedName() + " for $" + (ItemDatabase.getInstance().getItem(
 								m_sellList.getSelectedName()).getPrice() / 2) + "?");
 				m_confirm.addYesListener(new ActionListener(){
-					@Override
 					public void actionPerformed(ActionEvent e){
 						GameClient.getInstance().getPacketGenerator().write("Ss" + ItemDatabase.getInstance()
 								.getItem(m_sellList.getSelectedName()).getId() + ",");
@@ -165,7 +163,6 @@ public class ShopDialog extends Frame {
 					}
 				});
 				m_confirm.addNoListener(new ActionListener(){
-					@Override
 					public void actionPerformed(ActionEvent e){
 						GameClient.getInstance().getDisplay().remove(m_confirm);
 					}
