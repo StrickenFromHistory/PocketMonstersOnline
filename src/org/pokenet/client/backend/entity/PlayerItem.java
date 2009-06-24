@@ -1,5 +1,6 @@
 package org.pokenet.client.backend.entity;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +25,10 @@ public class PlayerItem {
             m_quantity = quantity;
             m_item = getItem(m_number);
             try {
+            	InputStream f;
             	LoadingList.setDeferredLoading(true);
-            	m_bagImage = new Image("res/items/48/" + m_item.getId() + ".png");
+            	f = getClass().getResourceAsStream("/res/items/48/" + m_item.getId() + ".png");
+            	m_bagImage = new Image(f, "/res/items/48/" + m_item.getId() + ".png", false);
             	LoadingList.setDeferredLoading(false);
             } catch (Exception e){e.printStackTrace();}
     }

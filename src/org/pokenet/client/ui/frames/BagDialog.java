@@ -1,5 +1,6 @@
 package org.pokenet.client.ui.frames;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,6 +91,7 @@ public abstract class BagDialog extends Container {
          * Initializes the interface
          */
         public void initGUI() {
+        	InputStream f;
         	Label[] m_itemIcon = new Label[m_items.size()];
         	m_itemButtons = new Button[m_items.size()];
         	for (int i = 0; i < m_items.size(); i++) {
@@ -100,7 +102,8 @@ public abstract class BagDialog extends Container {
         		try {
         			m_itemIcon[i] = new Label();
             		m_itemIcon[i].setSize(32, 32);
-        			m_itemIcon[i].setImage(new Image("./res/items/24/" + m_items.get(i).getNumber() + ".png"));
+            		f = getClass().getResourceAsStream("/res/items/24/" + m_items.get(i).getNumber() + ".png");
+        			m_itemIcon[i].setImage(new Image(f, "./res/items/24/" + m_items.get(i).getNumber() + ".png", false));
         			m_itemIcon[i].setGlassPane(true);
 					m_itemButtons[i].add(m_itemIcon[i]);
 				} catch (Exception e1) {

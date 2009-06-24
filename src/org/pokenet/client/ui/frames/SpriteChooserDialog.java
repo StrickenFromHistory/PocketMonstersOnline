@@ -1,5 +1,6 @@
 package org.pokenet.client.ui.frames;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +21,9 @@ import org.pokenet.client.ui.base.ListBox;
 public class SpriteChooserDialog extends Frame {
 	protected ListBox m_spriteList;
 	protected Label m_spriteDisplay;
-	protected String mustLoadSprite;
+	protected String m_mustLoadSprite;
 	private List<String> m_sprites;
+	private InputStream m_stream;
 
 	public SpriteChooserDialog() {
 		getContentPane().setX(getContentPane().getX() - 1);
@@ -40,7 +42,7 @@ public class SpriteChooserDialog extends Frame {
 			@Override
 			protected void itemClicked(String itemName, int idx) {
 				super.itemClicked(itemName, idx);
-				mustLoadSprite = "res/characters/" + itemName + ".png";
+				m_mustLoadSprite = "/res/characters/" + itemName + ".png";
 			}
 		};
 		m_spriteList.setSize(105, 317);
@@ -107,13 +109,14 @@ public class SpriteChooserDialog extends Frame {
 	@Override
 	public void render(GUIContext container, Graphics g) {
 		super.render(container, g);
-		if (mustLoadSprite != null) {
+		if (m_mustLoadSprite != null) {
 			try {
-				m_spriteDisplay.setImage(new Image(mustLoadSprite));
+				m_stream = getClass().getResourceAsStream(m_mustLoadSprite);
+				m_spriteDisplay.setImage(new Image(m_stream, m_mustLoadSprite, false));
 			} catch (SlickException e) {
 				e.printStackTrace();
 			}
-			mustLoadSprite = null;
+			m_mustLoadSprite = null;
 		}
 	}
 }

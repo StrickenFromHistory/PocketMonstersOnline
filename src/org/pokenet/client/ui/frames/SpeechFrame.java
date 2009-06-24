@@ -1,5 +1,6 @@
 package org.pokenet.client.ui.frames;
 
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Timer;
@@ -87,9 +88,11 @@ public class SpeechFrame extends Frame {
      * Initializes the interface
      */
     public void initGUI() {
+    	InputStream f;
     	try {
     		LoadingList.setDeferredLoading(true);
-    		bg = new Image("/res/ui/speechbox.png");
+    		f = getClass().getResourceAsStream("/res/ui/speechbox.png");
+    		bg = new Image(f, "/res/ui/speechbox.png", false);
     		LoadingList.setDeferredLoading(false);
     	} catch (Exception e) {
     		e.printStackTrace();
