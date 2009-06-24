@@ -712,15 +712,32 @@ public class Pokemon extends PokemonSpecies {
     	 */
 		ArrayList<MoveListEntry> possibleMoves = new ArrayList<MoveListEntry>();
 		MoveList moveList = MoveList.getDefaultData();
+		/*
+		 * Get all starter moves
+		 */
 		for(int i = 0; i < DataService.getPOLRDatabase().
 				getPokemonData(speciesNo).getStarterMoves().size(); i++) {
 			possibleMoves.add(moveList.getMove(DataService.getPOLRDatabase().getPokemonData(
 					speciesNo).getStarterMoves().get(i)));
 		}
+		/*
+		 * Get moves learned by levelling up
+		 */
 		for (int i = 1; i <= level; i++) {
 			if (DataService.getPOLRDatabase().getPokemonData(speciesNo).getMoves().containsKey(i)) {
-				possibleMoves.add(moveList.getMove(DataService.getPOLRDatabase().getPokemonData(
-						speciesNo).getMoves().get(i)));
+				MoveListEntry m = moveList.getMove(DataService.getPOLRDatabase().getPokemonData(
+						speciesNo).getMoves().get(i));
+				boolean exists = false;
+				/* Check if this move is already in the list of possible moves */
+				for(int j = 0; j < possibleMoves.size(); j++) {
+					if(possibleMoves.get(j).getName().equalsIgnoreCase(m.getName())) {
+						exists = true;
+						break;
+					}
+				}
+				/* If the move is not already in the list, add it to the list */
+				if(!exists)
+					possibleMoves.add(m);
 			}
 		}
 		/*
@@ -730,6 +747,7 @@ public class Pokemon extends PokemonSpecies {
         	if(possibleMoves.get(i) == null)
         		possibleMoves.remove(i);
         }
+        possibleMoves.trimToSize();
         /*
          * Now the store the final set of moves for the Pokemon
          */
