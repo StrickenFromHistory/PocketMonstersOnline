@@ -1,6 +1,7 @@
 package org.pokenet.client;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 import java.util.ConcurrentModificationException;
@@ -128,17 +129,21 @@ public class GameClient extends BasicGame {
 		gc.getGraphics().setWorldClip(-32, -32, 832, 832);
 		gc.setShowFPS(false);
 		m_display = new Display(gc);
+		InputStream f;
+		InputStream fi;
 		
 		/*
 		 * Setup variables
 		 */
-		m_fontLarge = new AngelCodeFont("res/fonts/dp.fnt",
-		"res/fonts/dp.png");	
-		m_fontSmall = new AngelCodeFont("res/fonts/dp-small.fnt",
-		"res/fonts/dp-small.png");
+		f = getClass().getResourceAsStream("/res/fonts/dp.fnt");
+		fi = getClass().getResourceAsStream("/res/fonts/dp.png");
+		m_fontLarge = new AngelCodeFont("/res/fonts/dp.fnt", f, fi);
+		f = getClass().getResourceAsStream("/res/fonts/dp-small.fnt");
+		fi = getClass().getResourceAsStream("/res/fonts/dp-small.png");
+		m_fontSmall = new AngelCodeFont("/res/fonts/dp-small.fnt", f, fi);
 		Player.loadSpriteFactory();
-		m_trueTypeFont = new TrueTypeFont(new java.awt.Font("res/fonts/pokeFont.ttf",
-				java.awt.Font.BOLD, 14), false);
+		/*m_trueTypeFont = new TrueTypeFont(new java.awt.Font("res/fonts/pokeFont.ttf",
+				java.awt.Font.BOLD, 14), false);/
 		
 		/*
 		 * Time/Weather Services
