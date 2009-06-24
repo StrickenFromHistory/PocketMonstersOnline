@@ -17,7 +17,7 @@ public class BattleTimeLine {
 	private BattleCanvas m_canvas;
 	List<String> m_translator = new ArrayList<String>();
 	//Lines for REGEX needed for l10n
-	String m_pokeName, m_move, m_trainer;
+	String m_pokeName, m_move, m_trainer, m_foundItem;
 	int m_newHPValue, m_exp, m_dmg, m_earnings, m_level;
 	private boolean m_isBattling;
 	
@@ -251,6 +251,20 @@ public class BattleTimeLine {
 	}
 	
 	/**
+	 * Informs the player's that the pokemon dropped an item
+	 * @param item
+	 */
+	public void informItemDropped(String item) {
+		m_foundItem = item;
+		if (GameClient.getInstance().getUi().getBattleManager().isWild()) {
+			m_pokeName = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getName();
+			addSpeech(m_translator.get(22));
+		}
+		else
+			addSpeech(m_translator.get(23));
+	}
+	
+	/**
 	 * Informs the player's earnings
 	 * @param money
 	 */
@@ -330,6 +344,9 @@ public class BattleTimeLine {
 		}
 		if (line.contains("levelNum")){
 			line = line.replaceAll("levelNum", String.valueOf(m_level));
+		}
+		if (line.contains("rewardItem")){
+			line = line.replaceAll("rewardItem", m_foundItem);
 		}
 		return line;
 	}
