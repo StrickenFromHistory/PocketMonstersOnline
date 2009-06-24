@@ -1,12 +1,10 @@
 package org.pokenet.client.backend;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
 
 import org.newdawn.slick.Graphics;
 import org.pokenet.client.GameClient;
@@ -223,17 +221,16 @@ public class ClientMapMatrix {
 	 */
 	private void loadMapNames() {
 		try {
-			Scanner reader;
+			BufferedReader reader;
 			try{
-				reader = new Scanner(new File("./res/language/" + GameClient.getLanguage()
-						+ "/_MAPNAMES.txt"));
+				reader = FileLoader.loadTextFile("/res/language/" + GameClient.getLanguage()
+						+ "/_MAPNAMES.txt");
 			} catch (Exception e){
-				reader = new Scanner(new File("./res/language/english/_MAPNAMES.txt"));
+				reader = FileLoader.loadTextFile("/res/language/english/_MAPNAMES.txt");
 			}
 			
-			String f = null;
-			while (reader.hasNext()) {
-				f = reader.nextLine();
+			String f;
+			while ((f = reader.readLine()) != null) {
 				if (f.charAt(0) != '*'){
 					final String[] details = f.split(",");
 					try{
