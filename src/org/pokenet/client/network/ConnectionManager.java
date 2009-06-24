@@ -177,7 +177,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 		    			if(indexes[i].compareTo("!") == 0)
 		    				pokes[i] = -1;
 		    			else
-		    				pokes[i] = Integer.parseInt(indexes[i]);
+		    				pokes[i] = (Integer.parseInt(indexes[i]) - 1);
 		    		else
 		    			pokes[i] = -1;
 		    	}
