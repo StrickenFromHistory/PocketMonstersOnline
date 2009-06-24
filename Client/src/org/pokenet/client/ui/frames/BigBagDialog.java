@@ -482,10 +482,7 @@ class ItemPopup extends Frame{
 			m_team.setLocation(m_use.getAbsoluteX() + getWidth(), m_use.getAbsoluteY() - 15);
 			getDisplay().add(m_team);
 		} else {
-			if (isBattle)
-				GameClient.getInstance().getPacketGenerator().write("bi" + id);
-			else
-				GameClient.getInstance().getPacketGenerator().write("I" + id);
+			GameClient.getInstance().getPacketGenerator().write("I" + id);
 			destroyPopup();
 		}
 	}
@@ -571,12 +568,7 @@ class TeamPopup extends Frame{
 	
 	public void processItemUse(boolean use, int id, int pokeIndex, boolean isBattle){
 		if (use) {
-			if (isBattle) {
-				GameClient.getInstance().getPacketGenerator().write("bi" + id + "," + pokeIndex);
-				GameClient.getInstance().getUi().getBattleManager().getBattleWindow().m_bag.closeBag();
-			} else {
-				GameClient.getInstance().getPacketGenerator().write("I" + id + "," + pokeIndex);
-			}
+			GameClient.getInstance().getPacketGenerator().write("I" + id + "," + pokeIndex);
 		} else {
 			// TODO: Write "Give" packet
 			GameClient.getInstance().getPacketGenerator().write("");

@@ -25,14 +25,14 @@ public class BattleBag extends BigBagDialog {
 		if (m_curCategory == 0 || m_curCategory == 3){
 			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
 					m_itemBtns.get(i).getName()), false, true);
-			m_popup.setAlwaysOnTop(true);
+			setAlwaysOnTop(false);
 			m_popup.setLocation(m_itemBtns.get(i).getAbsoluteX(), m_itemBtns.get(i).getAbsoluteY() 
 					+ m_itemBtns.get(i).getHeight() - getTitleBar().getHeight());
 			getDisplay().add(m_popup);
 		} else {
 			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
 					m_itemBtns.get(i).getName()), true, true);
-			m_popup.setAlwaysOnTop(true);
+			setAlwaysOnTop(false);
 			m_popup.setLocation(m_itemBtns.get(i).getAbsoluteX(), m_itemBtns.get(i).getAbsoluteY() 
 					+ m_itemBtns.get(i).getHeight() - getTitleBar().getHeight());
 			getDisplay().add(m_popup);
