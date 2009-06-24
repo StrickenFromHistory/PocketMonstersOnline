@@ -118,6 +118,8 @@ public class BattleManager {
 		GameClient.getInstance().getUi().hideHUD(false);
 		m_timeLine.endBattle();
 		m_battle.setVisible(false);
+		if (GameClient.getInstance().getDisplay().containsChild(m_battle.m_bag))
+			GameClient.getInstance().getDisplay().remove(m_battle.m_bag);
 		GameClient.getInstance().getDisplay().remove(m_battle);
 		while (GameClient.getInstance().getDisplay().containsChild(m_battle));
 		GameClient.getSoundPlayer().setTrackByLocation(GameClient.getInstance().getMapMatrix()
