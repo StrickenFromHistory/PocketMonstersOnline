@@ -147,6 +147,7 @@ public class PlayerChar extends Char implements Battleable {
 		if(m_boxes[box] == null) {
 			m_boxes[box] = new PokemonBox();
 			m_boxes[box].setDatabaseId(-1);
+			m_boxes[box].setPokemon(new Pokemon[30]);
 		}
 		/* Make sure we're not swapping two empty slots */
 		if(m_pokemon[partySlot] != null || m_boxes[box].getPokemon(boxSlot) != null) {
