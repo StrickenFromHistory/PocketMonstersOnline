@@ -455,6 +455,7 @@ public class BattleWindow extends Frame {
 		endPane.setVisible(false);
 		pokesContainer.setVisible(false);
 		m_bag = new BattleBag();
+		m_bag.setAlwaysOnTop(true);
 		getDisplay().add(m_bag);
 	}
 
