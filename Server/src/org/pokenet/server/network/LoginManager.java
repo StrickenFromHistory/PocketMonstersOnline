@@ -18,7 +18,6 @@ import org.pokenet.server.battle.PokemonSpecies;
 import org.pokenet.server.battle.Pokemon.ExpTypes;
 import org.pokenet.server.battle.mechanics.PokemonNature;
 import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
-import org.pokenet.server.battle.mechanics.statuses.abilities.IntrinsicAbility;
 import org.pokenet.server.feature.TimeService;
 
 /**
