@@ -220,6 +220,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 					break;
 				case 'p':
 					//Our player caught the Pokemon
+					GameClient.getInstance().getUi().getBattleManager().endBattle();
 					break;
 				}
 				break;
