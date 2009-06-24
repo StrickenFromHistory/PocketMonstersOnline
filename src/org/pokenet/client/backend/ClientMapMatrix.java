@@ -2,6 +2,7 @@ package org.pokenet.client.backend;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,7 +41,7 @@ public class ClientMapMatrix {
 	 * @param y
 	 */
 	public void loadMaps(int mapX, int mapY, Graphics g) {
-		File f;
+		InputStream f;
 		/*
 		 * Loads the main map and surrounding maps
 		 */
@@ -50,11 +51,11 @@ public class ClientMapMatrix {
 			 */
 			for(int x = -1; x < 2; x++) {
 				for(int y = -1; y < 2; y++) {
-					f = new File("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
-					if(f.exists()) {
+					f = getClass().getResourceAsStream("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
+					if(f != null) {
 						try {
-							m_mapMatrix[x + 1][y + 1] = new ClientMap("./res/maps/" + String.valueOf((mapX + x))
-									+ "." + String.valueOf((mapY + y)) + ".tmx","./res/maps");
+							m_mapMatrix[x + 1][y + 1] = new ClientMap("/res/maps/" + String.valueOf((mapX + x))
+									+ "." + String.valueOf((mapY + y)) + ".tmx","/res/maps");
 							m_mapMatrix[x + 1][y + 1].setMapMatrix(this);
 							m_mapMatrix[x + 1][y + 1].setGraphics(g);
 							m_mapMatrix[x + 1][y + 1].setMapX(x + 1);
@@ -78,11 +79,11 @@ public class ClientMapMatrix {
 			for(int x = -1; x < 2; x++) {
 				for(int y = -1; y < 2; y++) {
 					if(x == 0 && y == 0) {
-						f = new File("./res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
-						if(f.exists()) {
+						f = getClass().getResourceAsStream("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
+						if(f != null) {
 							try {
-								m_mapMatrix[x + 1][y + 1] = new ClientMap("./res/maps/" + String.valueOf((mapX + x))
-										+ "." + String.valueOf((mapY + y)) + ".tmx","./res/maps");
+								m_mapMatrix[x + 1][y + 1] = new ClientMap("/res/maps/" + String.valueOf((mapX + x))
+										+ "." + String.valueOf((mapY + y)) + ".tmx","/res/maps");
 								m_mapMatrix[x + 1][y + 1].setMapMatrix(this);
 								m_mapMatrix[x + 1][y + 1].setGraphics(g);
 								m_mapMatrix[x + 1][y + 1].setMapX(x + 1);
