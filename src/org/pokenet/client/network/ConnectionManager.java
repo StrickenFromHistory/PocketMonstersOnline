@@ -174,7 +174,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				String[] indexes = message.substring(1).split(",");
 		    	for (int i = 0; i < 30; i++){
 		    		if(indexes.length > i)
-		    			if(indexes[i].compareTo("!") == 0)
+		    			if(indexes[i] == null || indexes[i].compareTo("") == 0)
 		    				pokes[i] = -1;
 		    			else
 		    				pokes[i] = (Integer.parseInt(indexes[i]) - 1);
