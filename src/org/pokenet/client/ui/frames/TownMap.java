@@ -89,11 +89,11 @@ public class TownMap extends Frame {
 		try {
 			BufferedReader reader;
 			try{
-				reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("res/language/" 
+				reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/res/language/" 
 						+ GameClient.getLanguage() + "/UI/_MAP.txt")));
 			} catch (Exception e){
 				reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(
-						"res/language/english/UI/_MAP.txt")));
+						"/res/language/english/UI/_MAP.txt")));
 			}
 			m_containers = new HashMap<String, Container>();
 			m_locations = new ArrayList<String>();
