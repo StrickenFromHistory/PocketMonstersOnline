@@ -1,5 +1,6 @@
 package org.pokenet.client.ui;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,10 @@ public class MoveLearning extends Frame {
 	private ConfirmationDialog m_replace;
 	private MoveLearnCanvas m_canvas;
 
+	// Image Loading tools
+	final String m_path = "/res/battle/";
+	InputStream f;
+	
 	/**
 	 * Default Constructor
 	 * 
@@ -63,7 +68,8 @@ public class MoveLearning extends Frame {
 		// FALSE = Evolution
 		m_bg = new Label();
 		try {
-			m_bg = new Label(new Image("/res/ui/bg.png"));
+			f = getClass().getResourceAsStream("/res/ui/bg.png");
+			m_bg = new Label(new Image(f, "/res/ui", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
