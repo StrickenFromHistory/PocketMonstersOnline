@@ -1,6 +1,7 @@
 package org.pokenet.client.ui.frames;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,10 +44,12 @@ public class TownMap extends Frame {
 		m_mapName = new Label();
 		m_playerLoc = new Label();
 		m_timer = new Timer();
+		InputStream f;
 		
 		LoadingList.setDeferredLoading(true);
 		try {
-			m_map = new Label(new Image("/res/ui/KantoandJohto.png"));
+			f = getClass().getResourceAsStream("/res/ui/KantoandJohto.png");
+			m_map = new Label(new Image(f, "/res/ui/KantoandJohto.png", false));
 		} catch (SlickException e) {}
 		LoadingList.setDeferredLoading(false);
 

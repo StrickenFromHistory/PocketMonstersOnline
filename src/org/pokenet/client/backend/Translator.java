@@ -21,7 +21,6 @@ public class Translator {
 		List<String> translated = new ArrayList<String>();
 		try {
 			String path = "/res/language/" + GameClient.getLanguage() + "UI/" + filename + ".txt";
-			System.out.println("TRANSLATE PATH: " + path);
 			InputStream in = getClass().getResourceAsStream(path);
 			if(in != null) {
 				BufferedReader f = new BufferedReader(new InputStreamReader(in));
