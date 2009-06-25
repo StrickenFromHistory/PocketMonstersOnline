@@ -1,5 +1,6 @@
 package org.pokenet.client.backend;
 
+import java.io.InputStream;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
@@ -35,14 +36,15 @@ public class ClientMap extends TiledMap {
 
 	/**
 	 * Default constructor
-	 * @param ref
+	 * @param f
 	 * @param tileSetsLocation
 	 * @throws SlickException
 	 */
-	public ClientMap(String ref, String tileSetsLocation) throws SlickException {
-		super(ref, tileSetsLocation);
+	public ClientMap(InputStream f, String tileSetsLocation) throws SlickException {
+		super(f, tileSetsLocation);
 		try{
-			m_grassOverlay = new Image("/res/ui/grass_overlay.png");
+			f = getClass().getResourceAsStream("/res/ui/grass_overlay.png");
+			m_grassOverlay = new Image(f, "/res/ui/grass_overlay.png", false);
 		} catch (Exception e) {e.printStackTrace();}
 		m_xOffsetModifier = Integer.parseInt(getMapProperty("xOffsetModifier",
 		"0").trim());
