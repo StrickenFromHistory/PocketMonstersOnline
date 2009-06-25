@@ -1,6 +1,7 @@
 package org.pokenet.client.backend;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -65,8 +66,8 @@ public class ItemDatabase {
 	 */
 	public void reinitialise() {
 		Serializer serializer = new Persister();
-		File source = new File("res/items/items.xml");
 		try {
+			InputStream source = getClass().getResourceAsStream("/res/items/items.xml");
 			m_instance = serializer.read(ItemDatabase.class, source);
 			System.out.println("INFO: Items database loaded.");
 		} catch (Exception e) {
