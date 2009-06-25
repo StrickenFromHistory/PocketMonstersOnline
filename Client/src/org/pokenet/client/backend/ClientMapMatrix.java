@@ -2,7 +2,6 @@ package org.pokenet.client.backend;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -49,7 +48,7 @@ public class ClientMapMatrix {
 			 */
 			for(int x = -1; x < 2; x++) {
 				for(int y = -1; y < 2; y++) {
-					f = getClass().getResourceAsStream("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
+					f = FileLoader.loadFile("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
 					if(f != null) {
 						try {
 							m_mapMatrix[x + 1][y + 1] = new ClientMap("/res/maps/" + String.valueOf((mapX + x))
@@ -77,7 +76,7 @@ public class ClientMapMatrix {
 			for(int x = -1; x < 2; x++) {
 				for(int y = -1; y < 2; y++) {
 					if(x == 0 && y == 0) {
-						f = getClass().getResourceAsStream("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
+						f = FileLoader.loadFile("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
 						if(f != null) {
 							try {
 								m_mapMatrix[x + 1][y + 1] = new ClientMap("/res/maps/" + String.valueOf((mapX + x))
@@ -109,17 +108,16 @@ public class ClientMapMatrix {
 			m_speech.clear();
 		try {
 			try {
-				BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(
-						"/res/language/" + GameClient.getLanguage() + "/NPC/" + mapX + "." + mapY + ".txt")));
-						
+				BufferedReader reader = FileLoader.loadTextFile("/res/language/" + GameClient.getLanguage()
+						+ "/NPC/" + mapX + "." + mapY + ".txt");
 				String line;
 				while((line = reader.readLine()) != null) {
 					m_speech.add(line);
 				}
 			} catch (NullPointerException e) { //In case of emergencies, load english!
 				try{
-					BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(
-							"/res/language/english/NPC/" + mapX + "." + mapY + ".txt")));
+					BufferedReader reader = FileLoader.loadTextFile("/res/language/english/NPC/" + mapX + "."
+							+ mapY + ".txt");
 							
 					String line;
 					while((line = reader.readLine()) != null) {
