@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.util.HashMap;
 
 import org.newdawn.slick.Music;
+import org.newdawn.slick.loading.LoadingList;
+import org.newdawn.slick.openal.Audio;
+import org.newdawn.slick.openal.AudioImpl;
+import org.newdawn.slick.openal.AudioLoader;
 
 /**
  * Handles music throughout the game
@@ -11,10 +15,11 @@ import org.newdawn.slick.Music;
  *
  */
 public class SoundManager extends Thread{
-	private HashMap<String, Music> m_files;
+	private HashMap<String, AudioImpl> m_files;
 	private HashMap<String, String> m_fileList, m_locations;
 	protected String m_trackName;
 	private boolean m_tracksLoaded = false, m_trackChanged = true, m_isRunning = false;
+	private boolean m_mute = false;
 
 	private final String m_audioPath = "/res/music/";
 
@@ -22,7 +27,7 @@ public class SoundManager extends Thread{
 	 * Default Constructor
 	 */
 	public SoundManager() {
-		m_files = new HashMap<String, Music>();
+		m_files = new HashMap<String, AudioImpl>();
 		loadFileList();
 		loadLocations();
 	}
@@ -37,7 +42,7 @@ public class SoundManager extends Thread{
 
 			String f;
 			while ((f = stream.readLine()) != null) {
-				String[] addFile = f.substring(1).split(":", 2);
+				String[] addFile = f.split(":", 2);
 				try{
 					if (f.charAt(1) != '*'){
 						m_fileList.put(addFile[0], addFile[1]);
@@ -75,16 +80,22 @@ public class SoundManager extends Thread{
 	 * Loads the files
 	 */
 	private void loadFiles() {
+		Audio a;
 		for (String key : m_fileList.keySet()){
 			try {
-				m_files.put(key, new Music(m_audioPath.substring(1) + m_fileList.get(key)));
+				a = AudioLoader.getAudio("OGG", FileLoader.loadFile("/" + m_audioPath.substring(1) + m_fileList.get(key)));
+				/* For some reason it reads intro and gym wrong so do this to fix it */
+				if(key.endsWith("introandgym"))
+					key = "introandgym";
+				System.out.println("/" + m_audioPath.substring(1) + m_fileList.get(key));
+				m_files.put(key, (AudioImpl) a);
 			} catch (Exception e) {e.printStackTrace();}
 		}
 		m_tracksLoaded = true;
 	}
 	
 	/**
-	 * Called by m_thread.start(). Loops through all players calling PlayerChar.move() if the player requested to be moved.
+	 * Called by m_thread.start().
 	 */
 	@Override
 	public void run() {
@@ -95,10 +106,15 @@ public class SoundManager extends Thread{
 			if (m_trackChanged){
 				try{
 					m_trackChanged = false;
-					System.out.println("Playing: " + m_fileList.get(m_trackName));
-					m_files.get(m_trackName).loop();
+					System.out.println("Playing: " + m_trackName);
+					if(!m_mute) {
+						LoadingList.setDeferredLoading(true);
+						m_files.get(m_trackName).playAsMusic(1, 20, true);
+						LoadingList.setDeferredLoading(false);
+					}
 				} catch (Exception e){
-					System.err.println("Failed to load " +  m_fileList.get(m_trackName));
+					e.printStackTrace();
+					System.err.println("Failed to load " +  m_trackName);
 					m_trackChanged = false;
 				}
 			}
@@ -143,18 +159,6 @@ public class SoundManager extends Thread{
 	 * @param mute
 	 */
 	public void mute(boolean mute){
-		if (mute){
-			for (String key : m_files.keySet()){
-				try{
-					m_files.get(key).setVolume(0);
-				} catch (Exception e){}
-			}
-		} else {
-			for (String key : m_files.keySet()){
-				try{
-					m_files.get(key).setVolume(1);
-				} catch (Exception e){}
-			}
-		}
+		m_mute = mute;
 	}
 }
