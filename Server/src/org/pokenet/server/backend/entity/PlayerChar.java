@@ -285,6 +285,11 @@ public class PlayerChar extends Char implements Battleable {
 					}
 				}
 			}
+		} else if(r == RequestType.TRADE) {
+			/* Ensure both players have more than one pokemon */
+			if(this.getPartyCount() < 2 && ProtocolHandler.getPlayers().get(username).getPartyCount() < 2) {
+				return;
+			}
 		}
 		/* Else, add the request */
 		m_requests.put(username, r);
