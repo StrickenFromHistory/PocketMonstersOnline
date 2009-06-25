@@ -77,7 +77,7 @@ public class SoundManager extends Thread{
 	private void loadFiles() {
 		for (String key : m_fileList.keySet()){
 			try {
-				m_files.put(key, new Music(m_audioPath + m_fileList.get(key)));
+				m_files.put(key, new Music(m_audioPath.substring(1) + m_fileList.get(key)));
 			} catch (Exception e) {e.printStackTrace();}
 		}
 		m_tracksLoaded = true;
