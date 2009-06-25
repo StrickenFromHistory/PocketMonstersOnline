@@ -167,7 +167,7 @@ public class BattleWindow extends Frame {
 		Label bg = new Label();
 		try {
 			f = getClass().getResourceAsStream("/res/ui/bg.png");
-			bg = new Label(new Image(f, "/res/ui", false));
+			bg = new Label(new Image(f, "/res/ui/bg.png", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}

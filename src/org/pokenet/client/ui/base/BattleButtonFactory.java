@@ -11,12 +11,14 @@ public class BattleButtonFactory {
     	try {
     		final String path = "/res/ui/";
 
-    		normal = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button.png"), path, false);
+    		normal = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button.png"), 
+    				path + "button.png", false);
     		normalDown = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button_pressed.png"),
-    				path, false);
-    		small = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button_small.png"), path, false);
+    				path + "button_pressed.png", false);
+    		small = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button_small.png"), 
+    				path + "button_small.png", false);
     		smallDown = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button_small_pressed.png"),
-    				path, false);
+    				path + "button_small_pressed.png", false);
     		
     		font = GameClient.getFontSmall();
     	} catch (SlickException e) {
