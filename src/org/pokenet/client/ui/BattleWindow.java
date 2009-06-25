@@ -1,5 +1,6 @@
 package org.pokenet.client.ui;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -60,6 +61,10 @@ public class BattleWindow extends Frame {
 	public List<Label> m_pokeStatus = new ArrayList<Label>();
 	public HashMap<String, Image> m_statusIcons = new HashMap<String, Image>();
 	
+	// Image Loading tools
+	final String m_path = "/res/battle/";
+	InputStream f;
+	
 	/**
 	 * Default constructor
 	 * 
@@ -82,15 +87,20 @@ public class BattleWindow extends Frame {
 	public void loadStatusIcons(){
 		LoadingList.setDeferredLoading(true);
 		try{
-			m_statusIcons.put("Poison", new Image("./res/battle/PSN.png"));
+			m_statusIcons.put("Poison", new Image(getClass().getResourceAsStream(m_path + "PSN" + ".png")
+					, m_path, false));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Sleep", new Image("./res/battle/SLP.png"));
+			m_statusIcons.put("Sleep", new Image(getClass().getResourceAsStream(m_path + "SLP" + ".png")
+					, m_path, false));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Freze", new Image("./res/battle/FRZ.png"));
+			m_statusIcons.put("Freze", new Image(getClass().getResourceAsStream(m_path + "FRZ" + ".png")
+					, m_path, false));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Burn", new Image("./res/battle/BRN.png"));
+			m_statusIcons.put("Burn", new Image(getClass().getResourceAsStream(m_path + "BRN" + ".png")
+					, m_path, false));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Paralysis", new Image("./res/battle/PAR.png"));
+			m_statusIcons.put("Paralysis", new Image(getClass().getResourceAsStream(m_path + "PAR" + ".png")
+					, m_path, false));
 		} catch (SlickException e) {e.printStackTrace();}
 		LoadingList.setDeferredLoading(false);
 	}
@@ -156,7 +166,8 @@ public class BattleWindow extends Frame {
 		this.setBackground(new Color(0, 0, 0, 0));
 		Label bg = new Label();
 		try {
-			bg = new Label(new Image("./res/ui/bg.png"));
+			f = getClass().getResourceAsStream("/res/ui/bg.png");
+			bg = new Label(new Image(f, "/res/ui", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}

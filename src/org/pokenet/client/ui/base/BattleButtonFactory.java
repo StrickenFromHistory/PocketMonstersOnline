@@ -8,30 +8,27 @@ import org.pokenet.client.GameClient;
 
 public class BattleButtonFactory {
     static {
-            try {
-                    //LoadingList.setDeferredLoading(true);
-                    normal = new Image(
-                            "/res/ui/button.png");     
-                    normalDown = new Image(
-                            "/res/ui/button_pressed.png");     
-                    
-                    small = new Image(
-                            "/res/ui/button_small.png");       
-                    smallDown = new Image(
-                            "/res/ui/button_small_pressed.png");
-                            
-                    font = GameClient.getFontSmall();
-                    //LoadingList.setDeferredLoading(false);
-            } catch (SlickException e) {
-                    e.printStackTrace();
-                    assert(false);
-            }
+    	try {
+    		final String path = "/res/ui/";
+
+    		normal = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button.png"), path, false);
+    		normalDown = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button_pressed.png"),
+    				path, false);
+    		small = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button_small.png"), path, false);
+    		smallDown = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button_small_pressed.png"),
+    				path, false);
+    		
+    		font = GameClient.getFontSmall();
+    	} catch (SlickException e) {
+    		e.printStackTrace();
+    		assert(false);
+    	}
     }
     private static Image small;
     private static Image normal;
     private static Image normalDown;
     private static Image smallDown;
-    
+
     private static Font font;
     public static ImageButton getButton(String text) {
             ImageButton out = new ImageButton(normal, normal, normalDown);
