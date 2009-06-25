@@ -3,14 +3,6 @@ package org.pokenet.client.backend.entity;
 import java.io.InputStream;
 
 import org.newdawn.slick.Image;
-
-/**
- * Represents one of our pokemon
- * @author shadowkanji
- * @author ZombieBear
- * 
- */
-
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.backend.entity.Enums.Poketype;
@@ -83,8 +75,8 @@ public class OurPokemon extends Pokemon {
         		try {
         			path = "/res/pokemon/back/" + isShiny + index + "-"
         				+ String.valueOf(gender) + ".png";
-        			System.out.println(path);
-        			m_backSprite = new Image(path.toString());
+        			f = getClass().getResourceAsStream(path);
+        			m_backSprite = new Image(f, path.toString(), false);
         		} catch (Exception e) {
         			if (gender == 3) {
         				path = "/res/pokemon/back/" + isShiny + index + "-1.png";
