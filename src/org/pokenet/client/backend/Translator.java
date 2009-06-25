@@ -1,12 +1,11 @@
 package org.pokenet.client.backend;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.DataInputStream;
-import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import org.pokenet.client.GameClient;
 
@@ -14,42 +13,35 @@ public class Translator {
 	
 	@SuppressWarnings("deprecation")
 	public static List<String> translate(String filename){
-		File f = new File(".");
+		BufferedReader reader;
 		List<String> translated = new ArrayList<String>();
+		String f;
 		try {
-			f = new File(f.getCanonicalPath() + "/res/language/" + GameClient.getLanguage() + "/UI/" + filename + ".txt");
-			if(f.exists()) {
-				Scanner reader = new Scanner(f);
-				while(reader.hasNextLine()) {
-					translated.add(reader.nextLine().replaceAll("/n", "\n"));
-				}
+			reader = FileLoader.loadTextFile("/res/language/" + GameClient.getLanguage() + "/UI/" + filename + ".txt");
+			while ((f = reader.readLine()) != null) {
+				translated.add(f.replaceAll("/n", "\n"));
 				if(translated.size()==0){
 					FileInputStream fis = new FileInputStream(f);
 					BufferedInputStream bis = new BufferedInputStream(fis);
 					DataInputStream dis = new DataInputStream(bis);
-					 while (dis.available() != 0) {
-						 // this statement reads the line from the file
-						 translated.add(dis.readLine());
-					 }
-					 fis.close();
-					 bis.close();
-					 dis.close();
-				}
-			}else{ //In case of emergencies, load english!
-				try{
-					f = new File(".");
-					f = new File(f.getCanonicalFile()+ "/res/language/english/UI/" + filename + ".txt");
-					Scanner reader = new Scanner(f);
-					while(reader.hasNextLine()) {
-						translated.add(reader.nextLine().replaceAll("/n", "\n"));
+					while (dis.available() != 0) {
+						// this statement reads the line from the file
+						translated.add(dis.readLine());
 					}
-				}catch(Exception e){
-					translated.add("/n"); //If there's no english, display default line. 
+					fis.close();
+					bis.close();
+					dis.close();
 				}
-
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception e) { //In case of emergencies, load english!
+			try{
+				reader = FileLoader.loadTextFile("/res/language/english/UI/" + filename + ".txt");
+				while((f = reader.readLine()) != null) {
+					translated.add(f.replaceAll("/n", "\n"));
+				}
+			}catch(Exception e2){
+				translated.add("/n"); //If there's no english, display default line. 
+			}
 		}
 		return translated;
 	}
