@@ -1,7 +1,6 @@
 package org.pokenet.client.backend;
 
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 
 import org.newdawn.slick.Music;
@@ -33,8 +32,7 @@ public class SoundManager extends Thread{
 	 */
 	private void loadFileList() {
 		try {
-			BufferedReader stream = new BufferedReader(new InputStreamReader(
-					getClass().getResourceAsStream(m_audioPath + "index.txt")));
+			BufferedReader stream = FileLoader.loadTextFile(m_audioPath + "index.txt");
 			m_fileList = new HashMap<String, String>();
 
 			String f;
@@ -57,8 +55,7 @@ public class SoundManager extends Thread{
 	 */
 	private void loadLocations() {
 		try {
-			BufferedReader stream = new BufferedReader(new InputStreamReader(
-					getClass().getResourceAsStream("/res/language/english/_MUSICKEYS.txt")));
+			BufferedReader stream = FileLoader.loadTextFile("/res/language/english/_MUSICKEYS.txt");
 			m_locations = new HashMap<String, String>();
 
 			String f;

@@ -1,9 +1,6 @@
 package org.pokenet.client.backend;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 
 import org.newdawn.slick.Image;
@@ -77,14 +74,14 @@ public class SpriteFactory {
 			InputStream f;
 			String location;
 			
-			f = getClass().getResourceAsStream("/res/characters");
+			f = FileLoader.loadFile("/res/characters");
 			/*
 			 * WARNING: Change 219 to the amount of sprites we have in client
 			 */
 			for(int i = -1; i < 219; i++) {
 				try {
 					location = "/res/characters/" + String.valueOf(i) + ".png";
-					f = getClass().getResourceAsStream(location);
+					f = FileLoader.loadFile(location);
 					spriteSheets.put(i, new SpriteSheet(location, f, 41, 51));
 				} catch (Exception e) {}
 			}
