@@ -1,5 +1,6 @@
 package org.pokenet.client.ui.frames;
 
+import java.io.InputStream;
 import java.util.List;
 
 import mdes.slick.sui.Button;
@@ -56,6 +57,7 @@ public class PartyInfoDialog extends Frame {
 	 * Initializes interface
 	 */
 	public void initGUI() {
+		InputStream f;
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		int y = -8;
@@ -75,18 +77,21 @@ public class PartyInfoDialog extends Frame {
 			m_container[i].setOpaque(true);
 			try {
 				Label tempLabel = new Label(); 
-				if (i ==0)
-					tempLabel = new Label(new Image("/res/ui/party_info/partyActive.png"));
-				else
-					tempLabel = new Label(new Image("/res/ui/party_info/partyInactive.png"));
-				
+				if (i ==0) {
+					f = getClass().getResourceAsStream("/res/ui/party_info/partyActive.png");
+					tempLabel = new Label(new Image(f, "/res/ui/party_info/partyActive.png", false));
+				} else {
+					f = getClass().getResourceAsStream("/res/ui/party_info/partyInactive.png");
+					tempLabel = new Label(new Image(f, "/res/ui/party_info/partyInactive.png", false));
+				}
 				tempLabel.setSize(170, 42);
 				tempLabel.setY(-4);
 				m_container[i].add(tempLabel);
 			} catch (Exception e) {e.printStackTrace();}
 			
 			try{
-				m_hpBar[i] = new Label(new Image("/res/ui/party_info/HPBar.png"));
+				f = getClass().getResourceAsStream("/res/ui/party_info/HPBar.png");
+				m_hpBar[i] = new Label(new Image(f, "/res/ui/party_info/HPBar.png", false));
 				m_hpBar[i].setSize(98, 11);
 				m_hpBar[i].setVisible(false);
 				m_container[i].add(m_hpBar[i]);
@@ -179,6 +184,7 @@ public class PartyInfoDialog extends Frame {
 	 */
 	public void loadImages(OurPokemon[] pokes) {
 		LoadingList.setDeferredLoading(true);
+		InputStream f;
 		for (int i = 0; i < 6; i++) {
 			m_pokeIcon[i] = new Label();
 			m_pokeBall[i] = new Label();
@@ -193,7 +199,8 @@ public class PartyInfoDialog extends Frame {
 			m_pokeName[i].pack();
 
 			try {
-				m_pokeBall[i].setImage(new Image("/res/ui/Pokeball.gif"));
+				f = getClass().getResourceAsStream("/res/ui/Pokeball.gif");
+				m_pokeBall[i].setImage(new Image(f, "/res/ui/Pokeball.gif", false));
 				m_pokeBall[i].setSize(30, 30);
 			} catch (SlickException e) {
 				System.out.println("Couldn't load pokeball");
