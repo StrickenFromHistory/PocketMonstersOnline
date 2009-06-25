@@ -51,7 +51,7 @@ public class ClientMapMatrix {
 					f = FileLoader.loadFile("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
 					if(f != null) {
 						try {
-							m_mapMatrix[x + 1][y + 1] = new ClientMap(f,"/res/maps");
+							m_mapMatrix[x + 1][y + 1] = new ClientMap(f,"res/maps");
 							m_mapMatrix[x + 1][y + 1].setMapMatrix(this);
 							m_mapMatrix[x + 1][y + 1].setGraphics(g);
 							m_mapMatrix[x + 1][y + 1].setMapX(x + 1);
@@ -78,7 +78,7 @@ public class ClientMapMatrix {
 						f = FileLoader.loadFile("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
 						if(f != null) {
 							try {
-								m_mapMatrix[x + 1][y + 1] = new ClientMap(f,"/res/maps");
+								m_mapMatrix[x + 1][y + 1] = new ClientMap(f,"res/maps");
 								m_mapMatrix[x + 1][y + 1].setMapMatrix(this);
 								m_mapMatrix[x + 1][y + 1].setGraphics(g);
 								m_mapMatrix[x + 1][y + 1].setMapX(x + 1);
