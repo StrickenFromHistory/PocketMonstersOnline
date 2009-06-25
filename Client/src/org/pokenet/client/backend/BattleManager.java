@@ -35,9 +35,9 @@ public class BattleManager {
 	 * Default Constructor
 	 */
 	public BattleManager() {
-		/*m_battle = new BattleWindow("Battle!");
+		m_battle = new BattleWindow("Battle!");
 		m_timeLine = new BattleTimeLine();
-		m_moveLearning = new MoveLearning();*/
+		m_moveLearning = new MoveLearning();
 	}
 
 	/**
