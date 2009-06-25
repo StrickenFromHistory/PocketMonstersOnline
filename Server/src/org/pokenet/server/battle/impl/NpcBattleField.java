@@ -19,6 +19,7 @@ import org.pokenet.server.network.message.battle.BattleInitMessage;
 import org.pokenet.server.network.message.battle.BattleMessage;
 import org.pokenet.server.network.message.battle.BattleMoveMessage;
 import org.pokenet.server.network.message.battle.BattleMoveRequest;
+import org.pokenet.server.network.message.battle.BattleRewardMessage;
 import org.pokenet.server.network.message.battle.EnemyDataMessage;
 import org.pokenet.server.network.message.battle.FaintMessage;
 import org.pokenet.server.network.message.battle.HealthChangeMessage;
@@ -27,6 +28,7 @@ import org.pokenet.server.network.message.battle.StatusChangeMessage;
 import org.pokenet.server.network.message.battle.SwitchMessage;
 import org.pokenet.server.network.message.battle.SwitchRequest;
 import org.pokenet.server.network.message.battle.BattleEndMessage.BattleEnd;
+import org.pokenet.server.network.message.battle.BattleRewardMessage.BattleRewardType;
 
 /**
  * The battlefield for NPC battles
@@ -203,7 +205,15 @@ public class NpcBattleField extends BattleField {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void informVictory(int winner) {
+		int money = getParty(1)[0].getLevel() * (getMechanics().getRandom().nextInt(4) + 1);
 		if (winner == 0) {
+			/* Reward the player */
+
+			ProtocolHandler.writeMessage(m_player.getSession(), 
+					new BattleRewardMessage(BattleRewardType.MONEY,
+					money));
+			m_player.setMoney(m_player.getMoney() + money);
+			/* End the battle */
 			m_player.removeTempStatusEffects();
 			ProtocolHandler.writeMessage(m_player.getSession(), 
 					new BattleEndMessage(BattleEnd.WON));
@@ -211,6 +221,12 @@ public class NpcBattleField extends BattleField {
 				m_player.addBadge(m_npc.getBadge());
 			}
 		} else {
+			if(m_player.getMoney() - money >= 0) {
+				m_player.setMoney(m_player.getMoney() - money);
+			} else {
+				m_player.setMoney(0);
+			}
+			m_player.updateClientMoney();
 			ProtocolHandler.writeMessage(m_player.getSession(), 
 					new BattleEndMessage(BattleEnd.LOST));
 			m_player.lostBattle();
