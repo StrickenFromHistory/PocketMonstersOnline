@@ -17,6 +17,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.FileLoader;
 import org.pokenet.client.backend.entity.PlayerItem;
 import org.pokenet.client.ui.base.ImageButton;
 
@@ -84,25 +85,25 @@ public class BigBagDialog extends Frame {
 			final int j = i;
 			try {
 				Image[] bagcat = new Image[] {
-						new Image("./res/ui/bag/bag_normal.png"),
-						new Image("./res/ui/bag/bag_hover.png"),
-						new Image("./res/ui/bag/bag_pressed.png") };
+						new Image(FileLoader.loadFile("/res/ui/bag/bag_normal.png"), "/res/ui/bag/bag_normal.png", false),
+						new Image(FileLoader.loadFile("/res/ui/bag/bag_hover.png"), "/res/ui/bag/bag_hover.png", false),
+						new Image(FileLoader.loadFile("/res/ui/bag/bag_pressed.png"), "/res/ui/bag/bag_pressed.png", false)};
 				Image[] potioncat = new Image[] {
-						new Image("./res/ui/bag/potions_normal.png"),
-						new Image("./res/ui/bag/potions_hover.png"),
-						new Image("./res/ui/bag/potions_pressed.png") };
+						new Image(FileLoader.loadFile("/res/ui/bag/potions_normal.png"), "/res/ui/bag/potions_normal.png", false),
+						new Image(FileLoader.loadFile("/res/ui/bag/potions_hover.png"), "/res/ui/bag/potions_hover.png", false),
+						new Image(FileLoader.loadFile("/res/ui/bag/potions_pressed.png"), "/res/ui/bag/potions_pressed.png", false) };
 				Image[] berriescat = new Image[] {
-						new Image("./res/ui/bag/berries_normal.png"),
-						new Image("./res/ui/bag/berries_hover.png"),
-						new Image("./res/ui/bag/berries_pressed.png") };
+						new Image(FileLoader.loadFile("/res/ui/bag/berries_normal.png"), "/res/ui/bag/berries_normal.png", false),
+						new Image(FileLoader.loadFile("/res/ui/bag/berries_hover.png"), "/res/ui/bag/berries_hover.png", false),
+						new Image(FileLoader.loadFile("/res/ui/bag/berries_pressed.png"), "/res/ui/bag/berries_pressed.png", false)};
 				Image[] pokecat = new Image[] {
-						new Image("./res/ui/bag/pokeballs_normal.png"),
-						new Image("./res/ui/bag/pokeballs_hover.png"),
-						new Image("./res/ui/bag/pokeballs_pressed.png") };
+						new Image(FileLoader.loadFile("/res/ui/bag/pokeballs_normal.png"), "/res/ui/bag/pokeballs_normal.png", false),
+						new Image(FileLoader.loadFile("/res/ui/bag/pokeballs_hover.png"), "/res/ui/bag/pokeballs_hover.png", false),
+						new Image(FileLoader.loadFile("/res/ui/bag/pokeballs_pressed.png"), "/res/ui/bag/pokeballs_pressed.png", false) };
 				Image[] tmscat = new Image[] {
-						new Image("./res/ui/bag/tms_normal.png"),
-						new Image("./res/ui/bag/tms_hover.png"),
-						new Image("./res/ui/bag/tms_pressed.png") };
+						new Image(FileLoader.loadFile("/res/ui/bag/tms_normal.png"), "/res/ui/bag/tms_normal.png", false),
+						new Image(FileLoader.loadFile("/res/ui/bag/tms_hover.png"), "/res/ui/bag/tms_hover.png", false),
+						new Image(FileLoader.loadFile("/res/ui/bag/tms_pressed.png"), "/res/ui/bag/tms_pressed.png", false) };
 
 				switch (i) {
 				case 0:
@@ -156,7 +157,7 @@ public class BigBagDialog extends Frame {
 
 		LoadingList.setDeferredLoading(true);
 		try {
-			bagicon.setImage(new Image("./res/ui/bag/front.png"));
+			bagicon.setImage(new Image(FileLoader.loadFile("/res/ui/bag/front.png"), "/res/ui/bag/front.png", false));
 		} catch (SlickException e1) {
 		}
 		LoadingList.setDeferredLoading(false);
