@@ -101,18 +101,18 @@ public class BattleCanvas extends Container {
 	public void loadImages(){
         LoadingList.setDeferredLoading(true);
 		try {
-			enemyHPBar = new Label(new Image(getClass().getResourceAsStream(m_path + "HPBar.png"), m_path, false));
-			playerHPBar = new Label(new Image(getClass().getResourceAsStream(m_path + "HPBar.png"), m_path, false));
+			enemyHPBar = new Label(new Image(getClass().getResourceAsStream(m_path + "HPBar.png"), m_path + "HPBar.png", false));
+			playerHPBar = new Label(new Image(getClass().getResourceAsStream(m_path + "HPBar.png"), m_path + "HPBar2.png", false));
 		} catch (SlickException e) {}
 		try{
 			m_pokeballIcons.put("empty", new Image(getClass().getResourceAsStream(m_path + "ballempty" + ".png"),
-					m_path, false));
+					m_path + "ballempty" + ".png", false));
 			m_pokeballIcons.put("normal", new Image(getClass().getResourceAsStream(m_path + "ballnormal" + ".png"),
-					m_path, false));
+					m_path + "ballnormal" + ".png", false));
 			m_pokeballIcons.put("status", new Image(getClass().getResourceAsStream(m_path + "ballstatus" + ".png"),
-					m_path, false));
+					m_path + "ballstatus" + ".png", false));
 			m_pokeballIcons.put("fainted", new Image(getClass().getResourceAsStream(m_path + "ballfained" + ".png"),
-					m_path, false));
+					m_path + "ballfained" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();}
 		LoadingList.setDeferredLoading(false);
 		enemyHPBar.setSize(98, 11);
@@ -271,17 +271,17 @@ public class BattleCanvas extends Container {
 		LoadingList.setDeferredLoading(true);
 		try {
 			bgPic = new Label(new Image(getClass().getResourceAsStream("/res/ui/DP_darkgrass.png"),
-					"/res/ui/", false));
+					"/res/ui/DP_darkgrass.png", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		} try {
 			playerDataBG = new Label(new Image(getClass().getResourceAsStream("/res/battle/singlePlayerBox3.png"),
-					"/res/ui", false));
+					"/res/battle/singlePlayerBox3.png", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		} try {
 			enemyDataBG = new Label(new Image(getClass().getResourceAsStream("/res/battle/singleEnemyBox3.png"),
-					"/res/ui/", false));
+					"/res/battle/singleEnemyBox3.png", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
@@ -393,19 +393,19 @@ public class BattleCanvas extends Container {
 		LoadingList.setDeferredLoading(true);
 		try{
 			m_statusIcons.put("Poison", new Image(getClass().getResourceAsStream(m_path + "PSN" + ".png")
-					, m_path, false));
+					, m_path + "PSN" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();} try{
 			m_statusIcons.put("Sleep", new Image(getClass().getResourceAsStream(m_path + "SLP" + ".png")
-					, m_path, false));
+					, m_path + "SLP" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();} try{
 			m_statusIcons.put("Freze", new Image(getClass().getResourceAsStream(m_path + "FRZ" + ".png")
-					, m_path, false));
+					, m_path + "FRZ" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();} try{
 			m_statusIcons.put("Burn", new Image(getClass().getResourceAsStream(m_path + "BRN" + ".png")
-					, m_path, false));
+					, m_path + "BRN" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();} try{
 			m_statusIcons.put("Paralysis", new Image(getClass().getResourceAsStream(m_path + "PAR" + ".png")
-					, m_path, false));
+					, m_path + "PAR" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();}
 		LoadingList.setDeferredLoading(false);
 	}
@@ -438,7 +438,6 @@ public class BattleCanvas extends Container {
 	 * @param key
 	 */
 	public void setPokeballImage(int i, String key){
-		System.out.println("BLAH! " + i + " " + key);
 		m_enemyPokeballs.get(i).setImage(m_pokeballIcons.get(key));
 	}
 	
