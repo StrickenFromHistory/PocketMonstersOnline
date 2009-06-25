@@ -69,7 +69,6 @@ public class Translator {
 		return m_instance;
 	}
 	
-	@SuppressWarnings("deprecation")
 	public static List<String> translate(String filename){
 		return Translator.getInstance().translateText(filename);
 	}
