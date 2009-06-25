@@ -39,7 +39,7 @@
 <step b="1.0" g="1.0" offset="1.0" r="1.0"/>
 </color>
 </emitter>
-<emitter imageName="/res/effects/hail/smoke.tga" name="smoke" renderType="inherit" useAdditive="false" useOriented="true">
+<emitter imageName="res/effects/hail/smoke.tga" name="smoke" renderType="inherit" useAdditive="false" useOriented="true">
 <spawnInterval enabled="true" max="2000.0" min="1500.0"/>
 <spawnCount enabled="true" max="1.0" min="1.0"/>
 <initialLife enabled="true" max="20000.0" min="20000.0"/>
