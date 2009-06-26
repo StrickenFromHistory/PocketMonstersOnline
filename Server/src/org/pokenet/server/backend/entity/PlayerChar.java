@@ -70,6 +70,7 @@ public class PlayerChar extends Char implements Battleable {
 	private int m_adminLevel = 0;
 	private boolean m_isMuted;
 	private Shop m_currentShop = null;
+	private int m_repel = 0;
 	/*
 	 * Kicking timer
 	 */
@@ -101,6 +102,22 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public PlayerChar() {
 		m_requests = new HashMap<String, RequestType>();
+	}
+	
+	/**
+	 * Sets how many steps this Pokemon can repel for
+	 * @param steps
+	 */
+	public void setRepel(int steps) {
+		m_repel = steps;
+	}
+	
+	/**
+	 * Returns how many steps this player can repel Pokemon for
+	 * @return
+	 */
+	public int getRepel() {
+		return m_repel;
 	}
 	
 	/**
@@ -682,7 +699,9 @@ public class PlayerChar extends Char implements Battleable {
 			if(super.move()) {
 				//If the player moved
 				if(this.getMap() != null) {
-					if(this.getMap().isWildBattle(m_x, m_y, this)) {
+					if(m_repel > 0)
+						m_repel--;
+					if(m_repel <= 0 && this.getMap().isWildBattle(m_x, m_y, this)) {
 						this.ensureHealthyPokemon();
 						m_battleField = new WildBattleField(
 								DataService.getBattleMechanics(),

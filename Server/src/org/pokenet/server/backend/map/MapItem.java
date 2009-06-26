@@ -1,4 +1,4 @@
-package org.pokenet.server.backend;
+package org.pokenet.server.backend.map;
 
 /**
  * A map item

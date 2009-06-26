@@ -1,4 +1,4 @@
-package org.pokenet.server.backend;
+package org.pokenet.server.backend.map;
 
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.Char;

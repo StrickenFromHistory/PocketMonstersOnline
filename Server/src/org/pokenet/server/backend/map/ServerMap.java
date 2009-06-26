@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.Random;
 
 import org.pokenet.server.backend.DataLoader;
-import org.pokenet.server.backend.MapItem;
-import org.pokenet.server.backend.WarpTile;
 import org.pokenet.server.backend.entity.Char;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
