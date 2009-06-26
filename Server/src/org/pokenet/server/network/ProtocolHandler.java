@@ -106,6 +106,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 					if(p.getParty()[pokemonIndex] != null) {
 						if(p.getParty()[pokemonIndex].getMovesLearning().contains(move)) {
 							p.getParty()[pokemonIndex].learnMove(moveIndex, move);
+							p.updateClientPP(pokemonIndex, moveIndex);
 						}
 					}
 					break;
@@ -309,9 +310,6 @@ public class ProtocolHandler extends IoHandlerAdapter {
 						if(p.getBattleField() instanceof WildBattleField) {
 							((WildBattleField) p.getBattleField()).run();
 						}
-						break;
-					case 'i':
-						//Item
 						break;
 					}
 				}

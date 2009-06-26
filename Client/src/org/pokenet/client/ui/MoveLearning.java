@@ -227,8 +227,8 @@ public class MoveLearning extends Frame {
 				m_pp.get(i).setVisible(false);
 			} else {
 				m_pp.get(i).setText(GameClient.getInstance().getOurPlayer().getPokemon()[pokeIndex].
-						getMovecurPP()[i] + "/" + GameClient.getInstance().getOurPlayer().getPokemon()
-						[pokeIndex].getMovemaxPP()[i]);
+						getMoveCurPP()[i] + "/" + GameClient.getInstance().getOurPlayer().getPokemon()
+						[pokeIndex].getMoveMaxPP()[i]);
 				m_pp.get(i).setVisible(true);
 			}
 		}

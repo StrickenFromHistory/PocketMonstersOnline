@@ -1356,7 +1356,22 @@ public class PlayerChar extends Char implements Battleable {
 					(this.getParty()[i].getMoves()[2] != null ? this.getParty()[i].getMoves()[2].getName() : "") + "," +
 					(this.getParty()[i].getMoves()[3] != null ? this.getParty()[i].getMoves()[3].getName() : "")
 			);
+			/* Update move pp */
+			for(int j = 0; j < 4; j++) {
+				updateClientPP(i, j);
+			}
 		}
+	}
+	
+	/**
+	 * Updates the pp of a move
+	 * @param poke
+	 * @param move
+	 */
+	public void updateClientPP(int poke, int move) {
+		if(this.getParty()[poke] != null && this.getParty()[poke].getMove(move) != null)
+			m_session.write("Pp" + String.valueOf(poke) + String.valueOf(move) 
+				+ this.getParty()[poke].getPp(move) + "," + this.getParty()[poke].getMaxPp(move));
 	}
 	
 	/**

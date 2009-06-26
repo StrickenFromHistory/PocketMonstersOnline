@@ -98,6 +98,7 @@ public class ItemProcessor implements Runnable {
 					if(poke.canLearn(PokemonSpecies.getDefaultData(), moveName)) {
 						poke.learnMove(Integer.parseInt(data[1]), moveName);
 						p.getSession().write("PM" + data[0] + data[1] + moveName);
+						p.updateClientPP(Integer.parseInt(data[0]), Integer.parseInt(data[1]));
 						return true;
 					}
 				} catch (Exception e) {
