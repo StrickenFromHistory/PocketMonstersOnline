@@ -111,8 +111,8 @@ public class BattleCanvas extends Container {
 					m_path + "ballnormal" + ".png", false));
 			m_pokeballIcons.put("status", new Image(getClass().getResourceAsStream(m_path + "ballstatus" + ".png"),
 					m_path + "ballstatus" + ".png", false));
-			m_pokeballIcons.put("fainted", new Image(getClass().getResourceAsStream(m_path + "ballfained" + ".png"),
-					m_path + "ballfained" + ".png", false));
+			m_pokeballIcons.put("fainted", new Image(getClass().getResourceAsStream(m_path + "ballfainted" + ".png"),
+					m_path + "ballfainted" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();}
 		LoadingList.setDeferredLoading(false);
 		enemyHPBar.setSize(98, 11);
