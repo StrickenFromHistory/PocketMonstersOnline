@@ -41,6 +41,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.mechanics.BattleMechanics;
 import org.pokenet.server.battle.mechanics.ModData;
@@ -810,8 +811,21 @@ public class Pokemon extends PokemonSpecies {
     }
     
     private static int generateGender(int possibleGenders) {
-		// TODO Auto-generated method stub
-		return 0;
+    	switch (possibleGenders){
+    	case 0:
+    		return 0;
+    	case 1:
+    		return 1;
+    	case 2:
+    		return 2;
+    	case 3:
+    		if (DataService.getBattleMechanics().getRandom().nextBoolean())
+    			return 1;
+    		else
+    			return 2;
+    	default:
+    		return -1;
+    	}
 	}
 
 	/**
