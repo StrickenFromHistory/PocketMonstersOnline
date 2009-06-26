@@ -90,7 +90,7 @@ public class ChatManager implements Runnable {
 				s = (IoSession) o[0];
 				if(s.isConnected() && !s.isClosing())
 					ProtocolHandler.writeMessage(s, new ChatMessage(
-							ChatMessageType.PRIVATE, ((String) o[2])));
+							ChatMessageType.PRIVATE, ((String) o[1]) + "," + ((String) o[2])));
 			}
 			try {
 				Thread.sleep(250);
