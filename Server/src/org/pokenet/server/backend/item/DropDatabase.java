@@ -51,19 +51,21 @@ public class DropDatabase {
 	 */
 	public int getRandomItem(String pokemon) {
 		pokemon = pokemon.toUpperCase();
-		int size = m_database.get(pokemon).size();
-		if(size > 0 && DataService.getBattleMechanics().getRandom().nextInt(99) < 30) {
-			int r = 100;
-			ArrayList<DropData> m_items = m_database.get(pokemon);
-			ArrayList<Integer> m_result = new ArrayList<Integer>();
-			for(int i = 0; i < m_items.size(); i++) {
-				r = DataService.getBattleMechanics().getRandom().nextInt(100) + 1;
-				if(r < m_items.get(i).getProbability())
-					m_result.add(m_items.get(i).getItemNumber());
+		if(m_database != null && m_database.containsKey(pokemon)) {
+			int size = m_database.get(pokemon).size();
+			if(size > 0 && DataService.getBattleMechanics().getRandom().nextInt(99) < 30) {
+				int r = 100;
+				ArrayList<DropData> m_items = m_database.get(pokemon);
+				ArrayList<Integer> m_result = new ArrayList<Integer>();
+				for(int i = 0; i < m_items.size(); i++) {
+					r = DataService.getBattleMechanics().getRandom().nextInt(100) + 1;
+					if(r < m_items.get(i).getProbability())
+						m_result.add(m_items.get(i).getItemNumber());
+				}
+				return m_result.size() > 0 ? 
+						m_result.get(DataService.getBattleMechanics()
+								.getRandom().nextInt(m_result.size())) : -1;
 			}
-			return m_result.size() > 0 ? 
-					m_result.get(DataService.getBattleMechanics()
-							.getRandom().nextInt(m_result.size())) : -1;
 		}
 		return -1;
 	}

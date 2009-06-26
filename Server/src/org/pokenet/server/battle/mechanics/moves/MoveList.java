@@ -3208,7 +3208,7 @@ public class MoveList {
                 Iterator<Pokemon> i = party.iterator();
                 while (i.hasNext()) {
                     Pokemon p = (Pokemon)i.next();
-                    if (p.isFainted() || (p == target)) {
+                    if (p == null || p.isFainted() || (p == target)) {
                         i.remove();
                     }
                 }
