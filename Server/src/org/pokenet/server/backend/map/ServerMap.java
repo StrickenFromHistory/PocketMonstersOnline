@@ -514,7 +514,7 @@ public class ServerMap {
 	 * @return
 	 */
 	private boolean isBlocked(int x, int y, Direction d) {
-		if (m_blocked.getTileAt(x, y) != null)
+		if (m_blocked.getTileAt(x, y) == '1')
 			return true;
 		for(int i = 0; i < m_npcs.size(); i++) {
 			if(m_npcs.get(i).getX() == (x * 32) && m_npcs.get(i).getY() == ((y * 32) - 8))
@@ -765,7 +765,7 @@ public class ServerMap {
 				if(m_waterPokemonChances != null && m_waterPokemonLevels != null)
 					return true;
 			} else {
-				if (m_grass != null && m_grass.getTileAt(x / 32, (y + 8) / 32) != null)
+				if (m_grass != null && m_grass.getTileAt(x / 32, (y + 8) / 32) == '1')
 					if((m_dayPokemonChances != null && m_dayPokemonLevels != null) ||
 							(m_nightPokemonChances != null && m_nightPokemonLevels != null))
 						return true;

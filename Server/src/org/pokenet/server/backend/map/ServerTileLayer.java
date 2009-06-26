@@ -1,7 +1,6 @@
 package org.pokenet.server.backend.map;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import tiled.core.TileLayer;
 
@@ -11,29 +10,36 @@ import tiled.core.TileLayer;
  *
  */
 public class ServerTileLayer {
-	private HashMap<ServerTile, Byte> m_tiles;
+	private byte[][] m_tiles;
+	private int m_width = 0;
+	private int m_height = 0;
 	/**
 	 * Constructor
 	 * @param m
 	 */
 	public ServerTileLayer(TileLayer m) {
-		m_tiles = new HashMap<ServerTile, Byte>();
+		m_tiles = new byte[m.getWidth()][m.getHeight()];
+		m_width = m.getWidth();
+		m_height = m.getHeight();
 		for(int x = 0; x < m.getWidth(); x++) {
 			for(int y = 0; y < m.getHeight(); y++) {
 				if(m.getTileAt(x, y) != null) {
-					m_tiles.put(new ServerTile(x, y), new Byte("1"));
-				}
+					m_tiles[x][y] = '1';
+				} else
+					m_tiles[x][y] = '0';
 			}
 		}
 	}
 	
 	/**
-	 * Returns true ithe tile at x, y
+	 * Returns the tile at x, y
 	 * @param x
 	 * @param y
 	 * @return
 	 */
-	public Byte getTileAt(int x, int y) {
-		return m_tiles.get(new ServerTile(x, y));
+	public byte getTileAt(int x, int y) {
+		if(x < m_width && y < m_height)
+			return m_tiles[x][y];
+		return '0';
 	}
 }
