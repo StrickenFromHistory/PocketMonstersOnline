@@ -520,15 +520,15 @@ public class ServerMap {
 			if(m_npcs.get(i).getX() == (x * 32) && m_npcs.get(i).getY() == ((y * 32) - 8))
 				return true;
 		}
-		if(m_ledgesRight != null && m_ledgesRight.getTileAt(x, y) != null) {
+		if(m_ledgesRight != null && m_ledgesRight.getTileAt(x, y) == '1') {
 			if(d == Direction.Left || d == Direction.Up || d == Direction.Down)
 				return true;
 		}
-		if(m_ledgesLeft != null && m_ledgesLeft.getTileAt(x, y) != null) {
+		if(m_ledgesLeft != null && m_ledgesLeft.getTileAt(x, y) == '1') {
 			if(d == Direction.Right || d == Direction.Up || d == Direction.Down)
 				return true;
 		}
-		if(m_ledgesDown != null && m_ledgesDown.getTileAt(x, y) != null) {
+		if(m_ledgesDown != null && m_ledgesDown.getTileAt(x, y) == '1') {
 			if(d == Direction.Left || d == Direction.Up || d == Direction.Right)
 				return true;
 		}
@@ -571,7 +571,7 @@ public class ServerMap {
 			newY = ((playerY + 8) - 32) / 32;
 			if (playerY >= 1) {
 				if (!isBlocked(newX, newY, Direction.Up)) {
-					if(m_surf != null && m_surf.getTileAt(newX, newY) != null) {
+					if(m_surf != null && m_surf.getTileAt(newX, newY) == '1') {
 						if(c.isSurfing()) {
 							return true;
 						} else {
@@ -604,7 +604,7 @@ public class ServerMap {
 			newY = ((playerY + 8) + 32) / 32;
 			if (playerY + 40 < m_heigth * 32) {
 				if (!isBlocked(newX, newY, Direction.Down)) {
-					if(m_surf != null && m_surf.getTileAt(newX, newY) != null) {
+					if(m_surf != null && m_surf.getTileAt(newX, newY) == '1') {
 						if(c.isSurfing()) {
 							return true;
 						} else {
@@ -637,7 +637,7 @@ public class ServerMap {
 			newY = (playerY + 8) / 32;
 			if (playerX >= 32) {
 				if (!isBlocked(newX, newY, Direction.Left)) {
-					if(m_surf != null && m_surf.getTileAt(newX, newY) != null) {
+					if(m_surf != null && m_surf.getTileAt(newX, newY) == '1') {
 						if(c.isSurfing()) {
 							return true;
 						} else {
@@ -670,7 +670,7 @@ public class ServerMap {
 			newY = (playerY + 8) / 32;
 			if (playerX + 32 < m_width * 32) {
 				if (!isBlocked(newX, newY, Direction.Right)) {
-					if(m_surf != null && m_surf.getTileAt(newX, newY) != null) {
+					if(m_surf != null && m_surf.getTileAt(newX, newY) == '1') {
 						if(c.isSurfing()) {
 							return true;
 						} else {
