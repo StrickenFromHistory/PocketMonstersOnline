@@ -425,6 +425,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
 			//TODO: If player is battling, end the battle with them losing 
 			if(p != null) {
+				p.setBattleField(null);
 				GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(p);
 				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 				m_players.remove(p);

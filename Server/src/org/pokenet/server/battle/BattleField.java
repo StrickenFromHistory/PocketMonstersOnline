@@ -622,7 +622,7 @@ public abstract class BattleField {
         Pokemon[] pokemon = m_pokemon[idx];
         for (int i = 0; i < pokemon.length; ++i) {
             if (pokemon[i] != null && !pokemon[i].isFainted()) {
-                ++alive;
+                alive++;
             }
         }
         return alive;

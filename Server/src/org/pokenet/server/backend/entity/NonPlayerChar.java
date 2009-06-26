@@ -297,7 +297,8 @@ public class NonPlayerChar extends Char {
 		String name;
 		GameServer.getServiceManager().getDataService();
 		Random r = DataService.getBattleMechanics().getRandom();
-		if(m_minPartySize < p.getPartyCount()) {
+		int playerPartySize = p.getPartyCount();
+		if(m_minPartySize < playerPartySize && m_possiblePokemon.size() >= playerPartySize + 1) {
 			/*
 			 * The player has more Pokemon, generate a random party
 			 */
@@ -305,9 +306,9 @@ public class NonPlayerChar extends Char {
 			 * First, get a random party size that is greater than m_minPartySize
 			 * and less than or equal to the amount of pokemon in the player's party + 1
 			 */
-			int pSize = r.nextInt(p.getPartyCount() + 1 > 6 ? 6 : p.getPartyCount() + 1);
+			int pSize = r.nextInt(playerPartySize + 1 > 6 ? 6 : playerPartySize + 1);
 			while(pSize < m_minPartySize) {
-				pSize = r.nextInt(p.getPartyCount() + 1 > 6 ? 6 : p.getPartyCount() + 1);
+				pSize = r.nextInt(playerPartySize + 1 > 6 ? 6 : playerPartySize + 1);
 			}
 			/*
 			 * Now generate the random Pokemon
@@ -332,9 +333,9 @@ public class NonPlayerChar extends Char {
 				name = (String) m_possiblePokemon.keySet().toArray()[r.nextInt(m_possiblePokemon.keySet().size())];
 				level = m_possiblePokemon.get(name);
 				//Ensure levels are the similiar
-				while(level < p.getHighestLevel() - 3) {
+				/*while(level < p.getHighestLevel() - 3) {
 					level = r.nextInt(p.getHighestLevel() + 5);
-				}
+				}*/
 				poke = Pokemon.getRandomPokemon(name, level);
 				party[i] = poke;
 			}
