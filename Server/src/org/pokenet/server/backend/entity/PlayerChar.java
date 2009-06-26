@@ -288,7 +288,7 @@ public class PlayerChar extends Char implements Battleable {
 			 */
 			if(this.getMap().getPvPType() == PvPType.ENFORCED) {
 				PlayerChar otherPlayer = ProtocolHandler.getPlayers().get(username);
-				if(this.getMap() == otherPlayer.getMap()) {
+				if(otherPlayer != null && this.getMap() == otherPlayer.getMap()) {
 					if(otherPlayer.getX() >= this.getX() - 96 || 
 							otherPlayer.getX() <= this.getX() + 96 ||
 							otherPlayer.getY() >= this.getY() - 96 ||
@@ -337,17 +337,22 @@ public class PlayerChar extends Char implements Battleable {
 					 * Based on the map's pvp type, check this battle is possible
 					 * If pvp is enforced, it will be started when the offer is made
 					 */
-					switch(this.getMap().getPvPType()) {
-					case DISABLED:
-						/* Some maps have pvp disabled */
-						otherPlayer.getSession().write("r!2");
-						m_session.write("r!2");
-						return;
-					case ENABLED:
-						/* This is a valid battle, start it */
+					if(this.getMap().getPvPType() != null) {
+						switch(this.getMap().getPvPType()) {
+						case DISABLED:
+							/* Some maps have pvp disabled */
+							otherPlayer.getSession().write("r!2");
+							m_session.write("r!2");
+							return;
+						case ENABLED:
+							/* This is a valid battle, start it */
+							m_battleField = new PvPBattleField(
+									DataService.getBattleMechanics(),this, otherPlayer);
+							return;
+						}
+					} else {
 						m_battleField = new PvPBattleField(
 								DataService.getBattleMechanics(),this, otherPlayer);
-						break;
 					}
 					break;
 				case TRADE:
