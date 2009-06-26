@@ -621,7 +621,7 @@ public class Ui extends Frame {
     	};
     	ActionListener no = new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
-    			GameClient.getInstance().getPacketGenerator().write("Pe0");
+    			GameClient.getInstance().getPacketGenerator().write("Pe0" + index);
     			GameClient.getInstance().getDisplay().remove(m_evolveDialog);
     		}
     	};

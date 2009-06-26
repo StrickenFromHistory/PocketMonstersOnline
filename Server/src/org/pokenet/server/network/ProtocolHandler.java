@@ -121,10 +121,19 @@ public class ProtocolHandler extends IoHandlerAdapter {
 					}
 					break;
 				case 'e':
-					//Player is allowing evolution
+					//Evolution response
 					pokemonIndex = Integer.parseInt(String.valueOf(message.charAt(3)));
 					if(p.getParty()[pokemonIndex] != null) {
-						p.getParty()[pokemonIndex].evolutionResponse(message.charAt(2) == '1', p);
+						switch(message.charAt(2)) {
+						case '0':
+							//Cancel evolution
+							p.getParty()[pokemonIndex].evolutionResponse(false, p);
+							break;
+						case '1':
+							//Allow evolution
+							p.getParty()[pokemonIndex].evolutionResponse(true, p);
+							break;
+						}
 					}
 					break;
 				}
