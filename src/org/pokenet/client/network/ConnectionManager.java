@@ -388,6 +388,14 @@ public class ConnectionManager extends IoHandlerAdapter {
 				                                   .setCurHP(Integer.parseInt(message.substring(3)));
 				GameClient.getInstance().getUi().update(false);
 				break;
+			case 'p':
+				//PP data - Pp POKEINDEX MOVEINDEX CURRENTPP , MAXPP
+				details = message.substring(4).split(",");
+				int poke = Integer.parseInt(String.valueOf(message.charAt(2)));
+				int move = Integer.parseInt(String.valueOf(message.charAt(3)));
+				m_game.getOurPlayer().getPokemon()[poke].setMoveCurPP(move, Integer.parseInt(String.valueOf(details[0])));
+				m_game.getOurPlayer().getPokemon()[poke].setMoveMaxPP(move, Integer.parseInt(String.valueOf(details[1])));
+				break;
 			}
 			break;
 		case 'C':

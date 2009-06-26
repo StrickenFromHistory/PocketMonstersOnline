@@ -142,8 +142,8 @@ public class BattleManager {
 		for (int i = 0; i < 4; i++){
 			if (m_ourPokes[pokeIndex].getMoves()[i] != null) {
 				m_battle.m_moveButtons.get(i).setText(m_ourPokes[pokeIndex].getMoves()[i]);
-				m_battle.m_ppLabels.get(i).setText(m_ourPokes[pokeIndex].getMovecurPP()[i] + "/"
-						+ m_ourPokes[pokeIndex].getMovemaxPP()[i]);
+				m_battle.m_ppLabels.get(i).setText(m_ourPokes[pokeIndex].getMoveCurPP()[i] + "/"
+						+ m_ourPokes[pokeIndex].getMoveMaxPP()[i]);
 			} else {
 				m_battle.m_moveButtons.get(i).setText("");
 				m_battle.m_ppLabels.get(i).setText("");
@@ -158,8 +158,8 @@ public class BattleManager {
 		for (int i = 0; i < 4; i++){
 			if (m_curPoke.getMoves()[i] != null) {
 				m_battle.m_moveButtons.get(i).setText(m_curPoke.getMoves()[i]);
-				m_battle.m_ppLabels.get(i).setText(m_curPoke.getMovecurPP()[i] + "/"
-						+ m_curPoke.getMovemaxPP()[i]);
+				m_battle.m_ppLabels.get(i).setText(m_curPoke.getMoveCurPP()[i] + "/"
+						+ m_curPoke.getMoveMaxPP()[i]);
 				System.out.println(m_curPoke.getMoves()[i]);
 			} else {
 				m_battle.m_moveButtons.get(i).setText("");

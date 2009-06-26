@@ -302,7 +302,7 @@ public class Pokemon {
          * Returns maximum PP for moves
          * @return
          */
-        public int[] getMovemaxPP() {
+        public int[] getMoveMaxPP() {
                 return m_movemaxPP;
         }
         
@@ -310,15 +310,24 @@ public class Pokemon {
          * Sets maximum PP for moves
          * @param movemaxPP
          */
-        public void setMovemaxPP(int[] movemaxPP) {
+        public void setMoveMaxPP(int[] movemaxPP) {
                 this.m_movemaxPP = movemaxPP;
+        }
+        
+        /**
+         * Sets maximum PP of a move
+         * @param move
+         * @param pp
+         */
+        public void setMoveMaxPP(int move, int pp) {
+        	m_movemaxPP[move] = pp;
         }
         
         /**
          * Returns current PP for moves
          * @return
          */
-        public int[] getMovecurPP() {
+        public int[] getMoveCurPP() {
                 return m_movecurPP;
         }
         
@@ -326,7 +335,7 @@ public class Pokemon {
          * Sets current PP for moves
          * @param movecurPP
          */
-        public void setMovecurPP(int[] movecurPP) {
+        public void setMoveCurPP(int[] movecurPP) {
                 this.m_movecurPP = movecurPP;
         }
         
@@ -335,7 +344,7 @@ public class Pokemon {
          * @param move
          * @param pp
          */
-        public void setMovecurPP(int move, int pp) {
+        public void setMoveCurPP(int move, int pp) {
                 this.m_movecurPP[move] = pp;
         }
         
