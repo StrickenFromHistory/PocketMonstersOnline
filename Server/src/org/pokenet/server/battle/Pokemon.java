@@ -730,7 +730,8 @@ public class Pokemon extends PokemonSpecies {
 				boolean exists = false;
 				/* Check if this move is already in the list of possible moves */
 				for(int j = 0; j < possibleMoves.size(); j++) {
-					if(possibleMoves.get(j).getName().equalsIgnoreCase(m.getName())) {
+					if(possibleMoves.get(j) != null && possibleMoves.get(j).getName() != null &&
+							possibleMoves.get(j).getName().equalsIgnoreCase(m.getName())) {
 						exists = true;
 						break;
 					}

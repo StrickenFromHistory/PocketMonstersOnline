@@ -295,7 +295,6 @@ public class NonPlayerChar extends Char {
 		Pokemon poke;
 		int level;
 		String name;
-		GameServer.getServiceManager().getDataService();
 		Random r = DataService.getBattleMechanics().getRandom();
 		int playerPartySize = p.getPartyCount();
 		if(m_minPartySize < playerPartySize && m_possiblePokemon.size() >= playerPartySize + 1) {
