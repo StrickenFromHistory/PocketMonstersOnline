@@ -1,7 +1,5 @@
 package org.pokenet.server.backend.map;
 
-import java.util.ArrayList;
-
 import tiled.core.TileLayer;
 
 /**
