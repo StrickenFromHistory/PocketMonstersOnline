@@ -106,9 +106,13 @@ public class GameClient extends BasicGame {
 			m_soundPlayer.start();
 			m_soundPlayer.setTrack("introandgym");
 			m_disableMaps = Boolean.parseBoolean(options.get("disableMaps"));
-		} catch (IOException e) { 
+		} catch (Exception e) { 
+			m_instance = new GameClient("Pokenet: Fearless Feebas");
 			m_disableMaps = true;
-			e.printStackTrace();
+			m_soundPlayer = new SoundManager();
+			m_soundPlayer.mute(false);
+			m_soundPlayer.start();
+			m_soundPlayer.setTrack("introandgym");
 		}
 	}
 
@@ -511,9 +515,15 @@ public class GameClient extends BasicGame {
 	 * @param args
 	 */
 	public static void main(String [] args) {
+		boolean fullscreen = false;
+		try {
+			fullscreen = Boolean.parseBoolean(options.get("fullScreen"));
+		} catch (Exception e) {
+			fullscreen = false;
+		}
 		try {
 			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet: Fearless Feebas"),
-					800, 600, Boolean.parseBoolean(options.get("fullScreen")));
+					800, 600, fullscreen);
 			gc.setTargetFrameRate(50);
 			gc.start();
 		} catch (Exception e) {
