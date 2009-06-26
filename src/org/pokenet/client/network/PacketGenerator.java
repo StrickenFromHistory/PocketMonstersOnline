@@ -46,7 +46,7 @@ public class PacketGenerator {
 		char language = '0';
 		if(GameClient.getLanguage().equalsIgnoreCase("english")) {
 			language = '0';
-		} else if(GameClient.getLanguage().equalsIgnoreCase("portugese")) {
+		} else if(GameClient.getLanguage().equalsIgnoreCase("portuguese")) {
 			language = '1';
 		} else if(GameClient.getLanguage().equalsIgnoreCase("italian")) {
 			language = '2';
@@ -54,7 +54,7 @@ public class PacketGenerator {
 			language = '3';
 		} else if(GameClient.getLanguage().equalsIgnoreCase("finnish")) {
 			language = '4';
-		} else if(GameClient.getLanguage().equalsIgnoreCase("spannish")) {
+		} else if(GameClient.getLanguage().equalsIgnoreCase("spanish")) {
 			language = '5';
 		} else if(GameClient.getLanguage().equalsIgnoreCase("dutch")) {
 			language = '6';
