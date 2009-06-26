@@ -44,7 +44,7 @@ public class ItemProcessor implements Runnable {
 			data[i - 1] = m_details[i];
 		if(useItem(m_player, Integer.parseInt(m_details[0]), data)) {
 			m_player.getBag().removeItem(Integer.parseInt(m_details[0]), 1);
-			m_player.getSession().write("I" + m_details[0] + "," + 1);
+			m_player.getSession().write("Ir" + m_details[0] + "," + 1);
 		}
 	}
 	

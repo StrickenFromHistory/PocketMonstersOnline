@@ -55,7 +55,7 @@ public class ChatManager implements Runnable {
 	 * @param mapY
 	 */
 	public void queueLocalChatMessage(String message, int mapX, int mapY, Language l) {
-		m_localQueue.add(new Object[]{message, String.valueOf(mapX), String.valueOf(mapY), l.toString()});
+		m_localQueue.add(new Object[]{message, String.valueOf(mapX), String.valueOf(mapY), String.valueOf(l)});
 	}
 	
 	/**
@@ -82,7 +82,7 @@ public class ChatManager implements Runnable {
 				m = GameServer.getServiceManager().getMovementService().
 					getMapMatrix().getMapByGamePosition(Integer.parseInt((String) o[1]), Integer.parseInt((String) o[2]));
 				if(m != null)
-					m.sendChatMessage((String) o[0], Language.valueOf((String)o[3]));
+					m.sendChatMessage((String) o[0], Language.valueOf(((String)o[3])));
 			}
 			//Send next private chat message
 			if(m_privateQueue.peek() != null) {
