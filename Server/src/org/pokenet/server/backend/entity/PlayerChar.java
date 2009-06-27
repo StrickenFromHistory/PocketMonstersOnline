@@ -168,6 +168,12 @@ public class PlayerChar extends Char implements Battleable {
 		}
 		/* Make sure we're not swapping two empty slots */
 		if(m_pokemon[partySlot] != null || m_boxes[box].getPokemon(boxSlot) != null) {
+			/* Make sure we're not depositing our only Pokemon */
+			if(getPartyCount() == 1) {
+				if(m_boxes[box].getPokemon(boxSlot) == null)
+					return;
+			}
+			/* Everything is okay, let's get swapping! */
 			Pokemon temp = m_pokemon[partySlot];
 			m_pokemon[partySlot] = m_boxes[box].getPokemon(boxSlot);
 			m_boxes[box].setPokemon(boxSlot, temp);
@@ -272,6 +278,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_trade = null;
 		if(m_session != null && m_session.isConnected())
 			m_session.write("Tf");
+		ensureHealthyPokemon();
 	}
 	
 	/**
@@ -294,6 +301,8 @@ public class PlayerChar extends Char implements Battleable {
 							otherPlayer.getY() >= this.getY() - 96 ||
 							otherPlayer.getY() <= this.getY() + 96) {
 						/* This is a valid battle, start it */
+						ensureHealthyPokemon();
+						otherPlayer.ensureHealthyPokemon();
 						m_battleField = new PvPBattleField(
 								DataService.getBattleMechanics(),this, otherPlayer);
 						return;
@@ -346,6 +355,8 @@ public class PlayerChar extends Char implements Battleable {
 							return;
 						case ENABLED:
 							/* This is a valid battle, start it */
+							ensureHealthyPokemon();
+							otherPlayer.ensureHealthyPokemon();
 							m_battleField = new PvPBattleField(
 									DataService.getBattleMechanics(),this, otherPlayer);
 							return;
