@@ -155,7 +155,7 @@ public class PvPBattleField extends BattleField {
 	@Override
 	public void informPokemonHealthChanged(Pokemon poke, int change) {
 		if (m_players != null && poke != null) {
-			if (poke == m_players[0].getParty()[0]) {
+			if (poke.compareTo(getActivePokemon()[0]) == 0) {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new HealthChangeMessage(0 , change));
 				ProtocolHandler.writeMessage(m_players[1].getSession(), 
@@ -172,7 +172,7 @@ public class PvPBattleField extends BattleField {
 	@Override
 	public void informStatusApplied(Pokemon poke, StatusEffect eff) {
 		if (m_players != null && poke != null) {
-			if (poke == m_players[0].getParty()[0]) {
+			if (poke.compareTo(getActivePokemon()[0]) == 0) {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 
@@ -197,7 +197,7 @@ public class PvPBattleField extends BattleField {
 	@Override
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
 		if (poke != null) {
-			if (m_players != null && poke == m_players[0].getParty()[0]) {
+			if (m_players != null && poke.compareTo(getActivePokemon()[0]) == 0) {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 

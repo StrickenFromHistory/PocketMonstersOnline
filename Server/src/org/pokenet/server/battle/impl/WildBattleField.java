@@ -388,6 +388,8 @@ public class WildBattleField extends BattleField {
 	 * Generates a wild Pokemon move
 	 */
 	protected void getWildPokemonMove() {
+		if(getActivePokemon()[1] == null)
+			return;
 		try {
 			int moveID = getMechanics().getRandom().nextInt(4);
 			while (getActivePokemon()[1].getMove(moveID) == null)

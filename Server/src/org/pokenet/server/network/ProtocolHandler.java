@@ -103,7 +103,8 @@ public class ProtocolHandler extends IoHandlerAdapter {
 					pokemonIndex = Integer.parseInt(String.valueOf(message.charAt(2)));
 					int moveIndex = Integer.parseInt(String.valueOf(message.charAt(3)));
 					move = message.substring(4);
-					if(p.getParty()[pokemonIndex] != null) {
+					if(move != null && !move.equalsIgnoreCase("") &&
+							p.getParty()[pokemonIndex] != null) {
 						if(p.getParty()[pokemonIndex].getMovesLearning().contains(move)) {
 							p.getParty()[pokemonIndex].learnMove(moveIndex, move);
 							p.updateClientPP(pokemonIndex, moveIndex);

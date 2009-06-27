@@ -2087,6 +2087,9 @@ public class Pokemon extends PokemonSpecies {
     
     public int getStat(int i, double multiplier) {
         if ((i < 0) || (i > 5)) throw new StatException();
+    	if(m_stat == null) {
+    		calculateStats(false);
+    	}
         return (int)(((double)m_stat[i]) * multiplier);
     }
     

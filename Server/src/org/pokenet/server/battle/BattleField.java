@@ -665,6 +665,10 @@ public abstract class BattleField {
          * Compare based on speed.
          */
         public static int compareSpeed(Pokemon p1, Pokemon p2) {
+        	if(p1 == null)
+        		return 1;
+        	if(p2 == null)
+        		return -1;
             final int s1 = p1.getStat(Pokemon.S_SPEED);
             final int s2 = p2.getStat(Pokemon.S_SPEED);
             int comp = 0;
