@@ -359,6 +359,21 @@ public class Pokemon extends PokemonSpecies {
     }
     
     /**
+     * Returns true if a pokemon knows the move
+     * @param move
+     * @return
+     */
+    public boolean hasMove(String move) {
+    	for(int i = 0; i < m_move.length; i++) {
+    		if(m_move[i] != null && m_move[i].getName() != null &&
+    				m_move[i].getName().equalsIgnoreCase(move)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
+    /**
      * Handles the response from the client, 
      * whether they allowed evolution or not
      * @param allow  - If the evolution is allowed
@@ -390,7 +405,8 @@ public class Pokemon extends PokemonSpecies {
     		for(int i = oldLevel + 1; i <= level; i++) {
     			if(pokeData.getMoves().get(i) != null) {
     				move = pokeData.getMoves().get(i);
-    				m_movesLearning.add(move);
+    				if(move != null && !move.equalsIgnoreCase("") && !hasMove(move))
+    					m_movesLearning.add(move);
     			}
     		}
     		/* Save the Pokemon's level */
