@@ -53,15 +53,14 @@ public class PvPBattleField extends BattleField {
 		m_players[0] = p1;
 		m_players[1] = p2;
 		/*
-		 * Set the battlefield for the players
-		 */
-		p1.setBattleField(this);
-		p2.setBattleField(this);
-		/*
 		 *Set the player to battling 
 		 */
 		p1.setBattling(true);
 		p2.setBattling(true);
+		/*
+		 * Set the battlefield for the players
+		 */
+		p2.setBattleField(this);
 		/*
 		 * Set battle ids
 		 */
@@ -145,15 +144,17 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void informPokemonFainted(int trainer, int idx) {
-		ProtocolHandler.writeMessage(m_players[0].getSession(), 
-				new FaintMessage(getParty(trainer)[idx].getSpeciesName()));
-		ProtocolHandler.writeMessage(m_players[1].getSession(), 
-				new FaintMessage(getParty(trainer)[idx].getSpeciesName()));
+		if(m_players != null) {
+			ProtocolHandler.writeMessage(m_players[0].getSession(), 
+					new FaintMessage(getParty(trainer)[idx].getSpeciesName()));
+			ProtocolHandler.writeMessage(m_players[1].getSession(), 
+					new FaintMessage(getParty(trainer)[idx].getSpeciesName()));
+		}
 	}
 
 	@Override
 	public void informPokemonHealthChanged(Pokemon poke, int change) {
-		if (poke != null) {
+		if (m_players != null && poke != null) {
 			if (poke == m_players[0].getParty()[0]) {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new HealthChangeMessage(0 , change));
@@ -170,7 +171,7 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void informStatusApplied(Pokemon poke, StatusEffect eff) {
-		if (poke != null) {
+		if (m_players != null && poke != null) {
 			if (poke == m_players[0].getParty()[0]) {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new StatusChangeMessage(0, 
@@ -196,7 +197,7 @@ public class PvPBattleField extends BattleField {
 	@Override
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
 		if (poke != null) {
-			if (poke == m_players[0].getParty()[0]) {
+			if (m_players != null && poke == m_players[0].getParty()[0]) {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 
@@ -221,37 +222,41 @@ public class PvPBattleField extends BattleField {
 	@Override
 	public void informSwitchInPokemon(int trainer, Pokemon poke) {
 		int pokeIndex = getPokemonPartyIndex(trainer, poke);
-		if (trainer == 0) {
-			ProtocolHandler.writeMessage(m_players[0].getSession(), 
-					new SwitchMessage(m_players[0].getName(),
-							poke.getSpeciesName(),
-							trainer,
-							pokeIndex));
-			ProtocolHandler.writeMessage(m_players[1].getSession(), 
-					new SwitchMessage(m_players[0].getName(),
-							poke.getSpeciesName(),
-							trainer,
-							pokeIndex));
-		} else {
-			ProtocolHandler.writeMessage(m_players[0].getSession(), 
-					new SwitchMessage(m_players[1].getName(),
-							poke.getSpeciesName(),
-							trainer,
-							pokeIndex));
-			ProtocolHandler.writeMessage(m_players[1].getSession(), 
-					new SwitchMessage(m_players[1].getName(),
-							poke.getSpeciesName(),
-							trainer,
-							pokeIndex));
+		if(m_players != null) {
+			if (trainer == 0) {
+				ProtocolHandler.writeMessage(m_players[0].getSession(), 
+						new SwitchMessage(m_players[0].getName(),
+								poke.getSpeciesName(),
+								trainer,
+								pokeIndex));
+				ProtocolHandler.writeMessage(m_players[1].getSession(), 
+						new SwitchMessage(m_players[0].getName(),
+								poke.getSpeciesName(),
+								trainer,
+								pokeIndex));
+			} else {
+				ProtocolHandler.writeMessage(m_players[0].getSession(), 
+						new SwitchMessage(m_players[1].getName(),
+								poke.getSpeciesName(),
+								trainer,
+								pokeIndex));
+				ProtocolHandler.writeMessage(m_players[1].getSession(), 
+						new SwitchMessage(m_players[1].getName(),
+								poke.getSpeciesName(),
+								trainer,
+								pokeIndex));
+			}
 		}
 	}
 
 	@Override
 	public void informUseMove(Pokemon poke, String name) {
-		ProtocolHandler.writeMessage(m_players[0].getSession(), 
-				new BattleMoveMessage(poke.getSpeciesName(), name));
-		ProtocolHandler.writeMessage(m_players[1].getSession(), 
-				new BattleMoveMessage(poke.getSpeciesName(), name));
+		if(m_players != null) {
+			ProtocolHandler.writeMessage(m_players[0].getSession(), 
+					new BattleMoveMessage(poke.getSpeciesName(), name));
+			ProtocolHandler.writeMessage(m_players[1].getSession(), 
+					new BattleMoveMessage(poke.getSpeciesName(), name));
+		}
 	}
 
 	@SuppressWarnings("deprecation")
@@ -416,15 +421,17 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void refreshActivePokemon() {
-		m_players[0].getSession().write(
-				"bh0" + this.getActivePokemon()[0].getHealth());
-		m_players[0].getSession().write(
-				"bh1" + this.getActivePokemon()[1].getHealth());
+		if(m_players != null) {
+			m_players[0].getSession().write(
+					"bh0" + this.getActivePokemon()[0].getHealth());
+			m_players[0].getSession().write(
+					"bh1" + this.getActivePokemon()[1].getHealth());
 
-		m_players[1].getSession().write(
-				"bh0" + this.getActivePokemon()[1].getHealth());
-		m_players[1].getSession().write(
-				"bh1" + this.getActivePokemon()[0].getHealth());
+			m_players[1].getSession().write(
+					"bh0" + this.getActivePokemon()[1].getHealth());
+			m_players[1].getSession().write(
+					"bh1" + this.getActivePokemon()[0].getHealth());
+		}
 	}
 
 	@Override

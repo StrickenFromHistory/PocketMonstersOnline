@@ -1999,10 +1999,13 @@ public class Pokemon extends PokemonSpecies {
         synchronized (m_statuses) {
             Iterator<StatusEffect> i = m_statuses.iterator();
             while (i.hasNext()) {
-                StatusEffect j = (StatusEffect)i.next();
-                if (!j.isRemovable() && (eff.equals(j) || eff.isExclusiveWith(j))) {
-                    return null;
-                }
+            	Object o = i.next();
+            	if(o != null) {
+                    StatusEffect j = (StatusEffect) o;
+                    if (!j.isRemovable() && (eff.equals(j) || eff.isExclusiveWith(j))) {
+                        return null;
+                    }
+            	}
             }
         }
         
