@@ -409,7 +409,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 					break;
 				case 't':
 					//Start talking
-					if(!p.isTalking())
+					if(!p.isTalking() && !p.isBattling())
 						p.talkToNpc();
 					break;
 				case 'f':
