@@ -132,12 +132,12 @@ public class BattleTimeLine {
 	public void informSwitch(String[] data){
 		m_trainer = data[0];
 		m_pokeName = data[1];
+		GameClient.getInstance().getUi().getBattleManager().switchPoke(Integer.parseInt(data[2]),
+				Integer.parseInt(data[3]));
 		m_canvas.drawOurPoke();
 		m_canvas.drawOurInfo();
 		m_canvas.drawEnemyPoke();
 		m_canvas.drawEnemyInfo();
-		GameClient.getInstance().getUi().getBattleManager().switchPoke(Integer.parseInt(data[2]),
-				Integer.parseInt(data[3]));
 		addSpeech(m_translator.get(5));
 	}
 	
