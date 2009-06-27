@@ -227,23 +227,23 @@ public class PvPBattleField extends BattleField {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new SwitchMessage(m_players[0].getName(),
 								poke.getSpeciesName(),
-								trainer,
+								0,
 								pokeIndex));
 				ProtocolHandler.writeMessage(m_players[1].getSession(), 
 						new SwitchMessage(m_players[0].getName(),
 								poke.getSpeciesName(),
-								trainer,
+								1,
 								pokeIndex));
 			} else {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new SwitchMessage(m_players[1].getName(),
 								poke.getSpeciesName(),
-								trainer,
+								1,
 								pokeIndex));
 				ProtocolHandler.writeMessage(m_players[1].getSession(), 
 						new SwitchMessage(m_players[1].getName(),
 								poke.getSpeciesName(),
-								trainer,
+								0,
 								pokeIndex));
 			}
 		}
