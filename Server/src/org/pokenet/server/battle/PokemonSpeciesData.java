@@ -358,7 +358,8 @@ public class PokemonSpeciesData {
      */
     public int getPokemonByName(String name) {
         for (int i = 0; i < m_database.length; ++i) {
-            if (m_database[i].getName().equalsIgnoreCase(name)) {
+            if (m_database[i] != null && m_database[i].getName() != null && 
+            		m_database[i].getName().equalsIgnoreCase(name)) {
                 return i;
             }
         }
