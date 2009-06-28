@@ -182,6 +182,7 @@ public class PlayerChar extends Char implements Battleable {
 			} else {
 				m_session.write("PN" + partySlot);
 			}
+			ensureHealthyPokemon();
 		}
 	}
 	
@@ -533,12 +534,10 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void swapPokemon(int a, int b) {
 		if(a >= 0 && a < 6 && b >= 0 && b < 6) {
-			if(m_pokemon[a] != null && m_pokemon[b] != null) {
-				Pokemon temp = m_pokemon[a];
-				m_pokemon[a] = m_pokemon[b];
-				m_pokemon[b] = temp;
-				m_session.write("s" + a + "," + b);
-			}
+			Pokemon temp = m_pokemon[a];
+			m_pokemon[a] = m_pokemon[b];
+			m_pokemon[b] = temp;
+			m_session.write("s" + a + "," + b);
 		}
 	}
 	
