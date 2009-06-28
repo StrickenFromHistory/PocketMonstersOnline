@@ -921,11 +921,12 @@ public class PlayerChar extends Char implements Battleable {
 		for(int i = 0; i < m_boxes.length; i++) {
 			if(m_boxes[i] != null) {
 				/* Find space in an existing box */
-				for(int j = 0; j < m_boxes[i].getPokemon().length; j++)
+				for(int j = 0; j < m_boxes[i].getPokemon().length; j++) {
 					if(m_boxes[i].getPokemon(j) == null) {
 						m_boxes[i].setPokemon(j, p) ;
 						return;
 					}
+				}
 			} else {
 				/* We need a new box */
 				m_boxes[i] = new PokemonBox();
