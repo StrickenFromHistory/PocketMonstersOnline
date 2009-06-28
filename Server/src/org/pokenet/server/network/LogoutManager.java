@@ -232,25 +232,26 @@ public class LogoutManager implements Runnable {
 								result.last();
 								p.getBoxes()[i].setDatabaseId(result.getInt("id"));
 							}
-							//Save all pokemon first
+							/* Save all pokemon in box */
 							for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
 								if(p.getBoxes()[i].getPokemon(j) != null) {
 									if(p.getBoxes()[i].getPokemon(j).getId() == -1) {
 										/* This is a new Pokemon, create it in the database */
-										if(!saveNewPokemon(p.getBoxes()[i].getPokemon(j), m_database))
+										if(saveNewPokemon(p.getBoxes()[i].getPokemon(j), m_database)) {
+											m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "' " +
+													"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
+										} else {
 											return false;
+										}
 									} else {
 										/* Update an existing pokemon */
-										if(!savePokemon(p.getBoxes()[i].getPokemon(j)))
+										if(savePokemon(p.getBoxes()[i].getPokemon(j))) {
+											m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "' " +
+													"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
+										} else {
 											return false;
+										}
 									}
-								}
-							}
-							//Now save all references to the box
-							for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
-								if(p.getBoxes()[i].getPokemon(j) != null) {
-									m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "' " +
-										"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
 								} else {
 									m_database.query("UPDATE pn_box SET pokemon" + j + "='-1' " +
 											"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");

@@ -305,7 +305,7 @@ public class LoginManager implements Runnable {
 					boxInfo.first();
 					boxes[i] = new PokemonBox();
 					boxes[i].setPokemon(new Pokemon[30]);
-					boxes[i].setDatabaseId(pokemons.getInt("box" + i));
+					boxes[i].setDatabaseId(boxInfo.getInt("id"));
 					for(int j = 0; j < 30; j++) {
 						/*
 						 * -1 stored in the database if no pokemon exists
