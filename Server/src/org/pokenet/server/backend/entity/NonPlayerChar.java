@@ -125,6 +125,7 @@ public class NonPlayerChar extends Char {
 		/* Box access */
 		if(m_isBox) {
 			//Send the data for the player's first box, they may change this later
+			p.setTalking(false);
 			p.setBoxing(true);
 			p.sendBoxInfo(0);
 		}

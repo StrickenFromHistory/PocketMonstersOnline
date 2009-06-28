@@ -190,9 +190,9 @@ public class LogoutManager implements Runnable {
 				//Save all the Pokemon
 				for(int i = 0; i < 6; i++) {
 					if(p.getParty() != null && p.getParty()[i] != null) {
-						if(p.getParty()[i].getDatabaseID() == -1) {
+						if(p.getParty()[i].getDatabaseID() < 1) {
 							//This is a new Pokemon, add it to the database
-							if(saveNewPokemon(p.getParty()[i], m_database) > -1)
+							if(saveNewPokemon(p.getParty()[i], m_database) < 1)
 								return false;
 						} else {
 							//Old Pokemon, just update
@@ -235,7 +235,7 @@ public class LogoutManager implements Runnable {
 							/* Save all pokemon in box */
 							for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
 								if(p.getBoxes()[i].getPokemon(j) != null) {
-									if(p.getBoxes()[i].getPokemon(j).getId() == -1) {
+									if(p.getBoxes()[i].getPokemon(j).getId() < 1) {
 										/* This is a new Pokemon, create it in the database */
 										int pokedbNo = saveNewPokemon(p.getBoxes()[i].getPokemon(j), m_database);
 										if(pokedbNo > -1) {
@@ -259,6 +259,7 @@ public class LogoutManager implements Runnable {
 											"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
 								}
 							}
+							System.out.println(p.getBoxes()[i].getDatabaseId());
 							/* Now save the reference to the box in the player's poke list */
 							m_database.query("UPDATE pn_mypokes SET box" + i + "='" + p.getBoxes()[i].getDatabaseId() + "' WHERE member='"
 									+ p.getId() + "'");
@@ -327,7 +328,8 @@ public class LogoutManager implements Runnable {
 			 * This needs to be done so it can be attached to the player in the database later.
 			 */
 			ResultSet result = db.query("SELECT * FROM pn_pokemon WHERE originalTrainerName='"  + MySqlManager.parseSQL(p.getOriginalTrainer()) + 
-					"' AND date='" + MySqlManager.parseSQL(p.getDateCaught()) + "'");
+					"' AND date='" + MySqlManager.parseSQL(p.getDateCaught()) + "' AND name='" + p.getSpeciesName() + "' AND exp='" + 
+					String.valueOf(p.getExp()) + "'");
 			result.first();
 			p.setDatabaseID(result.getInt("id"));
 			db.query("UPDATE pn_pokemon SET move0='" + MySqlManager.parseSQL(p.getMove(0).getName()) +
