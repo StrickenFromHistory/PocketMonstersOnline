@@ -104,6 +104,7 @@ public class NonPlayerChar extends Char {
 				ProtocolHandler.writeMessage(p.getSession(), 
 						new ChatMessage(ChatMessageType.NPC, speech));
 			}
+			setLastBattleTime(System.currentTimeMillis());
 			p.setBattling(true);
 			p.setBattleField(new NpcBattleField(DataService.getBattleMechanics(), p, this));
 			return;
