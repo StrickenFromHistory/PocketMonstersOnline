@@ -1171,6 +1171,8 @@ public class IntrinsicAbility extends StatusEffect implements Comparable<Object>
         
         new IntrinsicAbility("Leaf Guard") {
             public boolean allowsStatus(StatusEffect eff, Pokemon source, Pokemon target) {
+            	if(source == null || target == null)
+            		return true;
                 BattleField field = source.getField();
                 if (field == null) return true;
                 if (field.getEffectByType(SunEffect.class) ==  null) return true;
