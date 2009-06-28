@@ -151,6 +151,7 @@ public class PlayerChar extends Char implements Battleable {
 				m_boxes[box].setPokemon(slot, null);
 			}
 		}
+		setBoxing(false);
 	}
 	
 	/**
@@ -160,30 +161,30 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param partySlot
 	 */
 	public void swapFromBox(int box, int boxSlot, int partySlot) {
+		if(box < 0 || box > 8)
+			return;
 		/* Ensure the box exists */
 		if(m_boxes[box] == null) {
 			m_boxes[box] = new PokemonBox();
 			m_boxes[box].setDatabaseId(-1);
 			m_boxes[box].setPokemon(new Pokemon[30]);
 		}
-		/* Make sure we're not swapping two empty slots */
-		if(m_pokemon[partySlot] != null || m_boxes[box].getPokemon(boxSlot) != null) {
-			/* Make sure we're not depositing our only Pokemon */
-			if(getPartyCount() == 1) {
-				if(m_pokemon[partySlot] != null && m_boxes[box].getPokemon(boxSlot) == null)
-					return;
-			}
-			/* Everything is okay, let's get swapping! */
-			Pokemon temp = m_pokemon[partySlot];
-			m_pokemon[partySlot] = m_boxes[box].getPokemon(boxSlot);
-			m_boxes[box].setPokemon(boxSlot, temp);
-			if(m_pokemon[partySlot] != null) {
-				updateClientParty(partySlot);
-			} else {
-				m_session.write("PN" + partySlot);
-			}
-			ensureHealthyPokemon();
+		/* Make sure we're not depositing our only Pokemon */
+		if(getPartyCount() == 1) {
+			if(m_pokemon[partySlot] != null && m_boxes[box].getPokemon(boxSlot) == null)
+				return;
 		}
+		/* Everything is okay, let's get swapping! */
+		Pokemon temp = m_pokemon[partySlot];
+		m_pokemon[partySlot] = m_boxes[box].getPokemon(boxSlot);
+		m_boxes[box].setPokemon(boxSlot, temp);
+		if(m_pokemon[partySlot] != null) {
+			updateClientParty(partySlot);
+		} else {
+			m_session.write("PN" + partySlot);
+		}
+		ensureHealthyPokemon();
+		setBoxing(false);
 	}
 	
 	/**

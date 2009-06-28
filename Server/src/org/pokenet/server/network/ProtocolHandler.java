@@ -227,11 +227,9 @@ public class ProtocolHandler extends IoHandlerAdapter {
 						break;
 					case 's':
 						//Swap pokemon between box and party - sent as BsBOXNUM,BOXSLOT,PARTYSLOT, e.g.Bs0,1,0
-						if(p.getPartyCount() > 1) {
-							details = message.substring(2).split(",");
-							p.swapFromBox(Integer.parseInt(details[0]), 
-									Integer.parseInt(details[2]), Integer.parseInt(details[2]));
-						}
+						details = message.substring(2).split(",");
+						p.swapFromBox(Integer.parseInt(details[0]), 
+								Integer.parseInt(details[1]), Integer.parseInt(details[2]));
 						break;
 					case 'f':
 						//Finished with box interfaction
