@@ -307,6 +307,7 @@ public class LoginManager implements Runnable {
 						 * -1 stored in the database if no pokemon exists
 						 */
 						boxes[i] = new PokemonBox();
+						boxes[i].setPokemon(new Pokemon[30]);
 						boxes[i].setDatabaseId(pokemons.getInt("box" + i));
 						if(boxInfo.getInt("pokemon" + j) != -1) {
 							boxes[i].setPokemon(j, getPokemonObject(m_database.query("SELECT * FROM pn_pokemon WHERE id='" + boxInfo.getInt("pokemon" + j) + "'")));
