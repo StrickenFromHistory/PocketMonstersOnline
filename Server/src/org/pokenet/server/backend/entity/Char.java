@@ -186,17 +186,8 @@ public class Char implements Positionable {
 	 * Sets the char's next movement
 	 */
 	public void setNextMovement(Direction dir) {
-		if(System.currentTimeMillis() - m_lastMovement > 50) {
-			if(getFacing() == dir) {
-				/* If we're facing the direction, queue the movement */
-				m_nextMovement = dir;
-			} else {
-				/* Else, turn */
-				m_nextMovement = null;
-				setFacing(dir);
-				m_lastMovement = System.currentTimeMillis();
-			}
-		}
+		if(System.currentTimeMillis() - m_lastMovement > 70)
+			m_nextMovement = dir;
 	}
 
 	/**
