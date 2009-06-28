@@ -70,10 +70,10 @@ public class Pokemon {
         		}
         		
         		int pathGender;
-        		if (getGender() == 1)
-        			pathGender = 2;
-        		else
+        		if (getGender() != 2)
         			pathGender = 3;
+        		else
+        			pathGender = 2;
 
         		try {
         			path = "/res/pokemon/front/" + isShiny + index + "-"
