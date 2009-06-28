@@ -445,6 +445,7 @@ public class LogoutManager implements Runnable {
 					"' WHERE id='" + p.getDatabaseID() + "'");
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -471,6 +472,7 @@ public class LogoutManager implements Runnable {
 			}
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}

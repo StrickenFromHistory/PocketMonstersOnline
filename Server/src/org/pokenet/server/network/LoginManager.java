@@ -120,6 +120,7 @@ public class LoginManager implements Runnable {
 			}
 			m_database.close();
 		} catch (Exception e) {
+			e.printStackTrace();
 			/*
 			 * Something went wrong so make sure the player is registered as logged out
 			 */
