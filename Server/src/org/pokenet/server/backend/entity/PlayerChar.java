@@ -932,7 +932,7 @@ public class PlayerChar extends Char implements Battleable {
 				m_boxes[i].setDatabaseId(-1);
 				m_boxes[i].setPokemon(new Pokemon[30]);
 				m_boxes[i].setPokemon(0, p);
-				return;
+				break;
 			}
 		}
 	}

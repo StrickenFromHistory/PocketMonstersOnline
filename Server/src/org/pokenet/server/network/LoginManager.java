@@ -303,13 +303,13 @@ public class LoginManager implements Runnable {
 				if(pokemons.getInt("box" + i) != -1) {
 					boxInfo = m_database.query("SELECT * FROM pn_box WHERE id='" + pokemons.getInt("box" + i) + "'");
 					boxInfo.first();
+					boxes[i] = new PokemonBox();
+					boxes[i].setPokemon(new Pokemon[30]);
+					boxes[i].setDatabaseId(pokemons.getInt("box" + i));
 					for(int j = 0; j < 30; j++) {
 						/*
 						 * -1 stored in the database if no pokemon exists
 						 */
-						boxes[i] = new PokemonBox();
-						boxes[i].setPokemon(new Pokemon[30]);
-						boxes[i].setDatabaseId(pokemons.getInt("box" + i));
 						if(boxInfo.getInt("pokemon" + j) != -1) {
 							boxes[i].setPokemon(j, getPokemonObject(m_database.query("SELECT * FROM pn_pokemon WHERE id='" + boxInfo.getInt("pokemon" + j) + "'")));
 						} else {
