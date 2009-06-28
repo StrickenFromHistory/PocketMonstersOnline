@@ -125,7 +125,7 @@ public class Pokemon {
                        
                         path = "/res/pokemon/icons/" + index + ".gif";
                         f = getClass().getResourceAsStream(path);
-            			m_sprite = new Image(f, path.toString(), false);
+            			m_icon = new Image(f, path, false);
                         LoadingList.setDeferredLoading(false);
                 }catch (SlickException e){e.printStackTrace();}
         }      
