@@ -170,7 +170,7 @@ public class PlayerChar extends Char implements Battleable {
 		if(m_pokemon[partySlot] != null || m_boxes[box].getPokemon(boxSlot) != null) {
 			/* Make sure we're not depositing our only Pokemon */
 			if(getPartyCount() == 1) {
-				if(m_boxes[box].getPokemon(boxSlot) == null)
+				if(m_pokemon[partySlot] != null && m_boxes[box].getPokemon(boxSlot) == null)
 					return;
 			}
 			/* Everything is okay, let's get swapping! */
@@ -1194,21 +1194,22 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param i - Box number
 	 */
 	public void sendBoxInfo(int j) {
-		if(m_boxes[j] != null) {
-			String packet = "";
-			for(int i = 0; i < m_boxes[j].getPokemon().length; i++) {
-				if(m_boxes[j].getPokemon(i) != null)
-					packet = packet + m_boxes[j].getPokemon(i).getSpeciesNumber() + ",";
-				else
-					packet = packet + ",";
-			}
-			m_session.write("B" + packet);
-		} else {
+		/* If box is non-existant, create it and send small packet */
+		if(m_boxes[j] == null) {
 			m_boxes[j] = new PokemonBox();
 			m_boxes[j].setDatabaseId(-1);
 			m_boxes[j].setPokemon(new Pokemon[30]);
 			m_session.write("B");
 		}
+		/* Else send all pokes in box */
+		String packet = "";
+		for(int i = 0; i < m_boxes[j].getPokemon().length; i++) {
+			if(m_boxes[j].getPokemon(i) != null)
+				packet = packet + m_boxes[j].getPokemon(i).getSpeciesNumber() + ",";
+			else
+				packet = packet + ",";
+		}
+		m_session.write("B" + packet);
 	}
 	
 	/**

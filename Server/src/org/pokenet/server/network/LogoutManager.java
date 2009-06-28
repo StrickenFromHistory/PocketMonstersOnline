@@ -192,7 +192,7 @@ public class LogoutManager implements Runnable {
 					if(p.getParty() != null && p.getParty()[i] != null) {
 						if(p.getParty()[i].getDatabaseID() == -1) {
 							//This is a new Pokemon, add it to the database
-							if(!saveNewPokemon(p.getParty()[i], m_database))
+							if(saveNewPokemon(p.getParty()[i], m_database) > -1)
 								return false;
 						} else {
 							//Old Pokemon, just update
@@ -237,8 +237,10 @@ public class LogoutManager implements Runnable {
 								if(p.getBoxes()[i].getPokemon(j) != null) {
 									if(p.getBoxes()[i].getPokemon(j).getId() == -1) {
 										/* This is a new Pokemon, create it in the database */
-										if(saveNewPokemon(p.getBoxes()[i].getPokemon(j), m_database)) {
-											m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "' " +
+										int pokedbNo = saveNewPokemon(p.getBoxes()[i].getPokemon(j), m_database);
+										if(pokedbNo > -1) {
+											p.getBoxes()[i].getPokemon(j).setDatabaseID(pokedbNo);
+											m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  pokedbNo + "' " +
 													"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
 										} else {
 											return false;
@@ -280,7 +282,7 @@ public class LogoutManager implements Runnable {
 	 * Saves a pokemon to the database that didn't exist in it before
 	 * @param p
 	 */
-	private boolean saveNewPokemon(Pokemon p, MySqlManager db) {
+	private int saveNewPokemon(Pokemon p, MySqlManager db) {
 		try {
 			/*
 			 * Due to issues with Pokemon not receiving abilities,
@@ -364,10 +366,10 @@ public class LogoutManager implements Runnable {
 					"', ppUp2='" + p.getPpUpCount(2) +
 					"', ppUp3='" + p.getPpUpCount(3) +
 					"' WHERE id='" + p.getDatabaseID() + "'");
-			return true;
+			return result.getInt("id");
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			return -1;
 		}
 	}
 	
