@@ -112,9 +112,16 @@ public class NonPlayerChar extends Char {
 		/* If this NPC wasn't a trainer, handle other possibilities */
 		String speech = this.getSpeech();
 		if(!speech.equalsIgnoreCase("")) {
-			if(!p.isShopping())//Dont send if player is shopping!
-				ProtocolHandler.writeMessage(p.getSession(), 
-						new ChatMessage(ChatMessageType.NPC, speech));
+			if(!p.isShopping()) {
+				//Dont send if player is shopping!
+				if(isTrainer()) {
+					/* This is a trainer NPC but cannot be battled - is sleeping */
+					return;
+				} else {
+					ProtocolHandler.writeMessage(p.getSession(), 
+							new ChatMessage(ChatMessageType.NPC, speech));
+				}
+			}
 		}
 		/* If this NPC is a sprite selection npc */
 		if(m_name.equalsIgnoreCase("Spriter")) {

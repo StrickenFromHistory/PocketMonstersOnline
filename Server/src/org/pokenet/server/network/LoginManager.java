@@ -328,15 +328,7 @@ public class LoginManager implements Runnable {
 			}
 			p.setBoxes(boxes);
 			//Attach bag
-			if(p.getLastLoginTime() == 0) {
-				/* New player, give em some pokeballs */
-				Bag b = new Bag(p.getId());
-				b.addItem(35, 5);
-				p.setBag(b);
-			} else {
-				/* Else, load bag */
-				p.setBag(getBagObject(m_database.query("SELECT * FROM pn_bag WHERE member='" + result.getInt("id") + "'"),p.getId()));
-			}
+			p.setBag(getBagObject(m_database.query("SELECT * FROM pn_bag WHERE member='" + result.getInt("id") + "'"),p.getId()));
 
 			//Attach badges
 			p.generateBadges(result.getString("badges"));

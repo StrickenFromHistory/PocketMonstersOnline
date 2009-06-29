@@ -135,6 +135,8 @@ public class RegistrationManager implements Runnable {
 			 * Attach pokemon to the player
 			 */
 			m_database.query("UPDATE pn_members SET pokemons='" + data.getInt("id") + "' WHERE id='" + playerId + "'");
+			/* Attach a bag of 5 pokeballs to the player */
+			m_database.query("INSERT INTO pn_bag (member,item,quantity) VALUES ('" + playerId + "', '35', '5')");
 			/*
 			 * Finish
 			 */
