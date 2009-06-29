@@ -39,6 +39,7 @@ public class SpriteList {
 				while(s.hasNextLine()) {
 					m_sprites.add(Integer.parseInt(s.nextLine()));
 				}
+				s.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
