@@ -2762,7 +2762,8 @@
 
 				<m_name>Pure Incense</m_name>
 
-				<m_description>Prevents wild pokemon encounters if holder is first in party</m_description>
+				<m_description>Prevents wild pokemon encounters if holder is
+					first in party</m_description>
 
 				<m_id>189</m_id>
 
@@ -10920,9 +10921,9 @@
 
 			<item>
 
-				<m_name>TM76 Stealth</m_name>
+				<m_name>TM76 Stealth Rock</m_name>
 
-				<m_description>Teaches stealth</m_description>
+				<m_description>Teaches stealth rock</m_description>
 
 				<m_id>651</m_id>
 
