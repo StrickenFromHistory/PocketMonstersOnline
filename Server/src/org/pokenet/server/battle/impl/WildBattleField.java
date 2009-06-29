@@ -14,6 +14,7 @@ import org.pokenet.server.battle.mechanics.BattleMechanics;
 import org.pokenet.server.battle.mechanics.MoveQueueException;
 import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
 import org.pokenet.server.battle.mechanics.polr.POLREvolution;
+import org.pokenet.server.battle.mechanics.polr.POLREvolution.EvoTypes;
 import org.pokenet.server.battle.mechanics.statuses.StatusEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.HailEffect;
@@ -123,6 +124,12 @@ public class WildBattleField extends BattleField {
 
 	@Override
 	public void informPokemonFainted(int trainer, int idx) {
+		/*
+		 * If the pokemon is the player's make sure it don't get exp 
+		 */
+		if(trainer == 0 && m_participatingPokemon.contains(getActivePokemon()[0])) {
+			m_participatingPokemon.remove(getActivePokemon()[0]);
+		}
 		if (m_player != null)
 			ProtocolHandler.writeMessage(m_player.getSession(), 
 					new FaintMessage(getParty(trainer)[idx].getSpeciesName()));
@@ -607,10 +614,7 @@ public class WildBattleField extends BattleField {
 		/*
 		 * Finally, add the EVs and exp to the participating Pokemon
 		 */
-		Iterator<Pokemon> it = m_participatingPokemon.iterator();
-		Pokemon p = null;
-		while (it.hasNext()) {
-			p = it.next();
+		for(Pokemon p : m_participatingPokemon) {
 			int index = m_player.getPokemonIndex(p);
 
 			/* Add the evs */
@@ -641,7 +645,7 @@ public class WildBattleField extends BattleField {
 							p.setEv(i, p.getEv(i) + evs[i]);
 						else
 							p.setEv(i, 255);
-						break;
+						i = evs.length;
 					}
 				}
 			}
@@ -666,41 +670,34 @@ public class WildBattleField extends BattleField {
 				/* Handle evolution */
 				for (int i = 0; i < pokeData.getEvolutions().size(); i++) {
 					POLREvolution evolution = pokeData.getEvolutions().get(i);
-					switch (evolution.getType()) {
-					case Level:
+					if(evolution.getType() == EvoTypes.Level) {
 						if (evolution.getLevel() <= p.getLevel() + 1) {
 							p.setEvolution(evolution);
 							m_player.getSession().write("PE" + index);
 							evolve = true;
 							i = pokeData.getEvolutions().size();
 						}
-						break;
-					case HappinessDay:
+					} else if(evolution.getType() == EvoTypes.HappinessDay) {
 						if (p.getHappiness() > 220 && !TimeService.isNight()) {
 							p.setEvolution(evolution);
 							m_player.getSession().write("PE" + index);
 							evolve = true;
 							i = pokeData.getEvolutions().size();
 						}
-						break;
-					case HappinessNight:
+					} else if(evolution.getType() == EvoTypes.HappinessNight) {
 						if (p.getHappiness() > 220 && TimeService.isNight()) {
 							p.setEvolution(evolution);
 							m_player.getSession().write("PE" + index);
 							evolve = true;
 							i = pokeData.getEvolutions().size();
 						}
-						break;
-					case Happiness:
+					} else if(evolution.getType() == EvoTypes.Happiness) {
 						if (p.getHappiness() > 220) {
 							p.setEvolution(evolution);
 							m_player.getSession().write("PE" + index);
 							evolve = true;
 							i = pokeData.getEvolutions().size();
 						}
-						break;
-					case Beauty:
-						break;
 					}
 				}
 				/* If the Pokemon is evolving, don't move learn just yet */
