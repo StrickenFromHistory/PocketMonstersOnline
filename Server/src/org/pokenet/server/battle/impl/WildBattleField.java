@@ -1,6 +1,5 @@
 package org.pokenet.server.battle.impl;
 
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -27,12 +26,12 @@ import org.pokenet.server.network.message.battle.BattleExpMessage;
 import org.pokenet.server.network.message.battle.BattleInitMessage;
 import org.pokenet.server.network.message.battle.BattleLevelChangeMessage;
 import org.pokenet.server.network.message.battle.BattleMessage;
+import org.pokenet.server.network.message.battle.BattleMoveMessage;
+import org.pokenet.server.network.message.battle.BattleMoveRequest;
 import org.pokenet.server.network.message.battle.BattleRewardMessage;
 import org.pokenet.server.network.message.battle.EnemyDataMessage;
 import org.pokenet.server.network.message.battle.FaintMessage;
 import org.pokenet.server.network.message.battle.HealthChangeMessage;
-import org.pokenet.server.network.message.battle.BattleMoveMessage;
-import org.pokenet.server.network.message.battle.BattleMoveRequest;
 import org.pokenet.server.network.message.battle.NoPPMessage;
 import org.pokenet.server.network.message.battle.RunMessage;
 import org.pokenet.server.network.message.battle.StatusChangeMessage;
