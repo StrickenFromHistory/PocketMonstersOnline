@@ -486,10 +486,11 @@ public class WildBattleField extends BattleField {
 	}
 	
 	/**
-	 * Throws a Pokeball
+	 * Throws a Pokeball. Returns true if pokemon was caught
 	 * @param p
+	 * @return
 	 */
-	public void throwPokeball(PokeBall p) {
+	public boolean throwPokeball(PokeBall p) {
 		/* Ensure user doesn't throw a Pokeball while battling */
 		while(m_dispatch != null) {
 			try { Thread.sleep(500); } catch (Exception e){}
@@ -497,57 +498,62 @@ public class WildBattleField extends BattleField {
 		switch(p) {
 		case POKEBALL:
 			showMessage(m_player.getName() + " threw a Pokeball!");
-			if(getMechanics().isCaught(m_wildPoke, 
-					getMechanics().getRandom().nextInt(255), 1.0, 1)) {
+			if(getMechanics().isCaught(m_wildPoke, DataService.getPOLRDatabase().
+					getPokemonData(m_wildPoke.getSpeciesNumber()).getRareness(), 1.0, 1)) {
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new BattleEndMessage(BattleEnd.POKEBALL));
 				m_player.setBattling(false);
 				dispose();
+				return true;
 			} else
 				showMessage("...but it failed!");
 			break;
 		case GREATBALL:
 			showMessage(m_player.getName() + " threw a Great Ball!");
-			if(getMechanics().isCaught(m_wildPoke, 
-					getMechanics().getRandom().nextInt(255), 1.5, 1)) {
+			if(getMechanics().isCaught(m_wildPoke, DataService.getPOLRDatabase().
+					getPokemonData(m_wildPoke.getSpeciesNumber()).getRareness(), 1.5, 1)) {
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new BattleEndMessage(BattleEnd.POKEBALL));
 				m_player.setBattling(false);
 				dispose();
+				return true;
 			} else
 				showMessage("...but it failed!");
 			break;
 		case ULTRABALL:
 			showMessage(m_player.getName() + " threw an Ultra Ball!");
-			if(getMechanics().isCaught(m_wildPoke, 
-					getMechanics().getRandom().nextInt(255), 2.0, 1)) {
+			if(getMechanics().isCaught(m_wildPoke, DataService.getPOLRDatabase().
+					getPokemonData(m_wildPoke.getSpeciesNumber()).getRareness(), 2.0, 1)) {
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new BattleEndMessage(BattleEnd.POKEBALL));
 				m_player.setBattling(false);
 				dispose();
+				return true;
 			} else
 				showMessage("...but it failed!");
 			break;
 		case MASTERBALL:
 			showMessage(m_player.getName() + " threw a Master Ball!");
-			if(getMechanics().isCaught(m_wildPoke, 
-					getMechanics().getRandom().nextInt(255), 255.0, 1)) {
+			if(getMechanics().isCaught(m_wildPoke, DataService.getPOLRDatabase().
+					getPokemonData(m_wildPoke.getSpeciesNumber()).getRareness(), 255.0, 1)) {
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new BattleEndMessage(BattleEnd.POKEBALL));
 				m_player.setBattling(false);
 				dispose();
+				return true;
 			} else
 				showMessage("...but it failed!");
 			break;
 		}
+		return false;
 	}
 
 	/**

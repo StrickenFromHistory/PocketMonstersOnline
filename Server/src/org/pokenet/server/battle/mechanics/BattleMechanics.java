@@ -395,35 +395,28 @@ public abstract class BattleMechanics implements Serializable {
 
 		//The following calculation recalculates the Pokemon's catch rate with status ailments/currentHP/pokeball used/etc. taken into account
 		double a = 0;
-		a = ((((3 * maxHP - 2 * currentHP) * rate * ball) / 3 * maxHP) * status);
+		a = ((((((3 * maxHP) - (2 * currentHP)) * rate) * ball) / (3 * maxHP)) * status);
 		if(a >= 255){
 			return true;
 		} else {
-			maxHP = Math.round((maxHP / 2)/2);
-			a = ((((3 * maxHP - 2 * currentHP) * rate * ball) / 3 * maxHP) * status);
-			if(a >= 255)
-				return true;
-			else {
-				double b = 1048560 / (Math.sqrt(Math.sqrt(16711680 / a)));
-                double po = getRandom().nextInt(65536);
-                double pt = getRandom().nextInt(65536);
-                double pth = getRandom().nextInt(65536);
-                double pf = getRandom().nextInt(65536);
-				if(b >= po)
-					if(b >= pt)
-						if(b >= pth)
-							if(b >= pf)
-								return true;
-							else
-								return false;
+			double b = 1048560 / (Math.sqrt(Math.sqrt(16711680 / a)));
+            double po = getRandom().nextInt(65536);
+            double pt = getRandom().nextInt(65536);
+            double pth = getRandom().nextInt(65536);
+            double pf = getRandom().nextInt(65536);
+			if(po <= b)
+				if(pt <= b)
+					if(pth <= b)
+						if(pf <= b)
+							return true;
 						else
 							return false;
 					else
 						return false;
 				else
 					return false;
-		}
-		
+			else
+				return false;
 		}
 	}
 }

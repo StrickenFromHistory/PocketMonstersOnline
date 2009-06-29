@@ -274,29 +274,29 @@ public class ItemProcessor implements Runnable {
 				if(i.getName().equalsIgnoreCase("POKE BALL")) {
 					if(p.getBattleField() instanceof WildBattleField) {
 						WildBattleField w = (WildBattleField) p.getBattleField();
-						w.throwPokeball(PokeBall.POKEBALL);
-						w.queueMove(0, BattleTurn.getMoveTurn(-1));
+						if(!w.throwPokeball(PokeBall.POKEBALL))
+							w.queueMove(0, BattleTurn.getMoveTurn(-1));
 						return true;
 					}
 				} else if(i.getName().equalsIgnoreCase("GREAT BALL")) {
 					if(p.getBattleField() instanceof WildBattleField) {
 						WildBattleField w = (WildBattleField) p.getBattleField();
-						w.throwPokeball(PokeBall.GREATBALL);
-						w.queueMove(0, BattleTurn.getMoveTurn(-1));
+						if(!w.throwPokeball(PokeBall.GREATBALL))
+							w.queueMove(0, BattleTurn.getMoveTurn(-1));
 						return true;
 					}
 				} else if(i.getName().equalsIgnoreCase("ULTRA BALL")) {
 					if(p.getBattleField() instanceof WildBattleField) {
 						WildBattleField w = (WildBattleField) p.getBattleField();
-						w.throwPokeball(PokeBall.ULTRABALL);
-						w.queueMove(0, BattleTurn.getMoveTurn(-1));
+						if(!w.throwPokeball(PokeBall.ULTRABALL))
+							w.queueMove(0, BattleTurn.getMoveTurn(-1));
 						return true;
 					}
 				} else if(i.getName().equalsIgnoreCase("MASTER BALL")) {
 					if(p.getBattleField() instanceof WildBattleField) {
 						WildBattleField w = (WildBattleField) p.getBattleField();
-						w.throwPokeball(PokeBall.MASTERBALL);
-						w.queueMove(0, BattleTurn.getMoveTurn(-1));
+						if(!w.throwPokeball(PokeBall.MASTERBALL))
+							w.queueMove(0, BattleTurn.getMoveTurn(-1));
 						return true;
 					}
 				}

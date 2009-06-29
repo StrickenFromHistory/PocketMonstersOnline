@@ -466,7 +466,7 @@ public class LogoutManager implements Runnable {
 	private boolean saveBag(Bag b) {
 		try {
 			//Destroy item data to prevent dupes. 
-			m_database.query("DELETE from pn_bag where member = '"+b.getMemberId()+"'");
+			m_database.query("DELETE FROM pn_bag WHERE member='" + b.getMemberId() + "'");
 			for(int i = 0; i < b.getItems().size(); i++) {
 				if(b.getItems().get(i) != null) {
 					/*
