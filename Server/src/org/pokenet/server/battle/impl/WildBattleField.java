@@ -662,7 +662,7 @@ public class WildBattleField extends BattleField {
 						.getPokemonData(
 								DataService.getSpeciesDatabase()
 										.getPokemonByName(p.getSpeciesName()));
-
+				boolean evolve = false;
 				/* Handle evolution */
 				for (int i = 0; i < pokeData.getEvolutions().size(); i++) {
 					POLREvolution evolution = pokeData.getEvolutions().get(i);
@@ -671,34 +671,41 @@ public class WildBattleField extends BattleField {
 						if (evolution.getLevel() <= p.getLevel() + 1) {
 							p.setEvolution(evolution);
 							m_player.getSession().write("PE" + index);
-							return;
+							evolve = true;
+							i = pokeData.getEvolutions().size();
 						}
 						break;
 					case HappinessDay:
 						if (p.getHappiness() > 220 && !TimeService.isNight()) {
 							p.setEvolution(evolution);
 							m_player.getSession().write("PE" + index);
-							return;
+							evolve = true;
+							i = pokeData.getEvolutions().size();
 						}
 						break;
 					case HappinessNight:
 						if (p.getHappiness() > 220 && TimeService.isNight()) {
 							p.setEvolution(evolution);
 							m_player.getSession().write("PE" + index);
-							return;
+							evolve = true;
+							i = pokeData.getEvolutions().size();
 						}
 						break;
 					case Happiness:
 						if (p.getHappiness() > 220) {
 							p.setEvolution(evolution);
 							m_player.getSession().write("PE" + index);
-							return;
+							evolve = true;
+							i = pokeData.getEvolutions().size();
 						}
 						break;
 					case Beauty:
 						break;
 					}
 				}
+				/* If the Pokemon is evolving, don't move learn just yet */
+				if(evolve)
+					continue;
 
 				/* This Pokemon just, levelled up! */
 				p.setHappiness(p.getHappiness() + 2);
