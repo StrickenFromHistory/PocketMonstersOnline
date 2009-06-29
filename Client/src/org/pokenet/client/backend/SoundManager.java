@@ -3,7 +3,6 @@ package org.pokenet.client.backend;
 import java.io.BufferedReader;
 import java.util.HashMap;
 
-import org.newdawn.slick.Music;
 import org.newdawn.slick.loading.LoadingList;
 import org.newdawn.slick.openal.Audio;
 import org.newdawn.slick.openal.AudioImpl;
