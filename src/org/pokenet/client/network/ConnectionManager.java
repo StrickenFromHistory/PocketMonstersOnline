@@ -715,6 +715,13 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.getLoginScreen().showLogin();
 				break;
+			case '4':
+				//Banned
+				GameClient.messageDialog("You've been banned.", 
+						GameClient.getInstance().getDisplay());
+				m_game.getLoadingScreen().setVisible(false);
+				m_game.getLoginScreen().showLogin();
+				break;
 			}
 		
 			break;
