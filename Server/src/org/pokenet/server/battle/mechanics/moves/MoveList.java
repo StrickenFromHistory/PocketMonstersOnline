@@ -86,6 +86,16 @@ public class MoveList {
         return m_inst;
     }
     
+    public boolean containsMove(String moveName) {
+    	for(int i = 0; i < m_moves.size() / 2; i++) {
+    		if(m_moves.get(i).getName().equalsIgnoreCase(moveName))
+    			return true;
+    		else if(m_moves.get(m_moves.size() - 1 - i).getName().equalsIgnoreCase(moveName))
+    			return true;
+    	}
+    	return false;
+    }
+    
     /**
      * Initialise all moves that do not have a special effect.
      */
@@ -7517,7 +7527,7 @@ public class MoveList {
         Iterator<MoveListEntry> i = m_moves.iterator();
         while (i.hasNext()) {
             MoveListEntry move = (MoveListEntry)i.next();
-            if (name.equals(move.getName())) {
+            if (name.equalsIgnoreCase(move.getName())) {
                 return move;
             }
         }

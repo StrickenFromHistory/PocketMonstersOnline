@@ -2289,9 +2289,11 @@ public class Pokemon extends PokemonSpecies {
 	 */
 	public void learnMove(int idx, String moveName) {
 		if (idx >= 0 && idx <= 3) {
-            m_move[idx] = MoveList.getDefaultData().getMove(moveName);
-            m_maxPp[idx] = m_move[idx].getMove().getPp();
-            setPp(idx, m_move[idx].getMove().getPp());
+			if(MoveList.getDefaultData().containsMove(moveName)) {
+		         m_move[idx] = MoveList.getDefaultData().getMove(moveName);
+		         m_maxPp[idx] = m_move[idx].getMove().getPp();
+		         setPp(idx, m_move[idx].getMove().getPp());
+			}
 		}
 	}
 	
