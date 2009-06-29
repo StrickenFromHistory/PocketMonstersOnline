@@ -40,7 +40,7 @@ public class DataService {
 			m_speciesData = stream.read(PokemonSpeciesData.class, new File(f.getCanonicalPath() + "/res/species.xml"));
 			PokemonSpecies.setDefaultData(m_speciesData);
 			m_polrData = stream.read(POLRDatabase.class, new File(f.getCanonicalPath() + "/res/polrdb.xml"));
-			System.out.println("INFO: Databases loaded.");
+			System.out.println("INFO: Pokemon Databases loaded.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

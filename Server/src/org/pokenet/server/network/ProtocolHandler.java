@@ -170,9 +170,14 @@ public class ProtocolHandler extends IoHandlerAdapter {
 					//Sprite changing
 					int sprite = Integer.parseInt(message.substring(1));
 					/* Ensure the user buys a visible sprite */
-					if(sprite > 0) {
-						p.setSprite(sprite);
-						p.setSpriting(false);
+					if(sprite > 0 && !GameServer.getServiceManager().
+							getSpriteList().getUnbuyableSprites().contains(sprite)) {
+						if(p.getMoney() >= 500) {
+							p.setMoney(p.getMoney() - 500);
+							p.updateClientMoney();
+							p.setSprite(sprite);
+							p.setSpriting(false);
+						}
 					}
 				}
 				break;

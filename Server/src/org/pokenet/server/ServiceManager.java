@@ -1,6 +1,7 @@
 package org.pokenet.server;
 
 import org.pokenet.server.backend.MovementService;
+import org.pokenet.server.backend.SpriteList;
 import org.pokenet.server.backend.item.ItemDatabase;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.feature.JythonService;
@@ -20,6 +21,7 @@ public class ServiceManager {
 	private TimeService m_timeService;
 	private JythonService m_jythonService;
 	private IdleTimer m_idleTimer;
+	private SpriteList m_sprites;
 	
 	/**
 	 * Default constructor
@@ -34,6 +36,7 @@ public class ServiceManager {
 		m_networkService = new NetworkService();
 		m_movementService = new MovementService();
 		m_idleTimer = new IdleTimer();
+		m_sprites = new SpriteList();
 	}
 	
 	/**
@@ -77,6 +80,14 @@ public class ServiceManager {
 	}
 	
 	/**
+	 * Returns the list of unbuyable sprites
+	 * @return
+	 */
+	public SpriteList getSpriteList() {
+		return m_sprites;
+	}
+	
+	/**
 	 * Starts all services
 	 */
 	public void start() {
@@ -84,6 +95,7 @@ public class ServiceManager {
 		 * Start the network service first as it needs to bind the address/port to the game server.
 		 * Then start all other services with TimeService last.
 		 */
+		m_sprites.initialise();
 		ItemDatabase db = new ItemDatabase();
 		db.reinitialise();
 		m_movementService.start();
