@@ -394,25 +394,25 @@ public abstract class BattleMechanics implements Serializable {
 		//status represents any status ailments the Pokemon has (2 for sleep and freeze, 1.5 for paralyze, poison and burn), if none set to 1
 
 		//The following calculation recalculates the Pokemon's catch rate with status ailments/currentHP/pokeball used/etc. taken into account
-		double reCalc = 0;
-		reCalc = ((((3 * maxHP - 2 * currentHP) * rate * ball) / 3 * maxHP) * status);
-		if(reCalc <= 255){
+		double a = 0;
+		a = ((((3 * maxHP - 2 * currentHP) * rate * ball) / 3 * maxHP) * status);
+		if(a >= 255){
 			return true;
-		}else {
+		} else {
 			maxHP = Math.round((maxHP / 2)/2);
-			reCalc = ((((3 * maxHP - 2 * currentHP) * rate * ball) / 3 * maxHP) * status);
-			if(reCalc >= 255)
+			a = ((((3 * maxHP - 2 * currentHP) * rate * ball) / 3 * maxHP) * status);
+			if(a >= 255)
 				return true;
 			else {
-				double r = 131071 * Math.sqrt(Math.sqrt(reCalc / 511));
+				double b = 1048560 / (Math.sqrt(Math.sqrt(16711680 / a)));
                 double po = getRandom().nextInt(65536);
                 double pt = getRandom().nextInt(65536);
                 double pth = getRandom().nextInt(65536);
                 double pf = getRandom().nextInt(65536);
-				if(r >= po)
-					if(r >= pt)
-						if(r >= pth)
-							if(r >= pf)
+				if(b >= po)
+					if(b >= pt)
+						if(b >= pth)
+							if(b >= pf)
 								return true;
 							else
 								return false;
