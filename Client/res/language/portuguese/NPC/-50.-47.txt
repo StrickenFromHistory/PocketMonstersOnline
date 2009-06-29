@@ -1,3 +1,2 @@
-Welcome to the PokeMart.
-Please take your time to choose your goods.
-Please report this bug!
+Bem-vindo a PokeLoja.
+Por favor, informe este erro!

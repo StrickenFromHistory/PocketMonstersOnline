@@ -1,16 +1,16 @@
-Welcome to the Pokemon storage system.
-1F: Reception 
-2F: Sales 
-3F: Personnel 
-4F: Production 
-5F: Director's Office
-Lucky Channel! 
-Win with Pokemon ID numbers! 
-Trade your Pokemon to collect different ID numbers!
-Welcome!
-Please tune in to our radio shows.
-Please report this bug!
-I love Mary, from Pokemon Talk. 
-I only know what she sounds like, though.
-Ben is a fabulous DJ. 
-His sweet voice makes me melt!
+Bem-vindo ao sistema de armazenamento Pokemon.
+1F: Recepcao 
+2F: Vendas 
+3F: Pessoal 
+4F: Producao 
+5F: Escritorio do Diretor
+Canal da Sorte! 
+Ganhe com os numeros de ID Pokemon! 
+Troque Pokemons para colecionar varios numeros de ID!
+Bem-vindo!
+Por favor, sintonize os nossos programas de radio.
+Por favor, comunique este erro!
+Eu amo a Mary, do Bate-papo Pokemon. 
+Mas eu so conheco a voz dela.
+Ben e um DJ fabuloso. 
+Sua voz doce me derrete toda!
