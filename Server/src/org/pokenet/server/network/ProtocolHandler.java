@@ -243,21 +243,69 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				if(message.charAt(1) == 'c') {
 					p.getSession().write("Cl" + m_players.size() + " players online");
 				} else if(p.getAdminLevel() > 0) {
+					PlayerChar o;
 					try {
 						switch(message.charAt(1)) {
+						case 'b':
+							//Ban player
+							if(m_players.containsKey(message.substring(2))) {
+								o = m_players.get(message.substring(2));
+								MySqlManager m = new MySqlManager();
+								if(m.connect(GameServer.getDatabaseHost(), 
+										GameServer.getDatabaseUsername(), 
+										GameServer.getDatabasePassword())) {
+									m.selectDatabase(GameServer.getDatabaseName());
+									m.query("INSERT INTO pn_bans (ip) VALUE ('" + 
+											o.getSession().getRemoteAddress().toString()
+											+ "')");
+									m.close();
+								}
+							}
+							break;
+						case 'B':
+							//Unban ip
+							MySqlManager m = new MySqlManager();
+							if(m.connect(GameServer.getDatabaseHost(), 
+									GameServer.getDatabaseUsername(), 
+									GameServer.getDatabasePassword())) {
+								m.selectDatabase(GameServer.getDatabaseName());
+								m.query("DELETE FROM pn_bans WHERE ip='" + 
+										message.substring(2)
+										+ "'");
+								m.close();
+							}
+							break;
+						case 'W':
+							//Warp to player
+							if(m_players.containsKey(message.substring(2))) {
+								o = m_players.get(message.substring(2));
+								p.setX(o.getX());
+								p.setY(o.getY());
+								p.setMap(o.getMap());
+							}
+							break;
 						case 'm':
 							//Mute player
-							m_players.get(message.substring(2)).setMuted(true);
-							m_players.get(message.substring(2)).getSession().write("!You have been muted.");
+							if(m_players.containsKey(message.substring(2))) {
+								o = m_players.get(message.substring(2));
+								o.setMuted(true);
+								o.getSession().write("!You have been muted.");
+							}
 							break;
 						case 'u':
 							//Unmute player
-							m_players.get(message.substring(2)).setMuted(false);
-							m_players.get(message.substring(2)).getSession().write("!You have been unmuted.");
+							if(m_players.containsKey(message.substring(2))) {
+								o = m_players.get(message.substring(2));
+								o.setMuted(false);
+								o.getSession().write("!You have been unmuted.");
+							}
 							break;
 						case 'k':
-							m_players.get(message.substring(2)).getSession().write("!You have been kicked from the server.");
-							m_players.get(message.substring(2)).getSession().close();
+							if(m_players.containsKey(message.substring(2))) {
+								o = m_players.get(message.substring(2));
+								o.getSession().write("!You have been kicked from the server.");
+								o.getSession().close();
+							}
 							break;
 						case 'w':
 							//Change weather on current map

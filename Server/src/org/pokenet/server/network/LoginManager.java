@@ -66,8 +66,15 @@ public class LoginManager implements Runnable {
 				return;
 			}
 			m_database.selectDatabase(GameServer.getDatabaseName());
+			//Now, check they are not banned
+			ResultSet result = m_database.query("SELECT * FROM pn_bans WHERE ip='" + session.getRemoteAddress().toString() + "'");
+			if(result != null && result.first()) {
+				//This is player is banned, inform them
+				session.write("l4");
+				return;
+			}
 			//Then find the member's information
-			ResultSet result = m_database.query("SELECT * FROM pn_members WHERE username='" + MySqlManager.parseSQL(username) + "'");
+			result = m_database.query("SELECT * FROM pn_members WHERE username='" + MySqlManager.parseSQL(username) + "'");
 			if(!result.first()){
 				//Member doesn't exist, say user or pass wrong. We don't want someone to guess usernames. 
 				session.write("le");
@@ -209,7 +216,7 @@ public class LoginManager implements Runnable {
 		 * Update the database with login information
 		 */
 		m_database.query("UPDATE pn_members SET lastLoginServer='" + MySqlManager.parseSQL(GameServer.getServerName()) + "', lastLoginTime='" + time + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
-		m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getLocalAddress() + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
+		m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getRemoteAddress() + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 		session.setAttribute("player", p);
 		/*
 		 * Send success packet to player, set their map and add them to a movement service
@@ -268,6 +275,7 @@ public class LoginManager implements Runnable {
 			p.setMapY(result.getInt("mapY"));
 			p.setId(result.getInt("id"));
 			p.setAdminLevel(result.getInt("adminLevel"));
+			p.setMuted(result.getBoolean("muted"));
 			p.setLastHeal(result.getInt("healX"), result.getInt("healY"), result.getInt("healMapX"), result.getInt("healMapY"));
 			p.setSurfing(Boolean.parseBoolean(result.getString("isSurfing")));
 			//Set money and skills

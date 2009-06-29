@@ -177,7 +177,6 @@ public class PlayerChar extends Char implements Battleable {
 		Pokemon temp = m_pokemon[partySlot];
 		m_pokemon[partySlot] = m_boxes[box].getPokemon(boxSlot);
 		m_boxes[box].setPokemon(boxSlot, temp);
-		System.out.println(m_pokemon[partySlot] + " " + m_boxes[box].getPokemon(boxSlot));
 		if(m_pokemon[partySlot] != null) {
 			updateClientParty(partySlot);
 		} else {
