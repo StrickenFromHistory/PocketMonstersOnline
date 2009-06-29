@@ -101,10 +101,10 @@ public class RegistrationManager implements Runnable {
 				badges = badges + "0";
 			m_database.query("INSERT INTO pn_members (username, password, dob, email, lastLoginTime, lastLoginServer, " +
 					"sprite, money, skHerb, skCraft, skFish, skTrain, skCoord, skBreed, " +
-					"x, y, mapX, mapY, badges, healX, healY, healMapX, healMapY, isSurfing, adminLevel) VALUE " +
+					"x, y, mapX, mapY, badges, healX, healY, healMapX, healMapY, isSurfing, adminLevel, muted) VALUE " +
 					"('" + MySqlManager.parseSQL(info[0]) + "', '" + MySqlManager.parseSQL(info[1]) + "', '" + MySqlManager.parseSQL(info[3]) + "', '" + MySqlManager.parseSQL(info[2]) + "', " +
 							"'0', 'null', '" + MySqlManager.parseSQL(info[5]) + "', '0', '0', '0', '0', '0', '0', '0', '256', '440', " +
-									"'0', '0', '" + badges + "', '256', '440', '0', '0', 'false', '0')");
+									"'0', '0', '" + badges + "', '256', '440', '0', '0', 'false', '0', 'false')");
 			/*
 			 * Retrieve the player's unique id
 			 */
