@@ -320,7 +320,15 @@ public class LoginManager implements Runnable {
 			}
 			p.setBoxes(boxes);
 			//Attach bag
-			p.setBag(getBagObject(m_database.query("SELECT * FROM pn_bag WHERE member='" + result.getInt("id") + "'"),p.getId()));
+			if(p.getLastLoginTime() == 0) {
+				/* New player, give em some pokeballs */
+				Bag b = new Bag(p.getId());
+				b.addItem(35, 5);
+				p.setBag(b);
+			} else {
+				/* Else, load bag */
+				p.setBag(getBagObject(m_database.query("SELECT * FROM pn_bag WHERE member='" + result.getInt("id") + "'"),p.getId()));
+			}
 
 			//Attach badges
 			p.generateBadges(result.getString("badges"));
@@ -452,12 +460,6 @@ public class LoginManager implements Runnable {
 	 * @return
 	 */
 	private Bag getBagObject(ResultSet data, int memberid) {
-		if(data == null) {
-			/* New player! */
-			Bag b = new Bag(memberid);
-			b.addItem(35, 5);
-			return b;
-		}
 		try {
 			Bag b = new Bag(memberid);
 			while(data.next()){
