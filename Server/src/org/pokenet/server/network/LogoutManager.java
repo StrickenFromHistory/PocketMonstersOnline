@@ -259,7 +259,6 @@ public class LogoutManager implements Runnable {
 											"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
 								}
 							}
-							System.out.println(p.getBoxes()[i].getDatabaseId());
 							/* Now save the reference to the box in the player's poke list */
 							m_database.query("UPDATE pn_mypokes SET box" + i + "='" + p.getBoxes()[i].getDatabaseId() + "' WHERE member='"
 									+ p.getId() + "'");

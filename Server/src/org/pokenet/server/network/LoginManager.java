@@ -452,6 +452,12 @@ public class LoginManager implements Runnable {
 	 * @return
 	 */
 	private Bag getBagObject(ResultSet data, int memberid) {
+		if(data == null) {
+			/* New player! */
+			Bag b = new Bag(memberid);
+			b.addItem(35, 5);
+			return b;
+		}
 		try {
 			Bag b = new Bag(memberid);
 			while(data.next()){
