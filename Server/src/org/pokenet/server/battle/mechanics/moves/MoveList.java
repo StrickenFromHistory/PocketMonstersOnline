@@ -5622,7 +5622,7 @@ public class MoveList {
                 }
             }
         ));
-    /*m_moves.add(new MoveListEntry("Focus Energy", new StatusMove(
+    m_moves.add(new MoveListEntry("Focus Energy", new StatusMove(
             PokemonType.T_NORMAL, 0, 1.0, 30, new StatusEffect[] {
                 new StatusEffect() {
                         public String getName() {
@@ -5638,7 +5638,7 @@ public class MoveList {
                 },
             new boolean[] { true },
             new double[] { 1.0 }
-            )));*/
+            )));
         
     m_moves.add(new MoveListEntry("Magic Coat", new PokemonMove(
             PokemonType.T_PSYCHIC, 0, 1.0, 15) {
