@@ -3,6 +3,7 @@ package org.pokenet.client.ui.frames;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
@@ -32,7 +33,16 @@ public class SpriteChooserDialog extends Frame {
 		for (int i = 1; i <= 218; i++) {
 			m_sprites.add(String.valueOf(i));
 		}
-
+		/*
+		 * Handle blocked sprites
+		 */
+		InputStream in = getClass().getResourceAsStream("/res/characters/sprites.txt");
+		Scanner s = new Scanner(in);
+		while(s.hasNextLine()) {
+			m_sprites.remove(s.nextLine());
+		}
+		s.close();
+		
 		m_spriteDisplay = new Label();
 		m_spriteDisplay.setSize(124, 204);
 		m_spriteDisplay.setLocation(105, 20);
