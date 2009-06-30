@@ -502,6 +502,7 @@ public class BattleWindow extends Frame {
 	 * @param i
 	 */
 	private void switchPoke(int i) {
+		attackPane.setVisible(false);
 		GameClient.getInstance().getPacketGenerator().write("bs" + i);
 	}
 
