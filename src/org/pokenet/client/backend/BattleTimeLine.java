@@ -42,6 +42,7 @@ public class BattleTimeLine {
 		m_isBattling = true;
 		GameClient.getInstance().getDisplay().add(m_canvas);
 		GameClient.getInstance().getDisplay().add(m_narrator);
+		GameClient.getInstance().getUi().nullSpeechFrame();
 	}
 	
 	/**
