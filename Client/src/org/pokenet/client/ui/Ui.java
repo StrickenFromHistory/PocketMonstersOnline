@@ -495,15 +495,6 @@ public class Ui extends Frame {
 	public void openTrade(String player){
 		new TradeDialog(player);
 	}
-	
-    
-    /**
-     * Returns the Battle Manager
-     * @return the Battle Manager
-     */
-    public BattleManager getBattleManager(){
-    	return m_battleManager;
-    }
     
     /**
      * Starts a Storage Box
