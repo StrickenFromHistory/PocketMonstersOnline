@@ -74,7 +74,7 @@ public class OurPlayer extends Player {
 		boolean exists = false;
 		for(int i = 0; i < m_items.size(); i++) {
 			if(m_items.get(i) != null && m_items.get(i).getNumber() == number) {
-				m_items.get(i).setQuantity(quantity);
+				m_items.get(i).setQuantity(m_items.get(i).getQuantity() + quantity);
 				exists = true;
 			}
 		}
