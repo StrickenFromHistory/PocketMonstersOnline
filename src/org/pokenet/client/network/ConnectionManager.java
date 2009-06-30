@@ -758,6 +758,9 @@ public class ConnectionManager extends IoHandlerAdapter {
 					//You must be within 3 squares to force this player to battle
 					GameClient.getInstance().getUi().getChat().addSystemMessage("You must be within 3 squares of this player to battle.");
 					break;
+				case '4':
+					GameClient.getInstance().getUi().getChat().addSystemMessage("You must wait 1 minute before trading again.");
+					break;
 				}
 				break;
 			case 't':
