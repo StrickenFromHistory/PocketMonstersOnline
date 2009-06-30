@@ -111,8 +111,7 @@ public class BattleTimeLine {
 			addSpeech(m_translator.get(18));
 		}
 		if (trainer == 1)
-			m_canvas.setPokeballImage(GameClient.getInstance().getUi()
-					.getBattleManager().getCurEnemyIndex(), "status");
+			m_canvas.setPokeballImage(BattleManager.getInstance().getCurEnemyIndex(), "status");
 	}
 
 	/**
