@@ -235,12 +235,11 @@ public class LogoutManager implements Runnable {
 							}
 							/* Save all pokemon in box */
 							for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
-								if(p.getBoxes()[i].getPokemon(j) != null) {
-									if(p.getBoxes()[i].getPokemon(j).getId() < 1) {
+								if(p.getBoxes()[i].getPokemon()[j] != null) {
+									if(p.getBoxes()[i].getPokemon()[j].getDatabaseID() < 1) {
 										/* This is a new Pokemon, create it in the database */
 										int pokedbNo = saveNewPokemon(p.getBoxes()[i].getPokemon(j), m_database);
 										if(pokedbNo > -1) {
-											p.getBoxes()[i].getPokemon(j).setDatabaseID(pokedbNo);
 											m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  pokedbNo + "' " +
 													"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
 										} else {
@@ -248,7 +247,7 @@ public class LogoutManager implements Runnable {
 										}
 									} else {
 										/* Update an existing pokemon */
-										if(savePokemon(p.getBoxes()[i].getPokemon(j))) {
+										if(savePokemon(p.getBoxes()[i].getPokemon()[j])) {
 											m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "' " +
 													"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
 										} else {
