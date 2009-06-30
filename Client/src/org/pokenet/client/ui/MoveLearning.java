@@ -177,11 +177,11 @@ public class MoveLearning extends Frame {
 		if (!GameClient.getInstance().getDisplay().containsChild(m_replace)) {
 			if (m_moveButtons.get(i).getText().equals("")) {
 				GameClient.getInstance().getOurPlayer().getPokemon()[m_pokeIndex].setMoves(j, m_move);
-				BattleManager.getInstance().updateMoves();
+				if (BattleManager.getInstance().getBattleWindow() != null)
+					BattleManager.getInstance().updateMoves();
 				GameClient.getInstance().getPacketGenerator().write(
 						"Pm" + m_pokeIndex + i + m_move);
-				BattleManager.getInstance()
-				.removeMoveLearning();
+				BattleManager.getInstance().removeMoveLearning();
 			} else {
 				m_replace = new ConfirmationDialog(
 						"Are you sure you want to foreget "
