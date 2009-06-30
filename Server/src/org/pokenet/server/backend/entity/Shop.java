@@ -104,7 +104,7 @@ public class Shop implements Runnable {
 			/*
 			 * Decrease delta by 15 seconds to restock the shop sooner
 			 */
-			m_delta = m_delta - 15000 >= 600000 ? m_delta - 15000 : 6000;
+			m_delta = m_delta - 15000 >= 600000 ? m_delta - 15000 : 600000;
 			return true;
 		}
 		return false;

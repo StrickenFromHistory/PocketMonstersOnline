@@ -190,7 +190,7 @@ public class LoginManager implements Runnable {
 					e.printStackTrace();
 				}
 				try {
-					Thread.sleep(200);
+					Thread.sleep(500);
 				} catch (Exception e) {}
 			}
 		}
