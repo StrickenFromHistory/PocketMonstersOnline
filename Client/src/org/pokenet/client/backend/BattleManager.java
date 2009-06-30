@@ -40,6 +40,7 @@ public class BattleManager {
 		m_battle = new BattleWindow("Battle!");
 		m_timeLine = new BattleTimeLine();
 		m_moveLearning = new MoveLearning();
+		m_battle.setVisible(false);
 	}
 
 	/**
