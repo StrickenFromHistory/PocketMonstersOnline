@@ -62,6 +62,7 @@ public class PokeStorageBoxFrame extends Frame {
 	public void loadImages() {
 		LoadingList.setDeferredLoading(true);
 		for (int i = 0; i <= 29; i++) {
+			m_buttons[i].setImage(null);
 			try {
 				if(m_pokeNums[i] >= 0)
 					m_buttons[i].setImage(new Image(Pokemon
