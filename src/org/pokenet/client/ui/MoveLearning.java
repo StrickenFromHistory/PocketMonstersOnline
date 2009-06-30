@@ -177,7 +177,7 @@ public class MoveLearning extends Frame {
 		if (!GameClient.getInstance().getDisplay().containsChild(m_replace)) {
 			if (m_moveButtons.get(i).getText().equals("")) {
 				GameClient.getInstance().getOurPlayer().getPokemon()[m_pokeIndex].setMoves(j, m_move);
-				if (BattleManager.getInstance().getBattleWindow() != null)
+				if (BattleManager.getInstance().getBattleWindow().isVisible())
 					BattleManager.getInstance().updateMoves();
 				GameClient.getInstance().getPacketGenerator().write(
 						"Pm" + m_pokeIndex + i + m_move);
