@@ -75,7 +75,62 @@ public class BigBagDialog extends Frame {
 		}
 		m_update = true;
 	}
+	
+	/**
+	 * Adds an item to the bag
+	 * @param id
+	 * @param amount
+	 */
+	public void addItem(int id, boolean newItem) {
+		if (newItem) {
+			for (PlayerItem item : GameClient.getInstance().getOurPlayer().getItems()){
+				if (item.getNumber() == id){
+					// Field items
+					if (item.getItem().getCategory().equalsIgnoreCase("Field") ||
+							item.getItem().getCategory().equalsIgnoreCase("Evolution")) {
+						m_items.get(0).add(item);
+					}
+					// Potions and medicine
+					else if (item.getItem().getCategory().equalsIgnoreCase("Potions")
+							|| item.getItem().getCategory().equalsIgnoreCase(
+							"Medicine")) {
+						m_items.get(1).add(item);
+					}
+					// Berries and food
+					else if (item.	getItem().getCategory().equalsIgnoreCase("Food")) {
+						m_items.get(2).add(item);
+					}
+					// Pokeballs
+					else if (item.getItem().getCategory().equalsIgnoreCase("Pokeball")) {
+						m_items.get(3).add(item);
+					}
+					// TMs
+					else if (item.getItem().getCategory().equalsIgnoreCase("TM")) {
+						m_items.get(4).add(item);
+					}
+				}
+			}
+		}
+		m_update = true;
+	}
 
+	/**
+	 * Removes an item to the bag
+	 * @param id
+	 * @param amount
+	 */
+	public void removeItem(int id, int amount) {
+		for (int i = 0; i < 5; i++){
+			for (PlayerItem item : m_items.get(i)){
+				if (item.getNumber() == id) {
+					if (item.getQuantity() < amount)
+						m_items.get(i).remove(item);
+				}
+			}
+		}
+		m_update = true;
+	}
+	
 	/**
 	 * Initializes the interface
 	 */
