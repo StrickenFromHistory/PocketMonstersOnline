@@ -495,13 +495,8 @@ public class ServerMap {
 		default:
 			break;
 		}
-		for(int i = 0; i < m_npcs.size() / 2; i++) {
+		for(int i = 0; i < m_npcs.size(); i++) {
 			if(m_npcs.get(i).getX() == x && m_npcs.get(i).getY() == y) {
-				p.setTalking(true);
-				m_npcs.get(i).talkToPlayer(p);
-				break;
-			} else if(m_npcs.get(m_npcs.size() - 1 - i).getX() == x 
-					&& m_npcs.get(m_npcs.size() - 1 - i).getY() == y) {
 				p.setTalking(true);
 				m_npcs.get(i).talkToPlayer(p);
 				break;

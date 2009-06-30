@@ -97,56 +97,57 @@ public class NonPlayerChar extends Char {
 	 * @param p
 	 */
 	public void talkToPlayer(PlayerChar p) {
-		if(m_possiblePokemon != null && m_minPartySize > 0 && canBattle()) {
+		if(isTrainer()) {
+			if(canBattle()) {
+				String speech = this.getSpeech();
+				if(!speech.equalsIgnoreCase("")) {
+					ProtocolHandler.writeMessage(p.getSession(), 
+							new ChatMessage(ChatMessageType.NPC, speech));
+				}
+				setLastBattleTime(System.currentTimeMillis());
+				p.setBattling(true);
+				p.setBattleField(new NpcBattleField(DataService.getBattleMechanics(), p, this));
+				return;
+			} else {
+				p.setTalking(false);
+				return;
+			}
+		} else {
+			/* If this NPC wasn't a trainer, handle other possibilities */
 			String speech = this.getSpeech();
 			if(!speech.equalsIgnoreCase("")) {
-				ProtocolHandler.writeMessage(p.getSession(), 
-						new ChatMessage(ChatMessageType.NPC, speech));
-			}
-			setLastBattleTime(System.currentTimeMillis());
-			p.setBattling(true);
-			p.setBattleField(new NpcBattleField(DataService.getBattleMechanics(), p, this));
-			return;
-		}
-		/* If this NPC wasn't a trainer, handle other possibilities */
-		String speech = this.getSpeech();
-		if(!speech.equalsIgnoreCase("")) {
-			if(!p.isShopping()) {
-				//Dont send if player is shopping!
-				if(isTrainer()) {
-					/* This is a trainer NPC but cannot be battled - is sleeping */
-					return;
-				} else {
+				if(!p.isShopping()) {
+					//Dont send if player is shopping!
 					ProtocolHandler.writeMessage(p.getSession(), 
 							new ChatMessage(ChatMessageType.NPC, speech));
 				}
 			}
-		}
-		/* If this NPC is a sprite selection npc */
-		if(m_name.equalsIgnoreCase("Spriter")) {
-			p.setSpriting(true);
-			ProtocolHandler.writeMessage(p.getSession(), new SpriteSelectMessage());
-			return;
-		}
-		/* Box access */
-		if(m_isBox) {
-			//Send the data for the player's first box, they may change this later
-			p.setTalking(false);
-			p.setBoxing(true);
-			p.sendBoxInfo(0);
-		}
-		/* Healer */
-		if(m_isHeal) {
-			p.healPokemon();
-			p.setLastHeal(p.getX(), p.getY(), p.getMapX(), p.getMapY());
-		}
-		/* Shop access */
-		if(m_isShop) {
-			//Send shop packet to display shop window clientside
-			if(!p.isShopping()){ //Dont display if user's shopping
-				ProtocolHandler.writeMessage(p.getSession(), new ShopStockMessage(m_shop.getStockData()));
-				p.setShopping(true);
-				p.setShop(m_shop);
+			/* If this NPC is a sprite selection npc */
+			if(m_name.equalsIgnoreCase("Spriter")) {
+				p.setSpriting(true);
+				ProtocolHandler.writeMessage(p.getSession(), new SpriteSelectMessage());
+				return;
+			}
+			/* Box access */
+			if(m_isBox) {
+				//Send the data for the player's first box, they may change this later
+				p.setTalking(false);
+				p.setBoxing(true);
+				p.sendBoxInfo(0);
+			}
+			/* Healer */
+			if(m_isHeal) {
+				p.healPokemon();
+				p.setLastHeal(p.getX(), p.getY(), p.getMapX(), p.getMapY());
+			}
+			/* Shop access */
+			if(m_isShop) {
+				//Send shop packet to display shop window clientside
+				if(!p.isShopping()){ //Dont display if user's shopping
+					ProtocolHandler.writeMessage(p.getSession(), new ShopStockMessage(m_shop.getStockData()));
+					p.setShopping(true);
+					p.setShop(m_shop);
+				}
 			}
 		}
 	}
@@ -204,7 +205,7 @@ public class NonPlayerChar extends Char {
 	 * @return
 	 */
 	public boolean isTrainer() {
-		return m_possiblePokemon != null && m_minPartySize > 0;
+		return m_possiblePokemon != null && m_minPartySize > 0 && m_possiblePokemon.size() > 0;
 	}
 	
 	/**
