@@ -25,6 +25,7 @@ public class OptionsDialog extends Frame {
 	private CheckBox m_fullScreen;
 	private CheckBox m_muteSound;
 	private CheckBox m_disableMaps;
+	private CheckBox m_disableWeather;
 
 	// private SimpleColorPicker learnColor;
 
@@ -79,9 +80,16 @@ public class OptionsDialog extends Frame {
 			getContentPane().add(m_disableMaps);
 		}
 		{
+			m_disableWeather = new CheckBox("Disable Weather");
+			m_disableWeather.pack();
+			m_disableWeather.setLocation(10, 78);
+			m_disableWeather.setSelected(Boolean.parseBoolean(m_options.get("disableWeather")));
+			getContentPane().add(m_disableWeather);
+		}
+		{
 			m_save = new Button(translated.get(18));
 			m_save.setSize(50, 25);
-			m_save.setLocation(88, 74);
+			m_save.setLocation(88, 108);
 			getContentPane().add(m_save);
 
 			m_save.addActionListener(new ActionListener() {
@@ -106,10 +114,15 @@ public class OptionsDialog extends Frame {
 						m_options.put("disableMaps", Boolean.toString(m_disableMaps.isSelected()));
 						GameClient.setDisableMaps(m_disableMaps.isSelected());
 						
+						m_options.remove("disableWeather");
+						m_options.put("disableWeather", Boolean.toString(m_disableWeather.isSelected()));
+						
 						if (m_muteSound.isSelected())
 							GameClient.getSoundPlayer().mute(true); 
 						else
 							GameClient.getSoundPlayer().mute(false);
+						
+						GameClient.getInstance().getWeatherService().setEnabled(!m_disableWeather.isSelected());
 						
 						m_muffin.saveFile(m_options, "options.dat");
 						GameClient
@@ -124,7 +137,7 @@ public class OptionsDialog extends Frame {
 			});
 		}
 		setTitle(translated.get(15));
-		setSize(400, 128);
+		setSize(400, 160);
 		setResizable(false);
 		this.getTitleBar().getCloseButton().setVisible(false);
 	}

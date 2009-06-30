@@ -86,7 +86,7 @@ public class GameClient extends BasicGame {
 	private ConfirmationDialog m_confirm;
 	private PlayerPopupDialog m_playerDialog;
     private static SoundManager m_soundPlayer;
-    private static boolean m_disableMaps = true;
+    private static boolean m_disableMaps = false;
     
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
@@ -99,6 +99,7 @@ public class GameClient extends BasicGame {
 				options = new HashMap<String,String>();
 				options.put("soundMuted", String.valueOf(false));
 				options.put("disableMaps", String.valueOf(false));
+				options.put("disableWeather", String.valueOf(false));
 			}
 			m_instance = new GameClient("Pokenet: Fearless Feebas");
 			m_soundPlayer = new SoundManager();
@@ -107,8 +108,9 @@ public class GameClient extends BasicGame {
 			m_soundPlayer.setTrack("introandgym");
 			m_disableMaps = Boolean.parseBoolean(options.get("disableMaps"));
 		} catch (Exception e) { 
+			e.printStackTrace();
 			m_instance = new GameClient("Pokenet: Fearless Feebas");
-			m_disableMaps = true;
+			m_disableMaps = false;
 			m_soundPlayer = new SoundManager();
 			m_soundPlayer.mute(false);
 			m_soundPlayer.start();
@@ -157,6 +159,8 @@ public class GameClient extends BasicGame {
 		 */
 		m_time = new TimeService();
 		m_weather = new WeatherService();
+		if(options != null)
+			m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
 		
 		/*
 		 * Add the ui components
