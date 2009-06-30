@@ -18,6 +18,7 @@ import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.FileLoader;
+import org.pokenet.client.backend.ItemDatabase;
 import org.pokenet.client.backend.entity.PlayerItem;
 import org.pokenet.client.ui.base.ImageButton;
 
@@ -322,8 +323,14 @@ public class BigBagDialog extends Frame {
 	public void useItem(int i) {
 		destroyPopup();
 		if (m_curCategory == 0 || m_curCategory == 3){
-			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
-					m_itemBtns.get(i).getName()), false, false);
+			if (ItemDatabase.getInstance().getItem(Integer.valueOf(m_itemBtns.get(i).getName()))
+					.getCategory().equals("Evolution")){
+				m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
+						m_itemBtns.get(i).getName()), true, false);				
+			} else {
+				m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
+						m_itemBtns.get(i).getName()), false, false);
+			}
 			m_popup.setLocation(m_itemBtns.get(i).getAbsoluteX(), m_itemBtns.get(i).getAbsoluteY() 
 					+ m_itemBtns.get(i).getHeight() - getTitleBar().getHeight());
 			getDisplay().add(m_popup);
