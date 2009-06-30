@@ -432,12 +432,13 @@ class ItemPopup extends Frame{
 			m_destroy.setLocation(0, m_use.getY() + 25);
 		m_destroy.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){
+				GameClient.getInstance().getPacketGenerator().write("i" + m_id);
 				destroyPopup();
 			}
 		});
 		getContentPane().add(m_destroy);
 		
-		// Destroy the item
+		// Close the popup
 		m_cancel = new Button("Cancel");
 		m_cancel.setSize(100,25);
 		m_cancel.setLocation(0, m_destroy.getY() + 25);
@@ -586,7 +587,7 @@ class TeamPopup extends Frame{
 			GameClient.getInstance().getPacketGenerator().write("I" + id + "," + pokeIndex);
 		} else {
 			// TODO: Write "Give" packet
-			GameClient.getInstance().getPacketGenerator().write("i" + id);
+			GameClient.getInstance().getPacketGenerator().write("");
 		}
 		m_parent.destroyPopup();
 	}
