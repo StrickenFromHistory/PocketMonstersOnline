@@ -102,6 +102,12 @@ public class Trade {
 			o[0] = new TradeObject();
 			o[0].setId(poke);
 			o[0].setType(TradeType.POKEMON);
+			if(poke > -1 && poke < 6) {
+				if(!DataService.canTrade(p.getParty()[poke].getSpeciesName())) {
+					endTrade();
+					return;
+				}
+			}
 			
 			o[1] = new TradeObject();
 			o[1].setQuantity(money);
