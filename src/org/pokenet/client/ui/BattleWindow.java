@@ -17,6 +17,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.ui.base.BattleButtonFactory;
 import org.pokenet.client.ui.frames.BattleBag;
 
@@ -479,7 +480,7 @@ public class BattleWindow extends Frame {
 	 * Shows the pokemon Pane
 	 */
 	public void showPokePane(boolean isForced) {
-		GameClient.getInstance().getUi().getBattleManager().updatePokePane();
+		BattleManager.getInstance().updatePokePane();
 		attackPane.setVisible(false);
 		// bagPane.setVisible(false);
 		pokesContainer.setVisible(true);
@@ -506,12 +507,12 @@ public class BattleWindow extends Frame {
 	 */
 	private void useMove(int i) {
 		disableMoves();
-		if (GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMoveCurPP()[i] != 0) {
-			GameClient.getInstance().getUi().getBattleManager().getCurPoke().setMoveCurPP(i, 
-					GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMoveCurPP()[i] - 1);
-			GameClient.getInstance().getUi().getBattleManager().updateMoves();
+		if (BattleManager.getInstance().getCurPoke().getMoveCurPP()[i] != 0) {
+			BattleManager.getInstance().getCurPoke().setMoveCurPP(i, 
+					BattleManager.getInstance().getCurPoke().getMoveCurPP()[i] - 1);
+			BattleManager.getInstance().updateMoves();
 		}
 		GameClient.getInstance().getPacketGenerator().write("bm" + i);
-		// GameClient.getInstance().getUi().getBattleManager().getTimeLine().getBattleSpeech().advance();
+		// BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
 	}
 }

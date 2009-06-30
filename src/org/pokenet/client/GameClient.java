@@ -31,6 +31,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.backend.Animator;
+import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
 import org.pokenet.client.backend.ItemDatabase;
@@ -404,16 +405,16 @@ public class GameClient extends BasicGame {
 			}
 		}
 		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() &&
-				!m_ui.getChat().isActive() && !getDisplay().containsChild(getUi().getBattleManager()
+				!m_ui.getChat().isActive() && !getDisplay().containsChild(BattleManager.getInstance()
 						.getMoveLearning()) && !getDisplay().containsChild(getUi().getShop())) {
-			if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(getUi().getBattleManager()
+			if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
 					.getBattleWindow()) ){
 				m_packetGen.write("Ct");
 			}
-			if (getDisplay().containsChild(getUi().getBattleManager().getBattleWindow()) && 
-					 getDisplay().containsChild(getUi().getBattleManager().getTimeLine().getBattleSpeech())
-					 && !getDisplay().containsChild(getUi().getBattleManager().getMoveLearning())) {
-				getUi().getBattleManager().getTimeLine().getBattleSpeech().advance();
+			if (getDisplay().containsChild(BattleManager.getInstance().getBattleWindow()) && 
+					 getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
+					 && !getDisplay().containsChild(BattleManager.getInstance().getMoveLearning())) {
+				BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
 			} else{
 				try {
 					m_ui.getNPCSpeech().advance();
@@ -660,8 +661,8 @@ public class GameClient extends BasicGame {
 		m_packetGen = null;
 		m_host = "";
 		try {
-			if(this.getUi().getBattleManager() != null)
-				this.getUi().getBattleManager().endBattle();
+			if(BattleManager.getInstance() != null)
+				BattleManager.getInstance().endBattle();
 			if(this.getUi().getNPCSpeech() != null)
 				this.getUi().getNPCSpeech().setVisible(false);
 			if(this.getUi().getChat() != null)

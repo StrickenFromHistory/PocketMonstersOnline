@@ -12,6 +12,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.ui.base.ProgressBar;
 
 /**
@@ -62,8 +63,8 @@ public class BattleCanvas extends Container {
 			remove(playerPoke);
 		} catch (Exception e) {}
 		playerPoke = new Label();
-		GameClient.getInstance().getUi().getBattleManager().getCurPoke().setBackSprite();
-		playerPoke = new Label(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getBackSprite());
+		BattleManager.getInstance().getCurPoke().setBackSprite();
+		playerPoke = new Label(BattleManager.getInstance().getCurPoke().getBackSprite());
 		playerPoke.setSize(80, 80);
 		playerPoke.setLocation(20, 76);
 		add(playerPoke);
@@ -128,7 +129,7 @@ public class BattleCanvas extends Container {
 			try {
 				remove(enemyPoke);
 			} catch (Exception e) {}
-			enemyPoke = new Label (GameClient.getInstance().getUi().getBattleManager()
+			enemyPoke = new Label (BattleManager.getInstance()
 					.getCurEnemyPoke().getSprite());
 			enemyPoke.setSize(80, 80);
 			enemyPoke.setLocation(150, 21);
@@ -161,14 +162,14 @@ public class BattleCanvas extends Container {
 		// display player's data
 		playerNameLabel.setFont(GameClient.getTrueTypeFont());
 		playerNameLabel.setForeground(Color.white);
-		playerNameLabel.setText(GameClient.getInstance().getUi().getBattleManager()
+		playerNameLabel.setText(BattleManager.getInstance()
 				.getCurPoke().getName());
         playerNameLabel.setSize(GameClient.getTrueTypeFont().getWidth(playerNameLabel
         		.getText()), GameClient.getTrueTypeFont().getHeight(playerNameLabel
         				.getText()));
         playerNameLabel.setLocation(playerDataBG.getX() + 30, playerDataBG.getY() + 7);
         
-        playerLv.setText("Lv:" + GameClient.getInstance().getUi().getBattleManager()
+        playerLv.setText("Lv:" + BattleManager.getInstance()
         		.getCurPoke().getLevel());
         playerLv.setFont(GameClient.getTrueTypeFont());
         playerLv.setForeground(Color.white);
@@ -191,7 +192,7 @@ public class BattleCanvas extends Container {
 	 */
 	public void drawEnemyInfo(){
         //display enemy's data
-		enemyNameLabel.setText(GameClient.getInstance().getUi().getBattleManager()
+		enemyNameLabel.setText(BattleManager.getInstance()
 				.getCurEnemyPoke().getName());
 		enemyNameLabel.setFont(GameClient.getTrueTypeFont());
 		enemyNameLabel.setForeground(Color.white);
@@ -199,7 +200,7 @@ public class BattleCanvas extends Container {
         		GameClient.getTrueTypeFont().getHeight(enemyNameLabel.getText()));
         enemyNameLabel.setLocation(enemyDataBG.getX() + 15, enemyDataBG.getY() + 7);
 
-        enemyLv.setText("Lv: " + GameClient.getInstance().getUi().getBattleManager()
+        enemyLv.setText("Lv: " + BattleManager.getInstance()
         		.getCurEnemyPoke().getLevel());
         enemyLv.setFont(GameClient.getTrueTypeFont());
         enemyLv.setForeground(Color.white);
@@ -224,18 +225,18 @@ public class BattleCanvas extends Container {
 	public void updatePlayerHP(int newValue) {              
         playerHP.setValue(newValue);
         
-        if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
-        		> GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 2){
+        if(BattleManager.getInstance().getCurPoke().getCurHP() 
+        		> BattleManager.getInstance().getCurPoke().getMaxHP() / 2){
                 playerHP.setForeground(Color.green);
         }
-        else if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
-        		< GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 2 
-        		&& GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
-        		> GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 3){
+        else if(BattleManager.getInstance().getCurPoke().getCurHP() 
+        		< BattleManager.getInstance().getCurPoke().getMaxHP() / 2 
+        		&& BattleManager.getInstance().getCurPoke().getCurHP() 
+        		> BattleManager.getInstance().getCurPoke().getMaxHP() / 3){
                 playerHP.setForeground(Color.orange);
         }
-        else if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
-        		< GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 3){
+        else if(BattleManager.getInstance().getCurPoke().getCurHP() 
+        		< BattleManager.getInstance().getCurPoke().getMaxHP() / 3){
                 playerHP.setForeground(Color.red);
         }
 	}
@@ -247,18 +248,18 @@ public class BattleCanvas extends Container {
 	public void updateEnemyHP(int newValue) {
 		enemyHP.setValue(newValue);
 
-		if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
-				> GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 2){
+		if(BattleManager.getInstance().getCurEnemyPoke().getCurHP() 
+				> BattleManager.getInstance().getCurEnemyPoke().getMaxHP() / 2){
 			enemyHP.setForeground(Color.green);
 		}
-		else if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
-				< GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 2 
-				&& GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
-				> GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 3){
+		else if(BattleManager.getInstance().getCurEnemyPoke().getCurHP() 
+				< BattleManager.getInstance().getCurEnemyPoke().getMaxHP() / 2 
+				&& BattleManager.getInstance().getCurEnemyPoke().getCurHP() 
+				> BattleManager.getInstance().getCurEnemyPoke().getMaxHP() / 3){
 			enemyHP.setForeground(Color.orange);
 		}
-		else if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
-				< GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 3){
+		else if(BattleManager.getInstance().getCurEnemyPoke().getCurHP() 
+				< BattleManager.getInstance().getCurEnemyPoke().getMaxHP() / 3){
 			enemyHP.setForeground(Color.red);
 		}
 	}
@@ -299,25 +300,25 @@ public class BattleCanvas extends Container {
 	 */
 	public void initEnemyHPBar(){
 		// show enemy hp bar
-        enemyHP = new ProgressBar(0, (int)GameClient.getInstance().getUi().getBattleManager()
+        enemyHP = new ProgressBar(0, (int)BattleManager.getInstance()
         		.getCurEnemyPoke().getMaxHP());
         enemyHP.setSize(72, 5);
         
-        if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
-        		> GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 2){
+        if(BattleManager.getInstance().getCurEnemyPoke().getCurHP() 
+        		> BattleManager.getInstance().getCurEnemyPoke().getMaxHP() / 2){
                 enemyHP.setForeground(Color.green);
         }
-        else if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
-        		< GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 2 
-        		&& GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
-        		> GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 3){
+        else if(BattleManager.getInstance().getCurEnemyPoke().getCurHP() 
+        		< BattleManager.getInstance().getCurEnemyPoke().getMaxHP() / 2 
+        		&& BattleManager.getInstance().getCurEnemyPoke().getCurHP() 
+        		> BattleManager.getInstance().getCurEnemyPoke().getMaxHP() / 3){
                 enemyHP.setForeground(Color.orange);
         }
-        else if(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() 
-        		< GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getMaxHP() / 3){
+        else if(BattleManager.getInstance().getCurEnemyPoke().getCurHP() 
+        		< BattleManager.getInstance().getCurEnemyPoke().getMaxHP() / 3){
                 enemyHP.setForeground(Color.red);
         }
-        updateEnemyHP(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP());
+        updateEnemyHP(BattleManager.getInstance().getCurEnemyPoke().getCurHP());
         
         enemyHPBar.setLocation(enemyNameLabel.getX(), 40); 
 		enemyHP.setLocation(enemyHPBar.getX() + 23, enemyHPBar.getY() + 3);
@@ -331,26 +332,26 @@ public class BattleCanvas extends Container {
 	 */
 	public void initPlayerHPBar(){
 		// show hp bar
-        playerHP = new ProgressBar(0, (int)GameClient.getInstance().getUi().getBattleManager()
+        playerHP = new ProgressBar(0, (int)BattleManager.getInstance()
         		.getCurPoke().getMaxHP());
         playerHP.setSize(72, 5);
 
-        if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
-        		> GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 2){
+        if(BattleManager.getInstance().getCurPoke().getCurHP() 
+        		> BattleManager.getInstance().getCurPoke().getMaxHP() / 2){
                 playerHP.setForeground(Color.green);
         }
-        else if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
-        		< GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 2 
-        		&& GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
-        		> GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 3){
+        else if(BattleManager.getInstance().getCurPoke().getCurHP() 
+        		< BattleManager.getInstance().getCurPoke().getMaxHP() / 2 
+        		&& BattleManager.getInstance().getCurPoke().getCurHP() 
+        		> BattleManager.getInstance().getCurPoke().getMaxHP() / 3){
                 playerHP.setForeground(Color.orange);
         }
-        else if(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() 
-        		< GameClient.getInstance().getUi().getBattleManager().getCurPoke().getMaxHP() / 3){
+        else if(BattleManager.getInstance().getCurPoke().getCurHP() 
+        		< BattleManager.getInstance().getCurPoke().getMaxHP() / 3){
                 playerHP.setForeground(Color.red);
         }
 
-        updatePlayerHP(GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP());
+        updatePlayerHP(BattleManager.getInstance().getCurPoke().getCurHP());
         
         playerHPBar.setLocation(playerLv.getX() + playerLv.getWidth() - 98, 125); 
 		playerHP.setLocation(playerHPBar.getX() + 23, playerHPBar.getY() + 3);
@@ -368,12 +369,12 @@ public class BattleCanvas extends Container {
 		if (trainer == 0){
 			// The player's pokemon
 			if (status != "normal") {
-				GameClient.getInstance().getUi().getBattleManager().getOurStatuses().put(
-						GameClient.getInstance().getUi().getBattleManager().getCurPokeIndex(), status);
+				BattleManager.getInstance().getOurStatuses().put(
+						BattleManager.getInstance().getCurPokeIndex(), status);
 				playerStatus.setImage(m_statusIcons.get(status));
 			} else {
-				GameClient.getInstance().getUi().getBattleManager().getOurStatuses().remove(
-						GameClient.getInstance().getUi().getBattleManager().getCurPokeIndex());
+				BattleManager.getInstance().getOurStatuses().remove(
+						BattleManager.getInstance().getCurPokeIndex());
 				playerStatus.setImage(null);
 			}
 		} else {
@@ -445,9 +446,9 @@ public class BattleCanvas extends Container {
 	 * Centers the battle window
 	 */
 	public void positionCanvas() {
-		float y = GameClient.getInstance().getUi().getBattleManager().getBattleWindow().getY() 
-		 	+ GameClient.getInstance().getUi().getBattleManager().getBattleWindow().getTitleBar().getHeight();
-		float x = GameClient.getInstance().getUi().getBattleManager().getBattleWindow().getX() + 1;
+		float y = BattleManager.getInstance().getBattleWindow().getY() 
+		 	+ BattleManager.getInstance().getBattleWindow().getTitleBar().getHeight();
+		float x = BattleManager.getInstance().getBattleWindow().getX() + 1;
 		setLocation(x, y);
 	}
 	
