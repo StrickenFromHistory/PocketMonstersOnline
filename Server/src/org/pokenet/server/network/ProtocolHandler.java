@@ -11,6 +11,7 @@ import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar.RequestType;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.BattleTurn;
+import org.pokenet.server.battle.impl.PvPBattleField;
 import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.feature.TimeService.Weather;
 import org.pokenet.server.network.message.PokenetMessage;
@@ -486,7 +487,13 @@ public class ProtocolHandler extends IoHandlerAdapter {
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
 			//TODO: If player is battling, end the battle with them losing 
 			if(p != null) {
-				p.setBattleField(null);
+				if(p.isBattling()) {
+					/* If in PvP battle, the player loses */
+					if(p.getBattleField() instanceof PvPBattleField) {
+						((PvPBattleField) p.getBattleField()).disconnect(p.getBattleId());
+					}
+					p.setBattleField(null);
+				}
 				GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(p);
 				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 				m_players.remove(p);

@@ -486,5 +486,39 @@ public class PvPBattleField extends BattleField {
 					new BattleMessage(message));
 		}
 	}
-
+	
+	/**
+	 * Handles a disconnect from a player
+	 * Rewards other player with some money
+	 * @param trainer
+	 */
+	public void disconnect(int trainer) {
+		if(m_players != null) {
+			if(trainer == 0) {
+				if(m_players[0].getMoney() >= 100) {
+					m_players[0].setMoney(m_players[0].getMoney() - 100);
+					m_players[1].setMoney(m_players[1].getMoney() + 100);
+				} else {
+					m_players[1].setMoney(m_players[1].getMoney() + m_players[0].getMoney());
+					m_players[0].setMoney(0);
+				}
+				m_players[1].updateClientMoney();
+				ProtocolHandler.writeMessage(m_players[1].getSession(), 
+						new BattleEndMessage(BattleEnd.WON));
+				m_players[1].setBattling(false);
+			} else {
+				if(m_players[1].getMoney() >= 100) {
+					m_players[1].setMoney(m_players[0].getMoney() - 100);
+					m_players[0].setMoney(m_players[1].getMoney() + 100);
+				} else {
+					m_players[0].setMoney(m_players[1].getMoney() + m_players[0].getMoney());
+					m_players[1].setMoney(0);
+				}
+				m_players[0].updateClientMoney();
+				ProtocolHandler.writeMessage(m_players[0].getSession(), 
+						new BattleEndMessage(BattleEnd.WON));
+				m_players[0].setBattling(false);
+			}
+		}
+	}
 }
