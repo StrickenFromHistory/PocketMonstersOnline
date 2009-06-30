@@ -199,8 +199,8 @@ public class BattleWindow extends Frame {
 		});
 		pp1 = new Label();
 		pp1.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-		pp1.setBounds(7, 40, 110, 20);
-		attackPane.add(pp1);
+		pp1.setBounds(0, move1.getHeight() - 20, move1.getWidth() - 5, 20);
+		move1.add(pp1);
 
 		attackPane.add(move2);
 		move2.setLocation(130, 10);
@@ -212,8 +212,8 @@ public class BattleWindow extends Frame {
 		});
 		pp2 = new Label();
 		pp2.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-		pp2.setBounds(130, 40, 110, 20);
-		attackPane.add(pp2);
+		pp2.setBounds(0, move2.getHeight() - 20, move2.getWidth() - 5, 20);
+		move2.add(pp2);
 
 		attackPane.add(move3);
 		move3.setLocation(7, 65);
@@ -225,8 +225,8 @@ public class BattleWindow extends Frame {
 		});
 		pp3 = new Label();
 		pp3.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-		pp3.setBounds(7, 95, 110, 20);
-		attackPane.add(pp3);
+		pp3.setBounds(0, move3.getHeight() - 20, move3.getWidth() - 5, 20);
+		move3.add(pp3);
 
 		attackPane.add(move4);
 		move4.setLocation(130, 65);
@@ -238,9 +238,14 @@ public class BattleWindow extends Frame {
 		});
 		pp4 = new Label();
 		pp4.setHorizontalAlignment(Label.RIGHT_ALIGNMENT);
-		pp4.setBounds(130, 95, 110, 20);
-		attackPane.add(pp4);
+		pp4.setBounds(0, move4.getHeight() - 20, move4.getWidth() - 5, 20);
+		move4.add(pp4);
 
+		pp1.setFont(GameClient.getFontSmall());
+		pp2.setFont(GameClient.getFontSmall());
+		pp3.setFont(GameClient.getFontSmall());
+		pp4.setFont(GameClient.getFontSmall());
+		
 		pp1.setForeground(Color.white);
 		pp2.setForeground(Color.white);
 		pp3.setForeground(Color.white);
