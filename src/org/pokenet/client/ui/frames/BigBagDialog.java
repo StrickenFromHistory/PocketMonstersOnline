@@ -119,12 +119,34 @@ public class BigBagDialog extends Frame {
 	 * @param id
 	 * @param amount
 	 */
-	public void removeItem(int id, int amount) {
-		for (int i = 0; i < 5; i++){
-			for (PlayerItem item : m_items.get(i)){
-				if (item.getNumber() == id) {
-					if (item.getQuantity() < amount)
-						m_items.get(i).remove(item);
+	public void removeItem(int id, boolean remove) {
+		if (remove) {
+			for (PlayerItem item : GameClient.getInstance().getOurPlayer().getItems()){
+				if (item.getNumber() == id){
+					// Field items
+					if (item.getItem().getCategory().equalsIgnoreCase("Field") ||
+							item.getItem().getCategory().equalsIgnoreCase("Evolution")) {
+						m_items.get(0).remove(item);
+					}
+					// Potions and medicine
+					else if (item.getItem().getCategory().equalsIgnoreCase("Potions")
+							|| item.getItem().getCategory().equalsIgnoreCase(
+							"Medicine")) {
+						m_items.get(1).remove(item);
+					}
+					// Berries and food
+					else if (item.	getItem().getCategory().equalsIgnoreCase("Food")) {
+						m_items.get(2).remove(item);
+
+					}
+					// Pokeballs
+					else if (item.getItem().getCategory().equalsIgnoreCase("Pokeball")) {
+						m_items.get(3).remove(item);
+					}
+					// TMs
+					else if (item.getItem().getCategory().equalsIgnoreCase("TM")) {
+						m_items.get(4).remove(item);
+					}
 				}
 			}
 		}

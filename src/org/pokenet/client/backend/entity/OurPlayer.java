@@ -96,12 +96,15 @@ public class OurPlayer extends Player {
 	public void removeItem(int number, int quantity) {
 		for(int i = 0; i < m_items.size(); i++) {
 			if(m_items.get(i) != null && m_items.get(i).getNumber() == number) {
-				if(m_items.get(i).getQuantity() - quantity > 0)
+				if(m_items.get(i).getQuantity() - quantity > 0) {
 					m_items.get(i).setQuantity(m_items.get(i).getQuantity() - quantity);
-				else
+					if (GameClient.getInstance().getUi().getBag() != null)
+						GameClient.getInstance().getUi().getBag().removeItem(number, false);
+				} else {
 					m_items.remove(i);
-				if (GameClient.getInstance().getUi().getBag() != null)
-					GameClient.getInstance().getUi().getBag().removeItem(number, quantity);
+					if (GameClient.getInstance().getUi().getBag() != null)
+						GameClient.getInstance().getUi().getBag().removeItem(number, true);
+				}
 				return;
 			}
 		}
