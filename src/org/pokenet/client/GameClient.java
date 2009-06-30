@@ -249,7 +249,11 @@ public class GameClient extends BasicGame {
 			a = m_time.getDaylight();
 			//Weather
 			if(m_weather.isEnabled() && m_weather.getWeather() != Weather.NORMAL) {
-				m_weather.getParticleSystem().update(delta);
+				try {
+					m_weather.getParticleSystem().update(delta);
+				} catch (Exception e) {
+					m_weather.setEnabled(false);
+				}
 				a = a < 100 ? a + 60 : a;
 			}
 			m_daylight = new Color(0, 0, 0, a);
@@ -300,8 +304,13 @@ public class GameClient extends BasicGame {
             
             if(m_mapX > -30) {
                 //Render the current weather
-                if(m_weather.isEnabled() && m_weather.getParticleSystem() != null)
-                	m_weather.getParticleSystem().render();
+                if(m_weather.isEnabled() && m_weather.getParticleSystem() != null) {
+                	try {
+                      	m_weather.getParticleSystem().render();
+                	} catch(Exception e) {
+                		m_weather.setEnabled(false);
+                	}
+                }
                 //Render the current daylight
                 if(m_time.getDaylight() > 0 || 
                 		(m_weather.getWeather() != Weather.NORMAL && 
