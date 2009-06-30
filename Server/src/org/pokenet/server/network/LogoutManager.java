@@ -288,8 +288,7 @@ public class LogoutManager implements Runnable {
 			 * Due to issues with Pokemon not receiving abilities,
 			 * we're going to ensure they have one
 			 */
-			if(p.getAbility() == null || p.getAbilityName() == null 
-					|| p.getAbilityName().equalsIgnoreCase("")) {
+			if(p.getAbility() == null || p.getAbility().getName().equalsIgnoreCase("")) {
 				String [] abilities = PokemonSpecies.getDefaultData().getPossibleAbilities(p.getSpeciesName());
 		        /* First select an ability randomly */
 		        String ab = "";
