@@ -106,6 +106,21 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
+	 * Returns this player's ip address
+	 * @return
+	 */
+	public String getIpAddress() {
+		if(m_session != null) {
+			String ip = m_session.getRemoteAddress().toString();
+			ip = ip.substring(1);
+			ip = ip.substring(0, ip.indexOf(":"));
+			return ip;
+		} else {
+			return "";
+		}
+	}
+	
+	/**
 	 * Sets how many steps this Pokemon can repel for
 	 * @param steps
 	 */

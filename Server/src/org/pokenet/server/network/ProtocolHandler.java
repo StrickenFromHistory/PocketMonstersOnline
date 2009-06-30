@@ -263,7 +263,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 										GameServer.getDatabasePassword())) {
 									m.selectDatabase(GameServer.getDatabaseName());
 									m.query("INSERT INTO pn_bans (ip) VALUE ('" + 
-											o.getSession().getRemoteAddress().toString()
+											o.getIpAddress()
 											+ "')");
 									m.close();
 								}

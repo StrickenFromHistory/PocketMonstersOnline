@@ -46,6 +46,22 @@ public class LoginManager implements Runnable {
 	}
 	
 	/**
+	 * Returns the ip address of a session
+	 * @param s
+	 * @return
+	 */
+	private String getIp(IoSession s) {
+		if(s != null) {
+			String ip = s.getRemoteAddress().toString();
+			ip = ip.substring(1);
+			ip = ip.substring(0, ip.indexOf(":"));
+			return ip;
+		} else {
+			return "";
+		}
+	}
+	
+	/**
 	 * Attempts to login a player. Upon success, it sends a packet to the player to inform them they are logged in.
 	 * @param session
 	 * @param l
@@ -67,7 +83,7 @@ public class LoginManager implements Runnable {
 			}
 			m_database.selectDatabase(GameServer.getDatabaseName());
 			//Now, check they are not banned
-			ResultSet result = m_database.query("SELECT * FROM pn_bans WHERE ip='" + session.getRemoteAddress().toString() + "'");
+			ResultSet result = m_database.query("SELECT * FROM pn_bans WHERE ip='" + getIp(session) + "'");
 			if(result != null && result.first()) {
 				//This is player is banned, inform them
 				session.write("l4");
@@ -96,7 +112,7 @@ public class LoginManager implements Runnable {
 						p.setSession(session);
 						p.setLanguage(Language.values()[Integer.parseInt(String.valueOf(l))]);
 						m_database.query("UPDATE pn_members SET lastLoginServer='" + MySqlManager.parseSQL(GameServer.getServerName()) + "', lastLoginTime='" + time + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
-						m_database.query("UPDATE pn_members SET lastLoginIP='" + session.getLocalAddress() + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
+						m_database.query("UPDATE pn_members SET lastLoginIP='" + getIp(session) + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 						session.setAttribute("player", p);
 						GameServer.getServiceManager().getMovementService().removePlayer(username);
 						this.initialiseClient(p, session);
