@@ -57,6 +57,8 @@ public class ProtocolHandler extends IoHandlerAdapter {
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
 			//TODO: If player is battling, end the battle with them losing 
 			GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(p);
+			GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
+			m_players.remove(p);
 			session.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -157,7 +159,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 						//int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
 						p.buyItem(item, 1);
 						break;
-			case 's':
+					case 's':
 						//Sell items. Sent as SsITEMID,QUANTITY
 						item = Integer.parseInt(message.substring(2, message.indexOf(',')));
 						//int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
