@@ -49,6 +49,7 @@ public class Ui extends Frame {
     private Frame m_bagForm;
     private PartyInfoDialog m_teamInfo;
 	private NPCSpeechFrame m_speechFrame;
+	@SuppressWarnings("unused")
 	private BattleManager m_battleManager;
 	private PokeStorageBoxFrame m_storageBox;
 	private TownMap m_map;
