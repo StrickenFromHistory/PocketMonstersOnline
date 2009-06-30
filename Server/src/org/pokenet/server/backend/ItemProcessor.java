@@ -8,7 +8,6 @@ import org.pokenet.server.backend.item.Item.ItemAttribute;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
-import org.pokenet.server.battle.PokemonSpecies;
 import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
 import org.pokenet.server.battle.mechanics.polr.POLREvolution;

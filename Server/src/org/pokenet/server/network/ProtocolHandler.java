@@ -10,7 +10,6 @@ import org.pokenet.server.backend.ItemProcessor;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar.RequestType;
 import org.pokenet.server.backend.entity.Positionable.Direction;
-import org.pokenet.server.backend.item.ItemDatabase;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.impl.PvPBattleField;
 import org.pokenet.server.battle.impl.WildBattleField;
