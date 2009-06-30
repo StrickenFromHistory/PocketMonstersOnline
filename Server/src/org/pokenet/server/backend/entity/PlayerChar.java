@@ -1253,8 +1253,7 @@ public class PlayerChar extends Char implements Battleable {
 							new ShopBuyMessage(ItemDatabase.getInstance().getItem(id).getId()));
 					//Update player inventory
 					ProtocolHandler.writeMessage(m_session, new ItemMessage(true, 
-							ItemDatabase.getInstance().getItem(id).getId(), 
-							m_bag.getItemQuantity(id)));
+							ItemDatabase.getInstance().getItem(id).getId(), 1));
 				}
 			}else{
 				//Return You have no money, fool!
