@@ -1291,20 +1291,7 @@ public class PlayerChar extends Char implements Battleable {
 					.getItem(id).getName()));
 		}
 	}
-	/**
-	 * Allows the player to destroy an item in their inventory (only 1 of the item)
-	 * @param id
-	 * @param q
-	 */
-	public void destroyItem(int id, int q) {
-		if(m_bag.containsItem(id) > -1) { //Guy does have the item he's dropping. 
-			//Remove the item
-			m_bag.removeItem(id, q);
-			//Tell the client to remove the item from the player's inventory
-			ProtocolHandler.writeMessage(m_session, new ItemMessage(false, 
-					ItemDatabase.getInstance().getItem(id).getId(), q));
-		}
-	}
+
 	/**
 	 * Updates the player's money clientside
 	 */

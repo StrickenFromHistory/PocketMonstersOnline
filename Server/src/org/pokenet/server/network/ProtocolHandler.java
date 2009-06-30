@@ -10,10 +10,12 @@ import org.pokenet.server.backend.ItemProcessor;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar.RequestType;
 import org.pokenet.server.backend.entity.Positionable.Direction;
+import org.pokenet.server.backend.item.ItemDatabase;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.impl.PvPBattleField;
 import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.feature.TimeService.Weather;
+import org.pokenet.server.network.message.ItemMessage;
 import org.pokenet.server.network.message.PokenetMessage;
 import org.pokenet.server.network.message.RequestMessage;
 
@@ -417,11 +419,12 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				new Thread(new ItemProcessor(p, details)).start();
 				break;
 			case 'i':
-				//Drop an item
-				int item = Integer.parseInt(message.substring(1));
-				//int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
-				p.destroyItem(item, 1);
-				break;	
+				//Drop item
+				if(p.getBag().removeItem(Integer.parseInt(message.substring(1)), 1)) {
+					ProtocolHandler.writeMessage(p.getSession(), new ItemMessage(false, 
+							Integer.parseInt(message.substring(1)), 1));
+				}
+				break;
 			case 'T':
 				//Trade packets
 				if(p.isTrading()) {
