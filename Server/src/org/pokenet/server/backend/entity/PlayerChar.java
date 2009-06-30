@@ -71,6 +71,7 @@ public class PlayerChar extends Char implements Battleable {
 	private boolean m_isMuted;
 	private Shop m_currentShop = null;
 	private int m_repel = 0;
+	private long m_lastTrade = 0;
 	/*
 	 * Kicking timer
 	 */
@@ -278,6 +279,15 @@ public class PlayerChar extends Char implements Battleable {
 		if(m_session != null && m_session.isConnected())
 			m_session.write("Tf");
 		ensureHealthyPokemon();
+		m_lastTrade = System.currentTimeMillis();
+	}
+	
+	/**
+	 * Returns true if the player is allowed trade
+	 * @return
+	 */
+	public boolean canTrade() {
+		return System.currentTimeMillis() - m_lastTrade > 60000;
 	}
 	
 	/**
@@ -366,11 +376,16 @@ public class PlayerChar extends Char implements Battleable {
 					}
 					break;
 				case TRADE:
-					/* Set the player as talking so they can't move */
-					m_isTalking = true;
-					/* Create the trade */
-					m_trade = new Trade(this, otherPlayer);
-					otherPlayer.setTrade(m_trade);
+					if(canTrade() && otherPlayer.canTrade()) {
+						/* Set the player as talking so they can't move */
+						m_isTalking = true;
+						/* Create the trade */
+						m_trade = new Trade(this, otherPlayer);
+						otherPlayer.setTrade(m_trade);
+					} else {
+						m_session.write("r!4");
+						otherPlayer.getSession().write("r!4");
+					}
 					break;
 				}
 			}

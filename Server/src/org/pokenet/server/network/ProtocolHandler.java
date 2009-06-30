@@ -494,6 +494,10 @@ public class ProtocolHandler extends IoHandlerAdapter {
 					}
 					p.setBattleField(null);
 				}
+				/* If trading, end the trade */
+				if(p.isTrading()) {
+					p.getTrade().endTrade();
+				}
 				GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(p);
 				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 				m_players.remove(p);
