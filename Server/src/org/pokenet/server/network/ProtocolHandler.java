@@ -55,7 +55,6 @@ public class ProtocolHandler extends IoHandlerAdapter {
 		 */
 		try {
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
-			//TODO: If player is battling, end the battle with them losing 
 			if (p.isBattling())
 				p.lostBattle();
 			GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(p);
