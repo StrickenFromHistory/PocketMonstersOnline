@@ -37,8 +37,9 @@ public class PlayerItem {
             	f = getClass().getResourceAsStream("/res/items/48/0.png");
             	m_bagImage = new Image(f, "/res/items/48/0.png", false);
             	LoadingList.setDeferredLoading(false);
-            	e.printStackTrace();
-            	} catch (Exception e2){}
+            	} catch (Exception e2){
+            		e2.printStackTrace();
+            	}
             }
     }
 	
