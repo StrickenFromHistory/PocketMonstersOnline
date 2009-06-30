@@ -456,7 +456,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 			case 'M':
 				//Money change
 				m_game.getOurPlayer().setMoney(Integer.parseInt(message.substring(2)));
-				GameClient.getInstance().getUi().update(false);
+				GameClient.getInstance().getUi().update(true);
 				break;
 			case 'H':
 				//Pokes were healed
@@ -466,7 +466,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 								GameClient.getInstance().getOurPlayer().getPokemon()[i].getMaxHP());
 					}
 				}
-				GameClient.getInstance().getUi().update(true);
+				GameClient.getInstance().getUi().update(false);
 				break;
 			case 'D':
 				//Facing down
