@@ -226,7 +226,7 @@ public class Ui extends Frame {
      * @param p
      */
     public void update(boolean money){
-    	if (!money){
+    	if (money){
     		try{
     			m_moneyLabel.setText("$" + String.valueOf(GameClient.getInstance()
     					.getOurPlayer().getMoney()));
