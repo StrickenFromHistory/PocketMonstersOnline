@@ -51,6 +51,8 @@ public class ShopDialog extends Frame {
 		m_timer = new Timer();
 		m_timer.pause();
 		setCenter();
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		initGUI();
 	}
 	
@@ -89,8 +91,6 @@ public class ShopDialog extends Frame {
 	}
 	
 	public void initGUI(){
-		getContentPane().setX(getContentPane().getX() - 1);
-		getContentPane().setY(getContentPane().getY() + 1);
 		m_buy = new Button("Buy");
 		m_buy.setLocation(0,0);
 		m_buy.setSize(150,320);
@@ -254,6 +254,7 @@ public class ShopDialog extends Frame {
 		m_categoryButtons[2].setSize(150, 160);
 		m_categoryButtons[2].setLocation(0,161);
 		m_categoryButtons[2].setFont(GameClient.getFontLarge());
+		m_categoryButtons[2].setEnabled(false);
 		m_categoryButtons[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				categoryClicked(2);
