@@ -27,9 +27,14 @@ public class PlayerItem {
             try {
             	InputStream f;
             	LoadingList.setDeferredLoading(true);
-            	f = getClass().getResourceAsStream("/res/items/48/" + m_item.getId() + ".png");
+            	if (m_item.getCategory().equalsIgnoreCase("TM")){
+            		f = getClass().getResourceAsStream("/res/items/48/TM.png");
+            	} else {
+            		f = getClass().getResourceAsStream("/res/items/48/" + m_item.getId() + ".png");
+            	}
             	m_bagImage = new Image(f, "/res/items/48/" + m_item.getId() + ".png", false);
             	LoadingList.setDeferredLoading(false);
+            	
             } catch (Exception e){
             	try {
             	InputStream f;
