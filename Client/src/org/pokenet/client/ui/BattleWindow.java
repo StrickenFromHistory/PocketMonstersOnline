@@ -240,6 +240,11 @@ public class BattleWindow extends Frame {
 		pp4.setBounds(130, 95, 110, 20);
 		attackPane.add(pp4);
 
+		pp1.setForeground(Color.white);
+		pp2.setForeground(Color.white);
+		pp3.setForeground(Color.white);
+		pp4.setForeground(Color.white);
+		
 		m_moveButtons.add(move1);
 		m_moveButtons.add(move2);
 		m_moveButtons.add(move3);
