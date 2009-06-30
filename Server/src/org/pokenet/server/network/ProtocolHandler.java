@@ -156,7 +156,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 						//int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
 						p.buyItem(item, 1);
 						break;
-					case 's':
+			case 's':
 						//Sell items. Sent as SsITEMID,QUANTITY
 						item = Integer.parseInt(message.substring(2, message.indexOf(',')));
 						//int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
@@ -416,6 +416,12 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				details = message.substring(1).split(",");
 				new Thread(new ItemProcessor(p, details)).start();
 				break;
+			case 'i':
+				//Drop an item
+				int item = Integer.parseInt(message.substring(1));
+				//int q = Integer.parseInt(message.substring(message.indexOf(',') + 1));
+				p.destroyItem(item, 1);
+				break;	
 			case 'T':
 				//Trade packets
 				if(p.isTrading()) {
