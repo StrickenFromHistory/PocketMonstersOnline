@@ -183,6 +183,7 @@ public class MoveLearning extends Frame {
 						"Pm" + m_pokeIndex + i + m_move);
 				BattleManager.getInstance().removeMoveLearning();
 			} else {
+				setAlwaysOnTop(false);
 				m_replace = new ConfirmationDialog(
 						"Are you sure you want to foreget "
 						+ m_moveButtons.get(i).getText() + " to learn "
@@ -204,6 +205,7 @@ public class MoveLearning extends Frame {
 					public void actionPerformed(ActionEvent e) {
 						GameClient.getInstance().getDisplay().remove(m_replace);
 						m_replace = null;
+						setAlwaysOnTop(true);
 					}
 				};
 				m_replace.addYesListener(yes);
