@@ -85,6 +85,7 @@ public class PokeStorageBoxFrame extends Frame {
 		m_switchPoke.setEnabled(true);
 		m_release.setEnabled(true);
 		m_buttonChosen = x;
+		m_boxIndex = x;
 	}
 
 	/**
@@ -132,7 +133,7 @@ public class PokeStorageBoxFrame extends Frame {
 		m_switchPoke.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				setVisible(false);
-				TeamForBox teamPanel = new TeamForBox(m_boxNum, m_boxIndex);
+				TeamForBox teamPanel = new TeamForBox(m_boxNum, m_buttonChosen);
 				getDisplay().add(teamPanel);
 				teamPanel.setLocation(getDisplay().getWidth() / 2
 						- teamPanel.getWidth() / 2, getDisplay().getHeight()
