@@ -302,7 +302,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public boolean canTrade() {
-		return System.currentTimeMillis() - m_lastTrade > 60000;
+		return System.currentTimeMillis() - m_lastTrade > 60000 && getPartyCount() >= 2;
 	}
 	
 	/**
@@ -334,11 +334,6 @@ public class PlayerChar extends Char implements Battleable {
 						m_session.write("r!3");
 					}
 				}
-			}
-		} else if(r == RequestType.TRADE) {
-			/* Ensure both players have more than one pokemon */
-			if(this.getPartyCount() < 2 && ProtocolHandler.getPlayers().get(username).getPartyCount() < 2) {
-				return;
 			}
 		}
 		/* Else, add the request */
