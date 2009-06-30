@@ -40,7 +40,7 @@ Jigglypuff 206 100
 Wigglytuff 206 100
 Zubat 206 100
 Golbat 206 100
-Oddish 200 50 206 50
+Oddish 200 50 206 49 167 1
 Gloom 201 100
 Vileplume 597 5 209 50 206 45
 Paras 206 100
@@ -66,7 +66,7 @@ Alakazam 209 69 321 10 374 10 388 10 340 1
 Machop 206 100
 Machoke 209 95 301 5
 Machamp 209 95 335 5
-Bellsprout 200 100
+Bellsprout 200 99 173 1
 Weepinbell 206 50 209 50
 Victreebel 209 90 352 5 353 5
 Tentacool 202 100
@@ -78,7 +78,7 @@ Ponyta 206 100
 Rapidash 206 90 235 10
 Slowpoke 207 99 208 1
 Slowbro 209 100
-Magnemite 206 100
+Magnemite 206 99 166 1
 Magneton 206 50 307 50
 Farfetch'd 206 75 482 25
 Doduo 206 100
@@ -127,7 +127,7 @@ Magmar 206 89 156 10 636 1
 Pinsir 206 90 161 5 378 5
 Tauros 209 100
 Magikarp  200 100
-Gyarados 206 73 236 20 304 5 587 1 646 1
+Gyarados 206 73 236 20 304 5 165 1 646 1
 Lapras 209 90 208 10
 Ditto 206 100
 Eevee 206 100
