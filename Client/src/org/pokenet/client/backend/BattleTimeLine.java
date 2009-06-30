@@ -57,7 +57,7 @@ public class BattleTimeLine {
 				counter++;
 			}
 			if (counter < i){
-				GameClient.getInstance().getUi().getBattleManager().getBattleWindow().showPokePane(true);
+				BattleManager.getInstance().getBattleWindow().showPokePane(true);
 				addSpeech(m_translator.get(0));
 				break;
 			}
@@ -78,7 +78,7 @@ public class BattleTimeLine {
 	 * Informs that a move is requested
 	 */
 	public void informMoveRequested(){
-		GameClient.getInstance().getUi().getBattleManager().requestMoves();
+		BattleManager.getInstance().requestMoves();
 		addSpeech(m_translator.get(2));
 	}
 	
@@ -132,7 +132,7 @@ public class BattleTimeLine {
 	public void informSwitch(String[] data){
 		m_trainer = data[0];
 		m_pokeName = data[1];
-		GameClient.getInstance().getUi().getBattleManager().switchPoke(Integer.parseInt(data[2]),
+		BattleManager.getInstance().switchPoke(Integer.parseInt(data[2]),
 				Integer.parseInt(data[3]));
 		m_canvas.drawOurPoke();
 		m_canvas.drawOurInfo();
@@ -145,13 +145,13 @@ public class BattleTimeLine {
 	 * Informs that a pokemon switch is required
 	 */
 	public void informSwitchRequested() {
-		GameClient.getInstance().getUi().getBattleManager().getBattleWindow().showPokePane(true);
+		BattleManager.getInstance().getBattleWindow().showPokePane(true);
 		addSpeech(m_translator.get(6));
 	}
 	
 	public void informNoPP(String move) {
 		m_move = move;
-		GameClient.getInstance().getUi().getBattleManager().requestMoves();
+		BattleManager.getInstance().requestMoves();
 		addSpeech(m_translator.get(21));
 	}
 	
@@ -165,27 +165,27 @@ public class BattleTimeLine {
 		m_pokeName = data[0];
 		m_dmg = Math.abs(Integer.parseInt(data[1]));
 		if (i == 0){
-			m_pokeName = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getName();
-			m_newHPValue = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getCurHP() + 
+			m_pokeName = BattleManager.getInstance().getCurPoke().getName();
+			m_newHPValue = BattleManager.getInstance().getCurPoke().getCurHP() + 
 				Integer.parseInt(data[1]);
 			if (m_newHPValue < 0){m_newHPValue = 0;}
-			GameClient.getInstance().getUi().getBattleManager().getCurPoke().setCurHP(m_newHPValue);
-			m_canvas.updatePlayerHP(GameClient.getInstance().getUi().getBattleManager().getCurPoke()
+			BattleManager.getInstance().getCurPoke().setCurHP(m_newHPValue);
+			m_canvas.updatePlayerHP(BattleManager.getInstance().getCurPoke()
 					.getCurHP());
-			data[0] = GameClient.getInstance().getUi().getBattleManager().getCurPoke().getName();
+			data[0] = BattleManager.getInstance().getCurPoke().getName();
 		} else {
-			m_pokeName = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getName();
-			m_newHPValue = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getCurHP() + 
+			m_pokeName = BattleManager.getInstance().getCurEnemyPoke().getName();
+			m_newHPValue = BattleManager.getInstance().getCurEnemyPoke().getCurHP() + 
 				Integer.parseInt(data[1]);
 			if (m_newHPValue < 0){m_newHPValue = 0;}
-			GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().setCurHP(m_newHPValue);
-			m_canvas.updateEnemyHP(GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke()
+			BattleManager.getInstance().getCurEnemyPoke().setCurHP(m_newHPValue);
+			m_canvas.updateEnemyHP(BattleManager.getInstance().getCurEnemyPoke()
 					.getCurHP());
-			data[0] = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getName();
+			data[0] = BattleManager.getInstance().getCurEnemyPoke().getName();
 		}
 		
 		if (i == 1 && m_newHPValue == 0){
-			m_canvas.setPokeballImage(GameClient.getInstance().getUi().getBattleManager().getCurEnemyIndex(), 
+			m_canvas.setPokeballImage(BattleManager.getInstance().getCurEnemyIndex(), 
 					"fainted");
 		}
 			
@@ -203,7 +203,7 @@ public class BattleTimeLine {
 	public void informVictory(){
 		m_trainer = GameClient.getInstance().getOurPlayer().getUsername();
 		addSpeech(m_translator.get(10));
-		GameClient.getInstance().getUi().getBattleManager().endBattle();
+		BattleManager.getInstance().endBattle();
 		m_isBattling = false;
 	}
 	
@@ -213,7 +213,7 @@ public class BattleTimeLine {
 	public void informLoss(){
 		m_trainer = GameClient.getInstance().getOurPlayer().getUsername();
 		addSpeech(m_translator.get(11));
-		GameClient.getInstance().getUi().getBattleManager().endBattle();
+		BattleManager.getInstance().endBattle();
 		m_isBattling = false;
 	}
 	
@@ -233,7 +233,7 @@ public class BattleTimeLine {
 		if (canRun){
 			addSpeech(m_translator.get(12));
 			m_narrator.advance();
-			GameClient.getInstance().getUi().getBattleManager().endBattle();
+			BattleManager.getInstance().endBattle();
 		} else {
 			addSpeech(m_translator.get(13));
 			m_narrator.advance();
@@ -256,8 +256,8 @@ public class BattleTimeLine {
 	 */
 	public void informItemDropped(String item) {
 		m_foundItem = item;
-		if (GameClient.getInstance().getUi().getBattleManager().isWild()) {
-			m_pokeName = GameClient.getInstance().getUi().getBattleManager().getCurEnemyPoke().getName();
+		if (BattleManager.getInstance().isWild()) {
+			m_pokeName = BattleManager.getInstance().getCurEnemyPoke().getName();
 			addSpeech(m_translator.get(22));
 		}
 		else

@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.ItemDatabase;
 import org.pokenet.client.backend.Translator;
 import org.pokenet.client.backend.entity.OurPlayer;
@@ -197,88 +198,88 @@ public class ConnectionManager extends IoHandlerAdapter {
 			switch(message.charAt(1)) {
 			case 'i':
 				//Battle started -> biISWILD,POKEAMOUNT
-				GameClient.getInstance().getUi().getBattleManager().startBattle(message.charAt(2), 
+				BattleManager.getInstance().startBattle(message.charAt(2), 
 						Integer.parseInt(message.substring(3)));
 				break;
 			case 'I':
 				//Won an item in battle
 				String item = ItemDatabase.getInstance().getItem(Integer.parseInt(message.substring(2))).getName();
 				GameClient.getInstance().getOurPlayer().addItem(Integer.parseInt(message.substring(2)), 1);
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informItemDropped(item);
+				BattleManager.getInstance().getTimeLine().informItemDropped(item);
 				break;
 			case 'p':
 				//No PP left for move -> bpMOVENAME
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informNoPP(message.substring(2));
+				BattleManager.getInstance().getTimeLine().informNoPP(message.substring(2));
 				break;
 			case 'P':
 				//Receive enemy poke data -> bPINDEX,NAME,LEVEL,GENDER,MAXHP,CURHP,SPRITENUM,ISSHINY
 				String[] data = message.substring(2).split(",");
-				GameClient.getInstance().getUi().getBattleManager().setEnemyPoke(Integer.parseInt(data[0]),
+				BattleManager.getInstance().setEnemyPoke(Integer.parseInt(data[0]),
 						data[1], Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(
 								data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), 
 								Boolean.valueOf(data[7]));
 				break;
 			case 'n':
 				//Receive the enemy trainer's name
-				GameClient.getInstance().getUi().getBattleManager().setEnemyName(message.substring(2));
+				BattleManager.getInstance().setEnemyName(message.substring(2));
 				break;
 			case '!':
 				//Other battle message not specified by packets below
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().showMessage(message.substring(2));
+				BattleManager.getInstance().getTimeLine().showMessage(message.substring(2));
 				break;
 			case '@':
 				//Victory condition
 				switch(message.charAt(2)) {
 				case 'w':
 					//Our player won
-					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informVictory();
+					BattleManager.getInstance().getTimeLine().informVictory();
 					break;
 				case 'l':
 					//Our player lost
-					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informLoss();
+					BattleManager.getInstance().getTimeLine().informLoss();
 					break;
 				case 'p':
 					//Our player caught the Pokemon
-					GameClient.getInstance().getUi().getBattleManager().endBattle();
+					BattleManager.getInstance().endBattle();
 					break;
 				}
 				break;
 			case 'F':
 				//A pokemon fainted -> bFPOKEMON
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informFaintedPoke(
+				BattleManager.getInstance().getTimeLine().informFaintedPoke(
 						message.substring(2));
 				break;
 			case 'M':
 				//A move was used -> bMPOKEMON,MOVENAME
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informMoveUsed(
+				BattleManager.getInstance().getTimeLine().informMoveUsed(
 						message.substring(2).split(","));
 				break;
 			case 'm':
 				//Move requested
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informMoveRequested();
+				BattleManager.getInstance().getTimeLine().informMoveRequested();
 				break;
 			case '.':
 				//Exp gain -> b.POKEMON,EXPAMOUNT
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informExperienceGained(
+				BattleManager.getInstance().getTimeLine().informExperienceGained(
 						message.substring(2).split(","));
 				break;
 			case 'e':
 				//A Pokemon received a status effect -> beTRAINER.POKEMON,EFFECT
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusChanged(
+				BattleManager.getInstance().getTimeLine().informStatusChanged(
 						Integer.parseInt(String.valueOf(message.charAt(2))), message.substring(3).split(","));
 				break;
 			case 'E':
 				//A Pokemon had a status effect removed -> bEPOKEMON,EFFECT
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informStatusHealed(
+				BattleManager.getInstance().getTimeLine().informStatusHealed(
 						Integer.parseInt(String.valueOf(message.charAt(2))), message.substring(3).split(","));
 				break;
 			case 's':
 				//Switch in Pokemon requested
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informSwitchRequested();
+				BattleManager.getInstance().getTimeLine().informSwitchRequested();
 				break;
 			case 'S':
 				//A switch occured -> bSTRAINERNAME,NEWPOKEMON
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informSwitch(
+				BattleManager.getInstance().getTimeLine().informSwitch(
 						message.substring(2).split(","));
 				break;
 			case 'h':
@@ -290,12 +291,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 				switch(message.charAt(2)) {
 				case '0':
 					//Our pokemon's health
-					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informHealthChanged(
+					BattleManager.getInstance().getTimeLine().informHealthChanged(
 							message.substring(2).split(","), 0);
 					break;
 				case '1':
 					//Enemy pokemon's health
-					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informHealthChanged(
+					BattleManager.getInstance().getTimeLine().informHealthChanged(
 							message.substring(2).split(","), 1);
 					break;
 				}
@@ -305,23 +306,23 @@ public class ConnectionManager extends IoHandlerAdapter {
 				switch(message.charAt(2)) {
 				case '1':
 					//Successfully ran away
-					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informRun(true);
+					BattleManager.getInstance().getTimeLine().informRun(true);
 					break;
 				case '2':
 					//Failed to run away
-					GameClient.getInstance().getUi().getBattleManager().getTimeLine().informRun(false);
+					BattleManager.getInstance().getTimeLine().informRun(false);
 					break;
 				}
 				break;
 			case '$':
 				//Receiving earnings
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informMoneyGain(Integer.parseInt(
+				BattleManager.getInstance().getTimeLine().informMoneyGain(Integer.parseInt(
 						message.substring(2)));
 				break;
 			case 'l':
 				//Inform pokemon level up
 				final String[] levelData = message.substring(2).split(",");
-				GameClient.getInstance().getUi().getBattleManager().getTimeLine().informLevelUp(levelData[0],
+				BattleManager.getInstance().getTimeLine().informLevelUp(levelData[0],
 						Integer.parseInt(levelData[1]));
 				break;
 			}
@@ -348,7 +349,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				 * if the client allows the move learning, the server does not send a reply
 				 * to confirm it was learned, as it is ensured it is learned
 				 */
-				GameClient.getInstance().getUi().getBattleManager().learnMove(Integer.parseInt(String.valueOf(
+				BattleManager.getInstance().learnMove(Integer.parseInt(String.valueOf(
 						message.charAt(2))), message.substring(3));
 				break;
 			case 'M':

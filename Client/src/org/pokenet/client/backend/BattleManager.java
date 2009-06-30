@@ -30,16 +30,26 @@ public class BattleManager {
 	private boolean m_isWild;
 	private MoveLearning m_moveLearning;
 	private Map<Integer, String> m_ourStatuses = new HashMap<Integer, String>();
+	private static BattleManager m_instance;
 	
 	/**
 	 * Default Constructor
 	 */
 	public BattleManager() {
+		m_instance = this;
 		m_battle = new BattleWindow("Battle!");
 		m_timeLine = new BattleTimeLine();
 		m_moveLearning = new MoveLearning();
 	}
 
+	/**
+	 * Returns the instance
+	 * @return
+	 */
+	public static BattleManager getInstance() {
+		return m_instance;
+	}
+	
 	/**
 	 * Retrieves player data
 	 */

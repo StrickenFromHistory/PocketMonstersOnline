@@ -1,6 +1,6 @@
 package org.pokenet.client.ui.frames;
 
-import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.BattleManager;
 
 /**
  * Bag used during battles
@@ -42,7 +42,7 @@ public class BattleBag extends BigBagDialog {
 	@Override
 	public void closeBag() {
 		super.closeBag();
-		GameClient.getInstance().getUi().getBattleManager().getBattleWindow().showAttack();
-		GameClient.getInstance().getUi().getBattleManager().getBattleWindow().m_bag = null;
+		BattleManager.getInstance().getBattleWindow().showAttack();
+		BattleManager.getInstance().getBattleWindow().m_bag = null;
 	}
 }
