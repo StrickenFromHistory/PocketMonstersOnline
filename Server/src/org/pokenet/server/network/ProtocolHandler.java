@@ -496,7 +496,6 @@ public class ProtocolHandler extends IoHandlerAdapter {
 		 */
 		try {
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
-			//TODO: If player is battling, end the battle with them losing 
 			if(p != null) {
 				if(p.isBattling()) {
 					/* If in PvP battle, the player loses */
@@ -504,6 +503,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 						((PvPBattleField) p.getBattleField()).disconnect(p.getBattleId());
 					}
 					p.setBattleField(null);
+					p.lostBattle();
 				}
 				/* If trading, end the trade */
 				if(p.isTrading()) {
