@@ -65,7 +65,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 		translated = Translator.translate("_LOGIN");
 		Player p;
 		String message = (String) m;
-		System.out.println("INFO: " + message);
+		//System.out.println("INFO: " + message);
 		String [] details;
 		switch(message.charAt(0)) {
 		case '!':
