@@ -95,10 +95,9 @@ public class ItemProcessor implements Runnable {
 						return false;
 					String moveName = i.getName().substring(5);
 					/* Ensure the Pokemon can learn this move */
-					if(poke.canLearn(PokemonSpecies.getDefaultData(), moveName)) {
-						poke.learnMove(Integer.parseInt(data[1]), moveName);
-						p.getSession().write("PM" + data[0] + data[1] + moveName);
-						p.updateClientPP(Integer.parseInt(data[0]), Integer.parseInt(data[1]));
+					if(DataService.getMoveSetData().getMoveSet(poke.getSpeciesNumber()).canLearn(moveName)) {
+						poke.getMovesLearning().add(moveName);
+						m_player.getSession().write("Pm" + data[0] + moveName);
 						return true;
 					}
 				} catch (Exception e) {

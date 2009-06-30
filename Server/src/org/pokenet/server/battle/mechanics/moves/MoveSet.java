@@ -114,6 +114,21 @@ public class MoveSet implements Serializable {
         m_moves = new String[][] { natural, tutor, tm, hm, egg };
     }
     
+    /**
+     * Returns true if a Pokemon can learn a move
+     * @param moveName
+     * @return
+     */
+    public boolean canLearn(String moveName) {
+    	for(int i = 0; i < m_moves.length; i++) {
+    		for(int j = 0; j < m_moves[i].length; j++) {
+    			if(m_moves[i][j].equalsIgnoreCase(moveName))
+    				return true;
+    		}
+    	}
+    	return false;
+    }
+    
     /** Constructor used for serialization */
     public MoveSet() {}
 }
