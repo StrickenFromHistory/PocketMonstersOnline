@@ -464,6 +464,11 @@ public class ConnectionManager extends IoHandlerAdapter {
 					if (GameClient.getInstance().getOurPlayer().getPokemon()[i] != null){
 						GameClient.getInstance().getOurPlayer().getPokemon()[i].setCurHP(
 								GameClient.getInstance().getOurPlayer().getPokemon()[i].getMaxHP());
+						for (int x = 0; i < 4; i++){
+							GameClient.getInstance().getOurPlayer().getPokemon()[i].setMoveCurPP(x, 
+									GameClient.getInstance().getOurPlayer().getPokemon()[i].
+									getMoveMaxPP()[x]);
+						}
 					}
 				}
 				GameClient.getInstance().getUi().update(false);
