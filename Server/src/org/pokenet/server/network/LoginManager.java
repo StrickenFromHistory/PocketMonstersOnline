@@ -454,10 +454,10 @@ public class LoginManager implements Runnable {
 				p.setPp(1, data.getInt("pp1"));
 				p.setPp(2, data.getInt("pp2"));
 				p.setPp(3, data.getInt("pp3"));
-				p.setMaxPP(0, data.getInt("maxpp0"));
+				/*p.setMaxPP(0, data.getInt("maxpp0"));
 				p.setMaxPP(0, data.getInt("maxpp1"));
 				p.setMaxPP(0, data.getInt("maxpp2"));
-				p.setMaxPP(0, data.getInt("maxpp3"));
+				p.setMaxPP(0, data.getInt("maxpp3"));*/
 				p.setPpUp(0, data.getInt("ppUp0"));
 				p.setPpUp(0, data.getInt("ppUp1"));
 				p.setPpUp(0, data.getInt("ppUp2"));
