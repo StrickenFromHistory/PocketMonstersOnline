@@ -30,7 +30,16 @@ public class PlayerItem {
             	f = getClass().getResourceAsStream("/res/items/48/" + m_item.getId() + ".png");
             	m_bagImage = new Image(f, "/res/items/48/" + m_item.getId() + ".png", false);
             	LoadingList.setDeferredLoading(false);
-            } catch (Exception e){e.printStackTrace();}
+            } catch (Exception e){
+            	try {
+            	InputStream f;
+            	LoadingList.setDeferredLoading(true);
+            	f = getClass().getResourceAsStream("/res/items/48/0.png");
+            	m_bagImage = new Image(f, "/res/items/48/0.png", false);
+            	LoadingList.setDeferredLoading(false);
+            	e.printStackTrace();
+            	} catch (Exception e2){}
+            }
     }
 	
 	public int getNumber() {
