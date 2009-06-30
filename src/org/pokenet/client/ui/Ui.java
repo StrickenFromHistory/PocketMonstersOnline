@@ -58,6 +58,7 @@ public class Ui extends Frame {
     private boolean m_isOption;
     private static final int UI_WIDTH = 32*7;
     private ConfirmationDialog m_evolveDialog;
+    private BigBagDialog m_bag;
 	
 	/**
 	 * Default constructor
@@ -317,8 +318,8 @@ public class Ui extends Frame {
 				public void loadBag() {
 					getDisplay().remove(m_bagForm);
 					m_bagForm = null;
-					BigBagDialog bbg = new BigBagDialog();
-					getDisplay().add(bbg);
+					m_bag = new BigBagDialog();
+					getDisplay().add(m_bag);
 				}
 			};
 			pane.setSize(80, 246);
@@ -560,6 +561,14 @@ public class Ui extends Frame {
      */
     public TradeDialog getTrade() {
     	return m_trade;
+    }
+    
+    /**
+     * Returns the bag dialog
+     * @return the bag dialog
+     */
+    public BigBagDialog getBag() {
+    	return m_bag;
     }
     
     /**

@@ -2,6 +2,7 @@ package org.pokenet.client.backend.entity;
 
 import java.util.ArrayList;
 
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Enums.Poketype;
 
 /**
@@ -76,10 +77,14 @@ public class OurPlayer extends Player {
 			if(m_items.get(i) != null && m_items.get(i).getNumber() == number) {
 				m_items.get(i).setQuantity(m_items.get(i).getQuantity() + quantity);
 				exists = true;
+				if (GameClient.getInstance().getUi().getBag() != null)
+					GameClient.getInstance().getUi().getBag().addItem(number, false);
 			}
 		}
 		if(!exists){
 			m_items.add(new PlayerItem(number, quantity));
+			if (GameClient.getInstance().getUi().getBag() != null)
+				GameClient.getInstance().getUi().getBag().addItem(number, true);
 		}
 	}
 	
@@ -95,6 +100,8 @@ public class OurPlayer extends Player {
 					m_items.get(i).setQuantity(m_items.get(i).getQuantity() - quantity);
 				else
 					m_items.remove(i);
+				if (GameClient.getInstance().getUi().getBag() != null)
+					GameClient.getInstance().getUi().getBag().removeItem(number, quantity);
 				return;
 			}
 		}
