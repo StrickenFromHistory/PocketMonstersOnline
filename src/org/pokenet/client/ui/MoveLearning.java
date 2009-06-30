@@ -187,6 +187,7 @@ public class MoveLearning extends Frame {
 						"Are you sure you want to foreget "
 						+ m_moveButtons.get(i).getText() + " to learn "
 						+ m_move + "?");
+				m_replace.setAlwaysOnTop(true);
 				ActionListener yes = new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						GameClient.getInstance().getOurPlayer().getPokemon()[m_pokeIndex].setMoves(j, m_move);
