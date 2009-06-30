@@ -182,6 +182,8 @@ public class WildBattleField extends BattleField {
 	@Override
 	public void informSwitchInPokemon(int trainer, Pokemon poke) {
 		if (trainer == 0 && m_player != null) {
+			if(!m_participatingPokemon.contains(poke))
+				m_participatingPokemon.add(poke);
 			ProtocolHandler.writeMessage(m_player.getSession(), 
 					new SwitchMessage(m_player.getName(),
 							poke.getSpeciesName(),
@@ -603,6 +605,11 @@ public class WildBattleField extends BattleField {
 			ProtocolHandler.writeMessage(m_player.getSession(), 
 					new BattleRewardMessage(BattleRewardType.MONEY, money));
 		}
+		
+		double exp = (DataService.getBattleMechanics().calculateExpGain(
+				m_wildPoke, m_participatingPokemon.size()));
+		if (exp == 0)
+			exp = 1;
 
 		/*
 		 * Secondly, calculate EVs and exp
@@ -612,10 +619,6 @@ public class WildBattleField extends BattleField {
 						m_wildPoke.getSpeciesName()));
 		int[] evs = poke.getEffortPoints();
 
-		double exp = (DataService.getBattleMechanics().calculateExpGain(
-				m_wildPoke, m_participatingPokemon.size()));
-		if (exp == 0)
-			exp = 1;
 		/*
 		 * Finally, add the EVs and exp to the participating Pokemon
 		 */
