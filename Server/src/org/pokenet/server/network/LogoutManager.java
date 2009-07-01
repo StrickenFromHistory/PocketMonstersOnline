@@ -30,7 +30,7 @@ public class LogoutManager implements Runnable {
 	public LogoutManager() {
 		m_database = new MySqlManager();
 		m_logoutQueue = new ConcurrentLinkedQueue<PlayerChar>();
-		m_thread = new Thread(this);
+		m_thread = null;
 	}
 	
 	/**
@@ -84,6 +84,8 @@ public class LogoutManager implements Runnable {
 	 * @param player
 	 */
 	public void queuePlayer(PlayerChar player) {
+		if(m_thread == null || !m_thread.isAlive())
+			start();
 		if(!m_logoutQueue.contains(player) && player != null)
 			m_logoutQueue.add(player);
 	}
@@ -115,14 +117,18 @@ public class LogoutManager implements Runnable {
 				Thread.sleep(500);
 			} catch (Exception e) {}
 		}
+		m_thread = null;
 	}
 	
 	/**
 	 * Start this logout manager
 	 */
 	public void start() {
-		m_isRunning = true;
-		m_thread.start();
+		if(m_thread == null) {
+			m_thread = new Thread(this);
+			m_isRunning = true;
+			m_thread.start();
+		}
 	}
 	
 	/**

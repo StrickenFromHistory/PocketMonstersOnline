@@ -32,7 +32,7 @@ public class RegistrationManager implements Runnable {
 	 */
 	public RegistrationManager() {
 		m_database = new MySqlManager();
-		m_thread = new Thread(this);
+		m_thread = null;
 		m_queue = new ConcurrentLinkedQueue<IoSession>();
 	}
 	
@@ -42,6 +42,8 @@ public class RegistrationManager implements Runnable {
 	 * @param packet
 	 */
 	public void queueRegistration(IoSession session, String packet) {
+		if(m_thread == null || !m_thread.isAlive())
+			start();
 		if(!m_queue.contains(session)) {
 			session.setAttribute("reg", packet);
 			m_queue.add(session);
@@ -187,8 +189,11 @@ public class RegistrationManager implements Runnable {
 	 * Start the registration manager
 	 */
 	public void start() {
-		m_isRunning = true;
-		m_thread.start();
+		if(m_thread == null) {
+			m_thread = new Thread(this);
+			m_isRunning = true;
+			m_thread.start();
+		}
 	}
 
 	/**

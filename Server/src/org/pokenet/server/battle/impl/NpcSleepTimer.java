@@ -41,14 +41,14 @@ public class NpcSleepTimer implements Runnable {
 							}
 						}
 						try {
-							Thread.sleep(5000);
+							Thread.sleep(500);
 						} catch (Exception e) {}
 					}
 					n = null;
 				}
 			}
 			try {
-				Thread.sleep(30000);
+				Thread.sleep(300000);
 			} catch (Exception e) {}
 		}
 		System.out.println("INFO: Npc sleep timer stopped");

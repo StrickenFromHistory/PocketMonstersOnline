@@ -42,7 +42,7 @@ public class LoginManager implements Runnable {
 		m_database = new MySqlManager();
 		m_logoutManager = manager;
 		m_loginQueue = new ConcurrentLinkedQueue<Object []>();
-		m_thread = new Thread(this);
+		m_thread = null;
 	}
 	
 	/**
@@ -160,6 +160,8 @@ public class LoginManager implements Runnable {
 	 * @param password
 	 */
 	public void queuePlayer(IoSession session, String username, String password) {
+		if(m_thread == null || !m_thread.isAlive())
+			start();
 		if(!m_logoutManager.containsPlayer(username))
 			m_loginQueue.add(new Object[] {session, username, password});
 		else {
@@ -195,14 +197,18 @@ public class LoginManager implements Runnable {
 				} catch (Exception e) {}
 			}
 		}
+		m_thread = null;
 	}
 	
 	/**
 	 * Starts the login manager
 	 */
 	public void start() {
-		m_isRunning = true;
-		m_thread.start();
+		if(m_thread == null) {
+			m_thread = new Thread(this);
+			m_isRunning = true;
+			m_thread.start();
+		}
 	}
 	
 	/**
