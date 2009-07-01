@@ -85,6 +85,8 @@ public class MoveLearningManager extends Thread{
 	 * @param move
 	 */
 	public void queueMoveLearning(int index, String move) {
+		if (m_moveLearningQueue.isEmpty())
+			m_canLearn = true;
 		m_moveLearningQueue.add(new MoveLearnQueueObject(index, move));
 	}
 }

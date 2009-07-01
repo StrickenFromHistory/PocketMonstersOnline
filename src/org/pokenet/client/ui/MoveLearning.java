@@ -216,6 +216,7 @@ public class MoveLearning extends Frame {
 
 	public void learnMove(int pokeIndex, String move) {
 		setAlwaysOnTop(true);
+		m_pokeIndex = pokeIndex;
 		
 		GameClient.getInstance().getUi().talkToNPC(GameClient.getInstance().getOurPlayer()
 				.getPokemon()[pokeIndex].getName() + " wants to learn " + move);
