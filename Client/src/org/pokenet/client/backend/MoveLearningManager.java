@@ -16,6 +16,7 @@ public class MoveLearningManager extends Thread{
 	private MoveLearning m_moveLearning;
 	private Queue<MoveLearnQueueObject> m_moveLearningQueue;
 	private boolean m_canLearn = false;
+	private boolean m_isRunning = true;
 	
 	/**
 	 * Default constructor
@@ -31,8 +32,8 @@ public class MoveLearningManager extends Thread{
 	 * Actions to be performed while the thread runs
 	 */
 	public void run(){
-		while (m_canLearn){
-			if (m_moveLearningQueue.peek() != null) {
+		while (m_isRunning){
+			if (m_canLearn && !m_moveLearningQueue.isEmpty()) {
 				MoveLearnQueueObject temp = m_moveLearningQueue.poll();
 				learnMove(temp.getPokeIndex(), temp.getMoveName());
 				m_canLearn = false;
@@ -70,13 +71,9 @@ public class MoveLearningManager extends Thread{
 	 * Removes the Move Learning window
 	 */
 	public void removeMoveLearning() {
-		try {
-			GameClient.getInstance().getUi().getNPCSpeech().advance();
-		} catch (Exception e) { 
-			GameClient.getInstance().getUi().nullSpeechFrame();
-		}
-		GameClient.getInstance().getDisplay().remove(m_moveLearning);
 		m_canLearn = true;
+		GameClient.getInstance().getUi().nullSpeechFrame();
+		GameClient.getInstance().getDisplay().remove(m_moveLearning);
 	}
 	
 	/**
