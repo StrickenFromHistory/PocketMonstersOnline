@@ -8,7 +8,6 @@ import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.OurPokemon;
 import org.pokenet.client.backend.entity.Pokemon;
 import org.pokenet.client.ui.BattleWindow;
-import org.pokenet.client.ui.MoveLearning;
 
 /**
  * Handles battle events and controls the battle window
@@ -28,7 +27,6 @@ public class BattleManager {
 	private int m_curEnemyIndex;
 	private String m_enemy;
 	private boolean m_isWild;
-	private MoveLearning m_moveLearning;
 	private Map<Integer, String> m_ourStatuses = new HashMap<Integer, String>();
 	private static BattleManager m_instance;
 	
@@ -39,7 +37,6 @@ public class BattleManager {
 		m_instance = this;
 		m_battle = new BattleWindow("Battle!");
 		m_timeLine = new BattleTimeLine();
-		m_moveLearning = new MoveLearning();
 		m_battle.setVisible(false);
 	}
 
@@ -326,36 +323,6 @@ public class BattleManager {
 	 */
 	public boolean isWild() {
 		return m_isWild;
-	}
-	
-	/**
-	 * Returns the Move Learning window
-	 * @return the Move Learning window
-	 */
-	public MoveLearning getMoveLearning() {
-		return m_moveLearning;
-	}
-	
-	/**
-	 * A pokemon wants to learn a move
-	 * @param pokeIndex
-	 * @param move
-	 */
-	public void learnMove(int pokeIndex, String move){
-		m_moveLearning.learnMove(pokeIndex, move);
-		GameClient.getInstance().getDisplay().add(m_moveLearning);
-	}
-	
-	/**
-	 * Removes the Move Learning window
-	 */
-	public void removeMoveLearning() {
-		try {
-			GameClient.getInstance().getUi().getNPCSpeech().advance();
-		} catch (Exception e) { 
-			GameClient.getInstance().getUi().nullSpeechFrame();
-		}
-		GameClient.getInstance().getDisplay().remove(m_moveLearning);
 	}
 	
 	/**

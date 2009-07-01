@@ -35,6 +35,7 @@ import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
 import org.pokenet.client.backend.ItemDatabase;
+import org.pokenet.client.backend.MoveLearningManager;
 import org.pokenet.client.backend.SoundManager;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
@@ -85,6 +86,7 @@ public class GameClient extends BasicGame {
 	private static String m_language = "";
 	private ConfirmationDialog m_confirm;
 	private PlayerPopupDialog m_playerDialog;
+	private MoveLearningManager m_moveLearningManager;
     private static SoundManager m_soundPlayer;
     private static boolean m_disableMaps = false;
     
@@ -180,6 +182,12 @@ public class GameClient extends BasicGame {
 		 */
 		ItemDatabase m_itemdb = new ItemDatabase();
 		m_itemdb.reinitialise();
+		
+		/*
+		 * Move Leraning Manager
+		 */
+		m_moveLearningManager = new MoveLearningManager();
+		m_moveLearningManager.start();
 		
 		/*
 		 * The animator and map matrix
@@ -418,7 +426,7 @@ public class GameClient extends BasicGame {
 			}
 		}
 		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() &&
-				!m_ui.getChat().isActive() && !getDisplay().containsChild(BattleManager.getInstance()
+				!m_ui.getChat().isActive() && !getDisplay().containsChild(MoveLearningManager.getInstance()
 						.getMoveLearning()) && !getDisplay().containsChild(getUi().getShop())) {
 			if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
 					.getBattleWindow()) ){
@@ -426,7 +434,7 @@ public class GameClient extends BasicGame {
 			}
 			if (getDisplay().containsChild(BattleManager.getInstance().getBattleWindow()) && 
 					 getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
-					 && !getDisplay().containsChild(BattleManager.getInstance().getMoveLearning())) {
+					 && !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
 				BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
 			} else{
 				try {
