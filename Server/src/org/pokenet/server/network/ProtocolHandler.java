@@ -55,11 +55,13 @@ public class ProtocolHandler extends IoHandlerAdapter {
 		 */
 		try {
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
-			if (p.isBattling())
-				p.lostBattle();
-			GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(p);
-			GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
-			m_players.remove(p);
+			if(p != null) {
+				if (p.isBattling())
+					p.lostBattle();
+				m_logoutManager.queuePlayer(p);
+				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
+				m_players.remove(p);
+			}
 			session.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -509,7 +511,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				if(p.isTrading()) {
 					p.getTrade().endTrade();
 				}
-				GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(p);
+				m_logoutManager.queuePlayer(p);
 				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 				m_players.remove(p);
 				session.close();

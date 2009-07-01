@@ -84,6 +84,12 @@ public class RegistrationManager implements Runnable {
 					session.write("r5");
 					return;
 				}
+				if(info[2].length() > 52) {
+					session.resumeRead();
+					session.resumeWrite();
+					session.write("r6");
+					return;
+				}
 			} catch (Exception e) {}
 			/*
 			 * Check if user is not trying to register their starter as a non-starter Pokemon

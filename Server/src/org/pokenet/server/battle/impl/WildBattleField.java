@@ -735,6 +735,7 @@ public class WildBattleField extends BattleField {
 				m_player.getSession().write("Pl" + index + "," + level);
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new BattleLevelChangeMessage(p.getSpeciesName(), level));
+				m_player.updateClientPokemonStats(index);
 			}
 		}
 	}

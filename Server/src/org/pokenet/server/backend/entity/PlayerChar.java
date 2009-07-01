@@ -1409,6 +1409,23 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
+	 * Updates stats for a Pokemon
+	 * @param i
+	 */
+	public void updateClientPokemonStats(int i) {
+		if(m_pokemon[i] != null) {
+			m_session.write("PS" + i + m_pokemon[i].getHealth() + "," +
+					m_pokemon[i].getStat(0) + "," +
+					m_pokemon[i].getStat(1) + "," +
+					m_pokemon[i].getStat(2) + "," +
+					m_pokemon[i].getStat(3) + "," +
+					m_pokemon[i].getStat(4) + "," +
+					m_pokemon[i].getStat(5));
+			
+		}
+	}
+	
+	/**
 	 * Updates the pp of a move
 	 * @param poke
 	 * @param move

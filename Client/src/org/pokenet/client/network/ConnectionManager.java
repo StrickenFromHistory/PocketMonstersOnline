@@ -330,6 +330,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 		case 'P':
 			//Pokemon information
 			switch(message.charAt(1)) {
+			case 'S':
+				//Stats update
+				details = message.substring(3).split(",");
+				m_game.getOurPlayer().updatePokemon(Integer.parseInt(String.valueOf(message.charAt(2))), details);
+				m_game.getUi().refreshParty();
+				break;
 			case 'N':
 				//A pokemon left the party
 				m_game.getOurPlayer().setPokemon(Integer.parseInt(String.valueOf(message.charAt(2))), null);
@@ -809,6 +815,11 @@ public class ConnectionManager extends IoHandlerAdapter {
 				break;
 			case '5':
 				GameClient.messageDialog(translated.get(41), GameClient.getInstance().getDisplay());
+				m_game.getLoginScreen().getRegistration().enableRegistration();
+				m_game.getLoadingScreen().setVisible(false);
+				break;
+			case '6':
+				GameClient.messageDialog("Email too long!", GameClient.getInstance().getDisplay());
 				m_game.getLoginScreen().getRegistration().enableRegistration();
 				m_game.getLoadingScreen().setVisible(false);
 				break;

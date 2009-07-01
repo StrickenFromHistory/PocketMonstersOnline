@@ -417,6 +417,7 @@ public class Pokemon extends PokemonSpecies {
     		for(int i = 0; i < m_movesLearning.size(); i++) {
     			p.getSession().write("Pm" + index + m_movesLearning.get(i));
     		}
+    		p.updateClientPokemonStats(index);
     	}
     }
     
