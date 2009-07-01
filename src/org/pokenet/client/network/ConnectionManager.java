@@ -764,7 +764,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 					GameClient.getInstance().getUi().getChat().addSystemMessage("You must be within 3 squares of this player to battle.");
 					break;
 				case '4':
-					GameClient.getInstance().getUi().getChat().addSystemMessage("You must wait 1 minute before trading again.");
+					GameClient.getInstance().getUi().getChat().addSystemMessage("You need to have more than one pokemon and/or you must wait 1 minute before trading again.");
 					break;
 				}
 				break;
