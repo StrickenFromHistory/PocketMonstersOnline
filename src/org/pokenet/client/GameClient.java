@@ -97,7 +97,7 @@ public class GameClient extends BasicGame {
 			options = new FileMuffin().loadFile("options.dat");
 			if (options == null) {
 				options = new HashMap<String,String>();
-				options.put("soundMuted", String.valueOf(false));
+				options.put("soundMuted", String.valueOf(true));
 				options.put("disableMaps", String.valueOf(false));
 				options.put("disableWeather", String.valueOf(false));
 			}
