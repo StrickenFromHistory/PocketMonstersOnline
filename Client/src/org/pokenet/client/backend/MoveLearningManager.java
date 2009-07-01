@@ -71,7 +71,8 @@ public class MoveLearningManager extends Thread{
 	 * Removes the Move Learning window
 	 */
 	public void removeMoveLearning() {
-		m_canLearn = true;
+		if (!m_moveLearningQueue.isEmpty())
+			m_canLearn = true;
 		GameClient.getInstance().getUi().nullSpeechFrame();
 		GameClient.getInstance().getDisplay().remove(m_moveLearning);
 	}
