@@ -165,7 +165,7 @@ public class LoginManager implements Runnable {
 		if(!m_logoutManager.containsPlayer(username))
 			m_loginQueue.add(new Object[] {session, username, password});
 		else {
-			//TODO: Informs the player that they are still being logged out 
+			session.write("lu");
 		}
 	}
 

@@ -158,6 +158,7 @@ public class PlayerChar extends Char implements Battleable {
 					m.selectDatabase(GameServer.getDatabaseName());
 					m.query("DELETE FROM pn_pokemon WHERE id='" + id + "'");
 					m.close();
+					m_boxes[box].setPokemon(slot, null);
 				}
 			} else {
 				/*
