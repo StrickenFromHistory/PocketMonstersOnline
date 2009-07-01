@@ -231,6 +231,12 @@ public class WildBattleField extends BattleField {
 	@Override
 	public void queueMove(int trainer, BattleTurn move)
 			throws MoveQueueException {
+		/* Checks the move exists */
+		if(move.isMoveTurn() && move.getId() != -1 &&
+				getActivePokemon()[trainer].getMove(move.getId()) == null) {
+			requestMove(trainer);
+			return;
+		}
 		/* Handle forced switches */
 		if(m_isWaiting && m_replace != null && m_replace[trainer]) {
 			if(!move.isMoveTurn()) {
