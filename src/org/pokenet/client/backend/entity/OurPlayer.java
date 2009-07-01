@@ -128,6 +128,23 @@ public class OurPlayer extends Player {
 	}
 	
 	/**
+	 * Updates a pokemon's stats
+	 * @param i
+	 * @param info
+	 */
+	public void updatePokemon(int i, String [] info) {
+		if(m_pokemon[i] != null) {
+			m_pokemon[i].setCurHP(Integer.parseInt(info[0]));
+			m_pokemon[i].setMaxHP(Integer.parseInt(info[1]));
+			m_pokemon[i].setAtk(Integer.parseInt(info[2]));
+			m_pokemon[i].setDef(Integer.parseInt(info[3]));
+			m_pokemon[i].setSpeed(Integer.parseInt(info[4]));
+			m_pokemon[i].setSpatk(Integer.parseInt(info[5]));
+			m_pokemon[i].setSpdef(Integer.parseInt(info[6]));
+		}
+	}
+	
+	/**
 	 * Sets a pokemon in this player's party
 	 * @param i
 	 * @param information
