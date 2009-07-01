@@ -1,5 +1,7 @@
 package org.pokenet.client.ui.frames;
 
+import java.io.InputStream;
+
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Frame;
@@ -61,12 +63,16 @@ public class PokeStorageBoxFrame extends Frame {
 	 */
 	public void loadImages() {
 		LoadingList.setDeferredLoading(true);
+		InputStream f;
 		for (int i = 0; i <= 29; i++) {
 			m_buttons[i].setImage(null);
 			try {
-				if(m_pokeNums[i] >= 0)
-					m_buttons[i].setImage(new Image(Pokemon
-						.getIconPathByIndex(m_pokeNums[i] + 1)));
+				if(m_pokeNums[i] >= 0) {
+					f = getClass().getResourceAsStream(Pokemon
+							.getIconPathByIndex(m_pokeNums[i] + 1));
+					m_buttons[i].setImage(new Image(f, "boxPoke" + i + " " + Pokemon
+							.getIconPathByIndex(m_pokeNums[i] + 1), false));
+				}
 			} catch (SlickException e) {
 				e.printStackTrace();
 			}
