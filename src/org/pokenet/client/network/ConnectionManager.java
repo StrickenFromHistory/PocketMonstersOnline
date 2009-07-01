@@ -700,6 +700,12 @@ public class ConnectionManager extends IoHandlerAdapter {
 				m_game.getTimeService().setTime(Integer.parseInt(details[1].substring(0, 2)), 
 						Integer.parseInt(details[1].substring(2)));
 				break;
+			case 'u':
+				//Unknown problem occurred
+				GameClient.messageDialog("An unknown problem occurred!", GameClient.getInstance().getDisplay());
+				m_game.getLoadingScreen().setVisible(false);
+				m_game.getLoginScreen().enableLogin();
+				break;
 			case 'e':
 				//Error
 				GameClient.messageDialog(translated.get(21), GameClient.getInstance().getDisplay());
