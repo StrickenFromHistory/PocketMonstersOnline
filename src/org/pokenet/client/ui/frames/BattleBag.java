@@ -41,7 +41,8 @@ public class BattleBag extends BigBagDialog {
 
 	@Override
 	public void closeBag() {
-		super.closeBag();
+		setVisible(false);
+		BattleManager.getInstance().getBattleWindow().getDisplay().remove(this);
 		BattleManager.getInstance().getBattleWindow().showAttack();
 		BattleManager.getInstance().getBattleWindow().m_bag = null;
 	}
