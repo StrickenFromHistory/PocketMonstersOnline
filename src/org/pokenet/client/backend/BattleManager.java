@@ -168,7 +168,6 @@ public class BattleManager {
 				m_battle.m_moveButtons.get(i).setText(m_curPoke.getMoves()[i]);
 				m_battle.m_ppLabels.get(i).setText(m_curPoke.getMoveCurPP()[i] + "/"
 						+ m_curPoke.getMoveMaxPP()[i]);
-				System.out.println(m_curPoke.getMoves()[i]);
 			} else {
 				m_battle.m_moveButtons.get(i).setText("");
 				m_battle.m_ppLabels.get(i).setText("");
