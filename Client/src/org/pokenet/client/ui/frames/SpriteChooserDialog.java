@@ -90,7 +90,7 @@ public class SpriteChooserDialog extends Frame {
 			public void actionPerformed(ActionEvent e) {
 				GameClient.getInstance().getDisplay().remove(thisDialog);
 
-				final ConfirmationDialog confirm = new ConfirmationDialog("Are you sure you want to change sprites?\nIt'll cost you P1000!");
+				final ConfirmationDialog confirm = new ConfirmationDialog("Are you sure you want to change sprites?\nIt'll cost you P500!");
 				confirm.addYesListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						confirm.setVisible(false);
