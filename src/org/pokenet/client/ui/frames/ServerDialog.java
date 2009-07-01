@@ -1,6 +1,7 @@
 package org.pokenet.client.ui.frames;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
@@ -61,8 +62,14 @@ public class ServerDialog extends Frame {
 		try {
 			m_servers = new Button[5];
 			m_host = new String[5];
-			URL url = new URL("http://pokenetonline.googlecode.com/svn/trunk/Client/res/servers.txt");
-	        BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+			InputStream stream;
+			try {
+				URL url = new URL("http://pokeglobal.sourceforge.net/servers.txt");
+				stream = url.openStream();
+			} catch (Exception e) {
+				stream = getClass().getResourceAsStream("/res/servers.txt");
+			}
+	        BufferedReader in = new BufferedReader(new InputStreamReader(stream));
 
 			
 			m_servers[0] = new Button(in.readLine());
