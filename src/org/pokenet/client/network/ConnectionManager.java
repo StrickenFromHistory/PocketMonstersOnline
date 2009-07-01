@@ -9,6 +9,7 @@ import org.apache.mina.common.IoSession;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.ItemDatabase;
+import org.pokenet.client.backend.MoveLearningManager;
 import org.pokenet.client.backend.Translator;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
@@ -355,7 +356,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 				 * if the client allows the move learning, the server does not send a reply
 				 * to confirm it was learned, as it is ensured it is learned
 				 */
-				BattleManager.getInstance().learnMove(Integer.parseInt(String.valueOf(
+				MoveLearningManager.getInstance().queueMoveLearning(Integer.parseInt(String.valueOf(
 						message.charAt(2))), message.substring(3));
 				break;
 			case 'M':

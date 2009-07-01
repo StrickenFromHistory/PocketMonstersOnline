@@ -16,6 +16,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.BattleManager;
+import org.pokenet.client.backend.MoveLearningManager;
 import org.pokenet.client.ui.base.BattleButtonFactory;
 import org.pokenet.client.ui.base.ConfirmationDialog;
 
@@ -157,7 +158,7 @@ public class MoveLearning extends Frame {
 		m_cancel.setBounds(3, 122, 246, 77);
 		m_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				BattleManager.getInstance().removeMoveLearning();
+				MoveLearningManager.getInstance().removeMoveLearning();
 				GameClient.getInstance().getPacketGenerator().write(
 						"PM" + m_pokeIndex + m_move);
 			}
@@ -181,7 +182,7 @@ public class MoveLearning extends Frame {
 					BattleManager.getInstance().updateMoves();
 				GameClient.getInstance().getPacketGenerator().write(
 						"Pm" + m_pokeIndex + i + m_move);
-				BattleManager.getInstance().removeMoveLearning();
+				MoveLearningManager.getInstance().removeMoveLearning();
 			} else {
 				setAlwaysOnTop(false);
 				m_replace = new ConfirmationDialog(
@@ -197,8 +198,7 @@ public class MoveLearning extends Frame {
 								"Pm" + m_pokeIndex + j + m_move);
 						GameClient.getInstance().getDisplay().remove(m_replace);
 						m_replace = null;
-						BattleManager.getInstance()
-						.removeMoveLearning();
+						MoveLearningManager.getInstance().removeMoveLearning();
 					}
 				};
 				ActionListener no = new ActionListener() {
