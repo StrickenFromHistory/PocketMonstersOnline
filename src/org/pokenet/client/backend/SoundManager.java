@@ -110,6 +110,9 @@ public class SoundManager extends Thread{
 						LoadingList.setDeferredLoading(true);
 						m_files.get(m_trackName).playAsMusic(1, 20, true);
 						LoadingList.setDeferredLoading(false);
+					} else {
+						m_files.clear();
+						m_tracksLoaded = false;
 					}
 				} catch (Exception e){
 					e.printStackTrace();
@@ -149,8 +152,10 @@ public class SoundManager extends Thread{
 	 * Starts the thread
 	 */
 	public void start(){
-		m_isRunning = true;
-		super.start();
+		if(!m_mute) {
+			m_isRunning = true;
+			super.start();
+		}
 	}
 	
 	/**
