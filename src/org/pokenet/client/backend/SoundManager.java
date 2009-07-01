@@ -99,8 +99,10 @@ public class SoundManager extends Thread{
 	@Override
 	public void run() {
 		while (m_isRunning){
-			while (!m_tracksLoaded) {
-				loadFiles();
+			if(!m_mute) {
+				while (!m_tracksLoaded) {
+					loadFiles();
+				}
 			}
 			if (m_trackChanged){
 				try{
