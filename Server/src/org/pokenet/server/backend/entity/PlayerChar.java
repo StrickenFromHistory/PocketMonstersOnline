@@ -466,8 +466,13 @@ public class PlayerChar extends Char implements Battleable {
 		 */
 		m_x = m_healX;
 		m_y = m_healY;
-		this.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().
-				getMapByGamePosition(m_healMapX, m_healMapY));
+		if(m_session.isConnected() && !m_session.isClosing()) {
+			this.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().
+					getMapByGamePosition(m_healMapX, m_healMapY));
+		} else {
+			m_mapX = m_healMapX;
+			m_mapY = m_healMapY;
+		}
 	}
 	
 	/**
