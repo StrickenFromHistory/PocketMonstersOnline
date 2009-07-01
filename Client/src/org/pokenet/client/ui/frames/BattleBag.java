@@ -37,6 +37,7 @@ public class BattleBag extends BigBagDialog {
 					+ m_itemBtns.get(i).getHeight() - getTitleBar().getHeight());
 			getDisplay().add(m_popup);
 		}
+		closeBag();
 	}
 
 	@Override
