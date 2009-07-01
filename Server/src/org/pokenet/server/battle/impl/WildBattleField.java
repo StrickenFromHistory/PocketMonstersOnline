@@ -606,136 +606,138 @@ public class WildBattleField extends BattleField {
 					new BattleRewardMessage(BattleRewardType.MONEY, money));
 		}
 		
-		double exp = (DataService.getBattleMechanics().calculateExpGain(
-				m_wildPoke, m_participatingPokemon.size()));
-		if (exp == 0)
-			exp = 1;
+		if(m_participatingPokemon.size() > 0) {
+			double exp = (DataService.getBattleMechanics().calculateExpGain(
+					m_wildPoke, m_participatingPokemon.size()));
+			if (exp == 0)
+				exp = 1;
 
-		/*
-		 * Secondly, calculate EVs and exp
-		 */
-		POLRDataEntry poke = DataService.getPOLRDatabase().getPokemonData(
-				DataService.getSpeciesDatabase().getPokemonByName(
-						m_wildPoke.getSpeciesName()));
-		int[] evs = poke.getEffortPoints();
+			/*
+			 * Secondly, calculate EVs and exp
+			 */
+			POLRDataEntry poke = DataService.getPOLRDatabase().getPokemonData(
+					DataService.getSpeciesDatabase().getPokemonByName(
+							m_wildPoke.getSpeciesName()));
+			int[] evs = poke.getEffortPoints();
 
-		/*
-		 * Finally, add the EVs and exp to the participating Pokemon
-		 */
-		for(Pokemon p : m_participatingPokemon) {
-			int index = m_player.getPokemonIndex(p);
+			/*
+			 * Finally, add the EVs and exp to the participating Pokemon
+			 */
+			for(Pokemon p : m_participatingPokemon) {
+				int index = m_player.getPokemonIndex(p);
 
-			/* Add the evs */
-			/* Ensure EVs don't go over limit, before or during addition */
-			int evTotal = p.getEvTotal();
-			if (evTotal < 510) {
-				for (int i = 0; i < evs.length; i++) {
-					/* Ensure we don't hit the EV limit */
-					if (evTotal + evs[i] < 510) {
-						if (p.getEv(i) < 255) {
-							if (p.getEv(i) + evs[i] < 255) {
-								/* Add the EV */
-								evTotal += evs[i];
+				/* Add the evs */
+				/* Ensure EVs don't go over limit, before or during addition */
+				int evTotal = p.getEvTotal();
+				if (evTotal < 510) {
+					for (int i = 0; i < evs.length; i++) {
+						/* Ensure we don't hit the EV limit */
+						if (evTotal + evs[i] < 510) {
+							if (p.getEv(i) < 255) {
+								if (p.getEv(i) + evs[i] < 255) {
+									/* Add the EV */
+									evTotal += evs[i];
+									p.setEv(i, p.getEv(i) + evs[i]);
+								} else {
+									/* Cap the EV at 255 */
+									evTotal += (255 - p.getEv(i));
+									p.setEv(i, 255);
+								}
+							}
+						} else {
+							/*
+							 * We're going to hit the EV total limit Only add what's
+							 * allowed
+							 */
+							evs[i] = 510 - evTotal;
+							if (p.getEv(i) + evs[i] < 255)
 								p.setEv(i, p.getEv(i) + evs[i]);
-							} else {
-								/* Cap the EV at 255 */
-								evTotal += (255 - p.getEv(i));
+							else
 								p.setEv(i, 255);
+							i = evs.length;
+						}
+					}
+				}
+
+				/* Gain exp/level up and update client */
+				p.setExp(p.getExp() + exp);
+				ProtocolHandler.writeMessage(m_player.getSession(), 
+						new BattleExpMessage(p.getSpeciesName(), exp));
+				String expGain = exp + "";
+				expGain = expGain.substring(0, expGain.indexOf('.'));
+				m_player.getSession().write("Pe" + index + expGain);
+
+				double levelExp = DataService.getBattleMechanics().getExpForLevel(
+						p, p.getLevel() + 1)
+						- p.getExp();
+				if (levelExp <= 0) {
+					POLRDataEntry pokeData = DataService.getPOLRDatabase()
+							.getPokemonData(
+									DataService.getSpeciesDatabase()
+											.getPokemonByName(p.getSpeciesName()));
+					boolean evolve = false;
+					/* Handle evolution */
+					for (int i = 0; i < pokeData.getEvolutions().size(); i++) {
+						POLREvolution evolution = pokeData.getEvolutions().get(i);
+						if(evolution.getType() == EvoTypes.Level) {
+							if (evolution.getLevel() <= p.getLevel() + 1) {
+								p.setEvolution(evolution);
+								m_player.getSession().write("PE" + index);
+								evolve = true;
+								i = pokeData.getEvolutions().size();
+							}
+						} else if(evolution.getType() == EvoTypes.HappinessDay) {
+							if (p.getHappiness() > 220 && !TimeService.isNight()) {
+								p.setEvolution(evolution);
+								m_player.getSession().write("PE" + index);
+								evolve = true;
+								i = pokeData.getEvolutions().size();
+							}
+						} else if(evolution.getType() == EvoTypes.HappinessNight) {
+							if (p.getHappiness() > 220 && TimeService.isNight()) {
+								p.setEvolution(evolution);
+								m_player.getSession().write("PE" + index);
+								evolve = true;
+								i = pokeData.getEvolutions().size();
+							}
+						} else if(evolution.getType() == EvoTypes.Happiness) {
+							if (p.getHappiness() > 220) {
+								p.setEvolution(evolution);
+								m_player.getSession().write("PE" + index);
+								evolve = true;
+								i = pokeData.getEvolutions().size();
 							}
 						}
-					} else {
-						/*
-						 * We're going to hit the EV total limit Only add what's
-						 * allowed
-						 */
-						evs[i] = 510 - evTotal;
-						if (p.getEv(i) + evs[i] < 255)
-							p.setEv(i, p.getEv(i) + evs[i]);
-						else
-							p.setEv(i, 255);
-						i = evs.length;
 					}
-				}
-			}
+					/* If the Pokemon is evolving, don't move learn just yet */
+					if(evolve)
+						continue;
 
-			/* Gain exp/level up and update client */
-			p.setExp(p.getExp() + exp);
-			ProtocolHandler.writeMessage(m_player.getSession(), 
-					new BattleExpMessage(p.getSpeciesName(), exp));
-			String expGain = exp + "";
-			expGain = expGain.substring(0, expGain.indexOf('.'));
-			m_player.getSession().write("Pe" + index + expGain);
+					/* This Pokemon just, levelled up! */
+					p.setHappiness(p.getHappiness() + 2);
+					p.calculateStats(false);
 
-			double levelExp = DataService.getBattleMechanics().getExpForLevel(
-					p, p.getLevel() + 1)
-					- p.getExp();
-			if (levelExp <= 0) {
-				POLRDataEntry pokeData = DataService.getPOLRDatabase()
-						.getPokemonData(
-								DataService.getSpeciesDatabase()
-										.getPokemonByName(p.getSpeciesName()));
-				boolean evolve = false;
-				/* Handle evolution */
-				for (int i = 0; i < pokeData.getEvolutions().size(); i++) {
-					POLREvolution evolution = pokeData.getEvolutions().get(i);
-					if(evolution.getType() == EvoTypes.Level) {
-						if (evolution.getLevel() <= p.getLevel() + 1) {
-							p.setEvolution(evolution);
-							m_player.getSession().write("PE" + index);
-							evolve = true;
-							i = pokeData.getEvolutions().size();
-						}
-					} else if(evolution.getType() == EvoTypes.HappinessDay) {
-						if (p.getHappiness() > 220 && !TimeService.isNight()) {
-							p.setEvolution(evolution);
-							m_player.getSession().write("PE" + index);
-							evolve = true;
-							i = pokeData.getEvolutions().size();
-						}
-					} else if(evolution.getType() == EvoTypes.HappinessNight) {
-						if (p.getHappiness() > 220 && TimeService.isNight()) {
-							p.setEvolution(evolution);
-							m_player.getSession().write("PE" + index);
-							evolve = true;
-							i = pokeData.getEvolutions().size();
-						}
-					} else if(evolution.getType() == EvoTypes.Happiness) {
-						if (p.getHappiness() > 220) {
-							p.setEvolution(evolution);
-							m_player.getSession().write("PE" + index);
-							evolve = true;
-							i = pokeData.getEvolutions().size();
+					int level = DataService.getBattleMechanics().calculateLevel(p);
+					int oldLevel = p.getLevel();
+					String move = "";
+
+					/* Move learning */
+					p.getMovesLearning().clear();
+					for (int i = oldLevel + 1; i <= level; i++) {
+						if (pokeData.getMoves().get(i) != null) {
+							move = pokeData.getMoves().get(i);
+							p.getMovesLearning().add(move);
+							m_player.getSession().write("Pm" + index + move);
 						}
 					}
+
+					/* Save the level and update the client */
+					p.setLevel(level);
+					m_player.getSession().write("Pl" + index + "," + level);
+					ProtocolHandler.writeMessage(m_player.getSession(), 
+							new BattleLevelChangeMessage(p.getSpeciesName(), level));
+					m_player.updateClientPokemonStats(index);
 				}
-				/* If the Pokemon is evolving, don't move learn just yet */
-				if(evolve)
-					continue;
-
-				/* This Pokemon just, levelled up! */
-				p.setHappiness(p.getHappiness() + 2);
-				p.calculateStats(false);
-
-				int level = DataService.getBattleMechanics().calculateLevel(p);
-				int oldLevel = p.getLevel();
-				String move = "";
-
-				/* Move learning */
-				p.getMovesLearning().clear();
-				for (int i = oldLevel + 1; i <= level; i++) {
-					if (pokeData.getMoves().get(i) != null) {
-						move = pokeData.getMoves().get(i);
-						p.getMovesLearning().add(move);
-						m_player.getSession().write("Pm" + index + move);
-					}
-				}
-
-				/* Save the level and update the client */
-				p.setLevel(level);
-				m_player.getSession().write("Pl" + index + "," + level);
-				ProtocolHandler.writeMessage(m_player.getSession(), 
-						new BattleLevelChangeMessage(p.getSpeciesName(), level));
-				m_player.updateClientPokemonStats(index);
 			}
 		}
 	}
