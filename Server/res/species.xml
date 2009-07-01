@@ -5573,7 +5573,7 @@
                <m_type>16</m_type>
             </pokemonType>
          </m_type>
-         <m_genders>0</m_genders>
+         <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
          <m_species>82</m_species>
@@ -5594,7 +5594,7 @@
                <m_type>16</m_type>
             </pokemonType>
          </m_type>
-         <m_genders>0</m_genders>
+         <m_genders>1</m_genders>
       </pokemonSpecies>
       <pokemonSpecies>
          <m_species>83</m_species>
