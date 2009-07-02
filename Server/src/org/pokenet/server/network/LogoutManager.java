@@ -70,12 +70,18 @@ public class LogoutManager implements Runnable {
 	 * @return
 	 */
 	public boolean containsPlayer(String username) {
-		Iterator<PlayerChar> it = m_logoutQueue.iterator();
-		PlayerChar p;
-		while(it.hasNext()) {
-			p = it.next();
-			if(p.getName().equalsIgnoreCase(username))
-				return true;
+		synchronized(m_logoutQueue) {
+			Iterator<PlayerChar> it = m_logoutQueue.iterator();
+			PlayerChar p = null;
+			while(it.hasNext()) {
+				try {
+					p = it.next();
+				} catch (Exception e) {
+					p = null;
+				}
+				if(p != null && p.getName().equalsIgnoreCase(username))
+					return true;
+			}
 		}
 		return false;
 	}

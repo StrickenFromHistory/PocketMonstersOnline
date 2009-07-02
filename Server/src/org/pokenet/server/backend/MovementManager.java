@@ -89,6 +89,7 @@ public class MovementManager implements Runnable {
 	 * Stops the movement thread
 	 */
 	public void stop() {
+		m_players.clear();
 		m_isRunning = false;
 	}
 

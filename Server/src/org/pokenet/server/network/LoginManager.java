@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.mina.common.IoSession;
 import org.pokenet.server.GameServer;
@@ -32,7 +31,6 @@ public class LoginManager implements Runnable {
 	private Thread m_thread;
 	private boolean m_isRunning;
 	private MySqlManager m_database;
-	private HashMap<String, PlayerChar> m_players;
 	
 	/**
 	 * Default constructor. Requires a logout manager to be passed in so the server
@@ -70,10 +68,6 @@ public class LoginManager implements Runnable {
 	 * @param password
 	 */
 	private void attemptLogin(IoSession session, char l, String username, String password) {
-		if(!session.isConnected() || session.isClosing()) {
-			return;
-		}
-		PlayerChar p;
 		try {
 			//Check if we haven't reach the player limit
 			if(ProtocolHandler.getPlayerCount() >= GameServer.getMaxPlayers()) {
@@ -85,7 +79,11 @@ public class LoginManager implements Runnable {
 				session.write("l1");
 				return;
 			}
-			m_database.selectDatabase(GameServer.getDatabaseName());
+			//Select the database
+			if(!m_database.selectDatabase(GameServer.getDatabaseName())) {
+				session.write("l1");
+				return;
+			}
 			//Now, check they are not banned
 			ResultSet result = m_database.query("SELECT * FROM pn_bans WHERE ip='" + getIp(session) + "'");
 			if(result != null && result.first()) {
@@ -110,7 +108,7 @@ public class LoginManager implements Runnable {
 					 * Attach the session to the existing player if they exist, if not, just log them in
 					 */
 					if(ProtocolHandler.getPlayers().containsKey(username)) {
-						p = ProtocolHandler.getPlayers().get(username);
+						PlayerChar p = ProtocolHandler.getPlayers().get(username);
 						p.setLastLoginTime(time);
 						p.getSession().close();
 						p.setSession(session);
@@ -120,8 +118,9 @@ public class LoginManager implements Runnable {
 						session.setAttribute("player", p);
 						GameServer.getServiceManager().getMovementService().removePlayer(username);
 						this.initialiseClient(p, session);
-					} else
+					} else {
 						this.login(username, l, session, result);
+					}
 				} else if(result.getString("lastLoginServer").equalsIgnoreCase("null")) {
 					/*
 					 * They are not logged in elsewhere, log them in
@@ -153,8 +152,8 @@ public class LoginManager implements Runnable {
 			 * Something went wrong so make sure the player is registered as logged out
 			 */
 			m_database.query("UPDATE pn_members SET lastLoginServer='null' WHERE username='" + MySqlManager.parseSQL(username) + "'");
+			m_database.close();
 		}
-
 	}
 	
 	/**
@@ -167,9 +166,9 @@ public class LoginManager implements Runnable {
 		if(m_thread == null || !m_thread.isAlive()) {
 			start();
 		}
-		if(!m_logoutManager.containsPlayer(username))
+		if(!m_logoutManager.containsPlayer(username)) {
 			m_loginQueue.add(new Object[] {session, username, password});
-		else {
+		} else {
 			session.write("lu");
 		}
 	}
@@ -253,10 +252,7 @@ public class LoginManager implements Runnable {
 		/*
 		 * Add them to the list of players
 		 */
-		if(m_players == null) {
-			m_players = ProtocolHandler.getPlayers();
-		}
-		m_players.put(username, p);
+		ProtocolHandler.getPlayers().put(username, p);
 		GameServer.getInstance().updatePlayerCount();
 		System.out.println("INFO: " + username + " logged in.");
 	}
