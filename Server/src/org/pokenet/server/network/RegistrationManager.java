@@ -57,6 +57,9 @@ public class RegistrationManager implements Runnable {
 	 * @param session
 	 */
 	public void register(IoSession session) throws Exception {
+		if(!session.isConnected() || session.isClosing()) {
+			return;
+		}
 		String [] info = ((String) session.getAttribute("reg")).split(",");
 		if(m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword())) {
 			m_database.selectDatabase(GameServer.getDatabaseName());

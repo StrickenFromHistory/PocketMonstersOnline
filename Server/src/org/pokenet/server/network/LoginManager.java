@@ -69,6 +69,9 @@ public class LoginManager implements Runnable {
 	 * @param password
 	 */
 	private void attemptLogin(IoSession session, char l, String username, String password) {
+		if(!session.isConnected() || session.isClosing()) {
+			return;
+		}
 		PlayerChar p;
 		try {
 			//Check if we haven't reach the player limit
