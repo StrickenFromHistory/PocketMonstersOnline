@@ -101,11 +101,10 @@ public class LogoutManager implements Runnable {
 	 * Called by m_thread.start()
 	 */
 	public void run() {
-		PlayerChar p;
 		while(m_isRunning) {
 			synchronized(m_logoutQueue) {
 				if(m_logoutQueue.peek() != null) {
-					p = m_logoutQueue.poll();
+					PlayerChar p = m_logoutQueue.poll();
 					synchronized(p) {
 						if(p != null) {
 							if(!attemptLogout(p)) {
