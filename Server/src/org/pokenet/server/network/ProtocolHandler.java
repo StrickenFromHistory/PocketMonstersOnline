@@ -258,13 +258,12 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				if(message.charAt(1) == 'c') {
 					p.getSession().write("Cl" + m_players.size() + " players online");
 				} else if(p.getAdminLevel() > 0) {
-					PlayerChar o;
 					try {
 						switch(message.charAt(1)) {
 						case 'b':
 							//Ban player
 							if(m_players.containsKey(message.substring(2))) {
-								o = m_players.get(message.substring(2));
+								PlayerChar o = m_players.get(message.substring(2));
 								MySqlManager m = new MySqlManager();
 								if(m.connect(GameServer.getDatabaseHost(), 
 										GameServer.getDatabaseUsername(), 
@@ -293,7 +292,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 						case 'W':
 							//Warp to player
 							if(m_players.containsKey(message.substring(2))) {
-								o = m_players.get(message.substring(2));
+								PlayerChar o = m_players.get(message.substring(2));
 								p.setX(o.getX());
 								p.setY(o.getY());
 								p.setMap(o.getMap());
@@ -302,7 +301,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 						case 'm':
 							//Mute player
 							if(m_players.containsKey(message.substring(2))) {
-								o = m_players.get(message.substring(2));
+								PlayerChar o = m_players.get(message.substring(2));
 								o.setMuted(true);
 								o.getSession().write("!You have been muted.");
 							}
@@ -310,14 +309,14 @@ public class ProtocolHandler extends IoHandlerAdapter {
 						case 'u':
 							//Unmute player
 							if(m_players.containsKey(message.substring(2))) {
-								o = m_players.get(message.substring(2));
+								PlayerChar o = m_players.get(message.substring(2));
 								o.setMuted(false);
 								o.getSession().write("!You have been unmuted.");
 							}
 							break;
 						case 'k':
 							if(m_players.containsKey(message.substring(2))) {
-								o = m_players.get(message.substring(2));
+								PlayerChar o = m_players.get(message.substring(2));
 								o.getSession().write("!You have been kicked from the server.");
 								o.getSession().close();
 							}
