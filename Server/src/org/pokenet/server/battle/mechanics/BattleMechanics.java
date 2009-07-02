@@ -399,7 +399,7 @@ public abstract class BattleMechanics implements Serializable {
 		if(a >= 255){
 			return true;
 		} else {
-			double b = 1048560 / (Math.sqrt(Math.sqrt(16711680 / a)));
+			double b = 1048560 / (Math.sqrt(Math.sqrt((16711680 / a))));
             double po = getRandom().nextInt(65536);
             double pt = getRandom().nextInt(65536);
             double pth = getRandom().nextInt(65536);
