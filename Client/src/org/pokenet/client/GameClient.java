@@ -504,7 +504,7 @@ public class GameClient extends BasicGame {
 				.newCachedThreadPool()));
         // Start communication.
        ConnectFuture cf = connector.connect(new InetSocketAddress(
-                m_host, 3128), new ConnectionManager(this), cfg);
+                m_host, 7001), new ConnectionManager(this), cfg);
         // Wait for the connection attempt to be finished
         cf.join();
         int i = 0;
