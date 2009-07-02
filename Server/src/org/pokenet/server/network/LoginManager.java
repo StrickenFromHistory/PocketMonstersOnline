@@ -3,6 +3,7 @@ package org.pokenet.server.network;
 import java.net.InetAddress;
 import java.sql.ResultSet;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -41,7 +42,7 @@ public class LoginManager implements Runnable {
 	public LoginManager(LogoutManager manager) {
 		m_database = new MySqlManager();
 		m_logoutManager = manager;
-		m_loginQueue = new ConcurrentLinkedQueue<Object []>();
+		m_loginQueue = new LinkedList<Object []>();
 		m_thread = null;
 	}
 	
@@ -163,8 +164,9 @@ public class LoginManager implements Runnable {
 	 * @param password
 	 */
 	public void queuePlayer(IoSession session, String username, String password) {
-		if(m_thread == null || !m_thread.isAlive())
+		if(m_thread == null || !m_thread.isAlive()) {
 			start();
+		}
 		if(!m_logoutManager.containsPlayer(username))
 			m_loginQueue.add(new Object[] {session, username, password});
 		else {
@@ -184,6 +186,7 @@ public class LoginManager implements Runnable {
 		while(m_isRunning) {
 			synchronized(m_loginQueue) {
 				try {
+					System.out.println(m_loginQueue.size());
 					if(m_loginQueue.peek() != null) {
 						o = m_loginQueue.poll();
 						session = (IoSession) o[0];
@@ -195,10 +198,10 @@ public class LoginManager implements Runnable {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				try {
-					Thread.sleep(500);
-				} catch (Exception e) {}
 			}
+			try {
+				Thread.sleep(500);
+			} catch (Exception e) {}
 		}
 		m_thread = null;
 	}
@@ -207,7 +210,7 @@ public class LoginManager implements Runnable {
 	 * Starts the login manager
 	 */
 	public void start() {
-		if(m_thread == null) {
+		if(m_thread == null || !m_thread.isAlive()) {
 			m_thread = new Thread(this);
 			m_isRunning = true;
 			m_thread.start();

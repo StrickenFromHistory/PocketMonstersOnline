@@ -2,6 +2,7 @@ package org.pokenet.server.network;
 
 import java.sql.ResultSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -29,7 +30,7 @@ public class LogoutManager implements Runnable {
 	 */
 	public LogoutManager() {
 		m_database = new MySqlManager();
-		m_logoutQueue = new ConcurrentLinkedQueue<PlayerChar>();
+		m_logoutQueue = new LinkedList<PlayerChar>();
 		m_thread = null;
 	}
 	
@@ -124,7 +125,7 @@ public class LogoutManager implements Runnable {
 	 * Start this logout manager
 	 */
 	public void start() {
-		if(m_thread == null) {
+		if(m_thread == null || !m_thread.isAlive()) {
 			m_thread = new Thread(this);
 			m_isRunning = true;
 			m_thread.start();

@@ -62,7 +62,8 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 				m_players.remove(p);
 			}
-			session.close();
+			if(session.isConnected() || !session.isClosing())
+				session.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,6 +76,8 @@ public class ProtocolHandler extends IoHandlerAdapter {
 	    * @param Object msg - The packet received from the client
 		*/
 	public void messageReceived(IoSession session, Object msg) throws Exception {
+		if(!session.isConnected() || session.isClosing())
+			return;
 		String message = (String) msg;
 		String [] details;
 		//System.out.println(message);
@@ -514,7 +517,8 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				m_logoutManager.queuePlayer(p);
 				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 				m_players.remove(p);
-				session.close();
+				if(session.isConnected() && !session.isClosing())
+					session.close();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

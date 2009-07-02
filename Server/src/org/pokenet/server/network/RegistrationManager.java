@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -33,7 +34,7 @@ public class RegistrationManager implements Runnable {
 	public RegistrationManager() {
 		m_database = new MySqlManager();
 		m_thread = null;
-		m_queue = new ConcurrentLinkedQueue<IoSession>();
+		m_queue = new LinkedList<IoSession>();
 	}
 	
 	/**
@@ -181,10 +182,10 @@ public class RegistrationManager implements Runnable {
 						session.write("r3");
 					}
 				}
-				try {
-					Thread.sleep(250);
-				} catch (Exception e) {}
 			}
+			try {
+				Thread.sleep(250);
+			} catch (Exception e) {}
 		}
 	}
 	
@@ -192,7 +193,7 @@ public class RegistrationManager implements Runnable {
 	 * Start the registration manager
 	 */
 	public void start() {
-		if(m_thread == null) {
+		if(m_thread == null || !m_thread.isAlive()) {
 			m_thread = new Thread(this);
 			m_isRunning = true;
 			m_thread.start();
