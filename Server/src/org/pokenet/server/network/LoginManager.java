@@ -186,7 +186,6 @@ public class LoginManager implements Runnable {
 		while(m_isRunning) {
 			synchronized(m_loginQueue) {
 				try {
-					System.out.println(m_loginQueue.size());
 					if(m_loginQueue.peek() != null) {
 						o = m_loginQueue.poll();
 						session = (IoSession) o[0];
