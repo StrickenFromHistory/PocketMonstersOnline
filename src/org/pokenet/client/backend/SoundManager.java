@@ -114,7 +114,6 @@ public class SoundManager extends Thread{
 						LoadingList.setDeferredLoading(false);
 					} else {
 						m_files.clear();
-						m_tracksLoaded = false;
 					}
 				} catch (Exception e){
 					e.printStackTrace();

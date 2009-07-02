@@ -37,6 +37,7 @@ public class LoadingScreen extends Frame {
 			this.add(m_bg);
 			
 			this.setVisible(false);
+			this.setAlwaysOnTop(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
