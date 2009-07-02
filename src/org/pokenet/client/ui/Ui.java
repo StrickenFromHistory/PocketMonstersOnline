@@ -234,7 +234,8 @@ public class Ui extends Frame {
     		} catch (Exception e) {System.err.println("Failed to update money");}
     	} else {
     		try{
-    			m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokemon());
+    			if (m_teamInfo != null)
+    				m_teamInfo.update(GameClient.getInstance().getOurPlayer().getPokemon());
     		} catch (Exception e) {System.err.println("Failed to update pokemon data");}
     	}
     }
