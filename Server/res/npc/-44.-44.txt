@@ -1,5 +1,5 @@
 [npc]
-NULL
+Blackthorn citizen
 down
 163
 4
