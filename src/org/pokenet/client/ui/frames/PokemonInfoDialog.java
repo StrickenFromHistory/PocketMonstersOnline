@@ -21,7 +21,6 @@ public class PokemonInfoDialog extends Frame{
        
         public void loadImage(OurPokemon poke){
                 LoadingList.setDeferredLoading(true);
-                poke.setSprite();
                 icon.setImage(poke.getSprite());
                 icon.setSize(60,60);
                 icon.setLocation(5, 5);

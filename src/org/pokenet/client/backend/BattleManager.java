@@ -296,13 +296,6 @@ public class BattleManager {
 		m_enemyPokes[index].setSpriteNumber(spriteNum);
 		m_enemyPokes[index].setShiny(isShiny);
 		
-		try {
-			m_enemyPokes[index].setSprite();
-		} catch  (Exception e) {
-			e.printStackTrace();
-			m_enemyPokes[index].setSprite();
-		}
-
 		if ((index + 1) == m_enemyPokes.length)
 			setEnemyData();
 	}

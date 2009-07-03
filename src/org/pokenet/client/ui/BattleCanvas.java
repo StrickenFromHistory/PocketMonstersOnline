@@ -63,7 +63,6 @@ public class BattleCanvas extends Container {
 			remove(playerPoke);
 		} catch (Exception e) {}
 		playerPoke = new Label();
-		BattleManager.getInstance().getCurPoke().setBackSprite();
 		playerPoke = new Label(BattleManager.getInstance().getCurPoke().getBackSprite());
 		playerPoke.setSize(80, 80);
 		playerPoke.setLocation(20, 76);

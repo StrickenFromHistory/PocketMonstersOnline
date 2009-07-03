@@ -194,10 +194,6 @@ public class OurPlayer extends Player {
 					moves[j] = "";
 			}
 			m_pokemon[i].setMoves(moves);
-			
-			m_pokemon[i].setSprite();
-			m_pokemon[i].setBackSprite();
-			m_pokemon[i].setIcon();
 		}
 	}
 	
