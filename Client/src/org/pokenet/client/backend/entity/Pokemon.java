@@ -48,7 +48,7 @@ public class Pokemon {
         /**
          * Loads the sprite
          */
-        public void setSprite() {
+        private void setSprite() {
         	try{
         		InputStream f;
         		LoadingList.setDeferredLoading(true);
@@ -106,7 +106,7 @@ public class Pokemon {
         /**
          * Loads the icon
          */
-        public void setIcon() {
+        private void setIcon() {
                 try{
                 		InputStream f;
                         LoadingList.setDeferredLoading(true);
@@ -381,32 +381,14 @@ public class Pokemon {
         }
         
         /**
-         * Sets sprite number based on pokemon index
+         * Sets sprite number and loads sprites
          * @param x
          * @return
          */
         public void setSpriteNumber(int x) {
-//                int i = 0;
-//                if (x <= 385) {
-//                        i = x + 1;
-//                } else if (x <= 388) {
-//                        i = 386;
-//                } else if (x <= 414) {
-//                        i = x - 2;
-//                } else if (x <= 416) {
-//                        i = 413;
-//                } else {
-//                        i = x - 4;
-//                }
-                m_spriteNum = x;
-        }
-        
-        /**
-         * Sets a specific sprite number
-         * @param x
-         */
-        public void setSpriteNum(int x){
         	m_spriteNum = x;
+        	setSprite();
+        	setIcon();
         }
         
         /**

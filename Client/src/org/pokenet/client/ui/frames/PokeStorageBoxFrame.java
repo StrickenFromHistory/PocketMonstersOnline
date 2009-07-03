@@ -413,7 +413,6 @@ class TeamForBox extends Frame {
 					m_level[i].pack();
 					m_pokeName[i].setText(GameClient.getInstance().getOurPlayer().getPokemon()[i].getName());
 					m_pokeIcon[i].setImage(GameClient.getInstance().getOurPlayer().getPokemon()[i].getIcon());
-					GameClient.getInstance().getOurPlayer().getPokemon()[i].setIcon();
 					m_hp[i].setMaximum(GameClient.getInstance().getOurPlayer().getPokemon()[i].getMaxHP());
 					m_hp[i].setForeground(Color.green);
 					m_hp[i].setValue(GameClient.getInstance().getOurPlayer().getPokemon()[i].getCurHP());
@@ -425,7 +424,6 @@ class TeamForBox extends Frame {
 					} else if (GameClient.getInstance().getOurPlayer().getPokemon()[i].getCurHP() < GameClient.getInstance().getOurPlayer().getPokemon()[i].getMaxHP() / 3) {
 						m_hp[i].setForeground(Color.red);
 					}
-					GameClient.getInstance().getOurPlayer().getPokemon()[i].setIcon();
 					m_pokeIcon[i].setImage(GameClient.getInstance().getOurPlayer().getPokemon()[i].getIcon());
 					m_pokeIcon[i].setSize(32, 32);
 					m_pokeName[i].setText(GameClient.getInstance().getOurPlayer().getPokemon()[i].getName());

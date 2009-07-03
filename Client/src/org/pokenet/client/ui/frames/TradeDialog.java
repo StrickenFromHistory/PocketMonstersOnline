@@ -180,7 +180,6 @@ public class TradeDialog extends Frame {
 			m_ourPokes[i].setSize(32, 32);
 			m_ourPokes[i].setVisible(true);
 			try {
-				GameClient.getInstance().getOurPlayer().getPokemon()[i].setIcon();
 				m_ourPokes[i].setImage(GameClient.getInstance().getOurPlayer()
 						.getPokemon()[i].getIcon());
 			} catch (NullPointerException e){
