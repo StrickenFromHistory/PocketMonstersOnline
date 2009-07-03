@@ -14,7 +14,6 @@ public class MySqlManager {
     private Connection mysql_connection;
     private ResultSet mysql_result;    
     private String mysql_connectionURL;
-    private String mysql_driver;
     
     /**
      * Connects to the server. Returns true on success.
@@ -25,10 +24,6 @@ public class MySqlManager {
      */
     public boolean connect(String server, String username, String password) {
         try {
-            //Load MySQL JDBC Driver
-            mysql_driver = "com.mysql.jdbc.Driver";
-            Class.forName(mysql_driver);
-
             //Open Connection
             mysql_connectionURL = "jdbc:mysql://" + server+"?autoReconnect=true";
             mysql_connection = DriverManager.getConnection(mysql_connectionURL, username, password);
@@ -63,6 +58,7 @@ public class MySqlManager {
     public boolean close(){
         try{
             mysql_connection.close();
+            mysql_connection = null;
             return true;
         }
         catch (Exception x) {

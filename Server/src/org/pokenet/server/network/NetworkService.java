@@ -76,6 +76,12 @@ public class NetworkService {
 	 * Start this network service by starting all threads.
 	 */
 	public void start() {
+		//Load MySQL JDBC Driver
+        try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		m_logoutManager.start();
 		m_loginManager.start();
 		for(int i = 0; i < m_chatManager.length; i++) {
