@@ -45,12 +45,20 @@ public class Char implements Positionable {
 	public int getMapY() {
 		return m_mapY;
 	}
+	
+	/**
+	 * Returns the raw sprite (ignoring surf)
+	 * @return
+	 */
+	public int getRawSprite() {
+		return m_sprite;
+	}
 
 	/**
 	 * Returns the sprite of this char. Will return the surf sprite if the char is surfing
 	 */
 	public int getSprite() {
-		return m_isSurfing ? 0 : m_sprite;
+		return m_isSurfing ? -1 : m_sprite;
 	}
 
 	/**

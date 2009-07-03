@@ -516,9 +516,9 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				m_logoutManager.queuePlayer(p);
 				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 				m_players.remove(p);
-				if(session.isConnected() && !session.isClosing())
-					session.close();
 			}
+			if(session.isConnected() || !session.isClosing())
+				session.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

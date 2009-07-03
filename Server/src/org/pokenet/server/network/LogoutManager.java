@@ -178,7 +178,7 @@ public class LogoutManager implements Runnable {
 				}
 				m_database.query("UPDATE pn_members SET " +
 						"muted='" + p.isMuted() + "', " +
-						"sprite='" + p.getSprite() + "', " +
+						"sprite='" + p.getRawSprite() + "', " +
 						"money='" + p.getMoney() + "', " +
 						"skHerb='" + p.getHerbalismExp() + "', " +
 						"skCraft='" + p.getCraftingExp() + "', " +
