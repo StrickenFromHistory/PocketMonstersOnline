@@ -51,8 +51,10 @@ public class LogoutManager implements Runnable {
 			return false;
 		m_database.selectDatabase(GameServer.getDatabaseName());
 		//TODO: Store all player information
-		if(!savePlayer(player))
+		if(!savePlayer(player)) {
+			m_database.close();
 			return false;
+		}
 		//Finally, store that the player is logged out and close connection
 		m_database.query("UPDATE pn_members SET lastLoginServer='null' WHERE id='" + player.getId() + "'");
 		m_database.close();
