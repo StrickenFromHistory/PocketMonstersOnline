@@ -100,6 +100,8 @@ public class LoginManager implements Runnable {
 			}
 			//Check if the password is correct
 			if(result.getString("password").compareTo(password) == 0) {
+				//Remove the player from the map to prevent duplicates
+				GameServer.getServiceManager().getMovementService().removePlayer(username);
 				long time = System.currentTimeMillis();
 				//Now check if they are logged in anywhere else
 				if(result.getString("lastLoginServer").equalsIgnoreCase(GameServer.getServerName())) {
@@ -109,6 +111,7 @@ public class LoginManager implements Runnable {
 					 */
 					if(ProtocolHandler.getPlayers().containsKey(username)) {
 						PlayerChar p = ProtocolHandler.getPlayers().get(username);
+						p.getSession().setAttribute("player", null);
 						p.setLastLoginTime(time);
 						p.getSession().close();
 						p.setSession(session);
