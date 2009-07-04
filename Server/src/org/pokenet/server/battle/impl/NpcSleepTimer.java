@@ -36,7 +36,7 @@ public class NpcSleepTimer implements Runnable {
 							n = m.getNpcs().get(i);
 							if(n != null && !n.canBattle() && 
 									System.currentTimeMillis() - n.getLastBattleTime()
-									>= 900000 + r.nextInt(600000)) {
+									>= 300000 + r.nextInt(300000)) {
 								n.setLastBattleTime(0);
 							}
 						}
