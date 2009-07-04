@@ -223,6 +223,7 @@ public class WildBattleField extends BattleField {
 			t.stop();
 		}
 		dispose();
+		m_wildPoke = null;
 	}
 
 	/**
