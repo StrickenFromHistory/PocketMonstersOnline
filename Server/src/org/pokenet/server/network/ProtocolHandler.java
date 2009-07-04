@@ -76,8 +76,6 @@ public class ProtocolHandler extends IoHandlerAdapter {
 	    * @param Object msg - The packet received from the client
 		*/
 	public void messageReceived(IoSession session, Object msg) throws Exception {
-		if(!session.isConnected() || session.isClosing())
-			return;
 		String message = (String) msg;
 		String [] details;
 		//System.out.println(message);
