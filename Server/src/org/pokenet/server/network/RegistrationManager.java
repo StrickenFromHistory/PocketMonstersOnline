@@ -47,7 +47,7 @@ public class RegistrationManager implements Runnable {
 			start();
 		if(!m_queue.contains(session)) {
 			session.setAttribute("reg", packet);
-			m_queue.add(session);
+			m_queue.offer(session);
 		}
 		session.suspendRead();
 		session.suspendWrite();

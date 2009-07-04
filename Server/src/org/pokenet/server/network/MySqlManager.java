@@ -27,9 +27,11 @@ public class MySqlManager {
             //Open Connection
             mysql_connectionURL = "jdbc:mysql://" + server+"?autoReconnect=true";
             mysql_connection = DriverManager.getConnection(mysql_connectionURL, username, password);
-            return true;
-        }
-        catch( Exception x ) {
+            if(!mysql_connection.isClosed())
+            	return true;
+            else
+            	return false;
+        } catch( Exception x ) {
           x.printStackTrace();
           return false;
         }

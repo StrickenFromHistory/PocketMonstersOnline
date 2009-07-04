@@ -95,8 +95,7 @@ public class LogoutManager implements Runnable {
 	public void queuePlayer(PlayerChar player) {
 		if(m_thread == null || !m_thread.isAlive())
 			start();
-		if(!m_logoutQueue.contains(player) && player != null)
-			m_logoutQueue.add(player);
+		m_logoutQueue.offer(player);
 	}
 
 	/**
@@ -126,6 +125,7 @@ public class LogoutManager implements Runnable {
 			} catch (Exception e) {}
 		}
 		m_thread = null;
+		System.out.println("INFO: All player data saved successfully.");
 	}
 	
 	/**
@@ -145,7 +145,6 @@ public class LogoutManager implements Runnable {
 	public void stop() {
 		//Stop the thread
 		m_isRunning = false;
-		System.out.println("INFO: All player data saved successfully.");
 	}
 	
 	/**
