@@ -64,30 +64,6 @@ public class LogoutManager implements Runnable {
 	}
 	
 	/**
-	 * Returns true if a user is being logged out
-	 * This is used during login. If a player is in the logout queue,
-	 * the player must wait to be logged out before being logged back in again.
-	 * @param username
-	 * @return
-	 */
-	public boolean containsPlayer(String username) {
-		synchronized(m_logoutQueue) {
-			Iterator<PlayerChar> it = m_logoutQueue.iterator();
-			PlayerChar p = null;
-			while(it.hasNext()) {
-				try {
-					p = it.next();
-				} catch (Exception e) {
-					p = null;
-				}
-				if(p != null && p.getName().equalsIgnoreCase(username))
-					return true;
-			}
-		}
-		return false;
-	}
-	
-	/**
 	 * Queues a player to be logged out
 	 * @param player
 	 */

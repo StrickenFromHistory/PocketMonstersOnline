@@ -121,7 +121,8 @@ public class LoginManager implements Runnable {
 						GameServer.getServiceManager().getMovementService().removePlayer(username);
 						this.initialiseClient(p, session);
 					} else {
-						this.login(username, l, session, result);
+						session.write("l3");
+						return;
 					}
 				} else if(result.getString("lastLoginServer").equalsIgnoreCase("null")) {
 					/*
@@ -168,11 +169,7 @@ public class LoginManager implements Runnable {
 		if(m_thread == null || !m_thread.isAlive()) {
 			start();
 		}
-		if(!m_logoutManager.containsPlayer(username)) {
-			m_loginQueue.offer(new Object[] {session, username, password});
-		} else {
-			session.write("lu");
-		}
+		m_loginQueue.offer(new Object[] {session, username, password});
 	}
 
 	/**
