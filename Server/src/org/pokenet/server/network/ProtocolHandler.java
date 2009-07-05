@@ -78,7 +78,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 	public void messageReceived(IoSession session, Object msg) throws Exception {
 		String message = (String) msg;
 		String [] details;
-		//System.out.println(message);
+		System.out.println(message);
 		if(session.getAttribute("player") == null) {
 			/*
 			 * The player hasn't been logged in, only allow login and registration packets
@@ -88,6 +88,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				//Login packet
 				details = message.substring(1).split(",");
 				m_loginManager.queuePlayer(session, details[0], details[1]);
+				System.out.println("Logout packet was received, understood, and player was added to queue");
 				break;
 			case 'r':
 				//Registration packet
