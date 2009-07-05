@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.Bag;
@@ -50,7 +49,7 @@ public class LogoutManager implements Runnable {
 		if(!m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword()))
 			return false;
 		m_database.selectDatabase(GameServer.getDatabaseName());
-		//TODO: Store all player information
+		//Store all player information
 		if(!savePlayer(player)) {
 			m_database.close();
 			return false;

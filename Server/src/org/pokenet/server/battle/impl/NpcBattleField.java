@@ -483,10 +483,19 @@ public class NpcBattleField extends BattleField {
 					 * safe to respond like this
 					 */
 					int index = 0;
+					int lastLivingPoke = 0;
+
+					for (int x = 0; x < getAliveCount(1); x++){
+						if (this.getParty(1)[index].getHealth() > 0)
+							lastLivingPoke++;
+						else if (this.getParty(1)[index] == null)
+							break;
+					}
+					
 					while(this.getParty(1)[index] == null ||
 							this.getParty(1)[index].getHealth() < 1 ||
 							this.getParty(1)[index].compareTo(getActivePokemon()[1]) == 0)
-						index = getMechanics().getRandom().nextInt(6);
+						index = getMechanics().getRandom().nextInt(lastLivingPoke);
 					this.queueMove(1, BattleTurn.getSwitchTurn(index));
 				}
 			} catch (Exception e) {

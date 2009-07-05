@@ -2,7 +2,6 @@ package org.pokenet.server.network;
 
 import java.net.InetAddress;
 import java.sql.ResultSet;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
