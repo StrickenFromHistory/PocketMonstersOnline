@@ -61,7 +61,7 @@ down
 6
 2
 Gengar,84,Misdreavus,84,Haunter,84,Gastly,84
-2
+4
 11
 6,7,8,9,10,11,12,13,14
 false

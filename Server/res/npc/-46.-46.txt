@@ -89,7 +89,7 @@ down
 7
 7
 Dragonite,90,Kingdra,90,Gyarados,90,Charizard,90,Dragonair,90
-3
+5
 15
 11,12,13,14,15,16
 false
