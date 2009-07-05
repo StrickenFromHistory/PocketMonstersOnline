@@ -110,6 +110,7 @@ public class BattleWindow extends Frame {
 	 * Disables moves
 	 */
 	public void disableMoves() {
+		attackPane.setVisible(false);
 		move1.setEnabled(false);
 		move2.setEnabled(false);
 		move3.setEnabled(false);
@@ -131,6 +132,7 @@ public class BattleWindow extends Frame {
 	 * Enables moves
 	 */
 	public void enableMoves() {
+		attackPane.setVisible(true);
 		btnPoke.setEnabled(true);
 		btnBag.setEnabled(true);
 		if (!isWild) {
