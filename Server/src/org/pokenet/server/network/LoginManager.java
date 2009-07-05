@@ -26,7 +26,6 @@ import org.pokenet.server.feature.TimeService;
  */
 public class LoginManager implements Runnable {
 	private Queue<Object []> m_loginQueue;
-	private LogoutManager m_logoutManager;
 	private Thread m_thread;
 	private boolean m_isRunning;
 	private MySqlManager m_database;
@@ -38,7 +37,6 @@ public class LoginManager implements Runnable {
 	 */
 	public LoginManager(LogoutManager manager) {
 		m_database = new MySqlManager();
-		m_logoutManager = manager;
 		m_loginQueue = new LinkedList<Object []>();
 		m_thread = null;
 	}
