@@ -26,11 +26,11 @@ Pikachu 241 40 206 30 477 30
 Raichu 241 40 206 30 477 25 599 5
 Sandshrew 206 95 235 5
 Sandslash 206 90 235 5 603 5
-Nidoranf 206 75 168 25
-Nidorina 206 75 168 25
+Nidoran-f 206 90 168 10
+Nidorina 206 90 168 10
 Nidoqueen 206 100
-Nidoranm 206 75 168 25
-Nidorino 206 75 168 25
+Nidoran-m 206 90 168 10
+Nidorino 206 90 168 10
 Nidoking 206 100
 Clefairy 168 25 206 75
 Clefable 168 1 206 99
@@ -55,7 +55,7 @@ Psyduck 206 90 237 10
 Golduck 209 50 237 49 342 1
 Mankey 206 100
 Primeape 209 90 301 10
-Growlithe 203 65 164 25
+Growlithe 203 90 164 10
 Arcanine 203 50 303 40 241 10
 Poliwag 206 100
 Poliwhirl 201 50 209 40 155 10
@@ -66,7 +66,7 @@ Alakazam 209 69 321 10 374 10 388 10 340 1
 Machop 206 100
 Machoke 209 95 301 5
 Machamp 209 95 335 5
-Bellsprout 200 75 173 25
+Bellsprout 200 90 173 10
 Weepinbell 206 50 209 50
 Victreebel 209 90 352 5 353 5
 Tentacool 202 100
@@ -74,7 +74,7 @@ Tentacruel 209 50 206 30 313 10 202 10
 Geodude 206 100
 Graveler 206 40 209 40 237 20
 Golem 209 75 305 20 655 5
-Ponyta 206 75 164 25
+Ponyta 206 90 164 10
 Rapidash 206 90 235 10
 Slowpoke 207 99 208 1
 Slowbro 209 100
