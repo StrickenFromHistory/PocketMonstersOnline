@@ -1,6 +1,6 @@
 package org.pokenet.server.backend;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.pokenet.server.backend.entity.PlayerChar;
 
@@ -10,7 +10,7 @@ import org.pokenet.server.backend.entity.PlayerChar;
  *
  */
 public class MovementManager implements Runnable {
-	private ArrayList<PlayerChar> m_players;
+	private HashMap<String, PlayerChar> m_players;
 	private Thread m_thread;
 	private boolean m_isRunning;
 	private int m_pLoad = 0;
@@ -19,7 +19,7 @@ public class MovementManager implements Runnable {
 	 * Default constructor.
 	 */
 	public MovementManager() {
-		m_players = new ArrayList<PlayerChar>();
+		m_players = new HashMap<String, PlayerChar>();
 		m_thread = new Thread(this);
 	}
 	
@@ -29,7 +29,7 @@ public class MovementManager implements Runnable {
 	 */
 	public void addPlayer(PlayerChar player) {
 		m_pLoad++;
-		m_players.add(player);
+		m_players.put(player.getName(), player);
 	}
 	
 	/**
@@ -45,13 +45,9 @@ public class MovementManager implements Runnable {
 	 * @param player
 	 */
 	public boolean removePlayer(String player) {
-		for(int i = 0; i < m_players.size(); i++) {
-			if(m_players.get(i).getName().equalsIgnoreCase(player)) {
-				m_players.remove(i);
-				m_players.trimToSize();
-				m_pLoad--;
-				return true;
-			}
+		if(m_players.remove(player) != null) {
+			m_pLoad--;
+			return true;
 		}
 		return false;
 	}
@@ -62,12 +58,13 @@ public class MovementManager implements Runnable {
 	public void run() {
 		while(m_isRunning) {
 			synchronized(m_players) {
-				for(int i = 0; i < m_players.size(); i++) {
+				for(PlayerChar p : m_players.values()) {
 					try {
-						m_players.get(i).move();
+						p.move();
 					} catch (Exception e) {
 						e.printStackTrace();
-						m_players.get(i).forceLogout();
+						removePlayer(p.getName());
+						p.forceLogout();
 					}
 				}
 			}
