@@ -16,7 +16,7 @@ public class MoveLearningManager extends Thread{
 	private MoveLearning m_moveLearning;
 	private Queue<MoveLearnQueueObject> m_moveLearningQueue;
 	private boolean m_canLearn = false;
-	private boolean m_isRunning = false;
+	private boolean m_isRunning = true;
 	
 	/**
 	 * Default constructor
@@ -38,9 +38,11 @@ public class MoveLearningManager extends Thread{
 					MoveLearnQueueObject temp = m_moveLearningQueue.poll();
 					learnMove(temp.getPokeIndex(), temp.getMoveName());
 					m_canLearn = false;
-				} else if (m_moveLearningQueue.isEmpty())
-					m_isRunning = false;
+				}
 			}
+			try {
+				Thread.sleep(500);
+			} catch (Exception e) {}
 		}
 	}
 	
