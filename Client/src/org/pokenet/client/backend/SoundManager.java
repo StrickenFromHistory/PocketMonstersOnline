@@ -121,6 +121,9 @@ public class SoundManager extends Thread{
 					m_trackChanged = false;
 				}
 			}
+			try {
+				Thread.sleep(1000);
+			} catch (Exception e) {}
 		}
 	}
 	
