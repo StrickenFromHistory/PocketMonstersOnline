@@ -85,7 +85,7 @@ public class LogoutManager implements Runnable {
 							if(!attemptLogout(p)) {
 								m_logoutQueue.add(p);
 							} else {
-								ProtocolHandler.getPlayers().remove(p.getName());
+								ProtocolHandler.removePlayer(p);
 								GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 								GameServer.getInstance().updatePlayerCount();
 								System.out.println("INFO: " + p.getName() + " logged out.");

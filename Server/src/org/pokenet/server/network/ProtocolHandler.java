@@ -546,11 +546,57 @@ public class ProtocolHandler extends IoHandlerAdapter {
 	}
 	
 	/**
-	 * Returns the list of players
+	 * Adds a player to the player list
+	 * @param p
+	 */
+	public static void addPlayer(PlayerChar p) {
+		synchronized(m_players) {
+			m_players.put(p.getName(), p);
+		}
+	}
+	
+	/**
+	 * Removes a player from the player list
+	 * @param p
+	 */
+	public static void removePlayer(PlayerChar p) {
+		synchronized(m_players) {
+			m_players.remove(p.getName());
+		}
+	}
+	
+	/**
+	 * Returns a player
+	 * @param username
 	 * @return
 	 */
-	public static HashMap<String, PlayerChar> getPlayers() {
-		return m_players;
+	public static PlayerChar getPlayer(String username) {
+		synchronized(m_players) {
+			return m_players.get(username);
+		}
+	}
+	
+	/**
+	 * Returns true if the player list contains a player
+	 * @param username
+	 * @return
+	 */
+	public static boolean containsPlayer(String username) {
+		synchronized(m_players) {
+			return m_players.containsKey(username);
+		}
+	}
+	
+	/**
+	 * Kicks idle players
+	 */
+	public static void kickIdlePlayers() {
+		synchronized(m_players) {
+			for(PlayerChar p : m_players.values()) {
+				if(System.currentTimeMillis() - p.lastPacket >= 900000)
+					p.forceLogout();
+			}
+		}
 	}
 	
 	/**
@@ -558,7 +604,9 @@ public class ProtocolHandler extends IoHandlerAdapter {
 	 * @return
 	 */
 	public static int getPlayerCount() {
-		return m_players.keySet().size();
+		synchronized(m_players) {
+			return m_players.keySet().size();
+		}
 	}
 	
 	/**

@@ -14,11 +14,8 @@ public class IdleTimer implements Runnable {
 			 * Loop through all players and check for idling
 			 * If they've idled, disconnect them
 			 */
+			ProtocolHandler.kickIdlePlayers();
 			try {
-				for(PlayerChar p : ProtocolHandler.getPlayers().values()) {
-					if(System.currentTimeMillis() - p.lastPacket >= 900000)
-						p.forceLogout();
-				}
 				Thread.sleep(30000);
 			} catch (Exception e) {}
 			

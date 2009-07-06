@@ -106,8 +106,8 @@ public class LoginManager implements Runnable {
 					 * They are already logged in on this server.
 					 * Attach the session to the existing player if they exist, if not, just log them in
 					 */
-					if(ProtocolHandler.getPlayers().containsKey(username)) {
-						PlayerChar p = ProtocolHandler.getPlayers().get(username);
+					if(ProtocolHandler.containsPlayer(username)) {
+						PlayerChar p = ProtocolHandler.getPlayer(username);
 						p.getSession().setAttribute("player", null);
 						p.setLastLoginTime(time);
 						p.getSession().close();
@@ -249,7 +249,7 @@ public class LoginManager implements Runnable {
 		/*
 		 * Add them to the list of players
 		 */
-		ProtocolHandler.getPlayers().put(username, p);
+		ProtocolHandler.addPlayer(p);
 		GameServer.getInstance().updatePlayerCount();
 		System.out.println("INFO: " + username + " logged in.");
 	}

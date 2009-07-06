@@ -363,7 +363,7 @@ public class GameServer {
 				m_pHighest.setText("Highest: " + amount);
 			}
 		} else {
-			int amount = ProtocolHandler.getPlayers().size();
+			int amount = ProtocolHandler.getPlayerCount();
 			System.out.println(amount + " players online");
 			if(amount > m_highest) {
 				m_highest = amount;
