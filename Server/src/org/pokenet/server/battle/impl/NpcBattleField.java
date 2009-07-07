@@ -429,8 +429,12 @@ public class NpcBattleField extends BattleField {
 						int index = 0;
 						while(this.getParty(1)[index] == null ||
 								this.getParty(1)[index].isFainted() ||
-								this.getParty(1)[index].compareTo(getActivePokemon()[1]) == 0)
+								this.getParty(1)[index].compareTo(getActivePokemon()[1]) == 0) {
+							try {
+								Thread.sleep(100);
+							} catch (Exception e) {}
 							index = getMechanics().getRandom().nextInt(6);
+						}
 						this.queueMove(1, BattleTurn.getSwitchTurn(index));
 						return;
 					}
@@ -465,8 +469,12 @@ public class NpcBattleField extends BattleField {
 				int index = 0;
 
 				while(this.getParty(1)[index] == null ||
-						this.getParty(1)[index].isFainted())
+						this.getParty(1)[index].isFainted()) {
+					try {
+						Thread.sleep(100);
+					} catch (Exception e) {}
 					index = getMechanics().getRandom().nextInt(6);
+				}
 				this.switchInPokemon(1, BattleTurn.getSwitchTurn(index).getId());
                 requestMoves();
 			} catch (Exception e) {
