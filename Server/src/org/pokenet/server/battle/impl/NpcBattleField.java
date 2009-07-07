@@ -422,11 +422,16 @@ public class NpcBattleField extends BattleField {
 			/* Request move from npc */
 			try {
 				if(getActivePokemon()[1].hasTypeWeakness(getActivePokemon()[0])
-						&& this.getAliveCount(1) >= 2) {
+						&& this.getAliveCount(1) >= 3) {
 					/* The npc should switch out a different Pokemon */
 					/* 50:50 chance they will switch */
-					if(this.getMechanics().getRandom().nextInt(2) == 0) {
-						requestPokemonReplacement(1);
+					if(this.getMechanics().getRandom().nextInt(3) == 0) {
+						int index = 0;
+						while(this.getParty(1)[index] == null ||
+								this.getParty(1)[index].isFainted() ||
+								this.getParty(1)[index].compareTo(getActivePokemon()[1]) == 0)
+							index = getMechanics().getRandom().nextInt(6);
+						this.queueMove(1, BattleTurn.getSwitchTurn(index));
 						return;
 					}
 				}
@@ -457,44 +462,13 @@ public class NpcBattleField extends BattleField {
 		} else {
 			/* Request Pokemon replacement from npc */
 			try {
-				Thread t = Thread.currentThread();
-				/*
-				 * Ensure we're not queueing a switch inside the dispatch thread,
-				 * this will cause an infinite loop.
-				 * So if it is the dispatch thread, we'll respond in a new thread
-				 */
-				if(t == m_dispatch) {
-					Thread nt = new Thread(new Runnable() {
-						public void run() {
-							try {
-								/* Sleep for a moment to allow dispatch thread to finish */
-								Thread.sleep(1500);
-								/* Carry out the switch */
-								requestPokemonReplacement(1);
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-						}
-					});
-					nt.start();
-				} else {
-					/*
-					 * This is outside the dispatch thread,
-					 * safe to respond like this
-					 */
-					int index = 0;
-					int lastLivingPoke = 6;
-					
-					while (this.getParty(1)[lastLivingPoke - 1] == null ||
-							this.getParty(1)[lastLivingPoke - 1].getHealth() < 1)
-						lastLivingPoke--;
-					
-					while(this.getParty(1)[index] == null ||
-							this.getParty(1)[index].getHealth() < 1 ||
-							this.getParty(1)[index].compareTo(getActivePokemon()[1]) == 0)
-						index = getMechanics().getRandom().nextInt(lastLivingPoke);
-					this.queueMove(1, BattleTurn.getSwitchTurn(index));
-				}
+				int index = 0;
+
+				while(this.getParty(1)[index] == null ||
+						this.getParty(1)[index].isFainted())
+					index = getMechanics().getRandom().nextInt(6);
+				this.switchInPokemon(1, BattleTurn.getSwitchTurn(index).getId());
+                requestMoves();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

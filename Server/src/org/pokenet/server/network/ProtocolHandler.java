@@ -88,7 +88,6 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				//Login packet
 				details = message.substring(1).split(",");
 				m_loginManager.queuePlayer(session, details[0], details[1]);
-				System.out.println("Logout packet was received, understood, and player was added to queue");
 				break;
 			case 'r':
 				//Registration packet
