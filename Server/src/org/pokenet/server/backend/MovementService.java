@@ -55,6 +55,12 @@ public class MovementService {
 					smallest = i;
 			}
 		}
+		if(m_movementManager[smallest] == null) {
+			m_movementManager[smallest] = new MovementManager();
+		}
+		if(!m_movementManager[smallest].isRunning()) {
+			m_movementManager[smallest].start();
+		}
 		return m_movementManager[smallest];
 	}
 	

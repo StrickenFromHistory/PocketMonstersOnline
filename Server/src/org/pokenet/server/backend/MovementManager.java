@@ -20,7 +20,6 @@ public class MovementManager implements Runnable {
 	 */
 	public MovementManager() {
 		m_players = new HashMap<String, PlayerChar>();
-		m_thread = new Thread(this);
 	}
 	
 	/**
@@ -75,9 +74,18 @@ public class MovementManager implements Runnable {
 	}
 	
 	/**
+	 * Returns true if the movement manager is running
+	 * @return
+	 */
+	public boolean isRunning() {
+		return m_thread != null && m_thread.isAlive();
+	}
+	
+	/**
 	 * Starts the movement thread
 	 */
 	public void start() {
+		m_thread = new Thread(this);
 		m_isRunning = true;
 		m_thread.start();
 	}

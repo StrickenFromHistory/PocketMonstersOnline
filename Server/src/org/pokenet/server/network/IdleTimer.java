@@ -1,7 +1,5 @@
 package org.pokenet.server.network;
 
-import org.pokenet.server.backend.entity.PlayerChar;
-
 /**
  * A class which kicks players if they've been idle for too long
  */

@@ -116,7 +116,6 @@ public class LoginManager implements Runnable {
 						m_database.query("UPDATE pn_members SET lastLoginServer='" + MySqlManager.parseSQL(GameServer.getServerName()) + "', lastLoginTime='" + time + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 						m_database.query("UPDATE pn_members SET lastLoginIP='" + getIp(session) + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 						session.setAttribute("player", p);
-						GameServer.getServiceManager().getMovementService().removePlayer(username);
 						this.initialiseClient(p, session);
 					} else {
 						session.write("l3");
