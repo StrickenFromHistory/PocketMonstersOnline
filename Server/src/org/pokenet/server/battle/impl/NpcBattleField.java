@@ -465,20 +465,24 @@ public class NpcBattleField extends BattleField {
 					new SwitchRequest());
 		} else {
 			/* Request Pokemon replacement from npc */
-			try {
-				int index = 0;
+			if(getAliveCount(1) == 0) {
+				informVictory(0);
+			} else {
+				try {
+					int index = 0;
 
-				while(this.getParty(1)[index] == null ||
-						this.getParty(1)[index].isFainted()) {
-					try {
-						Thread.sleep(100);
-					} catch (Exception e) {}
-					index = getMechanics().getRandom().nextInt(6);
+					while(this.getParty(1)[index] == null ||
+							this.getParty(1)[index].isFainted()) {
+						try {
+							Thread.sleep(100);
+						} catch (Exception e) {}
+						index = getMechanics().getRandom().nextInt(6);
+					}
+					this.switchInPokemon(1, BattleTurn.getSwitchTurn(index).getId());
+	                requestMoves();
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-				this.switchInPokemon(1, BattleTurn.getSwitchTurn(index).getId());
-                requestMoves();
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
 		}
 	}
