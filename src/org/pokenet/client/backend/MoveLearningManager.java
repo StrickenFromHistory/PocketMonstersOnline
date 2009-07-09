@@ -33,6 +33,9 @@ public class MoveLearningManager extends Thread{
 	 */
 	public void run(){
 		while (true){
+			try {
+				Thread.sleep(250);
+			} catch (Exception e) {}
 			while (m_isRunning){
 				if (m_canLearn && !m_moveLearningQueue.isEmpty()) {
 					MoveLearnQueueObject temp = m_moveLearningQueue.poll();
@@ -41,10 +44,8 @@ public class MoveLearningManager extends Thread{
 				}
 				try {
 					Thread.sleep(500);
-				} catch (Exception e) {
-					}
+				} catch (Exception e) {}
 			}
-			
 		}
 	}
 	
