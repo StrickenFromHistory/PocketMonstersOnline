@@ -232,6 +232,7 @@ public class NpcBattleField extends BattleField {
 			m_player.lostBattle();
 		}
 		m_player.setBattling(false);
+		dispose();
 		if (m_dispatch != null) {
 			/*
 			 * This very bad programming but shoddy does it and forces us to do
@@ -241,7 +242,6 @@ public class NpcBattleField extends BattleField {
 			m_dispatch = null;
 			t.stop();
 		}
-		dispose();
 	}
 
 	@Override

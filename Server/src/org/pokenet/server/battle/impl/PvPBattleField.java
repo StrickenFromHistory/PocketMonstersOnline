@@ -279,6 +279,7 @@ public class PvPBattleField extends BattleField {
 		}
 		m_players[0].setBattling(false);
 		m_players[1].setBattling(false);
+		dispose();
 		if (m_dispatch != null) {
 			/*
 			 * This very bad programming but shoddy does it and forces us to do
@@ -288,7 +289,6 @@ public class PvPBattleField extends BattleField {
 			m_dispatch = null;
 			t.stop();
 		}
-		dispose();
 	}
 
 	@Override
