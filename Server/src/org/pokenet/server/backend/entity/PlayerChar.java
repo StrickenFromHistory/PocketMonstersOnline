@@ -1011,8 +1011,8 @@ public class PlayerChar extends Char implements Battleable {
 		Char c;
 		String packet = "mi";
 		//Send all player information to the client
-		for(int i = 0; i < map.getPlayers().size(); i++) {
-			c = map.getPlayers().get(i);
+		for(PlayerChar p : map.getPlayers().values()) {
+			c = p;
 			packet = packet + c.getName() + "," + 
 						c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
 						(c.getFacing() == Direction.Down ? "D" : 

@@ -2,6 +2,7 @@ package org.pokenet.server.backend;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
@@ -83,14 +84,12 @@ public class MovementService {
 		 * First move all players out of their maps
 		 */
 		if(!forceSkip) {
-			ArrayList<PlayerChar> players;
-			PlayerChar p;
+			HashMap<String, PlayerChar> players;
 			for(int x = 0; x < 100; x++) {
 				for(int y = 0; y < 100; y++) {
 					if(m_mapMatrix.getMapByRealPosition(x, y) != null) {
 						players = m_mapMatrix.getMapByRealPosition(x, y).getPlayers();
-						for(int i = 0; i < players.size(); i++) {
-							p = players.get(i);
+						for(PlayerChar p : players.values()) {
 							p.setLastHeal(p.getX(), p.getY(), p.getMapX(), p.getMapY());
 							p.setMap(m_tempMap);
 						}

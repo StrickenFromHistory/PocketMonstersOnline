@@ -2,7 +2,9 @@ package org.pokenet.server.backend.map;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 import org.pokenet.server.backend.DataLoader;
@@ -43,7 +45,7 @@ public class ServerMap {
 	private ServerMapMatrix m_mapMatrix;
 	private Weather m_forcedWeather = null;
 	//Players and NPCs
-	private ArrayList<PlayerChar> m_players;
+	private HashMap<String, PlayerChar> m_players;
 	private ArrayList<NonPlayerChar> m_npcs;
 	private ArrayList<WarpTile> m_warps;
 	private ArrayList<MapItem> m_items;
@@ -95,7 +97,7 @@ public class ServerMap {
 			}
 		}
 		
-		m_players = new ArrayList<PlayerChar>();
+		m_players = new HashMap<String, PlayerChar>();
 		m_npcs = new ArrayList<NonPlayerChar>();
 		
 		/*
@@ -374,7 +376,7 @@ public class ServerMap {
 	 */
 	public void addChar(Char c) {
 		if(c instanceof PlayerChar) {
-			m_players.add((PlayerChar) c);
+			m_players.put(c.getName(), (PlayerChar) c);
 		} else if(c instanceof NonPlayerChar) {
 			//Set the id of the npc
 			c.setId(-1 - m_npcs.size());
@@ -458,8 +460,7 @@ public class ServerMap {
 	 */
 	public void removeChar(Char c) {
 		if(c instanceof PlayerChar) {
-			m_players.remove((PlayerChar) c);
-			m_players.trimToSize();
+			m_players.remove(c.getName());
 		} else if(c instanceof NonPlayerChar) {
 			m_npcs.remove((NonPlayerChar) c);
 			m_npcs.trimToSize();
@@ -862,7 +863,7 @@ public class ServerMap {
 	 * Returns the arraylist of players
 	 * @return
 	 */
-	public ArrayList<PlayerChar> getPlayers() {
+	public HashMap<String, PlayerChar> getPlayers() {
 		return m_players;
 	}
 	
