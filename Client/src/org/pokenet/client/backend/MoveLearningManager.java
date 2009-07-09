@@ -39,10 +39,12 @@ public class MoveLearningManager extends Thread{
 					learnMove(temp.getPokeIndex(), temp.getMoveName());
 					m_canLearn = false;
 				}
+				try {
+					Thread.sleep(500);
+				} catch (Exception e) {
+					}
 			}
-			try {
-				Thread.sleep(500);
-			} catch (Exception e) {}
+			
 		}
 	}
 	
