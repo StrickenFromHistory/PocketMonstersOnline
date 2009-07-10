@@ -64,7 +64,7 @@ public class LoginManager implements Runnable {
 	 * @param username
 	 * @param password
 	 */
-	private void attemptLogin(IoSession session, char l, String username, String password) {
+	private void attemptLogin(IoSession session, char l, String username, String password, boolean force) {
 		try {
 			//Check if we haven't reach the player limit
 			if(ProtocolHandler.getPlayerCount() >= GameServer.getMaxPlayers()) {
@@ -132,7 +132,11 @@ public class LoginManager implements Runnable {
 					 * Check if the server is up, if it is, don't log them in. If not, log them in
 					 */
 					if(InetAddress.getByName(result.getString("lastLoginServer")).isReachable(5000)) {
-						session.write("l3");
+						if(force) {
+							this.login(username, l, session, result);
+						} else {
+							session.write("l3");
+						}
 						return;
 					} else {
 						//The server they were on went down and they are trying to login elsewhere
@@ -161,12 +165,13 @@ public class LoginManager implements Runnable {
 	 * @param session
 	 * @param username
 	 * @param password
+	 * @param forceLogin - true if player wants to force login
 	 */
-	public void queuePlayer(IoSession session, String username, String password) {
+	public void queuePlayer(IoSession session, String username, String password, boolean forceLogin) {
 		if(m_thread == null || !m_thread.isAlive()) {
 			start();
 		}
-		m_loginQueue.offer(new Object[] {session, username, password});
+		m_loginQueue.offer(new Object[] {session, username, password, String.valueOf(forceLogin)});
 	}
 
 	/**
@@ -187,7 +192,8 @@ public class LoginManager implements Runnable {
 						l = ((String) o[1]).charAt(0);
 						username = ((String) o[1]).substring(1);
 						password = (String) o[2];
-						this.attemptLogin(session, l, username, password);
+						boolean force = Boolean.valueOf((String) o[3]);
+						this.attemptLogin(session, l, username, password, force);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();

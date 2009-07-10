@@ -87,11 +87,16 @@ public class ProtocolHandler extends IoHandlerAdapter {
 			case 'l':
 				//Login packet
 				details = message.substring(1).split(",");
-				m_loginManager.queuePlayer(session, details[0], details[1]);
+				m_loginManager.queuePlayer(session, details[0], details[1], false);
 				break;
 			case 'r':
 				//Registration packet
 				m_regManager.queueRegistration(session, message.substring(1));
+				break;
+			case 'f':
+				//Force login
+				details = message.substring(1).split(",");
+				m_loginManager.queuePlayer(session, details[0], details[1], true);
 				break;
 			}
 		} else {
