@@ -382,9 +382,9 @@ public class ServerMap {
 			c.setId(-1 - m_npcs.size());
 			m_npcs.add((NonPlayerChar) c);
 		}
-		for(int i = 0; i < m_players.size(); i++) {
-			if(c.getId() != m_players.get(i).getId())
-				m_players.get(i).getSession().write("ma" + c.getName() + "," + 
+		for(PlayerChar p : m_players.values()) {
+			if(c.getId() != p.getId())
+				p.getSession().write("ma" + c.getName() + "," + 
 					c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
 					(c.getFacing() == Direction.Down ? "D" : 
 						c.getFacing() == Direction.Up ? "U" :
@@ -465,8 +465,8 @@ public class ServerMap {
 			m_npcs.remove((NonPlayerChar) c);
 			m_npcs.trimToSize();
 		}
-		for(int i = 0; i < m_players.size(); i++) {
-			m_players.get(i).getSession().write("mr" + c.getId());
+		for(PlayerChar p : m_players.values()) {
+			p.getSession().write("mr" + c.getId());
 		}
 	}
 	
