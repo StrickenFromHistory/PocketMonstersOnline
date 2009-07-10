@@ -234,7 +234,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 					switch(message.charAt(1)) {
 					case 'r':
 						//Requesting info for box number - e.g. Br0
-						int boxNum = Integer.parseInt("" + message.charAt(2));
+						int boxNum = Integer.parseInt(String.valueOf(message.charAt(2)));
 						if(boxNum >= 0 && boxNum < 9)
 							p.sendBoxInfo(boxNum);
 						break;

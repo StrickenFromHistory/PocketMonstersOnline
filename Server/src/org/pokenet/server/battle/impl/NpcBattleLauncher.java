@@ -64,6 +64,7 @@ public class NpcBattleLauncher implements Runnable {
 			m_player.ensureHealthyPokemon();
 			m_player.setBattleField(new NpcBattleField(DataService.getBattleMechanics(), m_player, m_npc));
 		} catch (Exception e) {
+			m_player.setBattling(false);
 			e.printStackTrace();
 		}
 	}
