@@ -187,7 +187,7 @@ public class PokeStorageBoxFrame extends Frame {
 						getDisplay().remove(confirm);
 
 						GameClient.getInstance().getPacketGenerator().write(
-								"BR" + m_boxIndex + ";" + m_buttonChosen);
+								"BR" + m_boxIndex + "," + m_buttonChosen);
 
 						GameClient.getInstance().getPacketGenerator().write("Bf");
 						GameClient.getInstance().getUi().stopUsingBox();
