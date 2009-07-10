@@ -234,10 +234,12 @@ public class ItemProcessor implements Runnable {
 						poke.changeHealth(10);
 						if(!p.isBattling())
 							p.getSession().write("Ph" + data[0] + poke.getHealth());
-						else
+						else {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
 							} catch (Exception e) {}
+						}
+						return true;
 					} else if(i.getName().equalsIgnoreCase("PERSIM BERRY")) {
 						//TODO: Remove confusion
 					} else if(i.getName().equalsIgnoreCase("LUM BERRY")) {
