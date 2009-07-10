@@ -262,10 +262,10 @@ public class ServerMap {
 	 * @param l
 	 */
 	public void sendChatMessage(String message, Language l) {
-		for(int i = 0; i < m_players.size(); i++) {
-			if(m_players.get(i).getLanguage() == l) {
+		for(PlayerChar p: m_players.values()) {
+			if(p.getLanguage() == l) {
 				ProtocolHandler.writeMessage(
-						m_players.get(i).getSession(),
+						p.getSession(),
 						new ChatMessage(ChatMessageType.LOCAL, message));
 			}
 		}
@@ -854,8 +854,8 @@ public class ServerMap {
 	 * @param message
 	 */
 	public void sendToAll(PokenetMessage m) {
-		for(int i = 0; i < m_players.size(); i++) {
-			ProtocolHandler.writeMessage(m_players.get(i).getSession(), m);
+		for(PlayerChar p: m_players.values()) {
+			ProtocolHandler.writeMessage(p.getSession(), m);
 		}
 	}
 	
