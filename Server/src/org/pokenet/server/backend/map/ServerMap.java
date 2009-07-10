@@ -515,12 +515,19 @@ public class ServerMap {
 	private boolean isBlocked(int x, int y, Direction d) {
 		if (m_blocked.getTileAt(x, y) == '1')
 			return true;
-		for(int i = 0; i < m_npcs.size() / 2; i++) {
-			if(m_npcs.get(i).getX() == (x * 32) && m_npcs.get(i).getY() == ((y * 32) - 8))
-				return true;
-			else if(m_npcs.get(m_npcs.size() - 1 - i).getX() == (x * 32) && 
-					m_npcs.get(m_npcs.size() - 1 - i).getY() == ((y * 32) - 8))
-				return true;
+		if(m_npcs.size() < 4) {
+			for(int i = 0; i < m_npcs.size(); i++) {
+				if(m_npcs.get(i).getX() == (x * 32) && m_npcs.get(i).getY() == ((y * 32) - 8))
+					return true;
+			}
+		} else {
+			for(int i = 0; i <= m_npcs.size() / 2; i++) {
+				if(m_npcs.get(i).getX() == (x * 32) && m_npcs.get(i).getY() == ((y * 32) - 8))
+					return true;
+				else if(m_npcs.get(m_npcs.size() - 1 - i).getX() == (x * 32) && 
+						m_npcs.get(m_npcs.size() - 1 - i).getY() == ((y * 32) - 8))
+					return true;
+			}
 		}
 		if(m_ledgesRight != null && m_ledgesRight.getTileAt(x, y) == '1') {
 			if(d == Direction.Left || d == Direction.Up || d == Direction.Down)
