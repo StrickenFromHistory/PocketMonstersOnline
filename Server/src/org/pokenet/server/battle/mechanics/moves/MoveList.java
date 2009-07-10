@@ -3323,7 +3323,7 @@ public class MoveList {
                     if (listener.getDamage() <= 0) {
                         return super.use(mech, user, target);
                     }
-                    int power = getPower();
+                    int power = 60;
                     setPower(power * 2);
                     int damage = super.use(mech, user, target);
                     setPower(power);
