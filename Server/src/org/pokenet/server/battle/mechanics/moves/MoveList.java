@@ -615,17 +615,11 @@ public class MoveList {
             
         m_moves.add(new MoveListEntry("Hypnosis", new StatusMove(
             PokemonType.T_PSYCHIC, 0, 0.6, 20, new StatusEffect[] {
-                new SleepEffect()
-                },
-            new boolean[] { false },
-            new double[] { 1.0 }
-            ) {
-                public boolean attemptHit(BattleMechanics mech, Pokemon user, Pokemon target) {
-                    setAccuracy(getAccuracy() / 0.6 *
-                            ((mech instanceof JewelMechanics) ? 0.70 : 0.60));
-                    return super.attemptHit(mech, user, target);
-                }
-            }));
+                    new SleepEffect()
+            },
+        new boolean[] { false },
+        new double[] { 1.0 }
+            )));
             
         m_moves.add(new MoveListEntry("Ice Beam", new StatusMove(
             PokemonType.T_ICE, 95, 1.0, 10, new StatusEffect[] {
