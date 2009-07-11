@@ -34,7 +34,7 @@ Nidorino 206 90 168 10
 Nidoking 206 100
 Clefairy 168 25 206 75
 Clefable 168 1 206 99
-Vulpix 164 15 206 85
+Vulpix 164 20 206 80
 Ninetales 164 15 206 85
 Jigglypuff 206 100
 Wigglytuff 206 100
@@ -55,7 +55,7 @@ Psyduck 206 90 237 10
 Golduck 209 50 237 49 342 1
 Mankey 206 100
 Primeape 209 90 301 10
-Growlithe 203 90 164 10
+Growlithe 203 80 164 20
 Arcanine 203 50 303 40 241 10
 Poliwag 206 100
 Poliwhirl 201 50 209 40 155 10
