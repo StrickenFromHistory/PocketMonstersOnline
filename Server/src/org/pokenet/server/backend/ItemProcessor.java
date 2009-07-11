@@ -161,52 +161,52 @@ public class ItemProcessor implements Runnable {
 							 * If so, evolve the Pokemon
 							 */
 							if(i.getName().equalsIgnoreCase("FIRE STONE")
-									|| evolution.getAttribute().equalsIgnoreCase("FIRESTONE")) {
+									&& evolution.getAttribute().equalsIgnoreCase("FIRESTONE")) {
 								poke.setEvolution(evolution);
 								poke.evolutionResponse(true, p);
 								return true;
 							} else if(i.getName().equalsIgnoreCase("WATER STONE")
-									|| evolution.getAttribute().equalsIgnoreCase("WATERSTONE")) {
+									&& evolution.getAttribute().equalsIgnoreCase("WATERSTONE")) {
 								poke.setEvolution(evolution);
 								poke.evolutionResponse(true, p);
 								return true;
 							} else if(i.getName().equalsIgnoreCase("THUNDERSTONE")
-									|| evolution.getAttribute().equalsIgnoreCase("THUNDERSTONE")) {
+									&& evolution.getAttribute().equalsIgnoreCase("THUNDERSTONE")) {
 								poke.setEvolution(evolution);
 								poke.evolutionResponse(true, p);
 								return true;
 							} else if(i.getName().equalsIgnoreCase("LEAF STONE")
-									|| evolution.getAttribute().equalsIgnoreCase("LEAFSTONE")) {
+									&& evolution.getAttribute().equalsIgnoreCase("LEAFSTONE")) {
 								poke.setEvolution(evolution);
 								poke.evolutionResponse(true, p);
 								return true;
 							} else if(i.getName().equalsIgnoreCase("MOON STONE")
-									|| evolution.getAttribute().equalsIgnoreCase("MOONSTONE")) {
+									&& evolution.getAttribute().equalsIgnoreCase("MOONSTONE")) {
 								poke.setEvolution(evolution);
 								poke.evolutionResponse(true, p);
 								return true;
 							} else if(i.getName().equalsIgnoreCase("SUN STONE")
-									|| evolution.getAttribute().equalsIgnoreCase("SUNSTONE")) {
+									&& evolution.getAttribute().equalsIgnoreCase("SUNSTONE")) {
 								poke.setEvolution(evolution);
 								poke.evolutionResponse(true, p);
 								return true;
 							} else if(i.getName().equalsIgnoreCase("SHINY STONE")
-									|| evolution.getAttribute().equalsIgnoreCase("SHINYSTONE")) {
+									&& evolution.getAttribute().equalsIgnoreCase("SHINYSTONE")) {
 								poke.setEvolution(evolution);
 								poke.evolutionResponse(true, p);
 								return true;
 							} else if(i.getName().equalsIgnoreCase("DUSK STONE")
-									|| evolution.getAttribute().equalsIgnoreCase("DUSKSTONE")) {
+									&& evolution.getAttribute().equalsIgnoreCase("DUSKSTONE")) {
 								poke.setEvolution(evolution);
 								poke.evolutionResponse(true, p);
 								return true;
 							} else if(i.getName().equalsIgnoreCase("DAWN STONE")
-									|| evolution.getAttribute().equalsIgnoreCase("DAWNSTONE")) {
+									&& evolution.getAttribute().equalsIgnoreCase("DAWNSTONE")) {
 								poke.setEvolution(evolution);
 								poke.evolutionResponse(true, p);
 								return true;
 							} else if(i.getName().equalsIgnoreCase("OVAL STONE")
-									|| evolution.getAttribute().equalsIgnoreCase("OVALSTONE")) {
+									&& evolution.getAttribute().equalsIgnoreCase("OVALSTONE")) {
 								poke.setEvolution(evolution);
 								poke.evolutionResponse(true, p);
 								return true;
