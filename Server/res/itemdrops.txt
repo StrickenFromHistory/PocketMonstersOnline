@@ -83,13 +83,13 @@ Magneton 206 50 307 50
 Farfetch'd 206 75 482 25
 Doduo 206 100
 Dodrio 209 99 607 1
-Seel 206 60 209 40
+Seel 206 60 209 39 588 1
 Dewgong 209 90 310 10
 Grimer 202 98 353 1 385 1
 Muk 202 80 353 10 385 3 581 7
 Shellder 206 100
 Cloyster 209 100
-Gastly  206 95 605 5
+Gastly  206 100
 Haunter 206 60 209 30 320 10
 Gengar 209 60 208 20 320 20
 Onix 206 80 305 5 603 10 651 5
@@ -161,7 +161,7 @@ Feraligatr 204 80 237 10 310 9 668 1
 Sentret 206 100
 Furret 206 100
 Hoothoot 207 100
-Noctowl 207 100
+Noctowl 207 95 605 5
 Ledyba 207 50 202 50
 Ledian 207 50 202 50
 Spinarak 202 100
