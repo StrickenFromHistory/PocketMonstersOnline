@@ -76,8 +76,10 @@ public class ClientMap extends TiledMap {
 									&& (p.getCurrentImage() != null)) {
 								p.getCurrentImage().draw(m_xOffset + p.getX() - 4, m_yOffset + p.getY());
 								if (shouldReflect(p)){
-									p.getCurrentImage().getFlippedCopy(false, true).draw(m_xOffset + p.getX()
-											- 4, m_yOffset + p.getY() + 32);
+									// If there's a reflection, flip the player's image, set his alpha so its more translucent, and then draw it.
+									Image m_reflection = p.getCurrentImage().getFlippedCopy(false, true);
+									m_reflection.setAlpha((float) 0.05);
+									m_reflection.draw(m_xOffset + p.getX() - 4, m_yOffset + p.getY() + 32);
 								}
 								if (wasOnGrass(p) && isOnGrass(p)){
 									switch (p.getDirection()){
