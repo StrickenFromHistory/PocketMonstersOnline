@@ -232,6 +232,7 @@ public class NpcBattleField extends BattleField {
 			m_player.lostBattle();
 		}
 		m_player.setBattling(false);
+		m_player.setTalking(false);
 		dispose();
 		if (m_dispatch != null) {
 			/*
