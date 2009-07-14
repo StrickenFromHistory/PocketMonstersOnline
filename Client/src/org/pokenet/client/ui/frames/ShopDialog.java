@@ -256,7 +256,7 @@ public class ShopDialog extends Frame {
 		m_categoryButtons[2].setSize(150, 160);
 		m_categoryButtons[2].setLocation(0,161);
 		m_categoryButtons[2].setFont(GameClient.getFontLarge());
-		m_categoryButtons[2].setEnabled(false);
+		m_categoryButtons[2].setEnabled(true);
 		m_categoryButtons[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				categoryClicked(2);
