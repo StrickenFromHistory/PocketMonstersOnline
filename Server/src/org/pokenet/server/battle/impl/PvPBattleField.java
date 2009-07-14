@@ -501,7 +501,7 @@ public class PvPBattleField extends BattleField {
 	public void disconnect(int trainer) {
 		if(m_players != null) {
 			if(trainer == 0) {
-				if(m_players[0].getMoney() >= 100) {
+/*				if(m_players[0].getMoney() >= 100) {
 					m_players[0].setMoney(m_players[0].getMoney() - 100);
 					m_players[1].setMoney(m_players[1].getMoney() + 100);
 				} else {
@@ -509,11 +509,11 @@ public class PvPBattleField extends BattleField {
 					m_players[0].setMoney(0);
 				}
 				m_players[1].updateClientMoney();
-				ProtocolHandler.writeMessage(m_players[1].getSession(), 
+*/				ProtocolHandler.writeMessage(m_players[1].getSession(), 
 						new BattleEndMessage(BattleEnd.WON));
 				m_players[1].setBattling(false);
 			} else {
-				if(m_players[1].getMoney() >= 100) {
+/*				if(m_players[1].getMoney() >= 100) {
 					m_players[1].setMoney(m_players[0].getMoney() - 100);
 					m_players[0].setMoney(m_players[1].getMoney() + 100);
 				} else {
@@ -521,7 +521,7 @@ public class PvPBattleField extends BattleField {
 					m_players[1].setMoney(0);
 				}
 				m_players[0].updateClientMoney();
-				ProtocolHandler.writeMessage(m_players[0].getSession(), 
+*/				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new BattleEndMessage(BattleEnd.WON));
 				m_players[0].setBattling(false);
 			}
