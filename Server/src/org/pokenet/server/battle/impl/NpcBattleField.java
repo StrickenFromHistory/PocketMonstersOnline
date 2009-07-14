@@ -39,6 +39,7 @@ public class NpcBattleField extends BattleField {
 	private PlayerChar m_player;
 	private NonPlayerChar m_npc;
 	private BattleTurn[] m_turn = new BattleTurn[2];
+	private boolean m_finished = false;
 
 	/**
 	 * Constructor
@@ -146,6 +147,8 @@ public class NpcBattleField extends BattleField {
 
 	@Override
 	public void informStatusApplied(Pokemon poke, StatusEffect eff) {
+		if(m_finished)
+			return;
 		if (m_player != null) {
 			if (getActivePokemon()[0].compareTo(poke) == 0)
 				ProtocolHandler.writeMessage(m_player.getSession(), 
@@ -162,6 +165,8 @@ public class NpcBattleField extends BattleField {
 
 	@Override
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
+		if(m_finished)
+			return;
 		if (m_player != null) {
 			if (getActivePokemon()[0].compareTo(poke) == 0)
 				ProtocolHandler.writeMessage(m_player.getSession(), 
@@ -205,6 +210,7 @@ public class NpcBattleField extends BattleField {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void informVictory(int winner) {
+		m_finished = true;
 		int money = getParty(1)[0].getLevel() * (getMechanics().getRandom().nextInt(4) + 1);
 		if (winner == 0) {
 			/* Reward the player */
@@ -490,6 +496,8 @@ public class NpcBattleField extends BattleField {
 
 	@Override
 	public void showMessage(String message) {
+		if(m_finished)
+			return;
 		if(m_player != null)
 			ProtocolHandler.writeMessage(m_player.getSession(), 
 				new BattleMessage(message));

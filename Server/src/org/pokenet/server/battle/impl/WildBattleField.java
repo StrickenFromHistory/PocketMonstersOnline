@@ -52,6 +52,7 @@ public class WildBattleField extends BattleField {
 	private BattleTurn[] m_turn = new BattleTurn[2];
 	private int m_runCount;
 	Set<Pokemon> m_participatingPokemon = new LinkedHashSet<Pokemon>();
+	private boolean m_finished = false;
 
 	/**
 	 * Constructor
@@ -149,6 +150,8 @@ public class WildBattleField extends BattleField {
 
 	@Override
 	public void informStatusApplied(Pokemon poke, StatusEffect eff) {
+		if(m_finished)
+			return;
 		if (m_player != null) {
 			if (poke != m_wildPoke)
 				ProtocolHandler.writeMessage(m_player.getSession(), 
@@ -165,6 +168,8 @@ public class WildBattleField extends BattleField {
 
 	@Override
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
+		if(m_finished)
+			return;
 		if (m_player != null) {
 			if (poke != m_wildPoke)
 				ProtocolHandler.writeMessage(m_player.getSession(), 
@@ -202,6 +207,7 @@ public class WildBattleField extends BattleField {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void informVictory(int winner) {
+		m_finished = true;
 		if (winner == 0) {
 			calculateExp();
 			m_player.removeTempStatusEffects();
@@ -445,6 +451,8 @@ public class WildBattleField extends BattleField {
 
 	@Override
 	public void showMessage(String message) {
+		if(m_finished)
+			return;
 		if(m_player != null)
 			ProtocolHandler.writeMessage(m_player.getSession(), 
 				new BattleMessage(message));

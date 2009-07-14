@@ -36,6 +36,7 @@ import org.pokenet.server.network.message.battle.BattleEndMessage.BattleEnd;
 public class PvPBattleField extends BattleField {
 	private PlayerChar[] m_players;
 	private BattleTurn[] m_turn = new BattleTurn[2];
+	private boolean m_finished = false;
 
 	/**
 	 * Constructor
@@ -171,6 +172,8 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void informStatusApplied(Pokemon poke, StatusEffect eff) {
+		if(m_finished)
+			return;
 		if (m_players != null && poke != null) {
 			if (poke.compareTo(getActivePokemon()[0]) == 0) {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
@@ -196,6 +199,8 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
+		if(m_finished)
+			return;
 		if (poke != null) {
 			if (m_players != null && poke.compareTo(getActivePokemon()[0]) == 0) {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
@@ -262,6 +267,7 @@ public class PvPBattleField extends BattleField {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void informVictory(int winner) {
+		m_finished = true;
 		m_players[0].removeTempStatusEffects();
 		m_players[1].removeTempStatusEffects();
 		if (winner == 0) {
@@ -483,6 +489,8 @@ public class PvPBattleField extends BattleField {
 
 	@Override
 	public void showMessage(String message) {
+		if(m_finished)
+			return;
 		if(m_players != null) {
 			if(m_players[0] != null)
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
