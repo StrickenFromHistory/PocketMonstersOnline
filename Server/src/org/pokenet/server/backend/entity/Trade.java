@@ -277,11 +277,13 @@ public class Trade {
 								 */
 								evolution = pokeData.getEvolutions().get(j);
 								if(evolution != null && evolution.getType() == EvoTypes.Trade) {
-									temp[i].setEvolution(evolution);
-									if(i == 0)
+									if(i == 0) {
+										player2.getParty()[index].setEvolution(evolution);
 										player2.getSession().write("PE" + index);
-									else
+									} else {
+										player1.getParty()[index].setEvolution(evolution);
 										player1.getSession().write("PE" + index);
+									}
 									break;
 								}
 							}
