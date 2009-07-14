@@ -262,7 +262,8 @@ public class ServerMap {
 	 * @param l
 	 */
 	public void sendChatMessage(String message, Language l) {
-		for(PlayerChar p: m_players.values()) {
+		Collection<PlayerChar> list = m_players.values();
+		for(PlayerChar p: list) {
 			if(p.getLanguage() == l) {
 				ProtocolHandler.writeMessage(
 						p.getSession(),
@@ -861,7 +862,8 @@ public class ServerMap {
 	 * @param message
 	 */
 	public void sendToAll(PokenetMessage m) {
-		for(PlayerChar p: m_players.values()) {
+		Collection<PlayerChar> list = m_players.values();
+		for(PlayerChar p: list) {
 			ProtocolHandler.writeMessage(p.getSession(), m);
 		}
 	}
