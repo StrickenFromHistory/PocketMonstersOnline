@@ -426,6 +426,8 @@ public class PvPBattleField extends BattleField {
 					}
 				}
 			}
+		} else {
+			throw new MoveQueueException("MOVE ALREADY QUEUED");
 		}
 		if (m_dispatch != null)
 			return;

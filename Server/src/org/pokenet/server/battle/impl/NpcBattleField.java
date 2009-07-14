@@ -374,6 +374,8 @@ public class NpcBattleField extends BattleField {
 					}
 				}
 			}
+		} else {
+			throw new MoveQueueException("MOVE ALREADY QUEUED");
 		}
 		/* Ensures the npc selected a move */
 		if(trainer == 0 && m_turn[0] != null && m_turn[1] == null) {

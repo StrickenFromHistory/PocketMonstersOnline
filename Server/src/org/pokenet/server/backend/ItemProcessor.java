@@ -9,6 +9,7 @@ import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.impl.WildBattleField;
+import org.pokenet.server.battle.mechanics.MoveQueueException;
 import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
 import org.pokenet.server.battle.mechanics.polr.POLREvolution;
 import org.pokenet.server.battle.mechanics.polr.POLREvolution.EvoTypes;
@@ -115,6 +116,16 @@ public class ItemProcessor implements Runnable {
 					/*
 					 * Potions
 					 */
+					if(p.isBattling()) {
+						/* Player is in battle, take a hit from enemy */
+						try {
+							p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
+						} catch (MoveQueueException e) {
+							if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+								return false;
+							}
+						}
+					}
 					int hpBoost = 0;
 					poke = p.getParty()[Integer.parseInt(data[0])];
 					if(poke == null)
@@ -136,11 +147,6 @@ public class ItemProcessor implements Runnable {
 					if(!p.isBattling()) {
 						/* Update the client */
 						p.getSession().write("Ph" + data[0] + poke.getHealth());
-					} else {
-						/* Player is in battle, take a hit from enemy */
-						try {
-							p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-						} catch (Exception e) {}
 					}
 					return true;
 				} else if(i.getCategory().equalsIgnoreCase("EVOLUTION")) {
@@ -224,44 +230,64 @@ public class ItemProcessor implements Runnable {
 					if(poke == null)
 						return false;
 					if(i.getName().equalsIgnoreCase("ANTIDOTE")) {
-						poke.removeStatus(PoisonEffect.class);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatus(PoisonEffect.class);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("PARALYZ HEAL")) {
-						poke.removeStatus(ParalysisEffect.class);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatus(ParalysisEffect.class);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("AWAKENING")) {
-						poke.removeStatus(SleepEffect.class);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatus(SleepEffect.class);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("BURN HEAL")) {
-						poke.removeStatus(BurnEffect.class);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatus(BurnEffect.class);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("ICE HEAL")) {
-						poke.removeStatus(FreezeEffect.class);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatus(FreezeEffect.class);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("FULL HEAL")) {
 						//TODO: Add support for this
@@ -275,105 +301,148 @@ public class ItemProcessor implements Runnable {
 					if(poke == null)
 						return false;
 					if(i.getName().equalsIgnoreCase("CHERI BERRY")) {
-						poke.removeStatus(ParalysisEffect.class);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatus(ParalysisEffect.class);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("CHESTO BERRY")) {
-						poke.removeStatus(SleepEffect.class);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatus(SleepEffect.class);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("PECHA BERRY")) {
-						poke.removeStatus(PoisonEffect.class);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatus(PoisonEffect.class);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("RAWST BERRY")) {
-						poke.removeStatus(BurnEffect.class);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatus(BurnEffect.class);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("ASPEAR BERRY")) {
-						poke.removeStatus(FreezeEffect.class);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatus(FreezeEffect.class);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("LEPPA BERRY")) {
+						if(p.isBattling()) {
+							try {
+								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
+						}
 						int ppSlot = Integer.parseInt(data[1]);
 						if(poke.getPp(ppSlot) + 10 <= poke.getMaxPp(ppSlot)) {
 							poke.setPp(ppSlot, poke.getPp(ppSlot) + 10);
 						} else {
 							poke.setPp(ppSlot, poke.getMaxPp(ppSlot));
 						}
-						if(p.isBattling()) {
-							try {
-								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
-						}
 						return true;
 					} else if(i.getName().equalsIgnoreCase("ORAN BERRY")) {
-						poke.changeHealth(10);
-						if(!p.isBattling())
-							p.getSession().write("Ph" + data[0] + poke.getHealth());
-						else {
+						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.changeHealth(10);
+						p.getSession().write("Ph" + data[0] + poke.getHealth());
 						return true;
 					} else if(i.getName().equalsIgnoreCase("PERSIM BERRY")) {
-						poke.removeStatus(ConfuseEffect.class);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatus(ConfuseEffect.class);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("LUM BERRY")) {
-						poke.removeStatusEffects(true);
 						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
 						}
+						poke.removeStatusEffects(true);
 						return true;
 					} else if(i.getName().equalsIgnoreCase("SITRUS BERRY")) {
-						poke.changeHealth(30);
-						if(!p.isBattling())
-							p.getSession().write("Ph" + data[0] + poke.getHealth());
-						else
+						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
+						}
+						poke.changeHealth(30);
+						p.getSession().write("Ph" + data[0] + poke.getHealth());
 						return true;
 					} else if(i.getName().equalsIgnoreCase("FIGY BERRY") || 
 							i.getName().equalsIgnoreCase("WIKI BERRY") ||
 							i.getName().equalsIgnoreCase("MAGO BERRY") ||
 							i.getName().equalsIgnoreCase("AGUAV BERRY") ||
 							i.getName().equalsIgnoreCase("IAPAPA BERRY")) {
-						poke.changeHealth(poke.getRawStat(0) / 8);
-						if(!p.isBattling())
-							p.getSession().write("Ph" + data[0] + poke.getHealth());
-						else
+						if(p.isBattling()) {
 							try {
 								p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-							} catch (Exception e) {}
+							} catch (MoveQueueException e) {
+								if(e.getMessage().equalsIgnoreCase("MOVE ALREADY QUEUED")) {
+									return false;
+								}
+							}
+						}
+						poke.changeHealth(poke.getRawStat(0) / 8);
+						p.getSession().write("Ph" + data[0] + poke.getHealth());
 						return true;
 					}
 				}
