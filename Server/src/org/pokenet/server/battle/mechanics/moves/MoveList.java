@@ -4421,22 +4421,25 @@ public class MoveList {
                 }
                 public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
                     int power = getPower();
-                    StatusEffect effect = target.getEffect(AssuranceEffect.class);
-                    if (effect == null) return super.use(mech, user, target);
-                    AssuranceEffect eff = (AssuranceEffect)effect;
-                    if (target.getHealth() < eff.getHealth()) {
-                        setPower(power * 2);
+                    if (!target.hasEffect(AssuranceEffect.class)) {
+                        StatusEffect effect = target.getEffect(AssuranceEffect.class);
+                    	 AssuranceEffect eff = (AssuranceEffect) effect;
+                         if (target.getHealth() < eff.getHealth()) {
+                             setPower(power * 2);
+                         }
+                         int damage = super.use(mech, user, target);
+                         setPower(power);
+                         return damage;
+                    } else {
+                    	return super.use(mech, user, target);
                     }
-                    int damage = super.use(mech, user, target);
-                    setPower(power);
-                    return damage;
                 }
             }
         ));
         
         
         
-        m_moves.add(new MoveListEntry("Judgment",
+        m_moves.add(new MoveListEntry("Judgement",
             new PokemonMove(PokemonType.T_NORMAL, 100, 1.0, 10)));
             
         m_moves.add(new MoveListEntry("Metal Burst",
