@@ -239,11 +239,11 @@ public class NpcBattleField extends BattleField {
 			} else {
 				m_player.setMoney(0);
 			}
-			m_player.updateClientMoney();
 			ProtocolHandler.writeMessage(m_player.getSession(), 
 					new BattleEndMessage(BattleEnd.LOST));
 			m_player.lostBattle();
 		}
+		m_player.updateClientMoney();
 		m_player.setBattling(false);
 		m_player.setTalking(false);
 		dispose();
@@ -374,8 +374,6 @@ public class NpcBattleField extends BattleField {
 					}
 				}
 			}
-		} else {
-			throw new MoveQueueException("MOVE ALREADY QUEUED");
 		}
 		/* Ensures the npc selected a move */
 		if(trainer == 0 && m_turn[0] != null && m_turn[1] == null) {

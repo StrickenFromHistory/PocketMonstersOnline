@@ -355,8 +355,6 @@ public class WildBattleField extends BattleField {
 					}
 				}
 			}
-		} else {
-			throw new MoveQueueException("MOVE ALREADY QUEUED");
 		}
 		if (trainer == 0 && m_turn[1] == null) {
 			requestMove(1);
