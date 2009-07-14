@@ -25,15 +25,15 @@ public class ModerationManager {
 			m_ioSession.write("Mk" + x.substring(5));
 		}
 		// Ban
-		else if (x.length() >= 5 && x.substring(0, 4).equalsIgnoreCase("ban ")) {
+		else if (x.length() >= 4 && x.substring(0, 4).equalsIgnoreCase("ban ")) {
 			m_ioSession.write("Mb" + x.substring(4));
 		}
 		// Unban
-		else if (x.length() >= 5 && x.substring(0, 6).equalsIgnoreCase("unban ")) {
+		else if (x.length() >= 6 && x.substring(0, 6).equalsIgnoreCase("unban ")) {
 			m_ioSession.write("MB" + x.substring(6));
 		}
 		// Jump to [player]
-		else if (x.length() >= 5 && x.substring(0, 7).equalsIgnoreCase("jumpto ")) {
+		else if (x.length() >= 7 && x.substring(0, 7).equalsIgnoreCase("jumpto ")) {
 			m_ioSession.write("MW" + x.substring(7));
 		}
 		// Player count
