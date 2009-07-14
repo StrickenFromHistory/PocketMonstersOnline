@@ -1085,14 +1085,8 @@ public class Pokemon extends PokemonSpecies {
     			m_statuses.trimToSize();
     		}
     	} else {
-    		StatusEffect e = null;
-    		for(int i = 0; i < m_statuses.size(); i++) {
-    			e = m_statuses.get(i);
-    			if(e != null && e instanceof StatChangeEffect || e instanceof ConfuseEffect) {
-    				removeStatus(e.getClass());
-    			}
-    		}
-    		m_statuses.trimToSize();
+    		removeStatus(ConfuseEffect.class);
+    		removeStatus(StatChangeEffect.class);
     	}
     }
     
