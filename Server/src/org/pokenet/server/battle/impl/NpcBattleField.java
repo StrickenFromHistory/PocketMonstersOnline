@@ -510,4 +510,15 @@ public class NpcBattleField extends BattleField {
 				new BattleMessage(message));
 	}
 
+	@Override
+	public void forceExecuteTurn() {
+		if(m_turn[0] == null) {
+			m_turn[0] = BattleTurn.getMoveTurn(-1);
+		}
+		if(m_turn[1] == null) {
+			m_turn[1] = BattleTurn.getMoveTurn(-1);
+		}
+		executeTurn(m_turn);
+	}
+
 }

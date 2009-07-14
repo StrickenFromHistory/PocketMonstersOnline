@@ -80,12 +80,14 @@ public class ItemProcessor implements Runnable {
                                 p.setRepel(250);
                                 return true;
                         } else if(i.getName().equalsIgnoreCase("ESCAPE ROPE")) {
-                                /* Warp the player to their last heal point */
-                                p.setX(p.getHealX());
-                                p.setY(p.getHealY());
-                                p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().
-                                                getMapByGamePosition(p.getHealMapX(), p.getHealMapY()));
-                                return true;
+                        	if(p.isBattling())
+                        		return false;
+                        	/* Warp the player to their last heal point */
+                            p.setX(p.getHealX());
+                            p.setY(p.getHealY());
+                            p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().
+                                            getMapByGamePosition(p.getHealMapX(), p.getHealMapY()));
+                            return true;
                         }
                         /* Else, determine what do to with the item */
                         if(i.getAttributes().contains(ItemAttribute.MOVESLOT)) {
@@ -138,9 +140,7 @@ public class ItemProcessor implements Runnable {
                                                 p.getSession().write("Ph" + data[0] + poke.getHealth());
                                         } else {
                                                 /* Player is in battle, take a hit from enemy */
-                                                try {
-                                                        p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                } catch (Exception e) {}
+                                        	 p.getBattleField().forceExecuteTurn();
                                         }
                                         return true;
                                 } else if(i.getCategory().equalsIgnoreCase("EVOLUTION")) {
@@ -226,41 +226,31 @@ public class ItemProcessor implements Runnable {
                                         if(i.getName().equalsIgnoreCase("ANTIDOTE")) {
                                                 poke.removeStatus(PoisonEffect.class);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("PARALYZ HEAL")) {
                                                 poke.removeStatus(ParalysisEffect.class);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("AWAKENING")) {
                                                 poke.removeStatus(SleepEffect.class);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("BURN HEAL")) {
                                                 poke.removeStatus(BurnEffect.class);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("ICE HEAL")) {
                                                 poke.removeStatus(FreezeEffect.class);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("FULL HEAL")) {
@@ -277,41 +267,31 @@ public class ItemProcessor implements Runnable {
                                         if(i.getName().equalsIgnoreCase("CHERI BERRY")) {
                                                 poke.removeStatus(ParalysisEffect.class);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("CHESTO BERRY")) {
                                                 poke.removeStatus(SleepEffect.class);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("PECHA BERRY")) {
                                                 poke.removeStatus(PoisonEffect.class);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("RAWST BERRY")) {
                                                 poke.removeStatus(BurnEffect.class);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("ASPEAR BERRY")) {
                                                 poke.removeStatus(FreezeEffect.class);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("LEPPA BERRY")) {
@@ -322,9 +302,7 @@ public class ItemProcessor implements Runnable {
                                                         poke.setPp(ppSlot, poke.getMaxPp(ppSlot));
                                                 }
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("ORAN BERRY")) {
@@ -332,25 +310,19 @@ public class ItemProcessor implements Runnable {
                                                 if(!p.isBattling())
                                                         p.getSession().write("Ph" + data[0] + poke.getHealth());
                                                 else {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("PERSIM BERRY")) {
                                                 poke.removeStatus(ConfuseEffect.class);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("LUM BERRY")) {
                                                 poke.removeStatusEffects(true);
                                                 if(p.isBattling()) {
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 }
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("SITRUS BERRY")) {
@@ -358,9 +330,7 @@ public class ItemProcessor implements Runnable {
                                                 if(!p.isBattling())
                                                         p.getSession().write("Ph" + data[0] + poke.getHealth());
                                                 else
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 return true;
                                         } else if(i.getName().equalsIgnoreCase("FIGY BERRY") || 
                                                         i.getName().equalsIgnoreCase("WIKI BERRY") ||
@@ -371,9 +341,7 @@ public class ItemProcessor implements Runnable {
                                                 if(!p.isBattling())
                                                         p.getSession().write("Ph" + data[0] + poke.getHealth());
                                                 else
-                                                        try {
-                                                                p.getBattleField().queueMove(p.getBattleId(), BattleTurn.getMoveTurn(-1));
-                                                        } catch (Exception e) {}
+                                                	 p.getBattleField().forceExecuteTurn();
                                                 return true;
                                         }
                                 }

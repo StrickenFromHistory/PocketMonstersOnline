@@ -89,6 +89,11 @@ public abstract class BattleField {
     }
     
     /**
+     * Forces move executions
+     */
+    public abstract void forceExecuteTurn();
+    
+    /**
      * Adds a spectator to the battle
      * @param p
      */
