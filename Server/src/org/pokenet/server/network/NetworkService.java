@@ -11,6 +11,7 @@ import org.apache.mina.filter.executor.ExecutorFilter;
 import org.apache.mina.transport.socket.nio.SocketAcceptor;
 import org.apache.mina.transport.socket.nio.SocketAcceptorConfig;
 import org.apache.mina.transport.socket.nio.SocketSessionConfig;
+import org.pokenet.server.GameServer;
 import org.pokenet.server.feature.ChatManager;
 import org.pokenet.server.network.codec.PokenetCodecFactory;
 
@@ -82,8 +83,28 @@ public class NetworkService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		/*
+		 * Ensure anyone still marked as logged in on this server
+		 * is unmarked
+		 */
+		MySqlManager m = new MySqlManager();
+		if(m.connect(GameServer.getDatabaseHost(), 
+				GameServer.getDatabaseUsername(),
+				GameServer.getDatabasePassword())) {
+			m.selectDatabase(GameServer.getDatabaseName());
+			m.query("UPDATE pn_members SET lastLoginServer='null' WHERE lastLoginServer='"
+					+ GameServer.getServerName() + "'");
+			m.close();
+		}
+		m = null;
+		/*
+		 * Start the login/logout managers
+		 */
 		m_logoutManager.start();
 		m_loginManager.start();
+		/*
+		 * Start the chat managers
+		 */
 		for(int i = 0; i < m_chatManager.length; i++) {
 			m_chatManager[i] = new ChatManager();
 			m_chatManager[i].start();
