@@ -1080,14 +1080,16 @@ public class Pokemon extends PokemonSpecies {
      */
     public void removeStatusEffects(boolean all) {
     	if(all) {
-    		for(int i = 0; i < m_statuses.size(); i++)
-    			this.removeStatus(m_statuses.get(i));
+    		for(int i = 0; i < m_statuses.size();) {
+    			removeStatus(m_statuses.get(i).getClass());
+    			m_statuses.trimToSize();
+    		}
     	} else {
     		StatusEffect e = null;
     		for(int i = 0; i < m_statuses.size(); i++) {
     			e = m_statuses.get(i);
     			if(e != null && e instanceof StatChangeEffect || e instanceof ConfuseEffect) {
-    				this.removeStatus(e);
+    				removeStatus(e.getClass());
     			}
     		}
     		m_statuses.trimToSize();
