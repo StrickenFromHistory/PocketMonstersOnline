@@ -126,10 +126,32 @@ public abstract class BattleField {
     }
     
     /**
+     * Detaches the battlefield from all pokemon
+     */
+    private void detachField() {
+    	for (int i = 0; i < m_pokemon.length; ++i) {
+            detachField(i);
+        }
+    }
+    
+    /**
+     * Detaches battlefield from a specific party
+     * @param i
+     */
+    private void detachField(int i) {
+    	Pokemon[] team = m_pokemon[i];
+        for (int j = 0; j < team.length; ++j) {
+        	if(team[j] != null)
+        		team[j].detactField();
+        }
+    }
+    
+    /**
      * Dispose of this object by breaking all links to other objects, making it
      * easy to the garbage collector to find and free them.
      */
     public void dispose() {
+    	detachField();
     	m_spectators = null;
         m_effects = null;
         m_pokemon = null;

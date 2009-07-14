@@ -1644,6 +1644,14 @@ public class Pokemon extends PokemonSpecies {
     }
     
     /**
+     * Detaches a battlefield from the Pokemon
+     */
+    public void detactField() {
+    	m_field = null;
+    	m_mech = DataService.getBattleMechanics();
+    }
+    
+    /**
      * Get this pokemon's party.
      * 
      * This will be in the range [0, <b>parties</b> - 1] where <b>parties</b>
