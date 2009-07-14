@@ -517,6 +517,7 @@ public class WildBattleField extends BattleField {
 			showMessage(m_player.getName() + " threw a Pokeball!");
 			if(getMechanics().isCaught(m_wildPoke, DataService.getPOLRDatabase().
 					getPokemonData(m_wildPoke.getSpeciesNumber()).getRareness(), 1.0, 1)) {
+				m_wildPoke.calculateStats(true);
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
 				ProtocolHandler.writeMessage(m_player.getSession(), 
@@ -531,6 +532,7 @@ public class WildBattleField extends BattleField {
 			showMessage(m_player.getName() + " threw a Great Ball!");
 			if(getMechanics().isCaught(m_wildPoke, DataService.getPOLRDatabase().
 					getPokemonData(m_wildPoke.getSpeciesNumber()).getRareness(), 1.5, 1)) {
+				m_wildPoke.calculateStats(true);
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
 				ProtocolHandler.writeMessage(m_player.getSession(), 
@@ -545,6 +547,7 @@ public class WildBattleField extends BattleField {
 			showMessage(m_player.getName() + " threw an Ultra Ball!");
 			if(getMechanics().isCaught(m_wildPoke, DataService.getPOLRDatabase().
 					getPokemonData(m_wildPoke.getSpeciesNumber()).getRareness(), 2.0, 1)) {
+				m_wildPoke.calculateStats(true);
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
 				ProtocolHandler.writeMessage(m_player.getSession(), 
@@ -559,6 +562,7 @@ public class WildBattleField extends BattleField {
 			showMessage(m_player.getName() + " threw a Master Ball!");
 			if(getMechanics().isCaught(m_wildPoke, DataService.getPOLRDatabase().
 					getPokemonData(m_wildPoke.getSpeciesNumber()).getRareness(), 255.0, 1)) {
+				m_wildPoke.calculateStats(true);
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
 				ProtocolHandler.writeMessage(m_player.getSession(), 
