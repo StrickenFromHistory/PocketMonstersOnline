@@ -1646,7 +1646,7 @@ public class Pokemon extends PokemonSpecies {
     /**
      * Detaches a battlefield from the Pokemon
      */
-    public void detactField() {
+    public void detachField() {
     	m_field = null;
     	m_mech = DataService.getBattleMechanics();
     }

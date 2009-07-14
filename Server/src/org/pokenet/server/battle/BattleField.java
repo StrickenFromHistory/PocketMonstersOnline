@@ -142,7 +142,7 @@ public abstract class BattleField {
     	Pokemon[] team = m_pokemon[i];
         for (int j = 0; j < team.length; ++j) {
         	if(team[j] != null)
-        		team[j].detactField();
+        		team[j].detachField();
         }
     }
     
