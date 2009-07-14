@@ -186,7 +186,7 @@ public class MoveLearning extends Frame {
 			} else {
 				setAlwaysOnTop(false);
 				m_replace = new ConfirmationDialog(
-						"Are you sure you want to foreget "
+						"Are you sure you want to forget "
 						+ m_moveButtons.get(i).getText() + " to learn "
 						+ m_move + "?");
 				m_replace.setAlwaysOnTop(true);
