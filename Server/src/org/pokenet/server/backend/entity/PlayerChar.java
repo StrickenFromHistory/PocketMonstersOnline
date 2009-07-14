@@ -1198,7 +1198,8 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public boolean canSurf() {
-		return m_skillTraining >= 4;
+		/*return m_skillTraining >= 4;*/
+		return getBadgeCount() > 0;
 	}
 	
 	/**
