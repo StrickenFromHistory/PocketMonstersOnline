@@ -161,11 +161,24 @@ public class PvPBattleField extends BattleField {
 						new HealthChangeMessage(0 , change));
 				ProtocolHandler.writeMessage(m_players[1].getSession(), 
 						new HealthChangeMessage(1 , change));
-			} else {
+			} else if(poke.compareTo(getActivePokemon()[1]) == 0) {
 				ProtocolHandler.writeMessage(m_players[1].getSession(), 
 						new HealthChangeMessage(0 , change));
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new HealthChangeMessage(1 , change));
+			} else {
+				int index = getPokemonPartyIndex(0, poke);
+				if(index > -1) {
+					m_players[0].getSession().write("Ph" + String.valueOf(index) + poke.getHealth());
+					//TODO: Add support for enemy pokemon healing for pokemon in pokeballs
+					return;
+				}
+				index = getPokemonPartyIndex(1, poke);
+				if(index > -1) {
+					m_players[1].getSession().write("Ph" + String.valueOf(index) + poke.getHealth());
+					//TODO: Add support for enemy pokemon healing for pokemon in pokeballs
+					return;
+				}
 			}
 		}
 	}
@@ -184,7 +197,7 @@ public class PvPBattleField extends BattleField {
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 
 								eff.getName(), false));
-			} else {
+			} else if(poke.compareTo(getActivePokemon()[1]) == 0) {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 
@@ -201,8 +214,8 @@ public class PvPBattleField extends BattleField {
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
 		if(m_finished)
 			return;
-		if (poke != null) {
-			if (m_players != null && poke.compareTo(getActivePokemon()[0]) == 0) {
+		if (poke != null && m_players != null) {
+			if (poke.compareTo(getActivePokemon()[0]) == 0) {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 
@@ -211,7 +224,7 @@ public class PvPBattleField extends BattleField {
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 
 								eff.getName(), true));
-			} else {
+			} else if(poke.compareTo(getActivePokemon()[1]) == 0) {
 				ProtocolHandler.writeMessage(m_players[0].getSession(), 
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 

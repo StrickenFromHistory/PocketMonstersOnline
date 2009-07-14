@@ -141,9 +141,14 @@ public class WildBattleField extends BattleField {
 			if (getActivePokemon()[0] == poke) {
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new HealthChangeMessage(0 , change));
-			} else {
+			} else if(getActivePokemon()[1] == poke){
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new HealthChangeMessage(1 , change));
+			} else {
+				int index = getPokemonPartyIndex(0, poke);
+				if(index > -1) {
+					m_player.getSession().write("Ph" + String.valueOf(index) + poke.getHealth());
+				}
 			}
 		}
 	}
@@ -158,7 +163,7 @@ public class WildBattleField extends BattleField {
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 
 								eff.getName(), false));
-			else
+			else if(poke == m_wildPoke)
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 
@@ -176,7 +181,7 @@ public class WildBattleField extends BattleField {
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 
 								eff.getName(), true));
-			else
+			else if(poke == m_wildPoke)
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 

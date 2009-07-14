@@ -138,9 +138,16 @@ public class NpcBattleField extends BattleField {
 			if (getActivePokemon()[0] == poke) {
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new HealthChangeMessage(0 , change));
-			} else {
+			} else if(getActivePokemon()[1] == poke) {
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new HealthChangeMessage(1 , change));
+			} else {
+				int index = getPokemonPartyIndex(0, poke);
+				if(index > -1) {
+					m_player.getSession().write("Ph" + String.valueOf(index) + poke.getHealth());
+					return;
+				}
+				//TODO: Add support for NPC pokemon healing for pokemon in pokeballs
 			}
 		}
 	}
@@ -155,7 +162,7 @@ public class NpcBattleField extends BattleField {
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 
 								eff.getName(), false));
-			else
+			else if(poke.compareTo(getActivePokemon()[1]) == 0)
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 
@@ -173,7 +180,7 @@ public class NpcBattleField extends BattleField {
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 
 								eff.getName(), true));
-			else
+			else if(poke.compareTo(getActivePokemon()[1]) == 0)
 				ProtocolHandler.writeMessage(m_player.getSession(), 
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 
