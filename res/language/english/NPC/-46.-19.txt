@@ -1,0 +1,30 @@
+Okay!
+Be sure to read what's on the blackboard carefully!
+Whew! I'm trying to memorize all my notes.
+Let's check out the notebook.
+Pokeballs are used to catch Pokemon.
+Up to six Pokemon can be carried in your party.
+People who raise and battle with Pokemon are called Trainers.
+A healthy Pokemon may be hard to catch, so weaken it first.
+Poison, burn, or cause another status problem to weaken it.
+Pokemon trainers seek others to engage in Pokemon battles.
+To trainers, the taste of victory is sweet, indeed.
+Battles are constantly waged everywhere.
+The ultimate goal for all Pokemon trainers is simple.
+It is to defeat all gym leaders.
+Do so to earn the right to face...
+The top trainers around the world in exciting tournaments!
+Girl: Hey! Don't look at my notes!
+The blackboard lists Pokemon status problems during battles.
+Sleep: A Pokemon can't attack if it's asleep.
+Pokemon will stay asleep even after battles.
+Use Awakening to awaken one from sleep.
+Burn: A burn reduces attack power. It also causes ongoing HP loss.
+A burn remains after a battle. Use Burn Heal to cure a burn.
+Poison: When poisoned, a Pokemon's health steadily drops.
+Poison lingers after battles. Use an Antidote to cure poison!
+Freeze: A frozen Pokemon becomes helplessly immobile.
+It stays frozen even after the battle ends.
+Use Ice Heal to thaw out the suffering Pokemon.
+Paralysis: Paralysis reduces speed and may prevent the Pokemon from moving.
+Paralysis remains after battles. Use Parlyz Heal for treatment.
