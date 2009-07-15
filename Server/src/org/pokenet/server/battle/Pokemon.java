@@ -56,10 +56,19 @@ import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
 import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
 import org.pokenet.server.battle.mechanics.polr.POLREvolution;
+import org.pokenet.server.battle.mechanics.statuses.AwesomeEffect;
+import org.pokenet.server.battle.mechanics.statuses.BurnEffect;
+import org.pokenet.server.battle.mechanics.statuses.ChargeEffect;
 import org.pokenet.server.battle.mechanics.statuses.ConfuseEffect;
+import org.pokenet.server.battle.mechanics.statuses.FlinchEffect;
+import org.pokenet.server.battle.mechanics.statuses.MultipleStatChangeEffect;
+import org.pokenet.server.battle.mechanics.statuses.ParalysisEffect;
+import org.pokenet.server.battle.mechanics.statuses.PercentEffect;
+import org.pokenet.server.battle.mechanics.statuses.PoisonEffect;
 import org.pokenet.server.battle.mechanics.statuses.StatChangeEffect;
 import org.pokenet.server.battle.mechanics.statuses.StatusEffect;
 import org.pokenet.server.battle.mechanics.statuses.StatusListener;
+import org.pokenet.server.battle.mechanics.statuses.ToxicEffect;
 import org.pokenet.server.battle.mechanics.statuses.abilities.IntrinsicAbility;
 import org.pokenet.server.battle.mechanics.statuses.items.HoldItem;
 import org.simpleframework.xml.Element;
@@ -1080,10 +1089,19 @@ public class Pokemon extends PokemonSpecies {
      */
     public void removeStatusEffects(boolean all) {
     	if(all) {
-    		for(int i = 0; i < m_statuses.size();) {
-    			removeStatus(m_statuses.get(i).getClass());
-    			m_statuses.trimToSize();
-    		}
+    		removeStatus(AwesomeEffect.class);
+    		removeStatus(BurnEffect.class);
+    		removeStatus(ChargeEffect.class);
+    		removeStatus(ConfuseEffect.class);
+    		removeStatus(FlinchEffect.class);
+    		removeStatus(MultipleStatChangeEffect.class);
+    		removeStatus(ParalysisEffect.class);
+    		removeStatus(PercentEffect.class);
+    		removeStatus(PoisonEffect.class);
+    		removeStatus(ToxicEffect.class);
+    		removeStatus(ConfuseEffect.class);
+    		removeStatus(StatusEffect.class);
+    		removeStatus(StatChangeEffect.class);
     	} else {
     		removeStatus(ConfuseEffect.class);
     		removeStatus(StatChangeEffect.class);
