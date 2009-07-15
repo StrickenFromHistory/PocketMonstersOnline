@@ -103,7 +103,7 @@ public class GameClient extends BasicGame {
 				options.put("disableMaps", String.valueOf(false));
 				options.put("disableWeather", String.valueOf(false));
 			}
-			m_instance = new GameClient("Pokenet: Fearless Feebas (Update 1)");
+			m_instance = new GameClient("Pokenet: Valiant Venonat");
 			m_soundPlayer = new SoundManager();
 			m_soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
 			m_soundPlayer.start();
@@ -111,7 +111,7 @@ public class GameClient extends BasicGame {
 			m_disableMaps = Boolean.parseBoolean(options.get("disableMaps"));
 		} catch (Exception e) { 
 			e.printStackTrace();
-			m_instance = new GameClient("Pokenet: Fearless Feebas");
+			m_instance = new GameClient("Pokenet: Valiant Venonat");
 			m_disableMaps = false;
 			m_soundPlayer = new SoundManager();
 			m_soundPlayer.mute(false);
@@ -543,7 +543,7 @@ public class GameClient extends BasicGame {
 			fullscreen = false;
 		}
 		try {
-			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet: Fearless Feebas (Update 1)"),
+			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet: Valiant Venonat"),
 					800, 600, fullscreen);
 			gc.setTargetFrameRate(50);
 			gc.start();
