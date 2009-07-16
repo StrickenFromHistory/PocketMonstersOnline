@@ -1,0 +1,14 @@
+[npc]
+NULL
+down
+0
+9
+32
+NULL
+0
+-1
+0
+false
+false
+false
+[/npc]
