@@ -13,10 +13,10 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset firstgid="1" source="Tileset 2.tsx"/>
- <tileset firstgid="1025" source="Tileset 3.tsx"/>
- <tileset firstgid="2049" source="Tileset 4.tsx"/>
- <tileset firstgid="3073" source="Tileset 8.tsx"/>
+ <tileset firstgid="1" source="normal2.tsx"/>
+ <tileset firstgid="1025" source="normal3.tsx"/>
+ <tileset firstgid="2049" source="normal4.tsx"/>
+ <tileset firstgid="3073" source="normal8.tsx"/>
  <layer name="Walkable" width="13" height="9">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAGNgoB/gZSUeI+vhgeI9vAwMe9HwPl6EPDY9d4Dyd9HwPRro+QOU/4uG/xHQQwiTCwDojTd71AEAAA==
@@ -24,17 +24,17 @@
  </layer>
  <layer name="random" width="13" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgoB/IZmNgyAHiPiDuZ4OI9bLR3l45bgRbnhu3Okr1kAo8mRgYvIDYm4l4PZlAtVlAnI1HDwCr+xXf1AEAAA==
+   H4sIAAAAAAAAAGNgIAx8WYlQhAZysejJZmNgyAHiPiDuZ4OI9bKRbjapQI4bwZbnxq2OUj2kAk8mBgYvIPZmIl5PJlBtFhBn49EDAJlHfJzUAQAA
   </data>
  </layer>
  <layer name="Collisions" width="13" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAKtjYmDwZSWMzwHxeSCuY4LgXFbC+B0Qv0fSQwqgth45DgYGeQ7S9NgB1duTqIeQ2z6wEqf+A1K4oWNk87BhAGlAkbHUAQAA
+   H4sIAAAAAAAAAKtjYmDwZcWPe4H4HBCfB+I6JgjOZcWP1wLxOyB+j6SHFEBtPXIcDAzyHKTpsQOqtydRDyG3fWAlTv0HpHBDx8jmYcMASTNDB9QBAAA=
   </data>
  </layer>
  <layer name="WalkBehind" width="13" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgQAA/NgYGfzYI2xdK97IyYAXeQHkfIM4D4nyo2lwovRaHnuEGLhDpT2LVUQsAAGlN2fnUAQAA
+   H4sIAAAAAAAAAGNgQAA/NgYGfzYI25eNAS/wBsr7AHEeEOdD1eYS0DPcwAVW6qqjFgAA4HLcU9QBAAA=
   </data>
  </layer>
 </map>
