@@ -6,10 +6,10 @@
   <property name="dayPokemonLevels" value=""/>
   <property name="nightPokemonChances" value=""/>
   <property name="nightPokemonLevels" value=""/>
+  <property name="pvp" value="disabled"/>
   <property name="waterPokemonChances" value=""/>
   <property name="waterPokemonLevels" value=""/>
   <property name="wildProbability" value="0"/>
-  <property name="pvp" value="disabled"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
@@ -18,7 +18,7 @@
  <tileset firstgid="2049" source="Tileset 5.tsx"/>
  <layer name="Walkable" width="17" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGDyAhx0Vv2FD4HdQDOOD5HXZIWK87KhmIOvDhz2R1OrgMeMtkv3o+D2amYTc8RKIXwHxazzuwmWGF5TPCaS5gJgbix0wNbjMgPlZE0hrAbE2FjM8cZgBCwd0P2MLq/dofqEUAACQVAxpqAIAAA==
+   H4sIAAAAAAAAAGNgGDyAhx0Vv2FD4HdQDOOD5HXZIWK87KhmIOvDhz2R1OrgMeMtkv3o+D2amYTc8RKIXwHxazzuwmWGF5TPCaS5gJgbix0wNbjMgPlZE0hrAbE2FjM8cZgBCwd0P2MLq/dofsEHhIhQAwCnmd15qAIAAA==
   </data>
  </layer>
  <layer name="Walkable" width="17" height="10">
@@ -33,7 +33,7 @@
  </layer>
  <layer name="Collisions" width="17" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAKthY2DoBeJ+IPZjZWDwB2Jk8B7I/4Akxg1k6wPVGgBxHxDXQPFaIF4PxHlA+XwgzgJiXiDmA2J+oLgACAPZuUCsDbIHyA8A4nVIZpwF4vMgc4Hy/UDMA8TdUAwD3VBxZHAOyQx0oANUuxqK1yCxdVgx1eIygxRACzN2Atm7CJiJrgbdjJtA9i0CZqCroaZfKMUAJfe8WKgCAAA=
+   H4sIAAAAAAAAAKthY2DoBeJ+IPZjZWDwB2Jk8B7I/4Akxg1k6wPVGgBxHxDXQPFaIF4PxHlA+XwgzgJiXiDmA2J+oLgACAPZuUCsDbIHyA8A4nVIZpwF4vMgc4Hy/UDMA8TdUAwD3VBxZHAOyQx0oANUuxqK1yCxdVgx1eIygxRACzN2Atm7CJiJrgbdjJtA9i0CZqCroaZf8GFi1AEAuEHOF6gCAAA=
   </data>
  </layer>
  <layer name="WalkBehind" width="17" height="10">
