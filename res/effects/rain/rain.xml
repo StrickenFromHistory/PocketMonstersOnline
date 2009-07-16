@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <system additive="true" points="false">
-<emitter imageName="/res/effects/rain/emitter.png" name="Rain" renderType="inherit" useAdditive="true" useOriented="false">
+<emitter imageName="res/effects/rain/emitter.png" name="Rain" renderType="inherit" useAdditive="true" useOriented="false">
 <spawnInterval enabled="true" max="120.0" min="110.0"/>
 <spawnCount enabled="true" max="8.0" min="8.0"/>
 <initialLife enabled="true" max="15000.0" min="5000.0"/>
