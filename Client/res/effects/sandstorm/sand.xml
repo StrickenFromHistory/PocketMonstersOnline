@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <system additive="true" points="false">
-<emitter imageName="/res/effects/sandstorm/emitter.png" name="NewEmitter_1237322709874" renderType="inherit" useAdditive="true" useOriented="false">
+<emitter imageName="res/effects/sandstorm/emitter.png" name="NewEmitter_1237322709874" renderType="inherit" useAdditive="true" useOriented="false">
 <spawnInterval enabled="false" max="100.0" min="100.0"/>
 <spawnCount enabled="true" max="200.0" min="200.0"/>
 <initialLife enabled="true" max="1000.0" min="1000.0"/>
