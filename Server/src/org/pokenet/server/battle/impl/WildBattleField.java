@@ -418,8 +418,12 @@ public class WildBattleField extends BattleField {
 			return;
 		try {
 			int moveID = getMechanics().getRandom().nextInt(4);
-			while (getActivePokemon()[1].getMove(moveID) == null)
+			while (getActivePokemon()[1].getMove(moveID) == null) {
+				try {
+					Thread.sleep(100);
+				} catch (Exception e) {}
 				moveID = getMechanics().getRandom().nextInt(4);
+			}
 			queueMove(1, BattleTurn.getMoveTurn(moveID));
 		} catch (MoveQueueException x) {
 			x.printStackTrace();
