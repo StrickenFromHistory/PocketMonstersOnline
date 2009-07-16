@@ -6,10 +6,10 @@
   <property name="dayPokemonLevels" value=""/>
   <property name="nightPokemonChances" value=""/>
   <property name="nightPokemonLevels" value=""/>
+  <property name="pvp" value="disabled"/>
   <property name="waterPokemonChances" value="Slowpoke,50;Psyduck,50;"/>
   <property name="waterPokemonLevels" value="20-40;20-40;"/>
   <property name="wildProbability" value="10"/>
-  <property name="pvp" value="disabled"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="-2912"/>
  </properties>
