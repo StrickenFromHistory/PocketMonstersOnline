@@ -6,31 +6,31 @@
   <property name="dayPokemonLevels" value=""/>
   <property name="nightPokemonChances" value=""/>
   <property name="nightPokemonLevels" value=""/>
+  <property name="pvp" value="disabled"/>
   <property name="waterPokemonChances" value=""/>
   <property name="waterPokemonLevels" value=""/>
   <property name="wildProbability" value="0"/>
-  <property name="pvp" value="disabled"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- <tileset firstgid="1025" source="Tileset 4.tsx"/>
- <tileset firstgid="2049" source="Tileset 7.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal4.tsx"/>
+ <tileset firstgid="2049" source="normal7.tsx"/>
  <tileset firstgid="3073" source="normal15.tsx"/>
- <tileset firstgid="4097" source="Tileset 2.tsx"/>
+ <tileset firstgid="4097" source="normal2.tsx"/>
  <layer name="Walkable" width="12" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgoD2wZmdgsIFiWyD+xwbByOIgDAMafAwMVkyE8XBRTwoAAAjyr1GwAQAA
+   H4sIAAAAAAAAAGNgoD2wZmdgsIFiWyD+xwbByOIgDANWTMTh4aKeFAAAfg/sAbABAAA=
   </data>
  </layer>
  <layer name="random" width="12" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGHhgxc3AYM09gA5gh2IaAE8hBgYvIPYWIk59JlBdFhBn41APAFry3H6wAQAA
+   H4sIAAAAAAAAAGNgIAx+MUIwsUCKCYKJBVbcDAzW3MSrpzpgh2IaAE8hBgYvIPYWIk59JlBdFhBn41APABEIzR2wAQAA
   </data>
  </layer>
  <layer name="Collisions" width="12" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAABNiYGD4zcbA8AeK/wLxfyhm52NgcEfCQgwQLM3OwCADxbJAfI8NgtWBatKRMEw9sYBa6pcD7V7BRzvzCanfQIQmkBqYenTMgEMchAEQQN8LsAEAAA==
+   H4sIAAAAAAAAABNiYGD4zcbA8AeK/wLxfyj+ycjA8AuI3fkgWIgBgqXZGRhkoFgWiO+xQbAkEwODFBCn80EwTD0uYMmEyiekHh3gUr8caPcKPuLVk2o+IfUbiNAEUgNTj44ZcIiDMABjG2eXsAEAAA==
   </data>
  </layer>
  <layer name="WalkBehind" width="12" height="9">
