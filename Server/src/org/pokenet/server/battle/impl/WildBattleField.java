@@ -423,6 +423,12 @@ public class WildBattleField extends BattleField {
 					Thread.sleep(100);
 				} catch (Exception e) {}
 				moveID = getMechanics().getRandom().nextInt(4);
+				/*
+				 * Stop infinite loops when player disconnects
+				 */
+				if(m_player.getSession() == null || m_player.getSession().isClosing() ||
+						!m_player.getSession().isConnected())
+					break;
 			}
 			queueMove(1, BattleTurn.getMoveTurn(moveID));
 		} catch (MoveQueueException x) {
