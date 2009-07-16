@@ -19,6 +19,7 @@ import org.apache.mina.filter.executor.ExecutorFilter;
 import org.apache.mina.transport.socket.nio.SocketConnector;
 import org.apache.mina.transport.socket.nio.SocketConnectorConfig;
 import org.apache.mina.transport.socket.nio.SocketSessionConfig;
+import org.lwjgl.input.Controller;
 import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
@@ -63,6 +64,7 @@ import org.pokenet.client.ui.frames.PlayerPopupDialog;
 public class GameClient extends BasicGame {
 	//Some variables needed
 	private static GameClient m_instance;
+	private static AppGameContainer gc;
 	private ClientMapMatrix m_mapMatrix;
 	private OurPlayer m_ourPlayer = null;
 	private boolean m_isNewMap = false;
@@ -379,8 +381,8 @@ public class GameClient extends BasicGame {
 				System.exit(0);
 			}
 		}
-		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
-				&& !m_ui.getChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
+		if(m_ui.getNPCSpeech() == null && !m_ui.getChat().isActive() && !m_login.isVisible()
+				&& !getDisplay().containsChild(m_playerDialog)){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
 					&& m_ourPlayer.canMove()) {
@@ -447,6 +449,70 @@ public class GameClient extends BasicGame {
 		}
 	}
 	
+	@Override
+	public void controllerDownPressed(int controller){
+		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
+				&& !m_ui.getChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
+			if(m_ourPlayer != null && !m_isNewMap
+					/*&& m_loading != null && !m_loading.isVisible()*/
+					&& m_ourPlayer.canMove()) {
+				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Down)) {
+					m_packetGen.move(Direction.Down);
+				} else if(m_ourPlayer.getDirection() != Direction.Down) {
+					m_packetGen.move(Direction.Down);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void controllerUpPressed(int controller){
+		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
+				&& !m_ui.getChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
+			if(m_ourPlayer != null && !m_isNewMap
+					/*&& m_loading != null && !m_loading.isVisible()*/
+					&& m_ourPlayer.canMove()) {
+				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Up)) {
+					m_packetGen.move(Direction.Up);
+				} else if(m_ourPlayer.getDirection() != Direction.Up) {
+					m_packetGen.move(Direction.Up);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void controllerLeftPressed(int controller){
+		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
+				&& !m_ui.getChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
+			if(m_ourPlayer != null && !m_isNewMap
+					/*&& m_loading != null && !m_loading.isVisible()*/
+					&& m_ourPlayer.canMove()) {
+				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Left)) {
+					m_packetGen.move(Direction.Left);
+				} else if(m_ourPlayer.getDirection() != Direction.Left) {
+					m_packetGen.move(Direction.Left);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void controllerRightPressed(int controller){
+		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
+				&& !m_ui.getChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
+			if(m_ourPlayer != null && !m_isNewMap
+					/*&& m_loading != null && !m_loading.isVisible()*/
+					&& m_ourPlayer.canMove()) {
+				if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Right)) {
+					m_packetGen.move(Direction.Right);
+				} else if(m_ourPlayer.getDirection() != Direction.Right) {
+					m_packetGen.move(Direction.Right);
+				}
+			}
+		}
+	}
+
 	/**
 	 * Accepts the mouse input
 	 */
@@ -543,7 +609,7 @@ public class GameClient extends BasicGame {
 			fullscreen = false;
 		}
 		try {
-			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet: Valiant Venonat"),
+			gc = new AppGameContainer(new GameClient("Pokenet: Valiant Venonat"),
 					800, 600, fullscreen);
 			gc.setTargetFrameRate(50);
 			gc.start();
