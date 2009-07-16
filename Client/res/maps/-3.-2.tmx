@@ -12,9 +12,9 @@
   <property name="xOffsetModifier" value="-320"/>
   <property name="yOffsetModifier" value="-320"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- <tileset firstgid="1025" source="Tileset 2.tsx"/>
- <tileset firstgid="2049" source="Tileset 3.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
+ <tileset firstgid="2049" source="normal3.tsx"/>
  <layer name="Walkable" width="44" height="38">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAN2X200DQQxFdx5BaQMSSqCAkDb4oRSE6BelArJiI1nG43vnQTbwcaVIu+s5fo6Tp2nKi6L4/ZcUhdZm+c/Mkvsa56zt660pgefTDeUyAd4QzmcvSoGzlVbkvT8zPizaObyWDc9uDGWV4pImzDzzPgFe/W0keJ+DrT2IC4oziq/+RttBvWGd58VFq5fXyt0IXl0LrbyonhGvPpvhHVkPNfEwnznnoNiyvLpeS7FFtT6rdI7cK2rm2Wf+lpdT5IfWKWNeaSMaquG14oDiaNlv6ZPaemDk5fAA5u/7Btt/2fK8H9s+XiufG+fuQ8qCt2THuj9131m8Vv3peNdqb9QXqjd29mj2nudeP0jNPh3DT1aLnel5xq84lX3Q+WHi2rpL1n7H5M7rv9R4bovY+77Ey7KyvqD6Z/coxHuR/F+iZ8mB5NV3MLOvs7y7u/J7uuZfG/Jv3cEMs+Tw5noezKvrhJ0nkvexYZ7Ps+9tAC+ak5c9B+0/pX2o9n8Gw6ufnQyOGl6ZsxG8XjxL/Z2D3W9WP0R11m/FdRazdxwNXmlD87Yw1+z9vXHovee8/1M63i1+WLFg8+n5zXzH2EU2rRiw/tbuo+wZ3jtM3bH7Zm1ue98bVcPXek/rC1d/mzMgGgAA

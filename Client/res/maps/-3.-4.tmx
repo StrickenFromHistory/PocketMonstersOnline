@@ -12,8 +12,8 @@
   <property name="xOffsetModifier" value="-64"/>
   <property name="yOffsetModifier" value="320"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- <tileset firstgid="1025" source="Tileset 2.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
  <layer name="Walkable" width="69" height="22">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO2UWw6DIBREAR/7sNWFoCvp/jdRmkhKDEwQIV6T+Th/hDscBoxSyhAiGC0ggzTo5F4n2g0zCTr9XzeZ67PG/hlOJjfsleAdOLEnnOR6lubE5+6BkyE4xxknuZ7vdnLsbSz34lgjbIET1AEP8izJyfEssdwo72d3YhPefszAhfe9FTpB91sK6nOtvC3eDLrX0v8p59+okTfs0NzAd6qjJfuirl/ZN7cvtXw/HdvQNyGEEEIIwXwB4FX/lrgXAAA=
