@@ -13,7 +13,7 @@
   <property name="yOffsetModifier" value="-2592"/>
  </properties>
  <tileset firstgid="1" source="normal1.tsx"/>
- <tileset firstgid="1025" source="normal.tsx"/>
+ <tileset firstgid="1025" source="normal18.tsx"/>
  <tileset firstgid="2049" source="normal3.tsx"/>
  <tileset firstgid="3073" source="normal2.tsx"/>
  <layer name="Layer 6" width="20" height="108">
