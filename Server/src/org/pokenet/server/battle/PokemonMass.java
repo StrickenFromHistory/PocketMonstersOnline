@@ -45,7 +45,7 @@ public class PokemonMass {
     static {
         // Assume the file is named masses.txt for now.
         try {
-            loadMasses(new File("masses.txt"));
+            loadMasses(new File("./res/masses.txt"));
         } catch (FileNotFoundException e) {
             System.out.println("Warning: could not load masses from masses.txt.");
         }

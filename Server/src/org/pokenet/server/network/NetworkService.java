@@ -125,7 +125,7 @@ public class NetworkService {
 		cfg.getFilterChain().addLast("threadPool", new ExecutorFilter(Executors
 				.newCachedThreadPool()));
 		try {
-			m_acceptor.bind(new InetSocketAddress(7001), m_connectionManager, cfg);
+			m_acceptor.bind(new InetSocketAddress(7002), m_connectionManager, cfg);
 			System.out.println("INFO: Networking Service started");
 		} catch (Exception ex) {
 			ex.printStackTrace();
