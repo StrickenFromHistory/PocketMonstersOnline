@@ -12,9 +12,9 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- <tileset firstgid="1025" source="Tileset 8.tsx"/>
- <tileset firstgid="2049" source="Tileset 2.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal8.tsx"/>
+ <tileset firstgid="2049" source="normal2.tsx"/>
  <layer name="Layer 3" width="20" height="10">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAGNgGAWjADf4i4RxgTdc2NnYzMLGHswAAA/4hAogAwAA

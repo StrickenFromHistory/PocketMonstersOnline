@@ -12,12 +12,12 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- <tileset firstgid="1025" source="Tileset 2.tsx"/>
- <tileset firstgid="2049" source="Tileset 3.tsx"/>
- <tileset firstgid="3073" source="Tileset 5.tsx"/>
- <tileset firstgid="4097" source="Tileset Kanto Towns 1.tsx"/>
- <tileset firstgid="5121" source="Tileset Kanto Routes 1.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
+ <tileset firstgid="2049" source="normal3.tsx"/>
+ <tileset firstgid="3073" source="normal5.tsx"/>
+ <tileset firstgid="4097" source="normal13.tsx"/>
+ <tileset firstgid="5121" source="normal14.tsx"/>
  <layer name="Walkable" width="24" height="160">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO2aO3IUMRCGVbMTETjBJBABAYcAB9jHAALYG5AC14Bb4AyfwOchh4RV4a79afqlkVS741VXdXk9kj61Xq2ekW43Kd0KOqe9Zvn6MKVvd5rSv+lSeYnD9emU0rPpL+/Hjntzp1ny8+eTXZ5skySzLwNK9ZTK6yA/69UJ8qNs0sEf/ME/LL/EJ2iq+Yrsq9/v0j4wjTAx/3aS/f4EOsNfqU6Jh2Us/mzUFclDv6X+aaUav0a8/mnBxzp68HEsevBx3Hvxe9mPnDXxo3Eh1UsxJ48tPXu98aXn5EOzH8T1H+FH/A/ne/bnPD9nv3+IVcqn9FwH1hW1P9I/kfHV7Pf4Wp1Rvtc/NXzLH7bgt+6fJfPzlPjW+Jaqxqd4B+OaaFlrvnE7J6Yan+fX/L/Ei/KlOMwTiS2NBe0XqJHvBbw92jhLMXfp+7bVV1L8uy3ka32A/UZ+n/aBEtH6gNqDews9KxHsA4kvzbsSwfJ8fXO1/K20rug5pSG/1EZpjvP/a/mafyBF/9RDcBx7CLavF7+n/Rj/9pCl8+dY+dnnbBrycf5nLsbPrYS4m7S3vwWebEW7sZ5W/JYSiX/Wxuf9T89a8qUxrpU18q2Ythe/h/3Sep2T/r5ewyefQ39rxjY6/5fKpaNXadn7Bcn1eUqfz2T9vkvbApPHfRF5d6anvTHSBr+M/0sZxy8G45My7r/P/8/7+FHcFk+eCKzBv9/8Iccj18L61nwB7gVRsXyaJiW+bvDj/Je736+YXgispfxc7i1TqX33nY/7L+650rqS9mSPX+ufB7+OP+SwosW3XLlI62/Et6fHl97TJX3xYK9WviWC79E9vp8v/QZQwu/5fb7mfAdtk1Tja+eGXPBsq/b+odS0XKd2F1C7a2jdF5Ts1+aydeaP89X6/oPluLQ4E0F7evCxzT34ve3nax9VulPDFeeDZQbe1aKyeGaEPMyLZ+PWWczE8nr28jaX2K8p53PbtfnfUj1p8W35kPw1nvPiWQTn144tpud6+D0pa2+T7rx4bdD2AG/v8kRrs3fPvfTORWbiOTKeSVl+o1a8fXAN/GON4TgHxxR/S/tZ6b2unFdbU9odrOgdAr7verFgif1oD/K19YRs/BsRaxyl+FDycZ4v/Ki8Z1kS8aE1+6vHj9Rdy9ds7skvsV/K1zK+IfkDZ4qDAAA8AAA=

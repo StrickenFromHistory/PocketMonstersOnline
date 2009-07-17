@@ -12,13 +12,13 @@
   <property name="xOffsetModifier" value="-64"/>
   <property name="yOffsetModifier" value="-352"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- <tileset firstgid="1025" source="Tileset 2.tsx"/>
- <tileset firstgid="2049" source="Tileset 3.tsx"/>
- <tileset firstgid="3073" source="Tileset 8.tsx"/>
- <tileset firstgid="4097" source="Tileset 5.tsx"/>
- <tileset firstgid="5121" source="Tileset 7.tsx"/>
- <tileset firstgid="6145" source="Tileset 12.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
+ <tileset firstgid="2049" source="normal3.tsx"/>
+ <tileset firstgid="3073" source="normal8.tsx"/>
+ <tileset firstgid="4097" source="normal5.tsx"/>
+ <tileset firstgid="5121" source="normal7.tsx"/>
+ <tileset firstgid="6145" source="normal17.tsx"/>
  <layer name="Walkable" width="40" height="40">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO2YbU7DMAyGE5oOrtF9HIEDlF2KvxNC4iRcobfaGZglLLnGTpy0SRGskqU1S5qnr18nbTvnXGeIS5DbB+/c/hYHb7tOrbgGmXELPjwkxt/MF8svxAOJ1zA/x+ga+4Dy0YBDam/t0/E230tGcJ1L9HyueI9cb4ueku9b6b1P6NiSLaZnTxgt+fON6g31PCZy7ZlvQ+N6G7411GpHWyda8aGO2txb80kcS/gmVlfvT3J7qY4QZwMf94QlatSUxlcSNTzxn/hSe0Ip38nP954ja+PnvK/GuYZfByEv2IZ7oNRnDf0tfojxwW94tt+Kzyv9YC3DtqvCN4X6fPQZgvoisDZ+TkPzZcq7Fr4xcX+nxBz47BF7VtO8EfOM1T8wXvLfxVA31fge53zcf1QraY7P3U9/0j5vfT4fzSNlRc9p/ov5MtUnZPBhP+mdTFt/JZ/mji1d/6T8a/VBfZA7lnoGPc2/p1j5NI/HdEiNlfLO97wU3+j1d5ilfJKuZwPfR6/3mYI8P83JYRfng2vAYfXfkhqU9h/L/9b6zf2OQgPrsHQ8z+XaYV1jt4o7353vr/J9AclC8isAGQAA

@@ -12,10 +12,10 @@
   <property name="xOffsetModifier" value="-1152"/>
   <property name="yOffsetModifier" value="576"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- <tileset firstgid="1025" source="Tileset 5.tsx"/>
- <tileset firstgid="2049" source="Tileset 2.tsx"/>
- <tileset firstgid="3073" source="Tileset 11.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal5.tsx"/>
+ <tileset firstgid="2049" source="normal2.tsx"/>
+ <tileset firstgid="3073" source="normal18.tsx"/>
  <layer name="Walkable" width="50" height="56">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO2YYQ6CMAyFx5/FU4EnIcaDgEdXg0uwbmOt7dzM+5L+MWHl9dWR1jkAAAAAgLYZvXPTK87+128jZ368+9VtcelQR/AhaAgx+few8kirD+aIhlRYQPNL9XB0SHOM/tPfKdEH0r7m6JD6IsnBrVmrOdbHM7dEjiHy2+K3Z9ZILn/i59DQcdRXMR1BQ2k+Tu+m7kKpDzkde5aEL1If9l6nzt17XlKjoUBHIOaLxrcx53dpjUo1PKF15PrAOTdVoyERrbIo1QgAAAAA/0luDu1pN6Q9h9SGM/e0rIMzf0KHPVSH1p6hNtb/79g9aHHvUR10Bv3WB6u5P5dH8/yje1Dbo6BDu/+193Al+Wr6YKVDe3cR2/PkdnI93OmUXK/1qIN+o1r/NlFq3cHWWO1eAQCgNe5jDOONwCsAAA==

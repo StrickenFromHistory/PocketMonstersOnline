@@ -13,10 +13,10 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="-2912"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- <tileset firstgid="1025" source="Tileset 2.tsx"/>
- <tileset firstgid="2049" source="Tileset 3.tsx"/>
- <tileset firstgid="3073" source="Tileset Kanto Towns 1.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
+ <tileset firstgid="2049" source="normal3.tsx"/>
+ <tileset firstgid="3073" source="normal13.tsx"/>
  <layer name="Walkable" width="48" height="40">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO2X7U3DMBCGHceFOaAsQrMBG0Anga4CgwBikNLyt1kBm/TU4+qP85dcVT3pVSJypY+du9dXIQ7x1R9kQom4UBa1iHPgN0rhf++E+ND67NrxY57Y/LXm/tbanCk/fkdcmXeZyh8ryu/L4WqTyR+TD2w/nv3c7nNmUgjpkZLt+Ln7aqzOpXXD/Q/trVEvp8/0lv/Vmt98Z6clifr9ngM3vYe1nAL/jdYt0RzxU51S/WD+h2s7f+jaoTprwX+vtSAaAj3rUgt+XCe01m31I8mznZr+tos8SFNnMB8/Xge+l4Qb7g2zQlcua84MyT1/S0ZNfpd/2t6FS5DjikVAg5jeKa5R3/y17Y79xwT1Hzxnu+oM57jiKaAl4oZ1cGYE8B+bf3L6hOa44iWglWX/wZdDM5fLP319sprF8cvC4syfuM44c2rK+RvixL1pepLyl1QNflMbd6imKT93tvfl5cz/tpGDrgH8ZYbeAcf/bfU/qqmPR3XsEyX58T3uzyGTn64hd/784xPH5wB+7utfzIXDxo+ZR3Xw/1z+R/H/HPDl+viN5lfu/Yd6oWvI5X/Wek3kL+Gfuf7T79cA51gM/yn4J/c3BJ6DfWdzqlJ+f8Xy11YKP2e2jhX0Jr2Gnpfmx95aSwP6vlj2ED/21lpainT+UIAvuQS+a/QWyHVpVZE/VOf07Mvtm9L8oeCe3TXiwn/h58YvYvhFiAAeAAA=

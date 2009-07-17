@@ -12,9 +12,9 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="-2592"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- <tileset firstgid="1025" source="Tileset 3.tsx"/>
- <tileset firstgid="2049" source="Tileset Kanto Routes 1.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal3.tsx"/>
+ <tileset firstgid="2049" source="normal14.tsx"/>
  <tileset firstgid="3073" source="normal13.tsx"/>
  <layer name="Layer 6" width="48" height="24">
   <data encoding="base64" compression="gzip">

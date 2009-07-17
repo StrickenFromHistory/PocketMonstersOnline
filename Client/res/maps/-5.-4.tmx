@@ -12,7 +12,7 @@
   <property name="xOffsetModifier" value="-64"/>
   <property name="yOffsetModifier" value="-96"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
  
  <layer name="Walkable" width="40" height="31">
   <data encoding="base64" compression="gzip">

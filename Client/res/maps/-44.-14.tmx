@@ -12,31 +12,31 @@
   <property name="yOffsetModifier" value="0"/>
  </properties>
  <tileset name="set1" firstgid="1" tilewidth="16" tileheight="16">
-  <image source="PGTileseti.png" trans="000000"/>
+  <image source="normal1.png" trans="000000"/>
  </tileset>
  <tileset name="set2" firstgid="1025" tilewidth="16" tileheight="16">
-  <image source="PGTilesetii.png" trans="000000"/>
+  <image source="normal2.png" trans="000000"/>
  </tileset>
  <tileset name="set3" firstgid="2049" tilewidth="16" tileheight="16">
-  <image source="PGTilesetiii.png" trans="000000"/>
+  <image source="normal3.png" trans="000000"/>
  </tileset>
  <tileset name="set4" firstgid="3073" tilewidth="16" tileheight="16">
-  <image source="PGTilesetiv.png" trans="000000"/>
+  <image source="normal4.png" trans="000000"/>
  </tileset>
  <tileset name="set5" firstgid="4097" tilewidth="16" tileheight="16">
-  <image source="PGTilesetv.png" trans="000000"/>
+  <image source="normal5.png" trans="000000"/>
  </tileset>
  <tileset name="set6" firstgid="5121" tilewidth="16" tileheight="16">
-  <image source="PGTilesetvi.png" trans="000000"/>
+  <image source="normal6.png" trans="000000"/>
  </tileset>
  <tileset name="set7" firstgid="6145" tilewidth="16" tileheight="16">
-  <image source="PGTilesetvii.png" trans="000000"/>
+  <image source="normal7.png" trans="000000"/>
  </tileset>
  <tileset name="set8" firstgid="7169" tilewidth="16" tileheight="16">
-  <image source="PGTilesetviii.png" trans="000000"/>
+  <image source="normal8.png" trans="000000"/>
  </tileset>
  <tileset name="set9" firstgid="8193" tilewidth="16" tileheight="16">
-  <image source="PGTilesetviiii.png" trans="000000"/>
+  <image source="normal9.png" trans="000000"/>
  </tileset>
  <layer name="walkable" width="54" height="69">
   <data encoding="base64" compression="gzip">

@@ -12,12 +12,12 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
-<tileset firstgid="1" source="Tileset 1.tsx"/> 
-<tileset firstgid="1025" source="Tileset 7.tsx"/>
- <tileset firstgid="2049" source="Tileset 5.tsx"/>
- <tileset firstgid="3073" source="Tileset 11.tsx"/>
-  <tileset firstgid="5121" source="Tileset 4.tsx"/>
- <tileset firstgid="6145" source="Tileset 3.tsx"/>
+<tileset firstgid="1" source="normal1.tsx"/> 
+<tileset firstgid="1025" source="normal7.tsx"/>
+ <tileset firstgid="2049" source="normal5.tsx"/>
+ <tileset firstgid="3073" source="normal18.tsx"/>
+  <tileset firstgid="5121" source="normal4.tsx"/>
+ <tileset firstgid="6145" source="normal3.tsx"/>
 <layer name="Walkable" width="12" height="22">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAGNgGAXkgEPMA+2CUTCYwCXJgXYBbQAAc9gT7CAEAAA=

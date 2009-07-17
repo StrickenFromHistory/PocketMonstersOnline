@@ -13,37 +13,37 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
  
- <tileset firstgid="1025" source="Tileset 2.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
  
- <tileset firstgid="2049" source="Tileset 3.tsx"/>
+ <tileset firstgid="2049" source="normal3.tsx"/>
  
- <tileset firstgid="3073" source="Tileset 4.tsx"/>
+ <tileset firstgid="3073" source="normal4.tsx"/>
  
- <tileset firstgid="4097" source="Tileset 5.tsx"/>
+ <tileset firstgid="4097" source="normal5.tsx"/>
  
- <tileset firstgid="5121" source="Tileset 6.tsx"/>
+ <tileset firstgid="5121" source="normal6.tsx"/>
  
- <tileset firstgid="6145" source="Tileset 7.tsx"/>
+ <tileset firstgid="6145" source="normal7.tsx"/>
  
- <tileset firstgid="7169" source="Tileset 8.tsx"/>
+ <tileset firstgid="7169" source="normal8.tsx"/>
  
- <tileset firstgid="8193" source="Tileset 9.tsx"/>
+ <tileset firstgid="8193" source="normal9.tsx"/>
  
- <tileset firstgid="9217" source="Tileset 10.tsx"/>
+ <tileset firstgid="9217" source="normal10.tsx"/>
  
- <tileset firstgid="10027" source="Tileset 11.tsx"/>
+ <tileset firstgid="10027" source="normal18.tsx"/>
  
- <tileset firstgid="11051" source="Tileset 12.tsx"/>
+ <tileset firstgid="11051" source="normal17.tsx"/>
  
- <tileset firstgid="12075" source="Tileset 13.tsx"/>
+ <tileset firstgid="12075" source="normal16.tsx"/>
  
- <tileset firstgid="13099" source="Tileset 14.tsx"/>
+ <tileset firstgid="13099" source="normal15.tsx"/>
  
- <tileset firstgid="14123" source="Tileset Kanto Routes 1.tsx"/>
+ <tileset firstgid="14123" source="normal14.tsx"/>
  
- <tileset firstgid="15147" source="Tileset Kanto Towns 1.tsx"/>
+ <tileset firstgid="15147" source="normal13.tsx"/>
  
  <layer name="Walkable" width="40" height="40">
   <data encoding="base64" compression="gzip">
