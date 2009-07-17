@@ -63,7 +63,7 @@ public class NpcBattleField extends BattleField {
 		/* Send enemy name */
 		m_player.getSession().write("bn" + m_npc.getName());
 		/* Apply weather and request moves */
-		applyWeather();
+		//applyWeather();
 		requestMoves();
 	}
 	
