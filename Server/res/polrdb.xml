@@ -6424,7 +6424,13 @@
             <string>Confusion</string>
          </starterMoves>
          <eggMoves/>
-         <evolutions/>
+         <evolutions>
+            <GlobalEvolution>
+               <m_type>Trade</m_type>
+               <m_level>0</m_level>
+               <m_evolveTo>Alakazam</m_evolveTo>
+            </GlobalEvolution>
+         </evolutions>
          <battlerPlayerY>0</battlerPlayerY>
          <battlerEnemyY>0</battlerEnemyY>
          <battlerAltitude>0</battlerAltitude>
@@ -6745,7 +6751,13 @@
             <string>Focus Energy</string>
          </starterMoves>
          <eggMoves/>
-         <evolutions/>
+                  <evolutions>
+            <GlobalEvolution>
+               <m_type>Trade</m_type>
+               <m_level>0</m_level>
+               <m_evolveTo>Machamp</m_evolveTo>
+            </GlobalEvolution>
+         </evolutions>
          <battlerPlayerY>0</battlerPlayerY>
          <battlerEnemyY>0</battlerEnemyY>
          <battlerAltitude>0</battlerAltitude>
@@ -7583,7 +7595,13 @@
             <string>Rock Polish</string>
          </starterMoves>
          <eggMoves/>
-         <evolutions/>
+                  <evolutions>
+            <GlobalEvolution>
+               <m_type>Trade</m_type>
+               <m_level>0</m_level>
+               <m_evolveTo>Golem</m_evolveTo>
+            </GlobalEvolution>
+         </evolutions>
          <battlerPlayerY>0</battlerPlayerY>
          <battlerEnemyY>0</battlerEnemyY>
          <battlerAltitude>0</battlerAltitude>
@@ -9587,7 +9605,13 @@
             <string>Spite</string>
          </starterMoves>
          <eggMoves/>
-         <evolutions/>
+         <evolutions>
+            <GlobalEvolution>
+               <m_type>Trade</m_type>
+               <m_level>0</m_level>
+               <m_evolveTo>Gengar</m_evolveTo>
+            </GlobalEvolution>
+         </evolutions>
          <battlerPlayerY>0</battlerPlayerY>
          <battlerEnemyY>0</battlerEnemyY>
          <battlerAltitude>0</battlerAltitude>
