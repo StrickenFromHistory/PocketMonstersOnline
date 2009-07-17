@@ -1,0 +1,37 @@
+[npc]
+Cherrygrove citizen
+left
+51
+15
+13
+NULL
+0
+-1
+0,1
+false
+false
+false
+[/npc]
+[npc]
+Cherrygrove citizen
+right
+96
+14
+13
+NULL
+0
+-1
+2
+false
+false
+false
+[/npc]
+[warp]
+11
+16
+31
+13
+-2
+0
+0
+[/warp]

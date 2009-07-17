@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<map version="0.99b" orientation="orthogonal" width="54" height="69" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value="3-5;3-5;4-6;5-5;3-5;"/>
+  <property name="nightPokemonChances" value="Caterpie,40;Weedle,40;Metapod,10;Kakuna,5;Pikachu,5;"/>
+  <property name="dayPokemonLevels" value="3-5;3-5;4-6;5-5;3-5;"/>
+  <property name="dayPokemonChances" value="Caterpie,40;Weedle,40;Metapod,10;Kakuna,5;Pikachu,5;"/>
+  <property name="wildProbability" value="28"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset name="set1" firstgid="1" tilewidth="16" tileheight="16">
+  <image source="PGTileseti.png" trans="000000"/>
+ </tileset>
+ <tileset name="set2" firstgid="1025" tilewidth="16" tileheight="16">
+  <image source="PGTilesetii.png" trans="000000"/>
+ </tileset>
+ <tileset name="set3" firstgid="2049" tilewidth="16" tileheight="16">
+  <image source="PGTilesetiii.png" trans="000000"/>
+ </tileset>
+ <tileset name="set4" firstgid="3073" tilewidth="16" tileheight="16">
+  <image source="PGTilesetiv.png" trans="000000"/>
+ </tileset>
+ <tileset name="set5" firstgid="4097" tilewidth="16" tileheight="16">
+  <image source="PGTilesetv.png" trans="000000"/>
+ </tileset>
+ <tileset name="set6" firstgid="5121" tilewidth="16" tileheight="16">
+  <image source="PGTilesetvi.png" trans="000000"/>
+ </tileset>
+ <tileset name="set7" firstgid="6145" tilewidth="16" tileheight="16">
+  <image source="PGTilesetvii.png" trans="000000"/>
+ </tileset>
+ <tileset name="set8" firstgid="7169" tilewidth="16" tileheight="16">
+  <image source="PGTilesetviii.png" trans="000000"/>
+ </tileset>
+ <tileset name="set9" firstgid="8193" tilewidth="16" tileheight="16">
+  <image source="PGtilesetviiii.png" trans="000000"/>
+ </tileset>
+ <layer name="walkable" width="54" height="69">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OwQ0AEBAAsItNMQkWd0OISPTRf0tEFACAi2pqqT9wOWmkmdYDFwAAAAAAAAAAAAAA4E8bnIjpsTg6AAA=
+  </data>
+  <tileproperties/>
+ </layer>
+ <layer name="grass" width="54" height="69">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3WQQ6DMAwFUXqU3v+SVZeRmho73+CYeRIbSHGmQojjAAAAAGLePw7l9SzZ+6ZL646u2aFEF13W9Sd1qd3VlS27a7b267WycYNy35XQRVcFK+/pyrp24Rpdn4muzztde6FrL3TthS7/fc4eGejy34cuvQpdGf/Jle9CZYOnK1vXruhMuuIzFOga11vnVmYo0DWut86tzFCga1xvnVuZobBTl+d7Qfm9ofodXbp9zeYqZ6q6PG3/qOZFuyro2BXdX9cuAEA/H2M91+84OgAA
+  </data>
+  <tileproperties/>
+ </layer>
+ <layer name="walkable" width="54" height="69">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3Y2wnCQBCF4Q2kFrUN77ZhBLUNq7ETtSzHh0UJMTuayGbG/4NDXueQdVwSAgD4cSo/e1risRPSzuUzXlyky/UlN0fdAMC6URHCWDIpck/Sr5X0WUs29DKBXrbQ6/fibk5Fs7uH1CvOkopm1iH12ssMB0WOX/by8C3g3fuy3i32Wrb8Jq11eqifac3ZbaK5Z1q8i9bfe1MWA9pRWtodba2Xdkd3OesWWd27bTx2ijx2AgDk5fG/xeNdwGOnyHM3AAAAAOhiKplJ5rkH6dlWUkl2uQcBgD9xB+o8QGY4OgAA
+  </data>
+  <tileproperties/>
+ </layer>
+ <layer name="collision" width="54" height="69">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2bDU7DMAyFvbUDLgLiYsDOAQg4x0Bj5wAEnAPQtmNgpEmEqon/4jYdfZKlSG3iON+avG6wqAHuGfGAcVwB3ADALcYdlN1eCOqaYl1L7POIsYKy29K6XrHPG8Y7lN2W1rXGPhuMLfDa4RpK+1pySeo6xboOJgCHGEcTXjtcQ2lfSy5JXRqFa+itMNcTzveZES/KusI19FaY6wPn+8mIr4HxOsf5znexxtgEsQ2uXTjxspxRqVzTGUC1i2Vj7qv691o909VF8bKcUamxwvpPqr/3Nf2FRhQvyxmVGiuscdao66Ci15uquy9eYY1VUNcco67o9abmXQIvj3lT/S3+IpVLsp6aeVP9Lf4ilatvXjlVEq+cGnmVySvmP4bOi3O2lcCL6//axoy1vXmlzpu2HBy+JfBKnTdtOTh8S+DFkZRXzH/k5BWOq/X9Ul6c7zck/o3Kod33pLw440j8W0rhOLH9jXPupOZzRtQl4cWV5T2qD15cWd6jpM8XZw6c9aH4/4izRw2RF2ePysEr5Uc8nq+YcvNKXffgFVNuXqnr/42X9NzJ5b29eXnsXSXwsrSlXqJLXrEziNPuym9oeOX6rdDTb3S9H5bMy6J95eXxbFJ5murSH1qeTSpPU136DY6kZyJnHKnfsKrtnUfCKyWL3/CQNy/tHmXlLOXF8Ta5zxTN2nt4ztxniuZZkfbh5Bt5jbxGXun+0vtjvDherk3aflR/6f0xXpq/mQBDP6q/9P4+/WFOT9aUh5/nivvZ1KhPXtzPpkZ98vJUae9fMXF+xwlVCi/pvCkNhZdUlvdlSzumXONb/KG0fVkDXDHius6bV+oPpW3J/4nkzOvNi1vXyGvktY+8vgE0sXdeODoAAA==
+  </data>
+  <tileproperties/>
+ </layer>
+ <layer name="collision" width="54" height="69">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OoQ0AIAADwbICSzIvo7ABAoVGQMhd8qqmCQDwkna4AwAAvKjXpGT1k1FvPwAAAAAAAAAAANhNys2fWjg6AAA=
+  </data>
+  <tileproperties/>
+ </layer>
+ <layer name="height" width="54" height="69">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3YMQrAIAwAwAx+tO3Q//+gk9Cpi9oQvAPBScQoJokAgLXugTl07gUAs8k/cjl/+OZd1KXuhZq8S6rSe92HOAKQRV6xh7/j7C4BwBz+UYA8I/35kRps9forHS3ifI2rJW8IYAMPabNXazg6AAA=
+  </data>
+  <tileproperties/>
+ </layer>
+</map>

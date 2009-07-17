@@ -1,0 +1,468 @@
+Pound 0
+Karate Chop 0
+Doubleslap 0
+Comet Punch 0
+Mega Punch 0
+Pay Day 0
+Fire Punch 0
+Ice Punch 0
+Thunderpunch 0
+Scratch 0
+Vicegrip 0
+Guillotine 0
+Razor Wind 1
+Swords Dance 2
+Cut 0
+Gust 1
+Wing Attack 0
+Whirlwind 2
+Fly 0
+Bind 0
+Slam 0
+Vine Whip 0
+Stomp 0
+Double Kick 0
+Mega Kick 0
+Jump Kick 0
+Rolling Kick 0
+Sand-Attack 2
+Headbutt 0
+Horn Attack 0
+Fury Attack 0
+Horn Drill 0
+Tackle 0
+Body Slam 0
+Wrap 0
+Take Down 0
+Thrash 0
+Double-edge 0
+Tail Whip 2
+Poison Sting 0
+Twineedle 0
+Pin Missile 0
+Leer 2
+Bite 0
+Growl 2
+Roar 2
+Sing 2
+Supersonic 2
+SonicBoom 1
+Disable 2
+Acid 1
+Ember 1
+Flamethrower 1
+Mist 2
+Water Gun 1
+Hydro Pump 1
+Surf 1
+Ice Beam 1
+Blizzard 1
+Psybeam 1
+BubbleBeam 1
+Aurora Beam 1
+Hyper Beam 1
+Peck 0
+Drill Peck 0
+Submission 0
+Low Kick 0
+Counter 0
+Seismic Toss 0
+Strength 0
+Absorb 1
+Mega Drain 1
+Leech Seed 2
+Growth 2
+Razor Leaf 0
+Solarbeam 1
+Poisonpowder 2
+Stun Spore 2
+Sleep Powder 2
+Petal Dance 1
+String Shot 2
+Dragon Rage 1
+Fire Spin 1
+Thundershock 1
+Thunderbolt 1
+Thunder Wave 2
+Thunder 1
+Rock Throw 0
+Earthquake 0
+Fissure 0
+Dig 0
+Toxic 2
+Confusion 1
+Psychic 1
+Hypnosis 2
+Meditate 2
+Agility 2
+Quick Attack 0
+Rage 0
+Teleport 2
+Night Shade 1
+Mimic 2
+Screech 2
+Double Team 2
+Recover 2
+Harden 2
+Minimize 2
+Smokescreen 2
+Confuse Ray 2
+Withdraw 2
+Defense Curl 2
+Barrier 2
+Light Screen 2
+Haze 2
+Reflect 2
+Focus Energy 2
+Bide 0
+Metronome 2
+Mirror Move 2
+Selfdestruct 0
+Egg Bomb 0
+Lick 0
+Smog 1
+Sludge 1
+Bone Club 0
+Fire Blast 1
+Waterfall 0
+Clamp 0
+Swift 1
+Skull Bash 0
+Spike Cannon 0
+Constrict 0
+Amnesia 2
+Kinesis 2
+Softboiled 2
+Hi Jump Kick 0
+Glare 2
+Dream Eater 1
+Poison Gas 2
+Barrage 0
+Leech Life 0
+Lovely Kiss 2
+Sky Attack 0
+Transform 2
+Bubble 1
+Dizzy Punch 0
+Spore 2
+Flash 2
+Psywave 1
+Splash 2
+Acid Armor 2
+Crabhammer 0
+Explosion 0
+Fury Swipes 0
+Bonemerang 0
+Rest 2
+Rock Slide 0
+Hyper Fang 0
+Sharpen 2
+Conversion 2
+Tri Attack 1
+Super Fang 0
+Slash 0
+Substitute 2
+Struggle 0
+Sketch 2
+Triple Kick 0
+Thief 0
+Spider Web 2
+Mind Reader 2
+Nightmare 2
+Flame Wheel 0
+Snore 1
+Curse 2
+Flail 0
+Conversion2 2
+Aeroblast 1
+Cotton Spore 2
+Reversal 0
+Spite 2
+Powder Snow 1
+Protect 2
+Mach Punch 0
+Scary Face 2
+Faint Attack 0
+Sweet Kiss 2
+Belly Drum 2
+Sludge Bomb 1
+Mud-Slap 1
+Octazooka 1
+Spikes 2
+Zap Cannon 1
+Foresight 2
+Destiny Bond 2
+Perish Song 2
+Icy Wind 1
+Detect 2
+Bone Rush 0
+Lock-On 2
+Outrage 0
+Sandstorm 2
+Giga Drain 1
+Endure 2
+Charm 2
+Rollout 0
+False Swipe 0
+Swagger 2
+Milk Drink 2
+Spark 0
+Fury Cutter 0
+Steel Wing 0
+Mean Look 2
+Attract 2
+Sleep Talk 2
+Heal Bell 2
+Return 0
+Present 0
+Frustration 0
+Safeguard 2
+Pain Split 2
+Sacred Fire 0
+Magnitude 0
+Dynamicpunch 0
+Megahorn 0
+Dragonbreath 1
+Baton Pass 2
+Encore 2
+Pursuit 0
+Rapid Spin 0
+Sweet Scent 2
+Iron Tail 0
+Metal Claw 0
+Vital Throw 0
+Morning Sun 2
+Synthesis 2
+Moonlight 2
+Hidden Power 1
+Cross Chop 0
+Twister 1
+Rain Dance 2
+Sunny Day 2
+Crunch 0
+Mirror Coat 1
+Psych Up 2
+Extremespeed 0
+Ancientpower 1
+Shadow Ball 1
+Future Sight 1
+Rock Smash 0
+Whirlpool 1
+Beat Up 0
+Fake Out 0
+Uproar 1
+Stockpile 2
+Spit Up 1
+Swallow 2
+Heat Wave 1
+Hail 2
+Torment 2
+Flatter 2
+Will-o-wisp 2
+Memento 2
+Facade 0
+Focus Punch 0
+Smellingsalt 0
+Follow Me 2
+Nature Power 2
+Charge 2
+Taunt 2
+Helping Hand 2
+Trick 2
+Role Play 2
+Wish 2
+Assist 2
+Ingrain 2
+Superpower 0
+Magic Coat 2
+Recycle 2
+Revenge 0
+Brick Break 0
+Yawn 2
+Knock Off 0
+Endeavor 0
+Eruption 1
+Skill Swap 2
+Imprison 2
+Refresh 2
+Grudge 2
+Snatch 2
+Secret Power 0
+Dive 0
+Arm Thrust 0
+Camouflage 2
+Tail Glow 2
+Luster Purge 1
+Mist Ball 1
+Featherdance 2
+Teeter Dance 2
+Blaze Kick 0
+Mud Sport 2
+Ice Ball 0
+Needle Arm 0
+Slack Off 2
+Hyper Voice 1
+Poison Fang 0
+Crush Claw 0
+Blast Burn 1
+Hydro Cannon 1
+Meteor Mash 0
+Astonish 0
+Weather Ball 1
+Aromatherapy 2
+Fake Tears 2
+Air Cutter 1
+Overheat 1
+Odor Sleuth 2
+Rock Tomb 0
+Silver Wind 1
+Metal Sound 2
+GrassWhistle 2
+Tickle 2
+Cosmic Power 2
+Water Spout 1
+Signal Beam 1
+Shadow Punch 0
+Extrasensory 1
+Sky Uppercut 0
+Sand Tomb 0
+Sheer Cold 1
+Muddy Water 1
+Bullet Seed 0
+Aerial Ace 0
+Icicle Spear 0
+Iron Defense 2
+Block 2
+Howl 2
+Dragon Claw 0
+Frenzy Plant 1
+Bulk Up 2
+Bounce 0
+Mud Shot 1
+Poison Tail 0
+Covet 0
+Volt Tackle 0
+Magical Leaf 1
+Water Sport 2
+Calm Mind 2
+Leaf Blade 0
+Dragon Dance 2
+Rock Blast 0
+Shock Wave 1
+Water Pulse 1
+Doom Desire 1
+Psycho Boost 1
+Roost 2
+Gravity 2
+Miracle Eye 2
+Wake-up Slap 0
+Hammer Arm 0
+Gyro Ball 0
+Healing Wish 2
+Brine 1
+Natural Gift 0
+Feint 0
+Pluck 0
+Tailwind 2
+Acupressure 2
+Metal Burst 0
+U-turn 0
+Close Combat 0
+Payback 0
+Assurance 0
+Embargo 2
+Fling 0
+Psycho Shift 2
+Trump Card 1
+Heal Block 2
+Wring Out 1
+Power Trick 2
+Gastro Acid 2
+Lucky Chant 2
+Me First 2
+Copycat 2
+Power Swap 2
+Guard Swap 2
+Punishment 0
+Last Resort 0
+Worry Seed 2
+Sucker Punch 0
+Toxic Spikes 2
+Heart Swap 2
+Aqua Ring 2
+Magnet Rise 2
+Flare Blitz 0
+Force Palm 0
+Aura Sphere 1
+Rock Polish 2
+Poison Jab 0
+Dark Pulse 1
+Night Slash 0
+Aqua Tail 0
+Seed Bomb 0
+Air Slash 1
+X-Scissor 0
+Bug Buzz 1
+Dragon Pulse 1
+Dragon Rush 0
+Power Gem 1
+Drain Punch 0
+Vacuum Wave 1
+Focus Blast 1
+Energy Ball 1
+Brave Bird 0
+Earth Power 1
+Switcheroo 2
+Giga Impact 0
+Nasty Plot 2
+Bullet Punch 0
+Avalanche 0
+Ice Shard 0
+Shadow Claw 0
+Thunder Fang 0
+Ice Fang 0
+Fire Fang 0
+Shadow Sneak 0
+Mud Bomb 1
+Psycho Cut 0
+Zen Headbutt 0
+Mirror Shot 1
+Flash Cannon 1
+Rock Climb 0
+Defog 2
+Trick Room 2
+Draco Meteor 1
+Discharge 1
+Lava Plume 1
+Leaf Storm 1
+Power Whip 0
+Rock Wrecker 0
+Cross Poison 0
+Gunk Shot 0
+Iron Head 0
+Magnet Bomb 0
+Stone Edge 0
+Captivate 2
+Stealth Rock 2
+Grass Knot 1
+Chatter 1
+Judgment 1
+Bug Bite 0
+Charge Beam 1
+Wood Hammer 0
+Aqua Jet 0
+Attack Order 0
+Defense Order 2
+Heal Order 2
+Head Smash 0
+Double Hit 0
+Roar of Time 1
+Spacial Rend 1
+Lunar Dance 2
+Crush Grip 0
+Magma Storm 1
+Dark Void 2
+Seed Flare 1
+Ominous Wind 1
+Shadow Force 0
+Struggle 1

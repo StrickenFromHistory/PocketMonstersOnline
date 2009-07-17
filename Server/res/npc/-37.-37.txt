@@ -1,0 +1,23 @@
+[npc]
+Pharmacy Owner
+down
+87
+3
+5
+NULL
+0
+-1
+0
+false
+false
+true
+[/npc]
+[warp]
+3
+10
+16
+50
+-8
+-2
+0
+[/warp]

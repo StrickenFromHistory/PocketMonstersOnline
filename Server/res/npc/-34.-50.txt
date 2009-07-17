@@ -1,0 +1,23 @@
+[npc]
+Kind Lady
+down
+114
+3
+5
+NULL
+0
+-1
+0
+true
+false
+false
+[/npc]
+[warp]
+3
+10
+14
+55
+2
+0
+0
+[/warp]

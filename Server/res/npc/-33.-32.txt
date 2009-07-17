@@ -1,0 +1,23 @@
+[npc]
+New Bark Town citizen
+right
+72
+15
+18
+NULL
+0
+-1
+0,1,2,3
+false
+false
+false
+[/npc]
+[warp]
+16
+22
+6
+26
+0
+0
+0
+[/warp]

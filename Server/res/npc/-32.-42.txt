@@ -1,0 +1,23 @@
+[npc]
+Town Inhabitant
+right
+104
+3
+5
+NULL
+0
+-1
+0,1,2
+false
+false
+false
+[/npc]
+[warp]
+3
+10
+20
+15
+-2
+-4
+0
+[/warp]

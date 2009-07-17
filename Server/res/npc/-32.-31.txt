@@ -1,0 +1,37 @@
+[npc]
+Elm's son
+up
+80
+18
+18
+NULL
+0
+-1
+0,1
+false
+false
+false
+[/npc]
+[npc]
+Miss Elm
+down
+51
+15
+18
+NULL
+0
+-1
+2,3
+false
+false
+false
+[/npc]
+[warp]
+16
+22
+14
+26
+0
+0
+0
+[/warp]
