@@ -58,7 +58,7 @@ Surf 1
 Ice Beam 1
 Blizzard 1
 Psybeam 1
-BubbleBeam 1
+Bubblebeam 1
 Aurora Beam 1
 Hyper Beam 1
 Peck 0
