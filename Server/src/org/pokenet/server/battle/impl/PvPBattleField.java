@@ -82,7 +82,7 @@ public class PvPBattleField extends BattleField {
 		sendPokemonData(p1, p2);
 		sendPokemonData(p2, p1);
 		/* Apply weather and request moves */
-		//applyWeather();
+		applyWeather();
 		requestMoves();
 	}
 
