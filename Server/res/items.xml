@@ -460,7 +460,7 @@
 				<m_category>Pokeball</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>1000</m_price>
+				<m_price>200</m_price>
 
 				<m_attributes>
 
@@ -1606,7 +1606,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>200</m_price>
 
 				<m_attributes>
 
@@ -1633,7 +1633,7 @@
 				<m_category>Tools</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -1660,7 +1660,7 @@
 				<m_category>Tools</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -1687,7 +1687,7 @@
 				<m_category>Tools</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -1714,7 +1714,7 @@
 				<m_category>Tools</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -1741,7 +1741,7 @@
 				<m_category>Tools</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -1768,7 +1768,7 @@
 				<m_category>Tools</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -1795,7 +1795,7 @@
 				<m_category>Tools</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -1822,7 +1822,7 @@
 				<m_category>Tools</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -1849,7 +1849,7 @@
 				<m_category>Tools</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -1876,7 +1876,7 @@
 				<m_category>Tools</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -1903,7 +1903,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -1930,7 +1930,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -1957,7 +1957,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -1984,7 +1984,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -2011,7 +2011,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -2038,7 +2038,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -2065,7 +2065,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -2093,7 +2093,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -2120,7 +2120,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -2147,7 +2147,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -2175,7 +2175,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -2202,7 +2202,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -2229,7 +2229,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -2256,7 +2256,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -2283,7 +2283,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -2310,7 +2310,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -2337,7 +2337,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -2364,7 +2364,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -2391,7 +2391,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -2418,7 +2418,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -2445,7 +2445,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -2472,7 +2472,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -2499,7 +2499,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -2526,7 +2526,7 @@
 				<m_category>Evolution</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>2100</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -2553,7 +2553,7 @@
 				<m_category>Breeding</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -2580,7 +2580,7 @@
 				<m_category>Breeding</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -2607,7 +2607,7 @@
 				<m_category>Breeding</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -2634,7 +2634,7 @@
 				<m_category>Breeding</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -2661,7 +2661,7 @@
 				<m_category>Breeding</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -2688,7 +2688,7 @@
 				<m_category>Breeding</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -2715,7 +2715,7 @@
 				<m_category>Breeding</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -2742,7 +2742,7 @@
 				<m_category>Breeding</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -2770,7 +2770,7 @@
 				<m_category>Breeding</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -2797,7 +2797,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -2824,7 +2824,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -2851,7 +2851,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -2878,7 +2878,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -2905,7 +2905,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -2932,7 +2932,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -2959,7 +2959,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -2986,7 +2986,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3013,7 +3013,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3040,7 +3040,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3067,7 +3067,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3094,7 +3094,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3121,7 +3121,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3148,7 +3148,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>]10</m_price>
 
 				<m_attributes>
 
@@ -3175,7 +3175,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3202,7 +3202,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3229,7 +3229,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3256,7 +3256,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3283,7 +3283,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3310,7 +3310,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3337,7 +3337,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3364,7 +3364,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3391,7 +3391,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3418,7 +3418,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3445,7 +3445,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3472,7 +3472,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3499,7 +3499,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3526,7 +3526,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3553,7 +3553,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3580,7 +3580,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3607,7 +3607,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3634,7 +3634,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3661,7 +3661,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3688,7 +3688,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3715,7 +3715,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3742,7 +3742,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3769,7 +3769,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3796,7 +3796,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3823,7 +3823,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3850,7 +3850,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3877,7 +3877,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3904,7 +3904,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3931,7 +3931,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3958,7 +3958,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -3985,7 +3985,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4012,7 +4012,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4039,7 +4039,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4066,7 +4066,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4093,7 +4093,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4120,7 +4120,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4147,7 +4147,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4174,7 +4174,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4201,7 +4201,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4228,7 +4228,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4255,7 +4255,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4282,7 +4282,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4310,7 +4310,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4338,7 +4338,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4365,7 +4365,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4392,7 +4392,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4419,7 +4419,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4446,7 +4446,7 @@
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>20</m_price>
+				<m_price>10</m_price>
 
 				<m_attributes>
 
@@ -4473,7 +4473,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -4502,7 +4502,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4531,7 +4531,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4560,7 +4560,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>9800</m_price>
+				<m_price>4900</m_price>
 
 				<m_attributes>
 
@@ -4589,7 +4589,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4618,7 +4618,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4647,7 +4647,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -4676,7 +4676,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4705,7 +4705,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4734,7 +4734,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4763,7 +4763,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4792,7 +4792,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4821,7 +4821,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4850,7 +4850,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4879,7 +4879,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4908,7 +4908,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -4937,7 +4937,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4966,7 +4966,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -4995,7 +4995,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -5024,7 +5024,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -5053,7 +5053,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -5082,7 +5082,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -5111,7 +5111,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5140,7 +5140,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5169,7 +5169,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5198,7 +5198,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5227,7 +5227,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5256,7 +5256,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5285,7 +5285,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5314,7 +5314,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5343,7 +5343,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5372,7 +5372,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5401,7 +5401,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5430,7 +5430,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5459,7 +5459,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5488,7 +5488,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5517,7 +5517,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5546,7 +5546,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5575,7 +5575,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -5602,7 +5602,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>1000</m_price>
+				<m_price>100</m_price>
 
 				<m_attributes>
 
@@ -5629,7 +5629,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>1000</m_price>
+				<m_price>250</m_price>
 
 				<m_attributes>
 
@@ -5656,7 +5656,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -5683,7 +5683,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>5000</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -5710,7 +5710,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5738,7 +5738,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5766,7 +5766,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5793,7 +5793,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -5821,7 +5821,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -5875,7 +5875,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -5902,7 +5902,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -5929,7 +5929,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5957,7 +5957,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -5984,7 +5984,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -6011,7 +6011,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -6038,7 +6038,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -6066,7 +6066,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -6093,7 +6093,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>50</m_price>
 
 				<m_attributes>
 
@@ -6120,7 +6120,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -6147,7 +6147,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>500</m_price>
 
 				<m_attributes>
 
@@ -6175,7 +6175,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -6229,7 +6229,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>100</m_price>
 
 				<m_attributes>
 
@@ -6257,7 +6257,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -6284,7 +6284,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>2500</m_price>
 
 				<m_attributes>
 
@@ -6311,7 +6311,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>100</m_price>
 
 				<m_attributes>
 
@@ -6338,7 +6338,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -6365,7 +6365,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -6392,7 +6392,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>2500</m_price>
 
 				<m_attributes>
 
@@ -6419,7 +6419,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>2500</m_price>
 
 				<m_attributes>
 
@@ -6446,7 +6446,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>100</m_price>
 
 				<m_attributes>
 
@@ -6473,7 +6473,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -6501,7 +6501,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>1000</m_price>
+				<m_price>100</m_price>
 
 				<m_attributes>
 
@@ -6528,7 +6528,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1500</m_price>
 
 				<m_attributes>
 
@@ -6582,7 +6582,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>2500</m_price>
 
 				<m_attributes>
 
@@ -6609,7 +6609,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>2500</m_price>
 
 				<m_attributes>
 
@@ -6636,7 +6636,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>2500</m_price>
 
 				<m_attributes>
 
@@ -7916,7 +7916,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
@@ -7946,7 +7946,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -7976,7 +7976,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -8005,7 +8005,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -8095,7 +8095,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>100</m_price>
+				<m_price>1000</m_price>
 
 				<m_attributes>
 
@@ -8124,7 +8124,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>1000</m_price>
+				<m_price>500</m_price>
 
 				<m_attributes>
 
@@ -8153,7 +8153,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>1000</m_price>
+				<m_price>500</m_price>
 
 				<m_attributes>
 
@@ -8182,7 +8182,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>1000</m_price>
+				<m_price>500</m_price>
 
 				<m_attributes>
 
@@ -8211,7 +8211,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>1000</m_price>
+				<m_price>500</m_price>
 
 				<m_attributes>
 
@@ -8240,7 +8240,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>1000</m_price>
+				<m_price>500</m_price>
 
 				<m_attributes>
 
@@ -8458,7 +8458,7 @@
 				<m_category>Held</m_category>
 				<m_shop>0</m_shop>
 
-				<m_price>10000</m_price>
+				<m_price>5000</m_price>
 
 				<m_attributes>
 
