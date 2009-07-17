@@ -19,7 +19,6 @@ import org.apache.mina.filter.executor.ExecutorFilter;
 import org.apache.mina.transport.socket.nio.SocketConnector;
 import org.apache.mina.transport.socket.nio.SocketConnectorConfig;
 import org.apache.mina.transport.socket.nio.SocketSessionConfig;
-import org.lwjgl.input.Controller;
 import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
@@ -133,6 +132,7 @@ public class GameClient extends BasicGame {
 	/**
 	 * Called before the window is created
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		m_instance = this;
