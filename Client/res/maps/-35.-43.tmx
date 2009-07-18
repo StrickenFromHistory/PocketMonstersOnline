@@ -2,39 +2,40 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="19" height="38" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonLevels" value="24-26;25-25;24-26;27-27;"/>
   <property name="dayPokemonChances" value="Krabby,40;Zubat,30;Seel,25;Golbat,5;"/>
-  <property name="nightPokemonLevels" value="24-26;25-25;24-26;27-27;"/>
+  <property name="dayPokemonLevels" value="24-26;25-25;24-26;27-27;"/>
   <property name="nightPokemonChances" value="Krabby,40;Zubat,30;Seel,25;Golbat,5;"/>
-  <property name="waterPokemonLevels" value="15-24;20-24;"/>
+  <property name="nightPokemonLevels" value="24-26;25-25;24-26;27-27;"/>
   <property name="waterPokemonChances" value="Horsea,90;Tentacruel,10;"/>
+  <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
-<tileset firstgid="1" source="normal1.tsx"/>
-<tileset firstgid="1025" source="normal2.tsx"/> 
-<tileset firstgid="2049" source="normal5.tsx"/> 
-<tileset firstgid="3073" source="normal7.tsx"/> 
-<tileset firstgid="4097" source="normal18.tsx"/> 
-  <layer name="Walkable" width="19" height="38">
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
+ <tileset firstgid="2049" source="normal5.tsx"/>
+ <tileset firstgid="3073" source="normal7.tsx"/>
+ <tileset firstgid="4097" source="normal18.tsx"/>
+ <tileset firstgid="5121" source="normal3.tsx"/>
+ <layer name="Walkable" width="19" height="38">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAUjDTRwDbQLBi94JIDA1DKHWmYeYqZM/ygYBaNgFJAK2FgG2gWjgFYgfrQtQBUAAJ3iU3pICwAA
+   H4sIAAAAAAAAAGNgGAUjDTRwDbQLBi94JIDA1DKHWmYeYqZM/ygYBaNgFJAKFMQH2gWjgFYgfrQtQBUAAFJMUOhICwAA
   </data>
  </layer>
  <layer name="Grass" width="19" height="38">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAXUAPFcmJhcEIfFrAQyzasD6qtHw/t5yXfbKKA/OMrMwHCIGRJvIDYMk2sWNjwKRsEoGAW0Auh1Grn1GQig12kNFJg1VIAd0I/2WDA5ADkuQHUKJW2VUQABAPPJvZdICwAA
+   H4sIAAAAAAAAAGNgGAXUAPFcmJhcEIfFrAQyzasD6qtHw/t5yXfbKKA/OMrMwHCIGRJvIDYMk2sWNjwKRsEoGAW0Auh1Grn1GQig12kNFJg1VIAd0I/2WDA5ADkuQHUKJW0V9HbKoRFalwAAM+qDV0gLAAA=
   </data>
  </layer>
  <layer name="Water" width="19" height="38">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO1WwQ3CMAx0y6f8kn0YBcQiMFzKJCmLECu1MJFdpxSJPnLSSa16unOcxxWgYQ8IDmBMfDhbYyEmzZT4XNAuaTCDz9N7gIPPzxI7r2swg2dtIWbwrL1Q2okGSyedW4Olk2bVUKurxWnI/AXOQ2bz+o/XpXk1L4Zb8rkrXoF1h9VppNUYi3fLi76XjHNHReYpaUem1/oKfUKFdmJ6ra96r++rtk+ux3cG3xf5rOkT9ArzzHROfr41fYKI7nM2vgvr7kvSTPQPQHf5DcmHZuk2En1ezO+ZI0gLAAA=
+   H4sIAAAAAAAAAO2WQQ6CMBBFC2xwR+/jUTReRA8HxoMUL2In8MNYZmyhJLJgkh8g/L6ZlsXHmP3Vq5q0BSOHJXHW8sJ1uKdr2xjTeT0bfT08fK3Edd7Te71/sCQP3xufp7TGVHa4l1TYuQcc6sF75Yh68F57kXQmWsV80r61ivmkWbVK9aXWuR60RV3qQQfrP6zrwTpYrO6e81BYlBvIjlimwavJBc8xFt6HcmNGOcaUvB3za3lFnDbB2zO/llel1c8rNU9up6kHPy9wluQJsdpxZuyT729JnlC55ns2fhaxbx8KM+EfAN9yjcDBLEWmiPMBnRc2HUgLAAA=
   </data>
  </layer>
  <layer name="Collisions" width="19" height="38">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2WUQ6DIAyGTbzKbupOYqb30LndQ4GdYzSh8U8jUMRHm3wvBr+UFqlb2zTbBTw93UWeyfOu9LFn9ZgKH3r4mfS5CCkP1ot8X482FuGR9foVuGzIVdaL8nl5xgLXI4D5uZCPLcyLXZyfO3iX1+RCsw+t62gfQ7szhroNETAPWtcLZoB6sCTyxjOziHcltS481yb0N3buDbjwuzkLxxX31O26XbcrjfyeKXCmpVwc2vtUrse7s9ZF99gngN6SmcazA114P5bMbZ4dONPOuo72Y6EPJbN2UuTAdcA+9RFyLq4D9mnOoK1NytW1+/+IJrBPEun4AyiS36VICwAA
+   H4sIAAAAAAAAAO2WUQ6DIAyGTbjKbupOskzvMeM8iAPPMUj4458GsIiPNvleDH4pBVtX03XrBTw9/UWe2bM0+uCxnq3Bxx48kz6XoeThesGnDemR9doqXDbmmqrX2zNWuB4Rzs9Fn63MCy7k5xLvYs1RaPahdaX2MZidMdZtyMB5hHUvwUQs8UxywXdmFu9KWl18r3GeuXv/Ixd/N2dBXNGnbtftul1l5PccgmdayYXQ9lO5nntnqyv0sW+EvTUzDbODXdwfa+Y2Zgf3zrOu1H7kP4o2PoocUIfUOUmOXKgDn9N0gLY2JVdv9vmlidKMk44//QYrEkgLAAA=
   </data>
  </layer>
  <layer name="WalkBehind" width="19" height="38">

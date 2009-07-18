@@ -2,14 +2,14 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="44" height="48" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonLevels" value=""/>
   <property name="dayPokemonChances" value=""/>
-  <property name="nightPokemonLevels" value=""/>
+  <property name="dayPokemonLevels" value=""/>
   <property name="nightPokemonChances" value=""/>
-  <property name="waterPokemonLevels" value="10-19;15-19;"/>
-  <property name="waterPokemonChances" value="Magikarp,99;Gyarados,1;"/>
-  <property name="wildProbability" value="10"/>
+  <property name="nightPokemonLevels" value=""/>
   <property name="pvp" value="enforced"/>
+  <property name="waterPokemonChances" value="Magikarp,99;Gyarados,1;"/>
+  <property name="waterPokemonLevels" value="10-19;15-19;"/>
+  <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="-416"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
@@ -32,7 +32,7 @@
  </layer>
  <layer name="LedgesDown" width="44" height="48">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3QsQ0AEABFwR+2M6hRzCUKpUohkbsJXl4CAAAAAMCNXpJWk1Fel/xpf12fPQYA4GQCoAVJ8AAhAAA=
+   H4sIAAAAAAAAAO3QsQkAIBRDwfD3n8NR3MQ9tLG1sRDkDtKHlwAAAAAAcKNVMtZ6vX7yp921aQwAwMEEH74hEwAhAAA=
   </data>
  </layer>
  <layer name="Collisions" width="44" height="48">

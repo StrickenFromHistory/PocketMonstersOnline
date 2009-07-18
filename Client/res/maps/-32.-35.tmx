@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="20" height="18" tilewidth="16" tileheight="16">
-  <properties>
-  <property name="dayPokemonLevels" value="22-24;23-23;22-24;25-25;"/>
+ <properties>
   <property name="dayPokemonChances" value="Krabby,40;Zubat,30;Seel,25;Golbat,5;"/>
-  <property name="nightPokemonLevels" value="22-24;23-23;22-24;25-25;"/>
+  <property name="dayPokemonLevels" value="22-24;23-23;22-24;25-25;"/>
   <property name="nightPokemonChances" value="Krabby,40;Zubat,30;Seel,25;Golbat,5;"/>
-  <property name="waterPokemonLevels" value=""/>
+  <property name="nightPokemonLevels" value="22-24;23-23;22-24;25-25;"/>
   <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
   <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
-<tileset firstgid="1" source="normal1.tsx"/>
- 
+ <tileset firstgid="1" source="normal1.tsx"/>
  <tileset firstgid="1025" source="normal7.tsx"/>
- 
  <layer name="Walkable" width="20" height="18">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAGNgGAWkAnfGgXbBKBhJ4CjzQLuAOkCObaBdMPQAAEPXQm2gBQAA
@@ -23,7 +21,7 @@
  </layer>
  <layer name="Walkable" width="20" height="18">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWkgv0sA+2CUTCSwGh6G7kAAEBQ7GugBQAA
+   H4sIAAAAAAAAAGNgGAWkgv0sA+2CUTCSwFBPb4eYIRjGJtcMegNi7KS1uwBonQ1ooAUAAA==
   </data>
  </layer>
  <layer name="Grass" width="20" height="18">
@@ -43,7 +41,7 @@
  </layer>
  <layer name="Collisions" width="20" height="18">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAANWTYQqAIAyFBa/STeskYR1ExINEeI4cOBi2zcp+1IOPYNPXY0NvjfEfYcxshekFv5hBhR/5SXOgda4PfgPjB3WXWe25DucpdZ/LB/U9k8oXsyTih6r7kl+PuNxD85bspc1BEsx3EeDm3lJQzkTFz1X/7fWT6nSvCAj3TO/NJQ9ofjhXek97T62933m3mFvjSq4eDipOCc+gBQAA
+   H4sIAAAAAAAAANWUYQqAIAyFBa/iTeso2kFEPEiE52gDB8M2LexHPfgQNn2ODY3WmPgRFmCvrC/4ZYCUfuSn9YHHpTz6OcEP4x7Y7DWO+zltXqoP4wdQ6kq1FOZHavOa34ykut3wlO7V64Mm7G9QkPo+UursyR0/39w766fF+VwJFM2Zn6N6UGGir3fe02juT96tNs+W2X+gxwkzZ3v/oAUAAA==
   </data>
  </layer>
  <layer name="WalkBehind" width="20" height="18">
