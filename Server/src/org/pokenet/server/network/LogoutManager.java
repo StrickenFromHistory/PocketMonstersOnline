@@ -88,7 +88,9 @@ public class LogoutManager implements Runnable {
 								ProtocolHandler.removePlayer(p);
 								GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 								GameServer.getInstance().updatePlayerCount();
+								p.dispose();
 								System.out.println("INFO: " + p.getName() + " logged out.");
+								p = null;
 							}
 						}
 					}
@@ -255,7 +257,6 @@ public class LogoutManager implements Runnable {
 				//Dispose of the player object
 				if(p.getMap() != null)
 					p.getMap().removeChar(p);
-				p.dispose();
 				return true;
 			} else
 				return true;
