@@ -144,7 +144,9 @@ public class SoundManager extends Thread{
 	 */
 	public void setTrackByLocation(String track){
 		String key = track;
-		if (key.substring(0, 4).equalsIgnoreCase("Route"))
+		System.out.println(key);
+		System.out.println(key.substring(0,5));
+		if (key.substring(0, 5).equalsIgnoreCase("Route"))
 			key = "Route";
 		if (m_locations.get(key) != m_trackName){
 			m_trackName = m_locations.get(key);
