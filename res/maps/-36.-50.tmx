@@ -2,19 +2,19 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="20" height="28" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonLevels" value=""/>
   <property name="dayPokemonChances" value=""/>
-  <property name="nightPokemonLevels" value=""/>
+  <property name="dayPokemonLevels" value=""/>
   <property name="nightPokemonChances" value=""/>
-  <property name="waterPokemonLevels" value=""/>
+  <property name="nightPokemonLevels" value=""/>
   <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
   <property name="wildProbability" value="0"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
-<tileset firstgid="1" source="normal1.tsx"/>
-<tileset firstgid="1025" source="normal7.tsx"/>
-<tileset firstgid="2049" source="normal10.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal7.tsx"/>
+ <tileset firstgid="2049" source="normal10.tsx"/>
  <layer name="Layer 6" width="20" height="28">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAGNgGAWjYBSMAtKAK9NAu2AUjIJRMNIBAPYrDDzACAAA
@@ -32,7 +32,7 @@
  </layer>
  <layer name="Collisions" width="20" height="28">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAKtkY2DoZaAOrgSaNROI1zJQB8+EmkctQEvz1iOJk8umlfuUuRgYfiKZ+xMqRioejQ/quI+csMcWf/QKP6IBI6reEZWeGUfT82BOz4PdPGrF704qug9k1k0qmgcyi9y8iisNAQB+9Yu6wAgAAA==
+   H4sIAAAAAAAAAKtkY2AQ5YTgXigdyIldDMRm5ULInYSKw8QqgWbNBGJlLurgmVDzqAVoad56JHFy2bRyHygsfyKZ+5PMOBqND+q4j5ywxxZ/9Ao/ogEjqt4RlZ4ZR9PzYE7Pg908asXvTiq6D2TWTSqaBzKL3LyKKw0BANRhpz7ACAAA
   </data>
  </layer>
  <layer name="WalkBehind" width="20" height="28">
