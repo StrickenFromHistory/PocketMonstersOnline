@@ -11,6 +11,7 @@ import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.mechanics.BattleMechanics;
 import org.pokenet.server.battle.mechanics.MoveQueueException;
+import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
 import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
 import org.pokenet.server.battle.mechanics.polr.POLREvolution;
 import org.pokenet.server.battle.mechanics.polr.POLREvolution.EvoTypes;
@@ -741,6 +742,16 @@ public class WildBattleField extends BattleField {
 								m_player.getSession().write("PE" + index);
 								evolve = true;
 								i = pokeData.getEvolutions().size();
+							}
+						} else if(evolution.getType() == EvoTypes.HasMove)	{
+							for(int m = 0; m<4;m++) {
+								if(p.getMove(m) != null && evolution.getAttribute().equalsIgnoreCase(p.getMoveName(m)))
+								{
+									p.setEvolution(evolution);
+									m_player.getSession().write("PE" + index);
+									evolve = true;
+									i = pokeData.getEvolutions().size();
+								}
 							}
 						}
 					}
