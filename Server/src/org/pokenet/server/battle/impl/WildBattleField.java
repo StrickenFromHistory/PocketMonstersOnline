@@ -127,7 +127,8 @@ public class WildBattleField extends BattleField {
 		/*
 		 * If the pokemon is the player's make sure it don't get exp 
 		 */
-		if(trainer == 0 && m_participatingPokemon.contains(getParty(trainer)[idx])) {
+		if(trainer == 0 && getParty(trainer)[idx] != null
+				&& m_participatingPokemon.contains(getParty(trainer)[idx])) {
 			m_participatingPokemon.remove(getParty(trainer)[idx]);
 		}
 		if (m_player != null)
