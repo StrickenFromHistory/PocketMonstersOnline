@@ -14,16 +14,16 @@
   <property name="yOffsetModifier" value="0"/>
  </properties>
  <tileset name="set1" firstgid="1" tilewidth="16" tileheight="16">
-  <image source="PGTileseti.png" trans="000000"/>
+  <image source="normal1.png" trans="000000"/>
  </tileset>
  <tileset name="set2" firstgid="1025" tilewidth="16" tileheight="16">
-  <image source="PGTilesetii(d).png" trans="000000"/>
+  <image source="normal2.png" trans="000000"/>
  </tileset>
  <tileset name="set3" firstgid="2049" tilewidth="16" tileheight="16">
-  <image source="PGTilesetiii.png" trans="000000"/>
+  <image source="normal3.png" trans="000000"/>
  </tileset>
  <tileset name="kantotowns" firstgid="3073" tilewidth="16" tileheight="16">
-  <image source="PGTilesetzkantotowns1.png" trans="ffffff"/>
+  <image source="normal13.png" trans="ffffff"/>
  </tileset>
  <layer name="Walkable" width="48" height="40">
   <data encoding="base64" compression="gzip">
