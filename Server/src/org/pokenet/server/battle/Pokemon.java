@@ -2082,19 +2082,21 @@ public class Pokemon extends PokemonSpecies {
      * Get a stat multiplier, including the ones for accuracy and evasion.
      */
     public StatMultiplier getMultiplier(int i) throws StatException {
-    	if(m_multiplier == null) {
-    		m_multiplier = new StatMultiplier[m_stat.length];
+    	if (i < m_multiplier.length){
+    		if(m_multiplier == null) {
+    			m_multiplier = new StatMultiplier[m_stat.length];
+    		}
+    		if(m_multiplier[i] == null)
+    			m_multiplier[i] = new StatMultiplier(false);
+    		if (i < 0)
+    			throw new StatException();
+    		if (i < 6)
+    			return m_multiplier[i];
+    		if (i == S_ACCURACY)
+    			return m_accuracy;
+    		if (i == S_EVASION)
+    			return m_evasion;
     	}
-    	if(m_multiplier[i] == null)
-    		m_multiplier[i] = new StatMultiplier(false);
-        if (i < 0)
-            throw new StatException();
-        if (i < 6)
-            return m_multiplier[i];
-        if (i == S_ACCURACY)
-            return m_accuracy;
-        if (i == S_EVASION)
-            return m_evasion;
         throw new StatException();
     }
     
