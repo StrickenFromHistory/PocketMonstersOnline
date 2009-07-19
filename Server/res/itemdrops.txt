@@ -59,13 +59,13 @@ Growlithe 203 80 164 20
 Arcanine 203 50 303 40 241 10
 Poliwag 206 100
 Poliwhirl 201 50 209 40 155 10
-Poliwrath 209 75 334 5 208 20
+Poliwrath 209 75 208 25
 Abra 207 95 604 5
 Kadabra 321 5 206 95
 Alakazam 209 69 321 10 374 10 388 10 340 1
 Machop 206 100
 Machoke 209 95 301 5
-Machamp 209 95 335 5
+Machamp 209 100
 Bellsprout 200 90 173 10
 Weepinbell 206 50 209 50
 Victreebel 209 90 352 5 353 5
@@ -83,7 +83,7 @@ Magneton 206 50 307 50
 Farfetch'd 206 75 482 25
 Doduo 206 100
 Dodrio 209 99 607 1
-Seel 206 60 209 39 588 1
+Seel 206 60 209 35 588 5
 Dewgong 209 90 310 10
 Grimer 202 98 353 1 385 1
 Muk 202 80 353 10 385 3 581 7
@@ -103,8 +103,8 @@ Exeggcute 133 50 206 50
 Exeggutor 209 90 208 9 373 1
 Cubone 206 85 483 15
 Marowak 209 75 483 25
-Hitmonlee 209 80 334 10 301 10
-Hitmonchan 209 80 334 10 301 10
+Hitmonlee 209 80 301 20
+Hitmonchan 209 80 301 20
 Lickitung 209 80 317 10 312 10
 Koffing 202 50 203 40 581 10
 Weezing 209 68 353 22 611 5 639 5
@@ -127,7 +127,7 @@ Magmar 206 80 156 10 636 10
 Pinsir 206 90 161 5 378 5
 Tauros 209 100
 Magikarp  200 100
-Gyarados 206 70 236 10 304 5 165 10 646 5
+Gyarados 206 50 236 10 304 10 165 20 646 10
 Lapras 209 90 208 10
 Ditto 206 100
 Eevee 206 100
@@ -229,7 +229,7 @@ Houndour 203 100
 Houndoom 203 100
 Kingdra 152 10 200 90
 Phanphy 200 50 206 50
-Donphan 200 50 206 40 601 10
+Donphan 200 50 206 30 601 20
 Porygon2 153 10 163 10 200 40 206 40
 Stantler 200 25 201 50 206 25
 Smeargle 206 100
@@ -446,7 +446,7 @@ Gabite 205 100
 Garchomp 601 10 603 20 304 30 205 40
 Munchlax 209 99 370 1
 Riolu 206 70 301 30
-Lucario 209 60 334 40
+Lucario 209 100
 Hippopotas 204 100
 Hippowdon 204 90 319 10
 Skorupi 200 100
@@ -459,11 +459,11 @@ Lumineon 235 20 209 80
 Mantyke 206 100
 Snover 238 10 204 90
 Abomasnow 238 25 204 60 311 15
-Weavile 160 5 336 10
+Weavile 160 100
 Magnezone 236 30 307 10 308 10
 Lickilicky 206 80 209 19 649 1
 Rhyperior 209 50 185 3 159 5
-Tangrowth 200 99 339 1
+Tangrowth 200 100
 Electivire 154 5
 Magmortar 156 5
 Togekiss 208 60 169 1
