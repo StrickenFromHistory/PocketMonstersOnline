@@ -45,6 +45,8 @@ public class LogoutManager implements Runnable {
 	 * @param player
 	 */
 	private boolean attemptLogout(PlayerChar player) {
+		ProtocolHandler.removePlayer(player);
+		GameServer.getInstance().updatePlayerCount();
 		if(!m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword()))
 			return false;
 		m_database.selectDatabase(GameServer.getDatabaseName());
@@ -59,6 +61,7 @@ public class LogoutManager implements Runnable {
 		//Close the session fully if its not closed already
 		if(player.getSession() != null && player.getSession().isConnected())
 			player.getSession().close();
+		GameServer.getServiceManager().getMovementService().removePlayer(player.getName());
 		return true;
 	}
 	
@@ -85,9 +88,6 @@ public class LogoutManager implements Runnable {
 							if(!attemptLogout(p)) {
 								m_logoutQueue.add(p);
 							} else {
-								ProtocolHandler.removePlayer(p);
-								GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
-								GameServer.getInstance().updatePlayerCount();
 								p.dispose();
 								System.out.println("INFO: " + p.getName() + " logged out.");
 								p = null;
