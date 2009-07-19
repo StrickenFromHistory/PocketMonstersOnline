@@ -11284,7 +11284,14 @@
             <string>Amnesia</string>
             <string>Hammer Arm</string>
          </eggMoves>
-         <evolutions/>
+         <evolutions>
+            <POLREvolution>
+               <m_type>HasMove</m_type>
+               <m_level>0</m_level>
+               <m_attribute>Rollout</m_attribute>
+               <m_evolveTo>Lickilicky</m_evolveTo>
+            </POLREvolution>
+         </evolutions>
          <battlerPlayerY>0</battlerPlayerY>
          <battlerEnemyY>0</battlerEnemyY>
          <battlerAltitude>0</battlerAltitude>
@@ -11943,7 +11950,14 @@
             <string>Endeavor</string>
             <string>Leaf Storm</string>
          </eggMoves>
-         <evolutions/>
+         <evolutions>
+            <POLREvolution>
+               <m_type>HasMove</m_type>
+               <m_level>0</m_level>>
+               <m_attribute>Ancientpower</m_attribute>
+               <m_evolveTo>Tangrowth</m_evolveTo>
+            </POLREvolution>
+         </evolutions>
          <battlerPlayerY>0</battlerPlayerY>
          <battlerEnemyY>0</battlerEnemyY>
          <battlerAltitude>0</battlerAltitude>
@@ -19985,7 +19999,14 @@
             <string>Covet</string>
             <string>Bounce</string>
          </eggMoves>
-         <evolutions/>
+         <evolutions>
+            <POLREvolution>
+               <m_type>HasMove</m_type>
+               <m_level>0</m_level>
+               <m_attribute>Double Hit</m_attribute>
+               <m_evolveTo>Ambipom</m_evolveTo>
+            </POLREvolution>
+         </evolutions>
          <battlerPlayerY>0</battlerPlayerY>
          <battlerEnemyY>0</battlerEnemyY>
          <battlerAltitude>0</battlerAltitude>
@@ -20321,7 +20342,14 @@
             <string>Signal Beam</string>
             <string>Silver Wind</string>
          </eggMoves>
-         <evolutions/>
+         	   <evolutions>
+               <POLREvolution>
+               <m_type>HasMove</m_type>
+               <m_level>0</m_level>
+               <m_attribute>Ancientpower</m_attribute>
+               <m_evolveTo>Yanmega</m_evolveTo>
+            </POLREvolution>
+         </evolutions>
          <battlerPlayerY>0</battlerPlayerY>
          <battlerEnemyY>0</battlerEnemyY>
          <battlerAltitude>0</battlerAltitude>
@@ -23240,8 +23268,14 @@
             <string>Mud Sport</string>
             <string>Powder Snow</string>
          </starterMoves>
-         <eggMoves/>
-         <evolutions/>
+         <evolutions>
+            <POLREvolution>
+               <m_type>HasMove</m_type>
+               <m_level>0</m_level>>
+               <m_attribute>Ancientpower</m_attribute>
+               <m_evolveTo>Mamoswine</m_evolveTo>
+            </POLREvolution>
+         </evolutions>
          <battlerPlayerY>0</battlerPlayerY>
          <battlerEnemyY>0</battlerEnemyY>
          <battlerAltitude>0</battlerAltitude>
@@ -45663,7 +45697,7 @@
             <POLREvolution>
                <m_type>HasMove</m_type>
                <m_level>0</m_level>
-               <m_attribute>MIMIC</m_attribute>
+               <m_attribute>Mimic</m_attribute>
                <m_evolveTo>Sudowoodo</m_evolveTo>
             </POLREvolution>
          </evolutions>
@@ -45789,7 +45823,7 @@
             <POLREvolution>
                <m_type>HasMove</m_type>
                <m_level>0</m_level>
-               <m_attribute>MIMIC</m_attribute>
+               <m_attribute>Mimic</m_attribute>
                <m_evolveTo>Mr. Mime</m_evolveTo>
             </POLREvolution>
          </evolutions>
