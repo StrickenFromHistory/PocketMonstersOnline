@@ -11,6 +11,7 @@ import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.mechanics.BattleMechanics;
 import org.pokenet.server.battle.mechanics.MoveQueueException;
+import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
 import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
 import org.pokenet.server.battle.mechanics.polr.POLREvolution;
 import org.pokenet.server.battle.mechanics.polr.POLREvolution.EvoTypes;
@@ -75,7 +76,7 @@ public class WildBattleField extends BattleField {
 		m_participatingPokemon.add(p.getParty()[0]);
 
 		/* Call methods */
-		//applyWeather();
+		applyWeather();
 		requestMoves();
 	}
 
@@ -127,7 +128,8 @@ public class WildBattleField extends BattleField {
 		/*
 		 * If the pokemon is the player's make sure it don't get exp 
 		 */
-		if(trainer == 0 && m_participatingPokemon.contains(getParty(trainer)[idx])) {
+		if(trainer == 0 && getParty(trainer)[idx] != null
+				&& m_participatingPokemon.contains(getParty(trainer)[idx])) {
 			m_participatingPokemon.remove(getParty(trainer)[idx]);
 		}
 		if (m_player != null)
@@ -740,6 +742,16 @@ public class WildBattleField extends BattleField {
 								m_player.getSession().write("PE" + index);
 								evolve = true;
 								i = pokeData.getEvolutions().size();
+							}
+						} else if(evolution.getType() == EvoTypes.HasMove)	{
+							for(int m = 0; m<4;m++) {
+								if(p.getMove(m) != null && evolution.getAttribute().equalsIgnoreCase(p.getMoveName(m)))
+								{
+									p.setEvolution(evolution);
+									m_player.getSession().write("PE" + index);
+									evolve = true;
+									i = pokeData.getEvolutions().size();
+								}
 							}
 						}
 					}
