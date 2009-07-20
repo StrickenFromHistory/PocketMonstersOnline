@@ -36,7 +36,6 @@ import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
 import org.pokenet.client.backend.ItemDatabase;
 import org.pokenet.client.backend.MoveLearningManager;
-import org.pokenet.client.backend.OverworldRenderer;
 import org.pokenet.client.backend.SoundManager;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
@@ -89,7 +88,6 @@ public class GameClient extends BasicGame {
 	private ConfirmationDialog m_confirm;
 	private PlayerPopupDialog m_playerDialog;
 	private MoveLearningManager m_moveLearningManager;
-	private OverworldRenderer m_overworld;
     private static SoundManager m_soundPlayer;
     private static boolean m_disableMaps = false;
     
@@ -198,8 +196,6 @@ public class GameClient extends BasicGame {
 		 */
 		m_mapMatrix = new ClientMapMatrix();
 		m_animator = new Animator(m_mapMatrix);
-		
-		m_overworld = new OverworldRenderer(gc.getGraphics());
 		
 		gc.getInput().enableKeyRepeat(50, 300);
 	}
@@ -315,7 +311,7 @@ public class GameClient extends BasicGame {
             	}
             }
             g.resetTransform();
-           	m_overworld.render(g);            
+           	m_mapMatrix.getCurrentMap().renderTop(g);            
 
            	if(m_mapX > -30) {
                 //Render the current weather
