@@ -1,7 +1,6 @@
 package org.pokenet.client.backend;
 
 import java.io.InputStream;
-import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 import org.newdawn.slick.Graphics;
@@ -9,6 +8,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.Layer;
 import org.newdawn.slick.tiled.TiledMap;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
 
@@ -28,12 +28,10 @@ public class ClientMap extends TiledMap {
 	private int m_mapY;
 	private boolean m_isCurrent = false;
 	private ClientMapMatrix m_mapMatrix;
-	private int m_walkableLayer, m_lastRendered;
+	private int m_walkableLayer;
 	private String m_name;
 	private Image m_grassOverlay;
 	
-	private Graphics m_graphics;
-
 	/**
 	 * Default constructor
 	 * @param f
@@ -52,37 +50,8 @@ public class ClientMap extends TiledMap {
 		"0").trim());
 		m_xOffset = m_xOffsetModifier;
 		m_yOffset = m_yOffsetModifier;
-		if (getLayerIndex("WalkBehind") == -1){
-			m_walkableLayer = getLayerCount() - 1;
-		} else {
-			m_walkableLayer = getLayerCount() - 2;
-		}
-		m_lastRendered = 0;
 	}
 	
-	@Override
-	protected void renderedLine(int visualY, int mapY, int layer) {
-		if (m_isCurrent) {
-			try {
-				m_graphics.resetTransform();
-				if (layer == m_walkableLayer) {
-					synchronized (m_mapMatrix.getPlayers()) {
-						Player p;
-						Iterator<Player> it = m_mapMatrix.getPlayers().iterator();
-						while(it.hasNext()) {
-							p = it.next();
-							if(p != null && p.getSprite() != 0 && (p.getY() >= mapY * 32 - 39) && (p.getY() <= mapY * 32 + 32)
-									&& (p.getCurrentImage() != null)) {
-								p.getCurrentImage().draw(m_xOffset + p.getX() - 4, m_yOffset + p.getY());
-							}
-						}
-					}
-				}
-				m_graphics.scale(2, 2);
-			} catch (ConcurrentModificationException e) {}
-		}
-	}
-
 	/**
 	 * Returns true if this map is/should be rendering on screen
 	 * @return
@@ -98,14 +67,6 @@ public class ClientMap extends TiledMap {
 			return true;
 		}
 		return false;
-	}
-	
-	/**
-	 * Sets the graphics for this map
-	 * @param g
-	 */
-	public void setGraphics(Graphics g) {
-		m_graphics = g;
 	}
 
 	/**
@@ -125,27 +86,11 @@ public class ClientMap extends TiledMap {
 	}
 	
 	/**
-	 * Returns the index of the last rendered layer
-	 * @return
-	 */
-	public int getLastLayerRendered() {
-		return m_lastRendered;
-	}
-	
-	/**
 	 * Returns the index of the walkable layer
 	 * @return
 	 */
 	public int getWalkableLayer() {
 		return m_walkableLayer;
-	}
-	
-	/**
-	 * Sets the last layer rendered
-	 * @param l
-	 */
-	public void setLastLayerRendered(int l) {
-		m_lastRendered = l;
 	}
 	
 	/**
@@ -470,7 +415,7 @@ public class ClientMap extends TiledMap {
 		}
 	}
 	
-	public void renderTop(Graphics m_graphics) {
+	public void renderTop(Graphics g) {
 		synchronized (m_mapMatrix.getPlayers()) {
 			Player p;
 			Iterator<Player> it = m_mapMatrix.getPlayers().iterator();
@@ -480,6 +425,19 @@ public class ClientMap extends TiledMap {
 				int m_xOffset = m_curMap.getXOffset();
 				int m_yOffset = m_curMap.getYOffset();
 				if(p != null && p.getSprite() != 0 && (p.getCurrentImage() != null)) {
+					// Draw the player
+					p.getCurrentImage().draw(m_xOffset + p.getX() - 4, m_yOffset + p.getY());
+
+					// Draw the walk behind layer
+					g.scale(2, 2);
+					for (int i = 0; i < getLayer("WalkBehind").height; i++){
+						getLayer("WalkBehind").render(getXOffset() / 2,
+								getYOffset() / 2, 0, 0,
+								(int)(GameClient.getInstance().getDisplay().getWidth() - getXOffset()) / 32,
+								i,
+    						false, 16, 16);
+					}
+					g.resetTransform();
 					if (m_curMap.shouldReflect(p)){
 						// If there's a reflection, flip the player's image, set his alpha so its more translucent, and then draw it.
 						Image m_reflection = p.getCurrentImage().getFlippedCopy(false, true);
@@ -506,8 +464,8 @@ public class ClientMap extends TiledMap {
 					if (m_curMap.isOnGrass(p) && p.getY() <= p.getServerY()){
 						m_grassOverlay.draw(m_xOffset + p.getServerX(), m_yOffset + p.getServerY() + 9);
 					}
-					m_graphics.drawString(p.getUsername(), m_xOffset + (p.getX()
-							- (m_graphics.getFont().getWidth(p.getUsername()) / 2)) + 16, m_yOffset + p.getY()
+					g.drawString(p.getUsername(), m_xOffset + (p.getX()
+							- (g.getFont().getWidth(p.getUsername()) / 2)) + 16, m_yOffset + p.getY()
 							- 36);
 				}
 			}

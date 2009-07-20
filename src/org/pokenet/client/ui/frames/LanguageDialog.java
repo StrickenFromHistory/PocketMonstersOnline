@@ -1,13 +1,13 @@
 package org.pokenet.client.ui.frames;
 
-import org.newdawn.slick.Color;
-import org.pokenet.client.GameClient;
-
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
+
+import org.newdawn.slick.Color;
+import org.pokenet.client.GameClient;
 
 /**
  * Handles language selection

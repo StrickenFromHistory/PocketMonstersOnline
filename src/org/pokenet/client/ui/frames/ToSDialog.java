@@ -2,12 +2,12 @@ package org.pokenet.client.ui.frames;
 
 import java.util.List;
 
+import mdes.slick.sui.Frame;
+import mdes.slick.sui.TextArea;
+
 import org.newdawn.slick.Color;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.Translator;
-
-import mdes.slick.sui.Frame;
-import mdes.slick.sui.TextArea;
 
 /**
  * A window with information about the game

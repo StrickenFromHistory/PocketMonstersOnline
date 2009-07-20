@@ -53,7 +53,6 @@ public class ClientMapMatrix {
 						try {
 							m_mapMatrix[x + 1][y + 1] = new ClientMap(f,"res/maps");
 							m_mapMatrix[x + 1][y + 1].setMapMatrix(this);
-							m_mapMatrix[x + 1][y + 1].setGraphics(g);
 							m_mapMatrix[x + 1][y + 1].setMapX(x + 1);
 							m_mapMatrix[x + 1][y + 1].setMapY(y + 1);
 							m_mapMatrix[x + 1][y + 1].setCurrent(x == 0 && y == 0);
@@ -80,7 +79,6 @@ public class ClientMapMatrix {
 							try {
 								m_mapMatrix[x + 1][y + 1] = new ClientMap(f,"res/maps");
 								m_mapMatrix[x + 1][y + 1].setMapMatrix(this);
-								m_mapMatrix[x + 1][y + 1].setGraphics(g);
 								m_mapMatrix[x + 1][y + 1].setMapX(x + 1);
 								m_mapMatrix[x + 1][y + 1].setMapY(y + 1);
 								m_mapMatrix[x + 1][y + 1].setCurrent(x == 0 && y == 0);

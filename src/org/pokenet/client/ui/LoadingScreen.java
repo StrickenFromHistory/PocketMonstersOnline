@@ -2,11 +2,11 @@ package org.pokenet.client.ui;
 
 import java.io.InputStream;
 
-import org.newdawn.slick.Color;
-import org.newdawn.slick.Image;
-
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
+
+import org.newdawn.slick.Color;
+import org.newdawn.slick.Image;
 
 /**
  * The loading screen
