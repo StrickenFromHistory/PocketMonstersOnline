@@ -5,7 +5,6 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.Layer;
 import org.newdawn.slick.tiled.TiledMap;
@@ -30,7 +29,6 @@ public class ClientMap extends TiledMap {
 	private ClientMapMatrix m_mapMatrix;
 	private int m_walkableLayer, m_lastRendered;
 	private String m_name;
-	private Image m_grassOverlay;
 	
 	private Graphics m_graphics;
 
@@ -42,10 +40,6 @@ public class ClientMap extends TiledMap {
 	 */
 	public ClientMap(InputStream f, String tileSetsLocation) throws SlickException {
 		super(f, tileSetsLocation);
-		try{
-			f = getClass().getResourceAsStream("/res/ui/grass_overlay.png");
-			m_grassOverlay = new Image(f, "/res/ui/grass_overlay.png", false);
-		} catch (Exception e) {e.printStackTrace();}
 		m_xOffsetModifier = Integer.parseInt(getMapProperty("xOffsetModifier",
 		"0").trim());
 		m_yOffsetModifier = Integer.parseInt(getMapProperty("yOffsetModifier",
@@ -62,7 +56,6 @@ public class ClientMap extends TiledMap {
 	
 	@Override
 	protected void renderedLine(int visualY, int mapY, int layer) {
-		//m_lastRendered = layer;
 		if (m_isCurrent) {
 			try {
 				m_graphics.resetTransform();
@@ -75,35 +68,6 @@ public class ClientMap extends TiledMap {
 							if(p != null && p.getSprite() != 0 && (p.getY() >= mapY * 32 - 39) && (p.getY() <= mapY * 32 + 32)
 									&& (p.getCurrentImage() != null)) {
 								p.getCurrentImage().draw(m_xOffset + p.getX() - 4, m_yOffset + p.getY());
-								if (shouldReflect(p)){
-									// If there's a reflection, flip the player's image, set his alpha so its more translucent, and then draw it.
-									Image m_reflection = p.getCurrentImage().getFlippedCopy(false, true);
-									m_reflection.setAlpha((float) 0.05);
-									if (p.getSprite() != -1)
-										m_reflection.draw(m_xOffset + p.getX() - 4, m_yOffset + p.getY() + 32);
-									else{
-										m_reflection.draw(m_xOffset + p.getX() - 4, m_yOffset + p.getY() + 8);
-									}
-								}
-								if (wasOnGrass(p) && isOnGrass(p)){
-									switch (p.getDirection()){
-									case Up:
-										m_grassOverlay.draw(m_xOffset + p.getServerX(), m_yOffset + p.getServerY() + 32 + 8);
-										break;
-									case Left:
-										m_grassOverlay.copy().draw(m_xOffset + p.getServerX() + 32, m_yOffset + p.getServerY() + 8);
-										break;
-									case Right:
-										m_grassOverlay.copy().draw(m_xOffset + p.getServerX() - 32, m_yOffset + p.getServerY() + 8);
-										break;
-									}
-								}
-								if (isOnGrass(p) && p.getY() <= p.getServerY()){
-									m_grassOverlay.draw(m_xOffset + p.getServerX(), m_yOffset + p.getServerY() + 9);
-								}
-								m_graphics.drawString(p.getUsername(), m_xOffset + (p.getX()
-										- (m_graphics.getFont().getWidth(p.getUsername()) / 2)) + 16, m_yOffset + p.getY()
-										- 36);
 							}
 						}
 					}
