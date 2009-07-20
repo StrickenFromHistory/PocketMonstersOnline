@@ -1,9 +1,9 @@
 package org.pokenet.client.backend.time;
 
+import mdes.slick.sui.Label;
+
 import org.newdawn.slick.Color;
 import org.pokenet.client.GameClient;
-
-import mdes.slick.sui.Label;
 
 /**
  * Handles time and rendering of night. Also acts as a label for usage in GUI

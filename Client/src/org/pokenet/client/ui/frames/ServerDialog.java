@@ -6,16 +6,16 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
-import org.newdawn.slick.Color;
-import org.pokenet.client.GameClient;
-import org.pokenet.client.backend.Translator;
-
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
 import mdes.slick.sui.TextField;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
+
+import org.newdawn.slick.Color;
+import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 
 /**
  * Handles server selection

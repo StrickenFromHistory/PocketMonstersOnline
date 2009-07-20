@@ -1,9 +1,9 @@
 package org.pokenet.client.ui.base;
 
-import org.newdawn.slick.Color;
-
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
+
+import org.newdawn.slick.Color;
 
 /**
  * A notification

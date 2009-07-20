@@ -291,27 +291,16 @@ public class GameClient extends BasicGame {
             	for (int y = 0; y <= 2; y++) {
             		thisMap = m_mapMatrix.getMap(x, y);
             		if (thisMap != null && thisMap.isRendering()) {
-            			if(!thisMap.isCurrent())
-            				thisMap.render(thisMap.getXOffset() / 2,
-            						thisMap.getYOffset() / 2, 0, 0,
-            						(gc.getScreenWidth() - thisMap.getXOffset()) / 32,
-            						(gc.getScreenHeight() - thisMap.getYOffset()) / 32,
-            						false);
-            			else {
-            				for(int l = 0; l < thisMap.getLayerCount(); l++) {
-            					thisMap.render(thisMap.getXOffset() / 2,
-            							thisMap.getYOffset() / 2, 0, 0,
-            							(gc.getScreenWidth() - thisMap.getXOffset()) / 32,
-            							(gc.getScreenHeight() - thisMap.getYOffset()) / 32,
-            							l, thisMap.getLastLayerRendered() + 1 == thisMap.getWalkableLayer());
-            					thisMap.setLastLayerRendered(l); 
-            				}
-            			}
+            			thisMap.render(thisMap.getXOffset() / 2,
+            					thisMap.getYOffset() / 2, 0, 0,
+            					(gc.getScreenWidth() - thisMap.getXOffset()) / 32,
+            					(gc.getScreenHeight() - thisMap.getYOffset()) / 32,
+            					false);
             		}
             	}
             }
             g.resetTransform();
-           	m_mapMatrix.getCurrentMap().renderTop(g);            
+           	m_mapMatrix.getCurrentMap().renderTop(g);
 
            	if(m_mapX > -30) {
                 //Render the current weather
