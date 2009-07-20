@@ -23261,6 +23261,7 @@
                <string>Ice Fang</string>
             </entry>
          </moves>
+         <eggMoves />
          <starterMoves>
             <string>Ancientpower</string>
             <string>Peck</string>
