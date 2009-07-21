@@ -415,6 +415,24 @@ public class ClientMap extends TiledMap {
 		}
 	}
 	
+	@Override
+	public void render(int x,int y,int sx,int sy,int width,int height, boolean lineByLine) {
+		for (int ty=0;ty<height;ty++) {
+			for (int i=0;i<layers.size();i++) {
+				Layer layer = (Layer) layers.get(i);
+				if (!m_isCurrent){
+					layer.render(x,y,sx,sy,width, ty,lineByLine, tileWidth, tileHeight);
+				} else if (!layer.name.equalsIgnoreCase("WalkBehind")){
+					layer.render(x,y,sx,sy,width, ty,lineByLine, tileWidth, tileHeight);
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Renders the player, water reflections, grass overlays, and the WalkBehind layer.
+	 * @param g
+	 */
 	public void renderTop(Graphics g) {
 		synchronized (m_mapMatrix.getPlayers()) {
 			Player p;
