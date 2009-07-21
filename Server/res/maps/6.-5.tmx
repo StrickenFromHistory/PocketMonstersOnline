@@ -62,4 +62,9 @@
    H4sIAAAAAAAAAO2WTQ6CMBBGCey9hAvP4cLodVx4Ak1cu/AA/u5deABRvAeKnMM2lkQmQzvtDAuDTb5FU+b1QSk0S6IoI2au8rBkoZKCUGt1nkj9d3KkJjNjVzPHSzip4Wq3u4p0q9zTlvn6HsoW+T7uZVzvFzF+XSjfp3WRP1DPe0lMCH9iWU8Jf8jfq9pDQ0L2LuTfzP7cqGxBQvZuE/+CfPOk+JV7CH8ExsYIH3On8qe9en8G+lz+CvDWwvwT4J3//t7++t+OnR+k/Dn7i+LP4bv8C/NssPOPhH8/+cyBnX8k/IeWWv1N2jH9bXzK/4XjT+H/iv+x4ToJf9s7JOFv43P9Xe8o19+1xlx/F7/L/m8QKkubAA8AAA==
   </data>
  </layer>
+ <layer name="WalkBehind" width="24" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BAQ0AAADCoPdPbQ8HFAAAAPwbZzTZygAPAAA=
+  </data>
+ </layer>
 </map>
