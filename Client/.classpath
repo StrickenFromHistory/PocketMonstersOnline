@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src">
-		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="PokenetClient/lib/native"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry excluding="src/" kind="src" path=""/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/jinput.jar"/>
-	<classpathentry kind="lib" path="lib/jogg-0.0.7.jar"/>
-	<classpathentry kind="lib" path="lib/jorbis-0.0.15.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl_util_applet.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl_util.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl.jar">
-		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Client/lib/native"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="lib/mina-core-1.1.7.jar"/>
-	<classpathentry kind="lib" path="lib/slf4j-api-1.5.6.jar"/>
-	<classpathentry kind="lib" path="lib/slf4j-jdk14-1.5.6.jar"/>
-	<classpathentry kind="lib" path="lib/slick.jar"/>
-	<classpathentry kind="lib" path="lib/sui.jar"/>
-	<classpathentry kind="lib" path="lib/simple-xml-2.0.2.jar"/>
-	<classpathentry kind="lib" path="lib/stax-1.2.0.jar"/>
-	<classpathentry kind="lib" path="lib/stax-api-1.0.1.jar"/>
-	<classpathentry kind="output" path="bin"/>
+        <classpathentry kind="src" path="src">
+                <attributes>
+                        <attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="PokenetClient/lib/native"/>
+                </attributes>
+        </classpathentry>
+        <classpathentry excluding="src/" kind="src" path=""/>
+        <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+        <classpathentry kind="lib" path="lib/jinput.jar"/>
+        <classpathentry kind="lib" path="lib/jogg-0.0.7.jar"/>
+        <classpathentry kind="lib" path="lib/jorbis-0.0.15.jar"/>
+        <classpathentry kind="lib" path="lib/lwjgl_util_applet.jar"/>
+        <classpathentry kind="lib" path="lib/lwjgl_util.jar"/>
+        <classpathentry kind="lib" path="lib/lwjgl.jar"/>
+        <classpathentry kind="lib" path="lib/mina-core-1.1.7.jar"/>
+        <classpathentry kind="lib" path="lib/slf4j-api-1.5.6.jar"/>
+        <classpathentry kind="lib" path="lib/slf4j-jdk14-1.5.6.jar"/>
+        <classpathentry kind="lib" path="lib/slick.jar"/>
+        <classpathentry kind="lib" path="lib/sui.jar"/>
+        <classpathentry kind="lib" path="lib/simple-xml-2.0.2.jar"/>
+        <classpathentry kind="lib" path="lib/stax-1.2.0.jar"/>
+        <classpathentry kind="lib" path="lib/stax-api-1.0.1.jar"/>
+        <classpathentry kind="output" path="bin"/>
 </classpath>
