@@ -243,7 +243,7 @@ public class WildBattleField extends BattleField {
 	 */
 	@Override
 	public void queueMove(int trainer, BattleTurn move)
-			throws MoveQueueException {
+	throws MoveQueueException {
 		/* Checks the move exists */
 		if(move.isMoveTurn() && move.getId() != -1 &&
 				getActivePokemon()[trainer].getMove(move.getId()) == null) {
@@ -312,7 +312,7 @@ public class WildBattleField extends BattleField {
 								if (m_participatingPokemon
 										.contains(getActivePokemon()[0]))
 									m_participatingPokemon
-											.remove(getActivePokemon()[0]);
+									.remove(getActivePokemon()[0]);
 								requestPokemonReplacement(0);
 								return;
 							} else {
@@ -332,7 +332,7 @@ public class WildBattleField extends BattleField {
 								if (trainer == 0) {
 									ProtocolHandler.writeMessage(m_player.getSession(), 
 											new NoPPMessage(this.getActivePokemon()[trainer]
-												.getMoveName(move.getId())));
+											                                        .getMoveName(move.getId())));
 									requestMove(0);
 								} else {
 									requestMove(1);
@@ -415,25 +415,27 @@ public class WildBattleField extends BattleField {
 	 * Generates a wild Pokemon move
 	 */
 	protected void getWildPokemonMove() {
-		if(getActivePokemon()[1] == null)
+		//getActivePokemon() could possibly be null.
+		if(getActivePokemon() == null || getActivePokemon()[1] == null)
 			return;
 		try {
 			int moveID = getMechanics().getRandom().nextInt(4);
 			while (getActivePokemon()[1].getMove(moveID) == null) {
-				try {
-					Thread.sleep(100);
-				} catch (Exception e) {}
+				Thread.sleep(100);
 				moveID = getMechanics().getRandom().nextInt(4);
 				/*
 				 * Stop infinite loops when player disconnects
 				 */
-				if(m_player.getSession() == null || m_player.getSession().isClosing() ||
+				if(m_player == null || m_player.getSession() == null || m_player.getSession().isClosing() ||
 						!m_player.getSession().isConnected())
 					break;
 			}
 			queueMove(1, BattleTurn.getMoveTurn(moveID));
 		} catch (MoveQueueException x) {
 			x.printStackTrace();
+		} catch(Exception e) {
+			if(!(e instanceof InterruptedException))
+				e.printStackTrace();
 		}
 	}
 
@@ -471,7 +473,7 @@ public class WildBattleField extends BattleField {
 			return;
 		if(m_player != null)
 			ProtocolHandler.writeMessage(m_player.getSession(), 
-				new BattleMessage(message));
+					new BattleMessage(message));
 	}
 
 	/**
@@ -517,7 +519,7 @@ public class WildBattleField extends BattleField {
 			}
 		}
 	}
-	
+
 	/**
 	 * Throws a Pokeball. Returns true if pokemon was caught
 	 * @param p
@@ -640,7 +642,7 @@ public class WildBattleField extends BattleField {
 			ProtocolHandler.writeMessage(m_player.getSession(), 
 					new BattleRewardMessage(BattleRewardType.MONEY, money));
 		}
-		
+
 		if(m_participatingPokemon.size() > 0) {
 			double exp = (DataService.getBattleMechanics().calculateExpGain(
 					m_wildPoke, m_participatingPokemon.size()));
@@ -707,9 +709,9 @@ public class WildBattleField extends BattleField {
 						- p.getExp();
 				if (levelExp <= 0) {
 					POLRDataEntry pokeData = DataService.getPOLRDatabase()
-							.getPokemonData(
-									DataService.getSpeciesDatabase()
-											.getPokemonByName(p.getSpeciesName()));
+					.getPokemonData(
+							DataService.getSpeciesDatabase()
+							.getPokemonByName(p.getSpeciesName()));
 					boolean evolve = false;
 					/* Handle evolution */
 					for (int i = 0; i < pokeData.getEvolutions().size(); i++) {
