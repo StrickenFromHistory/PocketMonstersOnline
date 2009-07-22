@@ -480,21 +480,34 @@ public class PlayerChar extends Char implements Battleable {
 	 * Heals the player's pokemon
 	 */
 	public void healPokemon() {
-		for (Pokemon pokemon : getParty()) {
-			if (pokemon != null) {
-				pokemon.calculateStats(true);
-				pokemon.reinitialise();
-				pokemon.setIsFainted(false);
-				for(int i = 0; i < pokemon.getMoves().length; i++) {
-					if(pokemon.getMoves()[i] != null) {
-						PokemonMove move = pokemon.getMoves()[i].getMove();
-						pokemon.setPp(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
-						pokemon.setMaxPP(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
+		try {
+			if(getParty() == null)
+				return;
+			for (Pokemon pokemon : getParty()) {
+				if (pokemon != null) {
+					pokemon.calculateStats(true);
+					pokemon.reinitialise();
+					pokemon.setIsFainted(false);
+					if(pokemon.getMoves() != null) {
+						for(int i = 0; i < pokemon.getMoves().length; i++) {
+							if(pokemon.getMoves()[i] != null) {
+								PokemonMove move = pokemon.getMoves()[i].getMove();
+								if(move != null) {
+									pokemon.setPp(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
+									pokemon.setMaxPP(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
+								}
+							}
+						}
 					}
 				}
 			}
+			m_session.write("cH");
+		} catch(Exception e) {
+			if(e instanceof NullPointerException) {
+				((NullPointerException)e).printStackTrace();
+			} else
+				e.printStackTrace();
 		}
-		m_session.write("cH");
 	}
 
 	/**
