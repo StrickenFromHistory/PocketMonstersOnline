@@ -33,46 +33,55 @@ import org.pokenet.server.battle.mechanics.PokemonType;
  * @author Ben
  */
 public class RecoilMove extends PokemonMove {
-    
-    private double m_recoil;
-    
-    /**
-     * Creates a new instance of RecoilMove
-     */
-    public RecoilMove(PokemonType type,
-            int power,
-            double accuracy,
-            int pp,
-            double recoil) {
-        
-        super(type, power, accuracy, pp);
-        m_recoil = recoil;
-    }
-        
-    public int getRecoil(Pokemon p, int damage) {
-        int recoil = (int)(m_recoil * (double)damage);
-        if (recoil < 1) recoil = 1;
-        return recoil;
-    }
-    
-    public boolean isProtected(Pokemon p) {
-        return p.hasAbility("Rock Head");
-    }
-    
-    public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
-        int health = target.getHealth();
-        int damage = mech.calculateDamage(this, user, target);
-        target.changeHealth(-damage);
-        health -= target.getHealth();
-        if (damage == 0)
-            return 0;
-        
-        if (!isProtected(user)) {
-            int recoil = getRecoil(user, health);
-            if (recoil < 1) recoil = 1;
-            user.getField().showMessage(user.getName() + " was hit by recoil!");
-            user.changeHealth(-recoil, true);
-        }
-        return damage;
-    }
+
+	private double m_recoil;
+
+	/**
+	 * Creates a new instance of RecoilMove
+	 */
+	public RecoilMove(PokemonType type,
+			int power,
+			double accuracy,
+			int pp,
+			double recoil) {
+
+		super(type, power, accuracy, pp);
+		m_recoil = recoil;
+	}
+
+	public int getRecoil(Pokemon p, int damage) {
+		int recoil = (int)(m_recoil * (double)damage);
+		if (recoil < 1) recoil = 1;
+		return recoil;
+	}
+
+	public boolean isProtected(Pokemon p) {
+		return p.hasAbility("Rock Head");
+	}
+
+	public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
+		try {
+			if(user == null || mech == null)
+				return 0;
+			int health = target.getHealth();
+			int damage = mech.calculateDamage(this, user, target);
+			target.changeHealth(-damage);
+			health -= target.getHealth();
+			if (damage == 0)
+				return 0;
+
+			if (!isProtected(user)) {
+				int recoil = getRecoil(user, health);
+				if (recoil < 1) 
+					recoil = 1;
+				if(user.getField() != null || user.getName() != null)
+					user.getField().showMessage(user.getName() + " was hit by recoil!");
+				user.changeHealth(-recoil, true);
+			}
+			return damage;
+		} catch(NullPointerException npe) {
+			npe.printStackTrace();
+		}
+		return 0;
+	}
 }
