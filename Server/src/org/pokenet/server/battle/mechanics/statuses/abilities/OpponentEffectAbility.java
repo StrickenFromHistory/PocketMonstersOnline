@@ -33,55 +33,60 @@ import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
  */
 public abstract class OpponentEffectAbility extends IntrinsicAbility {
 
-    private FieldEffect m_effect;
-    
-    /** Creates a new instance of TrappingAbility */
-    public OpponentEffectAbility(String name) {
-        super(name);
-    }
-    
-    public void unapply(Pokemon p) {
-        if (m_effect != null) {
-            p.getField().removeEffect(m_effect);
-        }
-    }
-    
-    public boolean switchOut(Pokemon p) {
-        unapply(p);
-        return super.switchOut(p);
-    }
-    
-    protected abstract void applyToOpponent(Pokemon owner, Pokemon p);
-    
-    public void switchIn(final Pokemon owner) {
-        class OpponentFieldEffect extends FieldEffect {
-            public boolean applyToField(BattleField field) {
-                m_effect = this;
-                return true;
-            }
-            public void unapplyToField(BattleField field) {
-                m_effect = null;
-            }
-            public boolean tickField(BattleField field) {
-                return false;
-            }
-            public Pokemon getOwner() {
-                return owner;
-            }
-            public boolean equals(Object o2) {
-                if (!(o2 instanceof OpponentFieldEffect))
-                    return false;
-                OpponentFieldEffect e2 = (OpponentFieldEffect)o2;
-                return (owner.getParty() == e2.getOwner().getParty());
-            }
-            public boolean apply(Pokemon p) {
-                if (owner.getParty() != p.getParty()) {
-                    applyToOpponent(owner, p);
-                }
-                return true;
-            }
-        }
-        owner.getField().applyEffect(new OpponentFieldEffect());
-    }
+	private FieldEffect m_effect;
+
+	/** Creates a new instance of TrappingAbility */
+	public OpponentEffectAbility(String name) {
+		super(name);
+	}
+
+	public void unapply(Pokemon p) {
+		try {
+			if(p != null)
+				if (m_effect != null) {
+					p.getField().removeEffect(m_effect);
+				}
+		} catch(NullPointerException npe) {
+			npe.printStackTrace();
+		}
+	}
+
+	public boolean switchOut(Pokemon p) {
+		unapply(p);
+		return super.switchOut(p);
+	}
+
+	protected abstract void applyToOpponent(Pokemon owner, Pokemon p);
+
+	public void switchIn(final Pokemon owner) {
+		class OpponentFieldEffect extends FieldEffect {
+			public boolean applyToField(BattleField field) {
+				m_effect = this;
+				return true;
+			}
+			public void unapplyToField(BattleField field) {
+				m_effect = null;
+			}
+			public boolean tickField(BattleField field) {
+				return false;
+			}
+			public Pokemon getOwner() {
+				return owner;
+			}
+			public boolean equals(Object o2) {
+				if (!(o2 instanceof OpponentFieldEffect))
+					return false;
+				OpponentFieldEffect e2 = (OpponentFieldEffect)o2;
+				return (owner.getParty() == e2.getOwner().getParty());
+			}
+			public boolean apply(Pokemon p) {
+				if (owner.getParty() != p.getParty()) {
+					applyToOpponent(owner, p);
+				}
+				return true;
+			}
+		}
+		owner.getField().applyEffect(new OpponentFieldEffect());
+	}
 
 }
