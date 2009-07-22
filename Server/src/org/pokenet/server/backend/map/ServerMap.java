@@ -3,6 +3,7 @@ package org.pokenet.server.backend.map;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -32,7 +33,7 @@ import tiled.core.TileLayer;
  */
 public class ServerMap {
 	public enum PvPType { DISABLED, ENABLED, ENFORCED }
-	
+
 	//Stores the width, heigth, x, y and offsets of this map
 	private int m_width;
 	private int m_heigth;
@@ -65,7 +66,7 @@ public class ServerMap {
 	private ServerTileLayer m_ledgesRight = null;
 	//Misc
 	private Random m_random = DataService.getBattleMechanics().getRandom();
-	
+
 	/**
 	 * Default constructor
 	 * @param map
@@ -95,10 +96,10 @@ public class ServerMap {
 				m_surf = new ServerTileLayer((TileLayer) map.getLayer(i));
 			}
 		}
-		
+
 		m_players = new HashMap<String, PlayerChar>();
 		m_npcs = new ArrayList<NonPlayerChar>();
-		
+
 		/*
 		 * Load pvp settings
 		 */
@@ -114,7 +115,7 @@ public class ServerMap {
 		} catch (Exception e) {
 			m_pvpType = PvPType.ENABLED;
 		}
-		
+
 		/*
 		 * Add enforced weather if any
 		 */
@@ -124,8 +125,8 @@ public class ServerMap {
 					m_forcedWeather = Weather.NORMAL;
 				}
 				else if(x!= -36 || y != -49) {
-					   m_forcedWeather = Weather.NORMAL;
-					}
+					m_forcedWeather = Weather.NORMAL;
+				}
 			} else if(map.getProperties().getProperty("forcedWeather") != null && 
 					!map.getProperties().getProperty("forcedWeather").equalsIgnoreCase("")) {
 				m_forcedWeather = Weather.valueOf(map.getProperties().getProperty("forcedWeather"));
@@ -133,7 +134,7 @@ public class ServerMap {
 		} catch (Exception e) {
 			m_forcedWeather = null;
 		}
-		
+
 		/*
 		 * Load offsets
 		 */
@@ -147,7 +148,7 @@ public class ServerMap {
 		} catch (Exception e) {
 			m_yOffsetModifier = 0;
 		}
-		
+
 		/*
 		 * Load wild pokemon
 		 */
@@ -160,7 +161,7 @@ public class ServerMap {
 		} catch (Exception e) {
 			m_wildProbability = 28;
 		}
-		
+
 		String[] species;
 		String[] levels;
 		//Daytime Pokemon
@@ -171,14 +172,14 @@ public class ServerMap {
 				if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
 					m_dayPokemonChances = new HashMap<String, Integer>();
 					m_dayPokemonLevels = new HashMap<String, int[]> ();
-						for (int i = 0; i < species.length; i++) {
-							String[] speciesInfo = species[i].split(",");
-							m_dayPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
-							String[] levelInfo = levels[i].split("-");
-							m_dayPokemonLevels.put(speciesInfo[0], new int[] {
-									Integer.parseInt(levelInfo[0]),
-									Integer.parseInt(levelInfo[1]) });
-						}
+					for (int i = 0; i < species.length; i++) {
+						String[] speciesInfo = species[i].split(",");
+						m_dayPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
+						String[] levelInfo = levels[i].split("-");
+						m_dayPokemonLevels.put(speciesInfo[0], new int[] {
+								Integer.parseInt(levelInfo[0]),
+								Integer.parseInt(levelInfo[1]) });
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -195,14 +196,14 @@ public class ServerMap {
 				if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
 					m_nightPokemonChances = new HashMap<String, Integer>();
 					m_nightPokemonLevels = new HashMap<String, int[]> ();
-						for (int i = 0; i < species.length; i++) {
-							String[] speciesInfo = species[i].split(",");
-							m_nightPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
-							String[] levelInfo = levels[i].split("-");
-							m_nightPokemonLevels.put(speciesInfo[0], new int[] {
-									Integer.parseInt(levelInfo[0]),
-									Integer.parseInt(levelInfo[1]) });
-						}
+					for (int i = 0; i < species.length; i++) {
+						String[] speciesInfo = species[i].split(",");
+						m_nightPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
+						String[] levelInfo = levels[i].split("-");
+						m_nightPokemonLevels.put(speciesInfo[0], new int[] {
+								Integer.parseInt(levelInfo[0]),
+								Integer.parseInt(levelInfo[1]) });
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -219,14 +220,14 @@ public class ServerMap {
 				if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
 					m_waterPokemonChances = new HashMap<String, Integer>();
 					m_waterPokemonLevels = new HashMap<String, int[]> ();
-						for (int i = 0; i < species.length; i++) {
-							String[] speciesInfo = species[i].split(",");
-							m_waterPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
-							String[] levelInfo = levels[i].split("-");
-							m_waterPokemonLevels.put(speciesInfo[0], new int[] {
-									Integer.parseInt(levelInfo[0]),
-									Integer.parseInt(levelInfo[1]) });
-						}
+					for (int i = 0; i < species.length; i++) {
+						String[] speciesInfo = species[i].split(",");
+						m_waterPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
+						String[] levelInfo = levels[i].split("-");
+						m_waterPokemonLevels.put(speciesInfo[0], new int[] {
+								Integer.parseInt(levelInfo[0]),
+								Integer.parseInt(levelInfo[1]) });
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -236,7 +237,7 @@ public class ServerMap {
 			levels = new String[] { "" };
 		}
 	}
-	
+
 	/**
 	 * Loads all npc and warp tile data
 	 */
@@ -250,11 +251,11 @@ public class ServerMap {
 				@SuppressWarnings("unused")
 				DataLoader d = new DataLoader(f, this);
 			} catch (Exception e) {
-				
+
 			}
 		}
 	}
-	
+
 	/**
 	 * Sends a chat message to everyone of the same language
 	 * @param message
@@ -270,7 +271,7 @@ public class ServerMap {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns the pvp type of the map
 	 * @return
@@ -278,7 +279,7 @@ public class ServerMap {
 	public PvPType getPvPType() {
 		return m_pvpType;
 	}
-	
+
 	/**
 	 * Adds a warp tile to the map
 	 * @param w
@@ -288,7 +289,7 @@ public class ServerMap {
 			m_warps = new ArrayList<WarpTile>();
 		m_warps.add(w);
 	}
-	
+
 	/**
 	 * Adds an item to the map
 	 * @param x
@@ -298,15 +299,15 @@ public class ServerMap {
 	public void addItem(int x, int y, int id) {
 		m_items.add(new MapItem(x, y, id));
 	}
-	
+
 	/**
 	 * Allows a player to pick up an item
 	 * @param p
 	 */
 	public void pickupItem(PlayerChar p) {
-		
+
 	}
-	
+
 	/**
 	 * Returns true if this map has a forced weather
 	 * @return
@@ -314,7 +315,7 @@ public class ServerMap {
 	public boolean isWeatherForced() {
 		return m_forcedWeather != null;
 	}
-	
+
 	/**
 	 * Returns the enforced weather on this map
 	 * @return
@@ -322,7 +323,7 @@ public class ServerMap {
 	public Weather getWeather() {
 		return m_forcedWeather;
 	}
-	
+
 	/**
 	 * Sets forced weather
 	 * @param w
@@ -330,14 +331,14 @@ public class ServerMap {
 	public void setWeather(Weather w) {
 		m_forcedWeather = w;
 	}
-	
+
 	/**
 	 * Removes forced weather
 	 */
 	public void removeWeather() {
 		m_forcedWeather = null;
 	}
-	
+
 	/**
 	 * Returns the weather id for the enforced weather on this map
 	 * @return
@@ -361,7 +362,7 @@ public class ServerMap {
 		} else
 			return 0;
 	}
-	
+
 	/**
 	 * Sets the map matrix
 	 * @param matrix
@@ -369,7 +370,7 @@ public class ServerMap {
 	public void setMapMatrix(ServerMapMatrix matrix) {
 		m_mapMatrix = matrix;
 	}
-	
+
 	/**
 	 * Adds a player to this map and notifies all other clients on the map.
 	 * @param player
@@ -385,14 +386,14 @@ public class ServerMap {
 		for(PlayerChar p : m_players.values()) {
 			if(c.getId() != p.getId())
 				p.getSession().write("ma" + c.getName() + "," + 
-					c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
-					(c.getFacing() == Direction.Down ? "D" : 
-						c.getFacing() == Direction.Up ? "U" :
-							c.getFacing() == Direction.Left ? "L" :
-								"R"));
+						c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
+						(c.getFacing() == Direction.Down ? "D" : 
+							c.getFacing() == Direction.Up ? "U" :
+								c.getFacing() == Direction.Left ? "L" :
+						"R"));
 		}
 	}
-	
+
 	/**
 	 * Adds a char and sets their x y based on a 32 by 32 pixel grid.
 	 * Allows easier adding of NPCs as the x,y can easily be counted via Tiled
@@ -405,7 +406,7 @@ public class ServerMap {
 		c.setX(tileX * 32);
 		c.setY((tileY * 32) - 8);
 	}
-	
+
 	/**
 	 * Returns the x co-ordinate of this servermap in the map matrix
 	 * @return
@@ -413,7 +414,7 @@ public class ServerMap {
 	public int getX() {
 		return m_x;
 	}
-	
+
 	/**
 	 * Returns the y co-ordinate of this servermap in the map matrix
 	 * @return
@@ -421,7 +422,7 @@ public class ServerMap {
 	public int getY() {
 		return m_y;
 	}
-	
+
 	/**
 	 * Returns the width of this map
 	 * @return
@@ -429,7 +430,7 @@ public class ServerMap {
 	public int getWidth() {
 		return m_width;
 	}
-	
+
 	/**
 	 * Returns the height of this map
 	 * @return
@@ -437,7 +438,7 @@ public class ServerMap {
 	public int getHeight() {
 		return m_heigth;
 	}
-	
+
 	/**
 	 * Returns the x offset of this map
 	 * @return
@@ -445,7 +446,7 @@ public class ServerMap {
 	public int getXOffsetModifier() {
 		return m_xOffsetModifier;
 	}
-	
+
 	/**
 	 * Returns the y offset of this map
 	 * @return
@@ -453,7 +454,7 @@ public class ServerMap {
 	public int getYOffsetModifier() {
 		return m_yOffsetModifier;
 	}
-	
+
 	/**
 	 * Removes a char from this map
 	 * @param c
@@ -469,7 +470,7 @@ public class ServerMap {
 			p.getSession().write("mr" + c.getId());
 		}
 	}
-	
+
 	/**
 	 * Allows a player to talk to the npc in front of them, if any
 	 * @param p
@@ -504,7 +505,7 @@ public class ServerMap {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns true if there is an obstacle
 	 * @param x
@@ -543,7 +544,7 @@ public class ServerMap {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Returns true if the char was warped
 	 * @param x
@@ -562,7 +563,7 @@ public class ServerMap {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Returns true if the char is able to move
 	 * @param c
@@ -710,7 +711,7 @@ public class ServerMap {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Starts an npc battle with the player if the player was challenged
 	 * @param p
@@ -763,7 +764,7 @@ public class ServerMap {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns true if a wild pokemon was encountered.
 	 * @return
@@ -782,7 +783,7 @@ public class ServerMap {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Returns a wild pokemon.
 	 * Different players have different chances of encountering rarer Pokemon.
@@ -810,7 +811,7 @@ public class ServerMap {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns a wild species for day
 	 * @return
@@ -825,7 +826,7 @@ public class ServerMap {
 		} while (potentialSpecies.size() <= 0);
 		return potentialSpecies.get(m_random.nextInt(potentialSpecies.size()));
 	}
-	
+
 	/**
 	 * Returns a wild species for night
 	 * @return
@@ -840,7 +841,7 @@ public class ServerMap {
 		} while (potentialSpecies.size() <= 0);
 		return potentialSpecies.get(m_random.nextInt(potentialSpecies.size()));
 	}
-	
+
 	/**
 	 * Returns a wild species for water
 	 * @return
@@ -855,18 +856,24 @@ public class ServerMap {
 		} while (potentialSpecies.size() <= 0);
 		return potentialSpecies.get(m_random.nextInt(potentialSpecies.size()));
 	}
-	
+
 	/**
 	 * Sends a packet to all players on the map
 	 * @param message
 	 */
 	public void sendToAll(PokenetMessage m) {
-		Collection<PlayerChar> list = m_players.values();
-		for(PlayerChar p: list) {
-			ProtocolHandler.writeMessage(p.getSession(), m);
+		try {
+			Collection<PlayerChar> list = m_players.values();
+			synchronized(list) {
+				for(PlayerChar p: list) {
+					ProtocolHandler.writeMessage(p.getSession(), m);
+				}
+			}
+		} catch(ConcurrentModificationException cme) {
+			cme.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Returns the arraylist of players
 	 * @return
@@ -874,7 +881,7 @@ public class ServerMap {
 	public HashMap<String, PlayerChar> getPlayers() {
 		return m_players;
 	}
-	
+
 	/**
 	 * Returns the arraylist of npcs
 	 * @return
