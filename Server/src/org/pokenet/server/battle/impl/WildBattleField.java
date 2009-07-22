@@ -232,9 +232,14 @@ public class WildBattleField extends BattleField {
 			 * This very bad programming but shoddy does it and forces us to do
 			 * it
 			 */
-			Thread t = m_dispatch;
+			/*Thread t = m_dispatch;
 			m_dispatch = null;
-			t.stop();
+			t.stop();*/
+			/**
+			 * not sure whats up with the first 2 lines above, and an unhealthy way
+			 * of killing the thread. -xEnt
+			 */
+			// let the thread run out it's self (which it should do)
 		}
 	}
 
