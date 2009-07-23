@@ -252,9 +252,9 @@ public class NpcBattleField extends BattleField {
 			 * This very bad programming but shoddy does it and forces us to do
 			 * it
 			 */
-			Thread t = m_dispatch;
+			/*Thread t = m_dispatch;
 			m_dispatch = null;
-			t.stop();
+			t.stop(); let the thread manually return.*/
 		}
 	}
 

@@ -304,9 +304,9 @@ public class PvPBattleField extends BattleField {
 			 * This very bad programming but shoddy does it and forces us to do
 			 * it
 			 */
-			Thread t = m_dispatch;
-			m_dispatch = null;
-			t.stop();
+			//Thread t = m_dispatch;
+			//m_dispatch = null;
+			//t.stop(); let the thread manually return.
 		}
 	}
 
