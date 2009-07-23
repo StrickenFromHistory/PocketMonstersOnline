@@ -249,6 +249,8 @@ public class WildBattleField extends BattleField {
 	@Override
 	public void queueMove(int trainer, BattleTurn move)
 	throws MoveQueueException {
+		try {
+		
 		/* Checks the move exists */
 		if(move.isMoveTurn() && move.getId() != -1 &&
 				getActivePokemon()[trainer].getMove(move.getId()) == null) {
@@ -379,6 +381,9 @@ public class WildBattleField extends BattleField {
 				}
 			});
 			m_dispatch.start();
+		}
+		} catch(NullPointerException npe) {
+			npe.printStackTrace(); // print so we can find where the exact line is, then fix it.
 		}
 	}
 
