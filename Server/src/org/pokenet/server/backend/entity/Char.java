@@ -138,48 +138,91 @@ public class Char implements Positionable {
 		if(m_nextMovement != null && m_map != null) {
 			//Move the player
 			if(m_facing != m_nextMovement) {
+				/*
+				 * If it's a player, send the change securely over TCP
+				 */
+				if(this instanceof PlayerChar) {
+					PlayerChar p = (PlayerChar) this;
+					switch(m_nextMovement) {
+					case Up:
+						p.getTcpSession().write("cU" + m_id);
+						break;
+					case Down:
+						p.getTcpSession().write("cD" + m_id);
+						break;
+					case Left:
+						p.getTcpSession().write("cL" + m_id);
+						break;
+					case Right:
+						p.getTcpSession().write("cR" + m_id);
+						break;
+					}
+				}
 				switch(m_nextMovement) {
 				case Up:
 					m_facing = Direction.Up;
-					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, true));
+					m_map.sendMovementToAll(new MoveMessage(this, true), this);
 					break;
 				case Down:
 					m_facing = Direction.Down;
-					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, true));
+					m_map.sendMovementToAll(new MoveMessage(this, true), this);
 					break;
 				case Left:
 					m_facing = Direction.Left;
-					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, true));
+					m_map.sendMovementToAll(new MoveMessage(this, true), this);
 					break;
 				case Right:
 					m_facing = Direction.Right;
-					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, true));
+					m_map.sendMovementToAll(new MoveMessage(this, true), this);
 					break;
 				}
 				m_nextMovement = null;
 				m_lastMovement = System.currentTimeMillis();
 				return true;
 			} else if(m_map.moveChar(this, m_nextMovement)) {
+				/*
+				 * If it's a player, send the movement securely over TCP
+				 */
+				if(this instanceof PlayerChar) {
+					PlayerChar p = (PlayerChar) this;
+					switch(m_nextMovement) {
+					case Up:
+						p.getTcpSession().write("U");
+						break;
+					case Down:
+						p.getTcpSession().write("D");
+						break;
+					case Left:
+						p.getTcpSession().write("L");
+						break;
+					case Right:
+						p.getTcpSession().write("R");
+						break;
+					}
+				}
+				/*
+				 * Update co-ordinates and inform other players of movement
+				 */
 				switch(m_nextMovement) {
 				case Up:
 					m_y -= 32;
 					m_facing = Direction.Up;
-					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, false));
+					m_map.sendMovementToAll(new MoveMessage(this, false), this);
 					break;
 				case Down:
 					m_y += 32;
 					m_facing = Direction.Down;
-					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, false));
+					m_map.sendMovementToAll(new MoveMessage(this, false), this);
 					break;
 				case Left:
 					m_x -= 32;
 					m_facing = Direction.Left;
-					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, false));
+					m_map.sendMovementToAll(new MoveMessage(this, false), this);
 					break;
 				case Right:
 					m_x += 32;
 					m_facing = Direction.Right;
-					m_map.sendToAll(new MoveMessage(m_nextMovement, m_id, false));
+					m_map.sendMovementToAll(new MoveMessage(this, false), this);
 					break;
 				}
 				m_nextMovement = null;
@@ -285,7 +328,7 @@ public class Char implements Positionable {
 	public void setFacing(Direction d) {
 		m_facing = d;
 		if(m_map != null) {
-			m_map.sendToAll(new MoveMessage(d, m_id, true));
+			m_map.sendMovementToAll(new MoveMessage(this, true), this);
 		}
 	}
 }

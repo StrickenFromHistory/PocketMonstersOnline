@@ -12,7 +12,7 @@ public class IdleTimer implements Runnable {
 			 * Loop through all players and check for idling
 			 * If they've idled, disconnect them
 			 */
-			ProtocolHandler.kickIdlePlayers();
+			TcpProtocolHandler.kickIdlePlayers();
 			try {
 				Thread.sleep(30000);
 			} catch (Exception e) {}

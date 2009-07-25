@@ -3,11 +3,11 @@ package org.pokenet.server.feature;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import org.apache.mina.common.IoSession;
+import org.apache.mina.core.session.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar.Language;
 import org.pokenet.server.backend.map.ServerMap;
-import org.pokenet.server.network.ProtocolHandler;
+import org.pokenet.server.network.TcpProtocolHandler;
 import org.pokenet.server.network.message.ChatMessage;
 import org.pokenet.server.network.message.ChatMessage.ChatMessageType;
 
@@ -89,7 +89,7 @@ public class ChatManager implements Runnable {
 				o = m_privateQueue.poll();
 				s = (IoSession) o[0];
 				if(s.isConnected() && !s.isClosing())
-					ProtocolHandler.writeMessage(s, new ChatMessage(
+					TcpProtocolHandler.writeMessage(s, new ChatMessage(
 							ChatMessageType.PRIVATE, ((String) o[1]) + "," + ((String) o[2])));
 			}
 			try {

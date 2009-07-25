@@ -3,8 +3,8 @@ package org.pokenet.server.network;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import org.apache.mina.common.IoHandlerAdapter;
-import org.apache.mina.common.IoSession;
+import org.apache.mina.core.service.IoHandlerAdapter;
+import org.apache.mina.core.session.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.ItemProcessor;
 import org.pokenet.server.backend.entity.PlayerChar;
@@ -23,7 +23,7 @@ import org.pokenet.server.network.message.RequestMessage;
  * @author shadowkanji
  *
  */
-public class ProtocolHandler extends IoHandlerAdapter {
+public class TcpProtocolHandler extends IoHandlerAdapter {
 	private static HashMap<String, PlayerChar> m_players;
 	private LoginManager m_loginManager;
 	private LogoutManager m_logoutManager;
@@ -34,7 +34,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 	 * @param login
 	 * @param logout
 	 */
-	public ProtocolHandler(LoginManager login, LogoutManager logout) {
+	public TcpProtocolHandler(LoginManager login, LogoutManager logout) {
 		m_loginManager = login;
 		m_logoutManager = logout;
 		m_regManager = new RegistrationManager();
@@ -201,7 +201,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				case 'b':
 					//Battle Request rbUSERNAME
 					if(m_players.containsKey(player)) {
-						ProtocolHandler.writeMessage(m_players.get(player).getSession(), 
+						TcpProtocolHandler.writeMessage(m_players.get(player).getTcpSession(), 
 								new RequestMessage(RequestType.BATTLE, p.getName()));
 						p.addRequest(player, RequestType.BATTLE);
 					}
@@ -209,7 +209,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				case 't':
 					//Trade Request rtUSERNAME
 					if(m_players.containsKey(player)) {
-						ProtocolHandler.writeMessage(m_players.get(player).getSession(), 
+						TcpProtocolHandler.writeMessage(m_players.get(player).getTcpSession(), 
 								new RequestMessage(RequestType.TRADE, p.getName()));
 						p.addRequest(player, RequestType.TRADE);
 					}
@@ -259,7 +259,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 			case 'M':
 				//Moderation
 				if(message.charAt(1) == 'c') {
-					p.getSession().write("Cl" + m_players.size() + " players online");
+					p.getTcpSession().write("Cl" + m_players.size() + " players online");
 				} else if(p.getAdminLevel() > 0) {
 					try {
 						switch(message.charAt(1)) {
@@ -306,7 +306,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 							if(m_players.containsKey(message.substring(2))) {
 								PlayerChar o = m_players.get(message.substring(2));
 								o.setMuted(true);
-								o.getSession().write("!You have been muted.");
+								o.getTcpSession().write("!You have been muted.");
 							}
 							break;
 						case 'u':
@@ -314,14 +314,14 @@ public class ProtocolHandler extends IoHandlerAdapter {
 							if(m_players.containsKey(message.substring(2))) {
 								PlayerChar o = m_players.get(message.substring(2));
 								o.setMuted(false);
-								o.getSession().write("!You have been unmuted.");
+								o.getTcpSession().write("!You have been unmuted.");
 							}
 							break;
 						case 'k':
 							if(m_players.containsKey(message.substring(2))) {
 								PlayerChar o = m_players.get(message.substring(2));
-								o.getSession().write("!You have been kicked from the server.");
-								o.getSession().close();
+								o.getTcpSession().write("!You have been kicked from the server.");
+								o.getTcpSession().close();
 							}
 							break;
 						case 'w':
@@ -430,7 +430,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 			case 'i':
 				//Drop item
 				if(p.getBag().removeItem(Integer.parseInt(message.substring(1)), 1)) {
-					ProtocolHandler.writeMessage(p.getSession(), new ItemMessage(false, 
+					TcpProtocolHandler.writeMessage(p.getTcpSession(), new ItemMessage(false, 
 							Integer.parseInt(message.substring(1)), 1));
 				}
 				break;
@@ -474,7 +474,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 					details = message.substring(2).split(",");
 					if(m_players.containsKey(details[0])) {
 						GameServer.getServiceManager().getNetworkService().getChatManager().
-						queuePrivateMessage(details[1], m_players.get(details[0]).getSession(), p.getName());
+						queuePrivateMessage(details[1], m_players.get(details[0]).getTcpSession(), p.getName());
 					}
 					break;
 				case 't':

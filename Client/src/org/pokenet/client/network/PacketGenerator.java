@@ -1,6 +1,6 @@
 package org.pokenet.client.network;
 
-import org.apache.mina.common.IoSession;
+import org.apache.mina.core.session.IoSession;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Player.Direction;
 
@@ -10,31 +10,56 @@ import org.pokenet.client.backend.entity.Player.Direction;
  *
  */
 public class PacketGenerator {
-	private IoSession m_session;
+	private IoSession m_tcpSession;
+	private IoSession m_udpSession;
 	private long m_lastMovement = 0;
 	
 	/**
-	 * Default constructor
-	 * @param session
+	 * Sets the UDP session
+	 * @param s
 	 */
-	public PacketGenerator(IoSession session) {
-		m_session = session;
+	public void setUdpSession(IoSession s) {
+		m_udpSession = s;
 	}
 	
 	/**
-	 * Returns the connection
+	 * Sets the TCP session
+	 * @param s
+	 */
+	public void setTcpSession(IoSession s) {
+		m_tcpSession = s;
+	}
+	
+	/**
+	 * Returns the UDP session
 	 * @return
 	 */
-	public IoSession getSession() {
-		return m_session;
+	public IoSession getUdpSession() {
+		return m_udpSession;
 	}
 	
 	/**
-	 * Sends a packet
+	 * Returns the TCP session
+	 * @return
+	 */
+	public IoSession getTcpSession() {
+		return m_tcpSession;
+	}
+	
+	/**
+	 * Sends a packet over TCP
 	 * @param message
 	 */
-	public void write(String message) {
-		m_session.write(message);
+	public void writeTcpMessage(String message) {
+		m_tcpSession.write(message);
+	}
+	
+	/**
+	 * Sends a packet over UDP
+	 * @param message
+	 */
+	public void writeUdpMessage(String message) {
+		m_udpSession.write(message);
 	}
 	
 	/**
@@ -61,7 +86,7 @@ public class PacketGenerator {
 		} else if(GameClient.getLanguage().equalsIgnoreCase("german")) {
 			language = '7';
 		}
-		m_session.write("l" + language + username + "," + (getPasswordHash(password)));
+		m_tcpSession.write("l" + language + username + "," + (getPasswordHash(password)));
 	}
 	
 	/**
@@ -79,7 +104,7 @@ public class PacketGenerator {
 			String dob,
 			int starter,
 			int sprite) {
-        m_session.write("r" + username + "," + (getPasswordHash(password)) + "," + email + "," + dob + "," + starter + "," + sprite);
+        m_tcpSession.write("r" + username + "," + (getPasswordHash(password)) + "," + email + "," + dob + "," + starter + "," + sprite);
 	}
 	
 	/**
@@ -87,19 +112,19 @@ public class PacketGenerator {
 	 * @param d
 	 */
 	public void move(Direction d) {
-		if(System.currentTimeMillis() - m_lastMovement > 60) {
+		if(System.currentTimeMillis() - m_lastMovement > 30) {
 			switch(d) {
 			case Down:
-				m_session.write("D");
+				m_udpSession.write("D" + GameClient.UDPCODE + String.valueOf(GameClient.getInstance().getPlayerId()));
 				break;
 			case Up:
-				m_session.write("U");
+				m_udpSession.write("U" + GameClient.UDPCODE + String.valueOf(GameClient.getInstance().getPlayerId()));
 				break;
 			case Left:
-				m_session.write("L");
+				m_udpSession.write("L" + GameClient.UDPCODE + String.valueOf(GameClient.getInstance().getPlayerId()));
 				break;
 			case Right:
-				m_session.write("R");
+				m_udpSession.write("R" + GameClient.UDPCODE + String.valueOf(GameClient.getInstance().getPlayerId()));
 				break;
 			}
 			m_lastMovement = System.currentTimeMillis();

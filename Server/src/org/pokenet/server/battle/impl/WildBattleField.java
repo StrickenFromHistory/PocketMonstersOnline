@@ -20,7 +20,7 @@ import org.pokenet.server.battle.mechanics.statuses.field.HailEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.RainEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.SandstormEffect;
 import org.pokenet.server.feature.TimeService;
-import org.pokenet.server.network.ProtocolHandler;
+import org.pokenet.server.network.TcpProtocolHandler;
 import org.pokenet.server.network.message.battle.BattleEndMessage;
 import org.pokenet.server.network.message.battle.BattleExpMessage;
 import org.pokenet.server.network.message.battle.BattleInitMessage;
@@ -66,8 +66,8 @@ public class WildBattleField extends BattleField {
 		/* Send information to client */
 		p.setBattling(true);
 		p.setBattleId(0);
-		ProtocolHandler.writeMessage(p.getSession(), new BattleInitMessage(true, 1));
-		ProtocolHandler.writeMessage(p.getSession(), new EnemyDataMessage(0, wild));
+		TcpProtocolHandler.writeMessage(p.getTcpSession(), new BattleInitMessage(true, 1));
+		TcpProtocolHandler.writeMessage(p.getTcpSession(), new EnemyDataMessage(0, wild));
 
 		/* Store variables */
 		m_player = p;
@@ -75,7 +75,7 @@ public class WildBattleField extends BattleField {
 		m_participatingPokemon.add(p.getParty()[0]);
 
 		/* Call methods */
-		applyWeather();
+		//applyWeather();
 		requestMoves();
 	}
 
@@ -127,12 +127,11 @@ public class WildBattleField extends BattleField {
 		/*
 		 * If the pokemon is the player's make sure it don't get exp 
 		 */
-		if(trainer == 0 && getParty(trainer)[idx] != null
-				&& m_participatingPokemon.contains(getParty(trainer)[idx])) {
+		if(trainer == 0 && m_participatingPokemon.contains(getParty(trainer)[idx])) {
 			m_participatingPokemon.remove(getParty(trainer)[idx]);
 		}
 		if (m_player != null)
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new FaintMessage(getParty(trainer)[idx].getSpeciesName()));
 	}
 
@@ -140,15 +139,15 @@ public class WildBattleField extends BattleField {
 	public void informPokemonHealthChanged(Pokemon poke, int change) {
 		if (m_player != null) {
 			if (getActivePokemon()[0] == poke) {
-				ProtocolHandler.writeMessage(m_player.getSession(), 
+				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new HealthChangeMessage(0 , change));
 			} else if(getActivePokemon()[1] == poke){
-				ProtocolHandler.writeMessage(m_player.getSession(), 
+				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new HealthChangeMessage(1 , change));
 			} else {
 				int index = getPokemonPartyIndex(0, poke);
 				if(index > -1) {
-					m_player.getSession().write("Ph" + String.valueOf(index) + poke.getHealth());
+					m_player.getTcpSession().write("Ph" + String.valueOf(index) + poke.getHealth());
 				}
 			}
 		}
@@ -160,12 +159,12 @@ public class WildBattleField extends BattleField {
 			return;
 		if (m_player != null) {
 			if (poke != m_wildPoke)
-				ProtocolHandler.writeMessage(m_player.getSession(), 
+				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 
 								eff.getName(), false));
 			else if(poke == m_wildPoke)
-				ProtocolHandler.writeMessage(m_player.getSession(), 
+				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 
 								eff.getName(), false));
@@ -178,12 +177,12 @@ public class WildBattleField extends BattleField {
 			return;
 		if (m_player != null) {
 			if (poke != m_wildPoke)
-				ProtocolHandler.writeMessage(m_player.getSession(), 
+				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 
 								eff.getName(), true));
 			else if(poke == m_wildPoke)
-				ProtocolHandler.writeMessage(m_player.getSession(), 
+				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 
 								eff.getName(), true));
@@ -195,7 +194,7 @@ public class WildBattleField extends BattleField {
 		if (trainer == 0 && m_player != null) {
 			if(!m_participatingPokemon.contains(poke))
 				m_participatingPokemon.add(poke);
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new SwitchMessage(m_player.getName(),
 							poke.getSpeciesName(),
 							trainer,
@@ -206,7 +205,7 @@ public class WildBattleField extends BattleField {
 	@Override
 	public void informUseMove(Pokemon poke, String name) {
 		if (m_player != null)
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new BattleMoveMessage(poke.getSpeciesName(), name));
 	}
 
@@ -217,10 +216,10 @@ public class WildBattleField extends BattleField {
 		if (winner == 0) {
 			calculateExp();
 			m_player.removeTempStatusEffects();
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new BattleEndMessage(BattleEnd.WON));
 		} else {
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new BattleEndMessage(BattleEnd.LOST));
 			m_player.lostBattle();
 		}
@@ -232,14 +231,9 @@ public class WildBattleField extends BattleField {
 			 * This very bad programming but shoddy does it and forces us to do
 			 * it
 			 */
-			/*Thread t = m_dispatch;
+			Thread t = m_dispatch;
 			m_dispatch = null;
-			t.stop();*/
-			/**
-			 * not sure whats up with the first 2 lines above, and an unhealthy way
-			 * of killing the thread. -xEnt
-			 */
-			// let the thread run out it's self (which it should do)
+			t.stop();
 		}
 	}
 
@@ -248,9 +242,7 @@ public class WildBattleField extends BattleField {
 	 */
 	@Override
 	public void queueMove(int trainer, BattleTurn move)
-	throws MoveQueueException {
-		try {
-		
+			throws MoveQueueException {
 		/* Checks the move exists */
 		if(move.isMoveTurn() && move.getId() != -1 &&
 				getActivePokemon()[trainer].getMove(move.getId()) == null) {
@@ -319,7 +311,7 @@ public class WildBattleField extends BattleField {
 								if (m_participatingPokemon
 										.contains(getActivePokemon()[0]))
 									m_participatingPokemon
-									.remove(getActivePokemon()[0]);
+											.remove(getActivePokemon()[0]);
 								requestPokemonReplacement(0);
 								return;
 							} else {
@@ -337,9 +329,9 @@ public class WildBattleField extends BattleField {
 							if (this.getActivePokemon()[trainer].getPp(move
 									.getId()) <= 0) {
 								if (trainer == 0) {
-									ProtocolHandler.writeMessage(m_player.getSession(), 
+									TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 											new NoPPMessage(this.getActivePokemon()[trainer]
-											                                        .getMoveName(move.getId())));
+												.getMoveName(move.getId())));
 									requestMove(0);
 								} else {
 									requestMove(1);
@@ -382,9 +374,6 @@ public class WildBattleField extends BattleField {
 			});
 			m_dispatch.start();
 		}
-		} catch(NullPointerException npe) {
-			npe.printStackTrace(); // print so we can find where the exact line is, then fix it.
-		}
 	}
 
 	/**
@@ -392,9 +381,9 @@ public class WildBattleField extends BattleField {
 	 */
 	@Override
 	public void refreshActivePokemon() {
-		m_player.getSession().write(
+		m_player.getTcpSession().write(
 				"bh0" + this.getActivePokemon()[0].getHealth());
-		m_player.getSession().write(
+		m_player.getTcpSession().write(
 				"bh1" + this.getActivePokemon()[1].getHealth());
 	}
 
@@ -425,27 +414,25 @@ public class WildBattleField extends BattleField {
 	 * Generates a wild Pokemon move
 	 */
 	protected void getWildPokemonMove() {
-		//getActivePokemon() could possibly be null.
-		if(getActivePokemon() == null || getActivePokemon()[1] == null)
+		if(getActivePokemon()[1] == null)
 			return;
 		try {
 			int moveID = getMechanics().getRandom().nextInt(4);
 			while (getActivePokemon()[1].getMove(moveID) == null) {
-				Thread.sleep(100);
+				try {
+					Thread.sleep(100);
+				} catch (Exception e) {}
 				moveID = getMechanics().getRandom().nextInt(4);
 				/*
 				 * Stop infinite loops when player disconnects
 				 */
-				if(m_player == null || m_player.getSession() == null || m_player.getSession().isClosing() ||
-						!m_player.getSession().isConnected())
+				if(m_player.getTcpSession() == null || m_player.getTcpSession().isClosing() ||
+						!m_player.getTcpSession().isConnected())
 					break;
 			}
 			queueMove(1, BattleTurn.getMoveTurn(moveID));
 		} catch (MoveQueueException x) {
 			x.printStackTrace();
-		} catch(Exception e) {
-			if(!(e instanceof InterruptedException))
-				e.printStackTrace();
 		}
 	}
 
@@ -458,7 +445,7 @@ public class WildBattleField extends BattleField {
 		if (this.getActivePokemon()[0].isActive()
 				&& this.getActivePokemon()[1].isActive()) {
 			getWildPokemonMove();
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new BattleMoveRequest());
 		}
 	}
@@ -472,7 +459,7 @@ public class WildBattleField extends BattleField {
 			/*
 			 * 0 = our player in this case
 			 */
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new SwitchRequest());
 		}
 	}
@@ -482,8 +469,8 @@ public class WildBattleField extends BattleField {
 		if(m_finished)
 			return;
 		if(m_player != null)
-			ProtocolHandler.writeMessage(m_player.getSession(), 
-					new BattleMessage(message));
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
+				new BattleMessage(message));
 	}
 
 	/**
@@ -513,12 +500,12 @@ public class WildBattleField extends BattleField {
 	 */
 	public void run() {
 		if (canRun()) {
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new RunMessage(true));
 			m_player.setBattling(false);
 			this.dispose();
 		} else {
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new RunMessage(false));
 			if (m_turn[1] == null)
 				this.getWildPokemonMove();
@@ -529,7 +516,7 @@ public class WildBattleField extends BattleField {
 			}
 		}
 	}
-
+	
 	/**
 	 * Throws a Pokeball. Returns true if pokemon was caught
 	 * @param p
@@ -548,7 +535,7 @@ public class WildBattleField extends BattleField {
 				m_wildPoke.calculateStats(false);
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
-				ProtocolHandler.writeMessage(m_player.getSession(), 
+				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new BattleEndMessage(BattleEnd.POKEBALL));
 				m_player.setBattling(false);
 				dispose();
@@ -563,7 +550,7 @@ public class WildBattleField extends BattleField {
 				m_wildPoke.calculateStats(false);
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
-				ProtocolHandler.writeMessage(m_player.getSession(), 
+				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new BattleEndMessage(BattleEnd.POKEBALL));
 				m_player.setBattling(false);
 				dispose();
@@ -578,7 +565,7 @@ public class WildBattleField extends BattleField {
 				m_wildPoke.calculateStats(false);
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
-				ProtocolHandler.writeMessage(m_player.getSession(), 
+				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new BattleEndMessage(BattleEnd.POKEBALL));
 				m_player.setBattling(false);
 				dispose();
@@ -593,7 +580,7 @@ public class WildBattleField extends BattleField {
 				m_wildPoke.calculateStats(false);
 				m_player.catchPokemon(m_wildPoke);
 				showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
-				ProtocolHandler.writeMessage(m_player.getSession(), 
+				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new BattleEndMessage(BattleEnd.POKEBALL));
 				m_player.setBattling(false);
 				dispose();
@@ -623,7 +610,7 @@ public class WildBattleField extends BattleField {
 			/*
 			 * If its the player, send a move request packet
 			 */
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new BattleMoveRequest());
 		} else {
 			/*
@@ -643,16 +630,16 @@ public class WildBattleField extends BattleField {
 		int item = DataService.getDropDatabase().getRandomItem(m_wildPoke.getSpeciesName());
 		if(item > -1) {
 			m_player.getBag().addItem(item, 1);
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new BattleRewardMessage(BattleRewardType.ITEM, item));
 		} else {
 			int money = 5;
 			m_player.setMoney(m_player.getMoney() + money);
 			m_player.updateClientMoney();
-			ProtocolHandler.writeMessage(m_player.getSession(), 
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new BattleRewardMessage(BattleRewardType.MONEY, money));
 		}
-
+		
 		if(m_participatingPokemon.size() > 0) {
 			double exp = (DataService.getBattleMechanics().calculateExpGain(
 					m_wildPoke, m_participatingPokemon.size()));
@@ -708,20 +695,20 @@ public class WildBattleField extends BattleField {
 
 				/* Gain exp/level up and update client */
 				p.setExp(p.getExp() + exp);
-				ProtocolHandler.writeMessage(m_player.getSession(), 
+				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new BattleExpMessage(p.getSpeciesName(), exp));
 				String expGain = exp + "";
 				expGain = expGain.substring(0, expGain.indexOf('.'));
-				m_player.getSession().write("Pe" + index + expGain);
+				m_player.getTcpSession().write("Pe" + index + expGain);
 
 				double levelExp = DataService.getBattleMechanics().getExpForLevel(
 						p, p.getLevel() + 1)
 						- p.getExp();
 				if (levelExp <= 0) {
 					POLRDataEntry pokeData = DataService.getPOLRDatabase()
-					.getPokemonData(
-							DataService.getSpeciesDatabase()
-							.getPokemonByName(p.getSpeciesName()));
+							.getPokemonData(
+									DataService.getSpeciesDatabase()
+											.getPokemonByName(p.getSpeciesName()));
 					boolean evolve = false;
 					/* Handle evolution */
 					for (int i = 0; i < pokeData.getEvolutions().size(); i++) {
@@ -729,40 +716,30 @@ public class WildBattleField extends BattleField {
 						if(evolution.getType() == EvoTypes.Level) {
 							if (evolution.getLevel() <= p.getLevel() + 1) {
 								p.setEvolution(evolution);
-								m_player.getSession().write("PE" + index);
+								m_player.getTcpSession().write("PE" + index);
 								evolve = true;
 								i = pokeData.getEvolutions().size();
 							}
 						} else if(evolution.getType() == EvoTypes.HappinessDay) {
 							if (p.getHappiness() > 220 && !TimeService.isNight()) {
 								p.setEvolution(evolution);
-								m_player.getSession().write("PE" + index);
+								m_player.getTcpSession().write("PE" + index);
 								evolve = true;
 								i = pokeData.getEvolutions().size();
 							}
 						} else if(evolution.getType() == EvoTypes.HappinessNight) {
 							if (p.getHappiness() > 220 && TimeService.isNight()) {
 								p.setEvolution(evolution);
-								m_player.getSession().write("PE" + index);
+								m_player.getTcpSession().write("PE" + index);
 								evolve = true;
 								i = pokeData.getEvolutions().size();
 							}
 						} else if(evolution.getType() == EvoTypes.Happiness) {
 							if (p.getHappiness() > 220) {
 								p.setEvolution(evolution);
-								m_player.getSession().write("PE" + index);
+								m_player.getTcpSession().write("PE" + index);
 								evolve = true;
 								i = pokeData.getEvolutions().size();
-							}
-						} else if(evolution.getType() == EvoTypes.HasMove)	{
-							for(int m = 0; m<4;m++) {
-								if(p.getMove(m) != null && evolution.getAttribute().equalsIgnoreCase(p.getMoveName(m)))
-								{
-									p.setEvolution(evolution);
-									m_player.getSession().write("PE" + index);
-									evolve = true;
-									i = pokeData.getEvolutions().size();
-								}
 							}
 						}
 					}
@@ -784,14 +761,14 @@ public class WildBattleField extends BattleField {
 						if (pokeData.getMoves().get(i) != null) {
 							move = pokeData.getMoves().get(i);
 							p.getMovesLearning().add(move);
-							m_player.getSession().write("Pm" + index + move);
+							m_player.getTcpSession().write("Pm" + index + move);
 						}
 					}
 
 					/* Save the level and update the client */
 					p.setLevel(level);
-					m_player.getSession().write("Pl" + index + "," + level);
-					ProtocolHandler.writeMessage(m_player.getSession(), 
+					m_player.getTcpSession().write("Pl" + index + "," + level);
+					TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 							new BattleLevelChangeMessage(p.getSpeciesName(), level));
 					m_player.updateClientPokemonStats(index);
 				}

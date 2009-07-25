@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-import org.apache.mina.common.IoSession;
+import org.apache.mina.core.session.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.item.ItemDatabase;
 import org.pokenet.server.backend.map.ServerMap;
@@ -20,7 +20,7 @@ import org.pokenet.server.battle.impl.WildBattleField;
 import org.pokenet.server.battle.mechanics.moves.PokemonMove;
 import org.pokenet.server.feature.TimeService;
 import org.pokenet.server.network.MySqlManager;
-import org.pokenet.server.network.ProtocolHandler;
+import org.pokenet.server.network.TcpProtocolHandler;
 import org.pokenet.server.network.message.ItemMessage;
 import org.pokenet.server.network.message.SpriteChangeMessage;
 import org.pokenet.server.network.message.shop.ShopBuyMessage;
@@ -43,7 +43,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * An enum to store the player's selected language
 	 */
 	public enum Language { ENGLISH, PORTUGESE, ITALIAN, FRENCH, FINNISH, SPANISH, GERMAN, DUTCH }
-
+	
 	private Language m_language;
 	private Bag m_bag;
 	private int m_battleId;
@@ -54,7 +54,8 @@ public class PlayerChar extends Char implements Battleable {
 	private boolean m_isTalking = false;
 	private boolean m_isBoxing = false;
 	private boolean m_isSpriting = false;
-	private IoSession m_session = null;
+	private IoSession m_tcpSession = null;
+	private IoSession m_udpSession = null;
 	private int m_money;
 	private ResultSet m_databasePokemon;
 	private ArrayList<String> m_friends;
@@ -72,6 +73,7 @@ public class PlayerChar extends Char implements Battleable {
 	private Shop m_currentShop = null;
 	private int m_repel = 0;
 	private long m_lastTrade = 0;
+	private String m_udpCode = "";
 	/*
 	 * Kicking timer
 	 */
@@ -96,7 +98,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * Stores the list of requests the player has sent
 	 */
 	private HashMap<String, RequestType> m_requests;
-
+	
 	/**
 	 * Constructor
 	 * NOTE: Minimal initialisations should occur here
@@ -104,14 +106,14 @@ public class PlayerChar extends Char implements Battleable {
 	public PlayerChar() {
 		m_requests = new HashMap<String, RequestType>();
 	}
-
+	
 	/**
 	 * Returns this player's ip address
 	 * @return
 	 */
 	public String getIpAddress() {
-		if(m_session != null) {
-			String ip = m_session.getRemoteAddress().toString();
+		if(m_tcpSession != null) {
+			String ip = m_tcpSession.getRemoteAddress().toString();
 			ip = ip.substring(1);
 			ip = ip.substring(0, ip.indexOf(":"));
 			return ip;
@@ -119,7 +121,7 @@ public class PlayerChar extends Char implements Battleable {
 			return "";
 		}
 	}
-
+	
 	/**
 	 * Sets how many steps this Pokemon can repel for
 	 * @param steps
@@ -127,7 +129,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setRepel(int steps) {
 		m_repel = steps;
 	}
-
+	
 	/**
 	 * Returns how many steps this player can repel Pokemon for
 	 * @return
@@ -135,7 +137,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getRepel() {
 		return m_repel;
 	}
-
+	
 	/**
 	 * Releases a pokemon from box
 	 * @param box
@@ -169,7 +171,7 @@ public class PlayerChar extends Char implements Battleable {
 			}
 		}
 	}
-
+	
 	/**
 	 * Swaps pokemon between box and party 
 	 * @param box
@@ -197,10 +199,10 @@ public class PlayerChar extends Char implements Battleable {
 		if(m_pokemon[partySlot] != null) {
 			updateClientParty(partySlot);
 		} else {
-			m_session.write("PN" + partySlot);
+			m_tcpSession.write("PN" + partySlot);
 		}
 	}
-
+	
 	/**
 	 * Sets if this player is interacting with
 	 * a sprite selection npc
@@ -209,7 +211,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setSpriting(boolean b) {
 		m_isSpriting = b;
 	}
-
+	
 	/**
 	 * Returns true if this player is
 	 * interacting with a sprite selection npc
@@ -218,7 +220,7 @@ public class PlayerChar extends Char implements Battleable {
 	public boolean isSpriting() {
 		return m_isSpriting;
 	}
-
+	
 	/**
 	 * Returns the preferred language of the user
 	 * @return
@@ -226,7 +228,7 @@ public class PlayerChar extends Char implements Battleable {
 	public Language getLanguage() {
 		return m_language;
 	}
-
+	
 	/**
 	 * Sets this player's preferred language
 	 * @param l
@@ -234,7 +236,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setLanguage(Language l) {
 		m_language = l;
 	}
-
+	
 	/**
 	 * Returns true if the player is trading
 	 * @return
@@ -242,14 +244,14 @@ public class PlayerChar extends Char implements Battleable {
 	public boolean isTrading() {
 		return m_trade != null;
 	}
-
+	
 	/**
 	 * Cancels this player's trade offer
 	 */
 	public void cancelTradeOffer() {
 		m_trade.cancelOffer(this);
 	}
-
+	
 	/**
 	 * Returns the trade that the player is involved in
 	 * @return
@@ -257,7 +259,7 @@ public class PlayerChar extends Char implements Battleable {
 	public Trade getTrade() {
 		return m_trade;
 	}
-
+	
 	/**
 	 * Sets the trade this player is involved in
 	 * @param t
@@ -265,7 +267,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setTrade(Trade t) {
 		m_trade = t;
 	}
-
+	
 	/**
 	 * Returns true if the player accepted the trade offer
 	 * @return
@@ -273,7 +275,7 @@ public class PlayerChar extends Char implements Battleable {
 	public boolean acceptedTradeOffer() {
 		return m_isReadyToTrade;
 	}
-
+	
 	/**
 	 * Sets if this player accepted the trade offer
 	 * @param b
@@ -284,7 +286,7 @@ public class PlayerChar extends Char implements Battleable {
 		if(b)
 			m_trade.checkForExecution();
 	}
-
+	
 	/**
 	 * Stops this player trading
 	 */
@@ -292,12 +294,12 @@ public class PlayerChar extends Char implements Battleable {
 		m_isTalking = false;
 		m_isReadyToTrade = false;
 		m_trade = null;
-		if(m_session != null && m_session.isConnected())
-			m_session.write("Tf");
+		if(m_tcpSession != null && m_tcpSession.isConnected())
+			m_tcpSession.write("Tf");
 		ensureHealthyPokemon();
 		m_lastTrade = System.currentTimeMillis();
 	}
-
+	
 	/**
 	 * Returns true if the player is allowed trade
 	 * @return
@@ -305,7 +307,7 @@ public class PlayerChar extends Char implements Battleable {
 	public boolean canTrade() {
 		return System.currentTimeMillis() - m_lastTrade > 60000 && getPartyCount() >= 2;
 	}
-
+	
 	/**
 	 * Stores a request the player has sent
 	 * @param username
@@ -319,7 +321,7 @@ public class PlayerChar extends Char implements Battleable {
 			 * within 3 squares of the player, start the battle
 			 */
 			if(this.getMap().getPvPType() == PvPType.ENFORCED) {
-				PlayerChar otherPlayer = ProtocolHandler.getPlayer(username);
+				PlayerChar otherPlayer = TcpProtocolHandler.getPlayer(username);
 				if(otherPlayer != null && this.getMap() == otherPlayer.getMap()) {
 					if(otherPlayer.getX() >= this.getX() - 96 || 
 							otherPlayer.getX() <= this.getX() + 96 ||
@@ -332,7 +334,7 @@ public class PlayerChar extends Char implements Battleable {
 								DataService.getBattleMechanics(),this, otherPlayer);
 						return;
 					} else {
-						m_session.write("r!3");
+						m_tcpSession.write("r!3");
 					}
 				}
 			}
@@ -340,7 +342,7 @@ public class PlayerChar extends Char implements Battleable {
 		/* Else, add the request */
 		m_requests.put(username, r);
 	}
-
+	
 	/**
 	 * Removes a request
 	 * @param username
@@ -348,13 +350,13 @@ public class PlayerChar extends Char implements Battleable {
 	public void removeRequest(String username) {
 		m_requests.remove(username);
 	}
-
+	
 	/**
 	 * Called when a player accepts a request sent by this player
 	 * @param username
 	 */
 	public void requestAccepted(String username) {
-		PlayerChar otherPlayer = ProtocolHandler.getPlayer(username);
+		PlayerChar otherPlayer = TcpProtocolHandler.getPlayer(username);
 		if(otherPlayer != null) {
 			if(m_requests.containsKey(username)) {
 				switch(m_requests.get(username)) {
@@ -370,8 +372,8 @@ public class PlayerChar extends Char implements Battleable {
 						switch(this.getMap().getPvPType()) {
 						case DISABLED:
 							/* Some maps have pvp disabled */
-							otherPlayer.getSession().write("r!2");
-							m_session.write("r!2");
+							otherPlayer.getTcpSession().write("r!2");
+							m_tcpSession.write("r!2");
 							return;
 						case ENABLED:
 							/* This is a valid battle, start it */
@@ -394,31 +396,31 @@ public class PlayerChar extends Char implements Battleable {
 						m_trade = new Trade(this, otherPlayer);
 						otherPlayer.setTrade(m_trade);
 					} else {
-						m_session.write("r!4");
-						otherPlayer.getSession().write("r!4");
+						m_tcpSession.write("r!4");
+						otherPlayer.getTcpSession().write("r!4");
 					}
 					break;
 				}
 			}
 		} else {
-			m_session.write("r!0");
+			m_tcpSession.write("r!0");
 		}
 	}
-
+	
 	/**
 	 * Clears the request list
 	 */
 	public void clearRequests() {
 		if(m_requests.size() > 0) {
 			for(String username : m_requests.keySet()) {
-				if(ProtocolHandler.containsPlayer(username)) {
-					ProtocolHandler.getPlayer(username).getSession().write("rc" + this.getName());
+				if(TcpProtocolHandler.containsPlayer(username)) {
+					TcpProtocolHandler.getPlayer(username).getTcpSession().write("rc" + this.getName());
 				}
 			}
 			m_requests.clear();
 		}
 	}
-
+	
 	/**
 	 * Sets the current shop
 	 * @param s
@@ -426,7 +428,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setShop(Shop s) {
 		m_currentShop = s;
 	}
-
+	
 	/**
 	 * Returns the shop the player is interacting with
 	 * @return
@@ -434,7 +436,7 @@ public class PlayerChar extends Char implements Battleable {
 	public Shop getShop() {
 		return m_currentShop;
 	}
-
+	
 	/**
 	 * Creates a new PlayerChar
 	 */
@@ -446,7 +448,7 @@ public class PlayerChar extends Char implements Battleable {
 		}
 		m_isMuted = false;
 	}
-
+	
 	/**
 	 * Called when a player loses a battle
 	 */
@@ -467,7 +469,7 @@ public class PlayerChar extends Char implements Battleable {
 		 */
 		m_x = m_healX;
 		m_y = m_healY;
-		if(m_session.isConnected() && !m_session.isClosing()) {
+		if(m_tcpSession.isConnected() && !m_tcpSession.isClosing()) {
 			this.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().
 					getMapByGamePosition(m_healMapX, m_healMapY));
 		} else {
@@ -475,41 +477,28 @@ public class PlayerChar extends Char implements Battleable {
 			m_mapY = m_healMapY;
 		}
 	}
-
+	
 	/**
 	 * Heals the player's pokemon
 	 */
 	public void healPokemon() {
-		try {
-			if(getParty() == null)
-				return;
-			for (Pokemon pokemon : getParty()) {
-				if (pokemon != null) {
-					pokemon.calculateStats(true);
-					pokemon.reinitialise();
-					pokemon.setIsFainted(false);
-					if(pokemon.getMoves() != null) {
-						for(int i = 0; i < pokemon.getMoves().length; i++) {
-							if(pokemon.getMoves()[i] != null) {
-								PokemonMove move = pokemon.getMoves()[i].getMove();
-								if(move != null) {
-									pokemon.setPp(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
-									pokemon.setMaxPP(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
-								}
-							}
-						}
-					}
-				}
-			}
-			m_session.write("cH");
-		} catch(Exception e) {
-			if(e instanceof NullPointerException) {
-				((NullPointerException)e).printStackTrace();
-			} else
-				e.printStackTrace();
+		for (Pokemon pokemon : getParty()) {
+            if (pokemon != null) {
+                    pokemon.calculateStats(true);
+                    pokemon.reinitialise();
+                    pokemon.setIsFainted(false);
+                    for(int i = 0; i < pokemon.getMoves().length; i++) {
+                    	if(pokemon.getMoves()[i] != null) {
+                    		PokemonMove move = pokemon.getMoves()[i].getMove();
+                    		pokemon.setPp(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
+                    		pokemon.setMaxPP(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
+                    	}
+                    }
+            }
 		}
+		m_tcpSession.write("cH");
 	}
-
+	
 	/**
 	 * Removes temporary status effects such as StatChangeEffects
 	 */
@@ -520,7 +509,7 @@ public class PlayerChar extends Char implements Battleable {
 			}
 		}
 	}
-
+	
 	/**
 	 * Returns true if this player is accessing their box
 	 * @return
@@ -528,7 +517,7 @@ public class PlayerChar extends Char implements Battleable {
 	public boolean isBoxing() {
 		return m_isBoxing;
 	}
-
+	
 	/**
 	 * Sets if this player has box access at the moment
 	 * @param b
@@ -536,7 +525,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setBoxing(boolean b) {
 		m_isBoxing = b;
 	}
-
+	
 	/**
 	 * Returns true if this player is muted
 	 * @return
@@ -544,7 +533,7 @@ public class PlayerChar extends Char implements Battleable {
 	public boolean isMuted() {
 		return m_isMuted;
 	}
-
+	
 	/**
 	 * Sets if this player is muted
 	 * @param b
@@ -552,27 +541,23 @@ public class PlayerChar extends Char implements Battleable {
 	public void setMuted(boolean b) {
 		m_isMuted = b;
 	}
-
+	
 	/**
 	 * If the player's first Pokemon in party has 0 HP, 
 	 * it puts the first Pokemon in their party with more
 	 * than 0 HP at the front
 	 */
 	public void ensureHealthyPokemon() {
-		try {
-			if(m_pokemon[0] == null || m_pokemon[0].getHealth() == 0) {
-				for(int i = 1; i < 6; i++) {
-					if(m_pokemon[i] != null && m_pokemon[i].getHealth() > 0) {
-						swapPokemon(0, i);
-						return;
-					}
+		if(m_pokemon[0] == null || m_pokemon[0].getHealth() == 0) {
+			for(int i = 1; i < 6; i++) {
+				if(m_pokemon[i] != null && m_pokemon[i].getHealth() > 0) {
+					swapPokemon(0, i);
+					return;
 				}
 			}
-		} catch(NullPointerException npe) {
-			npe.printStackTrace();
 		}
 	}
-
+	
 	/**
 	 * Swaps two Pokemon in a player's party
 	 * @param a
@@ -583,10 +568,10 @@ public class PlayerChar extends Char implements Battleable {
 			Pokemon temp = m_pokemon[a];
 			m_pokemon[a] = m_pokemon[b];
 			m_pokemon[b] = temp;
-			m_session.write("s" + a + "," + b);
+			m_tcpSession.write("s" + a + "," + b);
 		}
 	}
-
+	
 	/**
 	 * Returns true if this player is talking to an npc
 	 * @return
@@ -594,7 +579,7 @@ public class PlayerChar extends Char implements Battleable {
 	public boolean isTalking() {
 		return m_isTalking;
 	}
-
+	
 	/**
 	 * Sets if this player is talking to an npc
 	 * @param b
@@ -602,7 +587,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setTalking(boolean b) {
 		m_isTalking = b;
 	}
-
+	
 	/**
 	 * Adds a friend to the friend list
 	 * @param username
@@ -612,10 +597,10 @@ public class PlayerChar extends Char implements Battleable {
 			m_friends = new ArrayList<String>();
 		if(m_friends.size() < 10) {
 			m_friends.add(username);
-			m_session.write("Fa" + username);
+			m_tcpSession.write("Fa" + username);
 		}
 	}
-
+	
 	/**
 	 * Removes a friend from the friends list
 	 * @param username
@@ -628,12 +613,12 @@ public class PlayerChar extends Char implements Battleable {
 		for(int i = 0; i < m_friends.size(); i++) {
 			if(m_friends.get(i).equalsIgnoreCase(username)) {
 				m_friends.remove(i);
-				m_session.write("Fr" + username);
+				m_tcpSession.write("Fr" + username);
 				return;
 			}
 		}
 	}
-
+	
 	/**
 	 * Returns the battlefield this player is on.
 	 */
@@ -655,7 +640,7 @@ public class PlayerChar extends Char implements Battleable {
 		//DO WE REALLY NEED THIS?
 		return null;
 	}
-
+	
 	/**
 	 * Returns the amount of Pokemon in this player's party
 	 * @return
@@ -668,7 +653,7 @@ public class PlayerChar extends Char implements Battleable {
 		}
 		return r;
 	}
-
+	
 	/**
 	 * Returns the highest level pokemon in the player's party
 	 * @return
@@ -695,7 +680,7 @@ public class PlayerChar extends Char implements Battleable {
 	public boolean isBattling() {
 		return m_isBattling;
 	}
-
+	
 	/**
 	 * Sets if this player is battling
 	 * @param b
@@ -724,39 +709,48 @@ public class PlayerChar extends Char implements Battleable {
 	public void setParty(Pokemon[] team) {
 		m_pokemon = team;
 	}
-
+	
 	/**
-	 * Sets the session for this player (their connection to the server)
+	 * Sets the TCP session for this player (their connection to the server)
 	 * @param session
 	 */
-	public void setSession(IoSession session) {
-		m_session = session;
+	public void setTcpSession(IoSession session) {
+		m_tcpSession = session;
 	}
-
+	
 	/**
-	 * Returns the session (connection to server) for this player
+	 * Returns the TCP session (connection to server) for this player
 	 * @return
 	 */
-	public IoSession getSession() {
-		return m_session;
+	public IoSession getTcpSession() {
+		return m_tcpSession;
 	}
-
+	
+	/**
+	 * Sets the UDP session for this player
+	 * @param session
+	 */
+	public void setUdpSession(IoSession session) {
+		m_udpSession = session;
+	}
+	
+	/**
+	 * Returns the UDP session for this player
+	 * @return
+	 */
+	public IoSession getUdpSession() {
+		return m_udpSession;
+	}
+	
 	/**
 	 * Forces the player to move in the direction they are facing.
 	 * Returns true if they were moved
 	 */
 	public boolean forceMove() {
-		try {
-			if(getFacing() != null) {
-				this.setNextMovement(getFacing());
-				return super.move();
-			}
-		} catch(NullPointerException npe) {
-			npe.printStackTrace();
-		}
-		return false;
+		this.setNextMovement(getFacing());
+		return super.move();
 	}
-
+	
 	/**
 	 * Overrides char's move method.
 	 * Adds a check for wild battles and clears battle/trade request lists
@@ -798,7 +792,7 @@ public class PlayerChar extends Char implements Battleable {
 		}
 		return false;
 	}
-
+	
 	/**
 	 * Sets how much money this player has
 	 * @param money
@@ -806,7 +800,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setMoney(int money) {
 		m_money = money;
 	}
-
+	
 	/**
 	 * Returns how much money this player has
 	 * @return
@@ -814,7 +808,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getMoney() {
 		return m_money;
 	}
-
+	
 	/**
 	 * Sets the herbalism skill's exp points
 	 * @param exp
@@ -822,7 +816,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setHerbalismExp(int exp) {
 		m_skillHerb = exp;
 	}
-
+	
 	/**
 	 * Returns the herbalism skill exp points
 	 * @return
@@ -830,7 +824,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getHerbalismExp() {
 		return m_skillHerb;
 	}
-
+	
 	/**
 	 * Sets the crafting skill exp points
 	 * @param exp
@@ -838,7 +832,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setCraftingExp(int exp) {
 		m_skillCraft = exp;
 	}
-
+	
 	/**
 	 * Returns the crafting skill exp points
 	 * @return
@@ -846,7 +840,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getCraftingExp() {
 		return m_skillCraft;
 	}
-
+	
 	/**
 	 * Sets the fishing skill exp points 
 	 * @param exp
@@ -854,7 +848,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setFishingExp(int exp) {
 		m_skillFish = exp;
 	}
-
+	
 	/**
 	 * Returns the fishing skill exp points
 	 * @return
@@ -862,7 +856,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getFishingExp() {
 		return m_skillFish;
 	}
-
+	
 	/**
 	 * Set the training skill exp points
 	 * @param exp
@@ -870,7 +864,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setTrainingExp(int exp) {
 		m_skillTraining = exp;
 	}
-
+	
 	/**
 	 * Return the training skill exp points
 	 * @return
@@ -878,7 +872,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getTrainingExp() {
 		return m_skillTraining;
 	}
-
+	
 	/**
 	 * Sets the co-ordinating skill exp points
 	 * @param exp
@@ -886,7 +880,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setCoordinatingExp(int exp) {
 		m_skillCoord = exp;
 	}
-
+	
 	/**
 	 * Returns the co-ordinating skill exp points
 	 * @return
@@ -894,7 +888,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getCoordinatingExp() {
 		return m_skillCoord;
 	}
-
+	
 	/**
 	 * Sets the breeding skill exp points
 	 * @param exp
@@ -902,7 +896,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setBreedingExp(int exp) {
 		m_skillBreed = exp;
 	}
-
+	
 	/**
 	 * Returns the breeding skill exp
 	 * @return
@@ -910,7 +904,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getBreedingExp() {
 		return m_skillBreed;
 	}
-
+	
 	/**
 	 * Sets this player's boxes
 	 * @param boxes
@@ -918,7 +912,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setBoxes(PokemonBox [] boxes) {
 		m_boxes = boxes;
 	}
-
+	
 	/**
 	 * Returns this player's boxes
 	 * @return
@@ -926,7 +920,7 @@ public class PlayerChar extends Char implements Battleable {
 	public PokemonBox[] getBoxes() {
 		return m_boxes;
 	}
-
+	
 	/**
 	 * Stores the id of this player's party and boxes in the database
 	 * @param r
@@ -934,7 +928,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setDatabasePokemon(ResultSet r) {
 		m_databasePokemon = r;
 	}
-
+	
 	/**
 	 * Returns the result set of the party and box ids in the database
 	 * @return
@@ -942,7 +936,7 @@ public class PlayerChar extends Char implements Battleable {
 	public ResultSet getDatabasePokemon() {
 		return m_databasePokemon;
 	}
-
+	
 	/**
 	 * Stores a caught Pokemon in the player's party or box
 	 * @param p
@@ -955,7 +949,7 @@ public class PlayerChar extends Char implements Battleable {
 		p.setDatabaseID(-1);
 		addPokemon(p);
 	}
-
+	
 	/**
 	 * Adds a pokemon to this player's party or box
 	 * @param p
@@ -989,7 +983,7 @@ public class PlayerChar extends Char implements Battleable {
 			}
 		}
 	}
-
+	
 	/**
 	 * Sets the last login time (used for connection downtimes)
 	 * @param t
@@ -997,7 +991,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setLastLoginTime(long t) {
 		m_lastLogin = t;
 	}
-
+	
 	/**
 	 * Returns the last login time
 	 * @return
@@ -1005,7 +999,7 @@ public class PlayerChar extends Char implements Battleable {
 	public long getLastLoginTime() {
 		return m_lastLogin;
 	}
-
+	
 	/**
 	 * Returns the player's bag
 	 * @return
@@ -1013,7 +1007,7 @@ public class PlayerChar extends Char implements Battleable {
 	public Bag getBag() {
 		return m_bag;
 	}
-
+	
 	/**
 	 * Sets the player's bag
 	 * @param b
@@ -1021,7 +1015,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setBag(Bag b) {
 		m_bag = b;
 	}
-
+	
 	/**
 	 * Sets the map for this player
 	 */
@@ -1031,18 +1025,18 @@ public class PlayerChar extends Char implements Battleable {
 		//Clear the requests list
 		clearRequests();
 		//Send the map switch packet to the client
-		m_session.write("ms" + map.getX() + "," + map.getY() + "," + (map.isWeatherForced() ? map.getWeatherId() : TimeService.getWeatherId()));
+		m_tcpSession.write("ms" + map.getX() + "," + map.getY() + "," + (map.isWeatherForced() ? map.getWeatherId() : TimeService.getWeatherId()));
 		Char c;
 		String packet = "mi";
 		//Send all player information to the client
 		for(PlayerChar p : map.getPlayers().values()) {
 			c = p;
 			packet = packet + c.getName() + "," + 
-			c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
-			(c.getFacing() == Direction.Down ? "D" : 
-				c.getFacing() == Direction.Up ? "U" :
-					c.getFacing() == Direction.Left ? "L" :
-			"R") + ",";
+						c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
+						(c.getFacing() == Direction.Down ? "D" : 
+							c.getFacing() == Direction.Up ? "U" :
+								c.getFacing() == Direction.Left ? "L" :
+									"R") + ",";
 		}
 		//Send all npc information to the client
 		for(int i = 0; i < map.getNpcs().size(); i++) {
@@ -1051,20 +1045,20 @@ public class PlayerChar extends Char implements Battleable {
 				packet = packet + c.getName() + "," + 
 				c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
 				(c.getFacing() == Direction.Down ? "D" : 
-					c.getFacing() == Direction.Up ? "U" :
-						c.getFacing() == Direction.Left ? "L" :
-				"R") + ",";
+				c.getFacing() == Direction.Up ? "U" :
+					c.getFacing() == Direction.Left ? "L" :
+						"R") + ",";
 			}
 		}
 		/*
 		 * Only send the packet if there were players on the map
 		 */
 		if(packet.length() > 2)
-			m_session.write(packet);
+			m_tcpSession.write(packet);
 		/* Prevent another step being taken */
 		m_nextMovement = null;
 	}
-
+	
 	/**
 	 * Disposes of this player char
 	 */
@@ -1078,18 +1072,18 @@ public class PlayerChar extends Char implements Battleable {
 		m_currentShop = null;
 		m_battleField = null;
 	}
-
+	
 	/**
 	 * Forces the player to be logged out
 	 */
 	public void forceLogout() {
-		if(m_session.isConnected()) {
-			m_session.close();
+		if(m_tcpSession.isConnected()) {
+			m_tcpSession.close();
 		} else {
 			GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(this);
 		}
 	}
-
+	
 	/**
 	 * Sets if this player is interacting with a shop npc
 	 * @param b
@@ -1100,7 +1094,7 @@ public class PlayerChar extends Char implements Battleable {
 			m_currentShop = null;
 		}
 	}
-
+	
 	/**
 	 * Returns true if this player is shopping
 	 * @return
@@ -1108,7 +1102,7 @@ public class PlayerChar extends Char implements Battleable {
 	public boolean isShopping() {
 		return m_isShopping;
 	}
-
+	
 	/**
 	 * Sets the badges this player has
 	 * @param badges
@@ -1116,7 +1110,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setBadges(byte [] badges) {
 		m_badges = badges;
 	}
-
+	
 	/**
 	 * Adds a badge to the player's badge collection
 	 * @param num
@@ -1127,7 +1121,7 @@ public class PlayerChar extends Char implements Battleable {
 			updateClientBadges();
 		}
 	}
-
+	
 	/**
 	 * Generates the player's badges from a string
 	 * @param badges
@@ -1146,7 +1140,7 @@ public class PlayerChar extends Char implements Battleable {
 			}
 		}
 	}
-
+	
 	/**
 	 * Returns the badges of this player
 	 * @return
@@ -1154,7 +1148,7 @@ public class PlayerChar extends Char implements Battleable {
 	public byte[] getBadges() {
 		return m_badges;
 	}
-
+	
 	/**
 	 * Sets the admin level for this player
 	 * @param adminLevel
@@ -1162,7 +1156,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void setAdminLevel(int adminLevel) {
 		m_adminLevel = adminLevel;
 	}
-
+	
 	/**
 	 * Returns the admin level of this player
 	 * @return
@@ -1170,7 +1164,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getAdminLevel() {
 		return m_adminLevel;
 	}
-
+	
 	/**
 	 * Sets the location this player was last healed at
 	 * @param x
@@ -1184,7 +1178,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_healMapX = mapX;
 		m_healMapY = mapY;
 	}
-
+	
 	/**
 	 * Returns the x co-ordinate of this player's last heal point
 	 * @return
@@ -1192,7 +1186,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getHealX() {
 		return m_healX;
 	}
-
+	
 	/**
 	 * Returns the y co-ordinate of this player's last heal point
 	 * @return
@@ -1200,7 +1194,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getHealY() {
 		return m_healY;
 	}
-
+	
 	/**
 	 * Returns the map x of this player's last heal point
 	 * @return
@@ -1208,7 +1202,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getHealMapX() {
 		return m_healMapX;
 	}
-
+	
 	/**
 	 * Returns the map y of this player's last heal point
 	 * @return
@@ -1216,7 +1210,7 @@ public class PlayerChar extends Char implements Battleable {
 	public int getHealMapY() {
 		return m_healMapY;
 	}
-
+	
 	/**
 	 * Returns true if this player can surf
 	 * @return
@@ -1225,7 +1219,7 @@ public class PlayerChar extends Char implements Battleable {
 		/*return m_skillTraining >= 4;*/
 		return getBadgeCount() > 0;
 	}
-
+	
 	/**
 	 * Returns how many badges this player has
 	 * @return
@@ -1238,7 +1232,7 @@ public class PlayerChar extends Char implements Battleable {
 		}
 		return result;
 	}
-
+	
 	/**
 	 * This player talks to the npc in front of them
 	 */
@@ -1246,7 +1240,7 @@ public class PlayerChar extends Char implements Battleable {
 		if(m_map != null)
 			this.getMap().talkToNpc(this);
 	}
-
+	
 	/**
 	 * Sends box information to client
 	 * @param i - Box number
@@ -1257,7 +1251,7 @@ public class PlayerChar extends Char implements Battleable {
 			m_boxes[j] = new PokemonBox();
 			m_boxes[j].setDatabaseId(-1);
 			m_boxes[j].setPokemon(new Pokemon[30]);
-			m_session.write("B");
+			m_tcpSession.write("B");
 		}
 		/* Else send all pokes in box */
 		String packet = "";
@@ -1267,9 +1261,9 @@ public class PlayerChar extends Char implements Battleable {
 			else
 				packet = packet + ",";
 		}
-		m_session.write("B" + packet);
+		m_tcpSession.write("B" + packet);
 	}
-
+	
 	/**
 	 * Allows the player to buy an item
 	 * @param id
@@ -1283,30 +1277,30 @@ public class PlayerChar extends Char implements Battleable {
 			/* First, check if the player can afford this */
 			if(m_money - (q * m_currentShop.getPriceForItem(id)) >= 0) {
 				/* Then, check if the player has right amount of badges to buy the item */
-				//				switch(id) {
-				//				case 0:
-				//					//TODO: Check badge based on items that require x amount of badges to buy
-				//					break;
-				//				}
+//				switch(id) {
+//				case 0:
+//					//TODO: Check badge based on items that require x amount of badges to buy
+//					break;
+//				}
 				/* Finally, if the item is in stock, buy it */
 				if(m_currentShop.buyItem(id, q)) {
 					m_money = m_money - (q * m_currentShop.getPriceForItem(id));
 					m_bag.addItem(id, q);
 					this.updateClientMoney();
 					//Let player know he bought the item
-					ProtocolHandler.writeMessage(m_session, 
+					TcpProtocolHandler.writeMessage(m_tcpSession, 
 							new ShopBuyMessage(ItemDatabase.getInstance().getItem(id).getId()));
 					//Update player inventory
-					ProtocolHandler.writeMessage(m_session, new ItemMessage(true, 
+					TcpProtocolHandler.writeMessage(m_tcpSession, new ItemMessage(true, 
 							ItemDatabase.getInstance().getItem(id).getId(), 1));
 				}
 			}else{
 				//Return You have no money, fool!
-				ProtocolHandler.writeMessage(m_session, new ShopNoMoneyMessage());
+				TcpProtocolHandler.writeMessage(m_tcpSession, new ShopNoMoneyMessage());
 			}
 		}else{
 			//Send You cant carry any more items!
-			ProtocolHandler.writeMessage(m_session, new ShopNoSpaceMessage());
+			TcpProtocolHandler.writeMessage(m_tcpSession, new ShopNoSpaceMessage());
 		}
 	}
 	/**
@@ -1322,16 +1316,16 @@ public class PlayerChar extends Char implements Battleable {
 			m_money = m_money + m_currentShop.sellItem(id, q);
 			m_bag.removeItem(id, q);
 			//Tell the client to remove the item from the player's inventory
-			ProtocolHandler.writeMessage(m_session, new ItemMessage(false, 
+			TcpProtocolHandler.writeMessage(m_tcpSession, new ItemMessage(false, 
 					ItemDatabase.getInstance().getItem(id).getId(), q));
 			//Update the client's money
 			this.updateClientMoney();
 			//Let player know he sold the item.
-			ProtocolHandler.writeMessage(m_session, 
+			TcpProtocolHandler.writeMessage(m_tcpSession, 
 					new ShopSellMessage(ItemDatabase.getInstance().getItem(id).getId()));
 		} else {
 			//Return You don't have that item, fool!
-			ProtocolHandler.writeMessage(m_session, new ShopNoItemMessage(ItemDatabase.getInstance()
+			TcpProtocolHandler.writeMessage(m_tcpSession, new ShopNoItemMessage(ItemDatabase.getInstance()
 					.getItem(id).getName()));
 		}
 	}
@@ -1340,9 +1334,9 @@ public class PlayerChar extends Char implements Battleable {
 	 * Updates the player's money clientside
 	 */
 	public void updateClientMoney() {
-		m_session.write("cM" + m_money);
+		m_tcpSession.write("cM" + m_money);
 	}
-
+	
 	/**
 	 * Sends all badges to client
 	 */
@@ -1351,9 +1345,9 @@ public class PlayerChar extends Char implements Battleable {
 		for(int i = 0; i < m_badges.length; i++) {
 			data = data + m_badges[i];
 		}
-		m_session.write("cB" + data);
+		m_tcpSession.write("cB" + data);
 	}
-
+	
 	/**
 	 * Sends all party information to the client
 	 */
@@ -1371,14 +1365,14 @@ public class PlayerChar extends Char implements Battleable {
 			updateClientBag(i);
 		}
 	}
-
+	
 	/**
 	 * Updates the client with their sprite
 	 */
 	public void updateClientSprite() {
-		ProtocolHandler.writeMessage(m_session, new SpriteChangeMessage(m_id, m_sprite));
+		TcpProtocolHandler.writeMessage(m_tcpSession, new SpriteChangeMessage(m_id, m_sprite));
 	}
-
+	
 	/**
 	 * Sets the battlefield for this player
 	 */
@@ -1408,7 +1402,7 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void updateClientParty(int i) {
 		if(this.getParty()[i] != null) {
-			m_session.write("Pi" + i + PokemonSpecies.getDefaultData().getPokemonByName(this.getParty()[i].getSpeciesName()) + "," +
+			m_tcpSession.write("Pi" + i + PokemonSpecies.getDefaultData().getPokemonByName(this.getParty()[i].getSpeciesName()) + "," +
 					this.getParty()[i].getName() + "," +
 					this.getParty()[i].getHealth() + "," +
 					this.getParty()[i].getGender() + "," +
@@ -1426,10 +1420,10 @@ public class PlayerChar extends Char implements Battleable {
 							this.getParty()[i].getLevel() + "," +
 							this.getParty()[i].getAbility().getName() + "," +
 							this.getParty()[i].getNature().getName() + "," +
-							(this.getParty()[i].getMoves()[0] != null ? this.getParty()[i].getMoves()[0].getName() : "") + "," +
-							(this.getParty()[i].getMoves()[1] != null ? this.getParty()[i].getMoves()[1].getName() : "") + "," +
-							(this.getParty()[i].getMoves()[2] != null ? this.getParty()[i].getMoves()[2].getName() : "") + "," +
-							(this.getParty()[i].getMoves()[3] != null ? this.getParty()[i].getMoves()[3].getName() : "")
+					(this.getParty()[i].getMoves()[0] != null ? this.getParty()[i].getMoves()[0].getName() : "") + "," +
+					(this.getParty()[i].getMoves()[1] != null ? this.getParty()[i].getMoves()[1].getName() : "") + "," +
+					(this.getParty()[i].getMoves()[2] != null ? this.getParty()[i].getMoves()[2].getName() : "") + "," +
+					(this.getParty()[i].getMoves()[3] != null ? this.getParty()[i].getMoves()[3].getName() : "")
 			);
 			/* Update move pp */
 			for(int j = 0; j < 4; j++) {
@@ -1437,24 +1431,24 @@ public class PlayerChar extends Char implements Battleable {
 			}
 		}
 	}
-
+	
 	/**
 	 * Updates stats for a Pokemon
 	 * @param i
 	 */
 	public void updateClientPokemonStats(int i) {
 		if(m_pokemon[i] != null) {
-			m_session.write("PS" + i + m_pokemon[i].getHealth() + "," +
+			m_tcpSession.write("PS" + i + m_pokemon[i].getHealth() + "," +
 					m_pokemon[i].getStat(0) + "," +
 					m_pokemon[i].getStat(1) + "," +
 					m_pokemon[i].getStat(2) + "," +
 					m_pokemon[i].getStat(3) + "," +
 					m_pokemon[i].getStat(4) + "," +
 					m_pokemon[i].getStat(5));
-
+			
 		}
 	}
-
+	
 	/**
 	 * Updates the pp of a move
 	 * @param poke
@@ -1462,19 +1456,98 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void updateClientPP(int poke, int move) {
 		if(this.getParty()[poke] != null && this.getParty()[poke].getMove(move) != null)
-			m_session.write("Pp" + String.valueOf(poke) + String.valueOf(move) 
-					+ this.getParty()[poke].getPp(move) + "," + this.getParty()[poke].getMaxPp(move));
+			m_tcpSession.write("Pp" + String.valueOf(poke) + String.valueOf(move) 
+				+ this.getParty()[poke].getPp(move) + "," + this.getParty()[poke].getMaxPp(move));
 	}
-
+	
 	/**
 	 * Updates the client for a specific Item
 	 * @param index
 	 */
 	public void updateClientBag(int i) {
 		if(this.getBag().getItems().get(i) != null) {
-			ProtocolHandler.writeMessage(m_session, new ItemMessage(true, 
+			TcpProtocolHandler.writeMessage(m_tcpSession, new ItemMessage(true, 
 					getBag().getItems().get(i).getItemNumber(), 
 					getBag().getItems().get(i).getQuantity()));
 		}
+	}
+	
+	/**
+	 * Generates the code used to id the player over udp
+	 */
+	public void generateUdpCode() {
+		m_udpCode = "";
+		for(int i = 0; i < 5; i++) {
+			switch(DataService.getBattleMechanics().getRandom().nextInt(20)) {
+			case 0:
+				m_udpCode += String.valueOf(0);
+				break;
+			case 1:
+				m_udpCode += String.valueOf(1);
+				break;
+			case 2:
+				m_udpCode += String.valueOf(2);
+				break;
+			case 3:
+				m_udpCode += String.valueOf(3);
+				break;
+			case 4:
+				m_udpCode += String.valueOf(4);
+				break;
+			case 5:
+				m_udpCode += String.valueOf(5);
+				break;
+			case 6:
+				m_udpCode += String.valueOf(6);
+				break;
+			case 7:
+				m_udpCode += String.valueOf(7);
+				break;
+			case 8:
+				m_udpCode += String.valueOf(8);
+				break;
+			case 9:
+				m_udpCode += String.valueOf(9);
+				break;
+			case 10:
+				m_udpCode += "A";
+				break;
+			case 11:
+				m_udpCode += "B";
+				break;
+			case 12:
+				m_udpCode += "C";
+				break;
+			case 13:
+				m_udpCode += "D";
+				break;
+			case 14:
+				m_udpCode += "E";
+				break;
+			case 15:
+				m_udpCode += "F";
+				break;
+			case 16:
+				m_udpCode += "W";
+				break;
+			case 17:
+				m_udpCode += "X";
+				break;
+			case 18:
+				m_udpCode += "Y";
+				break;
+			case 19:
+				m_udpCode += "Z";
+				break;
+			}
+		}
+	}
+	
+	/**
+	 * Returns the udp identification code
+	 * @return
+	 */
+	public String getUdpCode() {
+		return m_udpCode;
 	}
 }

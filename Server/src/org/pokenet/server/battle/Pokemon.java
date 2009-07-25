@@ -424,7 +424,7 @@ public class Pokemon extends PokemonSpecies {
     		p.updateClientParty(index);
     		/* Inform the client this Pokemon wants to learn new moves */
     		for(int i = 0; i < m_movesLearning.size(); i++) {
-    			p.getSession().write("Pm" + index + m_movesLearning.get(i));
+    			p.getTcpSession().write("Pm" + index + m_movesLearning.get(i));
     		}
     		p.updateClientPokemonStats(index);
     	}

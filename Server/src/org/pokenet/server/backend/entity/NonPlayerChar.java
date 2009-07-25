@@ -7,7 +7,7 @@ import java.util.Random;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.impl.NpcBattleField;
-import org.pokenet.server.network.ProtocolHandler;
+import org.pokenet.server.network.TcpProtocolHandler;
 import org.pokenet.server.network.message.ChatMessage;
 import org.pokenet.server.network.message.SpriteSelectMessage;
 import org.pokenet.server.network.message.ChatMessage.ChatMessageType;
@@ -87,7 +87,7 @@ public class NonPlayerChar extends Char {
 	public void challengePlayer(PlayerChar p) {
 		String speech = this.getSpeech();
 		if(!speech.equalsIgnoreCase("")) {
-			ProtocolHandler.writeMessage(p.getSession(), 
+			TcpProtocolHandler.writeMessage(p.getTcpSession(), 
 					new ChatMessage(ChatMessageType.NPC, speech));
 		}
 	}
@@ -101,7 +101,7 @@ public class NonPlayerChar extends Char {
 			if(canBattle()) {
 				String speech = this.getSpeech();
 				if(!speech.equalsIgnoreCase("")) {
-					ProtocolHandler.writeMessage(p.getSession(), 
+					TcpProtocolHandler.writeMessage(p.getTcpSession(), 
 							new ChatMessage(ChatMessageType.NPC, speech));
 				}
 				setLastBattleTime(System.currentTimeMillis());
@@ -118,14 +118,14 @@ public class NonPlayerChar extends Char {
 			if(!speech.equalsIgnoreCase("")) {
 				if(!p.isShopping()) {
 					//Dont send if player is shopping!
-					ProtocolHandler.writeMessage(p.getSession(), 
+					TcpProtocolHandler.writeMessage(p.getTcpSession(), 
 							new ChatMessage(ChatMessageType.NPC, speech));
 				}
 			}
 			/* If this NPC is a sprite selection npc */
 			if(m_name.equalsIgnoreCase("Spriter")) {
 				p.setSpriting(true);
-				ProtocolHandler.writeMessage(p.getSession(), new SpriteSelectMessage());
+				TcpProtocolHandler.writeMessage(p.getTcpSession(), new SpriteSelectMessage());
 				return;
 			}
 			/* Box access */
@@ -144,7 +144,7 @@ public class NonPlayerChar extends Char {
 			if(m_isShop) {
 				//Send shop packet to display shop window clientside
 				if(!p.isShopping()){ //Dont display if user's shopping
-					ProtocolHandler.writeMessage(p.getSession(), new ShopStockMessage(m_shop.getStockData()));
+					TcpProtocolHandler.writeMessage(p.getTcpSession(), new ShopStockMessage(m_shop.getStockData()));
 					p.setShopping(true);
 					p.setShop(m_shop);
 				}

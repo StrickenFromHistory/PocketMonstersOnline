@@ -1,16 +1,19 @@
 package org.pokenet.server.network;
 
 import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
 import java.util.concurrent.Executors;
 
-import org.apache.mina.common.ByteBuffer;
-import org.apache.mina.common.IoAcceptor;
-import org.apache.mina.common.SimpleByteBufferAllocator;
+import org.apache.mina.core.filterchain.DefaultIoFilterChainBuilder;
+import org.apache.mina.core.service.IoAcceptor;
+import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.filter.executor.ExecutorFilter;
-import org.apache.mina.transport.socket.nio.SocketAcceptor;
-import org.apache.mina.transport.socket.nio.SocketAcceptorConfig;
-import org.apache.mina.transport.socket.nio.SocketSessionConfig;
+import org.apache.mina.filter.logging.LoggingFilter;
+import org.apache.mina.transport.socket.DatagramSessionConfig;
+import org.apache.mina.transport.socket.SocketSessionConfig;
+import org.apache.mina.transport.socket.nio.NioDatagramAcceptor;
+import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.feature.ChatManager;
 import org.pokenet.server.network.codec.PokenetCodecFactory;
@@ -20,10 +23,12 @@ import org.pokenet.server.network.codec.PokenetCodecFactory;
  * @author shadowkanji
  */
 public class NetworkService {
-	private ProtocolHandler m_connectionManager;
+	private TcpProtocolHandler m_tcpProtocolHandler;
+	private UdpProtocolHandler m_udpProtocolHandler;
 	private LoginManager m_loginManager;
 	private LogoutManager m_logoutManager;
-	private IoAcceptor m_acceptor;
+	private IoAcceptor m_tcpAcceptor;
+	private NioDatagramAcceptor m_udpAcceptor;
 	private ChatManager [] m_chatManager;
 	
 	/**
@@ -33,7 +38,8 @@ public class NetworkService {
 		m_logoutManager = new LogoutManager();
 		m_loginManager = new LoginManager(m_logoutManager);
 		m_chatManager = new ChatManager[3];
-		m_connectionManager = new ProtocolHandler(m_loginManager, m_logoutManager);
+		m_tcpProtocolHandler = new TcpProtocolHandler(m_loginManager, m_logoutManager);
+		m_udpProtocolHandler = new UdpProtocolHandler();
 	}
 	
 	/**
@@ -69,8 +75,8 @@ public class NetworkService {
 	 * Returns the connection manager (packet handler)
 	 * @return
 	 */
-	public ProtocolHandler getConnectionManager() {
-		return m_connectionManager;
+	public TcpProtocolHandler getConnectionManager() {
+		return m_tcpProtocolHandler;
 	}
 	
 	/**
@@ -109,27 +115,39 @@ public class NetworkService {
 			m_chatManager[i] = new ChatManager();
 			m_chatManager[i].start();
 		}
-		//Bind network address and start connection manager
-		ByteBuffer.setUseDirectBuffers(false);
-		ByteBuffer.setAllocator(new SimpleByteBufferAllocator());
-
-		m_acceptor = new SocketAcceptor(5, Executors
-				.newCachedThreadPool());
-
-		SocketAcceptorConfig cfg = new SocketAcceptorConfig();
-		((SocketSessionConfig) cfg.getSessionConfig()).setTcpNoDelay(true);
-		cfg.getSessionConfig().setReuseAddress(true);
-		cfg.getFilterChain().addLast(
-				"codec",
-				new ProtocolCodecFilter(new PokenetCodecFactory()));
-		cfg.getFilterChain().addLast("threadPool", new ExecutorFilter(Executors
-				.newCachedThreadPool()));
+		/*
+		 * Bind the TCP port
+		 */
+		m_tcpAcceptor = new NioSocketAcceptor();
+		m_tcpAcceptor.getFilterChain().addLast("logger", new LoggingFilter());
+		m_tcpAcceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(new PokenetCodecFactory()));
+		m_tcpAcceptor.setHandler(m_tcpProtocolHandler);
+		m_tcpAcceptor.getSessionConfig().setIdleTime(IdleStatus.READER_IDLE, 900000);
 		try {
-			m_acceptor.bind(new InetSocketAddress(7002), m_connectionManager, cfg);
-			System.out.println("INFO: Networking Service started");
-		} catch (Exception ex) {
-			ex.printStackTrace();
+			m_tcpAcceptor.bind(new InetSocketAddress(7002)); 
+			System.out.println("INFO: TCP acceptor started.");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
 		}
+		/*
+		 * Bind the UDP port
+		 */
+		m_udpAcceptor = new NioDatagramAcceptor();
+		m_udpAcceptor.setHandler(m_udpProtocolHandler);
+		DefaultIoFilterChainBuilder chain = m_udpAcceptor.getFilterChain(); 
+		chain.addLast("logger", new LoggingFilter()); 
+		chain.addLast("codec", new ProtocolCodecFilter(new PokenetCodecFactory()));
+		DatagramSessionConfig dcfg = m_udpAcceptor.getSessionConfig(); 
+		dcfg.setReuseAddress(true);
+		try {
+			m_udpAcceptor.bind(new InetSocketAddress(7005)); 
+			System.out.println("INFO: UDP acceptor started.");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
+		System.out.println("INFO: Network Service started.");
 	}
 	
 	/**
@@ -140,7 +158,7 @@ public class NetworkService {
 		//Unbind network address
 		for(int i = 0; i < m_chatManager.length; i++)
 			m_chatManager[i].stop();
-		m_acceptor.unbindAll();
-		m_connectionManager.logoutAll();
+		m_tcpAcceptor.unbind();
+		m_tcpProtocolHandler.logoutAll();
 	}
 }

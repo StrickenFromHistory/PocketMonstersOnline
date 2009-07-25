@@ -1,5 +1,6 @@
 package org.pokenet.server.network.message;
 
+import org.pokenet.server.backend.entity.Char;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 
 /**
@@ -12,38 +13,27 @@ public class MoveMessage extends PokenetMessage {
 	 * Constructor
 	 * @param d
 	 * @param id
+	 * @param mY 
+	 * @param mX 
 	 */
-	public MoveMessage(Direction d, int id, boolean directionChange) {
+	public MoveMessage(Char c, boolean directionChange) {
 		if(directionChange) {
-			switch(d) {
+			switch(c.getFacing()) {
 			case Up:
-				m_message = "cU" + id;
+				m_message = "cU" + c.getId();
 				break;
 			case Down:
-				m_message = "cD" + id;
+				m_message = "cD" + c.getId();
 				break;
 			case Left:
-				m_message = "cL" + id;
+				m_message = "cL" + c.getId();
 				break;
 			case Right:
-				m_message = "cR" + id;
+				m_message = "cR" + c.getId();
 				break;
 			}
 		} else {
-			switch(d) {
-			case Up:
-				m_message = "U" + id;
-				break;
-			case Down:
-				m_message = "D" + id;
-				break;
-			case Left:
-				m_message = "L" + id;
-				break;
-			case Right:
-				m_message = "R" + id;
-				break;
-			}
+			m_message = "M" + c.getId() + "," + c.getX() + "," + c.getY();
 		}
 	}
 

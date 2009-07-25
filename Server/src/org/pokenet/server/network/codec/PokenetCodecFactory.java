@@ -1,5 +1,6 @@
 package org.pokenet.server.network.codec;
 
+import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.ProtocolCodecFactory;
 import org.apache.mina.filter.codec.ProtocolDecoder;
 import org.apache.mina.filter.codec.ProtocolEncoder;
@@ -32,6 +33,20 @@ public class PokenetCodecFactory implements ProtocolCodecFactory {
 	 * Returns the encoder
 	 */
 	public ProtocolEncoder getEncoder() throws Exception {
+		return m_encoder;
+	}
+
+	/**
+	 * Return the default decoder
+	 */
+	public ProtocolDecoder getDecoder(IoSession arg0) throws Exception {
+		return m_decoder;
+	}
+
+	/**
+	 * Returns the default encoder
+	 */
+	public ProtocolEncoder getEncoder(IoSession arg0) throws Exception {
 		return m_encoder;
 	}
 

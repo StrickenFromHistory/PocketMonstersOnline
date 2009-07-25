@@ -31,15 +31,15 @@ public class Trade {
 		m_offers.put(player1, null);
 		m_offers.put(player2, null);
 		/* Tell the clients to open the window */
-		player1.getSession().write("Ts" + player2.getName());
-		player2.getSession().write("Ts" + player1.getName());
+		player1.getTcpSession().write("Ts" + player2.getName());
+		player2.getTcpSession().write("Ts" + player1.getName());
 		
 		/*
 		 * Send poke data to both clients
 		 */
 		for(int i = 0; i < player1.getParty().length; i++) {
 			if(player1.getParty()[i] != null) {
-				player2.getSession().write("Ti" + i + PokemonSpecies.getDefaultData().getPokemonByName(player1.getParty()[i].getSpeciesName()) + "," +
+				player2.getTcpSession().write("Ti" + i + PokemonSpecies.getDefaultData().getPokemonByName(player1.getParty()[i].getSpeciesName()) + "," +
 						player1.getParty()[i].getName() + "," +
 						player1.getParty()[i].getHealth() + "," +
 						player1.getParty()[i].getGender() + "," +
@@ -65,7 +65,7 @@ public class Trade {
 		}
 		for(int i = 0; i < player2.getParty().length; i++) {
 			if(player2.getParty()[i] != null) {
-				player1.getSession().write("Ti" + i + PokemonSpecies.getDefaultData().getPokemonByName(player2.getParty()[i].getSpeciesName()) + "," +
+				player1.getTcpSession().write("Ti" + i + PokemonSpecies.getDefaultData().getPokemonByName(player2.getParty()[i].getSpeciesName()) + "," +
 						player2.getParty()[i].getName() + "," +
 						player2.getParty()[i].getHealth() + "," +
 						player2.getParty()[i].getGender() + "," +
@@ -136,7 +136,7 @@ public class Trade {
 		/* Check the other player hasn't accepted a previous offer */
 		if(!otherPlayer.acceptedTradeOffer()) {
 			m_offers.put(p, null);
-			otherPlayer.getSession().write("Tc");
+			otherPlayer.getTcpSession().write("Tc");
 		}
 	}
 	
@@ -152,7 +152,7 @@ public class Trade {
 			PlayerChar player = i.next();
 			if(player.getId() != p.getId()) {
 				/* This is player we want to send data to */
-				player.getSession().write("To" + poke + "," + money);
+				player.getTcpSession().write("To" + poke + "," + money);
 				return;
 			}
 		}
@@ -279,10 +279,10 @@ public class Trade {
 								if(evolution != null && evolution.getType() == EvoTypes.Trade) {
 									if(i == 0) {
 										player2.getParty()[index].setEvolution(evolution);
-										player2.getSession().write("PE" + index);
+										player2.getTcpSession().write("PE" + index);
 									} else {
 										player1.getParty()[index].setEvolution(evolution);
-										player1.getSession().write("PE" + index);
+										player1.getTcpSession().write("PE" + index);
 									}
 									break;
 								}

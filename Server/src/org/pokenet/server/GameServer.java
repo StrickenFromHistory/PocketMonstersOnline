@@ -20,7 +20,7 @@ import org.apache.commons.cli.GnuParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.pokenet.server.network.ProtocolHandler;
+import org.pokenet.server.network.TcpProtocolHandler;
 
 /**
  * Represents a game server.
@@ -356,14 +356,14 @@ public class GameServer {
 	 */
 	public void updatePlayerCount() {
 		if(m_boolGui){
-			int amount = ProtocolHandler.getPlayerCount();
+			int amount = TcpProtocolHandler.getPlayerCount();
 			m_pAmount.setText(amount + " players online");
 			if(amount > m_highest) {
 				m_highest = amount;
 				m_pHighest.setText("Highest: " + amount);
 			}
 		} else {
-			int amount = ProtocolHandler.getPlayerCount();
+			int amount = TcpProtocolHandler.getPlayerCount();
 			System.out.println(amount + " players online");
 			if(amount > m_highest) {
 				m_highest = amount;

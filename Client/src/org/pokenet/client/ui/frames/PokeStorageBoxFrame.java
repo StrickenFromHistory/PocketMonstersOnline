@@ -186,10 +186,10 @@ public class PokeStorageBoxFrame extends Frame {
 						confirm.setVisible(false);
 						getDisplay().remove(confirm);
 
-						GameClient.getInstance().getPacketGenerator().write(
+						GameClient.getInstance().getPacketGenerator().writeTcpMessage(
 								"BR" + m_boxIndex + "," + m_buttonChosen);
 
-						GameClient.getInstance().getPacketGenerator().write("Bf");
+						GameClient.getInstance().getPacketGenerator().writeTcpMessage("Bf");
 						GameClient.getInstance().getUi().stopUsingBox();
 					}
 				});
@@ -202,7 +202,7 @@ public class PokeStorageBoxFrame extends Frame {
 						confirm.setVisible(false);
 						getDisplay().remove(confirm);
 
-						GameClient.getInstance().getPacketGenerator().write("Bf");
+						GameClient.getInstance().getPacketGenerator().writeTcpMessage("Bf");
 						GameClient.getInstance().getUi().stopUsingBox();
 
 					}
@@ -222,7 +222,7 @@ public class PokeStorageBoxFrame extends Frame {
 		m_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				setVisible(false);
-				GameClient.getInstance().getPacketGenerator().write("Bf");
+				GameClient.getInstance().getPacketGenerator().writeTcpMessage("Bf");
 				GameClient.getInstance().getUi().stopUsingBox();
 			}
 		});
@@ -287,7 +287,7 @@ public class PokeStorageBoxFrame extends Frame {
 			m_boxIndex = m_changeBox.getSelectedIndex();
 			m_boxNum = m_boxIndex + 1;
 			disableButtons();
-			GameClient.getInstance().getPacketGenerator().write("Br" + (m_boxIndex));
+			GameClient.getInstance().getPacketGenerator().writeTcpMessage("Br" + (m_boxIndex));
 			setTitle("Box Number " + String.valueOf(m_boxNum));
 		}
 	}
@@ -358,7 +358,7 @@ class TeamForBox extends Frame {
 		m_accept.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				switchPokes(m_boxNumber, m_boxIndex, m_teamIndex);
-				GameClient.getInstance().getPacketGenerator().write("Bf");
+				GameClient.getInstance().getPacketGenerator().writeTcpMessage("Bf");
 				GameClient.getInstance().getUi().stopUsingBox();
 				setVisible(false);
 			}
@@ -369,7 +369,7 @@ class TeamForBox extends Frame {
 		m_cancel.setText("Cancel");
 		m_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				GameClient.getInstance().getPacketGenerator().write("Bf");
+				GameClient.getInstance().getPacketGenerator().writeTcpMessage("Bf");
 				GameClient.getInstance().getUi().stopUsingBox();
 				setVisible(false);
 			}
@@ -461,8 +461,8 @@ class TeamForBox extends Frame {
 	 * @param teamIndex
 	 */
 	public void switchPokes(int boxNum, int boxIndex, int teamIndex) {
-		GameClient.getInstance().getPacketGenerator().write("Bs" + (boxNum - 1) + "," + boxIndex + ","
+		GameClient.getInstance().getPacketGenerator().writeTcpMessage("Bs" + (boxNum - 1) + "," + boxIndex + ","
 				+ teamIndex);
-		GameClient.getInstance().getPacketGenerator().write("Bf");
+		GameClient.getInstance().getPacketGenerator().writeTcpMessage("Bf");
 	}
 }

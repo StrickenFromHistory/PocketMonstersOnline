@@ -49,7 +49,7 @@ public class ItemProcessor implements Runnable {
                         data[i - 1] = m_details[i];
                 if(useItem(m_player, Integer.parseInt(m_details[0]), data)) {
                         m_player.getBag().removeItem(Integer.parseInt(m_details[0]), 1);
-                        m_player.getSession().write("Ir" + m_details[0] + "," + 1);
+                        m_player.getTcpSession().write("Ir" + m_details[0] + "," + 1);
                 }
         }
         
@@ -104,7 +104,7 @@ public class ItemProcessor implements Runnable {
                                         /* Ensure the Pokemon can learn this move */
                                         if(DataService.getMoveSetData().getMoveSet(poke.getSpeciesNumber()).canLearn(moveName)) {
                                                 poke.getMovesLearning().add(moveName);
-                                                m_player.getSession().write("Pm" + data[0] + moveName);
+                                                m_player.getTcpSession().write("Pm" + data[0] + moveName);
                                                 return true;
                                         }
                                 } catch (Exception e) {
@@ -137,7 +137,7 @@ public class ItemProcessor implements Runnable {
                                         }
                                         if(!p.isBattling()) {
                                                 /* Update the client */
-                                                p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                                p.getTcpSession().write("Ph" + data[0] + poke.getHealth());
                                         } else {
                                                 /* Player is in battle, take a hit from enemy */
                                         	 p.getBattleField().forceExecuteTurn();
@@ -308,7 +308,7 @@ public class ItemProcessor implements Runnable {
                                         } else if(i.getName().equalsIgnoreCase("ORAN BERRY")) {
                                                 poke.changeHealth(10);
                                                 if(!p.isBattling())
-                                                        p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                                        p.getTcpSession().write("Ph" + data[0] + poke.getHealth());
                                                 else {
                                                 	 p.getBattleField().forceExecuteTurn();
                                                 }
@@ -328,7 +328,7 @@ public class ItemProcessor implements Runnable {
                                         } else if(i.getName().equalsIgnoreCase("SITRUS BERRY")) {
                                                 poke.changeHealth(30);
                                                 if(!p.isBattling())
-                                                        p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                                        p.getTcpSession().write("Ph" + data[0] + poke.getHealth());
                                                 else
                                                 	 p.getBattleField().forceExecuteTurn();
                                                 return true;
@@ -339,7 +339,7 @@ public class ItemProcessor implements Runnable {
                                                         i.getName().equalsIgnoreCase("IAPAPA BERRY")) {
                                                 poke.changeHealth(poke.getRawStat(0) / 8);
                                                 if(!p.isBattling())
-                                                        p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                                        p.getTcpSession().write("Ph" + data[0] + poke.getHealth());
                                                 else
                                                 	 p.getBattleField().forceExecuteTurn();
                                                 return true;

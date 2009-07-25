@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import org.apache.mina.common.IoSession;
+import org.apache.mina.core.session.IoSession;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.Bag;
 import org.pokenet.server.backend.entity.PlayerChar;
@@ -67,7 +67,7 @@ public class LoginManager implements Runnable {
 	private void attemptLogin(IoSession session, char l, String username, String password, boolean force) {
 		try {
 			//Check if we haven't reach the player limit
-			if(ProtocolHandler.getPlayerCount() >= GameServer.getMaxPlayers()) {
+			if(TcpProtocolHandler.getPlayerCount() >= GameServer.getMaxPlayers()) {
 				session.write("l2");
 				return;
 			}
@@ -106,12 +106,12 @@ public class LoginManager implements Runnable {
 					 * They are already logged in on this server.
 					 * Attach the session to the existing player if they exist, if not, just log them in
 					 */
-					if(ProtocolHandler.containsPlayer(username)) {
-						PlayerChar p = ProtocolHandler.getPlayer(username);
-						p.getSession().setAttribute("player", null);
+					if(TcpProtocolHandler.containsPlayer(username)) {
+						PlayerChar p = TcpProtocolHandler.getPlayer(username);
+						p.getTcpSession().setAttribute("player", null);
 						p.setLastLoginTime(time);
-						p.getSession().close();
-						p.setSession(session);
+						p.getTcpSession().close();
+						p.setTcpSession(session);
 						p.setLanguage(Language.values()[Integer.parseInt(String.valueOf(l))]);
 						m_database.query("UPDATE pn_members SET lastLoginServer='" + MySqlManager.parseSQL(GameServer.getServerName()) + "', lastLoginTime='" + time + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 						m_database.query("UPDATE pn_members SET lastLoginIP='" + getIp(session) + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
@@ -239,8 +239,9 @@ public class LoginManager implements Runnable {
 		 */
 		PlayerChar p = getPlayerObject(result);
 		p.setLastLoginTime(time);
-		p.setSession(session);
+		p.setTcpSession(session);
 		p.setLanguage(Language.values()[Integer.parseInt(String.valueOf(language))]);
+		p.generateUdpCode();
 		/*
 		 * Update the database with login information
 		 */
@@ -254,7 +255,8 @@ public class LoginManager implements Runnable {
 		/*
 		 * Add them to the list of players
 		 */
-		ProtocolHandler.addPlayer(p);
+		TcpProtocolHandler.addPlayer(p);
+		UdpProtocolHandler.addPlayer(p);
 		GameServer.getInstance().updatePlayerCount();
 		System.out.println("INFO: " + username + " logged in.");
 	}
@@ -265,7 +267,7 @@ public class LoginManager implements Runnable {
 	 * @param session
 	 */
 	private void initialiseClient(PlayerChar p, IoSession session) {
-		session.write("ls" + p.getId() + "," + TimeService.getTime());
+		session.write("ls" + p.getId() + "," + p.getUdpCode() + "," + TimeService.getTime());
 		//Add them to the map
 		p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().getMapByGamePosition(p.getMapX(), p.getMapY()));
 		//Add them to a movement service

@@ -309,7 +309,7 @@ public class Ui extends Frame {
 			BagDialog pane = new BagDialog(
 					GameClient.getInstance().getOurPlayer().getItems()) {
 				public void itemClicked(PlayerItem item) {
-					GameClient.getInstance().getPacketGenerator().write("u" + 
+					GameClient.getInstance().getPacketGenerator().writeTcpMessage("u" + 
 							item.getItem().getName());
 				}
 				public void cancelled() {
@@ -617,13 +617,13 @@ public class Ui extends Frame {
     	final int index = pokeIndex;
     	ActionListener yes = new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
-    			GameClient.getInstance().getPacketGenerator().write("Pe1" + index);
+    			GameClient.getInstance().getPacketGenerator().writeTcpMessage("Pe1" + index);
     			GameClient.getInstance().getDisplay().remove(m_evolveDialog);
     		}
     	};
     	ActionListener no = new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
-    			GameClient.getInstance().getPacketGenerator().write("Pe0" + index);
+    			GameClient.getInstance().getPacketGenerator().writeTcpMessage("Pe0" + index);
     			GameClient.getInstance().getDisplay().remove(m_evolveDialog);
     		}
     	};

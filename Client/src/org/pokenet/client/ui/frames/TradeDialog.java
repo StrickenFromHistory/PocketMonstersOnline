@@ -55,10 +55,10 @@ public class TradeDialog extends Frame {
 	 */
 	private void makeOffer(){
 		if (!m_ourMoneyOffer.getText().equals("")){
-			GameClient.getInstance().getPacketGenerator().write("To" + m_offerNum + "," + 
+			GameClient.getInstance().getPacketGenerator().writeTcpMessage("To" + m_offerNum + "," + 
 					m_ourMoneyOffer.getText());
 		} else {
-			GameClient.getInstance().getPacketGenerator().write("To" + m_offerNum + ",0");
+			GameClient.getInstance().getPacketGenerator().writeTcpMessage("To" + m_offerNum + ",0");
 		}
 			
 		m_makeOfferBtn.setText("Cancel Offer");
@@ -71,7 +71,7 @@ public class TradeDialog extends Frame {
 	 * Cancels a sent offer
 	 */
 	private void cancelOffer(){
-		GameClient.getInstance().getPacketGenerator().write("Tc");
+		GameClient.getInstance().getPacketGenerator().writeTcpMessage("Tc");
 		m_makeOfferBtn.setText("Make Offer");
 		for (int i = 0; i < 6; i++){
 			m_ourPokes[i].setGlassPane(false);
@@ -94,7 +94,7 @@ public class TradeDialog extends Frame {
 	 * Performs the trade
 	 */
 	private void performTrade(){
-		GameClient.getInstance().getPacketGenerator().write("Tt");
+		GameClient.getInstance().getPacketGenerator().writeTcpMessage("Tt");
 		System.out.println("Trade complete");
 		this.setVisible(false);
 	}
@@ -105,7 +105,7 @@ public class TradeDialog extends Frame {
 	private void cancelTrade(){
 		ActionListener yes = new ActionListener(){
 			public void actionPerformed(ActionEvent evt) {
-				GameClient.getInstance().getPacketGenerator().write("TC");
+				GameClient.getInstance().getPacketGenerator().writeTcpMessage("TC");
 				m_confirm.setVisible(false);
 				getDisplay().remove(m_confirm);
 				m_confirm = null;
