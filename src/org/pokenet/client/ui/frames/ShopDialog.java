@@ -159,7 +159,7 @@ public class ShopDialog extends Frame {
 								m_sellList.getSelectedName()).getPrice() / 2) + "?");
 				m_confirm.addYesListener(new ActionListener(){
 					public void actionPerformed(ActionEvent e){
-						GameClient.getInstance().getPacketGenerator().write("Ss" + ItemDatabase.getInstance()
+						GameClient.getInstance().getPacketGenerator().writeTcpMessage("Ss" + ItemDatabase.getInstance()
 								.getItem(m_sellList.getSelectedName()).getId() + ",");
 						GameClient.getInstance().getDisplay().remove(m_confirm);
 					}
@@ -464,12 +464,12 @@ public class ShopDialog extends Frame {
 	}
 	
 	public void cancelled() {
-		GameClient.getInstance().getPacketGenerator().write("Sf");
+		GameClient.getInstance().getPacketGenerator().writeTcpMessage("Sf");
 		GameClient.getInstance().getUi().stopShop();
 	}
 	
 	public void itemClicked(int itemid) {
-		GameClient.getInstance().getPacketGenerator().write("Sb"+itemid+",1");
+		GameClient.getInstance().getPacketGenerator().writeTcpMessage("Sb"+itemid+",1");
 	}
 	public void pack() {
 		

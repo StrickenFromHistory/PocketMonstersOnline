@@ -203,7 +203,7 @@ class PopUp extends Frame{
 				destroy();
 				ActionListener m_yes = new ActionListener(){
 					public void actionPerformed(ActionEvent e){
-						GameClient.getInstance().getPacketGenerator().write("Fr" + m_name.getText());
+						GameClient.getInstance().getPacketGenerator().writeTcpMessage("Fr" + m_name.getText());
 						GameClient.getInstance().getDisplay().remove(m_confirm);
 						m_confirm = null;
 					}

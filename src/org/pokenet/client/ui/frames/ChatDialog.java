@@ -47,14 +47,14 @@ public class ChatDialog extends Frame {
 				if (m_inputBox.getText().charAt(0) == '/'){
 					ModerationManager.parseLine(m_inputBox.getText().substring(1));
 				} else {
-					GameClient.getInstance().getPacketGenerator().write("Cl" 
+					GameClient.getInstance().getPacketGenerator().writeTcpMessage("Cl" 
 							+ m_inputBox.getText());
 				}
 			} else {
 				if (m_inputBox.getText().charAt(0) == '/') {
 					ModerationManager.parseLine(m_inputBox.getText().substring(1));
 				} else {
-					GameClient.getInstance().getPacketGenerator().write(
+					GameClient.getInstance().getPacketGenerator().writeTcpMessage(
 							"Cp" + m_possibleChats.getSelected() + ","
 							+ m_inputBox.getText());
 					addChatLine(m_possibleChats.getSelected(), "<" + 

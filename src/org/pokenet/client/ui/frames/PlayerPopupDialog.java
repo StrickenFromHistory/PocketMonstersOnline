@@ -65,13 +65,13 @@ public class PlayerPopupDialog extends Frame{
 		
 		m_battle.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				GameClient.getInstance().getPacketGenerator().write("rb" + m_name.getText());
+				GameClient.getInstance().getPacketGenerator().writeTcpMessage("rb" + m_name.getText());
 				destroy();
 			}
 		});
 		m_trade.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				GameClient.getInstance().getPacketGenerator().write("rt" + m_name.getText());
+				GameClient.getInstance().getPacketGenerator().writeTcpMessage("rt" + m_name.getText());
 				destroy();
 			}
 		});
@@ -83,7 +83,7 @@ public class PlayerPopupDialog extends Frame{
 		});
 		m_addFriend.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				GameClient.getInstance().getPacketGenerator().write("Fa" + m_name.getText());
+				GameClient.getInstance().getPacketGenerator().writeTcpMessage("Fa" + m_name.getText());
 				GameClient.getInstance().getUi().getFriendsList().addFriend(m_name.getText());
 				destroy();
 			}

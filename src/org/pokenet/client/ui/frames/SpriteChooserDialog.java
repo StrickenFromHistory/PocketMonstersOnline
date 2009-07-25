@@ -96,7 +96,7 @@ public class SpriteChooserDialog extends Frame {
 						confirm.setVisible(false);
 						GameClient.getInstance().getDisplay().remove(confirm);
 
-						GameClient.getInstance().getPacketGenerator().write(
+						GameClient.getInstance().getPacketGenerator().writeTcpMessage(
 								"S" + m_spriteList.getSelectedName());
 					}
 				});

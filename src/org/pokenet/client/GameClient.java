@@ -12,13 +12,14 @@ import mdes.slick.sui.Display;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
-import org.apache.mina.common.ConnectFuture;
+import org.apache.mina.core.future.ConnectFuture;
+import org.apache.mina.core.future.IoFuture;
+import org.apache.mina.core.future.IoFutureListener;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.filter.codec.textline.TextLineCodecFactory;
 import org.apache.mina.filter.executor.ExecutorFilter;
-import org.apache.mina.transport.socket.nio.SocketConnector;
-import org.apache.mina.transport.socket.nio.SocketConnectorConfig;
-import org.apache.mina.transport.socket.nio.SocketSessionConfig;
+import org.apache.mina.transport.socket.nio.NioDatagramConnector;
+import org.apache.mina.transport.socket.nio.NioSocketConnector;
 import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
@@ -43,8 +44,9 @@ import org.pokenet.client.backend.entity.Player.Direction;
 import org.pokenet.client.backend.time.TimeService;
 import org.pokenet.client.backend.time.WeatherService;
 import org.pokenet.client.backend.time.WeatherService.Weather;
-import org.pokenet.client.network.ConnectionManager;
+import org.pokenet.client.network.TcpProtocolHandler;
 import org.pokenet.client.network.PacketGenerator;
+import org.pokenet.client.network.UdpProtocolHandler;
 import org.pokenet.client.ui.LoadingScreen;
 import org.pokenet.client.ui.LoginScreen;
 import org.pokenet.client.ui.Ui;
@@ -90,6 +92,7 @@ public class GameClient extends BasicGame {
 	private MoveLearningManager m_moveLearningManager;
     private static SoundManager m_soundPlayer;
     private static boolean m_disableMaps = false;
+    public static String UDPCODE = "";
     
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
@@ -422,7 +425,7 @@ public class GameClient extends BasicGame {
 						.getMoveLearning()) && !getDisplay().containsChild(getUi().getShop())) {
 			if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
 					.getBattleWindow()) ){
-				m_packetGen.write("Ct");
+				m_packetGen.writeTcpMessage("Ct");
 			}
 			if (getDisplay().containsChild(BattleManager.getInstance().getBattleWindow()) && 
 					 getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
@@ -549,33 +552,52 @@ public class GameClient extends BasicGame {
 	 * Connects to a selected server
 	 */
 	public void connect() {
-		SocketConnector connector = new SocketConnector();
-        SocketConnectorConfig cfg = new SocketConnectorConfig();
-        ((SocketSessionConfig) cfg.getSessionConfig()).setTcpNoDelay(true);
-        cfg.getFilterChain().addLast(
-              "codec",
-              new ProtocolCodecFilter(
-                      new TextLineCodecFactory(Charset.forName("US-ASCII"))));
-        cfg.getFilterChain().addLast("threadPool", new ExecutorFilter(Executors
-				.newCachedThreadPool()));
-        // Start communication.
-       ConnectFuture cf = connector.connect(new InetSocketAddress(
-                m_host, 7002), new ConnectionManager(this), cfg);
-        // Wait for the connection attempt to be finished
-        cf.join();
-        int i = 0;
-        while(!cf.isConnected()) {
-        	i++;
-        	//Connection attempt times out and a dialog appears
-        	if(i >= 10000) {
-        		messageDialog("Connection timed out.\n"
-						+ "The server may be offline.\n"
-						+ "Contact an administrator for assistance.", getDisplay());
-				m_host = "";
-				return;
-        	}
-        }
-        m_packetGen = new PacketGenerator(cf.getSession());
+        m_packetGen = new PacketGenerator();
+		/*
+		 * Connect via TCP
+		 */
+		NioSocketConnector connector = new NioSocketConnector();
+		connector.getFilterChain().addLast("codec",
+	              new ProtocolCodecFilter(
+	                      new TextLineCodecFactory(Charset.forName("US-ASCII"))));
+		connector.setHandler(new TcpProtocolHandler(this));
+		ConnectFuture cf = connector.connect(new InetSocketAddress(m_host, 7002));
+		cf.addListener(new IoFutureListener() {
+			public void operationComplete(IoFuture s) {
+				if(s.getSession().isConnected()) {
+					m_packetGen.setTcpSession(s.getSession());
+				} else {
+					messageDialog("Connection timed out.\n"
+							+ "The server may be offline.\n"
+							+ "Contact an administrator for assistance.", getDisplay());
+					m_host = "";
+				}
+			}
+		});
+        /*
+         * Connect via UDP
+         */
+        NioDatagramConnector udp = new NioDatagramConnector();
+        udp.getFilterChain().addLast("codec",
+	              new ProtocolCodecFilter(
+	                      new TextLineCodecFactory(Charset.forName("US-ASCII"))));
+        udp.setHandler(new UdpProtocolHandler(this));
+        cf = udp.connect(new InetSocketAddress(m_host, 7005));
+        cf.addListener(new IoFutureListener() {
+        	public void operationComplete(IoFuture s) {
+				if(s.getSession().isConnected()) {
+					m_packetGen.setUdpSession(s.getSession());
+				} else {
+					messageDialog("Connection timed out.\n"
+							+ "The server may be offline.\n"
+							+ "Contact an administrator for assistance.", getDisplay());
+					m_host = "";
+				}
+			}
+		});
+        /*
+         * Show login screen
+         */
         m_login.showLogin();
 	}
 	
