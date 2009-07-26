@@ -36,7 +36,7 @@ Clefairy 168 25 206 75
 Clefable 168 1 206 99
 Vulpix 164 20 206 80
 Ninetales 164 15 206 85
-Jigglypuff 206 100
+Jigglypuff 206 75 168 25
 Wigglytuff 206 100
 Zubat 206 100
 Golbat 206 100
@@ -44,7 +44,7 @@ Oddish 200 50 206 35 167 15
 Gloom 201 100
 Vileplume 597 5 209 50 206 45
 Paras 206 95 37 5
-Parasect 209 100
+Parasect 209 95 37 5
 Venonat 318 5 206 95
 Venomoth 318 10 209 90
 Diglett 200 9 319 1
@@ -52,7 +52,7 @@ Dugtrio 209 50 319 10 200 25 603 14 601 1
 Meowth 206 99 350 1
 Persian 209 99 350 1
 Psyduck 206 90 237 10
-Golduck 209 50 237 49 342 1
+Golduck 209 50 237 50
 Mankey 206 100
 Primeape 209 90 301 10
 Growlithe 203 80 164 20
@@ -62,12 +62,12 @@ Poliwhirl 201 50 209 40 155 10
 Poliwrath 209 75 208 25
 Abra 207 95 604 5
 Kadabra 321 5 206 95
-Alakazam 209 69 321 10 374 10 388 10 340 1
+Alakazam 209 70 321 10 374 10 388 10
 Machop 206 100
 Machoke 209 95 301 5
 Machamp 209 100
 Bellsprout 200 90 173 10
-Weepinbell 206 50 209 50
+Weepinbell 206 50 209 40 173 10
 Victreebel 209 90 352 5 353 5
 Tentacool 202 100
 Tentacruel 209 50 206 30 313 10 202 10
@@ -76,7 +76,7 @@ Graveler 206 40 209 40 237 20
 Golem 209 75 305 20 655 5
 Ponyta 206 90 164 10
 Rapidash 206 90 235 10
-Slowpoke 207 99 208 1
+Slowpoke 207 94 155 5 208 1
 Slowbro 209 100
 Magnemite 206 80 166 20
 Magneton 206 50 307 50
@@ -109,7 +109,7 @@ Lickitung 209 80 317 10 312 10
 Koffing 202 50 203 40 581 10
 Weezing 209 68 353 22 611 5 639 5
 Rhyhorn 206 90 305 10
-Rhydon 209 90 305 9 344 1
+Rhydon 209 90 305 10
 Chansey 158 50 373 5 209 45
 Tangela 207 89 365 11
 Kangaskhan 209 99 317 1
@@ -296,7 +296,7 @@ Exploud 209 50 205 50
 Makuhita 206 100
 Hariyama 206 99 301 1
 Azurill 206 100
-Nosepass 344 3 305 5 200 92
+Nosepass 305 5 200 95
 Skitty 206 95 168 5
 Delcatty 209 100
 Sableye 207 100
@@ -339,7 +339,7 @@ Solrock 207 99 167 1
 Barboach 206 100
 Whiscash 209 100
 Corphish 200 50 206 50
-Crawdaunt 200 40 206 40 342 1
+Crawdaunt 200 40 206 40 207 20
 Baltoy 207 99 168 1
 Claydol 207 90 167 10
 Lileep 133 40 206 60
@@ -440,7 +440,7 @@ Bonsly 201 70 135 30
 MimeJr. 201 70 131 30
 Happiny 158 50 373 5
 Chatot 209 100
-Spiritomb 343 10
+Spiritomb 207 100
 Gible 603 5 205 50
 Gabite 205 100
 Garchomp 601 10 603 20 304 30 205 40
@@ -476,7 +476,7 @@ PorygonZ 153 50
 Gallade 207 50 208 30 320 5
 Probopass 305 5 157 5 203 90
 Froslass 204 99 169 1
-Rotom 343 5 346 5 246 90
+Rotom 246 100
 Uxie 78 100
 Mesprit 78 100
 Azelf 78 100
@@ -486,8 +486,8 @@ Heatran 362 100
 Regigigas 78 99 38 1
 Giratina 315 100
 Cresselia 78 100
-Phione 342 100
-Manaphy 208 50 342 50
-Darkrai 170 70 332 30
+Phione 208 100
+Manaphy 208 100
+Darkrai 170 100
 Shaymin 78 100
 Arceus 331 6 332 6 333 6 334 6 335 6 336 6 337 6 338 6 339 6 340 6 341 6 342 6 343 6 344 6 345 6 346 6 38 4
