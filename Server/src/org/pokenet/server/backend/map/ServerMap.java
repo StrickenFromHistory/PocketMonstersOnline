@@ -262,12 +262,14 @@ public class ServerMap {
 	 * @param l
 	 */
 	public void sendChatMessage(String message, Language l) {
-		Collection<PlayerChar> list = m_players.values();
-		for(PlayerChar p: list) {
-			if(p.getLanguage() == l) {
-				ProtocolHandler.writeMessage(
-						p.getSession(),
-						new ChatMessage(ChatMessageType.LOCAL, message));
+		synchronized(m_players) {
+			Collection<PlayerChar> list = m_players.values();
+			for(PlayerChar p: list) {
+				if(p.getLanguage() == l) {
+					ProtocolHandler.writeMessage(
+							p.getSession(),
+							new ChatMessage(ChatMessageType.LOCAL, message));
+				}
 			}
 		}
 	}
@@ -377,20 +379,24 @@ public class ServerMap {
 	 */
 	public void addChar(Char c) {
 		if(c instanceof PlayerChar) {
-			m_players.put(c.getName(), (PlayerChar) c);
+			synchronized(m_players) {
+				m_players.put(c.getName(), (PlayerChar) c);
+			}
 		} else if(c instanceof NonPlayerChar) {
 			//Set the id of the npc
 			c.setId(-1 - m_npcs.size());
 			m_npcs.add((NonPlayerChar) c);
 		}
-		for(PlayerChar p : m_players.values()) {
-			if(c.getId() != p.getId())
-				p.getSession().write("ma" + c.getName() + "," + 
-					c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
-					(c.getFacing() == Direction.Down ? "D" : 
-						c.getFacing() == Direction.Up ? "U" :
-							c.getFacing() == Direction.Left ? "L" :
-								"R"));
+		synchronized(m_players) {
+			for(PlayerChar p : m_players.values()) {
+				if(c.getId() != p.getId())
+					p.getSession().write("ma" + c.getName() + "," + 
+						c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
+						(c.getFacing() == Direction.Down ? "D" : 
+							c.getFacing() == Direction.Up ? "U" :
+								c.getFacing() == Direction.Left ? "L" :
+									"R"));
+			}
 		}
 	}
 	
@@ -461,13 +467,17 @@ public class ServerMap {
 	 */
 	public void removeChar(Char c) {
 		if(c instanceof PlayerChar) {
-			m_players.remove(c.getName());
+			synchronized(m_players) {
+				m_players.remove(c.getName());
+			}
 		} else if(c instanceof NonPlayerChar) {
 			m_npcs.remove((NonPlayerChar) c);
 			m_npcs.trimToSize();
 		}
-		for(PlayerChar p : m_players.values()) {
-			p.getSession().write("mr" + c.getId());
+		synchronized(m_players) {
+			for(PlayerChar p : m_players.values()) {
+				p.getSession().write("mr" + c.getId());
+			}
 		}
 	}
 	
@@ -862,9 +872,11 @@ public class ServerMap {
 	 * @param message
 	 */
 	public void sendToAll(PokenetMessage m) {
-		Collection<PlayerChar> list = m_players.values();
-		for(PlayerChar p: list) {
-			ProtocolHandler.writeMessage(p.getSession(), m);
+		synchronized(m_players) {
+			Collection<PlayerChar> list = m_players.values();
+			for(PlayerChar p: list) {
+				ProtocolHandler.writeMessage(p.getSession(), m);
+			}
 		}
 	}
 	
