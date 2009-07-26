@@ -277,7 +277,6 @@ public class PvPBattleField extends BattleField {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void informVictory(int winner) {
 		m_finished = true;

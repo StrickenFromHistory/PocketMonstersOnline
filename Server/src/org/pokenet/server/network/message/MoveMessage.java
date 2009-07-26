@@ -1,7 +1,6 @@
 package org.pokenet.server.network.message;
 
 import org.pokenet.server.backend.entity.Char;
-import org.pokenet.server.backend.entity.Positionable.Direction;
 
 /**
  * A character movement message

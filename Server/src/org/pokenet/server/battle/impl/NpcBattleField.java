@@ -214,7 +214,6 @@ public class NpcBattleField extends BattleField {
 					new BattleMoveMessage(poke.getSpeciesName(), name));
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void informVictory(int winner) {
 		m_finished = true;
