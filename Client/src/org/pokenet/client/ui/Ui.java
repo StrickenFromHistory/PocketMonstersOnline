@@ -16,7 +16,6 @@ import org.pokenet.client.backend.entity.PlayerItem;
 import org.pokenet.client.ui.base.ConfirmationDialog;
 import org.pokenet.client.ui.base.HUDButtonFactory;
 import org.pokenet.client.ui.base.ImageButton;
-import org.pokenet.client.ui.base.ListBox;
 import org.pokenet.client.ui.frames.BagDialog;
 import org.pokenet.client.ui.frames.BigBagDialog;
 import org.pokenet.client.ui.frames.ChatDialog;
@@ -326,16 +325,10 @@ public class Ui extends Frame {
 			pane.setSize(80, 246);
 			pane.pack();
 			
-			ListBox badges = new ListBox(
-					GameClient.getInstance().getOurPlayer().getBadges());
-			badges.setSize(UI_WIDTH, 200);
-			badges.pack();
 			m_bagForm.getTitleBar().getCloseButton().setVisible(false);
-			m_bagForm.getContentPane().add(badges);
 			m_bagForm.getContentPane().add(pane);
-			badges.setLocation(0, 300);
 			m_bagForm.setSize(pane.getWidth(), 
-					pane.getHeight() + badges.getHeight() + m_bagForm.getTitleBar().getHeight());
+					pane.getHeight() + m_bagForm.getTitleBar().getHeight());
 			getDisplay().add(m_bagForm);
 			m_bagForm.setLocation(m_buttons[1].getX(),  67 - getTitleBar().getHeight());
 			m_bagForm.setDraggable(false);
