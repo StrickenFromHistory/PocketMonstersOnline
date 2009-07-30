@@ -1078,7 +1078,7 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void forceLogout() {
 		if(m_tcpSession.isConnected()) {
-			m_tcpSession.close();
+			m_tcpSession.close(true);
 		} else {
 			GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(this);
 		}

@@ -110,7 +110,7 @@ public class LoginManager implements Runnable {
 						PlayerChar p = TcpProtocolHandler.getPlayer(username);
 						p.getTcpSession().setAttribute("player", null);
 						p.setLastLoginTime(time);
-						p.getTcpSession().close();
+						p.getTcpSession().close(true);
 						p.setTcpSession(session);
 						p.setLanguage(Language.values()[Integer.parseInt(String.valueOf(l))]);
 						m_database.query("UPDATE pn_members SET lastLoginServer='" + MySqlManager.parseSQL(GameServer.getServerName()) + "', lastLoginTime='" + time + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");

@@ -63,7 +63,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				m_players.remove(p);
 			}
 			if(session.isConnected() || !session.isClosing())
-				session.close();
+				session.close(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -321,7 +321,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 							if(m_players.containsKey(message.substring(2))) {
 								PlayerChar o = m_players.get(message.substring(2));
 								o.getTcpSession().write("!You have been kicked from the server.");
-								o.getTcpSession().close();
+								o.getTcpSession().close(true);
 							}
 							break;
 						case 'w':
@@ -521,7 +521,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				m_players.remove(p);
 			}
 			if(session.isConnected() || !session.isClosing())
-				session.close();
+				session.close(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

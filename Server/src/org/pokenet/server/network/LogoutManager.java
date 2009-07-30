@@ -61,7 +61,7 @@ public class LogoutManager implements Runnable {
 		m_database.close();
 		//Close the session fully if its not closed already
 		if(player.getTcpSession() != null && player.getTcpSession().isConnected())
-			player.getTcpSession().close();
+			player.getTcpSession().close(true);
 		GameServer.getServiceManager().getMovementService().removePlayer(player.getName());
 		return true;
 	}
