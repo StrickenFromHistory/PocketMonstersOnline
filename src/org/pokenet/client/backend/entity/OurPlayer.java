@@ -13,7 +13,7 @@ import org.pokenet.client.backend.entity.Enums.Poketype;
 public class OurPlayer extends Player {
 	private OurPokemon [] m_pokemon;
 	private ArrayList<PlayerItem> m_items;
-    private String[] m_badges = new String[0];
+    private int[] m_badges;
 	private int m_money;
 	
 	/**
@@ -22,7 +22,7 @@ public class OurPlayer extends Player {
 	public OurPlayer() {
 		m_pokemon = new OurPokemon[6];
 		m_items = new ArrayList<PlayerItem>();
-		m_badges = new String[0];
+		m_badges = new int[47];
 		m_money = 0;
 	}
 	
@@ -216,7 +216,7 @@ public class OurPlayer extends Player {
 	/**
 	 * Returns the player's badges
 	 */
-	public String [] getBadges(){
+	public int [] getBadges(){
 		return m_badges;
 	}
 	
@@ -250,5 +250,27 @@ public class OurPlayer extends Player {
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * Initializes the player's badges
+	 * @param str
+	 */
+	public void initBadges(String str) {
+		for (int i = 0; i < str.length(); i++) {
+			try{
+				m_badges[i] = Integer.valueOf(str.charAt(i));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	/**
+	 * Adds a badge to the player
+	 * @param index
+	 */
+	public void addBadge(int index) {
+		m_badges[index] = 1;
 	}
 }
