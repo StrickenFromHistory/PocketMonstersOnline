@@ -429,9 +429,11 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					 * 32 - 35 Orange Islands Badges
 					 * 36 - 41 Undefined
 					 */
+					m_game.getOurPlayer().initBadges(message.substring(3));
 					break;
 				case 'a':
 					//Add a badge
+					m_game.getOurPlayer().addBadge(Integer.valueOf(message.substring(3)));
 					break;
 				}
 				break;
