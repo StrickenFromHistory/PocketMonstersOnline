@@ -15,6 +15,10 @@ public class OurPlayer extends Player {
 	private ArrayList<PlayerItem> m_items;
     private int[] m_badges;
 	private int m_money;
+	private int m_trainerLvl;
+	private int m_breedingLvl;
+	private int m_fishingLvl;
+	private int m_coordinatingLvl;
 	
 	/**
 	 * Default constructor
@@ -22,7 +26,7 @@ public class OurPlayer extends Player {
 	public OurPlayer() {
 		m_pokemon = new OurPokemon[6];
 		m_items = new ArrayList<PlayerItem>();
-		m_badges = new int[47];
+		m_badges = new int[42];
 		m_money = 0;
 	}
 	
@@ -36,6 +40,10 @@ public class OurPlayer extends Player {
 		m_sprite = original.getSprite();
 		m_username = original.getUsername();
 		m_isAnimating = original.isAnimating();
+		m_trainerLvl = original.getTrainerLevel();
+		m_breedingLvl = original.getBreedingLevel();
+		m_fishingLvl = original.getFishingLevel();
+		m_coordinatingLvl = original.getCoordinatingLevel();
 	}
 	
 	public void set(Player p) {
@@ -48,6 +56,70 @@ public class OurPlayer extends Player {
 		m_username = p.getUsername();
 		m_id = p.getId();
 		m_ours = p.isOurPlayer();
+	}
+	
+	/**
+	 * Returns the player's trainer level
+	 * @return m_trainerLvl
+	 */
+	public int getTrainerLevel() {
+		return m_trainerLvl;
+	}
+	
+	/**
+	 * Sets the player's trainer level
+	 * @param i
+	 */
+	public void setTrainerLevel(int i) {
+		m_trainerLvl = i;
+	}
+	
+	/**
+	 * Returns the player's breeding level
+	 * @return m_breedingLvl
+	 */
+	public int getBreedingLevel() {
+		return m_breedingLvl;
+	}
+	
+	/**
+	 * Sets the player's breeding level
+	 * @param i
+	 */
+	public void setBreedingLevel(int i) {
+		m_breedingLvl = i;
+	}
+	
+	/**
+	 * Returns the player's fishing level
+	 * @return m_fishingLvl
+	 */
+	public int getFishingLevel() {
+		return m_fishingLvl;
+	}
+	
+	/**
+	 * Sets the player's fishing level
+	 * @param i
+	 */
+	public void setFishingLevel(int i) {
+		m_fishingLvl = i;
+	}
+	
+	/**
+	 * Returns the player's coordinating level
+	 * @return m_coordinatingLvl
+	 */
+	public int getCoordinatingLevel() {
+		return m_coordinatingLvl;
+	}
+	
+	/**
+	 * Sets the player's coordinating level
+	 * @param i
+	 */
+	public void setCoordinatingLevel(int i) {
+		m_coordinatingLvl = i;
 	}
 	
 	/**
