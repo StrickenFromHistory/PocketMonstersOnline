@@ -1,0 +1,23 @@
+[warp]
+4
+9
+6
+8
+3
+1
+0
+[/warp]
+[npc]
+Red's Mother
+left
+10
+8
+4
+NULL
+0
+-1
+0,1,2,3,4
+false
+false
+false
+[/npc]
