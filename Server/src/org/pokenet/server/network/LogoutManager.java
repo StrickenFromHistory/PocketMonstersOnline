@@ -173,7 +173,7 @@ public class LogoutManager implements Runnable {
 						"healMapY='" + p.getHealMapY() + "', " +
 						"isSurfing='" + String.valueOf(p.isSurfing()) + "', " +
 						"badges='" + badges + "' " +
-						"WHERE username='" + MySqlManager.parseSQL(p.getName()) + "' AND id='" + p.getId() + "'");
+						"WHERE id='" + p.getId() + "'");
 				/*
 				 * Second, update the party
 				 */
