@@ -60,12 +60,12 @@ public class PlayerChar extends Char implements Battleable {
 	private ResultSet m_databasePokemon;
 	private ArrayList<String> m_friends;
 	private long m_lastLogin;
-	private int m_skillHerb = 0;
-	private int m_skillCraft = 0;
-	private int m_skillFish = 0;
-	private int m_skillTraining = 0;
-	private int m_skillCoord = 0;
-	private int  m_skillBreed = 0;
+	private int m_skillHerbExp = 0;
+	private int m_skillCraftExp = 0;
+	private int m_skillFishExp = 0;
+	private int m_skillTrainingExp = 0;
+	private int m_skillCoordExp = 0;
+	private int  m_skillBreedExp = 0;
 	private BattleField m_battleField = null;
 	private int m_healX, m_healY, m_healMapX, m_healMapY;
 	private int m_adminLevel = 0;
@@ -814,7 +814,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param exp
 	 */
 	public void setHerbalismExp(int exp) {
-		m_skillHerb = exp;
+		m_skillHerbExp = exp;
 	}
 	
 	/**
@@ -822,15 +822,22 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getHerbalismExp() {
-		return m_skillHerb;
+		return m_skillHerbExp;
 	}
 	
+	/**
+	 * Returns the herbalism skill level
+	 * @return
+	 */
+	public int getHerbalismLevel() {
+		return (int)Math.pow(m_skillHerbExp, (1/3));
+	}
 	/**
 	 * Sets the crafting skill exp points
 	 * @param exp
 	 */
 	public void setCraftingExp(int exp) {
-		m_skillCraft = exp;
+		m_skillCraftExp = exp;
 	}
 	
 	/**
@@ -838,15 +845,22 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getCraftingExp() {
-		return m_skillCraft;
+		return m_skillCraftExp;
 	}
 	
+	/**
+	 * Returns the crafting skill level
+	 * @return
+	 */
+	public int getCraftingLevel() {
+		return (int)Math.pow(m_skillCraftExp, (1/3));
+	}
 	/**
 	 * Sets the fishing skill exp points 
 	 * @param exp
 	 */
 	public void setFishingExp(int exp) {
-		m_skillFish = exp;
+		m_skillFishExp = exp;
 	}
 	
 	/**
@@ -854,15 +868,22 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getFishingExp() {
-		return m_skillFish;
+		return m_skillFishExp;
+	}
+	/**
+	 * Returns the fishing skill level
+	 * @return
+	 */
+	public int getFishingLevel() {
+		return (int)Math.pow(m_skillFishExp, (1/3));
 	}
 	
-	/**
+	/**	
 	 * Set the training skill exp points
 	 * @param exp
 	 */
 	public void setTrainingExp(int exp) {
-		m_skillTraining = exp;
+		m_skillTrainingExp = exp;
 	}
 	
 	/**
@@ -870,7 +891,15 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getTrainingExp() {
-		return m_skillTraining;
+		return m_skillTrainingExp;
+	}
+	
+	/**
+	 * Returns the training skill level
+	 * @return
+	 */
+	public int getTrainingLevel() {
+		return (int)Math.pow((m_skillTrainingExp/1.25), (1/3));
 	}
 	
 	/**
@@ -878,7 +907,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * @param exp
 	 */
 	public void setCoordinatingExp(int exp) {
-		m_skillCoord = exp;
+		m_skillCoordExp = exp;
 	}
 	
 	/**
@@ -886,15 +915,24 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getCoordinatingExp() {
-		return m_skillCoord;
+		return m_skillCoordExp;
 	}
+	
+	/**
+	 * Returns the co-ordinating skill level
+	 * @return
+	 */
+	public int getCoordinatingLevel() {
+		return (int)Math.pow(m_skillCoordExp, (1/3));
+	}	
+	
 	
 	/**
 	 * Sets the breeding skill exp points
 	 * @param exp
 	 */
 	public void setBreedingExp(int exp) {
-		m_skillBreed = exp;
+		m_skillBreedExp = exp;
 	}
 	
 	/**
@@ -902,8 +940,16 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getBreedingExp() {
-		return m_skillBreed;
+		return m_skillBreedExp;
 	}
+	
+	/**
+	 * Returns the breeding skill level
+	 * @return
+	 */
+	public int getBredingLevel() {
+		return (int)Math.pow((m_skillBreedExp/1.25), (1/3));
+	}	
 	
 	/**
 	 * Sets this player's boxes
@@ -1216,9 +1262,8 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public boolean canSurf() {
-		/*return m_skillTraining >= 4;*/
-		return getBadgeCount() > 0;
-	}
+		return (getTrainingLevel() >= 40);
+		}
 	
 	/**
 	 * Returns how many badges this player has
