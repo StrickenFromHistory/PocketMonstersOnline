@@ -66,6 +66,7 @@ public class PlayerChar extends Char implements Battleable {
 	private int m_skillTrainingExp = 0;
 	private int m_skillCoordExp = 0;
 	private int  m_skillBreedExp = 0;
+	private int m_oldLevel;
 	private BattleField m_battleField = null;
 	private int m_healX, m_healY, m_healMapX, m_healMapY;
 	private int m_adminLevel = 0;
@@ -817,6 +818,18 @@ public class PlayerChar extends Char implements Battleable {
 		m_skillHerbExp = exp;
 	}
 	
+	/**	
+	 * Add something to the herbalism skill exp points
+	 * @param exp
+	 */
+	public void addHerbalismExp(int exp) {
+		m_oldLevel = getHerbalismLevel();
+		m_skillHerbExp = m_skillHerbExp + exp;
+		if(getHerbalismLevel() > m_oldLevel) {
+			//TODO: Notify client of level change
+		}
+	}
+	
 	/**
 	 * Returns the herbalism skill exp points
 	 * @return
@@ -838,6 +851,18 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void setCraftingExp(int exp) {
 		m_skillCraftExp = exp;
+	}
+	
+	/**	
+	 * Add something to the crafting skill exp points
+	 * @param exp
+	 */
+	public void addCraftingExp(int exp) {
+		m_oldLevel = getCraftingLevel();
+		m_skillCraftExp = m_skillCraftExp + exp;
+		if(getCraftingLevel() > m_oldLevel) {
+			//TODO: Notify client of level change
+		}
 	}
 	
 	/**
@@ -863,6 +888,18 @@ public class PlayerChar extends Char implements Battleable {
 		m_skillFishExp = exp;
 	}
 	
+	/**	
+	 * Add something to the fishing skill exp points
+	 * @param exp
+	 */
+	public void addFishingExp(int exp) {
+		m_oldLevel = getFishingLevel();
+		m_skillFishExp = m_skillFishExp + exp;
+		if(getFishingLevel() > m_oldLevel) {
+			//TODO: Notify client of level change
+		}
+	}
+	
 	/**
 	 * Returns the fishing skill exp points
 	 * @return
@@ -884,6 +921,18 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void setTrainingExp(int exp) {
 		m_skillTrainingExp = exp;
+	}
+	
+	/**	
+	 * Add something to the training skill exp points
+	 * @param exp
+	 */
+	public void addTrainingExp(int exp) {
+		m_oldLevel = getTrainingLevel();
+		m_skillTrainingExp = m_skillTrainingExp + exp;
+		if(getTrainingLevel() > m_oldLevel) {
+			//TODO: Notify client of level change
+		}
 	}
 	
 	/**
@@ -908,6 +957,18 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public void setCoordinatingExp(int exp) {
 		m_skillCoordExp = exp;
+	}
+	
+	/**	
+	 * Add something to the coordinating skill exp points
+	 * @param exp
+	 */
+	public void addCoordinatingExp(int exp) {
+		m_oldLevel = getCoordinatingLevel();
+		m_skillCoordExp = m_skillCoordExp + exp;
+		if(getCoordinatingLevel() > m_oldLevel) {
+			//TODO: Notify client of level change
+		}
 	}
 	
 	/**
@@ -935,6 +996,18 @@ public class PlayerChar extends Char implements Battleable {
 		m_skillBreedExp = exp;
 	}
 	
+	/**	
+	 * Add something to the training skill exp points
+	 * @param exp
+	 */
+	public void addBreedingExp(int exp) {
+		m_oldLevel = getBreedingLevel();
+		m_skillBreedExp = m_skillBreedExp + exp;
+		if(getBreedingLevel() > m_oldLevel) {
+			//TODO: Notify client of level change
+		}
+	}
+	
 	/**
 	 * Returns the breeding skill exp
 	 * @return
@@ -947,7 +1020,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * Returns the breeding skill level
 	 * @return
 	 */
-	public int getBredingLevel() {
+	public int getBreedingLevel() {
 		return (int)Math.pow((m_skillBreedExp/1.25), (1/3));
 	}	
 	
@@ -994,6 +1067,7 @@ public class PlayerChar extends Char implements Battleable {
 		p.setOriginalTrainer(this.getName());
 		p.setDatabaseID(-1);
 		addPokemon(p);
+		addTrainingExp(1000/(DataService.getPOLRDatabase().getPokemonData(p.getSpeciesNumber()).getRareness()));
 	}
 	
 	/**

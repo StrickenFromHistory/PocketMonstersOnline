@@ -694,6 +694,7 @@ public class WildBattleField extends BattleField {
 				}
 
 				/* Gain exp/level up and update client */
+				m_player.addTrainingExp((int)(exp/10)); //Adds trainer exp to trainer.
 				p.setExp(p.getExp() + exp);
 				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new BattleExpMessage(p.getSpeciesName(), exp));
@@ -747,11 +748,12 @@ public class WildBattleField extends BattleField {
 					if(evolve)
 						continue;
 
-					/* This Pokemon just, levelled up! */
+					/* This Pokemon just levelled up! */
 					p.setHappiness(p.getHappiness() + 2);
 					p.calculateStats(false);
 
 					int level = DataService.getBattleMechanics().calculateLevel(p);
+					m_player.addTrainingExp(level * 10);
 					int oldLevel = p.getLevel();
 					String move = "";
 
@@ -771,7 +773,7 @@ public class WildBattleField extends BattleField {
 					TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 							new BattleLevelChangeMessage(p.getSpeciesName(), level));
 					m_player.updateClientPokemonStats(index);
-				}
+					}
 			}
 		}
 	}
