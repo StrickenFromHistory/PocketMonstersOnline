@@ -753,7 +753,7 @@ public class WildBattleField extends BattleField {
 					p.calculateStats(false);
 
 					int level = DataService.getBattleMechanics().calculateLevel(p);
-					m_player.addTrainingExp(level * 10);
+					m_player.addTrainingExp(level * 5);
 					int oldLevel = p.getLevel();
 					String move = "";
 
