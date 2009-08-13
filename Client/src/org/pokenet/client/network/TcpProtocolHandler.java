@@ -435,6 +435,27 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					//Add a badge
 					m_game.getOurPlayer().addBadge(Integer.valueOf(message.substring(3)));
 					break;
+				case 's':
+					//You gained a skill level or your skills are being initialized
+					switch (message.charAt(3)){
+					case 'b':
+						//Breeding
+						m_game.getOurPlayer().setBreedingLevel(Integer.parseInt(message.substring(3)));
+						break;
+					case 'f':
+						//Fishing
+						m_game.getOurPlayer().setFishingLevel(Integer.parseInt(message.substring(3)));
+						break;
+					case 't':
+						//Trainer
+						m_game.getOurPlayer().setTrainerLevel(Integer.parseInt(message.substring(3)));
+						break;
+					case 'c':
+						//Coordinating
+						m_game.getOurPlayer().setCoordinatingLevel(Integer.parseInt(message.substring(3)));
+						break;
+					}
+					break;
 				}
 				break;
 			case 'W':
