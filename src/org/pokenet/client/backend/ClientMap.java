@@ -326,41 +326,62 @@ public class ClientMap extends TiledMap {
 		m_yOffset = offset;
 		
 		if(calibrate) {
+			// 0, 1 -- Left
 			ClientMap map = m_mapMatrix.getMap(m_mapX - 1, m_mapY);
 			if (map != null)
 				map.setYOffset(offset - getYOffsetModifier()
 						+ map.getYOffsetModifier(), false);
-
+			// 2, 1 -- Right
 			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY);
 			if (map != null)
 				map.setYOffset(offset - getYOffsetModifier()
 						+ map.getYOffsetModifier(), false);
-
+			// 1, 0 -- Top
 			map = m_mapMatrix.getMap(m_mapX, m_mapY - 1);
 			if (map != null)
 				map.setYOffset(offset - map.getHeight() * 32, false);
-
+			// 1, 2 -- Bottom
 			map = m_mapMatrix.getMap(m_mapX, m_mapY + 1);
 			if (map != null) {
 				map.setYOffset(offset + getHeight() * 32, false);
 			}
-			
+			// 2, 0 -- Upper Right
 			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY - 1);
-			if (map != null)
-				map.setYOffset(offset - map.getHeight() * 32
-						+ map.getYOffsetModifier(), false);
-			
+			if (map != null) {
+				if (m_mapMatrix.getMap(1,0) != null) { // The top map exists
+					map.setYOffset(m_mapMatrix.getMap(1,0).m_yOffset - map.getHeight() * 32
+							+ map.getYOffsetModifier(), false);
+				} else { // Try in previous way
+					map.setYOffset(offset - map.getHeight() * 32, false);
+				}
+			}
+			// 0, 0 -- Upper Left
 			map = m_mapMatrix.getMap(m_mapX - 1, m_mapY - 1);
-			if (map != null)
-				map.setYOffset(offset - map.getHeight() * 32, false);
-			
+			if (map != null){ // The top map exists
+				if (m_mapMatrix.getMap(1,0) != null) {
+					map.setYOffset(m_mapMatrix.getMap(1,0).m_yOffset - map.getHeight() * 32, false);
+				} else { // Try in previous way
+					map.setYOffset(offset - map.getHeight() * 32, false);
+				}
+			}
+			// 2, 2 -- Lower Right
 			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY + 1);
-			if (map != null)
-				map.setYOffset(offset + getHeight() * 32, false);
-			
+			if (map != null) { // The bottom map exists
+				if (m_mapMatrix.getMap(1,2) != null) {
+					map.setYOffset(m_mapMatrix.getMap(1,2).m_yOffset + getHeight() * 32, false);
+				} else { // Try in previous way
+					map.setYOffset(offset + getHeight() * 32, false);
+				}
+			}
+			// 0, 2 -- Lower Left
 			map = m_mapMatrix.getMap(m_mapX - 1, m_mapY + 1);
-			if (map != null)
-				map.setYOffset(offset + getHeight() * 32, false);
+			if (map != null) {
+				if (m_mapMatrix.getMap(1,2) != null) {
+					map.setYOffset(m_mapMatrix.getMap(1,2).m_yOffset + getHeight() * 32, false);
+				} else {
+					map.setYOffset(offset + getHeight() * 32, false);
+				}
+			}
 		}
 	}
 	
@@ -373,45 +394,70 @@ public class ClientMap extends TiledMap {
 		m_xOffset = offset;
 
 		if(calibrate) {
+			// 0, 1 -- Left
 			ClientMap map = m_mapMatrix.getMap(m_mapX - 1, m_mapY);
 			if (map != null)
 				map.setXOffset(offset - map.getWidth() * 32 - m_xOffsetModifier
 						+ map.getXOffsetModifier(), false);
-
+			// 2, 1 -- Right
 			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY);
 			if (map != null)
 				map.setXOffset(offset + getWidth() * 32 - getXOffsetModifier()
 						+ map.getXOffsetModifier(), false);
-
+			// 1, 0 -- Up
 			map = m_mapMatrix.getMap(m_mapX, m_mapY - 1);
 			if (map != null)
 				map.setXOffset(offset - getXOffsetModifier()
 						+ map.getXOffsetModifier(), false);
-
+			// 1, 2 -- Down
 			map = m_mapMatrix.getMap(m_mapX, m_mapY + 1);
 			if (map != null)
 				map.setXOffset(offset - getXOffsetModifier()
 						+ map.getXOffsetModifier(), false);
-			
+			// 0, 0 -- Upper Left
 			map = m_mapMatrix.getMap(m_mapX - 1, m_mapY - 1);
-			if (map != null)
-				map.setXOffset(offset - map.getWidth() * 32 - getXOffsetModifier()
-						+ map.getXOffsetModifier(), false);
-			
+			if (map != null){
+				if (m_mapMatrix.getMap(1,0) != null){ // The top map exists
+					map.setXOffset(m_mapMatrix.getMap(1,0).m_xOffset - map.getWidth() * 32 - getXOffsetModifier()
+							+ map.getXOffsetModifier(), false);
+				} else { //Try in previous way
+					map.setXOffset(offset - map.getWidth() * 32 - getXOffsetModifier()
+							+ map.getXOffsetModifier(), false);
+				}
+			}
+			// 0, 2 -- Upper Right
 			map = m_mapMatrix.getMap(m_mapX - 1, m_mapY + 1);
-			if (map != null)
-				map.setXOffset(offset - map.getWidth() * 32 - getXOffsetModifier()
-						+ map.getXOffsetModifier(), false);
-			
+			if (map != null) { // The top map exists
+				if (m_mapMatrix.getMap(1,0) != null){
+					map.setXOffset(m_mapMatrix.getMap(1,0).m_xOffset - map.getWidth() * 32 - getXOffsetModifier()
+							+ map.getXOffsetModifier(), false);
+				} else { //Try in previous way
+					map.setXOffset(offset - map.getWidth() * 32 - getXOffsetModifier()
+							+ map.getXOffsetModifier(), false);
+				}
+			}
+			// 2, 2 -- Lower Right
 			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY + 1);
-			if (map != null)
-				map.setXOffset(offset + getWidth() * 32 - getXOffsetModifier()
-						+ map.getXOffsetModifier(), false);
-			
+			if (map != null) { // The bottom map exists
+				if (m_mapMatrix.getMap(1,2) != null) {
+					map.setXOffset(m_mapMatrix.getMap(1,2).m_xOffset + getWidth() * 32 - getXOffsetModifier()
+							+ map.getXOffsetModifier(), false);
+				} else { //Try in previous way
+					map.setXOffset(offset + getWidth() * 32 - getXOffsetModifier()
+							+ map.getXOffsetModifier(), false);
+				}
+			}
+			// 2, 0 -- Lower Left
 			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY - 1);
-			if (map != null)
-				map.setXOffset(offset + getWidth() * 32 - getXOffsetModifier()
-						+ map.getXOffsetModifier(), false);
+			if (map != null) {
+				if (m_mapMatrix.getMap(1,2) != null) { // The bottom map exists
+					map.setXOffset(m_mapMatrix.getMap(1,2).m_xOffset + getWidth() * 32 - getXOffsetModifier()
+							+ map.getXOffsetModifier(), false);
+				} else { //Try in previous way
+					map.setXOffset(offset + getWidth() * 32 - getXOffsetModifier()
+							+ map.getXOffsetModifier(), false);
+				}
+			}
 		}
 	}
 	
