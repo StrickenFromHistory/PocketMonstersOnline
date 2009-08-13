@@ -825,7 +825,7 @@ public class PlayerChar extends Char implements Battleable {
 	public void addHerbalismExp(int exp) {
 		m_oldLevel = getHerbalismLevel();
 		m_skillHerbExp = m_skillHerbExp + exp;
-		if(getHerbalismLevel() > m_oldLevel) {
+		if(getHerbalismLevel() > m_oldLevel && getHerbalismLevel()<= 100) {
 			//TODO: Notify client of level change
 		}
 	}
@@ -843,7 +843,10 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getHerbalismLevel() {
-		return (int)Math.pow(m_skillHerbExp, (1/3));
+		if((int)Math.pow(m_skillHerbExp, (1/3))<= 100)
+			return (int)Math.pow(m_skillHerbExp, (1/3));
+		else
+			return 100;
 	}
 	/**
 	 * Sets the crafting skill exp points
@@ -878,7 +881,10 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getCraftingLevel() {
-		return (int)Math.pow(m_skillCraftExp, (1/3));
+		if(((int)Math.pow(m_skillCraftExp, (1/3))) <= 100)
+			return (int)Math.pow(m_skillCraftExp, (1/3));
+		else
+			return 100;
 	}
 	/**
 	 * Sets the fishing skill exp points 
@@ -912,7 +918,10 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getFishingLevel() {
-		return (int)Math.pow(m_skillFishExp, (1/3));
+		if(((int)Math.pow(m_skillFishExp, (1/3))) <= 100)
+			return (int)Math.pow(m_skillFishExp, (1/3));
+		else
+			return 100;
 	}
 	
 	/**	
@@ -948,7 +957,10 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getTrainingLevel() {
+		if (((int)Math.pow((m_skillTrainingExp/1.25), (1/3)))<=100)
 		return (int)Math.pow((m_skillTrainingExp/1.25), (1/3));
+		else
+			return 100;
 	}
 	
 	/**
@@ -984,7 +996,11 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getCoordinatingLevel() {
-		return (int)Math.pow(m_skillCoordExp, (1/3));
+		if(((int)Math.pow(m_skillCoordExp, (1/3))) <= 100)
+			return (int)Math.pow(m_skillCoordExp, (1/3));
+		else
+			return 100;
+		
 	}	
 	
 	
@@ -1021,7 +1037,10 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getBreedingLevel() {
-		return (int)Math.pow((m_skillBreedExp/1.25), (1/3));
+		if((int)Math.pow((m_skillBreedExp/1.25), (1/3))<=100)
+			return (int)Math.pow((m_skillBreedExp/1.25), (1/3));
+		else
+			return 100;
 	}	
 	
 	/**
