@@ -255,7 +255,10 @@ public class ItemProcessor implements Runnable {
             }
             return true;
           } else if (i.getName().equalsIgnoreCase("FULL HEAL")) {
+            // restore full HP
             poke.changeHealth(poke.getMaxHealth());
+            // TODO: cure status effects
+            // TODO: restore PP
           } else if (i.getName().equalsIgnoreCase("LAVA COOKIE")) {
             // TODO: Add support for this
           } else if (i.getName().equalsIgnoreCase("OLD GATEAU")) {
