@@ -811,6 +811,16 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**
+	 * Initializes the client's skill levels
+	 */
+	public void initializeClientSkills(){
+		m_tcpSession.write("ct" + getTrainingLevel());
+		m_tcpSession.write("cb" + getBreedingLevel());
+		m_tcpSession.write("cf" + getFishingLevel());
+		m_tcpSession.write("cc" + getCoordinatingLevel());
+	}
+	
+	/**
 	 * Sets the herbalism skill's exp points
 	 * @param exp
 	 */
@@ -826,7 +836,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_oldLevel = getHerbalismLevel();
 		m_skillHerbExp = m_skillHerbExp + exp;
 		if(getHerbalismLevel() > m_oldLevel && getHerbalismLevel()<= 100) {
-			//TODO: Notify client of level change
+			m_tcpSession.write("ch" + getHerbalismLevel());
 		}
 	}
 	
@@ -864,7 +874,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_oldLevel = getCraftingLevel();
 		m_skillCraftExp = m_skillCraftExp + exp;
 		if(getCraftingLevel() > m_oldLevel) {
-			//TODO: Notify client of level change
+			m_tcpSession.write("cC" + getCraftingLevel());
 		}
 	}
 	
@@ -902,7 +912,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_oldLevel = getFishingLevel();
 		m_skillFishExp = m_skillFishExp + exp;
 		if(getFishingLevel() > m_oldLevel) {
-			//TODO: Notify client of level change
+			m_tcpSession.write("cf" + getFishingLevel());
 		}
 	}
 	
@@ -979,7 +989,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_oldLevel = getCoordinatingLevel();
 		m_skillCoordExp = m_skillCoordExp + exp;
 		if(getCoordinatingLevel() > m_oldLevel) {
-			//TODO: Notify client of level change
+			m_tcpSession.write("cc" + getCoordinatingLevel());
 		}
 	}
 	
@@ -1020,7 +1030,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_oldLevel = getBreedingLevel();
 		m_skillBreedExp = m_skillBreedExp + exp;
 		if(getBreedingLevel() > m_oldLevel) {
-			//TODO: Notify client of level change
+			m_tcpSession.write("cb" + getBreedingLevel());
 		}
 	}
 	

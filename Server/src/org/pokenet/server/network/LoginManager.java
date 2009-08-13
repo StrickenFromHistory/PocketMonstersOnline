@@ -282,6 +282,7 @@ public class LoginManager implements Runnable {
 //		p.updateClientFriends();
 		//Send badges
 		p.updateClientBadges();
+		p.initializeClientSkills();
 	}
 
 	/**
