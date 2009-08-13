@@ -1365,7 +1365,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public boolean canSurf() {
-		return (getTrainingLevel() >= 40);
+		return (getTrainingLevel() >= 25);
 		}
 	
 	/**
