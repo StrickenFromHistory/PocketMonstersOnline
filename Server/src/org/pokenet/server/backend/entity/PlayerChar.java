@@ -569,7 +569,7 @@ public class PlayerChar extends Char implements Battleable {
 			Pokemon temp = m_pokemon[a];
 			m_pokemon[a] = m_pokemon[b];
 			m_pokemon[b] = temp;
-			m_tcpSession.write("s" + a + "," + b);
+			m_tcpSession.write("cs" + a + "," + b);
 		}
 	}
 	
@@ -814,10 +814,10 @@ public class PlayerChar extends Char implements Battleable {
 	 * Initializes the client's skill levels
 	 */
 	public void initializeClientSkills(){
-		m_tcpSession.write("ct" + getTrainingLevel());
-		m_tcpSession.write("cb" + getBreedingLevel());
-		m_tcpSession.write("cf" + getFishingLevel());
-		m_tcpSession.write("cc" + getCoordinatingLevel());
+		m_tcpSession.write("cst" + getTrainingLevel());
+		m_tcpSession.write("csb" + getBreedingLevel());
+		m_tcpSession.write("csf" + getFishingLevel());
+		m_tcpSession.write("csc" + getCoordinatingLevel());
 	}
 	
 	/**
@@ -836,7 +836,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_oldLevel = getHerbalismLevel();
 		m_skillHerbExp = m_skillHerbExp + exp;
 		if(getHerbalismLevel() > m_oldLevel && getHerbalismLevel()<= 100) {
-			m_tcpSession.write("ch" + getHerbalismLevel());
+			m_tcpSession.write("csh" + getHerbalismLevel());
 		}
 	}
 	
@@ -853,8 +853,8 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getHerbalismLevel() {
-		if((int)Math.pow(m_skillHerbExp, (1/3))<= 100)
-			return (int)Math.pow(m_skillHerbExp, (1/3));
+		if((int)Math.pow(m_skillHerbExp, (0.3333))<= 100)
+			return (int)Math.pow(m_skillHerbExp, (0.3333));
 		else
 			return 100;
 	}
@@ -874,7 +874,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_oldLevel = getCraftingLevel();
 		m_skillCraftExp = m_skillCraftExp + exp;
 		if(getCraftingLevel() > m_oldLevel) {
-			m_tcpSession.write("cC" + getCraftingLevel());
+			m_tcpSession.write("csC" + getCraftingLevel());
 		}
 	}
 	
@@ -891,8 +891,8 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getCraftingLevel() {
-		if(((int)Math.pow(m_skillCraftExp, (1/3))) <= 100)
-			return (int)Math.pow(m_skillCraftExp, (1/3));
+		if(((int)Math.pow(m_skillCraftExp, (0.3333))) <= 100)
+			return (int)Math.pow(m_skillCraftExp, (0.3333));
 		else
 			return 100;
 	}
@@ -912,7 +912,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_oldLevel = getFishingLevel();
 		m_skillFishExp = m_skillFishExp + exp;
 		if(getFishingLevel() > m_oldLevel) {
-			m_tcpSession.write("cf" + getFishingLevel());
+			m_tcpSession.write("csf" + getFishingLevel());
 		}
 	}
 	
@@ -928,8 +928,8 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getFishingLevel() {
-		if(((int)Math.pow(m_skillFishExp, (1/3))) <= 100)
-			return (int)Math.pow(m_skillFishExp, (1/3));
+		if(((int)Math.pow(m_skillFishExp, (0.3333))) <= 100)
+			return (int)Math.pow(m_skillFishExp, (0.3333));
 		else
 			return 100;
 	}
@@ -950,7 +950,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_oldLevel = getTrainingLevel();
 		m_skillTrainingExp = m_skillTrainingExp + exp;
 		if(getTrainingLevel() > m_oldLevel) {
-			//TODO: Notify client of level change
+			m_tcpSession.write("cst" + getTrainingLevel());
 		}
 	}
 	
@@ -967,8 +967,8 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getTrainingLevel() {
-		if (((int)Math.pow((m_skillTrainingExp/1.25), (1/3)))<=100)
-		return (int)Math.pow((m_skillTrainingExp/1.25), (1/3));
+		if (((int)Math.pow((m_skillTrainingExp/1.25), (0.3333)))<=100)
+		return (int)Math.pow((m_skillTrainingExp/1.25), (0.3333));
 		else
 			return 100;
 	}
@@ -989,7 +989,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_oldLevel = getCoordinatingLevel();
 		m_skillCoordExp = m_skillCoordExp + exp;
 		if(getCoordinatingLevel() > m_oldLevel) {
-			m_tcpSession.write("cc" + getCoordinatingLevel());
+			m_tcpSession.write("csc" + getCoordinatingLevel());
 		}
 	}
 	
@@ -1006,8 +1006,8 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getCoordinatingLevel() {
-		if(((int)Math.pow(m_skillCoordExp, (1/3))) <= 100)
-			return (int)Math.pow(m_skillCoordExp, (1/3));
+		if(((int)Math.pow(m_skillCoordExp, (0.3333))) <= 100)
+			return (int)Math.pow(m_skillCoordExp, (0.3333));
 		else
 			return 100;
 		
@@ -1023,21 +1023,21 @@ public class PlayerChar extends Char implements Battleable {
 	}
 	
 	/**	
-	 * Add something to the training skill exp points
+	 * Add something to the breeding skill exp points
 	 * @param exp
 	 */
 	public void addBreedingExp(int exp) {
 		m_oldLevel = getBreedingLevel();
 		m_skillBreedExp = m_skillBreedExp + exp;
 		if(getBreedingLevel() > m_oldLevel) {
-			m_tcpSession.write("cb" + getBreedingLevel());
+			m_tcpSession.write("csb" + getBreedingLevel());
 		}
 	}
 	
 	/**
 	 * Returns the breeding skill exp
 	 * @return
-	 */
+	 */ 
 	public int getBreedingExp() {
 		return m_skillBreedExp;
 	}
@@ -1047,8 +1047,8 @@ public class PlayerChar extends Char implements Battleable {
 	 * @return
 	 */
 	public int getBreedingLevel() {
-		if((int)Math.pow((m_skillBreedExp/1.25), (1/3))<=100)
-			return (int)Math.pow((m_skillBreedExp/1.25), (1/3));
+		if((int)Math.pow((m_skillBreedExp/1.25), (0.3333))<=100)
+			return (int)Math.pow((m_skillBreedExp/1.25), (0.3333));
 		else
 			return 100;
 	}	

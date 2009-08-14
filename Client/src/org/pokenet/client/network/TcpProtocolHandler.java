@@ -66,7 +66,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 		translated = Translator.translate("_LOGIN");
 		Player p;
 		String message = (String) m;
-		//System.out.println("INFO: " + message);
+		System.out.println("INFO: " + message);
 		String [] details;
 		switch(message.charAt(0)) {
 		case '!':
@@ -411,6 +411,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			m_game.getUi().messageReceived(message.substring(1));
 			break;
 		case 'c':
+			System.out.println(message.charAt(1));
 			//Something changed
 			switch (message.charAt(1)){
 			case 'B':
@@ -431,34 +432,44 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					 */
 					m_game.getOurPlayer().initBadges(message.substring(3));
 					break;
+				}
+				break;
 				case 'a':
 					//Add a badge
 					m_game.getOurPlayer().addBadge(Integer.valueOf(message.substring(3)));
 					break;
 				case 's':
+					System.out.println(message.charAt(2));
 					//You gained a skill level or your skills are being initialized
-					switch (message.charAt(3)){
+					switch (message.charAt(2)){
 					case 'b':
 						//Breeding
+						if(m_game.getOurPlayer().getBreedingLevel() != -1)
+							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your breeding level is now " + message.substring(3) + ".");
 						m_game.getOurPlayer().setBreedingLevel(Integer.parseInt(message.substring(3)));
 						break;
 					case 'f':
 						//Fishing
+						if(m_game.getOurPlayer().getFishingLevel() != -1)
+							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your fishing level is now " + message.substring(3) + ".");
 						m_game.getOurPlayer().setFishingLevel(Integer.parseInt(message.substring(3)));
 						break;
 					case 't':
 						//Trainer
+						if(m_game.getOurPlayer().getTrainerLevel() != -1)
+							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your trainer level is now " + message.substring(3) + ".");
 						m_game.getOurPlayer().setTrainerLevel(Integer.parseInt(message.substring(3)));
 						break;
 					case 'c':
 						//Coordinating
+						if(m_game.getOurPlayer().getCoordinatingLevel() != -1)
+							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your coordinating level is now " + message.substring(3) + ".");
 						m_game.getOurPlayer().setCoordinatingLevel(Integer.parseInt(message.substring(3)));
 						break;
 					}
 					break;
-				}
-				break;
-			case 'W':
+				
+				case 'W':
 				//Weather Change
 				switch(message.charAt(2)) {
 				case 'n':
