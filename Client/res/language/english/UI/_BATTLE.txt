@@ -1,7 +1,7 @@
 pokeName fainted!
 pokeName used moveName
 Awaiting your move...
-pokeName gained expNum EXP
+pokeName gained expNum EXP and needs expRemaining EXP to level up...
 pokeName returned to normal.
 trainerName sent out pokeName
 Select a new Pokemon!
