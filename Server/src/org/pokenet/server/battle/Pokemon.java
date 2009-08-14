@@ -130,23 +130,23 @@ public class Pokemon extends PokemonSpecies {
   private MoveListEntry[]                   m_move;
   @ElementArray
   private int[]                             m_ppUp;                                 // Number
-                                                                                     // of
-                                                                                     // PP
-                                                                                     // Ups
-                                                                                     // applied
-                                                                                     // to
-                                                                                     // each
-                                                                                     // move.
+  // of
+  // PP
+  // Ups
+  // applied
+  // to
+  // each
+  // move.
   @Element
   private String                            m_abilityName;                          // Intrinsic
-                                                                                     // ability.
+  // ability.
   @Element
   private String                            m_itemName;                             // Item
-                                                                                     // initially
-                                                                                     // held
-                                                                                     // by
-                                                                                     // the
-                                                                                     // pokemon.
+  // initially
+  // held
+  // by
+  // the
+  // pokemon.
   @Element
   private boolean                           m_shiny          = false;
   @Element
@@ -1789,14 +1789,6 @@ public class Pokemon extends PokemonSpecies {
         eff.informDamaged(source, this, entry, damage);
       }
     }
-  }
-
-  /**
-   * @return pogey's max health (for use in max heals, etc)
-   * @param none
-   */
-  public int getMaxHealth() {
-    return m_stat[S_HP];
   }
 
   /**
