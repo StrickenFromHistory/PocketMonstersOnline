@@ -255,9 +255,11 @@ public class ItemProcessor implements Runnable {
             }
             return true;
           } else if (i.getName().equalsIgnoreCase("FULL HEAL")) {
+            poke.removeStatusEffects(true);
+          } else if (i.getName().equalsIgnoreCase("FULL RESTORE")) {
             // restore full HP
             poke.changeHealth(poke.getRawStat(Pokemon.S_HP));
-            // cure status effects
+            // remove status effects
             poke.removeStatusEffects(true);
           } else if (i.getName().equalsIgnoreCase("LAVA COOKIE")) {
             // TODO: Add support for this
