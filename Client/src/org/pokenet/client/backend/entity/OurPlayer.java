@@ -15,10 +15,10 @@ public class OurPlayer extends Player {
 	private ArrayList<PlayerItem> m_items;
     private int[] m_badges;
 	private int m_money;
-	private int m_trainerLvl;
-	private int m_breedingLvl;
-	private int m_fishingLvl;
-	private int m_coordinatingLvl;
+	private int m_trainerLvl = -1;
+	private int m_breedingLvl = -1;
+	private int m_fishingLvl = -1;
+	private int m_coordinatingLvl = -1;
 	
 	/**
 	 * Default constructor
