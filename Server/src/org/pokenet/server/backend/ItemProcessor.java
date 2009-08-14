@@ -136,6 +136,11 @@ public class ItemProcessor implements Runnable {
             poke.changeHealth(hpBoost);
           } else if (i.getName().equalsIgnoreCase("MAX POTION")) {
             poke.changeHealth(poke.getRawStat(Pokemon.S_HP));
+          } else if (i.getName().equalsIgnoreCase("FULL RESTORE")) {
+            // restore full HP
+            poke.changeHealth(poke.getRawStat(Pokemon.S_HP));
+            // remove status effects
+            poke.removeStatusEffects(true);
           } else {
             return false;
           }
@@ -256,15 +261,24 @@ public class ItemProcessor implements Runnable {
             return true;
           } else if (i.getName().equalsIgnoreCase("FULL HEAL")) {
             poke.removeStatusEffects(true);
-          } else if (i.getName().equalsIgnoreCase("FULL RESTORE")) {
-            // restore full HP
-            poke.changeHealth(poke.getRawStat(Pokemon.S_HP));
-            // remove status effects
-            poke.removeStatusEffects(true);
+            if (p.isBattling()) {
+              p.getBattleField().forceExecuteTurn();
+            }
+            return true;
           } else if (i.getName().equalsIgnoreCase("LAVA COOKIE")) {
-            // TODO: Add support for this
+            // just like a FULL HEAL
+            poke.removeStatusEffects(true);
+            if (p.isBattling()) {
+              p.getBattleField().forceExecuteTurn();
+            }
+            return true;
           } else if (i.getName().equalsIgnoreCase("OLD GATEAU")) {
-            // TODO: Add support for this
+            // just like a FULL HEAL
+            poke.removeStatusEffects(true);
+            if (p.isBattling()) {
+              p.getBattleField().forceExecuteTurn();
+            }
+            return true;
           }
         } else if (i.getCategory().equalsIgnoreCase("FOOD")) {
           poke = p.getParty()[Integer.parseInt(data[0])];
