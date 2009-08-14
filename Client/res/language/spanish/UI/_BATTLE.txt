@@ -1,10 +1,10 @@
-Por favor selecciona un nuevo Pokemon
-pokeName uso moveName
+pokeName se ha desmallado!
+pokeName ha usado moveName
 Esperando tu decision...
-pokeName obtuvo expNum EXP
-pokeName regreso a la normalidad.
-trainerName envio a pokeName
-Selecciona un nuevo Pokemon!
+pokeName ha obtenido expNum EXP
+pokeName ha regresado a la normalidad.
+trainerName ha enviado a pokeName
+Escoje un nuevo Pokemon!
 pokeName ha recibido damageNum danios
 Le quedan hpNum HP.
 pokeName ha recuperado damageNum HP
@@ -12,3 +12,13 @@ trainerName es el ganador!
 trainerName fue derrotado!
 Saliste corriendo asalvo!
 No pudiste escapar!
+pokeName ha sido envenenado!
+pokeName ha sido congelado!
+pokeName ha sido quemado!
+pokeName ha sido paralizado! Puede que no pueda moverse. 
+pokeName se ha dormido!
+Obtuviste $earningsNum por la victoria!
+pokeName ha crecido al nivel levelNum!
+moveName no tiene PP. Escoje otro ataque. 
+pokeName ha tirado un rewardItem!
+Has obtenido un rewardItem por la victoria!
