@@ -690,7 +690,7 @@ public class WildBattleField extends BattleField {
         // trainer.
         p.setExp(p.getExp() + exp);
         //Calculate how much exp is left to next level
-        int expTillLvl = (int)DataService.getBattleMechanics().getExpForLevel(p, (p.getLevel() + 1));
+        int expTillLvl = (int)(DataService.getBattleMechanics().getExpForLevel(p, (p.getLevel() + 1)) - p.getExp());
         //Make sure that value isn't negative.
         if (expTillLvl < 0){
             expTillLvl = 0;
