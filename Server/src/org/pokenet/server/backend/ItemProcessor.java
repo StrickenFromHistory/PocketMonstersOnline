@@ -135,7 +135,7 @@ public class ItemProcessor implements Runnable {
             hpBoost = 200;
             poke.changeHealth(hpBoost);
           } else if (i.getName().equalsIgnoreCase("MAX POTION")) {
-            poke.changeHealth(poke.getRawStat(0));
+            poke.changeHealth(poke.getRawStat(Pokemon.S_HP));
           } else {
             return false;
           }
@@ -256,9 +256,9 @@ public class ItemProcessor implements Runnable {
             return true;
           } else if (i.getName().equalsIgnoreCase("FULL HEAL")) {
             // restore full HP
-            poke.changeHealth(poke.getMaxHealth());
-            // TODO: cure status effects
-            // TODO: restore PP
+            poke.changeHealth(poke.getRawStat(Pokemon.S_HP));
+            // cure status effects
+            poke.removeStatusEffects(true);
           } else if (i.getName().equalsIgnoreCase("LAVA COOKIE")) {
             // TODO: Add support for this
           } else if (i.getName().equalsIgnoreCase("OLD GATEAU")) {
@@ -340,7 +340,7 @@ public class ItemProcessor implements Runnable {
             || i.getName().equalsIgnoreCase("MAGO BERRY")
             || i.getName().equalsIgnoreCase("AGUAV BERRY")
             || i.getName().equalsIgnoreCase("IAPAPA BERRY")) {
-            poke.changeHealth(poke.getRawStat(0) / 8);
+            poke.changeHealth(poke.getRawStat(Pokemon.S_HP) / 8);
             if (!p.isBattling()) p.getTcpSession().write(
               "Ph" + data[0] + poke.getHealth());
             else
