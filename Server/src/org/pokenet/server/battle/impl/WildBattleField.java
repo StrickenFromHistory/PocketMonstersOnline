@@ -689,10 +689,14 @@ public class WildBattleField extends BattleField {
         m_player.addTrainingExp((int) (exp / 10)); // Adds trainer exp to
         // trainer.
         p.setExp(p.getExp() + exp);
-        // TODO: calculate remaining exp before level up (replace 42 with the
-        // calculated amount)
+        //Calculate how much exp is left to next level
+        int expTillLvl = (int)DataService.getBattleMechanics().getExpForLevel(p, (p.getLevel() + 1));
+        //Make sure that value isn't negative.
+        if (expTillLvl < 0){
+            expTillLvl = 0;
+    }
         TcpProtocolHandler.writeMessage(m_player.getTcpSession(),
-          new BattleExpMessage(p.getSpeciesName(), exp, 42));
+          new BattleExpMessage(p.getSpeciesName(), exp, expTillLvl));
 
         String expGain = exp + "";
         expGain = expGain.substring(0, expGain.indexOf('.'));
