@@ -606,6 +606,7 @@ public class ServerMap {
 	 */
 	
 	public boolean fishWaters(PlayerChar c, Direction d, int rod) {
+		c.setFishing(true);
 		int playerX = c.getX();
 		int playerY = c.getY();
 		int newX = 0;
@@ -635,11 +636,7 @@ public class ServerMap {
 		break;
 		}
 		if(m_surf != null && m_surf.getTileAt(newX, newY) == '1') { //If facing water
-			try {
-				wait(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+					
 			if((int)(Math.random()* 101) > failureRate) {
 				return true;
 			}

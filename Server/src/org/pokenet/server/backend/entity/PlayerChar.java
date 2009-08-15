@@ -764,7 +764,8 @@ public class PlayerChar extends Char implements Battleable {
 				m_battleField = new WildBattleField(DataService.getBattleMechanics(),this,p);
 			}
 			else {
-				//TODO: Notify client you pulled up nothing
+				//TODO: Notify client you pulled up a fish too strong for you
+				this.addFishingExp(10); //Conciliatory exp for "hooking" something even if it got away
 			}
 		}
 		else {
