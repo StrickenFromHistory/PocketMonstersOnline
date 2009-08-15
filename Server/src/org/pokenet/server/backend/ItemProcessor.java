@@ -82,15 +82,27 @@ public class ItemProcessor implements Runnable {
     }
     else if(i.getName().equalsIgnoreCase("GOOD ROD")) {
     	if(!p.isBattling())
-    	p.fish(15);
+    		if(p.getFishingLevel() >= 15) 
+    			p.fish(15);
+    		else {
+    			//TODO: Notify client that you need a fishing level of 15 or higher for this rod
+    		}
     }
     else if(i.getName().equalsIgnoreCase("GREAT ROD")) {
     	if(!p.isBattling())
-    	p.fish(35);
+    		if(p.getFishingLevel() >= 50) 
+    			p.fish(35);
+    		else {
+    			//TODO: Notify client that you need a fishing level of 50 or higher for this rod
+    		}
     }
     else if(i.getName().equalsIgnoreCase("ULTRA ROD")) {
     	if(!p.isBattling())
-    	p.fish(50);
+    		if(p.getFishingLevel() >= 70)
+    			p.fish(50);
+    		else {
+    			//TODO: Notify client that you need a fishing level of 70 or higher for this rod
+    		}
     }
       /* Check if the item is a repel or escape rope */
     else if (i.getName().equalsIgnoreCase("REPEL")) {
