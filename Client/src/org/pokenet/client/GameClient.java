@@ -153,10 +153,10 @@ public class GameClient extends BasicGame {
 		fi = getClass().getResourceAsStream("/res/fonts/dp-small.png");
 		m_fontSmall = new AngelCodeFont("/res/fonts/dp-small.fnt", f, fi);
 		Player.loadSpriteFactory();
-		f = getClass().getResourceAsStream("/res/fonts/pokeFont.ttf");
+		f = getClass().getResourceAsStream("/res/fonts/PokeFont.ttf");
 		try {
 			m_trueTypeFont = new TrueTypeFont(java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, f)
-					.deriveFont(24, java.awt.Font.PLAIN), false);
+					.deriveFont(java.awt.Font.PLAIN, 24), false);
 		} catch (Exception e) { e.printStackTrace(); m_trueTypeFont = m_fontSmall;}
 		
 		/*

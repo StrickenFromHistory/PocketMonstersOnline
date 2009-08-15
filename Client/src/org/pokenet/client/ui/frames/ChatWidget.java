@@ -127,8 +127,10 @@ class ChatWidget extends Container{
     		m_shownChat.get(i).setLocation(0, y);
     		try {
     			m_shownChat.get(i).setText(m_wrappedText.get(m_scrollIndex + i));
-    			// Make system messages red
+    			// Make system messages yellow
     			if (m_wrappedText.get(m_scrollIndex + i).charAt(0) == '*')
+    				m_shownChat.get(i).setForeground(Color.yellow);
+    			if (m_wrappedText.get(m_scrollIndex + i).charAt(0) == '!')
     				m_shownChat.get(i).setForeground(Color.red);
     		} catch (Exception e) {}
     		m_shownChat.get(i).pack();
@@ -187,6 +189,11 @@ class ChatWidget extends Container{
 						ArrayList<String> loopList = new ArrayList<String>();
 						loopLine = m_contents.get(i);
 						loopList.add(m_contents.get(i));
+						char messageType = '\u0000';
+						if (loopLine.charAt(0) == '*')
+							messageType = '*';
+						else if (loopLine.charAt(0) == '!')
+							messageType = '!';
 						while (GameClient.getFontSmall().getWidth(loopLine) > getWidth()){
 							int linesToDrop = 1;
 							while (GameClient.getFontSmall().getWidth(loopList.get(
@@ -195,7 +202,10 @@ class ChatWidget extends Container{
 										- linesToDrop));
 								linesToDrop++;
 							}
-							m_wrappedText.add(loopList.get(loopList.size() - 1));
+							if (linesToDrop == 1)
+								m_wrappedText.add(loopList.get(loopList.size() - 1));
+							else
+								m_wrappedText.add(messageType + loopList.get(loopList.size() - 1));
 							loopLine = loopLine.substring(loopList.get(
 									loopList.size() - 1).length());
 							loopList.add(loopLine);
