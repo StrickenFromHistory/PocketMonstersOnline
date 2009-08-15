@@ -139,6 +139,7 @@ public class PlayerChar extends Char implements Battleable {
 		return m_repel;
 	}
 	
+	
 	/**
 	 * Releases a pokemon from box
 	 * @param box
@@ -751,7 +752,26 @@ public class PlayerChar extends Char implements Battleable {
 		this.setNextMovement(getFacing());
 		return super.move();
 	}
-	
+	/**
+	 * Fishes for a pokemon.
+	 */
+	public void fish(int rod) {
+		if(this.getMap().fishWaters(this, this.getFacing(), rod)) {
+			Pokemon p = this.getMap().getWildPokemon(this);
+			if(this.getFishingLevel() >= DataService.getFishDatabase().getFish(p.getSpeciesName()).getReqLevel()) {
+				this.addFishingExp(DataService.getFishDatabase().getFish(p.getSpeciesName()).getExperience());
+				this.ensureHealthyPokemon();
+				m_battleField = new WildBattleField(DataService.getBattleMechanics(),this,p);
+			}
+			else {
+				//TODO: Notify client you pulled up nothing
+			}
+		}
+		else {
+			//TODO: Notify client you pulled up nothing
+		}
+		this.setFishing(false);
+	}
 	/**
 	 * Overrides char's move method.
 	 * Adds a check for wild battles and clears battle/trade request lists

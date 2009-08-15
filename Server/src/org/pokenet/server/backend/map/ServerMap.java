@@ -56,6 +56,8 @@ public class ServerMap {
 	private HashMap<String, Integer> m_nightPokemonChances;
 	private HashMap<String, int[]> m_waterPokemonLevels;
 	private HashMap<String, Integer> m_waterPokemonChances;
+	private HashMap<String, int[]> m_fishPokemonLevels;
+	private HashMap<String, Integer> m_fishPokemonChances;
 	private int m_wildProbability;
 	//The following stores collision information
 	private ServerTileLayer m_blocked = null;
@@ -233,6 +235,30 @@ public class ServerMap {
 		} catch (Exception e) {
 			m_waterPokemonChances = null;
 			m_waterPokemonLevels = null;
+			species = new String[] { "" };
+			levels = new String[] { "" };
+		}
+		//Fish Pokemon
+		try {
+			if(!map.getProperties().getProperty("fishPokemonChances").equalsIgnoreCase("")) {
+				species = map.getProperties().getProperty("fishPokemonChances").split(";");
+				levels = map.getProperties().getProperty("fishPokemonLevels").split(";");
+				if (!species[0].equals("") && !levels[0].equals("") && species.length == levels.length) {
+					m_fishPokemonChances = new HashMap<String, Integer>();
+					m_fishPokemonLevels = new HashMap<String, int[]> ();
+						for (int i = 0; i < species.length; i++) {
+							String[] speciesInfo = species[i].split(",");
+							m_fishPokemonChances.put(speciesInfo[0], Integer.parseInt(speciesInfo[1]));
+							String[] levelInfo = levels[i].split("-");
+							m_fishPokemonLevels.put(speciesInfo[0], new int[] {
+									Integer.parseInt(levelInfo[0]),
+									Integer.parseInt(levelInfo[1]) });
+						}
+				}
+			}
+		} catch (Exception e) {
+			m_fishPokemonChances = null;
+			m_fishPokemonLevels = null;
 			species = new String[] { "" };
 			levels = new String[] { "" };
 		}
@@ -576,6 +602,57 @@ public class ServerMap {
 	 * Returns true if the char is able to move
 	 * @param c
 	 * @param d
+	 * @param rod
+	 */
+	
+	public boolean fishWaters(PlayerChar c, Direction d, int rod) {
+		int playerX = c.getX();
+		int playerY = c.getY();
+		int newX = 0;
+		int newY = 0;
+		int failureRate = 75;
+		failureRate -= rod;
+		switch(d) {
+		case Up: {
+			newX = playerX / 32;
+			newY = ((playerY + 8) - 32) / 32;
+		}
+		break;
+		case Down: {
+			newX = playerX / 32;
+			newY = ((playerY + 8) + 32) / 32;
+		}
+		break;
+		case Left: {
+			newX = (playerX - 32) / 32;
+			newY = (playerY + 8) / 32;
+		}
+		break;
+		case Right: {
+			newX = (playerX + 32) / 32;
+			newY = (playerY + 8) / 32;
+		}
+		break;
+		}
+		if(m_surf != null && m_surf.getTileAt(newX, newY) == '1') { //If facing water
+			try {
+				wait(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			if((int)(Math.random()* 101) > failureRate) {
+				return true;
+			}
+			else {
+				return false;
+				}
+		}
+		return false;
+	}
+	/**
+	 * Returns true if the char is able to move
+	 * @param c
+	 * @param d
 	 */
 	public boolean moveChar(Char c, Direction d) {
 		int playerX = c.getX();
@@ -805,7 +882,14 @@ public class ServerMap {
 			species = getWildSpeciesWater();
 			range = m_waterPokemonLevels.get(species);
 			return Pokemon.getRandomPokemon(species, (m_random.nextInt((range[1] - range[0]) + 1)) + range[0]);
-		} else {
+		} 
+		else if(player.isFishing()) {
+			//Generate a pokemon caught by fishing
+			species = getWildSpeciesFish();
+			range = m_fishPokemonLevels.get(species);
+			return Pokemon.getRandomPokemon(species, (m_random.nextInt((range[1] - range[0]) + 1)) + range[0]);
+		}
+		else {
 			if(TimeService.isNight()) {
 				//Generate a nocturnal Pokemon
 				species = getWildSpeciesNight();
@@ -859,6 +943,21 @@ public class ServerMap {
 		do {
 			for (String species : m_waterPokemonChances.keySet()) {
 				if (m_random.nextInt(101) < m_waterPokemonChances.get(species))
+					potentialSpecies.add(species);
+			}
+		} while (potentialSpecies.size() <= 0);
+		return potentialSpecies.get(m_random.nextInt(potentialSpecies.size()));
+	}
+	
+	/**
+	 * Returns a wild species for fishing
+	 * @return
+	 */
+	private String getWildSpeciesFish() {
+		ArrayList<String> potentialSpecies = new ArrayList<String>();
+		do {
+			for (String species : m_fishPokemonChances.keySet()) {
+				if (m_random.nextInt(101) < m_fishPokemonChances.get(species))
 					potentialSpecies.add(species);
 			}
 		} while (potentialSpecies.size() <= 0);

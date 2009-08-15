@@ -8,6 +8,7 @@ import org.pokenet.server.battle.mechanics.JewelMechanics;
 import org.pokenet.server.battle.mechanics.moves.MoveList;
 import org.pokenet.server.battle.mechanics.moves.MoveSetData;
 import org.pokenet.server.battle.mechanics.polr.POLRDatabase;
+import org.pokenet.server.feature.FishDB;
 import org.simpleframework.xml.core.Persister;
 
 /**
@@ -22,6 +23,7 @@ public class DataService {
 	private static MoveList m_moveList;
 	private static MoveSetData m_moveSetData;
 	private static DropDatabase m_dropData;
+	private static FishDB m_fishingData;
 	private static ArrayList<String> m_nonTrades;
 	
 	/**
@@ -39,6 +41,8 @@ public class DataService {
 			m_mechanics = new JewelMechanics(5);
 			m_dropData = new DropDatabase();
 			m_dropData.reinitialise();
+			m_fishingData = new FishDB();
+			m_fishingData.reinitialise();
 			JewelMechanics.loadMoveTypes("res/movetypes.txt");
 			File f = new File(".");
 			m_moveSetData = stream.read(MoveSetData.class, new File(f.getCanonicalPath() + "/res/movesets.xml"));
@@ -119,6 +123,13 @@ public class DataService {
 	 */
 	public static DropDatabase getDropDatabase() {
 		return m_dropData;
+	}
+	/**
+	 * Returns the fish database
+	 * @return
+	 */
+	public static FishDB getFishDatabase() {
+		return m_fishingData;
 	}
 	
 	/**

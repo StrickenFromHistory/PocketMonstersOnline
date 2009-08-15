@@ -75,8 +75,25 @@ public class ItemProcessor implements Runnable {
     /* Pokemon object we might need */
     Pokemon poke = null;
     try {
+      /* Check if the item is a rod */
+    if (i.getName().equalsIgnoreCase("OLD ROD")) {
+    	if(!p.isBattling())
+    	p.fish(0);
+    }
+    else if(i.getName().equalsIgnoreCase("GOOD ROD")) {
+    	if(!p.isBattling())
+    	p.fish(15);
+    }
+    else if(i.getName().equalsIgnoreCase("GREAT ROD")) {
+    	if(!p.isBattling())
+    	p.fish(35);
+    }
+    else if(i.getName().equalsIgnoreCase("ULTRA ROD")) {
+    	if(!p.isBattling())
+    	p.fish(50);
+    }
       /* Check if the item is a repel or escape rope */
-      if (i.getName().equalsIgnoreCase("REPEL")) {
+    else if (i.getName().equalsIgnoreCase("REPEL")) {
         p.setRepel(100);
         return true;
       } else if (i.getName().equalsIgnoreCase("SUPER REPEL")) {
