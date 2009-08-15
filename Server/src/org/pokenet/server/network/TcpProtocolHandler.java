@@ -263,6 +263,12 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				} else if(p.getAdminLevel() > 0) {
 					try {
 						switch(message.charAt(1)) {
+						case 'a':
+							//Server announcement
+							for (String s : m_players.keySet()){
+								m_players.get(s).getTcpSession().write("Ca" + message.substring(2));
+							}
+							break;
 						case 'b':
 							//Ban player
 							if(m_players.containsKey(message.substring(2))) {
