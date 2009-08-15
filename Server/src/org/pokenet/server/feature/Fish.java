@@ -3,7 +3,7 @@ package org.pokenet.server.feature;
 import org.simpleframework.xml.Element;
 
 /**
- * Stores exp information for a Fish Pokemon
+ * Stores exp and level information for a Fish Pokemon(one found by fishing)
  * @author Fshy
  *
  */
@@ -21,8 +21,8 @@ public class Fish {
 	
 	/**
 	 * Alternative constructor
-	 * @param item
-	 * @param probability
+	 * @param levelReq
+	 * @param experience
 	 */
 	public Fish(int levelReq, int experience) {
 		m_experience = experience;
@@ -30,7 +30,7 @@ public class Fish {
 	}
 	
 	/**
-	 * Returns the item number
+	 * Returns the level required to fish up this pogey
 	 * @return
 	 */
 	public int getReqLevel() {
@@ -38,7 +38,7 @@ public class Fish {
 	}
 	
 	/**
-	 * Returns the probability that the item is dropped
+	 * Returns the experience for fishing this pogey
 	 * @return
 	 */
 	public int getExperience() {
@@ -46,7 +46,7 @@ public class Fish {
 	}
 	
 	/**
-	 * Sets the probability of the item being dropped
+	 * Sets the experience gained from fishing this pogey
 	 * @param p
 	 */
 	public void setExperience(int p) {
@@ -54,7 +54,7 @@ public class Fish {
 	}
 	
 	/**
-	 * Sets the item that is dropped
+	 * Sets the level required to encounter/fish this pogey
 	 * @param i
 	 */
 	public void setLevelReq(int s) {
