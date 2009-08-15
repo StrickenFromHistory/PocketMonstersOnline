@@ -605,8 +605,7 @@ public class ServerMap {
 	 * @param rod
 	 */
 	
-	public boolean fishWaters(PlayerChar c, Direction d, int rod) {
-		c.setFishing(true);
+	public boolean caughtFish(PlayerChar c, Direction d, int rod) {
 		int playerX = c.getX();
 		int playerY = c.getY();
 		int newX = 0;
@@ -639,7 +638,7 @@ public class ServerMap {
 		}
 		//If that tile is a water tile, determine if you pulled anything, if not, autofail(You can't fish on dry land)
 		if(m_surf != null && m_surf.getTileAt(newX, newY) == '1') { //If facing water
-					
+			c.setFishing(true);		
 			if((int)(Math.random()* 101) > failureRate) {
 				return true;
 			}

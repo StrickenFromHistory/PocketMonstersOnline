@@ -756,7 +756,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * Fishes for a pokemon.
 	 */
 	public void fish(int rod) {
-		if(this.getMap().fishWaters(this, this.getFacing(), rod)) {
+		if(this.getMap().caughtFish(this, this.getFacing(), rod)) {
 			Pokemon p = this.getMap().getWildPokemon(this);
 			//If we have both the required level to fish this thing up and the rod to do it
 			if(this.getFishingLevel() >= DataService.getFishDatabase().getFish(p.getSpeciesName()).getReqLevel() && rod >= DataService.getFishDatabase().getFish(p.getSpeciesName()).getReqRod()) {
