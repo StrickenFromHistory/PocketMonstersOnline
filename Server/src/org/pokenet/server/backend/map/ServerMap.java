@@ -599,7 +599,7 @@ public class ServerMap {
 	}
 	
 	/**
-	 * Returns true if the char is able to move
+	 * Returns true if a fishing attempt was deemed successful(Will the player pull up any pogey or find nothing?)
 	 * @param c
 	 * @param d
 	 * @param rod
@@ -612,7 +612,9 @@ public class ServerMap {
 		int newX = 0;
 		int newY = 0;
 		int failureRate = 75;
+		//Subtract the rod's power from the failure rate.
 		failureRate -= rod;
+		//Determine what tile the player is facing		
 		switch(d) {
 		case Up: {
 			newX = playerX / 32;
@@ -635,6 +637,7 @@ public class ServerMap {
 		}
 		break;
 		}
+		//If that tile is a water tile, determine if you pulled anything, if not, autofail(You can't fish on dry land)
 		if(m_surf != null && m_surf.getTileAt(newX, newY) == '1') { //If facing water
 					
 			if((int)(Math.random()* 101) > failureRate) {
