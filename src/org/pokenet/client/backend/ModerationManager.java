@@ -12,8 +12,12 @@ public class ModerationManager {
 	private static PacketGenerator m_ioSession = GameClient.getInstance().getPacketGenerator();
 	
 	public static void parseLine(String x){
+		// Announcement
+		if (x.length() >= 9 && x.substring(0, 9).equalsIgnoreCase("announce ")) {
+			m_ioSession.writeTcpMessage("Ma" + x.substring(9));
+		}
 		// Mute
-		if (x.length() >= 5 && x.substring(0, 5).equalsIgnoreCase("mute ")) {
+		else if (x.length() >= 5 && x.substring(0, 5).equalsIgnoreCase("mute ")) {
 			m_ioSession.writeTcpMessage("Mm" + x.substring(5));
 		}
 		// Unmute

@@ -208,6 +208,10 @@ public class Ui extends Frame {
 			String [] details = m.substring(1).split(",");
 			m_chat.addChatLine(details[0], "<" + details[0] + "> " + details[1]);
 			break;
+		case 's':
+			//Server Announcement
+			m_chat.addSystemMessage(m.substring(1));
+			break;
 		}
 	}
 	

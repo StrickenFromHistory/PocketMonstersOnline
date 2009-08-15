@@ -163,10 +163,20 @@ public class ChatDialog extends Frame {
 	 */
 	public void addSystemMessage(String message){
 		for (String s : m_availableChats.keySet())
-			m_availableChats.get(s).add(message);
+			m_availableChats.get(s).add('*' + message);
 		m_chatWidget.addLine();
 	}
-
+	
+	/**
+	 * Adds a server announcement
+	 * @param message
+	 */
+	public void addAnnouncement(String message){
+		for (String s : m_availableChats.keySet())
+			m_availableChats.get(s).add('*' + message);
+		m_chatWidget.addLine();
+	}
+	
 	/**
 	 * Creates a new private chat channel
 	 * @param chat

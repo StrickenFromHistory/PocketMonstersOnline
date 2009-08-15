@@ -359,7 +359,9 @@ public class ClientMap extends TiledMap {
 			map = m_mapMatrix.getMap(m_mapX - 1, m_mapY - 1);
 			if (map != null){ // The top map exists
 				if (m_mapMatrix.getMap(1,0) != null) {
-					map.setYOffset(m_mapMatrix.getMap(1,0).m_yOffset - map.getHeight() * 32, false);
+					map.setYOffset(offset - map.getHeight() * 32, false);
+				} else if (m_mapMatrix.getMap(0,1) != null){ // The left map exists
+					map.setYOffset(m_mapMatrix.getMap(0,1).m_yOffset - map.getHeight() * 32, false);
 				} else { // Try in previous way
 					map.setYOffset(offset - map.getHeight() * 32, false);
 				}
@@ -417,7 +419,10 @@ public class ClientMap extends TiledMap {
 			// 0, 0 -- Upper Left
 			map = m_mapMatrix.getMap(m_mapX - 1, m_mapY - 1);
 			if (map != null){
-				if (m_mapMatrix.getMap(1,0) != null){ // The top map exists
+				if (m_mapMatrix.getMap(0,1) != null){ // The left map exists
+					map.setXOffset(m_mapMatrix.getMap(1,0).m_xOffset - map.getWidth() * 32
+							- m_mapMatrix.getMap(1,0).m_xOffsetModifier+ map.m_xOffsetModifier, false);
+				} else if (m_mapMatrix.getMap(1,0) != null){ // The top map exists
 					map.setXOffset(m_mapMatrix.getMap(1,0).m_xOffset - map.getWidth() * 32 - getXOffsetModifier()
 							+ map.getXOffsetModifier(), false);
 				} else { //Try in previous way
