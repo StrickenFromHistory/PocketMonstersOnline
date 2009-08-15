@@ -63,13 +63,14 @@ public class FishDB {
 					while(s.hasNextLine()) {
 						pokemon = s.nextLine();
 						fishies = new ArrayList<Fish>();
-						/* Parse the data in the order EXPERIENCE, LEVELREQ*/
+						/* Parse the data in the order EXPERIENCE, LEVELREQ, RODREQ*/
 						StringTokenizer st = new StringTokenizer(pokemon);
 						String pokeName = st.nextToken().toUpperCase();
 						while(st.hasMoreTokens()) {
 							int levelreq = Integer.parseInt(st.nextToken());
 							int exp = Integer.parseInt(st.nextToken());
-							Fish d = new Fish(exp, levelreq);
+							int rodreq = Integer.parseInt(st.nextToken());
+							Fish d = new Fish(exp, levelreq, rodreq);
 							fishies.add(d);
 						}
 						addEntry(pokeName, fishies);

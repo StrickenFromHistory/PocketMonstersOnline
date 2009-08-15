@@ -758,18 +758,20 @@ public class PlayerChar extends Char implements Battleable {
 	public void fish(int rod) {
 		if(this.getMap().fishWaters(this, this.getFacing(), rod)) {
 			Pokemon p = this.getMap().getWildPokemon(this);
-			if(this.getFishingLevel() >= DataService.getFishDatabase().getFish(p.getSpeciesName()).getReqLevel()) {
+			//If we have both the required level to fish this thing up and the rod to do it
+			if(this.getFishingLevel() >= DataService.getFishDatabase().getFish(p.getSpeciesName()).getReqLevel() && rod > DataService.getFishDatabase().getFish(p.getSpeciesName()).getReqRod()) {
 				this.addFishingExp(DataService.getFishDatabase().getFish(p.getSpeciesName()).getExperience());
 				this.ensureHealthyPokemon();
 				m_battleField = new WildBattleField(DataService.getBattleMechanics(),this,p);
 			}
+			//If you either have too low a fishing level or too weak a rod
 			else {
 				//TODO: Notify client you pulled up a fish too strong for you
 				this.addFishingExp(10); //Conciliatory exp for "hooking" something even if it got away
 			}
 		}
 		else {
-			//TODO: Notify client you pulled up nothing
+		//TODO: Notify client you pulled up nothing
 		}
 		this.setFishing(false);
 	}
