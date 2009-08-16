@@ -30,7 +30,7 @@ public class NonPlayerChar extends Char {
 	private int m_minPartySize = 1;
 	private boolean m_isBox = false;
 	private boolean m_isHeal = false;
-	private boolean m_isShop = false;
+	private int m_isShop = 0;
 	private int m_badge = -1;
 	private ArrayList<Integer> m_speech;
 	private Shop m_shop = null;
@@ -141,7 +141,7 @@ public class NonPlayerChar extends Char {
 				p.setLastHeal(p.getX(), p.getY(), p.getMapX(), p.getMapY());
 			}
 			/* Shop access */
-			if(m_isShop) {
+			if(m_isShop>0) { //0 is not a shop, over 0 means some kind of shop. 
 				//Send shop packet to display shop window clientside
 				if(!p.isShopping()){ //Dont display if user's shopping
 					TcpProtocolHandler.writeMessage(p.getTcpSession(), new ShopStockMessage(m_shop.getStockData()));
@@ -229,7 +229,10 @@ public class NonPlayerChar extends Char {
 	 * @return
 	 */
 	public boolean isShopKeeper() {
-		return m_isShop;
+		if(m_isShop>0)
+			return true;
+		else
+			return false;
 	}
 	
 	/**
@@ -252,9 +255,9 @@ public class NonPlayerChar extends Char {
 	 * Sets if this npc is a shop keeper
 	 * @param b
 	 */
-	public void setShopKeeper(boolean b) {
+	public void setShopKeeper(int b) {
 		m_isShop = b;
-		if(b) {
+		if(b>0) {
 			try{
 			m_shop = new Shop();
 			m_shop.start();

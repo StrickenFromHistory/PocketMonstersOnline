@@ -80,7 +80,22 @@ public class DataLoader implements Runnable {
 					}
 					npc.setHealer(Boolean.parseBoolean(reader.nextLine().toLowerCase()));
 					npc.setBox(Boolean.parseBoolean(reader.nextLine().toLowerCase()));
-					npc.setShopKeeper(Boolean.parseBoolean(reader.nextLine().toLowerCase()));
+					
+					//Setting ShopKeeper as an Int instead of Bool. 
+					String shop = reader.nextLine().toLowerCase();
+					try{ //Is it an old NPC Shop?
+						if(Boolean.parseBoolean(shop)){
+							npc.setShopKeeper(1); //Its an old shop! Yay!
+						}else if(!Boolean.parseBoolean(shop)){
+							npc.setShopKeeper(0); //Its an old npc. Not a shop. 
+						}
+					}catch(Exception e){
+						try{ //Not a boolean. Is it an int?
+							npc.setShopKeeper(Integer.parseInt(shop));//Its a new NPC, setting shop type
+						}catch(Exception ex){ 
+							npc.setShopKeeper(0);//Dunno what the hell it is, but its not a shop. 
+						}
+					}
 				} else if(line.equalsIgnoreCase("[/npc]")) {
 					m_map.addChar(npc);
 				} else if(line.equalsIgnoreCase("[warp]")) {
