@@ -1,0 +1,494 @@
+ = Items List = 
+
+ === Shop 0 === 
+{{{
+3: Hyper Potion - $1200
+4: Max Potion - $2500
+5: Full Restore - $3000
+21: Full Heal - $600
+22: Lava Cookie - $200
+23: Old Gateau - $500
+37: Ultra Ball - $1200
+38: Master Ball - $-1
+39: Safari Ball - $200
+40: Park Ball - $1000
+41: Level Ball - $1000
+42: Lure Ball - $1000
+43: Moon Ball - $1000
+44: Friend Ball - $1000
+45: Fast Ball - $1000
+46: Heavy Ball - $1000
+47: Love Ball - $1000
+48: Luxury Ball - $1000
+49: Premier Ball - $1000
+50: Net Ball - $1000
+51: Dive Ball - $1000
+52: Nest Ball - $1000
+53: Repeat Ball - $1000
+54: Timer Ball - $1000
+55: Heal Ball - $300
+56: Dusk Ball - $1000
+57: Cherish Ball - $1000
+58: Quick Ball - $1000
+70: HP Up - $9800
+71: Protein - $9800
+72: Iron - $9800
+73: Calcium - $9800
+74: Zinc - $9800
+75: Carbos - $9800
+76: PP Up - $9800
+77: PP Max - $15000
+78: Rare Candy - $-1
+87: Max Repel - $700
+92: Mach Bike - $-1
+93: Acro Bike - $-1
+94: Vial - $-1
+95: Poffin Case - $-1
+96: Berry Blender - $-1
+97: Old rod - $-1
+98: Good Rod - $-1
+99: Great Rod - $-1
+100: Ultra Rod - $-1
+101: Cleanse Tag - $200
+126: Glass - $50
+127: Coal - $50
+128: Iron - $50
+129: Steel - $50
+130: Rubber - $50
+131: Cloth - $50
+132: String - $50
+133: Flax - $50
+134: Nugget - $50
+135: Wood - $50
+150: DeepSeaScale - $1000
+151: DeepSeaTooth - $1000
+152: Dragon Scale - $1000
+153: Dubious Disc - $1000
+154: Electirizer - $1000
+155: King''s Rock - $1000
+156: Magmarizer - $1000
+157: Metal Coat - $1000
+158: Oval Stone - $1000
+159: Protector - $1000
+160: Razor Claw - $1000
+161: Razor Fang - $1000
+162: Reaper Cloth - $1000
+163: Up-Grade - $1000
+164: Fire Stone - $1500
+165: Water Stone - $1500
+166: Thunder Stone - $1500
+167: Sun Stone - $1500
+168: Moon Stone - $1500
+169: Shiny Stone - $1500
+170: Dusk Stone - $1500
+171: Dawn Stone - $1500
+172: Everstone - $1500
+173: Leaf Stone - $1500
+181: Full Incense - $50
+182: Lax Incense - $50
+183: Luck Incense - $50
+184: Odd Incense - $50
+185: Rock Incense - $50
+186: Rose Incense - $50
+187: Sea Incense - $50
+188: Wave Incense - $50
+189: Pure Incense - $50
+200: Cheri Berry - $10
+201: Chesto Berry - $10
+202: Pecha Berry - $10
+203: Rawst Berry - $10
+204: Aspear Berry - $10
+205: Leppa Berry - $10
+206: Oran Berry - $10
+207: Persim Berry - $10
+208: Lum Berry - $10
+209: Sitrus Berry - $10
+210: Figy Berry - $10
+211: Wiki Berry - $10
+212: Mago Berry - $10
+213: Auguav Berry - $10
+214: Iapapa Berry - $10
+215: Razz Berry - $10
+216: Bluk Berry - $10
+217: Nanab Berry - $10
+218: Weaper Berry - $10
+219: Pomeg Berry - $10
+220: Kelpsy Berry - $10
+221: Qualot Berry - $10
+222: Hondew Berry - $10
+223: Grepa Berry - $10
+224: Tamato Berry - $10
+225: Cornn Berry - $10
+226: Magost Berry - $10
+227: Rabuta Berry - $10
+228: Nomel Berry - $10
+229: Spelon Berry - $10
+230: Pamtre Berry - $10
+231: Watmel Berry - $10
+232: Durin Berry - $10
+233: Belue Berry - $10
+234: Occa Berry - $10
+235: Passho Berry - $10
+236: Wacan Berry - $10
+237: Rindo Berry - $10
+238: Yache Berry - $10
+239: Chople Berry - $10
+240: Kebia Berry - $10
+241: Shuca Berry - $10
+242: Coba Berry - $10
+243: Payapa Berry - $10
+244: Tanga Berry - $10
+245: Charti Berry - $10
+246: Kasib Berry - $10
+247: Haban Berry - $10
+248: Colbur Berry - $10
+249: Babiri Berry - $10
+250: Chilan Berry - $10
+251: Liechi Berry - $10
+252: Ganlon Berry - $10
+253: Salac Berry - $10
+254: Petaya Berry - $10
+255: Apicot Berry - $10
+256: Starf Berry - $10
+257: Enigma Berry - $10
+258: Micle Berry - $10
+259: Custap Berry - $10
+260: Jaboca Berry - $10
+261: Rowap Berry - $10
+300: Adamant Orb - $5000
+301: Black Belt - $50
+302: BlackGlasses - $50
+303: Charcoal - $4900
+304: Dragon Fang - $50
+305: Hard Stone - $50
+306: Lustrous Orb - $5000
+307: Magnet - $50
+308: Metal Coat - $50
+309: Miracle Seed - $50
+310: Mystic Water - $50
+311: NeverMeltIce - $50
+312: Pink Bow - $50
+313: Poison Barb - $50
+314: Polkadot Bow - $50
+315: Griseous Orb - $5000
+316: Sharp Beak - $50
+317: Silk Scarf - $50
+318: SilverPowder - $50
+319: Soft Sand - $50
+320: Spell Tag - $50
+321: TwistedSpoon - $50
+331: Draco Plate - $5000
+332: Dread Plate - $5000
+333: Earth Plate - $5000
+334: Fist Plate - $5000
+335: Flame Plate - $5000
+336: Icicle Plate - $5000
+337: Insect Plate - $5000
+338: Iron Plate - $5000
+339: Meadow Plate - $5000
+340: Mind Plate - $5000
+341: Sky Plate - $5000
+342: Splash Plate - $5000
+343: Spooky Plate - $5000
+344: Stone Plate - $5000
+345: Toxic Plate - $5000
+346: Zap Plate - $5000
+350: Amulet Coin - $50
+351: Berserk Gene - $100
+352: Big Root - $250
+353: Black Sludge - $1500
+354: BrightPowder - $1000
+355: Choice Band - $5000
+356: Choice Scarf - $5000
+357: Choice Specs - $5000
+358: Damp Rock - $1500
+359: Destiny Knot - $1000
+360: Exp. Share - $10000
+361: Expert Belt - $1500
+362: Flame Orb - $1500
+363: Focus Band - $5000
+364: Focus Sash - $5000
+365: Grip Claw - $1500
+366: Heat Rock - $1500
+367: Icy Rock - $1500
+368: Iron Ball - $50
+369: Lagging Tail - $50
+370: Leftovers - $5000
+371: Life Orb - $500
+372: Light Clay - $1500
+373: Lucky Egg - $10000
+374: Mental Herb - $100
+375: Metronome - $1500
+376: Muscle Band - $2500
+377: Power Herb - $100
+378: Quick Claw - $1500
+379: Scope Lens - $1500
+380: Shed Shell - $2500
+381: Shell Bell - $2500
+382: Smoke Ball - $100
+383: Smooth Rock - $1500
+384: Sticky Barb - $100
+385: Toxic Orb - $1500
+386: White Herb - $100
+387: Wide Lens - $2500
+388: Wise Glasses - $2500
+389: Zoom Lens - $2500
+400: Red Pokeblock - $50
+401: Blue Pokeblock - $50
+402: Pink Pokeblock - $50
+403: Green Pokeblock - $50
+404: Yellow Pokeblock - $50
+405: Purple Pokeblock - $50
+406: Indigo Pokeblock - $50
+407: Brown Pokeblock - $50
+408: LiteBlue Pokeblock - $50
+409: Olive Pokeblock - $50
+410: Black Pokeblock - $50
+411: Gold Pokeblock - $100
+412: Gray Pokeblock - $100
+413: White Pokeblock - $100
+414: Bitter Poffin - $50
+415: Spicy Poffin - $50
+416: Sweet Poffin - $50
+417: Dry Poffin - $50
+418: Sour Poffin - $50
+419: Mild Poffin - $50
+420: Honey - $100
+421: Big Apple - $100
+422: Huge Apple - $100
+423: Golden Apple - $100
+424: Perfect Apple - $100
+425: Banana - $100
+426: Grimy Food - $100
+427: Chestnut - $100
+428: Black Gummi - $100
+429: Blue Gummi - $100
+430: Brown Gummi - $100
+431: Clear Gummi - $100
+432: Gold Gummi - $100
+433: Grass Gummi - $100
+434: Green Gummi - $100
+435: Grey Gummi - $100
+436: Orange Gummi - $100
+437: Pink Gummi - $100
+438: Purple Gummi - $100
+439: Red Gummi - $100
+440: Royal Gummi - $100
+441: Silver Gummi - $100
+442: Sky Gummi - $100
+443: White Gummi - $100
+444: Yellow Gummi - $100
+445: Wonder Gummi - $100
+477: Light Ball - $5000
+478: Lucky Punch - $1000
+479: Metal Powder - $1000
+480: Quick Powder - $1000
+481: Soul Dew - $10000
+482: Stick - $1000
+483: Thick Club - $1000
+490: Blue Scarf - $500
+491: Green Scarf - $500
+492: Pink Scarf - $500
+493: Red Scarf - $500
+494: Yellow Scarf - $500
+500: White Apricorn - $30
+501: Red Apricorn - $30
+502: Blue Apricorn - $30
+503: Black Apricorn - $30
+504: Pink Apricorn - $30
+505: Green Apricorn - $30
+506: Yellow Aprocorn - $30
+525: Soothe Bell - $5000
+550: Air Mail - $50
+551: Bloom Mail - $50
+552: Bubble Mail - $50
+553: Flame Mail - $50
+554: Grass Mail - $50
+555: Hearth Mail - $50
+556: Snom Mail - $50
+557: Space Mail - $50
+558: Steel Mail - $50
+559: Tunnel Mail - $50
+576: TM01 Focus Punch - $5500
+577: TM02 Dragon Claw - $5500
+578: TM03 Water Pulse - $5500
+579: TM04 Calm Mind - $7500
+580: TM05 Roar - $2000
+581: TM06 Toxic - $2000
+582: TM07 Hail - $2000
+583: TM08 Bulk Up - $5500
+584: TM09 Bullet Seed - $5500
+585: TM10 Hidden Power - $7500
+586: TM11 Sunny Day - $2000
+587: TM12 Taunt - $5500
+588: TM13 Ice Beam - $7500
+589: TM14 Blizzard - $5500
+590: TM15 Hyper Beam - $7500
+591: TM16 Light Screen - $2000
+592: TM17 Protect - $2000
+593: TM18 Rain Dance - $2000
+594: TM19 Giga Drain - $5500
+595: TM20 Safeguard - $2000
+596: TM21 Frustration - $2000
+597: TM22 SolarBeam - $3000
+598: TM23 Iron Tail - $5500
+599: TM24 Thunderbolt - $5500
+600: TM25 Thunder - $5500
+601: TM26 Earthquake - $7500
+602: TM27 Return - $5500
+603: TM28 Dig - $5500
+604: TM29 Psychic - $7500
+605: TM30 Shadow Ball - $7500
+606: TM31 Brick Break - $5500
+607: TM32 Double Team - $2000
+608: TM33 Reflect - $2000
+609: TM34 Shock Wave - $5500
+610: TM35 Flamethrower - $7500
+611: TM36 Sludge Bomb - $5500
+612: TM37 Sandstorm - $2000
+613: TM38 Fire Blast - $7500
+614: TM39 Rock Tomb - $2000
+615: TM40 Aerial Ace - $5500
+616: TM41 Torment - $2000
+617: TM42 Facade - $3000
+618: TM43 Secret Power - $2000
+619: TM44 Rest - $3000
+620: TM45 Attract - $2000
+621: TM46 Thief - $2000
+622: TM47 Steel Wing - $5500
+623: TM48 Skill Swap - $2000
+624: TM49 Snatch - $2000
+625: TM50 Overheat - $5500
+626: TM51 Roost - $5500
+627: TM52 Focus Blast - $5500
+628: TM53 Energy Ball - $2000
+629: TM54 False Swipe - $2000
+630: TM55 Brine - $5500
+631: TM56 Fling - $2000
+632: TM57 Charge Beam - $5500
+633: TM58 Endure - $2000
+634: TM59 Dragon Pulse - $5500
+635: TM60 Drain Punch - $3000
+636: TM61 Will-O-Wisp - $3000
+637: TM62 Silver Wind - $3000
+638: TM63 Embargo - $2000
+639: TM64 Explosion - $4000
+640: TM65 Shadow Claw - $3000
+641: TM66 Payback - $2000
+642: TM67 Recycle - $2000
+643: TM68 Giga Impact - $5500
+644: TM69 Rock Polish - $2000
+645: TM70 Flash - $1000
+646: TM71 Stone Edge - $5500
+647: TM72 Avalanche - $4000
+648: TM73 Thunder Wave - $2000
+649: TM74 Gyro Ball - $5500
+650: TM75 Swords Dance - $3000
+651: TM76 Stealth Rock - $2000
+652: TM77 Psych Up - $3000
+653: TM78 Captivate - $2000
+654: TM79 Dark Pulse - $5500
+655: TM80 Rock Slide - $5500
+656: TM81 X-Scissor - $5500
+657: TM82 Sleep Talk - $3000
+658: TM83 Natural Gift - $2000
+659: TM84 Poison Jab - $4000
+660: TM85 Dream Eater - $2000
+661: TM86 Grass Knot - $2000
+662: TM87 Swagger - $2000
+663: TM88 Pluck - $2000
+664: TM89 U-turn - $3000
+665: TM90 Substitute - $5500
+666: TM91 Flash Cannon - $4000
+667: TM92 Trick Room - $3000
+668: TM93 Surf - $7500
+750: Secret Potion - $1000
+}}} 
+
+ === Shop 1 === 
+{{{
+1: Potion - $300
+2: Super Potion - $700
+16: Antidote - $100
+17: Parlyz Heal - $200
+18: Awakening - $250
+19: Burn Heal - $250
+20: Ice Heal - $250
+35: Poke Ball - $200
+36: Great Ball - $600
+85: Repel - $350
+86: Super Repel - $500
+91: Escape Rope - $250
+}}} 
+
+ === Shop 2 === 
+{{{
+}}} 
+
+ === Shop 3 === 
+{{{
+}}} 
+
+ === Shop 4 === 
+{{{
+}}} 
+
+ === Shop 5 === 
+{{{
+}}} 
+
+ === Shop 6 === 
+{{{
+}}} 
+
+ === Shop 7 === 
+{{{
+}}} 
+
+ === Shop 8 === 
+{{{
+}}} 
+
+ === Shop 9 === 
+{{{
+}}} 
+
+ === Shop 10 === 
+{{{
+}}} 
+
+ === Shop 11 === 
+{{{
+}}} 
+
+ === Shop 12 === 
+{{{
+}}} 
+
+ === Shop 13 === 
+{{{
+}}} 
+
+ === Shop 14 === 
+{{{
+}}} 
+
+ === Shop 15 === 
+{{{
+}}} 
+
+ === Shop 16 === 
+{{{
+}}} 
+
+ === Shop 17 === 
+{{{
+}}} 
+
+ === Shop 18 === 
+{{{
+}}} 
+
+ === Shop 19 === 
+{{{
+}}} 
