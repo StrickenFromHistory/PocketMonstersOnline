@@ -792,8 +792,8 @@
 				<m_description>A beginner's rod</m_description>
 				<m_id>97</m_id>
 				<m_category>Field</m_category>
-				<m_shop>0</m_shop>
-				<m_price>-1</m_price>
+				<m_shop>3</m_shop>
+				<m_price>2000</m_price>
 				<m_attributes>
 					<itemAttribute>FIELD</itemAttribute>
 				</m_attributes>
@@ -806,8 +806,8 @@
 				<m_description>A slight upgrade from the old rod</m_description>
 				<m_id>98</m_id>
 				<m_category>Field</m_category>
-				<m_shop>0</m_shop>
-				<m_price>-1</m_price>
+				<m_shop>3</m_shop>
+				<m_price>25000</m_price>
 				<m_attributes>
 					<itemAttribute>FIELD</itemAttribute>
 				</m_attributes>
@@ -820,8 +820,8 @@
 				<m_description>Second best rod</m_description>
 				<m_id>99</m_id>
 				<m_category>Field</m_category>
-				<m_shop>0</m_shop>
-				<m_price>-1</m_price>
+				<m_shop>3</m_shop>
+				<m_price>75000</m_price>
 				<m_attributes>
 					<itemAttribute>FIELD</itemAttribute>
 				</m_attributes>
@@ -834,8 +834,8 @@
 				<m_description>Best rod there is</m_description>
 				<m_id>100</m_id>
 				<m_category>Field</m_category>
-				<m_shop>0</m_shop>
-				<m_price>-1</m_price>
+				<m_shop>3</m_shop>
+				<m_price>500000</m_price>
 				<m_attributes>
 					<itemAttribute>FIELD</itemAttribute>
 				</m_attributes>
