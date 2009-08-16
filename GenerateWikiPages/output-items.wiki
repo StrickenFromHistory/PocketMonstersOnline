@@ -65,7 +65,7 @@
 152: Dragon Scale - $1000
 153: Dubious Disc - $1000
 154: Electirizer - $1000
-155: King''s Rock - $1000
+155: King`'`s Rock - $1000
 156: Magmarizer - $1000
 157: Metal Coat - $1000
 158: Oval Stone - $1000
@@ -321,8 +321,6 @@
 585: TM10 Hidden Power - $7500
 586: TM11 Sunny Day - $2000
 587: TM12 Taunt - $5500
-588: TM13 Ice Beam - $7500
-589: TM14 Blizzard - $5500
 590: TM15 Hyper Beam - $7500
 591: TM16 Light Screen - $2000
 592: TM17 Protect - $2000
@@ -332,10 +330,7 @@
 596: TM21 Frustration - $2000
 597: TM22 SolarBeam - $3000
 598: TM23 Iron Tail - $5500
-599: TM24 Thunderbolt - $5500
-600: TM25 Thunder - $5500
 601: TM26 Earthquake - $7500
-602: TM27 Return - $5500
 603: TM28 Dig - $5500
 604: TM29 Psychic - $7500
 605: TM30 Shadow Ball - $7500
@@ -343,7 +338,6 @@
 607: TM32 Double Team - $2000
 608: TM33 Reflect - $2000
 609: TM34 Shock Wave - $5500
-610: TM35 Flamethrower - $7500
 611: TM36 Sludge Bomb - $5500
 612: TM37 Sandstorm - $2000
 613: TM38 Fire Blast - $7500
@@ -423,6 +417,12 @@
 
  === Shop 2 === 
 {{{
+588: TM13 Ice Beam - $15000
+589: TM14 Blizzard - $20000
+599: TM24 Thunderbolt - $15000
+600: TM25 Thunder - $20000
+602: TM27 Return - $10000
+610: TM35 Flamethrower - $15000
 }}} 
 
  === Shop 3 === 
