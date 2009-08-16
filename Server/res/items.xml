@@ -4747,8 +4747,8 @@
 				<m_description>Teaches ice beam</m_description>
 				<m_id>588</m_id>
 				<m_category>TM</m_category>
-				<m_shop>0</m_shop>
-				<m_price>7500</m_price>
+				<m_shop>2</m_shop>
+				<m_price>15000</m_price>
 				<m_attributes>
 					<itemAttribute>POKEMON</itemAttribute>
 					<itemAttribute>MOVESLOT</itemAttribute>
@@ -4762,8 +4762,8 @@
 				<m_description>Teaches blizzard</m_description>
 				<m_id>589</m_id>
 				<m_category>TM</m_category>
-				<m_shop>0</m_shop>
-				<m_price>5500</m_price>
+				<m_shop>2</m_shop>
+				<m_price>20000</m_price>
 				<m_attributes>
 					<itemAttribute>POKEMON</itemAttribute>
 					<itemAttribute>MOVESLOT</itemAttribute>
@@ -4912,8 +4912,8 @@
 				<m_description>Teaches thunderbolt</m_description>
 				<m_id>599</m_id>
 				<m_category>TM</m_category>
-				<m_shop>0</m_shop>
-				<m_price>5500</m_price>
+				<m_shop>2</m_shop>
+				<m_price>15000</m_price>
 				<m_attributes>
 					<itemAttribute>POKEMON</itemAttribute>
 					<itemAttribute>MOVESLOT</itemAttribute>
@@ -4927,8 +4927,8 @@
 				<m_description>Teaches thunder</m_description>
 				<m_id>600</m_id>
 				<m_category>TM</m_category>
-				<m_shop>0</m_shop>
-				<m_price>5500</m_price>
+				<m_shop>2</m_shop>
+				<m_price>20000</m_price>
 				<m_attributes>
 					<itemAttribute>POKEMON</itemAttribute>
 					<itemAttribute>MOVESLOT</itemAttribute>
@@ -4957,8 +4957,8 @@
 				<m_description>Teaches return</m_description>
 				<m_id>602</m_id>
 				<m_category>TM</m_category>
-				<m_shop>0</m_shop>
-				<m_price>5500</m_price>
+				<m_shop>2</m_shop>
+				<m_price>10000</m_price>
 				<m_attributes>
 					<itemAttribute>POKEMON</itemAttribute>
 					<itemAttribute>MOVESLOT</itemAttribute>
@@ -5077,8 +5077,8 @@
 				<m_description>Teaches flamethrower</m_description>
 				<m_id>610</m_id>
 				<m_category>TM</m_category>
-				<m_shop>0</m_shop>
-				<m_price>7500</m_price>
+				<m_shop>2</m_shop>
+				<m_price>15000</m_price>
 				<m_attributes>
 					<itemAttribute>POKEMON</itemAttribute>
 					<itemAttribute>MOVESLOT</itemAttribute>
