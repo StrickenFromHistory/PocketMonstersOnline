@@ -444,25 +444,25 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					switch (message.charAt(2)){
 					case 'b':
 						//Breeding
-						if(m_game.getOurPlayer().getBreedingLevel() != -1)
+						if(m_game.getOurPlayer().getBreedingLevel() != -1 && m_game.getOurPlayer().getBreedingLevel() != Integer.parseInt(message.substring(3)))
 							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your breeding level is now " + message.substring(3) + ".");
 						m_game.getOurPlayer().setBreedingLevel(Integer.parseInt(message.substring(3)));
 						break;
 					case 'f':
 						//Fishing
-						if(m_game.getOurPlayer().getFishingLevel() != -1)
+						if(m_game.getOurPlayer().getFishingLevel() != -1 && m_game.getOurPlayer().getFishingLevel() != Integer.parseInt(message.substring(3)))
 							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your fishing level is now " + message.substring(3) + ".");
 						m_game.getOurPlayer().setFishingLevel(Integer.parseInt(message.substring(3)));
 						break;
 					case 't':
 						//Trainer
-						if(m_game.getOurPlayer().getTrainerLevel() != -1)
+						if(m_game.getOurPlayer().getTrainerLevel() != -1 && m_game.getOurPlayer().getTrainerLevel() != Integer.parseInt(message.substring(3)))
 							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your trainer level is now " + message.substring(3) + ".");
 						m_game.getOurPlayer().setTrainerLevel(Integer.parseInt(message.substring(3)));
 						break;
 					case 'c':
 						//Coordinating
-						if(m_game.getOurPlayer().getCoordinatingLevel() != -1)
+						if(m_game.getOurPlayer().getCoordinatingLevel() != -1 && m_game.getOurPlayer().getCoordinatingLevel() != Integer.parseInt(message.substring(3)))
 							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your coordinating level is now " + message.substring(3) + ".");
 						m_game.getOurPlayer().setCoordinatingLevel(Integer.parseInt(message.substring(3)));
 						break;
