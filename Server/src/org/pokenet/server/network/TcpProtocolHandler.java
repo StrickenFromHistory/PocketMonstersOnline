@@ -393,26 +393,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					}
 				}
 				break;
-			case 'U':
-				//Move up
-				if(!p.isBattling() && !p.isShopping())
-					p.setNextMovement(Direction.Up);
-				break;
-			case 'D':
-				//Move down
-				if(!p.isBattling() && !p.isShopping())
-					p.setNextMovement(Direction.Down);
-				break;
-			case 'L':
-				//Move left
-				if(!p.isBattling() && !p.isShopping())
-					p.setNextMovement(Direction.Left);
-				break;
-			case 'R':
-				//Move right
-				if(!p.isBattling() && !p.isShopping())
-					p.setNextMovement(Direction.Right);
-				break;
 			case 'F':
 				//Friend list
 				String friend = message.substring(2);

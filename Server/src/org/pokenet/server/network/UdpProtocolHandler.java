@@ -44,8 +44,10 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 			p = m_playerList.get(Integer.parseInt(pid));
 			if(p != null) {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
-					p.setNextMovement(Direction.Up);
-					p.setUdpSession(session);
+					if(!p.isBattling() && !p.isShopping()) {
+						p.setNextMovement(Direction.Up);
+						p.setUdpSession(session);
+					}
 				}
 			}
 			break;
@@ -55,8 +57,10 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 			p = m_playerList.get(Integer.parseInt(pid));
 			if(p != null) {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
-					p.setNextMovement(Direction.Down);
-					p.setUdpSession(session);
+					if(!p.isBattling() && !p.isShopping()) {
+						p.setNextMovement(Direction.Down);
+						p.setUdpSession(session);
+					}
 				}
 			}
 			break;
@@ -66,8 +70,10 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 			p = m_playerList.get(Integer.parseInt(pid));
 			if(p != null) {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
-					p.setNextMovement(Direction.Left);
-					p.setUdpSession(session);
+					if(!p.isBattling() && !p.isShopping()) {
+						p.setNextMovement(Direction.Left);
+						p.setUdpSession(session);
+					}
 				}
 			}
 			break;
@@ -77,8 +83,10 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 			p = m_playerList.get(Integer.parseInt(pid));
 			if(p != null) {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
-					p.setNextMovement(Direction.Right);
-					p.setUdpSession(session);
+					if(!p.isBattling() && !p.isShopping()) {
+						p.setNextMovement(Direction.Right);
+						p.setUdpSession(session);
+					}
 				}
 			}
 			break;
