@@ -604,7 +604,6 @@ public class ServerMap {
 	 * @param d
 	 * @param rod
 	 */
-	
 	public boolean caughtFish(PlayerChar c, Direction d, int rod) {
 		int playerX = c.getX();
 		int playerY = c.getY();
@@ -615,36 +614,31 @@ public class ServerMap {
 		failureRate -= rod;
 		//Determine what tile the player is facing		
 		switch(d) {
-		case Up: {
+		case Up:
 			newX = playerX / 32;
 			newY = ((playerY + 8) - 32) / 32;
-		}
-		break;
-		case Down: {
+			break;
+		case Down:
 			newX = playerX / 32;
 			newY = ((playerY + 8) + 32) / 32;
-		}
-		break;
-		case Left: {
+			break;
+		case Left:
 			newX = (playerX - 32) / 32;
 			newY = (playerY + 8) / 32;
-		}
-		break;
-		case Right: {
+			break;
+		case Right:
 			newX = (playerX + 32) / 32;
 			newY = (playerY + 8) / 32;
-		}
-		break;
+			break;
 		}
 		//If that tile is a water tile, determine if you pulled anything, if not, autofail(You can't fish on dry land)
 		if(m_surf != null && m_surf.getTileAt(newX, newY) == '1') { //If facing water
 			c.setFishing(true);		
 			if((int)(Math.random()* 101) > failureRate) {
 				return true;
-			}
-			else {
+			} else {
 				return false;
-				}
+			}
 		}
 		return false;
 	}

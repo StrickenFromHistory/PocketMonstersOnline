@@ -77,32 +77,37 @@ public class ItemProcessor implements Runnable {
     try {
       /* Check if the item is a rod */
     if (i.getName().equalsIgnoreCase("OLD ROD")) {
-    	if(!p.isBattling())
-    	p.fish(0);
-    }
-    else if(i.getName().equalsIgnoreCase("GOOD ROD")) {
-    	if(!p.isBattling())
-    		if(p.getFishingLevel() >= 15) 
+    	if(!p.isBattling() && !p.isFishing()) {
+    		p.fish(0);
+    		return true;
+    	}
+    } else if(i.getName().equalsIgnoreCase("GOOD ROD")) {
+    	if(!p.isBattling() && !p.isFishing()) {
+    		if(p.getFishingLevel() >= 15) {
     			p.fish(15);
-    		else {
+    		} else {
     			//TODO: Notify client that you need a fishing level of 15 or higher for this rod
     		}
-    }
-    else if(i.getName().equalsIgnoreCase("GREAT ROD")) {
-    	if(!p.isBattling())
-    		if(p.getFishingLevel() >= 50) 
+    		return true;
+    	}
+    } else if(i.getName().equalsIgnoreCase("GREAT ROD")) {
+    	if(!p.isBattling() && !p.isFishing()) {
+    		if(p.getFishingLevel() >= 50) {
     			p.fish(35);
-    		else {
+    		} else {
     			//TODO: Notify client that you need a fishing level of 50 or higher for this rod
     		}
-    }
-    else if(i.getName().equalsIgnoreCase("ULTRA ROD")) {
-    	if(!p.isBattling())
-    		if(p.getFishingLevel() >= 70)
+    		return true;
+    	}
+    } else if(i.getName().equalsIgnoreCase("ULTRA ROD")) {
+    	if(!p.isBattling() && !p.isFishing()) {
+    		if(p.getFishingLevel() >= 70) {
     			p.fish(50);
-    		else {
+    		} else {
     			//TODO: Notify client that you need a fishing level of 70 or higher for this rod
     		}
+    		return true;
+    	}
     }
       /* Check if the item is a repel or escape rope */
     else if (i.getName().equalsIgnoreCase("REPEL")) {

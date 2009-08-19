@@ -763,14 +763,12 @@ public class PlayerChar extends Char implements Battleable {
 				this.addFishingExp(DataService.getFishDatabase().getFish(p.getSpeciesName()).getExperience());
 				this.ensureHealthyPokemon();
 				m_battleField = new WildBattleField(DataService.getBattleMechanics(),this,p);
-			}
-			//If you either have too low a fishing level or too weak a rod
-			else {
+			} else {
+				//If you either have too low a fishing level or too weak a rod
 				//TODO: Notify client you pulled up a fish too strong for you
 				this.addFishingExp(10); //Conciliatory exp for "hooking" something even if it got away
 			}
-		}
-		else {
+		} else {
 		//TODO: Notify client you pulled up nothing
 		}
 		this.setFishing(false);
