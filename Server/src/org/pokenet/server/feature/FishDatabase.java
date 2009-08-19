@@ -16,7 +16,7 @@ import org.simpleframework.xml.Root;
  *
  */
 @Root
-public class FishDB {
+public class FishDatabase {
 	@ElementMap
 	private HashMap<String, ArrayList<Fish>> m_database;
 	
