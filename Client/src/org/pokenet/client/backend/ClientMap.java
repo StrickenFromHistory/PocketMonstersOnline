@@ -641,7 +641,7 @@ public class ClientMap extends TiledMap {
 								0,
 								0,
 								(int) (GameClient.getInstance().getDisplay()
-										.getWidth() - getXOffset()) / 32, i,
+										.getWidth() - getXOffset()) / 32 + 32, i,
 								false, 16, 16);
 					}
 					g.resetTransform();
