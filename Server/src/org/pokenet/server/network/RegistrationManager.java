@@ -61,6 +61,7 @@ public class RegistrationManager implements Runnable {
 			return;
 		}
 		String [] info = ((String) session.getAttribute("reg")).split(",");
+		m_database = new MySqlManager();
 		if(m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword())) {
 			m_database.selectDatabase(GameServer.getDatabaseName());
 			int s = Integer.parseInt(info[4]);
