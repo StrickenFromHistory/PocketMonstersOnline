@@ -392,7 +392,7 @@ public class ClientMap extends TiledMap {
 					map.setYOffset(m_mapMatrix.getMap(2, 1).m_yOffset
 							- map.getHeight() * 32, false);
 				} else if (m_mapMatrix.getMap(1, 0) != null) { // The top map
-																// exists
+					// exists
 					map.setYOffset(m_mapMatrix.getMap(1, 0).m_yOffset
 							- m_mapMatrix.getMap(1, 0).m_yOffsetModifier
 							+ map.getYOffsetModifier(), false);
@@ -407,7 +407,7 @@ public class ClientMap extends TiledMap {
 					map.setYOffset(m_mapMatrix.getMap(0, 1).m_yOffset
 							- map.getHeight() * 32, false);
 				} else if (m_mapMatrix.getMap(1, 0) != null) { // The top map
-																// exists
+					// exists
 					map.setYOffset(m_mapMatrix.getMap(1, 0).m_yOffset
 							- m_mapMatrix.getMap(1, 0).m_yOffsetModifier
 							+ map.getYOffsetModifier(), false);
@@ -418,14 +418,14 @@ public class ClientMap extends TiledMap {
 			// 2, 2 -- Lower Right
 			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY + 1);
 			if (map != null) {
-				if (m_mapMatrix.getMap(2, 1) != null) { // The right map exists
-					map.setYOffset(m_mapMatrix.getMap(2, 1).m_yOffset
-							+ m_mapMatrix.getMap(2, 1).getHeight() * 32, false);
-				} else if (m_mapMatrix.getMap(1, 2) != null) { // The bottom map
-																// exists
+				if (m_mapMatrix.getMap(1, 2) != null) { // The bottom map exists
 					map.setYOffset(m_mapMatrix.getMap(1, 0).m_yOffset
 							- m_mapMatrix.getMap(1, 0).m_yOffsetModifier
 							+ map.getYOffsetModifier(), false);
+				} else if (m_mapMatrix.getMap(2, 1) != null) { // The right map
+																// exists
+					map.setYOffset(m_mapMatrix.getMap(2, 1).m_yOffset
+							+ m_mapMatrix.getMap(2, 1).getHeight() * 32, false);
 				} else { // Try in previous way
 					map.setYOffset(offset + getHeight() * 32, false);
 				}
@@ -437,7 +437,7 @@ public class ClientMap extends TiledMap {
 					map.setYOffset(m_mapMatrix.getMap(0, 1).m_yOffset
 							+ m_mapMatrix.getMap(0, 1).getHeight() * 32, false);
 				} else if (m_mapMatrix.getMap(1, 2) != null) { // The bottom map
-																// exists
+					// exists
 					map.setYOffset(m_mapMatrix.getMap(1, 2).m_yOffset
 							- m_mapMatrix.getMap(1, 2).m_yOffsetModifier
 							+ map.getYOffsetModifier(), false);
@@ -487,7 +487,7 @@ public class ClientMap extends TiledMap {
 							- m_mapMatrix.getMap(0, 1).m_xOffsetModifier
 							+ map.getXOffsetModifier(), false);
 				} else if (m_mapMatrix.getMap(1, 0) != null) { // The top map
-																// exists
+					// exists
 					map.setXOffset(m_mapMatrix.getMap(1, 0).m_xOffset
 							- map.getWidth() * 32
 							- m_mapMatrix.getMap(1, 0).m_xOffsetModifier
@@ -506,7 +506,7 @@ public class ClientMap extends TiledMap {
 							- m_mapMatrix.getMap(2, 1).m_xOffsetModifier
 							+ map.getXOffsetModifier(), false);
 				} else if (m_mapMatrix.getMap(1, 0) != null) { // The top map
-																// exists
+					// exists
 					map.setXOffset(m_mapMatrix.getMap(1, 0).m_xOffset
 							+ m_mapMatrix.getMap(1, 0).getWidth() * 32
 							- m_mapMatrix.getMap(1, 0).m_xOffsetModifier
@@ -525,7 +525,7 @@ public class ClientMap extends TiledMap {
 							- m_mapMatrix.getMap(2, 1).m_xOffsetModifier
 							+ map.getXOffsetModifier(), false);
 				} else if (m_mapMatrix.getMap(1, 2) != null) { // The Bottom map
-																// exists
+					// exists
 					map.setXOffset(m_mapMatrix.getMap(1, 2).m_xOffset
 							+ m_mapMatrix.getMap(1, 2).getWidth() * 32
 							- m_mapMatrix.getMap(1, 2).m_xOffsetModifier
@@ -544,7 +544,7 @@ public class ClientMap extends TiledMap {
 							- m_mapMatrix.getMap(0, 1).m_xOffsetModifier
 							+ map.getXOffsetModifier(), false);
 				} else if (m_mapMatrix.getMap(1, 2) != null) { // The bottom map
-																// exists
+					// exists
 					map.setXOffset(m_mapMatrix.getMap(1, 2).m_xOffset
 							- map.getWidth() * 32
 							- m_mapMatrix.getMap(1, 2).m_xOffsetModifier
@@ -641,8 +641,8 @@ public class ClientMap extends TiledMap {
 								0,
 								0,
 								(int) (GameClient.getInstance().getDisplay()
-										.getWidth() - getXOffset()) / 32 + 32, i,
-								false, 16, 16);
+										.getWidth() - getXOffset()) / 32 + 32,
+								i, false, 16, 16);
 					}
 					g.resetTransform();
 					// Draw player names
@@ -672,7 +672,7 @@ public class ClientMap extends TiledMap {
 	public void setName(String name) {
 		m_name = name;
 	}
-	
+
 	public int getMapX() {
 		return m_mapX;
 	}
