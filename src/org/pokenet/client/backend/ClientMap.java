@@ -27,6 +27,8 @@ public class ClientMap extends TiledMap {
 	private int m_yOffset;
 	private int m_mapX;
 	private int m_mapY;
+	public int m_x;
+	public int m_y;
 	private boolean m_isCurrent = false;
 	private ClientMapMatrix m_mapMatrix;
 	private int m_walkableLayer;
@@ -437,7 +439,7 @@ public class ClientMap extends TiledMap {
 				} else if (m_mapMatrix.getMap(1, 2) != null) { // The bottom map
 																// exists
 					map.setYOffset(m_mapMatrix.getMap(1, 2).m_yOffset
-							- m_mapMatrix.getMap(1, 0).m_yOffsetModifier
+							- m_mapMatrix.getMap(1, 2).m_yOffsetModifier
 							+ map.getYOffsetModifier(), false);
 				} else {
 					map.setYOffset(offset + getHeight() * 32, false);
@@ -594,19 +596,6 @@ public class ClientMap extends TiledMap {
 					p.getCurrentImage().draw(m_xOffset + p.getX() - 4,
 							m_yOffset + p.getY());
 
-					// Draw the walk behind layer
-					g.scale(2, 2);
-					for (int i = 0; i < getLayer("WalkBehind").height; i++) {
-						getLayer("WalkBehind").render(
-								getXOffset() / 2,
-								getYOffset() / 2,
-								0,
-								0,
-								(int) (GameClient.getInstance().getDisplay()
-										.getWidth() - getXOffset()) / 32, i,
-								false, 16, 16);
-					}
-					g.resetTransform();
 					if (m_curMap.shouldReflect(p)) {
 						// If there's a reflection, flip the player's image, set
 						// his alpha so its more translucent, and then draw it.
@@ -643,6 +632,20 @@ public class ClientMap extends TiledMap {
 						m_grassOverlay.draw(m_xOffset + p.getServerX(),
 								m_yOffset + p.getServerY() + 9);
 					}
+					// Draw the walk behind layer
+					g.scale(2, 2);
+					for (int i = 0; i < getLayer("WalkBehind").height; i++) {
+						getLayer("WalkBehind").render(
+								getXOffset() / 2,
+								getYOffset() / 2,
+								0,
+								0,
+								(int) (GameClient.getInstance().getDisplay()
+										.getWidth() - getXOffset()) / 32, i,
+								false, 16, 16);
+					}
+					g.resetTransform();
+					// Draw player names
 					g.drawString(p.getUsername(), m_xOffset
 							+ (p.getX() - (g.getFont()
 									.getWidth(p.getUsername()) / 2)) + 16,
@@ -668,5 +671,13 @@ public class ClientMap extends TiledMap {
 	 */
 	public void setName(String name) {
 		m_name = name;
+	}
+	
+	public int getMapX() {
+		return m_mapX;
+	}
+
+	public int getMapY() {
+		return m_mapY;
 	}
 }
