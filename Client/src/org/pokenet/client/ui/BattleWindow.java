@@ -480,7 +480,7 @@ public class BattleWindow extends Frame {
 		pokesContainer.setVisible(false);
 		m_bag = new BattleBag();
 		m_bag.setAlwaysOnTop(true);
-		getDisplay().add(m_bag);
+		GameClient.getInstance().getDisplay().add(m_bag);
 	}
 
 	/**
