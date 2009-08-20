@@ -14,7 +14,7 @@ public class Char implements Positionable {
 	private Direction m_facing = Direction.Down;
 	private long m_lastMovement = System.currentTimeMillis();
 	protected int m_sprite, m_mapX, m_mapY, m_x, m_y, m_id;
-	private boolean m_isVisible, m_isSurfing, m_isFishing;
+	private boolean m_isVisible, m_isSurfing;
 	protected String m_name;
 	protected ServerMap m_map;
 	
@@ -314,24 +314,8 @@ public class Char implements Positionable {
 		return m_isSurfing;
 	}
 	
-	/**
-	 * Sets if this char is surfing or not and sends the sprite change information to everyone
-	 * @param b
-	 */
-	public void setFishing(boolean b) {
-		m_isFishing = b;
-		if(m_map != null) {
-			//Tell clients to update this char to reflect whether player is fishing or not.
-		}
-	}
 	
-	/**
-	 * Returns true if this char is surfing
-	 * @return
-	 */
-	public boolean isFishing() {
-		return m_isFishing;
-	}
+
 	
 	/**
 	 * Disposes of this char

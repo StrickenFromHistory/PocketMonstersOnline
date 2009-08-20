@@ -70,7 +70,7 @@ public class PlayerChar extends Char implements Battleable {
 	private BattleField m_battleField = null;
 	private int m_healX, m_healY, m_healMapX, m_healMapY;
 	private int m_adminLevel = 0;
-	private boolean m_isMuted;
+	private boolean m_isMuted, m_isFishing; 
 	private Shop m_currentShop = null;
 	private int m_repel = 0;
 	private long m_lastTrade = 0;
@@ -79,6 +79,10 @@ public class PlayerChar extends Char implements Battleable {
 	 * Kicking timer
 	 */
 	public long lastPacket = System.currentTimeMillis();
+	/*
+	 *  Fishing timer
+	 */
+	public long lastFishingTime = System.currentTimeMillis();
 	/*
 	 * Trade stuff
 	 */
@@ -756,6 +760,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * Fishes for a pokemon.
 	 */
 	public void fish(int rod) {
+	if(this.lastFishingTime + 1000 < System.currentTimeMillis()) {
 		if(this.getMap().caughtFish(this, this.getFacing(), rod)) {
 			Pokemon p = this.getMap().getWildPokemon(this);
 			//If we have both the required level to fish this thing up and the rod to do it
@@ -763,15 +768,18 @@ public class PlayerChar extends Char implements Battleable {
 				this.addFishingExp(DataService.getFishDatabase().getFish(p.getSpeciesName()).getExperience());
 				this.ensureHealthyPokemon();
 				m_battleField = new WildBattleField(DataService.getBattleMechanics(),this,p);
-			} else {
-				//If you either have too low a fishing level or too weak a rod
+			}
+			//If you either have too low a fishing level or too weak a rod
+			else {
 				//TODO: Notify client you pulled up a fish too strong for you
 				this.addFishingExp(10); //Conciliatory exp for "hooking" something even if it got away
 			}
-		} else {
+		}
+		else {
 		//TODO: Notify client you pulled up nothing
 		}
 		this.setFishing(false);
+	}
 	}
 	/**
 	 * Overrides char's move method.
@@ -829,6 +837,26 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public int getMoney() {
 		return m_money;
+	}
+	/**
+	 * Returns true if this char is fishing
+	 * @return
+	 */
+	public boolean isFishing() {
+		return m_isFishing;
+	}
+	
+	/**
+	 * Sets if this char is fishing or not and sends the sprite change information to everyone
+	 * @param b
+	 */
+	public void setFishing(boolean b) {
+		m_isFishing = b;
+		if(b == true)
+			this.lastFishingTime = System.currentTimeMillis();
+		if(m_map != null) {
+			//Tell clients to update this char to reflect whether player is fishing or not.
+		}
 	}
 	
 	/**
