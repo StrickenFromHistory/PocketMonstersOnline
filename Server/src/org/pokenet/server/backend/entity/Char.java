@@ -85,7 +85,7 @@ public class Char implements Positionable {
 	/**
 	 * Sets the map this player is and handles all networking to client that is involved with it
 	 */
-	public void setMap(ServerMap map) {
+	public void setMap(ServerMap map, Direction dir) {
 		//Remove the char from their old map
 		if(m_map != null)
 			m_map.removeChar(this);

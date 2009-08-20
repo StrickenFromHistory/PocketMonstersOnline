@@ -696,7 +696,9 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				break;
 			case 's':
 				//Set the map and weather
-				details = message.substring(2).split(",");
+				details = message.substring(3).split(",");
+				System.err.println(message.charAt(2));
+				m_game.getMapMatrix().setNewMapPos(message.charAt(2));
 				m_game.setMap(Integer.parseInt(details[0]), Integer.parseInt(details[1]));
 				switch(Integer.parseInt(details[2])) {
 				case 0:

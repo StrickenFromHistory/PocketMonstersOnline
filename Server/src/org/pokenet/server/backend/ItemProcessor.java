@@ -126,7 +126,7 @@ public class ItemProcessor implements Runnable {
         p.setY(p.getHealY());
         p.setMap(GameServer.getServiceManager().getMovementService()
           .getMapMatrix()
-          .getMapByGamePosition(p.getHealMapX(), p.getHealMapY()));
+          .getMapByGamePosition(p.getHealMapX(), p.getHealMapY()), null);
         return true;
       }
       /* Else, determine what do to with the item */

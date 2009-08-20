@@ -477,7 +477,7 @@ public class PlayerChar extends Char implements Battleable {
 		m_y = m_healY;
 		if(m_tcpSession.isConnected() && !m_tcpSession.isClosing()) {
 			this.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().
-					getMapByGamePosition(m_healMapX, m_healMapY));
+					getMapByGamePosition(m_healMapX, m_healMapY), null);
 		} else {
 			m_mapX = m_healMapX;
 			m_mapY = m_healMapY;
@@ -1218,12 +1218,29 @@ public class PlayerChar extends Char implements Battleable {
 	 * Sets the map for this player
 	 */
 	@Override
-	public void setMap(ServerMap map) {
-		super.setMap(map);
+	public void setMap(ServerMap map, Direction dir) {
+		char direction = 'n';
+		if (dir != null) {
+			switch (dir) {
+			case Up:
+				direction = 'u';
+				break;
+			case Down:
+				direction = 'd';
+				break;
+			case Left:
+				direction = 'l';
+				break;
+			case Right:
+				direction = 'r';
+				break;
+			}
+		}
+		super.setMap(map, dir);
 		//Clear the requests list
 		clearRequests();
 		//Send the map switch packet to the client
-		m_tcpSession.write("ms" + map.getX() + "," + map.getY() + "," + (map.isWeatherForced() ? map.getWeatherId() : TimeService.getWeatherId()));
+		m_tcpSession.write("ms" + direction + map.getX() + "," + map.getY() + "," + (map.isWeatherForced() ? map.getWeatherId() : TimeService.getWeatherId()));
 		Char c;
 		String packet = "mi";
 		//Send all player information to the client

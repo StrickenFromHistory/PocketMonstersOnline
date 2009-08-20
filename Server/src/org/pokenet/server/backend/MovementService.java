@@ -90,7 +90,7 @@ public class MovementService {
 						players = m_mapMatrix.getMapByRealPosition(x, y).getPlayers();
 						for(PlayerChar p : players.values()) {
 							p.setLastHeal(p.getX(), p.getY(), p.getMapX(), p.getMapY());
-							p.setMap(m_tempMap);
+							p.setMap(m_tempMap, null);
 						}
 					}
 				}

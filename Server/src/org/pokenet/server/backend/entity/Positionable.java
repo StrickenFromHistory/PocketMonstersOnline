@@ -52,7 +52,7 @@ public interface Positionable {
 	public int getMapX();
 	public int getMapY();
 	
-	public void setMap(ServerMap map);
+	public void setMap(ServerMap map, Direction dir);
 	public void setVisible(boolean visible);
 	
 	public boolean isVisible();

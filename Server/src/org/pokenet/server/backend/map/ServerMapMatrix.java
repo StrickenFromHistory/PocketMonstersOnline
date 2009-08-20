@@ -1,6 +1,7 @@
 package org.pokenet.server.backend.map;
 
 import org.pokenet.server.backend.entity.Char;
+import org.pokenet.server.backend.entity.Positionable.Direction;
 
 /**
  * Stores all maps on the server in a 2D array
@@ -44,26 +45,31 @@ public class ServerMapMatrix {
 	 * @param destination
 	 */
 	public void moveBetweenMaps(Char c, ServerMap origin, ServerMap dest) {
+		Direction dir = null;
 		/*
 		 * Reposition player so they're on the correct edge
 		 */
 		if (origin.getX() > dest.getX()) { // dest. map is to the left
 			c.setX(dest.getWidth() * 32 - 32);
 			c.setY(c.getY() + origin.getYOffsetModifier() - dest.getYOffsetModifier());
+			dir = Direction.Left;
 		} else if (origin.getX() < dest.getX()) { // to the right
 			c.setX(0);
 			c.setY(c.getY() + origin.getYOffsetModifier() - dest.getYOffsetModifier());
+			dir = Direction.Right;
 		} else if (origin.getY() > dest.getY()) {// up
 			c.setY(dest.getHeight() * 32 - 40);
 			c.setX((c.getX() + origin.getXOffsetModifier()) - dest.getXOffsetModifier());
+			dir = Direction.Up;
 		} else if (origin.getY() < dest.getY()) {// down
 			c.setY(-8);
 			c.setX((c.getX() - dest.getXOffsetModifier()) + origin.getXOffsetModifier());
+			dir = Direction.Down;
 		}
 		/*
 		 * Set the map
 		 */
-		c.setMap(dest);
+		c.setMap(dest, dir);
 	}
 	
 	/**

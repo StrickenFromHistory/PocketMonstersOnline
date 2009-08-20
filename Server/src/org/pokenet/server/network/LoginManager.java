@@ -270,7 +270,7 @@ public class LoginManager implements Runnable {
 	private void initialiseClient(PlayerChar p, IoSession session) {
 		session.write("ls" + p.getId() + "," + p.getUdpCode() + "," + TimeService.getTime());
 		//Add them to the map
-		p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().getMapByGamePosition(p.getMapX(), p.getMapY()));
+		p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().getMapByGamePosition(p.getMapX(), p.getMapY()), null);
 		//Add them to a movement service
 		GameServer.getServiceManager().getMovementService().getMovementManager().addPlayer(p);
 		//Send their Pokemon information to them

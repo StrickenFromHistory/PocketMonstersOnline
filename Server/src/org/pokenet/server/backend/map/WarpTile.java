@@ -96,7 +96,7 @@ public class WarpTile {
 				p.setX(m_warpX);
 				p.setY(m_warpY);
 				p.setMap(GameServer.getServiceManager().getMovementService().
-						getMapMatrix().getMapByGamePosition(m_warpMapX, m_warpMapY));
+						getMapMatrix().getMapByGamePosition(m_warpMapX, m_warpMapY), null);
 			}
 		}
 	}

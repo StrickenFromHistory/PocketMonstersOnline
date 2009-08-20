@@ -304,7 +304,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 								PlayerChar o = m_players.get(message.substring(2));
 								p.setX(o.getX());
 								p.setY(o.getY());
-								p.setMap(o.getMap());
+								p.setMap(o.getMap(), null);
 							}
 							break;
 						case 'm':

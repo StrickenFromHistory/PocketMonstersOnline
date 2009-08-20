@@ -20,6 +20,7 @@ public class ClientMapMatrix {
 	private ArrayList<Player> m_players;
 	private ArrayList<String> m_speech;
 	private HashMap<String, String> m_mapNames;
+	private char m_newMapPos;
 	
 	/**
 	 * Default constructor
@@ -32,13 +33,43 @@ public class ClientMapMatrix {
 		loadMapNames();
 	}
 	
+	public void loadMap (int mapX, int mapY, int x, int y){
+		InputStream f = FileLoader.loadFile("/res/maps/" + (mapX) + "." + (mapY) + ".tmx");
+		if(f != null) {
+			try {
+				m_mapMatrix[x][y] = new ClientMap(f,"res/maps");
+				m_mapMatrix[x][y].setMapMatrix(this);
+				m_mapMatrix[x][y].setMapX(x);
+				m_mapMatrix[x][y].setMapY(y);
+				m_mapMatrix[x][y].m_x = mapX + x;
+				m_mapMatrix[x][y].m_y = mapY + y;
+				m_mapMatrix[x][y].setCurrent(x == 0 && y == 0);
+				System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
+						"to MapMatrix[" + x + "][" + y + "]");
+				m_mapMatrix[x][y].setName(getMapName(mapX, mapY));
+			} catch (Exception e) {
+				m_mapMatrix[x][y] = null;
+			}
+		} else {
+			m_mapMatrix[x][y] = null;
+		}
+	}
+
+	public void shiftMap(int originalX, int originalY, int newX, int newY){
+		m_mapMatrix[newX][newY] = m_mapMatrix[originalX][originalY];
+		if (m_mapMatrix[newX][newY] != null) {
+			m_mapMatrix[newX][newY].setMapX(newX);
+			m_mapMatrix[newX][newY].setMapY(newY);
+		}
+		System.out.println("Shifted [" + originalX + "][" + originalY +"] to [" + newX + "][" + newY + "]");
+	}
+	
 	/**
 	 * Loads the map with co-ordinates x,y and its surrounding maps
 	 * @param x
 	 * @param y
 	 */
 	public void loadMaps(int mapX, int mapY, Graphics g) {
-		InputStream f;
 		/*
 		 * Loads the main map and surrounding maps
 		 */
@@ -46,24 +77,82 @@ public class ClientMapMatrix {
 			/*
 			 * Exterior, load surrounding maps
 			 */
-			for(int x = -1; x < 2; x++) {
-				for(int y = -1; y < 2; y++) {
-					f = FileLoader.loadFile("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
-					if(f != null) {
-						try {
-							m_mapMatrix[x + 1][y + 1] = new ClientMap(f,"res/maps");
-							m_mapMatrix[x + 1][y + 1].setMapMatrix(this);
-							m_mapMatrix[x + 1][y + 1].setMapX(x + 1);
-							m_mapMatrix[x + 1][y + 1].setMapY(y + 1);
-							m_mapMatrix[x + 1][y + 1].setCurrent(x == 0 && y == 0);
-							System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
-									"to MapMatrix[" + (x + 1) + "][" + (y + 1) + "]");
-							m_mapMatrix[x + 1][y + 1].setName(getMapName(mapX, mapY));
-						} catch (Exception e) {
-							m_mapMatrix[x + 1][y + 1] = null;
+			if (getCurrentMap() != null) {
+				switch (m_newMapPos){
+				case 'u':
+					// Moved Up
+					// Shift current maps
+					System.out.println("UP");
+					shiftMap(0, 0, 0, 1);
+					shiftMap(1, 0, 1, 1);
+					shiftMap(2, 0, 2, 1);
+					shiftMap(0, 1, 0, 2);
+					shiftMap(1, 1, 1, 2);
+					shiftMap(2, 1, 2, 2);
+					//Load other maps
+					for (int i = 0; i < 3; i++) {
+						loadMap(mapX, mapY + 1, i, 0);
+					}
+					break;
+				case 'd':
+					// Moved Down
+					// Shift current maps
+					System.out.println("DOWN");
+					shiftMap(0, 1, 0, 0);
+					shiftMap(1, 1, 1, 0);
+					shiftMap(2, 1, 2, 0);
+					shiftMap(0, 2, 0, 1);
+					shiftMap(1, 2, 1, 1);
+					shiftMap(2, 2, 2, 1);
+					//Load other maps
+					for (int i = 0; i < 3; i++) {
+						loadMap(mapX, mapY - 1, i, 2);
+					}
+					break;
+				case 'r':
+					// Moved Right
+					// Shift current maps
+					System.out.println("RIGHT");
+					shiftMap(1, 0, 0, 0);
+					shiftMap(2, 0, 1, 0);
+					shiftMap(1, 1, 0, 1);
+					shiftMap(2, 1, 1, 1);
+					shiftMap(1, 2, 0, 2);
+					shiftMap(1, 2, 2, 2);
+					//Load other maps
+					for (int i = 0; i < 3; i++) {
+						loadMap(mapX + 1, mapY, 2, i);
+					}
+					break;
+				case 'l':
+					// Moved Left
+					// Shift current maps
+					/*System.out.println("LEFT");
+					shiftMap(0, 0, 0, 1);
+					shiftMap(0, 1, 1, 1);
+					shiftMap(0, 2, 1, 2);
+					shiftMap(1, 0, 0, 2);
+					shiftMap(1, 1, 1, 2);
+					shiftMap(1, 2, 2, 2);
+					//Load other maps
+					for (int i = 0; i < 3; i++) {
+						loadMap(mapX - 1, mapY, 0, i);
+					}
+					break;*/
+				case 'n':
+					// Brand new map
+					for(int x = -1; x < 2; x++) {
+						for(int y = -1; y < 2; y++) {
+							loadMap(mapX + x, mapY + y, x + 1, y + 1);
 						}
-					} else {
-						m_mapMatrix[x + 1][y + 1] = null;
+					}
+					break;
+				}
+			} else {
+				// Brand new map
+				for(int x = -1; x < 2; x++) {
+					for(int y = -1; y < 2; y++) {
+						loadMap(mapX + x, mapY + y, x + 1, y + 1);
 					}
 				}
 			}
@@ -73,26 +162,7 @@ public class ClientMapMatrix {
 			 */
 			for(int x = -1; x < 2; x++) {
 				for(int y = -1; y < 2; y++) {
-					if(x == 0 && y == 0) {
-						f = FileLoader.loadFile("/res/maps/" + (mapX + x) + "." + (mapY + y) + ".tmx");
-						if(f != null) {
-							try {
-								m_mapMatrix[x + 1][y + 1] = new ClientMap(f,"res/maps");
-								m_mapMatrix[x + 1][y + 1].setMapMatrix(this);
-								m_mapMatrix[x + 1][y + 1].setMapX(x + 1);
-								m_mapMatrix[x + 1][y + 1].setMapY(y + 1);
-								m_mapMatrix[x + 1][y + 1].setCurrent(x == 0 && y == 0);
-								System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
-										"to MapMatrix[" + (x + 1) + "][" + (y + 1) + "]");
-							} catch (Exception e) {
-								m_mapMatrix[x + 1][y + 1] = null;
-							}
-						} else {
-							m_mapMatrix[x + 1][y + 1] = null;
-						}
-					} else {
-						m_mapMatrix[x + 1][y + 1] = null;
-					}
+					loadMap(mapX, mapY, 1, 1);
 				}
 			}
 		}
@@ -246,5 +316,13 @@ public class ClientMapMatrix {
 	 */
 	public String getMapName(int x, int y) {
 		return m_mapNames.get(String.valueOf(x) + ", " + String.valueOf(y));
+	}
+	
+	/**
+	 * Sets the new map's location relative to the map matrix
+	 * @param c
+	 */
+	public void setNewMapPos(char c) {
+		m_newMapPos = c;
 	}
 }
