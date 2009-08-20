@@ -562,12 +562,18 @@ public class GameClient extends BasicGame {
 		ConnectFuture cf = connector.connect(new InetSocketAddress(m_host, 7002));
 		cf.addListener(new IoFutureListener() {
 			public void operationComplete(IoFuture s) {
-				if(s.getSession().isConnected()) {
-					m_packetGen.setTcpSession(s.getSession());
-				} else {
-					messageDialog("Connection timed out.\n"
-							+ "The server may be offline.\n"
-							+ "Contact an administrator for assistance.", getDisplay());
+				try {
+					if(s.getSession() != null && s.getSession().isConnected()) {
+						m_packetGen.setTcpSession(s.getSession());
+					} else {
+						messageDialog("Connection timed out.\n"
+								+ "The server may be offline.\n"
+								+ "Contact an administrator for assistance.", getDisplay());
+						m_host = "";
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					messageDialog("Unexpected exception.", getDisplay());
 					m_host = "";
 				}
 			}
@@ -583,14 +589,20 @@ public class GameClient extends BasicGame {
         cf = udp.connect(new InetSocketAddress(m_host, 7005));
         cf.addListener(new IoFutureListener() {
         	public void operationComplete(IoFuture s) {
-				if(s.getSession().isConnected()) {
-					m_packetGen.setUdpSession(s.getSession());
-				} else {
-					messageDialog("Connection timed out.\n"
-							+ "The server may be offline.\n"
-							+ "Contact an administrator for assistance.", getDisplay());
+        		try {
+    				if(s.getSession().isConnected()) {
+    					m_packetGen.setUdpSession(s.getSession());
+    				} else {
+    					messageDialog("Connection timed out.\n"
+    							+ "The server may be offline.\n"
+    							+ "Contact an administrator for assistance.", getDisplay());
+    					m_host = "";
+    				}
+        		} catch (Exception e) {
+        			e.printStackTrace();
+					messageDialog("Unexpected exception.", getDisplay());
 					m_host = "";
-				}
+        		}
 			}
 		});
         /*
