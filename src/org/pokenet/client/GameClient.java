@@ -301,7 +301,11 @@ public class GameClient extends BasicGame {
             	}
             }
             g.resetTransform();
-           	m_mapMatrix.getCurrentMap().renderTop(g);
+            try {
+            	m_mapMatrix.getCurrentMap().renderTop(g);
+            }catch (ConcurrentModificationException e){
+            	m_mapMatrix.getCurrentMap().renderTop(g);
+            }
 
            	if(m_mapX > -30) {
                 //Render the current weather

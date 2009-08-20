@@ -33,6 +33,13 @@ public class ClientMapMatrix {
 		loadMapNames();
 	}
 	
+	/**
+	 * Loads a map
+	 * @param mapX Map's X coordinate
+	 * @param mapY Map's Y coordinate
+	 * @param x Map's X within the map matrix
+	 * @param y Map's Y within the map matrix
+	 */
 	public void loadMap (int mapX, int mapY, int x, int y){
 		InputStream f = FileLoader.loadFile("/res/maps/" + (mapX) + "." + (mapY) + ".tmx");
 		if(f != null) {
@@ -43,7 +50,7 @@ public class ClientMapMatrix {
 				m_mapMatrix[x][y].setMapY(y);
 				m_mapMatrix[x][y].m_x = mapX + x;
 				m_mapMatrix[x][y].m_y = mapY + y;
-				m_mapMatrix[x][y].setCurrent(x == 0 && y == 0);
+				m_mapMatrix[x][y].setCurrent(x == 1 && y == 1);
 				System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
 						"to MapMatrix[" + x + "][" + y + "]");
 				m_mapMatrix[x][y].setName(getMapName(mapX, mapY));
@@ -55,13 +62,22 @@ public class ClientMapMatrix {
 		}
 	}
 
+	/**
+	 * Shifts a map in the map coordinate
+	 * @param originalX
+	 * @param originalY
+	 * @param newX
+	 * @param newY
+	 */
 	public void shiftMap(int originalX, int originalY, int newX, int newY){
 		m_mapMatrix[newX][newY] = m_mapMatrix[originalX][originalY];
 		if (m_mapMatrix[newX][newY] != null) {
 			m_mapMatrix[newX][newY].setMapX(newX);
 			m_mapMatrix[newX][newY].setMapY(newY);
+			m_mapMatrix[newX][newY].setCurrent(newX == 1 && newY == 1);
+			System.out.println("Shifted [" + originalX + "][" + originalY +"] to [" + newX + "][" + newY + "] " +
+					"Map Coords: " + m_mapMatrix[newX][newY].m_x + ", " + m_mapMatrix[newX][newY].m_y);
 		}
-		System.out.println("Shifted [" + originalX + "][" + originalY +"] to [" + newX + "][" + newY + "]");
 	}
 	
 	/**
@@ -127,18 +143,18 @@ public class ClientMapMatrix {
 				case 'l':
 					// Moved Left
 					// Shift current maps
-					/*System.out.println("LEFT");
-					shiftMap(0, 0, 0, 1);
+					System.out.println("LEFT");
+					shiftMap(1, 0, 2, 0);
+					shiftMap(0, 0, 1, 0);
+					shiftMap(1, 1, 2, 1);
 					shiftMap(0, 1, 1, 1);
-					shiftMap(0, 2, 1, 2);
-					shiftMap(1, 0, 0, 2);
-					shiftMap(1, 1, 1, 2);
 					shiftMap(1, 2, 2, 2);
+					shiftMap(0, 2, 1, 2);
 					//Load other maps
 					for (int i = 0; i < 3; i++) {
 						loadMap(mapX - 1, mapY, 0, i);
 					}
-					break;*/
+					break;
 				case 'n':
 					// Brand new map
 					for(int x = -1; x < 2; x++) {
