@@ -99,12 +99,12 @@ public class ClientMapMatrix {
 					// Moved Up
 					// Shift current maps
 					System.out.println("UP");
-					shiftMap(0, 0, 0, 1);
-					shiftMap(1, 0, 1, 1);
-					shiftMap(2, 0, 2, 1);
-					shiftMap(0, 1, 0, 2);
-					shiftMap(1, 1, 1, 2);
 					shiftMap(2, 1, 2, 2);
+					shiftMap(1, 1, 1, 2);
+					shiftMap(0, 1, 0, 2);
+					shiftMap(2, 0, 2, 1);
+					shiftMap(1, 0, 1, 1);
+					shiftMap(0, 0, 0, 1);
 					//Load other maps
 					for (int i = 0; i < 3; i++) {
 						loadMap(mapX, mapY + 1, i, 0);
