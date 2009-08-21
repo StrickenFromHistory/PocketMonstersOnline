@@ -1,0 +1,23 @@
+[warp]
+5
+8
+33
+12
+3
+-3
+0
+[/warp]
+[npc]
+Pewter City citizen
+up
+141
+2
+2
+NULL
+0
+-1
+0,1
+FALSE
+FALSE
+FALSE
+[/npc]
