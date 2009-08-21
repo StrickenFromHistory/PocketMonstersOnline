@@ -605,13 +605,35 @@ public class ServerMap {
 	 * @param rod
 	 */
 	public boolean caughtFish(PlayerChar c, Direction d, int rod) {
+		int failureRate = 75;
+		//Subtract the rod's power from the failure rate.
+		failureRate -= rod;
+		//If that tile is a water tile, determine if you pulled anything, if not, autofail(You can't fish on dry land)
+		if(facingWater(c, d)) { //If facing water
+			c.setFishing(true);		
+			if((int)(Math.random()* 101) > failureRate) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			c.getTcpSession().write("Ff"); // Tell the player he can't fish on land
+		}
+		return false;
+	}
+	
+	/**
+	 * Returns true if the player is facing water
+	 * @param c
+	 * @param newX
+	 * @param newY
+	 * @return
+	 */
+	public boolean facingWater(PlayerChar c, Direction d) {
 		int playerX = c.getX();
 		int playerY = c.getY();
 		int newX = 0;
 		int newY = 0;
-		int failureRate = 75;
-		//Subtract the rod's power from the failure rate.
-		failureRate -= rod;
 		//Determine what tile the player is facing		
 		switch(d) {
 		case Up:
@@ -631,19 +653,12 @@ public class ServerMap {
 			newY = (playerY + 8) / 32;
 			break;
 		}
-		//If that tile is a water tile, determine if you pulled anything, if not, autofail(You can't fish on dry land)
 		if(m_surf != null && m_surf.getTileAt(newX, newY) == '1') { //If facing water
-			c.setFishing(true);		
-			if((int)(Math.random()* 101) > failureRate) {
-				return true;
-			} else {
-				return false;
-			}
-		} else {
-			c.getTcpSession().write("Ff"); // Tell the player he can't fish on land
+			return true;
 		}
 		return false;
 	}
+	
 	/**
 	 * Returns true if the char is able to move
 	 * @param c

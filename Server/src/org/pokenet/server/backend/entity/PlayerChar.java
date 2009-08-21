@@ -774,9 +774,9 @@ public class PlayerChar extends Char implements Battleable {
 				m_tcpSession.write("Fu"); // Notify client you pulled up a fish too strong for you
 				this.addFishingExp(10); //Conciliatory exp for "hooking" something even if it got away
 			}
-		}
-		else {
-			m_tcpSession.write("Fu"); //"Not even a nibble!" message
+		} else {
+			if (this.getMap().facingWater(this, getFacing()));
+				m_tcpSession.write("Fu"); //"Not even a nibble!" message
 		}
 		this.setFishing(false);
 	}

@@ -52,7 +52,8 @@ public class ItemProcessor implements Runnable {
     String[] data = new String[m_details.length - 1];
     for (int i = 1; i < m_details.length; i++)
       data[i - 1] = m_details[i];
-    if (useItem(m_player, Integer.parseInt(m_details[0]), data)) {
+    if (useItem(m_player, Integer.parseInt(m_details[0]), data) &&
+    		!ItemDatabase.getInstance().getItem(Integer.parseInt(m_details[0])).getName().contains("Rod")) {
       m_player.getBag().removeItem(Integer.parseInt(m_details[0]), 1);
       m_player.getTcpSession().write("Ir" + m_details[0] + "," + 1);
     }
