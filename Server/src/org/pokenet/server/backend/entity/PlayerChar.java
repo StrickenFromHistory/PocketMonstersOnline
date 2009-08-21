@@ -771,12 +771,12 @@ public class PlayerChar extends Char implements Battleable {
 			}
 			//If you either have too low a fishing level or too weak a rod
 			else {
-				//TODO: Notify client you pulled up a fish too strong for you
+				m_tcpSession.write("Fu"); // Notify client you pulled up a fish too strong for you
 				this.addFishingExp(10); //Conciliatory exp for "hooking" something even if it got away
 			}
 		}
 		else {
-		//TODO: Notify client you pulled up nothing
+			m_tcpSession.write("Fu"); //"Not even a nibble!" message
 		}
 		this.setFishing(false);
 	}

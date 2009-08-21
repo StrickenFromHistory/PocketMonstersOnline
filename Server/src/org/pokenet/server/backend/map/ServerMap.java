@@ -639,6 +639,8 @@ public class ServerMap {
 			} else {
 				return false;
 			}
+		} else {
+			c.getTcpSession().write("Ff"); // Tell the player he can't fish on land
 		}
 		return false;
 	}

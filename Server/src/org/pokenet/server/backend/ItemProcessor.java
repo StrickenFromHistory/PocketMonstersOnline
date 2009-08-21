@@ -86,7 +86,8 @@ public class ItemProcessor implements Runnable {
     		if(p.getFishingLevel() >= 15) {
     			p.fish(15);
     		} else {
-    			//TODO: Notify client that you need a fishing level of 15 or higher for this rod
+    			// Notify client that you need a fishing level of 15 or higher for this rod
+    			p.getTcpSession().write("FF15");
     		}
     		return true;
     	}
@@ -95,7 +96,8 @@ public class ItemProcessor implements Runnable {
     		if(p.getFishingLevel() >= 50) {
     			p.fish(35);
     		} else {
-    			//TODO: Notify client that you need a fishing level of 50 or higher for this rod
+    			// Notify client that you need a fishing level of 50 or higher for this rod
+    			p.getTcpSession().write("FF50");
     		}
     		return true;
     	}
@@ -104,7 +106,8 @@ public class ItemProcessor implements Runnable {
     		if(p.getFishingLevel() >= 70) {
     			p.fish(50);
     		} else {
-    			//TODO: Notify client that you need a fishing level of 70 or higher for this rod
+    			// Notify client that you need a fishing level of 70 or higher for this rod
+    			p.getTcpSession().write("FF70");
     		}
     		return true;
     	}
