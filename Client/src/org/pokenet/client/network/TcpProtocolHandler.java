@@ -406,6 +406,25 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				break;
 			}
 			break;
+		case 'F':
+			//Fishing packets
+			switch(message.charAt(1)) {
+			case 'F': //You can't use that rod at your current level
+				GameClient.messageDialog("You need to have a fishing level of " + 
+						message.substring(2) + " to use that rod!", GameClient.getInstance().getDisplay());
+				break;
+			case 'f': //You can't fish on land!
+				GameClient.messageDialog("You can't fish on land!", GameClient.getInstance().getDisplay());
+				break;
+			case 'U': //It got away! (Too strong for you)
+				GameClient.messageDialog("The fish was too strong for you! \n" +
+						"It got away!", GameClient.getInstance().getDisplay());
+				break;
+			case 'u': //Not even a nibble!
+				GameClient.messageDialog("Not even a nibble!", GameClient.getInstance().getDisplay());
+				break;
+			}
+			break;
 		case 'C':
 			//Chat packet
 			m_game.getUi().messageReceived(message.substring(1));
