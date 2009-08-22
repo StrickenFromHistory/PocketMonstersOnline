@@ -760,27 +760,28 @@ public class PlayerChar extends Char implements Battleable {
 	 * Fishes for a pokemon.
 	 */
 	public void fish(int rod) {
-	if(this.lastFishingTime + 1000 < System.currentTimeMillis()) {
-		if(this.getMap().caughtFish(this, this.getFacing(), rod)) {
-			Pokemon p = this.getMap().getWildPokemon(this);
-			//If we have both the required level to fish this thing up and the rod to do it
-			if(this.getFishingLevel() >= DataService.getFishDatabase().getFish(p.getSpeciesName()).getReqLevel() && rod >= DataService.getFishDatabase().getFish(p.getSpeciesName()).getReqRod()) {
-				this.addFishingExp(DataService.getFishDatabase().getFish(p.getSpeciesName()).getExperience());
-				this.ensureHealthyPokemon();
-				m_battleField = new WildBattleField(DataService.getBattleMechanics(),this,p);
+		if(this.lastFishingTime + 1000 < System.currentTimeMillis()) {
+			if(this.getMap().caughtFish(this, this.getFacing(), rod)) {
+				Pokemon p = this.getMap().getWildPokemon(this);
+				//If we have both the required level to fish this thing up and the rod to do it
+				if(this.getFishingLevel() >= DataService.getFishDatabase().getFish(p.getSpeciesName()).getReqLevel() && rod >= DataService.getFishDatabase().getFish(p.getSpeciesName()).getReqRod()) {
+					this.addFishingExp(DataService.getFishDatabase().getFish(p.getSpeciesName()).getExperience());
+					this.ensureHealthyPokemon();
+					m_battleField = new WildBattleField(DataService.getBattleMechanics(),this,p);
+				}
+				//If you either have too low a fishing level or too weak a rod
+				else {
+					m_tcpSession.write("Fu"); // Notify client you pulled up a fish too strong for you
+					this.addFishingExp(10); //Conciliatory exp for "hooking" something even if it got away
+				}
+			} else {
+				if (this.getMap().facingWater(this, getFacing()));
+					m_tcpSession.write("Fu"); //"Not even a nibble!" message
 			}
-			//If you either have too low a fishing level or too weak a rod
-			else {
-				m_tcpSession.write("Fu"); // Notify client you pulled up a fish too strong for you
-				this.addFishingExp(10); //Conciliatory exp for "hooking" something even if it got away
-			}
-		} else {
-			if (this.getMap().facingWater(this, getFacing()));
-				m_tcpSession.write("Fu"); //"Not even a nibble!" message
+			this.setFishing(false);
 		}
-		this.setFishing(false);
 	}
-	}
+	
 	/**
 	 * Overrides char's move method.
 	 * Adds a check for wild battles and clears battle/trade request lists
