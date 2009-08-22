@@ -1,5 +1,6 @@
 package org.pokenet.server.network;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -61,7 +62,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 				m_players.remove(p);
 			}
-			if(session.isConnected() || !session.isClosing())
+			if(!(t instanceof IOException) || session.isConnected() || !session.isClosing())
 				session.close(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -505,8 +506,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 				m_players.remove(p);
 			}
-			if(session.isConnected() || !session.isClosing())
-				session.close(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
