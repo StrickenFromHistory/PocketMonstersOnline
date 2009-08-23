@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.lwjgl.util.Timer;
 import org.newdawn.slick.Graphics;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Player;
@@ -20,6 +21,7 @@ public class ClientMapMatrix {
 	private ArrayList<Player> m_players;
 	private ArrayList<String> m_speech;
 	private HashMap<String, String> m_mapNames;
+	private Timer m_calibrationTimer = new Timer();
 	private char m_newMapPos;
 	
 	/**
@@ -220,6 +222,7 @@ public class ClientMapMatrix {
 		/*
 		 * Recalibrate the offsets
 		 */
+		for (m_calibrationTimer.reset(); m_calibrationTimer.getTime() < 2; Timer.tick());
 		this.recalibrate();
 	}
 	
