@@ -132,7 +132,7 @@ public class ClientMap extends TiledMap {
 	}
 
 	/**
-	 * Sets the map x
+	 * Sets the map x (in map matrix)
 	 * 
 	 * @param x
 	 */
@@ -141,7 +141,7 @@ public class ClientMap extends TiledMap {
 	}
 
 	/**
-	 * Sets the map y
+	 * Sets the map y (in map matrix)
 	 * 
 	 * @param y
 	 */
@@ -179,6 +179,16 @@ public class ClientMap extends TiledMap {
 				|| y + 8 >= this.getHeight() * 32;
 	}
 
+	/**
+	 * Reinitializes a map after shifting in the map matrix
+	 */
+	public void reinitialize(){
+		m_xOffsetModifier = Integer.parseInt(getMapProperty("xOffsetModifier", "0").trim());
+		m_yOffsetModifier = Integer.parseInt(getMapProperty("yOffsetModifier", "0").trim());
+		m_xOffset = m_xOffsetModifier;
+		m_yOffset = m_yOffsetModifier;
+	}
+	
 	/**
 	 * Returns true if the player is colliding with an object
 	 * 
@@ -634,16 +644,18 @@ public class ClientMap extends TiledMap {
 					}
 					// Draw the walk behind layer
 					g.scale(2, 2);
-					for (int i = 0; i < getLayer("WalkBehind").height; i++) {
-						getLayer("WalkBehind").render(
-								getXOffset() / 2,
-								getYOffset() / 2,
-								0,
-								0,
-								(int) (GameClient.getInstance().getDisplay()
-										.getWidth() - getXOffset()) / 32 + 32,
-								i, false, 16, 16);
-					}
+					try{
+						for (int i = 0; i < getLayer("WalkBehind").height; i++) {
+							getLayer("WalkBehind").render(
+									getXOffset() / 2,
+									getYOffset() / 2,
+									0,
+									0,
+									(int) (GameClient.getInstance().getDisplay()
+											.getWidth() - getXOffset()) / 32 + 32,
+											i, false, 16, 16);
+						}
+					} catch (Exception e) {}
 					g.resetTransform();
 					// Draw player names
 					g.drawString(p.getUsername(), m_xOffset

@@ -52,13 +52,15 @@ public class ClientMapMatrix {
 				m_mapMatrix[x][y].m_y = mapY + y;
 				m_mapMatrix[x][y].setCurrent(x == 1 && y == 1);
 				System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
-						"to MapMatrix[" + x + "][" + y + "]");
+						"to MapMatrix[" + x + "][" + y + "] " + m_mapMatrix[x][y].isCurrent());
 				m_mapMatrix[x][y].setName(getMapName(mapX, mapY));
 			} catch (Exception e) {
 				m_mapMatrix[x][y] = null;
+				System.out.println((mapX + x) + "." + (mapY + y) + ".tmx could not be loaded");
 			}
 		} else {
 			m_mapMatrix[x][y] = null;
+			System.out.println((mapX + x) + "." + (mapY + y) + ".tmx could not be loaded");
 		}
 	}
 
@@ -75,8 +77,10 @@ public class ClientMapMatrix {
 			m_mapMatrix[newX][newY].setMapX(newX);
 			m_mapMatrix[newX][newY].setMapY(newY);
 			m_mapMatrix[newX][newY].setCurrent(newX == 1 && newY == 1);
+			m_mapMatrix[newX][newY].reinitialize();
 			System.out.println("Shifted [" + originalX + "][" + originalY +"] to [" + newX + "][" + newY + "] " +
-					"Map Coords: " + m_mapMatrix[newX][newY].m_x + ", " + m_mapMatrix[newX][newY].m_y);
+					"Map Coords: " + m_mapMatrix[newX][newY].m_x + ", " + m_mapMatrix[newX][newY].m_y + " " + 
+					m_mapMatrix[newX][newY].isCurrent());
 		}
 	}
 	
