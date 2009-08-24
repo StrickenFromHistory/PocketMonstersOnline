@@ -742,6 +742,26 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				break;
 			}
 			break;
+		case 'p':
+			//Change password packets
+			switch(message.charAt(1)) {
+			case 's':
+				//Successful password change
+				if(m_game.getPacketGenerator().isUpdatingHashMethod()) {
+					m_game.getPacketGenerator().login(m_game.getPacketGenerator().getLastUsername(), m_game.getPacketGenerator().getLastPassword());
+				}
+				break;
+			case 'e':
+				//Password change failed
+				if(m_game.getPacketGenerator().isUpdatingHashMethod()) {
+					// could just copy and paste code from login packet section
+					// but then that part of the code is useless
+					// opting in favor of the "stupid" way so that login stuff stays in one place
+					m_game.getPacketGenerator().login(m_game.getPacketGenerator().getLastUsername(), m_game.getPacketGenerator().getLastPassword());
+				}
+				break;
+			}
+			break;
 		case 'l':
 			//Login Information
 			switch(message.charAt(1)) {
@@ -765,9 +785,17 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				break;
 			case 'e':
 				//Error
-				GameClient.messageDialog(translated.get(21), GameClient.getInstance().getDisplay());
-				m_game.getLoadingScreen().setVisible(false);
-				m_game.getLoginScreen().enableLogin();
+				// if this is in response to the update hash attempt, then display the error message
+				if(m_game.getPacketGenerator().isUpdatingHashMethod()) {
+					// end attempt to update their password hash
+					m_game.getPacketGenerator().endUpdateHashMethod();
+					GameClient.messageDialog(translated.get(21), GameClient.getInstance().getDisplay());
+					m_game.getLoadingScreen().setVisible(false);
+					m_game.getLoginScreen().enableLogin();
+				} else {
+					// begin attempt to update password hash
+					m_game.getPacketGenerator().updatePasswordHashMethod();
+				}
 				break;
 			case '1':
 				//Account server offline

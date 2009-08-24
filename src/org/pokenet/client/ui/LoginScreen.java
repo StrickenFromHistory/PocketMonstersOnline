@@ -11,6 +11,7 @@ import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
 import org.newdawn.slick.Image;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.Translator;
 import org.pokenet.client.ui.frames.AboutDialog;
 import org.pokenet.client.ui.frames.LanguageDialog;
@@ -185,6 +186,7 @@ public class LoginScreen extends Window {
 	public void enableLogin() {
 		m_login.getLoginButton().setEnabled(true);
 	}
+	
 	 /**
      * Returns the register screen
      * @return
