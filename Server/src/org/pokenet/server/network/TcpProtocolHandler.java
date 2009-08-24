@@ -1,6 +1,7 @@
 package org.pokenet.server.network;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -92,6 +93,11 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			case 'r':
 				//Registration packet
 				m_regManager.queueRegistration(session, message.substring(1));
+				break;
+			case 'c':
+				//Change password packet
+				details = message.substring(1).split(",");
+				m_loginManager.queuePasswordChange(session, details[0], details[1], details[2]);
 				break;
 			case 'f':
 				//Force login

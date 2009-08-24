@@ -14,6 +14,11 @@ public class PacketGenerator {
 	private IoSession m_udpSession;
 	private long m_lastMovement = 0;
 	
+	// Used when attempting to update passwords with old hash method to the new method
+	private boolean updatePasswordHashMethod = false;
+	private String lastUsername;
+	private String lastPassword;
+	
 	/**
 	 * Sets the UDP session
 	 * @param s
@@ -68,6 +73,9 @@ public class PacketGenerator {
 	 * @param password
 	 */
 	public void login(String username, String password) {
+		// store values in case we need to attempt to update to the salted hashes
+		this.lastUsername = username;
+		this.lastPassword = password;
 		char language = '0';
 		if(GameClient.getLanguage().equalsIgnoreCase("english")) {
 			language = '0';
@@ -86,7 +94,7 @@ public class PacketGenerator {
 		} else if(GameClient.getLanguage().equalsIgnoreCase("german")) {
 			language = '7';
 		}
-		m_tcpSession.write("l" + language + username + "," + (getPasswordHash(password)));
+		m_tcpSession.write("l" + language + username + "," + (getPasswordHash(username, password)));
 	}
 	
 	/**
@@ -104,7 +112,27 @@ public class PacketGenerator {
 			String dob,
 			int starter,
 			int sprite) {
-        m_tcpSession.write("r" + username + "," + (getPasswordHash(password)) + "," + email + "," + dob + "," + starter + "," + sprite);
+        m_tcpSession.write("r" + username + "," + (getPasswordHash(username, password)) + "," + email + "," + dob + "," + starter + "," + sprite);
+	}
+	
+	/**
+	 * Sends a password change packet
+	 * @param username
+	 * @param newPassword
+	 * @param oldPassword
+	 */
+	public void changePassword(String username, String newPassword, String oldPassword) {
+		m_tcpSession.write("c" + username + "," + (getPasswordHash(username, newPassword)) + "," + (getPasswordHash(username, oldPassword)));
+	}
+	
+	/**
+	 * Sends a password change packet to update to the new hash function
+	 * @param lastUsername
+	 * @param lastPassword
+	 */
+	public void updatePasswordHashMethod() {
+		m_tcpSession.write("c" + lastUsername + "," + (getPasswordHash(lastUsername, lastPassword)) + "," + (getOldPasswordHash(lastPassword)));
+		updatePasswordHashMethod = true;
 	}
 	
 	/**
@@ -132,11 +160,86 @@ public class PacketGenerator {
 	}
 	
 	/**
+	 * Returns whether or not we are in the process of trying to update their password hash from the old method to the new one.
+	 * @return
+	 */
+	public boolean isUpdatingHashMethod() {
+		return updatePasswordHashMethod;
+	}
+	
+	/**
+	 * Resets values after attempting to update a password hash
+	 */
+	public void endUpdateHashMethod() {
+		// ended attempt to update their password hash, reset values to default
+		updatePasswordHashMethod = false;
+		lastUsername = "";
+		lastPassword = "";
+	}
+	
+	/**
+	 * Returns the username last attempted to log on as (used to update hashes)
+	 * @return
+	 */
+	public String getLastUsername() {
+		return lastUsername;
+	}
+	
+	/**
+	 * Returns the password last used during attempt to log on (used to update hashes)
+	 * @return
+	 */
+	public String getLastPassword() {
+		return lastPassword;
+	}
+	
+	/**
 	 * Returns the hashed password
 	 * @param password
 	 * @return
 	 */
-	private String getPasswordHash(String password) {
+	private String getPasswordHash(String user, String password) {
+		String salt = "saltedmeattastesgood";
+		String user_lowercase = user.toLowerCase();
+		
+		// mix the user with the salt to create a unique salt
+		String uniqueSalt = "";
+		for (int i = 0; i < user_lowercase.length(); i++) {
+			uniqueSalt = uniqueSalt + user_lowercase.substring(i, i+1) + salt.substring(i, i+1);
+			// last iteration, add remaining salt to the end
+			if (i == user_lowercase.length() - 1)
+				uniqueSalt = uniqueSalt + salt.substring(i+1);
+		}
+		
+		Whirlpool hasher = new Whirlpool();
+		hasher.NESSIEinit();
+		
+		//add plaintext password with salt to hasher
+		hasher.NESSIEadd(password + uniqueSalt);
+		
+		// create array to hold the hashed bytes
+		byte[] hashed = new byte[64];
+		
+		// run the hash
+		hasher.NESSIEfinalize(hashed);
+		
+		// turn the byte array into a hexstring
+        char[] val = new char[2*hashed.length];
+        String hex = "0123456789ABCDEF";
+        for (int i = 0; i < hashed.length; i++) {
+            int b = hashed[i] & 0xff;
+            val[2*i] = hex.charAt(b >>> 4);
+            val[2*i + 1] = hex.charAt(b & 15);
+        }
+        return String.valueOf(val);
+	}
+	
+	/**
+	 * Returns the hashed password using the old method
+	 * @param password
+	 * @return
+	 */
+	private String getOldPasswordHash(String password) {
 		Whirlpool hasher = new Whirlpool();
         hasher.NESSIEinit();
 

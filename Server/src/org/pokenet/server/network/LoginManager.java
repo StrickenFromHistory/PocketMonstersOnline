@@ -2,6 +2,7 @@ package org.pokenet.server.network;
 
 import java.net.InetAddress;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -30,6 +31,8 @@ public class LoginManager implements Runnable {
 	private boolean m_isRunning;
 	private MySqlManager m_database;
 	
+	private Queue<Object []> m_passChangeQueue;
+	
 	/**
 	 * Default constructor. Requires a logout manager to be passed in so the server
 	 * can check if player's data is not being saved as they are logging in.
@@ -38,6 +41,7 @@ public class LoginManager implements Runnable {
 	public LoginManager(LogoutManager manager) {
 		m_database = new MySqlManager();
 		m_loginQueue = new LinkedList<Object []>();
+		m_passChangeQueue = new LinkedList<Object []>();
 		m_thread = null;
 	}
 	
@@ -174,6 +178,20 @@ public class LoginManager implements Runnable {
 		}
 		m_loginQueue.offer(new Object[] {session, username, password, String.valueOf(forceLogin)});
 	}
+	
+	/**
+	 * Places a player in the queue to update their password
+	 * @param session
+	 * @param username
+	 * @param newPassword
+	 * @param oldPassword
+	 */
+	public void queuePasswordChange(IoSession session, String username, String newPassword, String oldPassword) {
+		if(m_thread == null || !m_thread.isAlive()) {
+			start();
+		}
+		m_passChangeQueue.offer(new Object[] {session, username, newPassword, oldPassword});
+	}
 
 	/**
 	 * Called by Thread.start()
@@ -183,6 +201,7 @@ public class LoginManager implements Runnable {
 		IoSession session;
 		String username;
 		String password;
+		String newPassword;
 		char l;
 		while(m_isRunning) {
 			synchronized(m_loginQueue) {
@@ -195,6 +214,24 @@ public class LoginManager implements Runnable {
 						password = (String) o[2];
 						boolean force = Boolean.valueOf((String) o[3]);
 						this.attemptLogin(session, l, username, password, force);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			try {
+				Thread.sleep(500);
+			} catch (Exception e) {}
+			
+			synchronized(m_passChangeQueue) {
+				try {
+					if(m_passChangeQueue.peek() != null) {
+						o = m_passChangeQueue.poll();
+						session = (IoSession) o[0];
+						username = (String) o[1];
+						newPassword = (String) o[2];
+						password = (String) o[3];
+						this.changePass(username, newPassword, password, session);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -223,6 +260,40 @@ public class LoginManager implements Runnable {
 	 */
 	public void stop() {
 		m_isRunning = false;
+	}
+	
+	/**
+	 * Changes the password of a player
+	 * @param username
+	 * @param newPassword
+	 * @param oldPassword
+	 * @param session
+	 */
+	private void changePass(String username, String newPassword, String oldPassword, IoSession session) {
+		m_database = new MySqlManager();
+	
+		if(m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword())) {
+			if(m_database.selectDatabase(GameServer.getDatabaseName())) {
+				ResultSet result = m_database.query("SELECT * FROM pn_members WHERE username='" + MySqlManager.parseSQL(username) + "'");
+				try {
+					if(result.first()){
+						// if we got a result, compare their old password to the one we have stored for them
+						if(result.getString("password").compareTo(oldPassword) == 0) {
+							// old password matches the one on file, therefore they got their old password correct, so it can be changed to their new one
+							m_database.query("UPDATE pn_members SET password='" + MySqlManager.parseSQL(newPassword) + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
+							// tell them their password was changed successfully
+							session.write("ps");
+							return;
+						}
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				m_database.close();
+			}
+		}
+		// tell them we failed to change their password
+		session.write("pe");
 	}
 	
 	/**

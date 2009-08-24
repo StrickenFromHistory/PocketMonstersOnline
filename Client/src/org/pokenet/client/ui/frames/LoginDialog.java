@@ -146,7 +146,9 @@ public class LoginDialog extends Frame {
 	 * @return
 	 */
 	public void goLogin() {
-		login();		
+		if(m_username.getText() != null & !m_username.getText().equalsIgnoreCase("") && 
+				m_password.getText() != null && !m_password.getText().equalsIgnoreCase(""))
+			login();		
 	}
 	
 	/**
