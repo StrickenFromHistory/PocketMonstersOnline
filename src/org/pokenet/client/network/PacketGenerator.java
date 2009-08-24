@@ -199,7 +199,7 @@ public class PacketGenerator {
 	 * @return
 	 */
 	private String getPasswordHash(String user, String password) {
-		String salt = "saltedmeattastesgood";
+		String salt = "M0z3ah4SKieNwBboZ94URhIdDbgTNT";
 		String user_lowercase = user.toLowerCase();
 		
 		// mix the user with the salt to create a unique salt
