@@ -1,7 +1,6 @@
 package org.pokenet.server.network;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Iterator;
 

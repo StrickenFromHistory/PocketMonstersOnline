@@ -6,6 +6,19 @@ public class HMObject extends NonPlayerChar {
 	public enum objectType {
 		ROCKSMASH_ROCK, CUT_TREE, STRENGTH_BOULDER, WHIRLPOOL
 	}
+	
+	public static objectType parseHMObject(String name) throws Exception{
+		if (name.equalsIgnoreCase("ROCKSMASH_ROCK"))
+			return objectType.ROCKSMASH_ROCK;
+		else if (name.equalsIgnoreCase("CUT_TREE"))
+			return objectType.CUT_TREE;
+		else if (name.equalsIgnoreCase("STRENGTH_BOULDER"))
+			return objectType.STRENGTH_BOULDER;
+		else if (name.equalsIgnoreCase("WHIRLPOOL"))
+			return objectType.WHIRLPOOL;
+		else
+			throw new Exception("The HMObject requested is invalid.");
+	}
 
 	private objectType m_HMType;
 

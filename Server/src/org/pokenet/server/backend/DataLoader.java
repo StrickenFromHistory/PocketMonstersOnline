@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import org.pokenet.server.backend.entity.HMObject;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.backend.map.ServerMap;
@@ -34,8 +35,9 @@ public class DataLoader implements Runnable {
 	public void run() {
 		try {
 			Scanner reader = new Scanner(m_file);
-			NonPlayerChar npc = new NonPlayerChar();
-			WarpTile warp = new WarpTile();
+			NonPlayerChar npc = null;
+			WarpTile warp = null;
+			HMObject hmObject = null;
 			String line;
 			String [] details;
 			String direction = "Down";
@@ -109,6 +111,13 @@ public class DataLoader implements Runnable {
 					warp.setBadgeRequirement(Integer.parseInt(reader.nextLine()));
 				} else if(line.equalsIgnoreCase("[/warp]")) {
 					m_map.addWarp(warp);
+				} else if(line.equalsIgnoreCase("[hmobject]")) {
+					hmObject = new HMObject();
+					hmObject.setType(HMObject.parseHMObject(reader.nextLine()));
+					hmObject.setX(Integer.parseInt(reader.nextLine()));
+					hmObject.setY(Integer.parseInt(reader.nextLine()));
+				} else if(line.equalsIgnoreCase("[/hmobject]")) {
+					m_map.addChar(hmObject);
 				}
 			}
 		} catch (Exception e) {
