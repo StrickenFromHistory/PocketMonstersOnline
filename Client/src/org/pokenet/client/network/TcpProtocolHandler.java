@@ -11,6 +11,7 @@ import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.ItemDatabase;
 import org.pokenet.client.backend.MoveLearningManager;
 import org.pokenet.client.backend.Translator;
+import org.pokenet.client.backend.entity.HMObject;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
@@ -613,36 +614,54 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				 */
 				for(int i = 0; i < details.length - 1; i++) {
 					p = new Player();
-					p.setUsername(details[i]);
-					i++;
-					p.setId(Integer.parseInt(details[i]));
-					i++;
-					p.setSprite(Integer.parseInt(details[i]));
-					i++;
-					p.setX(Integer.parseInt(details[i]));
-					p.setServerX(Integer.parseInt(details[i]));
-					i++;
-					p.setY(Integer.parseInt(details[i]));
-					p.setServerY(Integer.parseInt(details[i]));
-					i++;
-					switch(details[i].charAt(0)) {
-					case 'D':
-						p.setDirection(Direction.Down);
-						break;
-					case 'L':
-						p.setDirection(Direction.Left);
-						break;
-					case 'R':
-						p.setDirection(Direction.Right);
-						break;
-					case 'U':
-						p.setDirection(Direction.Up);
-						break;
-					default:
-						p.setDirection(Direction.Down);
-						break;
+					try {
+						HMObject hm = new HMObject(HMObject.parseHMObject(details[i]));
+						System.err.println("HM Object");
+						hm.setUsername(details[i]);
+						i += 3;
+						hm.setX(Integer.parseInt(details[i]));
+						hm.setServerX(Integer.parseInt(details[i]));
+						i++;
+						hm.setY(Integer.parseInt(details[i]));
+						hm.setServerY(Integer.parseInt(details[i]));
+						i += 2;
+						hm.setSprite(12);
+						hm.setDirection(Direction.Down);
+						hm.loadSpriteImage();
+						p = hm;
+					} catch (Exception e) {
+						System.err.println("NPC OR PLAYER");
+						p.setUsername(details[i]);
+						i++;
+						p.setId(Integer.parseInt(details[i]));
+						i++;
+						p.setSprite(Integer.parseInt(details[i]));
+						i++;
+						p.setX(Integer.parseInt(details[i]));
+						p.setServerX(Integer.parseInt(details[i]));
+						i++;
+						p.setY(Integer.parseInt(details[i]));
+						p.setServerY(Integer.parseInt(details[i]));
+						i++;
+						switch(details[i].charAt(0)) {
+						case 'D':
+							p.setDirection(Direction.Down);
+							break;
+						case 'L':
+							p.setDirection(Direction.Left);
+							break;
+						case 'R':
+							p.setDirection(Direction.Right);
+							break;
+						case 'U':
+							p.setDirection(Direction.Up);
+							break;
+						default:
+							p.setDirection(Direction.Down);
+							break;
+						}
+						p.loadSpriteImage();
 					}
-					p.loadSpriteImage();
 					if(p.getId() == m_game.getPlayerId()) {
 						/*
 						 * This dude is our player! Store this information
@@ -658,8 +677,10 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						m_game.setOurPlayer(pl);
 						m_game.getMapMatrix().addPlayer(pl);
 						GameClient.getInstance().getOurPlayer().setAnimating(true);
-					} else
+					} else{
+						System.err.println(p.getUsername());
 						m_game.getMapMatrix().addPlayer(p);
+					}
 				}
 				break;
 			case 'a':
