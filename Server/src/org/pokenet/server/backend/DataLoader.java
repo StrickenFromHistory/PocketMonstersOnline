@@ -115,8 +115,8 @@ public class DataLoader implements Runnable {
 					hmObject = new HMObject();
 					hmObject.setName(reader.nextLine());
 					hmObject.setType(HMObject.parseHMObject(hmObject.getName()));
-					hmObject.setX(Integer.parseInt(reader.nextLine()));
-					hmObject.setY(Integer.parseInt(reader.nextLine()));
+					hmObject.setX(Integer.parseInt(reader.nextLine()) * 32);
+					hmObject.setY((Integer.parseInt(reader.nextLine()) * 32) - 8);
 				} else if(line.equalsIgnoreCase("[/hmobject]")) {
 					m_map.addChar(hmObject);
 				}
