@@ -434,6 +434,12 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			System.out.println(message.charAt(1));
 			//Something changed
 			switch (message.charAt(1)){
+			case 'h':
+				// You need a higher trainer level to use an HM Object
+				GameClient.messageDialog("You are not strong enough to do this.\n" +
+						"Your trainer level must be " + message.substring(2) + " to do this.",
+						GameClient.getInstance().getDisplay());
+				break;
 			case 'B':
 				//Badge change
 				switch(message.charAt(2)) {
