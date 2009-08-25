@@ -616,9 +616,10 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					p = new Player();
 					try {
 						HMObject hm = new HMObject(HMObject.parseHMObject(details[i]));
-						System.err.println("HM Object");
 						hm.setUsername(details[i]);
-						i += 3;
+						i++;
+						hm.setId(Integer.parseInt(details[i]));
+						i += 2;
 						hm.setX(Integer.parseInt(details[i]));
 						hm.setServerX(Integer.parseInt(details[i]));
 						i++;
@@ -630,7 +631,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						hm.loadSpriteImage();
 						p = hm;
 					} catch (Exception e) {
-						System.err.println("NPC OR PLAYER");
 						p.setUsername(details[i]);
 						i++;
 						p.setId(Integer.parseInt(details[i]));
@@ -687,29 +687,43 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				//Add player
 				details = message.substring(2).split(",");
 				p = new Player();
-				p.setUsername(details[0]);
-				p.setId(Integer.parseInt(details[1]));
-				p.setSprite(Integer.parseInt(details[2]));
-				p.setX(Integer.parseInt(details[3]));
-				p.setY(Integer.parseInt(details[4]));
-				p.setServerX(Integer.parseInt(details[3]));
-				p.setServerY(Integer.parseInt(details[4]));
-				switch(details[5].charAt(0)) {
-				case 'D':
-					p.setDirection(Direction.Down);
-					break;
-				case 'L':
-					p.setDirection(Direction.Left);
-					break;
-				case 'R':
-					p.setDirection(Direction.Right);
-					break;
-				case 'U':
-					p.setDirection(Direction.Up);
-					break;
-				default:
-					p.setDirection(Direction.Down);
-					break;
+				try {
+					HMObject hm = new HMObject(HMObject.parseHMObject(details[0]));
+					hm.setUsername(details[0]);
+					hm.setId(Integer.parseInt(details[1]));
+					hm.setX(Integer.parseInt(details[3]));
+					hm.setServerX(Integer.parseInt(details[3]));
+					hm.setY(Integer.parseInt(details[4]));
+					hm.setServerY(Integer.parseInt(details[4]));
+					hm.setSprite(12);
+					hm.setDirection(Direction.Down);
+					hm.loadSpriteImage();
+					p = hm;
+				} catch (Exception e) {
+					p.setUsername(details[0]);
+					p.setId(Integer.parseInt(details[1]));
+					p.setSprite(Integer.parseInt(details[2]));
+					p.setX(Integer.parseInt(details[3]));
+					p.setY(Integer.parseInt(details[4]));
+					p.setServerX(Integer.parseInt(details[3]));
+					p.setServerY(Integer.parseInt(details[4]));
+					switch(details[5].charAt(0)) {
+					case 'D':
+						p.setDirection(Direction.Down);
+						break;
+					case 'L':
+						p.setDirection(Direction.Left);
+						break;
+					case 'R':
+						p.setDirection(Direction.Right);
+						break;
+					case 'U':
+						p.setDirection(Direction.Up);
+						break;
+					default:
+						p.setDirection(Direction.Down);
+						break;
+					}
 				}
 				m_game.getMapMatrix().addPlayer(p);
 				break;
