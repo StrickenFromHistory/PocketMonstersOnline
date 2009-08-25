@@ -99,7 +99,7 @@ false
 0
 [/warp]
 [hmobject]
-CUT_TREE
+STRENGTH_BOULDER
 6
 15
 [/hmobject]

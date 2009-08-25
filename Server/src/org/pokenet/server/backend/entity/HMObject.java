@@ -4,10 +4,17 @@ package org.pokenet.server.backend.entity;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.pokenet.server.GameServer;
+
 public class HMObject extends NonPlayerChar {
 	public enum objectType {
 		ROCKSMASH_ROCK, CUT_TREE, STRENGTH_BOULDER, WHIRLPOOL
 	}
+	
+	private static int HMObjectID = 0;
+	private boolean addToMovementManager = true;
+	private int originalX, originalY;
+	private Timer timer = new Timer();
 	
 	public static objectType parseHMObject(String name) throws Exception{
 		for (objectType oT : objectType.values()){
@@ -18,13 +25,31 @@ public class HMObject extends NonPlayerChar {
 	}
 
 	private objectType m_HMType;
-
+	private int m_id;
+	final HMObject hmObj = this;
+	
 	public objectType getType() {
 		return m_HMType;
+	}
+	
+	public void setOriginalX(int x){
+		originalX = x;
+	}
+
+	public void setOriginalY(int y){
+		originalY = y;
+	}
+	
+	public int getId(){
+		return m_id;
 	}
 
 	public void setType(objectType oT) {
 		m_HMType = oT;
+		if (oT == objectType.STRENGTH_BOULDER){
+			HMObjectID++;
+			m_id = HMObjectID; 
+		}
 	}
 	
 	public int getNecessaryTrainerLevel(objectType oT) {
@@ -32,7 +57,7 @@ public class HMObject extends NonPlayerChar {
 		case ROCKSMASH_ROCK:
 			return 30;
 		case CUT_TREE:
-			return 0;
+			return 15;
 		case STRENGTH_BOULDER:
 			return 35;
 		case WHIRLPOOL:
@@ -44,26 +69,34 @@ public class HMObject extends NonPlayerChar {
 	@Override
 	public void talkToPlayer(PlayerChar p) {
 		// Handle event
-		System.out.println("Talking to an HM object? It won't answer to you...");
-		System.out.println(getMap().getX() + " " + getMap().getY());
 		if (p.getTrainingLevel() >= getNecessaryTrainerLevel(getType())) {
-			System.err.println("WOO YOU CAN DO THIS!");
 			switch (m_HMType){
 			case STRENGTH_BOULDER :
 				setNextMovement(p.getFacing());
+				if (addToMovementManager) {
+					GameServer.getServiceManager().getMovementService().getMovementManager().addHMObject(this);
+					addToMovementManager = false;
+				}
+				// Return to original position 30 seconds after last movement
+				timer.schedule(
+						new TimerTask(){
+							public void run(){
+								hmObj.setX(originalX);
+								hmObj.setY(originalY);
+							}
+						}, 30000);
 				break;
 			case CUT_TREE:
 			case ROCKSMASH_ROCK:
 			case WHIRLPOOL:
 				getMap().removeChar(this);
-				final HMObject hmObj = this;
-				Timer timer = new Timer();
+				// Regrow tree after 30 seconds
 				timer.schedule(
 						new TimerTask(){
 							public void run(){
 								m_map.addChar(hmObj);
 							}
-						}, 10000);
+						}, 30000);
 				break;
 			}
 		} else {

@@ -2,7 +2,10 @@ package org.pokenet.server.backend;
 
 import java.util.HashMap;
 
+import org.pokenet.server.backend.entity.Char;
+import org.pokenet.server.backend.entity.HMObject;
 import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.backend.entity.HMObject.objectType;
 
 /**
  * Loops through all players and moves them if they request to be moved
@@ -10,7 +13,7 @@ import org.pokenet.server.backend.entity.PlayerChar;
  *
  */
 public class MovementManager implements Runnable {
-	private HashMap<String, PlayerChar> m_players;
+	private HashMap<String, Char> m_players;
 	private Thread m_thread;
 	private boolean m_isRunning;
 	private int m_pLoad = 0;
@@ -19,7 +22,7 @@ public class MovementManager implements Runnable {
 	 * Default constructor.
 	 */
 	public MovementManager() {
-		m_players = new HashMap<String, PlayerChar>();
+		m_players = new HashMap<String, Char>();
 	}
 	
 	/**
@@ -29,6 +32,13 @@ public class MovementManager implements Runnable {
 	public void addPlayer(PlayerChar player) {
 		m_pLoad++;
 		m_players.put(player.getName(), player);
+	}
+	
+	public void addHMObject(HMObject obj){
+		if (obj.getType() == objectType.STRENGTH_BOULDER){
+			m_pLoad++;
+			m_players.put(obj.getName() + obj.getId(), obj);
+		}
 	}
 	
 	/**
@@ -57,13 +67,16 @@ public class MovementManager implements Runnable {
 	public void run() {
 		while(m_isRunning) {
 			synchronized(m_players) {
-				for(PlayerChar p : m_players.values()) {
+				for(Char p : m_players.values()) {
 					try {
 						p.move();
 					} catch (Exception e) {
 						e.printStackTrace();
 						removePlayer(p.getName());
-						p.forceLogout();
+						if (p instanceof PlayerChar){
+							PlayerChar player = (PlayerChar) p;
+							player.forceLogout();
+						}
 					}
 				}
 			}
