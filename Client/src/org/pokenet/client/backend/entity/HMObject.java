@@ -1,10 +1,5 @@
 package org.pokenet.client.backend.entity;
 
-import java.io.InputStream;
-import java.util.HashMap;
-
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
 import org.pokenet.client.GameClient;
 
 /**
@@ -12,33 +7,24 @@ import org.pokenet.client.GameClient;
  * @author ZombieBear
  *
  */
-public class HMObject {
-	private static final HashMap<String, Image> OBJECT_IMAGES;
+public class HMObject extends Player {
 	private int m_neededTrainerLvl;
 	private String m_objectName;
-	private Image m_image;
-	
-	static {
-		String path = "";
-		OBJECT_IMAGES = new HashMap<String, Image>();
-		for (HMObjectType HMObj : HMObjectType.values()) {
-			InputStream f = HMObject.class.getClassLoader().getResourceAsStream(
-					path + getObjectName(HMObj) + ".png");
-			try {
-				Image tempImage = new Image(f, getObjectName(HMObj), false);
-				OBJECT_IMAGES.put(getObjectName(HMObj), tempImage);
-			} catch (SlickException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
+
 	public static enum HMObjectType {
 		CUT_TREE,
 		ROCKSMASH_ROCK,
 		STRENGHT_BOULDER,
 		WHIRLPOOL,
 		HEADBUTT_TREE
+	}
+	
+	public static HMObjectType parseHMObject(String s) throws Exception {
+		for (HMObjectType HMObj : HMObjectType.values()) {
+			if (s.equalsIgnoreCase(HMObj.name()))
+				return HMObj;
+		}
+		throw new Exception("This is not an HM Object");
 	}
 	
 	/**
@@ -88,10 +74,13 @@ public class HMObject {
 	 * @param e HMObjectType enum
 	 */
 	public HMObject(HMObjectType e){
+		super();
 		m_objectName = getObjectName(e);
 		m_neededTrainerLvl = getNeededTrainerLvl(e);
-		m_image = OBJECT_IMAGES.get(getObjectName(e));
+		setUsername(m_objectName); //Set to "" when done testing
 	}
+	
+	
 	
 	/**
 	 * Returns the necessary trainer level to use the object
@@ -107,14 +96,6 @@ public class HMObject {
 	 */
 	public String getName(){
 		return m_objectName;
-	}
-	
-	/**
-	 * Returns the object's image
-	 * @return
-	 */
-	public Image getImage() {
-		return m_image;
 	}
 	
 	/**
