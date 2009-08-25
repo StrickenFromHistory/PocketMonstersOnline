@@ -101,6 +101,7 @@ public class HMObject extends NonPlayerChar {
 			}
 		} else {
 			// The player isn't strong enough to do this. Alert client
+			p.getTcpSession().write("ch" + getNecessaryTrainerLevel(m_HMType));
 		}
 	}
 }
