@@ -8,6 +8,7 @@ import java.util.Random;
 
 import org.pokenet.server.backend.DataLoader;
 import org.pokenet.server.backend.entity.Char;
+import org.pokenet.server.backend.entity.HMObject;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar.Language;
@@ -533,7 +534,8 @@ public class ServerMap {
 		}
 		for(int i = 0; i < m_npcs.size(); i++) {
 			if(m_npcs.get(i).getX() == x && m_npcs.get(i).getY() == y) {
-				p.setTalking(true);
+				if (!(m_npcs.get(i) instanceof HMObject))
+					p.setTalking(true);
 				m_npcs.get(i).talkToPlayer(p);
 				break;
 			}
@@ -565,15 +567,15 @@ public class ServerMap {
 			}
 		}
 		if(m_ledgesRight != null && m_ledgesRight.getTileAt(x, y) == '1') {
-			if(d == Direction.Left || d == Direction.Up || d == Direction.Down)
+			if(d != Direction.Right)
 				return true;
 		}
 		if(m_ledgesLeft != null && m_ledgesLeft.getTileAt(x, y) == '1') {
-			if(d == Direction.Right || d == Direction.Up || d == Direction.Down)
+			if(d != Direction.Left)
 				return true;
 		}
 		if(m_ledgesDown != null && m_ledgesDown.getTileAt(x, y) == '1') {
-			if(d == Direction.Left || d == Direction.Up || d == Direction.Right)
+			if(d != Direction.Down)
 				return true;
 		}
 		return false;

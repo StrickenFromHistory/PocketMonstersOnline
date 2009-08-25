@@ -8,16 +8,11 @@ public class HMObject extends NonPlayerChar {
 	}
 	
 	public static objectType parseHMObject(String name) throws Exception{
-		if (name.equalsIgnoreCase("ROCKSMASH_ROCK"))
-			return objectType.ROCKSMASH_ROCK;
-		else if (name.equalsIgnoreCase("CUT_TREE"))
-			return objectType.CUT_TREE;
-		else if (name.equalsIgnoreCase("STRENGTH_BOULDER"))
-			return objectType.STRENGTH_BOULDER;
-		else if (name.equalsIgnoreCase("WHIRLPOOL"))
-			return objectType.WHIRLPOOL;
-		else
-			throw new Exception("The HMObject requested is invalid.");
+		for (objectType oT : objectType.values()){
+			if (name.equalsIgnoreCase(oT.name()))
+				return oT;
+		}
+		throw new Exception("The HMObject requested is invalid.");
 	}
 
 	private objectType m_HMType;
@@ -35,7 +30,7 @@ public class HMObject extends NonPlayerChar {
 		case ROCKSMASH_ROCK:
 			return 30;
 		case CUT_TREE:
-			return 15;
+			return 0;
 		case STRENGTH_BOULDER:
 			return 35;
 		case WHIRLPOOL:
@@ -47,20 +42,23 @@ public class HMObject extends NonPlayerChar {
 	@Override
 	public void talkToPlayer(PlayerChar p) {
 		// Handle event
-		if (p.getTrainingLevel() >= getNecessaryTrainerLevel(m_HMType)) {
+		System.out.println("Talking to an HM object? It won't answer to you...");
+		System.out.println(getMap().getX() + " " + getMap().getY());
+		if (p.getTrainingLevel() >= getNecessaryTrainerLevel(getType())) {
+			System.err.println("WOO YOU CAN DO THIS!");
 			switch (m_HMType){
 			case STRENGTH_BOULDER :
 				setNextMovement(p.getFacing());
 				break;
-			default :
+			case CUT_TREE:
+			case ROCKSMASH_ROCK:
+			case WHIRLPOOL:
 				getMap().removeChar(this);
 				// Launch a timer to readd the element?
 				break;
 			}
 		} else {
-			// This shouldn't happen unless the client is modified.
-			// Log the player's name on the output log
-			System.out.println(p.getName() + " has attempted to perform an illegal operation.");
+			// The player isn't strong enough to do this. Alert client
 		}
 	}
 }
