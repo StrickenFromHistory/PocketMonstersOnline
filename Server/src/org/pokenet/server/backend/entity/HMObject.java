@@ -1,6 +1,8 @@
 
 package org.pokenet.server.backend.entity;
 
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HMObject extends NonPlayerChar {
 	public enum objectType {
@@ -54,7 +56,14 @@ public class HMObject extends NonPlayerChar {
 			case ROCKSMASH_ROCK:
 			case WHIRLPOOL:
 				getMap().removeChar(this);
-				// Launch a timer to readd the element?
+				final HMObject hmObj = this;
+				Timer timer = new Timer();
+				timer.schedule(
+						new TimerTask(){
+							public void run(){
+								m_map.addChar(hmObj);
+							}
+						}, 10000);
 				break;
 			}
 		} else {
