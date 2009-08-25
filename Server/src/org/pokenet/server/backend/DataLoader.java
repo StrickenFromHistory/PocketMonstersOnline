@@ -113,7 +113,8 @@ public class DataLoader implements Runnable {
 					m_map.addWarp(warp);
 				} else if(line.equalsIgnoreCase("[hmobject]")) {
 					hmObject = new HMObject();
-					hmObject.setType(HMObject.parseHMObject(reader.nextLine()));
+					hmObject.setName(reader.nextLine());
+					hmObject.setType(HMObject.parseHMObject(hmObject.getName()));
 					hmObject.setX(Integer.parseInt(reader.nextLine()));
 					hmObject.setY(Integer.parseInt(reader.nextLine()));
 				} else if(line.equalsIgnoreCase("[/hmobject]")) {
@@ -122,7 +123,8 @@ public class DataLoader implements Runnable {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.err.println("Error in " + m_map.getX() + "." + m_map.getY() + ".txt - Invalid NPC or WarpTile");
+			System.err.println("Error in " + m_map.getX() + "." + m_map.getY() + ".txt - Invalid NPC, " +
+					"HM Object or WarpTile");
 		}
 	}
 }
