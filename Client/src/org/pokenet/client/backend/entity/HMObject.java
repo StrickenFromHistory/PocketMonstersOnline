@@ -70,13 +70,13 @@ public class HMObject {
 	private int getNeededTrainerLvl(HMObjectType e){
 		switch (e) {
 		case CUT_TREE:
-			return 0;
+			return 15;
 		case ROCKSMASH_ROCK:
-			return 0;
+			return 30;
 		case STRENGHT_BOULDER:
-			return 0;
+			return 35;
 		case WHIRLPOOL:
-			return 0; 
+			return 40; 
 		case HEADBUTT_TREE:
 			return 0;
 		}
