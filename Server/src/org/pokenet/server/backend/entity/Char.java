@@ -196,7 +196,7 @@ public class Char implements Positionable, Runnable {
 	 * Sets the char's next movement
 	 */
 	public void setNextMovement(Direction dir) {
-		if(System.currentTimeMillis() - m_lastMovement > 50) {
+		if(System.currentTimeMillis() - m_lastMovement > 50 && dir != null) {
 			/*
 			 * If it's the same direction we're facing, queue the movement
 			 * Else, turn and *possibly* send the turn to other players
