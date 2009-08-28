@@ -53,12 +53,16 @@ public class HMObject extends NonPlayerChar {
 		switch (oT){
 		case ROCKSMASH_ROCK:
 			setSprite(-4);
+			break;
 		case CUT_TREE:
 			setSprite(-2);
+			break;
 		case STRENGTH_BOULDER:
 			setSprite(-3);
+			break;
 		case WHIRLPOOL:
 			setSprite(-5);
+			break;
 		}
 	}
 	
