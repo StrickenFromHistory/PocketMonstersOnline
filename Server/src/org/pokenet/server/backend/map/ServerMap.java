@@ -407,7 +407,7 @@ public class ServerMap {
 	public void addChar(Char c) {
 		if(c instanceof PlayerChar) {
 			m_players.put(c.getName(), (PlayerChar) c);
-		} else if(c instanceof NonPlayerChar) {
+		} else if(c instanceof NonPlayerChar || c instanceof HMObject) {
 			//Set the id of the npc
 			c.setId(-1 - m_npcs.size());
 			m_npcs.add((NonPlayerChar) c);

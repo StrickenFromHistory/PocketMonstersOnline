@@ -37,7 +37,7 @@ public class MovementManager implements Runnable {
 	public void addHMObject(HMObject obj){
 		if (obj.getType() == objectType.STRENGTH_BOULDER){
 			m_pLoad++;
-			m_players.put(obj.getName() + obj.getId(), obj);
+			m_players.put(obj.getName() + obj.getObjId(), obj);
 		}
 	}
 	

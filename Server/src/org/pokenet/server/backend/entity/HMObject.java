@@ -23,9 +23,9 @@ public class HMObject extends NonPlayerChar {
 		}
 		throw new Exception("The HMObject requested is invalid.");
 	}
-
+	
 	private objectType m_HMType;
-	private int m_id;
+	private int m_objId;
 	final HMObject hmObj = this;
 	
 	public objectType getType() {
@@ -40,15 +40,25 @@ public class HMObject extends NonPlayerChar {
 		originalY = y;
 	}
 	
-	public int getId(){
-		return m_id;
+	public int getObjId(){
+		return m_objId;
 	}
 
 	public void setType(objectType oT) {
 		m_HMType = oT;
 		if (oT == objectType.STRENGTH_BOULDER){
 			HMObjectID++;
-			m_id = HMObjectID; 
+			m_objId = HMObjectID; 
+		}
+		switch (oT){
+		case ROCKSMASH_ROCK:
+			setSprite(-4);
+		case CUT_TREE:
+			setSprite(-2);
+		case STRENGTH_BOULDER:
+			setSprite(-3);
+		case WHIRLPOOL:
+			setSprite(-5);
 		}
 	}
 	
