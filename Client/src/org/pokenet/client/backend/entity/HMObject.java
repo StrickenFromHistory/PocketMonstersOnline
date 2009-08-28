@@ -1,6 +1,5 @@
 package org.pokenet.client.backend.entity;
 
-import org.pokenet.client.GameClient;
 
 /**
  * HM Objects
@@ -14,13 +13,14 @@ public class HMObject extends Player {
 	public static enum HMObjectType {
 		CUT_TREE,
 		ROCKSMASH_ROCK,
-		STRENGHT_BOULDER,
+		STRENGTH_BOULDER,
 		WHIRLPOOL,
 		HEADBUTT_TREE
 	}
 	
 	public static HMObjectType parseHMObject(String s) throws Exception {
 		for (HMObjectType HMObj : HMObjectType.values()) {
+			System.out.println(HMObj.name() + " " + s);
 			if (s.equalsIgnoreCase(HMObj.name()))
 				return HMObj;
 		}
@@ -38,7 +38,7 @@ public class HMObject extends Player {
 			return "Headbutt Tree";
 		case ROCKSMASH_ROCK:
 			return "Rocksmash Rock";
-		case STRENGHT_BOULDER:
+		case STRENGTH_BOULDER:
 			return "Strength Boulder";
 		case WHIRLPOOL:
 			return "Whirlpool"; 
@@ -59,7 +59,7 @@ public class HMObject extends Player {
 			return 15;
 		case ROCKSMASH_ROCK:
 			return 30;
-		case STRENGHT_BOULDER:
+		case STRENGTH_BOULDER:
 			return 35;
 		case WHIRLPOOL:
 			return 40; 
@@ -77,7 +77,7 @@ public class HMObject extends Player {
 		super();
 		m_objectName = getObjectName(e);
 		m_neededTrainerLvl = getNeededTrainerLvl(e);
-		setUsername(m_objectName); //Set to "" when done testing
+		setUsername("");
 	}
 	
 	
@@ -96,21 +96,5 @@ public class HMObject extends Player {
 	 */
 	public String getName(){
 		return m_objectName;
-	}
-	
-	/**
-	 * Performs the action if a player's trainer level is enough.
-	 * Otherwise lets the player know he can't do so.
-	 */
-	public void performAction() {
-		if (GameClient.getInstance().getOurPlayer().getTrainerLevel() >= m_neededTrainerLvl){
-			//TODO: Tell server to remove the object
-			//GameClient.getInstance().getPacketGenerator().getTcpSession().write("");
-			//TODO: Perform the action
-		} else {
-			GameClient.messageDialog("You are not strong enough to do this.\n" +
-					"Your trainer level must be " + getRequiredTrainerLevel() + " to do this.",
-					GameClient.getInstance().getDisplay());
-		}
 	}
 }

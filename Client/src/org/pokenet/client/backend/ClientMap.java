@@ -600,12 +600,14 @@ public class ClientMap extends TiledMap {
 				ClientMap m_curMap = m_mapMatrix.getCurrentMap();
 				int m_xOffset = m_curMap.getXOffset();
 				int m_yOffset = m_curMap.getYOffset();
+				if (p != null && p.getCurrentImage() == null){
+					System.err.println(p.getId() + " " + p.getSprite());
+				}
 				if (p != null && p.getSprite() != 0
 						&& (p.getCurrentImage() != null)) {
 					// Draw the player
 					p.getCurrentImage().draw(m_xOffset + p.getX() - 4,
 							m_yOffset + p.getY());
-
 					if (m_curMap.shouldReflect(p)) {
 						// If there's a reflection, flip the player's image, set
 						// his alpha so its more translucent, and then draw it.
