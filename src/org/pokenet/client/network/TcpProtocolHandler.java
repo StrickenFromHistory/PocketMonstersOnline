@@ -620,7 +620,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					p = new Player();
 					try {
 						HMObject hm = new HMObject(HMObject.parseHMObject(details[i]));
-						hm.setUsername(details[i]);
 						i++;
 						hm.setId(Integer.parseInt(details[i]));
 						i ++;
@@ -631,10 +630,10 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						i++;
 						hm.setY(Integer.parseInt(details[i]));
 						hm.setServerY(Integer.parseInt(details[i]));
-						i += 2;
+						i++;
 						hm.setDirection(Direction.Down);
+						hm.loadSpriteImage();
 						p = hm;
-						p.loadSpriteImage();
 					} catch (Exception e) {
 						p.setUsername(details[i]);
 						i++;
@@ -693,7 +692,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				p = new Player();
 				try {
 					HMObject hm = new HMObject(HMObject.parseHMObject(details[0]));
-					hm.setUsername(details[0]);
 					hm.setId(Integer.parseInt(details[1]));
 					hm.setSprite(Integer.parseInt(details[2]));
 					hm.setX(Integer.parseInt(details[3]));
@@ -701,8 +699,9 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					hm.setY(Integer.parseInt(details[4]));
 					hm.setServerY(Integer.parseInt(details[4]));
 					hm.setDirection(Direction.Down);
+					hm.loadSpriteImage();
 					p = hm;
-					p.loadSpriteImage();
+					p.setId(hm.getId());
 				} catch (Exception e) {
 					p.setUsername(details[0]);
 					p.setId(Integer.parseInt(details[1]));
