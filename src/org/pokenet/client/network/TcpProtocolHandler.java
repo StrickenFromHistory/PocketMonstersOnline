@@ -431,7 +431,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			m_game.getUi().messageReceived(message.substring(1));
 			break;
 		case 'c':
-			System.out.println(message.charAt(1));
 			//Something changed
 			switch (message.charAt(1)){
 			case 'h':
@@ -465,7 +464,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					m_game.getOurPlayer().addBadge(Integer.valueOf(message.substring(3)));
 					break;
 				case 's':
-					System.out.println(message.charAt(2));
 					//You gained a skill level or your skills are being initialized
 					switch (message.charAt(2)){
 					case 'b':
@@ -625,17 +623,18 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						hm.setUsername(details[i]);
 						i++;
 						hm.setId(Integer.parseInt(details[i]));
-						i += 2;
+						i ++;
+						hm.setSprite(Integer.parseInt(details[i]));
+						i ++;
 						hm.setX(Integer.parseInt(details[i]));
 						hm.setServerX(Integer.parseInt(details[i]));
 						i++;
 						hm.setY(Integer.parseInt(details[i]));
 						hm.setServerY(Integer.parseInt(details[i]));
 						i += 2;
-						hm.setSprite(12);
 						hm.setDirection(Direction.Down);
-						hm.loadSpriteImage();
 						p = hm;
+						p.loadSpriteImage();
 					} catch (Exception e) {
 						p.setUsername(details[i]);
 						i++;
@@ -684,7 +683,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						m_game.getMapMatrix().addPlayer(pl);
 						GameClient.getInstance().getOurPlayer().setAnimating(true);
 					} else{
-						System.err.println(p.getUsername());
 						m_game.getMapMatrix().addPlayer(p);
 					}
 				}
@@ -697,14 +695,14 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					HMObject hm = new HMObject(HMObject.parseHMObject(details[0]));
 					hm.setUsername(details[0]);
 					hm.setId(Integer.parseInt(details[1]));
+					hm.setSprite(Integer.parseInt(details[2]));
 					hm.setX(Integer.parseInt(details[3]));
 					hm.setServerX(Integer.parseInt(details[3]));
 					hm.setY(Integer.parseInt(details[4]));
 					hm.setServerY(Integer.parseInt(details[4]));
-					hm.setSprite(12);
 					hm.setDirection(Direction.Down);
-					hm.loadSpriteImage();
 					p = hm;
+					p.loadSpriteImage();
 				} catch (Exception e) {
 					p.setUsername(details[0]);
 					p.setId(Integer.parseInt(details[1]));
@@ -757,7 +755,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			case 's':
 				//Set the map and weather
 				details = message.substring(3).split(",");
-				System.err.println(message.charAt(2));
 				m_game.getMapMatrix().setNewMapPos(message.charAt(2));
 				m_game.setMap(Integer.parseInt(details[0]), Integer.parseInt(details[1]));
 				switch(Integer.parseInt(details[2])) {
