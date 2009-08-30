@@ -1,11 +1,19 @@
 package org.pokenet.server.network;
 
+import java.net.DatagramSocket;
+import java.net.SocketAddress;
+import java.net.SocketException;
 import java.util.HashMap;
 
+import org.apache.mina.core.future.ConnectFuture;
+import org.apache.mina.core.future.IoFuture;
+import org.apache.mina.core.future.IoFutureListener;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IoSession;
+import org.apache.mina.transport.socket.nio.NioDatagramConnector;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
+import org.pokenet.server.network.message.PokenetMessage;
 
 /**
  * Protocol Handler for UDP connections
@@ -46,7 +54,7 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
 						p.setNextMovement(Direction.Up);
-						p.setUdpSession(session);
+						p.setUdpSession(session.getRemoteAddress());
 					}
 				}
 			}
@@ -59,7 +67,7 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
 						p.setNextMovement(Direction.Down);
-						p.setUdpSession(session);
+						p.setUdpSession(session.getRemoteAddress());
 					}
 				}
 			}
@@ -72,7 +80,7 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
 						p.setNextMovement(Direction.Left);
-						p.setUdpSession(session);
+						p.setUdpSession(session.getRemoteAddress());
 					}
 				}
 			}
@@ -85,7 +93,7 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
 						p.setNextMovement(Direction.Right);
-						p.setUdpSession(session);
+						p.setUdpSession(session.getRemoteAddress());
 					}
 				}
 			}
@@ -98,7 +106,9 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 	 * @param p
 	 */
 	public static void addPlayer(PlayerChar p) {
-		m_playerList.put(p.getId(), p);
+		synchronized(m_playerList) {
+			m_playerList.put(p.getId(), p);
+		}
 	}
 	
 	/**
@@ -106,6 +116,16 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 	 * @param p
 	 */
 	public static void removePlayer(PlayerChar p) {
-		m_playerList.remove(p.getId());
+		synchronized(m_playerList) {
+			m_playerList.remove(p.getId());
+		}
+	}
+	
+	public static void writeMessage(SocketAddress s, PokenetMessage m) {
+		try {
+			NioDatagramConnector connector = new NioDatagramConnector();
+			ConnectFuture c = connector.connect(s);
+			c.getSession().write(m.getMessage());
+		} catch (Exception e) {}
 	}
 }

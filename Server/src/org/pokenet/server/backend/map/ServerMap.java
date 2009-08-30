@@ -19,6 +19,7 @@ import org.pokenet.server.battle.impl.NpcBattleLauncher;
 import org.pokenet.server.feature.TimeService;
 import org.pokenet.server.feature.TimeService.Weather;
 import org.pokenet.server.network.TcpProtocolHandler;
+import org.pokenet.server.network.UdpProtocolHandler;
 import org.pokenet.server.network.message.ChatMessage;
 import org.pokenet.server.network.message.MoveMessage;
 import org.pokenet.server.network.message.PokenetMessage;
@@ -1021,7 +1022,7 @@ public class ServerMap {
 				Collection<PlayerChar> list = m_players.values();
 				for(PlayerChar pl: list) {
 					if(p != pl)
-						TcpProtocolHandler.writeMessage(pl.getUdpSession(), moveMessage);
+						UdpProtocolHandler.writeMessage(pl.getUdpSession(), moveMessage);
 				}
 			}
 		} else {
@@ -1031,7 +1032,7 @@ public class ServerMap {
 			synchronized(m_players) {
 				Collection<PlayerChar> list = m_players.values();
 				for(PlayerChar pl: list) {
-					TcpProtocolHandler.writeMessage(pl.getUdpSession(), moveMessage);
+					UdpProtocolHandler.writeMessage(pl.getUdpSession(), moveMessage);
 				}
 			}
 		}

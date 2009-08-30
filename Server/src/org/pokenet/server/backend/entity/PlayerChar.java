@@ -1,5 +1,6 @@
 package org.pokenet.server.backend.entity;
 
+import java.net.SocketAddress;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public class PlayerChar extends Char implements Battleable {
 	private boolean m_isBoxing = false;
 	private boolean m_isSpriting = false;
 	private IoSession m_tcpSession = null;
-	private IoSession m_udpSession = null;
+	private SocketAddress m_udpSession = null;
 	private int m_money;
 	private ResultSet m_databasePokemon;
 	private ArrayList<String> m_friends;
@@ -736,7 +737,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * Sets the UDP session for this player
 	 * @param session
 	 */
-	public void setUdpSession(IoSession session) {
+	public void setUdpSession(SocketAddress session) {
 		m_udpSession = session;
 	}
 	
@@ -744,7 +745,7 @@ public class PlayerChar extends Char implements Battleable {
 	 * Returns the UDP session for this player
 	 * @return
 	 */
-	public IoSession getUdpSession() {
+	public SocketAddress getUdpSession() {
 		return m_udpSession;
 	}
 	
