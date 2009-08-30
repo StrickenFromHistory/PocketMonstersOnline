@@ -1,11 +1,11 @@
-package org.pokenet.server;
+package org.pokenet.thin;
 
 import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
 
-import org.pokenet.server.libs.JGet;
+import org.pokenet.thin.libs.JGet;
 
 import java.beans.*;
 import java.io.BufferedReader;

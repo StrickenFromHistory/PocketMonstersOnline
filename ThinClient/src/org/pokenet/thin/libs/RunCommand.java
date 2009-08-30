@@ -1,4 +1,4 @@
-package org.pokenet.server.libs;
+package org.pokenet.thin.libs;
 
 import java.io.*;
 

@@ -1,4 +1,4 @@
-package org.pokenet.server.libs;
+package org.pokenet.thin.libs;
 
 /*
  * simple class to provide functionality similar to Wget.
