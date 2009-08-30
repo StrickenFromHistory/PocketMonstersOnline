@@ -32,18 +32,18 @@ PropertyChangeListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 2718141354198299420L;
-	private static JFrame masterFrame = new JFrame("Pokenet: Updating Ursaring");
-	private JProgressBar progressBar;
-	private JButton startButton;
-	private JButton hideButton;
-	private JTextArea taskOutput;
-	private Task task;
-	private Component output;
-	private boolean showOutput = true;
-	private static String mirror;
-	private static int progressSize;
-	private static double latestversion;
-	private static HashMap<String, String> updates = new HashMap<String, String>();
+	private static JFrame m_masterFrame = new JFrame("Pokenet: Updating Ursaring");
+	private JProgressBar m_progressBar;
+	private JButton m_startButton;
+	private JButton m_hideButton;
+	private JTextArea m_taskOutput;
+	private Task m_task;
+	private Component m_output;
+	private boolean m_showOutput = true;
+	private static String m_mirror;
+	private static int m_progressSize;
+	private static double m_latestversion;
+	private static HashMap<String, String> m_updates = new HashMap<String, String>();
 
 	class Task extends SwingWorker<Void, Void> {
 		/*
@@ -54,14 +54,14 @@ PropertyChangeListener {
 			int progress = 0;
 			//Initialize progress property.
 			setProgress(0);
-			for (Map.Entry<String, String> entry : updates.entrySet()) {
+			for (Map.Entry<String, String> entry : m_updates.entrySet()) {
 				try{
-					JGet.getFile(mirror+entry.getKey(),entry.getValue());
-					progress+=progressSize;
+					JGet.getFile(m_mirror+entry.getKey(),entry.getValue());
+					progress+=m_progressSize;
 					setProgress(Math.min(progress, 100));
-					progressBar.setValue(progress);
-					taskOutput.append(String.format(
-							"Completed %d%% of task.\n", task.getProgress()));
+					m_progressBar.setValue(progress);
+					m_taskOutput.append(String.format(
+							"Completed %d%% of task.\n", m_task.getProgress()));
 				}catch(FileNotFoundException e){
 					// Add "File not found" to the not found array
 				} catch (MalformedURLException e) {
@@ -84,8 +84,8 @@ PropertyChangeListener {
 		public void done() {
 			if(getProgress()<100){
 				setProgress(100);
-				taskOutput.append(String.format(
-						"Completed %d%% of task.\n", task.getProgress()));
+				m_taskOutput.append(String.format(
+						"Completed %d%% of task.\n", m_task.getProgress()));
 			}
 			/**
 			 * Update version.txt to latest. 
@@ -97,7 +97,7 @@ PropertyChangeListener {
 					f.delete();
 				PrintWriter pw;
 				pw = new PrintWriter(f);
-				pw.println(latestversion+"");
+				pw.println(m_latestversion+"");
 				pw.flush();
 				pw.close();
 			} catch (FileNotFoundException e1) {
@@ -106,7 +106,7 @@ PropertyChangeListener {
 			}
 
 			int answer = JOptionPane.showConfirmDialog(
-					masterFrame,
+					m_masterFrame,
 					"Your game has finished updating. \nWould you like to play?",
 					"Pokenet Update System",
 					JOptionPane.YES_NO_OPTION);
@@ -126,7 +126,7 @@ PropertyChangeListener {
 	}
 
 	public static void LaunchPokenet(){
-		masterFrame.setVisible(false);
+		m_masterFrame.setVisible(false);
 		try {
 			String s;
 			Process p = Runtime.getRuntime().exec("java -jar Test.jar");
@@ -149,34 +149,34 @@ PropertyChangeListener {
 		super(new BorderLayout());
 
 		//Create the demo's UI.
-		startButton = new JButton("Update");
-		startButton.setActionCommand("update");
-		startButton.addActionListener(this);
+		m_startButton = new JButton("Update");
+		m_startButton.setActionCommand("update");
+		m_startButton.addActionListener(this);
 
-		hideButton = new JButton("Hide Details...");
-		hideButton.setActionCommand("hide");
-		hideButton.addActionListener(this);
+		m_hideButton = new JButton("Hide Details...");
+		m_hideButton.setActionCommand("hide");
+		m_hideButton.addActionListener(this);
 
-		progressBar = new JProgressBar(0, 100);
-		progressBar.setValue(0);
-		progressBar.setStringPainted(true);
+		m_progressBar = new JProgressBar(0, 100);
+		m_progressBar.setValue(0);
+		m_progressBar.setStringPainted(true);
 
-		taskOutput = new JTextArea(5, 20);
-		taskOutput.setMargin(new Insets(5,5,5,5));
-		taskOutput.setEditable(false);
-		output = new JScrollPane(taskOutput);
+		m_taskOutput = new JTextArea(5, 20);
+		m_taskOutput.setMargin(new Insets(5,5,5,5));
+		m_taskOutput.setEditable(false);
+		m_output = new JScrollPane(m_taskOutput);
 
 
 		JPanel panel = new JPanel();
-		panel.add(startButton);
-		panel.add(progressBar);
+		panel.add(m_startButton);
+		panel.add(m_progressBar);
 
 		JPanel panel2 = new JPanel();
-		panel2.add(hideButton);
+		panel2.add(m_hideButton);
 
 		add(panel, BorderLayout.NORTH);
 		add(panel2, BorderLayout.CENTER);
-		add(output, BorderLayout.SOUTH);
+		add(m_output, BorderLayout.SOUTH);
 
 		setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
@@ -187,24 +187,24 @@ PropertyChangeListener {
 	 */
 	public void actionPerformed(ActionEvent evt) {
 		if(evt.getActionCommand().equals("update")){
-			startButton.setEnabled(false);
+			m_startButton.setEnabled(false);
 			setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 			//Instances of javax.swing.SwingWorker are not reusuable, so
 			//we create new instances as needed.
-			task = new Task();
-			task.addPropertyChangeListener(this);
-			task.execute();
+			m_task = new Task();
+			m_task.addPropertyChangeListener(this);
+			m_task.execute();
 		}else if(evt.getActionCommand().equals("hide")){
-			if(!showOutput){
-				output.setVisible(true);
-				hideButton.setText("Hide Details...");
-				masterFrame.setSize(new Dimension(300, 220));
-				showOutput=true;
+			if(!m_showOutput){
+				m_output.setVisible(true);
+				m_hideButton.setText("Hide Details...");
+				m_masterFrame.setSize(new Dimension(300, 220));
+				m_showOutput=true;
 			}else{
-				output.setVisible(false);
-				hideButton.setText("Show Details...");
-				masterFrame.setSize(new Dimension(300, 130));
-				showOutput=false;
+				m_output.setVisible(false);
+				m_hideButton.setText("Show Details...");
+				m_masterFrame.setSize(new Dimension(300, 130));
+				m_showOutput=false;
 			}
 		}
 	}
@@ -215,7 +215,7 @@ PropertyChangeListener {
 	public void propertyChange(PropertyChangeEvent evt) {
 		if ("progress" == evt.getPropertyName()) {
 			int progress = (Integer) evt.getNewValue();
-			progressBar.setValue(progress);
+			m_progressBar.setValue(progress);
 			//            taskOutput.append(String.format(
 			//                    "Completed %d%% of task.\n", task.getProgress()));
 		} 
@@ -229,18 +229,18 @@ PropertyChangeListener {
 	private static void createAndShowGUI() {
 		//Create and set up the window.
 
-		masterFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		m_masterFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		masterFrame.setSize(new Dimension(282, 242));
+		m_masterFrame.setSize(new Dimension(282, 242));
 		//Create and set up the content pane.
 		JComponent newContentPane = new ThinClient();
 		newContentPane.setOpaque(true); //content panes must be opaque
-		masterFrame.setContentPane(newContentPane);
+		m_masterFrame.setContentPane(newContentPane);
 
 		//Display the window.
-		masterFrame.pack();
-		centerTheGUIFrame(masterFrame);
-		masterFrame.setVisible(true);
+		m_masterFrame.pack();
+		centerTheGUIFrame(m_masterFrame);
+		m_masterFrame.setVisible(true);
 
 	}
 
@@ -282,10 +282,10 @@ PropertyChangeListener {
 					 *  Check Updates
 					 */
 					//Pick mirror at random
-					mirror = updateSites.get(new Random().nextInt(updateSites.size()));
+					m_mirror = updateSites.get(new Random().nextInt(updateSites.size()));
 
 					//Check mirror contents
-					URL site = new URL(mirror+"updates.txt");
+					URL site = new URL(m_mirror+"updates.txt");
 					mirrorbr = new BufferedReader(new InputStreamReader(site.openStream()));
 
 					String inputLine;
@@ -298,11 +298,11 @@ PropertyChangeListener {
 							inputLine = inputLine.replaceAll("-","");
 							inputLine = inputLine.replace("v","");
 							try{
-								latestversion = Double.parseDouble(inputLine);
+								m_latestversion = Double.parseDouble(inputLine);
 							}catch(Exception e){}//Perhaps its badly formatted?
 
 
-							if(version < latestversion){ //Time to update!
+							if(version < m_latestversion){ //Time to update!
 								/**
 								 *  Ask user to update
 								 */
@@ -316,17 +316,17 @@ PropertyChangeListener {
 									System.out.println(inputLine);
 									if(!inputLine.startsWith("-")){
 										String[] inout = inputLine.split(" ");
-										updates.put(inout[0], inout[1]);
-										progressSize++;
+										m_updates.put(inout[0], inout[1]);
+										m_progressSize++;
 									}
 								}
 							}
 						}	
 					}
-					if(version<latestversion){
+					if(version<m_latestversion){
 						answer = JOptionPane.showConfirmDialog(
 								frame,
-								"There is a Pokenet Update. \nWould you like to Update?\n(You won't be able to play unless you do)\nCurrent version: v"+version+"\nLatest version: v"+latestversion,
+								"There is a Pokenet Update. \nWould you like to Update?\n(You won't be able to play unless you do)\nCurrent version: v"+version+"\nLatest version: v"+m_latestversion,
 								"Pokenet Update System",
 								JOptionPane.YES_NO_OPTION);
 					}else{
@@ -334,8 +334,8 @@ PropertyChangeListener {
 					}
 
 					if(answer==0){
-						if(progressSize!=0){
-							progressSize = 100/progressSize;
+						if(m_progressSize!=0){
+							m_progressSize = 100/m_progressSize;
 							createAndShowGUI();
 						}else{
 							LaunchPokenet();
