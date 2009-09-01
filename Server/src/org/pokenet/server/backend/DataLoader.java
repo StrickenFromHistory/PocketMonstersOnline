@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import org.pokenet.server.backend.entity.HMObject;
 import org.pokenet.server.backend.entity.NonPlayerChar;
+import org.pokenet.server.backend.entity.TradeChar;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.backend.map.ServerMap;
 import org.pokenet.server.backend.map.WarpTile;
@@ -38,6 +39,7 @@ public class DataLoader implements Runnable {
 			NonPlayerChar npc = null;
 			WarpTile warp = null;
 			HMObject hmObject = null;
+			TradeChar t = null;
 			String line;
 			String [] details;
 			String direction = "Down";
@@ -121,6 +123,27 @@ public class DataLoader implements Runnable {
 					hmObject.setOriginalY(hmObject.getY());
 				} else if(line.equalsIgnoreCase("[/hmobject]")) {
 					hmObject.setMap(m_map, Direction.Down);
+				} else if(line.equalsIgnoreCase("[trade]")) {
+					t = new TradeChar();
+					t.setName(reader.nextLine());
+					direction = reader.nextLine();
+					if(direction.equalsIgnoreCase("UP")) {
+						t.setFacing(Direction.Up);
+					} else if(direction.equalsIgnoreCase("LEFT")) {
+						t.setFacing(Direction.Left);
+					} else if(direction.equalsIgnoreCase("RIGHT")) {
+						t.setFacing(Direction.Right);
+					} else {
+						t.setFacing(Direction.Down);
+					}
+					t.setSprite(Integer.parseInt(reader.nextLine()));
+					t.setX(Integer.parseInt(reader.nextLine()));
+					t.setY(Integer.parseInt(reader.nextLine()));
+					t.setRequestedPokemon(reader.nextLine(), 
+							Integer.parseInt(reader.nextLine()), reader.nextLine());
+					t.setOfferedSpecies(reader.nextLine(), Integer.parseInt(reader.nextLine()));
+				} else if(line.equalsIgnoreCase("[/trade]")) {
+					m_map.addChar(t);
 				}
 			}
 		} catch (Exception e) {
