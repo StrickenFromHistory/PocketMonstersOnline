@@ -908,8 +908,9 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * @return
 	 */
 	public int getHerbalismLevel() {
-		if((int)Math.pow(m_skillHerbExp, (0.3333))<= 100)
-			return (int)Math.pow(m_skillHerbExp, (0.3333));
+		int level = (int) Math.pow(m_skillHerbExp, (0.3333));
+		if(level <= 100)
+			return level;
 		else
 			return 100;
 	}
@@ -983,8 +984,9 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * @return
 	 */
 	public int getFishingLevel() {
-		if(((int)Math.pow(m_skillFishExp, (0.3333))) <= 100)
-			return (int)Math.pow(m_skillFishExp, (0.3333));
+		int level = ((int)Math.pow(m_skillFishExp, (0.3333)));
+		if(level <= 100)
+			return level;
 		else
 			return 100;
 	}
@@ -1022,8 +1024,9 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * @return
 	 */
 	public int getTrainingLevel() {
-		if (((int)Math.pow((m_skillTrainingExp/1.25), (0.3333)))<=100)
-		return (int)Math.pow((m_skillTrainingExp/1.25), (0.3333));
+		int level = ((int)Math.pow((m_skillTrainingExp/1.25), (0.3333)));
+		if (level <= 100)
+			return level;
 		else
 			return 100;
 	}
@@ -1061,8 +1064,9 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * @return
 	 */
 	public int getCoordinatingLevel() {
-		if(((int)Math.pow(m_skillCoordExp, (0.3333))) <= 100)
-			return (int)Math.pow(m_skillCoordExp, (0.3333));
+		int level = ((int)Math.pow(m_skillCoordExp, (0.3333)));
+		if(level <= 100)
+			return level;
 		else
 			return 100;
 		
