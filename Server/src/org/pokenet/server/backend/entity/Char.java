@@ -10,7 +10,7 @@ import org.pokenet.server.network.message.SpriteChangeMessage;
  * @author shadowkanji
  *
  */
-public class Char implements Positionable, Runnable {
+public class Char implements Positionable {
 	protected Direction m_nextMovement = null;
 	private Direction m_facing = Direction.Down;
 	private long m_lastMovement = System.currentTimeMillis();
@@ -224,7 +224,7 @@ public class Char implements Positionable, Runnable {
 				m_facing = dir;
 				/* Only send one-third of direction turns to reduce CPU overload due to threads */
 				if(DataService.getBattleMechanics().getRandom().nextInt(3) == 0) {
-					new Thread(this).start();
+					m_map.sendMovementToAll(new MoveMessage(this, true), this);
 				}
 			}
 		}
@@ -319,12 +319,5 @@ public class Char implements Positionable, Runnable {
 		if(m_map != null) {
 			m_map.sendMovementToAll(new MoveMessage(this, true), this);
 		}
-	}
-
-	/**
-	 * Allows us to send a direction change in a threaded way
-	 */
-	public void run() {
-		m_map.sendMovementToAll(new MoveMessage(this, true), this);
 	}
 }
