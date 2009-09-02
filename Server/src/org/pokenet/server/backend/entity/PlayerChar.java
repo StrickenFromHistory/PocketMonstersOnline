@@ -1106,8 +1106,9 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * @return
 	 */
 	public int getBreedingLevel() {
-		if((int)Math.pow((m_skillBreedExp/1.25), (0.3333))<=100)
-			return (int)Math.pow((m_skillBreedExp/1.25), (0.3333));
+		int level = (int)Math.pow((m_skillBreedExp/1.25), (0.3333));
+		if(level <= 100)
+			return level;
 		else
 			return 100;
 	}	
