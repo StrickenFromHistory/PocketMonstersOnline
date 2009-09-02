@@ -12,7 +12,7 @@ import org.pokenet.server.feature.FishDatabase;
 import org.simpleframework.xml.core.Persister;
 
 /**
- * Provides a data service for accessing Pokemon species data.
+ * Provides a data service for accessing various databases used by the server
  * @author shadowkanji
  *
  */

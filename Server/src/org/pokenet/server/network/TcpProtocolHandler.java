@@ -19,7 +19,7 @@ import org.pokenet.server.network.message.PokenetMessage;
 import org.pokenet.server.network.message.RequestMessage;
 
 /**
- * Handles packets received from the player
+ * Handles packets received from players over TCP
  * @author shadowkanji
  *
  */

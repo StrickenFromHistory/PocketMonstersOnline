@@ -28,8 +28,7 @@ import org.pokenet.server.network.message.battle.SwitchRequest;
 import org.pokenet.server.network.message.battle.BattleEndMessage.BattleEnd;
 
 /**
- * A class which handles PvP battles
- * 
+ * A battlefield for PvP battles
  * @author shadowkanji
  * 
  */

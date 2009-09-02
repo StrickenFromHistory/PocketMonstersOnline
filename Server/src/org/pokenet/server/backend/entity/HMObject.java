@@ -6,6 +6,11 @@ import java.util.TimerTask;
 
 import org.pokenet.server.GameServer;
 
+/**
+ * Represents HM Objects such as trees, boulders, whirlpools, etc.
+ * @author ZombieBear
+ *
+ */
 public class HMObject extends NonPlayerChar {
 	public enum objectType {
 		ROCKSMASH_ROCK, CUT_TREE, STRENGTH_BOULDER, WHIRLPOOL

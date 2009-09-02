@@ -1,13 +1,9 @@
 package org.pokenet.server.network;
 
-import java.net.DatagramSocket;
 import java.net.SocketAddress;
-import java.net.SocketException;
 import java.util.HashMap;
 
 import org.apache.mina.core.future.ConnectFuture;
-import org.apache.mina.core.future.IoFuture;
-import org.apache.mina.core.future.IoFutureListener;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.transport.socket.nio.NioDatagramConnector;
@@ -16,8 +12,8 @@ import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.network.message.PokenetMessage;
 
 /**
- * Protocol Handler for UDP connections
- * @author tom
+ * Handles packets received from players of UDP
+ * @author shadowkanji
  *
  */
 public class UdpProtocolHandler extends IoHandlerAdapter {

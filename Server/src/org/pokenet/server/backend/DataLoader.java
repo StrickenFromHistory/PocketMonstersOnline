@@ -12,7 +12,7 @@ import org.pokenet.server.backend.map.ServerMap;
 import org.pokenet.server.backend.map.WarpTile;
 
 /**
- * Handles NPC and WarpTile Loading
+ * Handles data loading for maps (NPCs, Warps, HMObjects, etc.)
  * @author shadowkanji
  *
  */

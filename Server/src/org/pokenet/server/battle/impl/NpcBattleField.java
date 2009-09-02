@@ -31,7 +31,7 @@ import org.pokenet.server.network.message.battle.BattleEndMessage.BattleEnd;
 import org.pokenet.server.network.message.battle.BattleRewardMessage.BattleRewardType;
 
 /**
- * The battlefield for NPC battles
+ * A battlefield for NPC battles
  * @author shadowkanji
  *
  */

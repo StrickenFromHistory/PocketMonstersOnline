@@ -3,8 +3,8 @@ package org.pokenet.server.backend.entity;
 import org.pokenet.server.battle.Pokemon;
 
 /**
- * An interface for objects to be tradeable
- * @author tom
+ * An interface for objects that can be traded with
+ * @author shadowkanji
  *
  */
 public interface Tradeable {

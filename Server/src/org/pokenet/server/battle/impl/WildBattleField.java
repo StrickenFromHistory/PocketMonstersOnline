@@ -42,8 +42,7 @@ import org.pokenet.server.network.message.battle.BattleEndMessage.BattleEnd;
 import org.pokenet.server.network.message.battle.BattleRewardMessage.BattleRewardType;
 
 /**
- * Handles wild battles
- * 
+ * A battlefield for wild Pokemon battles
  * @author shadowkanji
  */
 public class WildBattleField extends BattleField {
