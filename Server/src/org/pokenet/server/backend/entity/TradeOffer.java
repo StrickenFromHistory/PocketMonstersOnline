@@ -5,11 +5,29 @@ package org.pokenet.server.backend.entity;
  * @author shadowkanji
  *
  */
-public class TradeObject {
+public class TradeOffer {
 	public enum TradeType { POKEMON, ITEM, MONEY }
 	private int m_id;
 	private int m_quantity;
+	/* Stores Pokemon or Item name */
+	private String m_information;
 	private TradeType m_type;
+	
+	/**
+	 * Returns information about this trade
+	 * @return
+	 */
+	public String getInformation() {
+		return m_information;
+	}
+	
+	/**
+	 * Sets information for this offer
+	 * @param i
+	 */
+	public void setInformation(String i) {
+		m_information = i;
+	}
 	
 	/**
 	 * Sets the quantity

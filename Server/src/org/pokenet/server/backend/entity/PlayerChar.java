@@ -35,7 +35,7 @@ import org.pokenet.server.network.message.shop.ShopSellMessage;
  * @author shadowkanji
  *
  */
-public class PlayerChar extends Char implements Battleable {
+public class PlayerChar extends Char implements Battleable, Tradeable {
 	/*
 	 * An enum to store request types
 	 */
@@ -259,6 +259,34 @@ public class PlayerChar extends Char implements Battleable {
 		m_trade.cancelOffer(this);
 	}
 	
+	public void cancelTrade() {
+		m_trade.endTrade();
+	}
+
+	public void finishTrading() {
+		m_isTalking = false;
+		m_isReadyToTrade = false;
+		m_trade = null;
+		if(m_tcpSession != null && m_tcpSession.isConnected())
+			m_tcpSession.write("Tf");
+		ensureHealthyPokemon();
+		m_lastTrade = System.currentTimeMillis();
+	}
+
+	public void receiveTradeOffer(TradeOffer[] o) {
+		m_tcpSession.write("To" + o[0].getId() + "," + o[1].getId());
+	}
+
+	public void receiveTradeOfferCancelation() {
+		m_tcpSession.write("Tc");
+	}
+
+	public void setTradeAccepted(boolean b) {
+		m_isReadyToTrade = b;
+		if(b)
+			m_trade.checkForExecution();
+	}
+	
 	/**
 	 * Returns the trade that the player is involved in
 	 * @return
@@ -281,30 +309,6 @@ public class PlayerChar extends Char implements Battleable {
 	 */
 	public boolean acceptedTradeOffer() {
 		return m_isReadyToTrade;
-	}
-	
-	/**
-	 * Sets if this player accepted the trade offer
-	 * @param b
-	 * @return
-	 */
-	public void setTradeOfferAccepted(boolean b) {
-		m_isReadyToTrade = b;
-		if(b)
-			m_trade.checkForExecution();
-	}
-	
-	/**
-	 * Stops this player trading
-	 */
-	public void endTrading() {
-		m_isTalking = false;
-		m_isReadyToTrade = false;
-		m_trade = null;
-		if(m_tcpSession != null && m_tcpSession.isConnected())
-			m_tcpSession.write("Tf");
-		ensureHealthyPokemon();
-		m_lastTrade = System.currentTimeMillis();
 	}
 	
 	/**

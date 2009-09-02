@@ -437,7 +437,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						break;
 					case 't':
 						//Ready to perform the trade
-						p.setTradeOfferAccepted(true);
+						p.setTradeAccepted(true);
 						break;
 					case 'c':
 						//Cancel the offer
