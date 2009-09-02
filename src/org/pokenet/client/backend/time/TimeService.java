@@ -77,7 +77,7 @@ public class TimeService extends Label implements Runnable {
 			this.setText(hour + ":" + min);
 			this.pack();
 			try {
-				Thread.sleep(15000);
+				Thread.sleep(60000);
 			} catch (Exception e) {}
 		}
 	}
