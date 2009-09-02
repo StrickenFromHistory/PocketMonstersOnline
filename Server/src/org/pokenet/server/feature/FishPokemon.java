@@ -7,7 +7,7 @@ import org.simpleframework.xml.Element;
  * @author Fshy
  *
  */
-public class Fish {
+public class FishPokemon {
 
 	@Element
 	private int m_experience;
@@ -18,14 +18,14 @@ public class Fish {
 	/**
 	 * Constructor
 	 */
-	public Fish() {}
+	public FishPokemon() {}
 	
 	/**
 	 * Alternative constructor
 	 * @param levelReq
 	 * @param experience
 	 */
-	public Fish(int levelReq, int experience, int rodReq) {
+	public FishPokemon(int levelReq, int experience, int rodReq) {
 		m_experience = experience;
 		m_levelReq = levelReq;	
 		m_rodReq = rodReq;

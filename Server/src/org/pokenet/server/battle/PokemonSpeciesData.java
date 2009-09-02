@@ -329,7 +329,9 @@ public class PokemonSpeciesData {
      * Get a single species.
      */
     public PokemonSpecies getSpecies(int i) throws PokemonException {
-        if ((i < 0) || (i >= m_database.length))
+    	if(i < 0)
+    		throw new PokemonException();
+        if (i >= m_database.length)
             throw new PokemonException();
         return m_database[i];
     }

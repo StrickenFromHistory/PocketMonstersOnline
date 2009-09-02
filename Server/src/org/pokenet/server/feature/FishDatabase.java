@@ -18,16 +18,16 @@ import org.simpleframework.xml.Root;
 @Root
 public class FishDatabase {
 	@ElementMap
-	private HashMap<String, ArrayList<Fish>> m_database;
+	private HashMap<String, ArrayList<FishPokemon>> m_database;
 	
 	/**
 	 * Adds an entry to the database
 	 * @param pokemon
 	 * @param fishes
 	 */
-	public void addEntry(String pokemon, ArrayList<Fish> fishes) {
+	public void addEntry(String pokemon, ArrayList<FishPokemon> fishes) {
 		if(m_database == null)
-			m_database = new HashMap<String, ArrayList<Fish>>();
+			m_database = new HashMap<String, ArrayList<FishPokemon>>();
 		m_database.put(pokemon, fishes);
 	}
 	
@@ -37,13 +37,13 @@ public class FishDatabase {
 	 */
 	public void deleteEntry(String pokemon) {
 		if(m_database == null) {
-			m_database = new HashMap<String, ArrayList<Fish>>();
+			m_database = new HashMap<String, ArrayList<FishPokemon>>();
 			return;
 		}
 		m_database.remove(pokemon);
 	}
 	
-	public Fish getFish(String pokemon) {
+	public FishPokemon getFish(String pokemon) {
 		pokemon = pokemon.toUpperCase();
 		return m_database.get(pokemon).get(0);
 		}
@@ -54,15 +54,15 @@ public class FishDatabase {
 	public void reinitialise() {
 		Thread t = new Thread(new Runnable() {
 			public void run() {
-				m_database = new HashMap<String, ArrayList<Fish>>();
+				m_database = new HashMap<String, ArrayList<FishPokemon>>();
 				try {
 					/* Read all the data from the text file */
 					Scanner s = new Scanner(new File("./res/fishing.txt"));
 					String pokemon = "";
-					ArrayList<Fish> fishies = new ArrayList<Fish>();
+					ArrayList<FishPokemon> fishies = new ArrayList<FishPokemon>();
 					while(s.hasNextLine()) {
 						pokemon = s.nextLine();
-						fishies = new ArrayList<Fish>();
+						fishies = new ArrayList<FishPokemon>();
 						/* Parse the data in the order EXPERIENCE, LEVELREQ, RODREQ*/
 						StringTokenizer st = new StringTokenizer(pokemon);
 						String pokeName = st.nextToken().toUpperCase();
@@ -70,7 +70,7 @@ public class FishDatabase {
 							int levelreq = Integer.parseInt(st.nextToken());
 							int exp = Integer.parseInt(st.nextToken());
 							int rodreq = Integer.parseInt(st.nextToken());
-							Fish d = new Fish(exp, levelreq, rodreq);
+							FishPokemon d = new FishPokemon(exp, levelreq, rodreq);
 							fishies.add(d);
 						}
 						addEntry(pokeName, fishies);
