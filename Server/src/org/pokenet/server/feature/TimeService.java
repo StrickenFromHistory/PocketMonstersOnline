@@ -1,7 +1,11 @@
 package org.pokenet.server.feature;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.Random;
+import java.util.StringTokenizer;
 
 import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.HailEffect;
@@ -19,6 +23,7 @@ public class TimeService implements Runnable {
 	private Thread m_thread;
 	private static int m_hour;
 	private static int m_minutes;
+	private static int m_day = 0;
 	private static Weather m_weather;
 	
 	/*
@@ -58,13 +63,39 @@ public class TimeService implements Runnable {
 	 * Called by m_thread.start()
 	 */
 	public void run() {
-		Calendar cal = Calendar.getInstance();
-		m_hour = cal.get(Calendar.HOUR_OF_DAY);
-		m_minutes = 0;
+		try {
+			/*
+			 * Parses time from a common server.
+			 * The webpage should just have text (no html tags) in the form:
+			 * DAY HOUR MINUTES
+			 * where day is a number from 0 - 6
+			 */
+			URL url = new URL("http://pokedev.org/time.php");
+			BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+			StringTokenizer s = new StringTokenizer(in.readLine());
+			m_day = Integer.parseInt(s.nextToken());
+			m_hour = Integer.parseInt(s.nextToken());
+			m_minutes = Integer.parseInt(s.nextToken());
+			in.close();
+		} catch (Exception e) {
+			System.out.println("ERROR: Cannot reach time server, reverting to local time");
+			/* Can't reach website, base time on local */
+			Calendar cal = Calendar.getInstance();
+			m_hour = cal.get(Calendar.HOUR_OF_DAY);
+			m_minutes = 0;
+			m_day = 0;
+		}
 		while(m_isRunning) {
 			//Update the time. Time moves 4 times faster.
 			m_minutes = m_minutes == 59 ? 0 : m_minutes + 1;
-			if(m_minutes == 0)
+			if(m_minutes == 0) {
+				if(m_hour == 23) {
+					incrementDay();
+					m_hour = 0;
+				} else {
+					m_hour += 1;
+				}
+			}
 				m_hour = m_hour == 23 ? 0 : m_hour + 1;
 			//Check if weather should be updated
 			if(System.currentTimeMillis() - m_lastWeatherUpdate >= 3600000) {
@@ -72,10 +103,17 @@ public class TimeService implements Runnable {
 				m_lastWeatherUpdate = System.currentTimeMillis();
 			}
 			try {
-				Thread.sleep(15000);
+				Thread.sleep(60000);
 			} catch (Exception e) {}
 		}
 		System.out.println("INFO: Time Service stopped");
+	}
+	
+	/**
+	 * Increments the day on the server
+	 */
+	public void incrementDay() {
+		m_day = m_day == 6 ? 0 : m_day + 1;
 	}
 	
 	/**
