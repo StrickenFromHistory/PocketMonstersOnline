@@ -229,6 +229,18 @@ public class NpcBattleField extends BattleField {
 			m_player.removeTempStatusEffects();
 			TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 					new BattleEndMessage(BattleEnd.WON));
+			/* Now add Trainer EXP */
+			int trainerExp = 0;
+			for(int i = 0; i < getParty(1).length; i++) {
+				if(getParty(1)[i] != null)
+					trainerExp += getParty(1)[i].getLevel() / 2;
+			}
+			/* If the player got a badge, triple the EXP gained */
+			if(m_npc.isGymLeader() && !m_player.hasBadge(m_npc.getBadge()))
+				trainerExp *= 2;
+			if(trainerExp > 0)
+				m_player.addTrainingExp(trainerExp);
+			/* Give the player the badge if it's a gym leader */
 			if(m_npc.isGymLeader()) {
 				m_player.addBadge(m_npc.getBadge());
 			}

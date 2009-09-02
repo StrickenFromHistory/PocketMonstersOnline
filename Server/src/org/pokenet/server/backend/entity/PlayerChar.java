@@ -1330,6 +1330,15 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	}
 	
 	/**
+	 * Returns true if the player has the badge
+	 * @param badge
+	 * @return
+	 */
+	public boolean hasBadge(int badge) {
+		return m_badges[badge] == 1;
+	}
+	
+	/**
 	 * Sets the badges this player has
 	 * @param badges
 	 */
