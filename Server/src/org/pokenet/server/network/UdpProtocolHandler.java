@@ -12,7 +12,7 @@ import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.network.message.PokenetMessage;
 
 /**
- * Handles packets received from players of UDP
+ * Handles packets received from players over UDP
  * @author shadowkanji
  *
  */

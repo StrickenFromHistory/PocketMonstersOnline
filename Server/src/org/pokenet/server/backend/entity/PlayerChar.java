@@ -1353,7 +1353,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void addBadge(int num) {
 		if(num >= 0 && num < m_badges.length) {
 			m_badges[num] = 1;
-			updateClientBadges();
+			m_tcpSession.write("cBa" + num);
 		}
 	}
 	
@@ -1579,7 +1579,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		for(int i = 0; i < m_badges.length; i++) {
 			data = data + m_badges[i];
 		}
-		m_tcpSession.write("cB" + data);
+		m_tcpSession.write("cBi" + data);
 	}
 	
 	/**

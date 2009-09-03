@@ -329,9 +329,10 @@ public class OurPlayer extends Player {
 	 * @param str
 	 */
 	public void initBadges(String str) {
+		m_badges = new int[str.length()];
 		for (int i = 0; i < str.length(); i++) {
 			try{
-				m_badges[i] = Integer.valueOf(str.charAt(i));
+				m_badges[i] = Integer.valueOf(String.valueOf(str.charAt(i)));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
