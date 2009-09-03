@@ -23,6 +23,11 @@ public class HUDButtonFactory {
                         rollovers = new HashMap<String, Image>();
                         downs = new HashMap<String, Image>();
                         
+                        // -- Player Info Button --
+                        normals.put("stats", getNormalImage("stats"));
+                        rollovers.put("stats", getRolloverImage("stats"));
+                        downs.put("stats", getDownImage("stats"));
+                        
                         // -- Chat Buttons --
                         normals.put("chat", getNormalImage("chat"));
                         rollovers.put("chat", getRolloverImage("chat"));

@@ -24,6 +24,7 @@ import org.pokenet.client.ui.frames.HelpWindow;
 import org.pokenet.client.ui.frames.NPCSpeechFrame;
 import org.pokenet.client.ui.frames.OptionsDialog;
 import org.pokenet.client.ui.frames.PartyInfoDialog;
+import org.pokenet.client.ui.frames.PlayerInfoDialog;
 import org.pokenet.client.ui.frames.PokeStorageBoxFrame;
 import org.pokenet.client.ui.frames.RequestDialog;
 import org.pokenet.client.ui.frames.ShopDialog;
@@ -58,6 +59,7 @@ public class Ui extends Frame {
     private static final int UI_WIDTH = 32*7;
     private ConfirmationDialog m_evolveDialog;
     private BigBagDialog m_bag;
+    private PlayerInfoDialog m_stats;
 	
 	/**
 	 * Default constructor
@@ -119,63 +121,71 @@ public class Ui extends Frame {
 	 * Starts the HUD buttons
 	 */
 	public void startButtons(){
-		m_buttons = new ImageButton[7];
+		m_buttons = new ImageButton[8];
 		
-        m_buttons[0] = HUDButtonFactory.getButton("pokemon");
+		m_buttons[0] = HUDButtonFactory.getButton("stats");
         m_buttons[0].addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		toggleStats();
+        	}
+        });
+        m_buttons[0].setToolTipText("Stats");
+		
+        m_buttons[1] = HUDButtonFactory.getButton("pokemon");
+        m_buttons[1].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		togglePokemon();
         	}
         });
-        m_buttons[0].setToolTipText("Pokemon");
+        m_buttons[1].setToolTipText("Pokemon");
 
-		m_buttons[1] = HUDButtonFactory.getButton("bag");
-        m_buttons[1].addActionListener(new ActionListener() {
+		m_buttons[2] = HUDButtonFactory.getButton("bag");
+        m_buttons[2].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		toggleBag();
         	}
         });
-        m_buttons[1].setToolTipText("Bag");
+        m_buttons[2].setToolTipText("Bag");
 
-		m_buttons[2] = HUDButtonFactory.getButton("map");
-        m_buttons[2].addActionListener(new ActionListener() {
+		m_buttons[3] = HUDButtonFactory.getButton("map");
+        m_buttons[3].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		toggleMap();
         	}
         });
-        m_buttons[2].setToolTipText("Map");
+        m_buttons[3].setToolTipText("Map");
 
-        m_buttons[3] = HUDButtonFactory.getButton("friends");
-		m_buttons[3].addActionListener(new ActionListener() {
+        m_buttons[4] = HUDButtonFactory.getButton("friends");
+		m_buttons[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				toggleFriends();
 			}
 		});
-		m_buttons[3].setToolTipText("Friends");
+		m_buttons[4].setToolTipText("Friends");
         
-        m_buttons[4] = HUDButtonFactory.getButton("requests");
-		m_buttons[4].addActionListener(new ActionListener() {
+        m_buttons[5] = HUDButtonFactory.getButton("requests");
+		m_buttons[5].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				toggleRequests();
 			}
 		});
-		m_buttons[4].setToolTipText("Requests");
+		m_buttons[5].setToolTipText("Requests");
 
-		m_buttons[5] = HUDButtonFactory.getButton("options");
-		m_buttons[5].addActionListener(new ActionListener() {
+		m_buttons[6] = HUDButtonFactory.getButton("options");
+		m_buttons[6].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				toggleOptions();
 			}
 		});
-		m_buttons[5].setToolTipText("Options");
+		m_buttons[6].setToolTipText("Options");
 		
-        m_buttons[6] = HUDButtonFactory.getButton("help");
-        m_buttons[6].addActionListener(new ActionListener() {
+        m_buttons[7] = HUDButtonFactory.getButton("help");
+        m_buttons[7].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		toggleHelp();
         	}
         });
-        m_buttons[6].setToolTipText("Help");
+        m_buttons[7].setToolTipText("Help");
 
         for (int i = 0; i < m_buttons.length; i++){
         	m_buttons[i].pack();
@@ -294,6 +304,25 @@ public class Ui extends Frame {
     }
     
     /**
+     * Toggles the Player Stats pane
+     */
+    public void toggleStats() {
+    	hideHUDElements();
+    	if(m_stats == null) {
+        	m_stats = new PlayerInfoDialog();
+        	m_stats.setBackground(new Color(0, 0, 0, 70));
+    		m_stats.setResizable(false);
+    		m_stats.setDraggable(false);
+    		m_stats.getTitleBar().setVisible(false);
+    		m_stats.setLocation(m_buttons[0].getX(), 67 - getTitleBar().getHeight() * 2);
+    		getDisplay().add(m_stats);
+    	} else {
+    		m_stats.setVisible(true);
+    		m_stats.updateDialog();
+    	}
+    }
+    
+    /**
      * Toggles the Bag Pane
      */
     public void toggleBag(){
@@ -334,7 +363,7 @@ public class Ui extends Frame {
 			m_bagForm.setSize(pane.getWidth(), 
 					pane.getHeight() + m_bagForm.getTitleBar().getHeight());
 			getDisplay().add(m_bagForm);
-			m_bagForm.setLocation(m_buttons[1].getX(),  67 - getTitleBar().getHeight());
+			m_bagForm.setLocation(m_buttons[2].getX(),  67 - getTitleBar().getHeight());
 			m_bagForm.setDraggable(false);
 		}
     }
@@ -351,7 +380,7 @@ public class Ui extends Frame {
 			m_teamInfo = new PartyInfoDialog(GameClient.getInstance().getOurPlayer()
 					.getPokemon());
 			m_teamInfo.setWidth(175);
-			m_teamInfo.setLocation(m_buttons[0].getX(), 67 - getTitleBar().getHeight() * 2);
+			m_teamInfo.setLocation(m_buttons[1].getX(), 67 - getTitleBar().getHeight() * 2);
 			m_teamInfo.getTitleBar().setVisible(false);
 			m_teamInfo.setDraggable(false);
 			getDisplay().add(m_teamInfo);
@@ -370,7 +399,7 @@ public class Ui extends Frame {
 			m_isOption = true;
 			m_optionsForm = new OptionsDialog();
 			m_optionsForm.setWidth(UI_WIDTH);
-			m_optionsForm.setLocation(m_buttons[5].getX(), 67 - getTitleBar().getHeight());
+			m_optionsForm.setLocation(m_buttons[6].getX(), 67 - getTitleBar().getHeight());
 			m_optionsForm.setDraggable(false);
 			getDisplay().add(m_optionsForm);
 		}
@@ -388,7 +417,7 @@ public class Ui extends Frame {
 			m_helpForm = new HelpWindow();
 			m_helpForm.setWidth(UI_WIDTH);
 			m_helpForm.setHeight(300);
-			m_helpForm.setLocation(m_buttons[6].getX(), 67 - getTitleBar().getHeight());
+			m_helpForm.setLocation(m_buttons[7].getX(), 67 - getTitleBar().getHeight());
 			getDisplay().add(m_helpForm);
 		}
     }
@@ -402,7 +431,7 @@ public class Ui extends Frame {
 			hideHUDElements();
 		} else {
 			hideHUDElements();
-			m_map.setLocation(m_buttons[2].getX(),  67 - getTitleBar().getHeight());
+			m_map.setLocation(m_buttons[3].getX(),  67 - getTitleBar().getHeight());
 			m_map.setVisible(true);
 		}
     }
@@ -416,7 +445,7 @@ public class Ui extends Frame {
 			hideHUDElements();
 		} else {
 			hideHUDElements();
-			m_friendsList.setLocation(m_buttons[3].getX(),  67 - getTitleBar().getHeight());
+			m_friendsList.setLocation(m_buttons[4].getX(),  67 - getTitleBar().getHeight());
 			m_friendsList.setVisible(true);
 		}
     }
@@ -436,6 +465,9 @@ public class Ui extends Frame {
             m_helpForm = null;
             if (m_map.isVisible()) m_map.setVisible(false);
             if (m_friendsList.isVisible()) m_friendsList.setVisible(false);
+            if (m_stats != null && m_stats.isVisible()) {
+            	m_stats.setVisible(false);
+            }
     }
     
     /**

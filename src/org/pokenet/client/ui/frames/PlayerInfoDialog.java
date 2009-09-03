@@ -76,13 +76,13 @@ public class PlayerInfoDialog extends Frame {
 		getContentPane().add(m_playerImage);
 
 		// Trainer data labels
-		m_trainerEXP = new Label("Trainer Lv: "
+		m_trainerEXP = new Label("Trainer Lv:          "
 				+ GameClient.getInstance().getOurPlayer().getTrainerLevel());
-		m_breedingEXP = new Label("Breeding Lv: "
+		m_breedingEXP = new Label("Breeding Lv:       "
 				+ GameClient.getInstance().getOurPlayer().getBreedingLevel());
-		m_fishingEXP = new Label("Fishing Lv: "
+		m_fishingEXP = new Label("Fishing Lv:          "
 				+ GameClient.getInstance().getOurPlayer().getFishingLevel());
-		m_coordinatingEXP = new Label("Corrdinating Lv: "
+		m_coordinatingEXP = new Label("Corrdinating Lv:  "
 				+ GameClient.getInstance().getOurPlayer()
 						.getCoordinatingLevel());
 
@@ -270,6 +270,10 @@ public class PlayerInfoDialog extends Frame {
 		}
 	}
 
+	/**
+	 * Shows badges (darkens ones the player does not have)
+	 * @throws NullPointerException
+	 */
 	public void showBadges() throws NullPointerException {
 		int[] badges = GameClient.getInstance().getOurPlayer().getBadges();
 		for (int i = 0; i < badges.length; i++) {
@@ -314,5 +318,18 @@ public class PlayerInfoDialog extends Frame {
 				System.err.println("See http://xkcd.com/371/ for details");
 			}
 		}
+	}
+	
+	public void updateDialog() {
+		m_trainerEXP.setText("Trainer Lv:          "
+				+ GameClient.getInstance().getOurPlayer().getTrainerLevel());
+		m_breedingEXP.setText("Breeding Lv:       "
+				+ GameClient.getInstance().getOurPlayer().getBreedingLevel());
+		m_fishingEXP.setText("Fishing Lv:          "
+				+ GameClient.getInstance().getOurPlayer().getFishingLevel());
+		m_coordinatingEXP.setText("Corrdinating Lv:  "
+				+ GameClient.getInstance().getOurPlayer()
+						.getCoordinatingLevel());
+		showBadges();
 	}
 }
