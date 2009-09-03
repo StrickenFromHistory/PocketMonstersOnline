@@ -50,7 +50,7 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
 						p.setNextMovement(Direction.Up);
-						p.setUdpSession(session.getRemoteAddress());
+						p.setUdpSession(session);
 					}
 				}
 			}
@@ -63,7 +63,7 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
 						p.setNextMovement(Direction.Down);
-						p.setUdpSession(session.getRemoteAddress());
+						p.setUdpSession(session);
 					}
 				}
 			}
@@ -76,7 +76,7 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
 						p.setNextMovement(Direction.Left);
-						p.setUdpSession(session.getRemoteAddress());
+						p.setUdpSession(session);
 					}
 				}
 			}
@@ -89,7 +89,7 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
 						p.setNextMovement(Direction.Right);
-						p.setUdpSession(session.getRemoteAddress());
+						p.setUdpSession(session);
 					}
 				}
 			}
@@ -117,11 +117,11 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 		}
 	}
 	
-	public static void writeMessage(SocketAddress s, PokenetMessage m) {
+	public static void writeMessage(IoSession s, PokenetMessage m) {
 		try {
-			NioDatagramConnector connector = new NioDatagramConnector();
-			ConnectFuture c = connector.connect(s);
-			c.getSession().write(m.getMessage());
-		} catch (Exception e) {}
+			s.write(m.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

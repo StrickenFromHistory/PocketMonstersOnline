@@ -56,7 +56,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	private boolean m_isBoxing = false;
 	private boolean m_isSpriting = false;
 	private IoSession m_tcpSession = null;
-	private SocketAddress m_udpSession = null;
+	private IoSession m_udpSession = null;
 	private int m_money;
 	private ResultSet m_databasePokemon;
 	private ArrayList<String> m_friends;
@@ -741,7 +741,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * Sets the UDP session for this player
 	 * @param session
 	 */
-	public void setUdpSession(SocketAddress session) {
+	public void setUdpSession(IoSession session) {
 		m_udpSession = session;
 	}
 	
@@ -749,7 +749,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * Returns the UDP session for this player
 	 * @return
 	 */
-	public SocketAddress getUdpSession() {
+	public IoSession getUdpSession() {
 		return m_udpSession;
 	}
 	
