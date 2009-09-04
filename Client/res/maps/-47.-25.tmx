@@ -11,7 +11,7 @@
   <property name="wildProbability" value="0"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
- </properties> 
+ </properties>
  <tileset firstgid="1" source="normal1.tsx"/>
  <tileset firstgid="1025" source="normal2.tsx"/>
  <tileset firstgid="2049" source="normal3.tsx"/>
@@ -32,7 +32,7 @@
    H4sIAAAAAAAAAGNgGNqAR5UwpjXoA9rRD8QTyLBrHVDPeiDeQKJeZL/Ry5/oYUrPMB4I/1ID+APdGQDEgWS4Nx+opwCIC/HoBQC5/2L4wAMAAA==
   </data>
  </layer>
- <layer name="Collisons" width="15" height="16">
+ <layer name="Collisions" width="15" height="16">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAMtWZWDgUWBg4MWC+XCI8wNxDlBfNxDrANm6WLAeDnF9IO6B6vUBsn2xYD8c4v5IerGBXlVUGh3g00sI4NKLbhc2u6ltL7o/cfkbphdXeOACIPXU8C817SUGgPS+xqJ3PQE+CKwB6jtNpr1ngPpWk6n3DVCfEANuzIBHDoQBf6ZmysADAAA=
   </data>
