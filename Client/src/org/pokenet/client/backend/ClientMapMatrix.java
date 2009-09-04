@@ -182,11 +182,15 @@ public class ClientMapMatrix {
 			/*
 			 * Interior, only load one map
 			 */
-			for(int x = -1; x < 2; x++) {
-				for(int y = -1; y < 2; y++) {
-					loadMap(mapX, mapY, 1, 1);
-				}
-			}
+			m_mapMatrix[0][0] = null;
+			m_mapMatrix[0][1] = null;
+			m_mapMatrix[0][2] = null;
+			m_mapMatrix[1][0] = null;
+			m_mapMatrix[1][2] = null;
+			m_mapMatrix[2][0] = null;
+			m_mapMatrix[2][1] = null;
+			m_mapMatrix[2][2] = null;
+			loadMap(mapX, mapY, 1, 1);
 		}
 		
 		/*
