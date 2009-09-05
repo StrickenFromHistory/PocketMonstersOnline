@@ -2,23 +2,23 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="60" height="26" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonLevels" value="4-5;5-6;4-5;5-6;3-5;4-4;5-5;3-5;"/>
   <property name="dayPokemonChances" value="Caterpie,30;Metapod,15;Weedle,5;Kakuna,10;Pidgey,10;Ledyba,20;Hoppip,5;Bellsprout,5;"/>
-  <property name="nightPokemonLevels" value="4-5;4-4;4-4;3-5;4-4;5-5;3-5;"/>
+  <property name="dayPokemonLevels" value="4-5;5-6;4-5;5-6;3-5;4-4;5-5;3-5;"/>
   <property name="nightPokemonChances" value="Rattata,35;Zubat,5;Poliwag,20;Hoothoot,10;Spinarak,20;Gastly,5;Bellsprout,5;"/>
-  <property name="waterPokemonLevels" value="15-24;20-24;"/>
+  <property name="nightPokemonLevels" value="4-5;4-4;4-4;3-5;4-4;5-5;3-5;"/>
   <property name="waterPokemonChances" value="Poliwag,90;Poliwhirl,10;"/>
+  <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="-320"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- <tileset firstgid="1025" source="Tileset 2.tsx"/>
- <tileset firstgid="2049" source="Tileset 3.tsx"/>
- <tileset firstgid="3073" source="Tileset 4.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
+ <tileset firstgid="2049" source="normal3.tsx"/>
+ <tileset firstgid="3073" source="normal4.tsx"/>
  <layer name="Walkable" width="70" height="70">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3X7U3DMBCAYSvJKqisAfyANYBJADEK6zALIxCLWDquce7yIcdp30c6uWmK65zPxj2FEG77OF1J6/XYx9MVtV57zx/1Ukfrtff8US91tF57zx/1Ukfrtff86bY1olS91KY17q2NoyIv42rLS9dHM7Td0Ecj3mvFvbFIn1vyvTJqy4tn/Ck3Ml86lvSr5yP6bs77K7kO7lfEQ/gb+526ljm05Oouxk+3Te6XeFkRr8M4n9W1fDZL+mxsYx5ydShzVEJ8nq8+3hfER/ifl88wXVdzQu5num5KSM9nkXWu5zTlxaqrqf3b2tetPXlrcq/uMq+t8bwFX13NyYO+X/r8sdX3edeHrjVvf6VtnRd9bYXVX+n1szV9rpPrQK+JOf+vUl9H460TecZpR/5uyqXmJdaHPOOk3xje5z1SXnLrolXvpxzovFxqvcw5o0W5vNwUHXV9jjTnAAAAAAAAAAAAAAAAAAAAAAAczS9IJbGZkEwAAA==
+   H4sIAAAAAAAAAO3X3U3DMBDAcavOG0vwgto1gAdYA5iEIkZhESZiBGIRS9cjji9p5Njt/yed3PTDjc9n19075w597K+ktXrq4/mKWqut5496qaO12nr+qJc6Wqut5496qaO12nr+dOszUapeahPG/u3HI5czS7Qq5kUjL3XlpetjN7Td0MdOPOfFa2MR37fke2W0to5kbmS+dCzpV89HcHvzv7+S6+DhjHh0f/d+r65lDnNSdRfip1sn90u8nhFvw32+qGs5tpz43tCGPKTqUOaohDCerz6OC+LDnebl003X1ZyQ+5mumxLi+HJknes5jXnJ1dXU/p3b1+XeU4Lcq7vE49z9vDtbXc3Jg3699Pljre+zrg9da9b+Sls7L/o6F7n+Sq+ftelznVwHek3M+b2KfbXGWifyjONHPjflUvMS6kOeceJ/DOt4W8pLal149XzMgc7LpdbLnDNakMrLXdG7rk9Lcw4AAAAAAAAAAAAAAAAAAAAAQGt+AdAxH4WQTAAA
   </data>
  </layer>
  <layer name="Water" width="70" height="70">
@@ -33,7 +33,7 @@
  </layer>
  <layer name="LedgesDown" width="70" height="70">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3SsQlAIRQDwIf7z/Frp7B2ib+HFgraWgneQSDpEwEAAAAA9/pSxN9T0r7hxPzPTB1fyksHAAAAAAAAAAAAAAAAgNc0v25oMZBMAAA=
+   H4sIAAAAAAAAAO3SsQkAIBAEwef7r8NSvhP70MRAMDISnIELLt8IAAAAAHhXy4g+V7l/uLH66YeuSlcAAAAAAAAAAAAAAAAAfGoAAqXJc5BMAAA=
   </data>
  </layer>
  <layer name="LedgesRight" width="60" height="26">
@@ -43,7 +43,7 @@
  </layer>
  <layer name="Collisions" width="60" height="26">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2XaQrCMBBGx4bqRax6EZeLCF5Lrf70Di54DxfqNZygoSWYpcnEoOTBx0ClLV+e2hQgkUgkEomEzBgz0cx/o2QAG0W2zP/6OaZLOFVebM8/YaclZiVljTkzs3/TLDADwqnC9nzed485SDm++3bALyYvbacKlW/5eOi+Ji+hUN2X971gdhnAldW5EfUV6zpndlkQ9Z3Cy28Tfu37ux+n2Zenwgzx+AjcZyxcv1d8nWYeMxauz9Nf9esKlV/T71ZFldF30uHrt8xe6Wvuofvs2/j6FX1d9xE+tLmHr1cxK3woPTp1/xy+978m7yV1+HoVs4tuexZ+Q3iO4VesrclvCM9t3vWo/FK/F4Qilt9Y+5TYfm3Xs4DP+xoqX23nExkHovlgGAAA
+   H4sIAAAAAAAAAO2XDQqCMBiGPx3aRbK6SD8XCTqYdZAIDyJl12gfOqrhfty+OYo98PKBYfLuKZ0AiUQikUgkZLY8O838N2oGcFbkwvy/v+ApCafKi+35NzbeGbs2zOzfNCueFeFUYXs+9sVcpTRDMvCLycvUqULlWz4euq/JSyhU18Wud56HlI6or1jXI7PLiajvHnq/n+B3Y9d2uC+17DvYec2Pb8B9xsL1d4XrdPCYsXB9nv6qX1eo/Jr+tyq6nL6TDl+/dd5nqbmG7rO58fUr+rruI3yYcg1fr2J2/KH0zN79C5jvvibvJXX4ehWz5G4XFn5DeI7hV6ytyW8Iz1Pe9aj8Ur8XhCKW31j7lNh+bdezgvF9DZWvqfMFfxZ0gmAYAAA=
   </data>
  </layer>
  <layer name="WalkBehind" width="70" height="70">

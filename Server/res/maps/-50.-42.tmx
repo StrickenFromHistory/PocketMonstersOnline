@@ -2,22 +2,19 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="39" height="36" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonLevels" value="2-4;2-4;4-4;2-2;"/>
   <property name="dayPokemonChances" value="Zubat,39;Geodude,55;Dunsparce,1;Teddiursa,5;"/>
-  <property name="nightPokemonLevels" value="2-4;2-4;4-4;"/>
+  <property name="dayPokemonLevels" value="2-4;2-4;4-4;2-2;"/>
   <property name="nightPokemonChances" value="Zubat,39;Geodude,60;Dunsparce,1;"/>
-  <property name="waterPokemonLevels" value="5-15;"/>
+  <property name="nightPokemonLevels" value="2-4;2-4;4-4;"/>
   <property name="waterPokemonChances" value="Magikarp,100;"/>
+  <property name="waterPokemonLevels" value="5-15;"/>
   <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- 
- <tileset firstgid="1025" source="Tileset 2.tsx"/>
- 
- <tileset firstgid="2049" source="Tileset 7.tsx"/>
- 
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
+ <tileset firstgid="2049" source="normal7.tsx"/>
  <layer name="Walkable" width="39" height="36">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO3WwQ0AEBAAQRLxUIKG9N+RCrzvMFPBPreUt/UWXQDAT1aNLjjL3pa5L7M5ogsAAOBttz33BsKdGWXwFQAA
@@ -45,7 +42,7 @@
  </layer>
  <layer name="Collisions" width="39" height="36">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2YbQ6CMAyGSfaLe+ymchIDHgQ/DqIEr+EWaaxl3SeLNaHJG8LWbc8K7dBRNc0oWAeje4GsdeZ6ZZQ6f4fYbka6KbOLhw3mp2s823ebvYLpZS7M5hqDlcMG8ZrVZ93YfbrY7Pi5/d5L7HyuePVGJ7J32zYQYZ8QW6pxbNMSNx3hG8PGma+PW4/uVXt8cb+LzRezWDb6nuHxlA18HwG23OdJ2VzxwnzY96zWPhwbztESNt8ec9hyDHLuyLzX0E/zEHxT8zTFYnKOa0vN063qWg22VJvU+jycA2wxY1xsUMdLz1cXW+mZBXWcPlucw7S9JhvkijV6zm0hLh97ph2zcd82NRR65+2zkcomOW5S2bQgNlzncG2QwBZTQ3a2Ndu/1Tf63SuJTXLcdradrRYbPRcksIX+O/g1G/cb+JdsAyNr+H4UrhdBbpvl8BUAAA==
+   H4sIAAAAAAAAAO2YbQ6DIAyGTfjlPbjpPIruIO7jIJtx1xhkNusq5VNil9jkjREKPFRb3EbVNKNgnYweBbLWmeuNUer8HWK7G+mmzK4eNpifrvFqP232CqaXuTCbawxWDhvEa1bfdWP36WKz4+f2dy+x87ni1Rudyd5t20CEfUJsqcaxTUvcdIRvDBtnvj5uPbpX7fHF/S42X8xi2eh7hsdTNvB9Bthynydlc8UL82Hfi1r7cGw4R0vYfHvMYcsxnHOu9xr6aR6Cb2qeplhMznFtqXm6VV2rwZZqk1qfh3OALWaMiw3qeOn56mIrPbOgjtNni3OYttdkg1yxRs+5LcTlY8+0Yzbu26aGQu+8fTZS2STHTSqbFsSG6xyuDRLYYmrIwbZm+7f6Rr97JbFJjtvBdrDVYqPnggS20H8He7Nxv4H3ZBsYWcP3o3C9AQuAgmLwFQAA
   </data>
  </layer>
  <layer name="WalkBehind" width="39" height="36">
