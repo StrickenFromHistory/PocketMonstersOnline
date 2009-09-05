@@ -15,14 +15,14 @@
  <tileset firstgid="1" source="normal1.tsx"/>
  <tileset firstgid="1025" source="normal2.tsx"/>
  <tileset firstgid="2049" source="normal3.tsx"/>
- <layer name="Walkable" width="24" height="80">
+ <layer name="Layer 5" width="24" height="80">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2YYQrCMAyFw9jFpifRnUSnN1G8poURCLVMLS9lKe/H9298dEm3pm8QkeELp8Q5Mf/wbA30078X/5Q4ZNyAfl1rCbT/mbgaFrDfo5/efkLIf8gO1kAIIaQ/7Mx9dPC3mFmXcYUza5+8xhUPd/Q71UWwd0z2KrZfcwf0XmiZI3nWPkIORj/9Uf13+cxwLbUz5lZ2a6l9P3uOlngE6E8pP1cQObquMc+2UfXZqgGiPq38pW8AUf98j2rNbT+Q534v/yQvv/ajtuZv3jBD5AAeAAA=
+   H4sIAAAAAAAAAO3RMQoAIAwEwXw1+v8/xMI6XRBhBrY/uAgAAAAApuVp3fbjLfR8BQDAzwrsotR7AB4AAA==
   </data>
  </layer>
  <layer name="Walkable" width="24" height="80">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2W7QnCMBCGQy3+cQlXUSdRN7FdRVzAFfyYxhk8qYVwpDSVe1MT3heef81zxyWFq5xz1Qh74SAcI779Bfrpt/bfFmHGXBthq2gH/PpsjL/vNYRF/77/LJw8moEz69X0WaPuE+3/0NQdCDchpXFdzt8DIYSQ8vB37h3An2Jn7XdK1M5K5uVSdyDcd/E+vjwBNXRy80+pjY6+K8u8jH2p3CUk9/mwfyaUFHPVNSxrIt2xNRnmX5L7+0/h5v8bnzeKetBuAB4AAA==
+   H4sIAAAAAAAAAO2Y3RGCMAyAe9jzxSVcRZ1EmUTRTfRcwBX8mYYZLIe5y9XS0NIU5fLwvcHXkJQSUiilCoKtYWcoe1wbg/jFn9p/n7mhXCvD2uLY4bfv7eOHWF2kiB/7L4YDouq4Z7kIzzVXPbn9DZVu4XALwtS4zcePQRAEQZgeuOfeMPhz9KzQU3L1rMK4XHULh/thvM8PL4Y1uPf/XtH/mFIrmlrz1arWefZC44e5Q+q9wDlHwrkvGXOTK/7Ufon/P/11wBkVG7+9RteaKeL3PQ/4T+p7houhekwqforY+uPvqIvzQD9X/TGu+TngmqPHxmjPtlPlx5eDFPkZ6qfeZ9870Df/vjXsPQo5x/XwffdDzqPQnIM7x5n3K36oR2yv9Qbp24/nAB4AAA==
   </data>
  </layer>
  <layer name="Grass" width="24" height="80">
