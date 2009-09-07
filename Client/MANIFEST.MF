@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Class-Path: lib/commons-cli-1.2.jar lib/ini4j-0.3.2-jdk14.jar lib/jython.jar lib/mina-core-2.0.0-M6.jar 
+ lib/mysql-connector-java-5.1.8-bin.jar lib/simple-xml-2.0.2.jar lib/slf4j-api-1.5.6.jar 
+ lib/slf4j-jdk14-1.5.6.jar lib/slick.jar lib/sui.jar lib/stax-1.2.0.jar lib/stax-api-1.0.1.jar 
+ lib/tiled.jar lib/tiled-core.jar lib/lwjgl.jar lib/lwjgl_util.jar lib/lwjgl_util_applet.jar
+ lib/jinput.jar lib/jogg-0.0.7.jar lib/jorbis-0.0.15.jar 
+ lib/native/jinput-dx8.dll lib/native/jinput-raw.dll lib/native/libjinput-linux.so 
+ lib/native/libjinput-linux64.so lib/native/libjinput-osx.so lib/native/liblwjgl.jnilib 
+ lib/native/liblwjgl.so lib/native/liblwjgl64.so lib/native/libmawt.so 
+ lib/native/libopenal.so lib/native/libopenal.so.0 lib/native/libopenal64.so 
+ lib/native/lwjgl.dll lib/native/lwjgl64.dll lib/native/openal.dylib 
+ lib/native/OpenAL32.dll lib/native/OpenAL64.dll
+Main-Class: org.pokenet.client.GameClient
+
