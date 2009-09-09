@@ -427,3 +427,13 @@ false
 -34
 0
 [/warp]
+[hmobject]
+CUT_TREE
+26
+19
+[/hmobject]
+[hmobject]
+CUT_TREE
+16
+12
+[/hmobject]

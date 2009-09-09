@@ -12,3 +12,13 @@ false
 false
 false
 [/npc]
+[hmobject]
+CUT_TREE
+19
+22
+[/hmobject]
+[hmobject]
+CUT_TREE
+28
+20
+[/hmobject]
