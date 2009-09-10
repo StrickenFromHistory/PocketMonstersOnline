@@ -1,6 +1,5 @@
 package org.pokenet.server.backend.entity;
 
-import java.net.SocketAddress;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

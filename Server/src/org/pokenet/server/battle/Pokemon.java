@@ -816,7 +816,7 @@ public class Pokemon extends PokemonSpecies {
     return p;
   }
 
-  private static int generateGender(int possibleGenders) {
+  public static int generateGender(int possibleGenders) {
     switch (possibleGenders) {
       case 0:
         return 0;
