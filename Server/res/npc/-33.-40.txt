@@ -16,3 +16,8 @@
 -41
 0
 [/warp]
+[hmobject]
+STRENGTH_BOULDER
+3
+2
+[/hmobject] 

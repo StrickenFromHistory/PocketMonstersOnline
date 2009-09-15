@@ -99,3 +99,8 @@ false
 -49
 0
 [/warp]
+[hmobject]
+STRENGTH_BOULDER
+8
+21
+[/hmobject] 
