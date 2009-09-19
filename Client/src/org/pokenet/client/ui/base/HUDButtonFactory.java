@@ -1,14 +1,11 @@
 package org.pokenet.client.ui.base;
 
-
-import java.io.InputStream;
 import java.util.HashMap;
 
 import org.newdawn.slick.Font;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.pokenet.client.GameClient;
-import org.pokenet.client.backend.FileLoader;
 
 public class HUDButtonFactory {
         private static HashMap<String, Image> rollovers;
@@ -80,18 +77,15 @@ public class HUDButtonFactory {
         private static Font font;
         
         private static Image getRolloverImage(String text) throws SlickException {
-        	InputStream f = FileLoader.loadFile("/res/ui/" + text + "_32x32.png");
-                return new Image(f, "/res/ui/" + text + "_32x32.png", false);
+            return new Image("res/ui/" + text + "_32x32.png", false);
         }
         
         private static Image getNormalImage(String text) throws SlickException {
-        	InputStream f = FileLoader.loadFile("/res/ui/" + text + "_32x32.png");
-                return new Image(f, "/res/ui/" + text + "_32x32.png", false);
+            return new Image("res/ui/" + text + "_32x32.png", false);
         }
         
         private static Image getDownImage(String text) throws SlickException {
-        	InputStream f = FileLoader.loadFile("/res/ui/" + text + "Pressed_32x32.png");
-                return new Image(f, "/res/ui/" + text + "Pressed_32x32.png", false);
+        	return new Image("res/ui/" + text + "Pressed_32x32.png", false);
         }
         
         public static ImageButton getButton(String text) {

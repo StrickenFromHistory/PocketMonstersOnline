@@ -1,6 +1,7 @@
 package org.pokenet.client.backend;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ public class Translator {
 	public List<String> translateText(String filename) {
 		List<String> translated = new ArrayList<String>();
 		try {
-			String path = "/res/language/" + GameClient.getLanguage() + "UI/" + filename + ".txt";
-			InputStream in = getClass().getResourceAsStream(path);
+			String path = "res/language/" + GameClient.getLanguage() + "/UI/" + filename + ".txt";
+			InputStream in = new FileInputStream(path);
 			if(in != null) {
 				BufferedReader f = new BufferedReader(new InputStreamReader(in));
 				Scanner reader = new Scanner(f);
@@ -42,7 +43,7 @@ public class Translator {
 				}*/
 			}else{ //In case of emergencies, load english!
 				try{
-					in = getClass().getResourceAsStream("/res/language/english/UI/" + filename + ".txt");
+					in = new FileInputStream("res/language/english/UI/" + filename + ".txt");
 					BufferedReader f = new BufferedReader(new InputStreamReader(in));
 					Scanner reader = new Scanner(f);
 					while(reader.hasNextLine()) {

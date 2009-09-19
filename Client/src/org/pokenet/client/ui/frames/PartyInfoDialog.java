@@ -1,5 +1,6 @@
 package org.pokenet.client.ui.frames;
 
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.FileLoader;
 import org.pokenet.client.backend.Translator;
 import org.pokenet.client.backend.entity.OurPokemon;
 import org.pokenet.client.ui.base.ProgressBar;
@@ -78,11 +80,11 @@ public class PartyInfoDialog extends Frame {
 			try {
 				Label tempLabel = new Label(); 
 				if (i ==0) {
-					f = getClass().getResourceAsStream("/res/ui/party_info/partyActive.png");
-					tempLabel = new Label(new Image(f, "/res/ui/party_info/partyActive.png", false));
+					f = FileLoader.loadFile("res/ui/party_info/partyActive.png");
+					tempLabel = new Label(new Image(f, "res/ui/party_info/partyActive.png", false));
 				} else {
-					f = getClass().getResourceAsStream("/res/ui/party_info/partyInactive.png");
-					tempLabel = new Label(new Image(f, "/res/ui/party_info/partyInactive.png", false));
+					f = FileLoader.loadFile("res/ui/party_info/partyInactive.png");
+					tempLabel = new Label(new Image(f, "res/ui/party_info/partyInactive.png", false));
 				}
 				tempLabel.setSize(170, 42);
 				tempLabel.setY(-4);
@@ -90,8 +92,8 @@ public class PartyInfoDialog extends Frame {
 			} catch (Exception e) {e.printStackTrace();}
 			
 			try{
-				f = getClass().getResourceAsStream("/res/ui/party_info/HPBar.png");
-				m_hpBar[i] = new Label(new Image(f, "/res/ui/party_info/HPBar.png", false));
+				f = FileLoader.loadFile("res/ui/party_info/HPBar.png");
+				m_hpBar[i] = new Label(new Image(f, "res/ui/party_info/HPBar.png", false));
 				m_hpBar[i].setSize(98, 11);
 				m_hpBar[i].setVisible(false);
 				m_container[i].add(m_hpBar[i]);
@@ -199,10 +201,12 @@ public class PartyInfoDialog extends Frame {
 			m_pokeName[i].pack();
 
 			try {
-				f = getClass().getResourceAsStream("/res/ui/Pokeball.gif");
-				m_pokeBall[i].setImage(new Image(f, "/res/ui/Pokeball.gif", false));
+				f = FileLoader.loadFile("res/ui/Pokeball.gif");
+				m_pokeBall[i].setImage(new Image(f, "res/ui/Pokeball.gif", false));
 				m_pokeBall[i].setSize(30, 30);
 			} catch (SlickException e) {
+				System.out.println("Couldn't load pokeball");
+			} catch (FileNotFoundException e) {
 				System.out.println("Couldn't load pokeball");
 			}
 			try {

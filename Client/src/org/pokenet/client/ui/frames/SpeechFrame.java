@@ -17,6 +17,7 @@ import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.FileLoader;
 
 /**
  * Base for speech pop-ups
@@ -91,8 +92,8 @@ public class SpeechFrame extends Frame {
     	InputStream f;
     	try {
     		LoadingList.setDeferredLoading(true);
-    		f = getClass().getResourceAsStream("/res/ui/speechbox.png");
-    		bg = new Image(f, "/res/ui/speechbox.png", false);
+    		f = FileLoader.loadFile("res/ui/speechbox.png");
+    		bg = new Image(f, "res/ui/speechbox.png", false);
     		LoadingList.setDeferredLoading(false);
     	} catch (Exception e) {
     		e.printStackTrace();

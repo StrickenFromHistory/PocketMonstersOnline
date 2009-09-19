@@ -20,7 +20,7 @@ public class SoundManager extends Thread{
 	private boolean m_tracksLoaded = false, m_trackChanged = true, m_isRunning = false;
 	private boolean m_mute = false;
 
-	private final String m_audioPath = "/res/music/";
+	private final String m_audioPath = "res/music/";
 
 	/**
 	 * Default Constructor
@@ -59,7 +59,7 @@ public class SoundManager extends Thread{
 	 */
 	private void loadLocations() {
 		try {
-			BufferedReader stream = FileLoader.loadTextFile("/res/language/english/_MUSICKEYS.txt");
+			BufferedReader stream = FileLoader.loadTextFile("res/language/english/_MUSICKEYS.txt");
 			m_locations = new HashMap<String, String>();
 
 			String f;

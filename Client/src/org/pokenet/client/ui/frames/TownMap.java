@@ -1,7 +1,6 @@
 package org.pokenet.client.ui.frames;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +19,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.FileLoader;
 
 /**
  * Town Map
@@ -44,12 +44,10 @@ public class TownMap extends Frame {
 		m_mapName = new Label();
 		m_playerLoc = new Label();
 		m_timer = new Timer();
-		InputStream f;
 		
 		LoadingList.setDeferredLoading(true);
 		try {
-			f = getClass().getResourceAsStream("/res/ui/KantoandJohto.png");
-			m_map = new Label(new Image(f, "/res/ui/KantoandJohto.png", false));
+			m_map = new Label(new Image("res/ui/KantoandJohto.png", false));
 		} catch (SlickException e) {}
 		LoadingList.setDeferredLoading(false);
 
@@ -92,11 +90,11 @@ public class TownMap extends Frame {
 		try {
 			BufferedReader reader;
 			try{
-				reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/res/language/" 
+				reader = new BufferedReader(new InputStreamReader(FileLoader.loadFile("res/language/" 
 						+ GameClient.getLanguage() + "/UI/_MAP.txt")));
 			} catch (Exception e){
-				reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(
-						"/res/language/english/UI/_MAP.txt")));
+				reader = new BufferedReader(new InputStreamReader(FileLoader.loadFile(
+						"res/language/english/UI/_MAP.txt")));
 			}
 			m_containers = new HashMap<String, Container>();
 			m_locations = new ArrayList<String>();

@@ -5,6 +5,7 @@ import java.io.InputStream;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
+import org.pokenet.client.backend.FileLoader;
 import org.pokenet.client.backend.entity.Enums.Poketype;
 
 public class OurPokemon extends Pokemon {
@@ -83,18 +84,17 @@ public class OurPokemon extends Pokemon {
 				gender = 0;
 
 			try {
-				path = "/res/pokemon/back/" + isShiny + index + "-"
+				path = "res/pokemon/back/" + isShiny + index + "-"
 						+ String.valueOf(gender) + ".png";
-				f = getClass().getResourceAsStream(path);
+				f = FileLoader.loadFile(path);
 				m_backSprite = new Image(f, path.toString(), false);
 			} catch (Exception e) {
 				if (gender == 3) {
-					path = "/res/pokemon/back/" + isShiny + index + "-1.png";
+					path = "res/pokemon/back/" + isShiny + index + "-1.png";
 				} else {
-					path = "/res/pokemon/back/" + isShiny + index + "-0.png";
+					path = "res/pokemon/back/" + isShiny + index + "-0.png";
 				}
-				f = getClass().getResourceAsStream(path);
-				m_backSprite = new Image(f, path.toString(), false);
+				m_backSprite = new Image(path.toString(), false);
 				e.printStackTrace();
 			}
 			LoadingList.setDeferredLoading(false);

@@ -1,6 +1,6 @@
 package org.pokenet.client;
 
-import java.io.InputStream;
+import java.io.File;
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 import java.util.ConcurrentModificationException;
@@ -84,7 +84,8 @@ public class GameClient extends BasicGame {
 	private TimeService m_time;
 	private Ui m_ui;
 	private Color m_daylight;
-	private static String m_language = "";
+	private static String m_language = "english";
+	private static boolean m_languageChosen = false;
 	private ConfirmationDialog m_confirm;
 	private PlayerPopupDialog m_playerDialog;
 	private MoveLearningManager m_moveLearningManager;
@@ -140,28 +141,17 @@ public class GameClient extends BasicGame {
 		gc.getGraphics().setWorldClip(-32, -32, 832, 832);
 		gc.setShowFPS(false);
 		m_display = new Display(gc);
-		InputStream f;
-		InputStream fi;
 		
 		/*
 		 * Setup variables
 		 */
-		f = getClass().getResourceAsStream("/res/fonts/dp.fnt");
-		fi = getClass().getResourceAsStream("/res/fonts/dp.png");
-		m_fontLarge = new AngelCodeFont("/res/fonts/dp.fnt", f, fi);
-		f = getClass().getResourceAsStream("/res/fonts/dp-small.fnt");
-		fi = getClass().getResourceAsStream("/res/fonts/dp-small.png");
-		m_fontSmall = new AngelCodeFont("/res/fonts/dp-small.fnt", f, fi);
+		m_fontLarge = new AngelCodeFont("res/fonts/dp.fnt","res/fonts/dp.png");
+		m_fontSmall = new AngelCodeFont("res/fonts/dp-small.fnt", "res/fonts/dp-small.png");
 		Player.loadSpriteFactory();
-		f = getClass().getResourceAsStream("/res/fonts/PokeFont.ttf");
 		try {
-			m_trueTypeFont = new TrueTypeFont(java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, f)
+			m_trueTypeFont = new TrueTypeFont(java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, new File("res/fonts/PokeFont.ttf"))
 					.deriveFont(java.awt.Font.PLAIN, 10), false);
 		} catch (Exception e) {e.printStackTrace(); m_trueTypeFont = m_fontSmall;}
-		try {
-			f.close();
-			fi.close();
-		} catch (Exception e) {e.printStackTrace();}
 		/*
 		 * Time/Weather Services
 		 */
@@ -222,7 +212,7 @@ public class GameClient extends BasicGame {
 		/*
 		 * Check if language was chosen.
 		 */
-		if(m_language != null && !m_language.equalsIgnoreCase("") && ((m_host != null && m_host.equalsIgnoreCase("")) || m_packetGen == null)){
+		if(m_language != null && !m_language.equalsIgnoreCase("") && m_languageChosen==true && ((m_host != null && m_host.equalsIgnoreCase("")) || m_packetGen == null)){
 			m_login.showServerSelect();
 		} else if(m_language == null || m_language.equalsIgnoreCase("")){
 			m_login.showLanguageSelect();
@@ -882,6 +872,7 @@ public class GameClient extends BasicGame {
      */
     public static String setLanguage(String lang) {
     	m_language = lang;
+    	m_languageChosen=true;
     	return m_language;
     }
     

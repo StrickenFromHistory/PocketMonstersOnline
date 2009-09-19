@@ -1,5 +1,6 @@
 package org.pokenet.client.ui;
 
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.BattleManager;
+import org.pokenet.client.backend.FileLoader;
 import org.pokenet.client.backend.MoveLearningManager;
 import org.pokenet.client.ui.base.BattleButtonFactory;
 import org.pokenet.client.ui.base.ConfirmationDialog;
@@ -40,7 +42,7 @@ public class MoveLearning extends Frame {
 	private MoveLearnCanvas m_canvas;
 
 	// Image Loading tools
-	final String m_path = "/res/battle/";
+	final String m_path = "res/battle/";
 	InputStream f;
 	
 	/**
@@ -70,9 +72,11 @@ public class MoveLearning extends Frame {
 		// FALSE = Evolution
 		m_bg = new Label();
 		try {
-			f = getClass().getResourceAsStream("/res/ui/bg.png");
-			m_bg = new Label(new Image(f, "/res/ui", false));
+			f = FileLoader.loadFile("res/ui/bg.png");
+			m_bg = new Label(new Image(f, "res/ui", false));
 		} catch (SlickException e) {
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		m_bg.setSize(256, 203);
@@ -273,7 +277,7 @@ class MoveLearnCanvas extends Container {
 		// Background?
 		/*LoadingList.setDeferredLoading(true);
 		try {
-			bg = new Label(new Image("/res/ui/DP_darkgrass.png"));
+			bg = new Label(new Image("res/ui/DP_darkgrass.png"));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}

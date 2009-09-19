@@ -9,16 +9,12 @@ import org.pokenet.client.GameClient;
 public class BattleButtonFactory {
     static {
     	try {
-    		final String path = "/res/ui/";
+    		final String path = "res/ui/";
 
-    		normal = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button.png"), 
-    				path + "button.png", false);
-    		normalDown = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button_pressed.png"),
-    				path + "button_pressed.png", false);
-    		small = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button_small.png"), 
-    				path + "button_small.png", false);
-    		smallDown = new Image(BattleButtonFactory.class.getResourceAsStream(path + "button_small_pressed.png"),
-    				path + "button_small_pressed.png", false);
+    		normal = new Image(	path + "button.png", false);
+    		normalDown = new Image(path + "button_pressed.png", false);
+    		small = new Image(path + "button_small.png", false);
+    		smallDown = new Image(path + "button_small_pressed.png", false);
     		
     		font = GameClient.getFontSmall();
     	} catch (SlickException e) {
