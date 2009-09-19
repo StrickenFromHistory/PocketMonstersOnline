@@ -42,12 +42,11 @@ public class ClientMap extends TiledMap {
 	 * @param tileSetsLocation
 	 * @throws SlickException
 	 */
-	public ClientMap(InputStream f, String tileSetsLocation)
+	public ClientMap(String tileSetsLocation)
 			throws SlickException {
-		super(f, tileSetsLocation);
+		super(tileSetsLocation);
 		try {
-			f = getClass().getResourceAsStream("/res/ui/grass_overlay.png");
-			m_grassOverlay = new Image(f, "/res/ui/grass_overlay.png", false);
+			m_grassOverlay = new Image("res/ui/grass_overlay.png", false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

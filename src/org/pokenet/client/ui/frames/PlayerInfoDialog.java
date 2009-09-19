@@ -187,14 +187,12 @@ public class PlayerInfoDialog extends Frame {
 	 * Loads the status icons
 	 */
 	public void loadImages() {
-		String m_path = "/res/badges/";
+		String m_path = "res/badges/";
 		// Kanto Badges
 		for (int i = 0; i < 8; i++) {
 			try {
 				// KANTO
-				m_kanto[i] = new Label(new Image(getClass()
-						.getResourceAsStream(
-								m_path + "kanto" + (i + 1) + ".png"), m_path
+				m_kanto[i] = new Label(new Image(m_path
 						+ "kanto" + (i + 1) + ".png", false));
 				m_kanto[i].setSize(18, 18);
 				m_kanto[i].setX(maxLblWidth + (20 * i));
@@ -203,9 +201,7 @@ public class PlayerInfoDialog extends Frame {
 				getContentPane().add(m_kanto[i]);
 
 				// JOHTO
-				m_johto[i] = new Label(new Image(getClass()
-						.getResourceAsStream(
-								m_path + "johto" + (i + 1) + ".png"), m_path
+				m_johto[i] = new Label(new Image(m_path
 						+ "johto" + (i + 1) + ".png", false));
 				m_johto[i].setSize(18, 18);
 				m_johto[i].setX(2 + maxLblWidth + (20 * i));
@@ -214,10 +210,7 @@ public class PlayerInfoDialog extends Frame {
 
 				// HOENN
 				if (ALL_REGIONS) {
-					m_hoenn[i] = new Label(new Image(getClass()
-							.getResourceAsStream(
-									m_path + "hoenn" + (i + 1) + ".png"),
-							m_path + "hoenn" + (i + 1) + ".png", false));
+					m_hoenn[i] = new Label(new Image(m_path + "hoenn" + (i + 1) + ".png", false));
 					m_hoenn[i].setSize(18, 18);
 					m_hoenn[i].setX(2 + maxLblWidth + (20 * i));
 					m_hoenn[i].setY(2 + m_johto[i].getY()
@@ -226,10 +219,7 @@ public class PlayerInfoDialog extends Frame {
 				}
 				// SINNOH
 				if (ALL_REGIONS) {
-					m_sinnoh[i] = new Label(new Image(getClass()
-							.getResourceAsStream(
-									m_path + "sinnoh" + (i + 1) + ".png"),
-							m_path + "sinnoh" + (i + 1) + ".png", false));
+					m_sinnoh[i] = new Label(new Image(m_path + "sinnoh" + (i + 1) + ".png", false));
 					m_sinnoh[i].setSize(18, 18);
 					m_sinnoh[i].setX(2 + maxLblWidth + (20 * i));
 					m_sinnoh[i].setY(2 + m_hoenn[i].getY()
@@ -239,10 +229,7 @@ public class PlayerInfoDialog extends Frame {
 				// ORANGE ISLANDS
 				if (ALL_REGIONS) {
 					if (i < 4) {
-						m_orange[i] = new Label(new Image(getClass()
-								.getResourceAsStream(
-										m_path + "orange" + (i + 1) + ".png"),
-								m_path + "orange" + (i + 1) + ".png", false));
+						m_orange[i] = new Label(new Image(m_path + "orange" + (i + 1) + ".png", false));
 						m_orange[i].setSize(18, 18);
 						m_orange[i].setX(2 + maxLblWidth + (20 * i));
 						m_orange[i].setY(2 + m_sinnoh[i].getY()
@@ -253,10 +240,7 @@ public class PlayerInfoDialog extends Frame {
 				// Extra badges ???
 				if (ALL_REGIONS) {
 					if (i < 6) {
-						m_extras[i] = new Label(new Image(getClass()
-								.getResourceAsStream(
-										m_path + "extra" + (i + 1) + ".png"),
-								m_path + "extra" + (i + 1) + ".png", false));
+						m_extras[i] = new Label(new Image(m_path + "extra" + (i + 1) + ".png", false));
 						m_extras[i].setSize(18, 18);
 						m_extras[i].setX(2 + maxLblWidth + (20 * i));
 						m_extras[i].setY(2 + m_orange[i].getY()

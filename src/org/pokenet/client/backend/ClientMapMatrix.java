@@ -1,6 +1,7 @@
 package org.pokenet.client.backend;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,27 +44,34 @@ public class ClientMapMatrix {
 	 * @param y Map's Y within the map matrix
 	 */
 	public void loadMap (int mapX, int mapY, int x, int y){
-		InputStream f = FileLoader.loadFile("/res/maps/" + (mapX) + "." + (mapY) + ".tmx");
-		if(f != null) {
-			try {
-				m_mapMatrix[x][y] = new ClientMap(f,"res/maps");
-				m_mapMatrix[x][y].setMapMatrix(this);
-				m_mapMatrix[x][y].setMapX(x);
-				m_mapMatrix[x][y].setMapY(y);
-				m_mapMatrix[x][y].m_x = mapX + x;
-				m_mapMatrix[x][y].m_y = mapY + y;
-				m_mapMatrix[x][y].setCurrent(x == 1 && y == 1);
-				System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
-						"to MapMatrix[" + x + "][" + y + "] " + m_mapMatrix[x][y].isCurrent());
-				m_mapMatrix[x][y].setName(getMapName(mapX, mapY));
-			} catch (Exception e) {
+		
+		try {
+			InputStream f = FileLoader.loadFile("res/maps/" + (mapX) + "." + (mapY) + ".tmx");
+			if(f != null) {
+				try {
+					m_mapMatrix[x][y] = new ClientMap("res/maps");
+					m_mapMatrix[x][y].setMapMatrix(this);
+					m_mapMatrix[x][y].setMapX(x);
+					m_mapMatrix[x][y].setMapY(y);
+					m_mapMatrix[x][y].m_x = mapX + x;
+					m_mapMatrix[x][y].m_y = mapY + y;
+					m_mapMatrix[x][y].setCurrent(x == 1 && y == 1);
+					System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
+							"to MapMatrix[" + x + "][" + y + "] " + m_mapMatrix[x][y].isCurrent());
+					m_mapMatrix[x][y].setName(getMapName(mapX, mapY));
+				} catch (Exception e) {
+					m_mapMatrix[x][y] = null;
+					System.out.println((mapX + x) + "." + (mapY + y) + ".tmx could not be loaded");
+				}
+			} else {
 				m_mapMatrix[x][y] = null;
 				System.out.println((mapX + x) + "." + (mapY + y) + ".tmx could not be loaded");
 			}
-		} else {
+		} catch (FileNotFoundException e1) {
 			m_mapMatrix[x][y] = null;
-			System.out.println((mapX + x) + "." + (mapY + y) + ".tmx could not be loaded");
+			System.out.println("File not found: "+(mapX + x) + "." + (mapY + y) + ".tmx");
 		}
+		
 	}
 
 	/**
@@ -200,7 +208,7 @@ public class ClientMapMatrix {
 			m_speech.clear();
 		try {
 			try {
-				BufferedReader reader = FileLoader.loadTextFile("/res/language/" + GameClient.getLanguage()
+				BufferedReader reader = FileLoader.loadTextFile("res/language/" + GameClient.getLanguage()
 						+ "/NPC/" + mapX + "." + mapY + ".txt");
 				String line;
 				while((line = reader.readLine()) != null) {
@@ -208,7 +216,7 @@ public class ClientMapMatrix {
 				}
 			} catch (NullPointerException e) { //In case of emergencies, load english!
 				try{
-					BufferedReader reader = FileLoader.loadTextFile("/res/language/english/NPC/" + mapX + "."
+					BufferedReader reader = FileLoader.loadTextFile("res/language/english/NPC/" + mapX + "."
 							+ mapY + ".txt");
 							
 					String line;
@@ -314,10 +322,10 @@ public class ClientMapMatrix {
 		try {
 			BufferedReader reader;
 			try{
-				reader = FileLoader.loadTextFile("/res/language/" + GameClient.getLanguage()
+				reader = FileLoader.loadTextFile("res/language/" + GameClient.getLanguage()
 						+ "/_MAPNAMES.txt");
 			} catch (Exception e){
-				reader = FileLoader.loadTextFile("/res/language/english/_MAPNAMES.txt");
+				reader = FileLoader.loadTextFile("res/language/english/_MAPNAMES.txt");
 			}
 			
 			String f;

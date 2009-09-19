@@ -13,6 +13,7 @@ import mdes.slick.sui.event.ActionListener;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.FileLoader;
 import org.pokenet.client.backend.entity.PlayerItem;
 
 /**
@@ -102,8 +103,8 @@ public abstract class BagDialog extends Container {
         		try {
         			m_itemIcon[i] = new Label();
             		m_itemIcon[i].setSize(32, 32);
-            		f = getClass().getResourceAsStream("/res/items/24/" + m_items.get(i).getNumber() + ".png");
-        			m_itemIcon[i].setImage(new Image(f, "./res/items/24/" + m_items.get(i).getNumber() + ".png", false));
+            		f = FileLoader.loadFile("res/items/24/" + m_items.get(i).getNumber() + ".png");
+        			m_itemIcon[i].setImage(new Image(f, "res/items/24/" + m_items.get(i).getNumber() + ".png", false));
         			m_itemIcon[i].setGlassPane(true);
 					m_itemButtons[i].add(m_itemIcon[i]);
 				} catch (Exception e1) {

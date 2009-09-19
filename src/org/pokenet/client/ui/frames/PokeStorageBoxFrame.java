@@ -1,5 +1,6 @@
 package org.pokenet.client.ui.frames;
 
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import mdes.slick.sui.Button;
@@ -16,6 +17,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.FileLoader;
 import org.pokenet.client.backend.entity.Pokemon;
 import org.pokenet.client.ui.base.ComboBox;
 import org.pokenet.client.ui.base.ProgressBar;
@@ -68,12 +70,14 @@ public class PokeStorageBoxFrame extends Frame {
 			m_buttons[i].setImage(null);
 			try {
 				if(m_pokeNums[i] >= 0) {
-					f = getClass().getResourceAsStream(Pokemon
+					f = FileLoader.loadFile(Pokemon
 							.getIconPathByIndex(m_pokeNums[i] + 1));
 					m_buttons[i].setImage(new Image(f, "boxPoke" + i + " " + Pokemon
 							.getIconPathByIndex(m_pokeNums[i] + 1), false));
 				}
 			} catch (SlickException e) {
+				e.printStackTrace();
+			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
 		}

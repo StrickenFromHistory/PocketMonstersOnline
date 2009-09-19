@@ -1,6 +1,5 @@
 package org.pokenet.client.backend;
 
-import java.io.InputStream;
 import java.util.HashMap;
 
 import org.newdawn.slick.Image;
@@ -71,18 +70,15 @@ public class SpriteFactory {
 	public SpriteFactory() {
 		spriteSheets = new HashMap<Integer, SpriteSheet>();	
 		try {
-			InputStream f;
 			String location;
 			
-			f = FileLoader.loadFile("/res/characters");
 			/*
-			 * WARNING: Change 219 to the amount of sprites we have in client
+			 * WARNING: Change 224 to the amount of sprites we have in client
 			 */
-			for(int i = -5; i < 219; i++) {
+			for(int i = -5; i < 224; i++) {
 				try {
-					location = "/res/characters/" + String.valueOf(i) + ".png";
-					f = FileLoader.loadFile(location);
-					spriteSheets.put(i, new SpriteSheet(location, f, 41, 51));
+					location = "res/characters/" + String.valueOf(i) + ".png";
+					spriteSheets.put(i, new SpriteSheet(new Image(location), 41, 51));
 				} catch (Exception e) {}
 			}
 		} catch (Exception e) { 

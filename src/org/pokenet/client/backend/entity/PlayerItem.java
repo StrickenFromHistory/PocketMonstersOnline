@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.loading.LoadingList;
+import org.pokenet.client.backend.FileLoader;
 import org.pokenet.client.backend.ItemDatabase;
 
 public class PlayerItem {
@@ -28,19 +29,19 @@ public class PlayerItem {
             	InputStream f;
             	LoadingList.setDeferredLoading(true);
             	if (m_item.getCategory().equalsIgnoreCase("TM")){
-            		f = getClass().getResourceAsStream("/res/items/48/TM.png");
+            		f = FileLoader.loadFile("res/items/48/TM.png");
             	} else {
-            		f = getClass().getResourceAsStream("/res/items/48/" + m_item.getId() + ".png");
+            		f = FileLoader.loadFile("res/items/48/" + m_item.getId() + ".png");
             	}
-            	m_bagImage = new Image(f, "/res/items/48/" + m_item.getId() + ".png", false);
+            	m_bagImage = new Image(f, "res/items/48/" + m_item.getId() + ".png", false);
             	LoadingList.setDeferredLoading(false);
             	
             } catch (Exception e){
             	try {
             	InputStream f;
             	LoadingList.setDeferredLoading(true);
-            	f = getClass().getResourceAsStream("/res/items/48/0.png");
-            	m_bagImage = new Image(f, "/res/items/48/0.png", false);
+            	f = FileLoader.loadFile("res/items/48/0.png");
+            	m_bagImage = new Image(f, "res/items/48/0.png", false);
             	LoadingList.setDeferredLoading(false);
             	} catch (Exception e2){
             		e2.printStackTrace();

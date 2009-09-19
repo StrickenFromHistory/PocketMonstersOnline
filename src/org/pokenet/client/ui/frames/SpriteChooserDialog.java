@@ -1,5 +1,6 @@
 package org.pokenet.client.ui.frames;
 
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.gui.GUIContext;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.FileLoader;
 import org.pokenet.client.ui.base.ConfirmationDialog;
 import org.pokenet.client.ui.base.ListBox;
 
@@ -36,35 +38,42 @@ public class SpriteChooserDialog extends Frame {
 		/*
 		 * Handle blocked sprites
 		 */
-		InputStream in = getClass().getResourceAsStream("/res/characters/sprites.txt");
-		Scanner s = new Scanner(in);
-		while(s.hasNextLine()) {
-			m_sprites.remove(s.nextLine());
-		}
-		s.close();
 		
-		m_spriteDisplay = new Label();
-		m_spriteDisplay.setSize(124, 204);
-		m_spriteDisplay.setLocation(105, 20);
-		getContentPane().add(m_spriteDisplay);
-
-		m_spriteList = new ListBox(m_sprites, false) {
-			@Override
-			protected void itemClicked(String itemName, int idx) {
-				super.itemClicked(itemName, idx);
-				m_mustLoadSprite = "/res/characters/" + itemName + ".png";
+		try {
+			InputStream in;
+			in = FileLoader.loadFile("res/characters/sprites.txt");
+			Scanner s = new Scanner(in);
+			while(s.hasNextLine()) {
+				m_sprites.remove(s.nextLine());
 			}
-		};
-		m_spriteList.setSize(105, 317);
-		getContentPane().add(m_spriteList);
+			s.close();
+			
+			m_spriteDisplay = new Label();
+			m_spriteDisplay.setSize(124, 204);
+			m_spriteDisplay.setLocation(105, 20);
+			getContentPane().add(m_spriteDisplay);
 
-		setTitle("Please choose your character..");
-		getCloseButton().setVisible(false);
-		setSize(265, 340);
-		setResizable(false);
-		setDraggable(false);
-		setVisible(true);
-		initUse();
+			m_spriteList = new ListBox(m_sprites, false) {
+				@Override
+				protected void itemClicked(String itemName, int idx) {
+					super.itemClicked(itemName, idx);
+					m_mustLoadSprite = "res/characters/" + itemName + ".png";
+				}
+			};
+			m_spriteList.setSize(105, 317);
+			getContentPane().add(m_spriteList);
+
+			setTitle("Please choose your character..");
+			getCloseButton().setVisible(false);
+			setSize(265, 340);
+			setResizable(false);
+			setDraggable(false);
+			setVisible(true);
+			initUse();
+		} catch (FileNotFoundException e) {
+			//No sprites to handle. 
+		}
+		
 	}
 
 	public void initUse() {
@@ -121,9 +130,11 @@ public class SpriteChooserDialog extends Frame {
 		super.render(container, g);
 		if (m_mustLoadSprite != null) {
 			try {
-				m_stream = getClass().getResourceAsStream(m_mustLoadSprite);
+				m_stream = FileLoader.loadFile(m_mustLoadSprite);
 				m_spriteDisplay.setImage(new Image(m_stream, m_mustLoadSprite, false));
 			} catch (SlickException e) {
+				e.printStackTrace();
+			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
 			m_mustLoadSprite = null;

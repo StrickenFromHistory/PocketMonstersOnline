@@ -1,5 +1,6 @@
 package org.pokenet.client.ui;
 
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +19,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.BattleManager;
+import org.pokenet.client.backend.FileLoader;
 import org.pokenet.client.ui.base.BattleButtonFactory;
 import org.pokenet.client.ui.frames.BattleBag;
 
@@ -63,7 +65,7 @@ public class BattleWindow extends Frame {
 	public HashMap<String, Image> m_statusIcons = new HashMap<String, Image>();
 	
 	// Image Loading tools
-	final String m_path = "/res/battle/";
+	final String m_path = "res/battle/";
 	InputStream f;
 	
 	/**
@@ -88,20 +90,15 @@ public class BattleWindow extends Frame {
 	public void loadStatusIcons(){
 		LoadingList.setDeferredLoading(true);
 		try{
-			m_statusIcons.put("Poison", new Image(getClass().getResourceAsStream(m_path + "PSN" + ".png")
-					, m_path, false));
+			m_statusIcons.put("Poison", new Image(m_path + "PSN" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Sleep", new Image(getClass().getResourceAsStream(m_path + "SLP" + ".png")
-					, m_path, false));
+			m_statusIcons.put("Sleep", new Image(m_path + "SLP" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Freze", new Image(getClass().getResourceAsStream(m_path + "FRZ" + ".png")
-					, m_path, false));
+			m_statusIcons.put("Freze", new Image(m_path + "FRZ" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Burn", new Image(getClass().getResourceAsStream(m_path + "BRN" + ".png")
-					, m_path, false));
+			m_statusIcons.put("Burn", new Image(m_path + "BRN" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();} try{
-			m_statusIcons.put("Paralysis", new Image(getClass().getResourceAsStream(m_path + "PAR" + ".png")
-					, m_path, false));
+			m_statusIcons.put("Paralysis", new Image(m_path + "PAR" + ".png", false));
 		} catch (SlickException e) {e.printStackTrace();}
 		LoadingList.setDeferredLoading(false);
 	}
@@ -169,9 +166,11 @@ public class BattleWindow extends Frame {
 		this.setBackground(new Color(0, 0, 0, 0));
 		Label bg = new Label();
 		try {
-			f = getClass().getResourceAsStream("/res/ui/bg.png");
-			bg = new Label(new Image(f, "/res/ui/bg.png", false));
+			f = FileLoader.loadFile("res/ui/bg.png");
+			bg = new Label(new Image(f, "res/ui/bg.png", false));
 		} catch (SlickException e) {
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		bg.setSize(256, 203);
