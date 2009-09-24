@@ -46,30 +46,34 @@ public class ClientMapMatrix {
 	public void loadMap (int mapX, int mapY, int x, int y){
 		
 		try {
+			System.out.println("Map: " + x + ", " + y);
 			InputStream f = FileLoader.loadFile("res/maps/" + (mapX) + "." + (mapY) + ".tmx");
 			if(f != null) {
 				try {
-					m_mapMatrix[x][y] = new ClientMap("res/maps");
+					System.out.println("Loading Map...");
+					m_mapMatrix[x][y] = new ClientMap("res/maps/"+(mapX)+"."+(mapY)+".tmx");
+					if(m_mapMatrix[x][y]==null) System.out.println("Client Map is null");
 					m_mapMatrix[x][y].setMapMatrix(this);
+					System.out.println("MapMatrix is set");
 					m_mapMatrix[x][y].setMapX(x);
 					m_mapMatrix[x][y].setMapY(y);
 					m_mapMatrix[x][y].m_x = mapX + x;
 					m_mapMatrix[x][y].m_y = mapY + y;
 					m_mapMatrix[x][y].setCurrent(x == 1 && y == 1);
-					System.out.println((mapX + x) + "." + (mapY + y) + ".tmx loaded " +
+					System.out.println((mapX) + "." + (mapY) + ".tmx loaded " +
 							"to MapMatrix[" + x + "][" + y + "] " + m_mapMatrix[x][y].isCurrent());
 					m_mapMatrix[x][y].setName(getMapName(mapX, mapY));
 				} catch (Exception e) {
 					m_mapMatrix[x][y] = null;
-					System.out.println((mapX + x) + "." + (mapY + y) + ".tmx could not be loaded");
+					System.out.println((mapX) + "." + (mapY) + ".tmx could not be loaded");
 				}
 			} else {
 				m_mapMatrix[x][y] = null;
-				System.out.println((mapX + x) + "." + (mapY + y) + ".tmx could not be loaded");
+				System.out.println((mapX) + "." + (mapY) + ".tmx could not be loaded");
 			}
 		} catch (FileNotFoundException e1) {
 			m_mapMatrix[x][y] = null;
-			System.out.println("File not found: "+(mapX + x) + "." + (mapY + y) + ".tmx");
+			System.out.println("File not found: "+(mapX) + "." + (mapY) + ".tmx");
 		}
 		
 	}

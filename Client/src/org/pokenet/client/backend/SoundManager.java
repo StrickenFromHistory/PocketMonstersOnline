@@ -82,11 +82,10 @@ public class SoundManager extends Thread{
 		Audio a;
 		for (String key : m_fileList.keySet()){
 			try {
-				a = AudioLoader.getAudio("OGG", FileLoader.loadFile("/" + m_audioPath.substring(1) + m_fileList.get(key)));
+				a = AudioLoader.getAudio("OGG", FileLoader.loadFile(m_audioPath + m_fileList.get(key)));
 				/* For some reason it reads intro and gym wrong so do this to fix it */
 				if(key.endsWith("introandgym"))
 					key = "introandgym";
-				System.out.println("/" + m_audioPath.substring(1) + m_fileList.get(key));
 				m_files.put(key, (AudioImpl) a);
 			} catch (Exception e) {e.printStackTrace();}
 		}
