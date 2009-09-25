@@ -31,13 +31,13 @@ import org.pokenet.client.ui.base.ImageButton;
  */
 public class BigBagDialog extends Frame {
 	protected ImageButton[] m_categoryButtons;
-	protected ArrayList<Button> m_itemBtns = new ArrayList<Button>();
-	protected ArrayList<Label> m_stockLabels = new ArrayList<Label>();
+	protected ArrayList<Button> m_itemBtns;
+	protected ArrayList<Label> m_stockLabels;
 	protected Button m_leftButton, m_rightButton, m_cancel;
 	protected ItemPopup m_popup;
 
-	private HashMap<Integer, ArrayList<PlayerItem>> m_items = new HashMap<Integer, ArrayList<PlayerItem>>();
-	private HashMap<Integer, Integer> m_scrollIndex = new HashMap<Integer, Integer>();
+	private HashMap<Integer, ArrayList<PlayerItem>> m_items;
+	private HashMap<Integer, Integer> m_scrollIndex;
 	protected int m_curCategory = 0;
 	protected boolean m_update = false;
 
@@ -46,7 +46,11 @@ public class BigBagDialog extends Frame {
 		getContentPane().setY(getContentPane().getY() + 1);
 		setCenter();
 		initGUI();
-
+		loadItems();
+	}
+	
+	private void loadItems()
+	{
 		// Load the player's items and sort them by category
 		for (PlayerItem item : GameClient.getInstance().getOurPlayer().getItems()) {
 			// Field items
@@ -75,6 +79,7 @@ public class BigBagDialog extends Frame {
 		}
 		m_update = true;
 	}
+	
 	
 	/**
 	 * Adds an item to the bag
@@ -120,6 +125,9 @@ public class BigBagDialog extends Frame {
 	 * @param amount
 	 */
 	public void removeItem(int id, boolean remove) {
+		/* The remove variable indicates that this is the last of the item, and it should be
+		 * removed from the inventory 
+		 */
 		if (remove) {
 			for (PlayerItem item : GameClient.getInstance().getOurPlayer().getItems()){
 				if (item.getNumber() == id){
@@ -135,7 +143,7 @@ public class BigBagDialog extends Frame {
 						m_items.get(1).remove(item);
 					}
 					// Berries and food
-					else if (item.	getItem().getCategory().equalsIgnoreCase("Food")) {
+					else if (item.getItem().getCategory().equalsIgnoreCase("Food")) {
 						m_items.get(2).remove(item);
 
 					}
@@ -149,6 +157,15 @@ public class BigBagDialog extends Frame {
 					}
 				}
 			}
+			/* There is probably a better way to do the code below, but what essentially
+			 * occurs is a re-initialization of the bag screen. Then the category is set back
+			 * to the previous category. The affect this has for the user is, the item is
+			 * instantly removed from the players bag screen when the last of the item is used.
+			 */
+			int tmpCurCategory = m_curCategory;
+			initGUI();
+			loadItems();
+			m_curCategory = tmpCurCategory;
 		}
 		m_update = true;
 	}
@@ -157,31 +174,39 @@ public class BigBagDialog extends Frame {
 	 * Initializes the interface
 	 */
 	public void initGUI() {
+		/* Does this cause a memory leak in JAVA if called more than once?
+		 * If so does java have a delete keyword?  
+		 */
+		m_items = new HashMap<Integer, ArrayList<PlayerItem>>();
+		m_scrollIndex = new HashMap<Integer, Integer>();
+		m_itemBtns = new ArrayList<Button>();
+		m_stockLabels = new ArrayList<Label>();
 		m_categoryButtons = new ImageButton[5];
-
-		for (int i = 0; i < m_categoryButtons.length; i++) {
-			final int j = i;
-			try {
-				Image[] bagcat = new Image[] {
-						new Image(FileLoader.loadFile("res/ui/bag/bag_normal.png"), "res/ui/bag/bag_normal.png", false),
-						new Image(FileLoader.loadFile("res/ui/bag/bag_hover.png"), "res/ui/bag/bag_hover.png", false),
-						new Image(FileLoader.loadFile("res/ui/bag/bag_pressed.png"), "res/ui/bag/bag_pressed.png", false)};
-				Image[] potioncat = new Image[] {
-						new Image(FileLoader.loadFile("res/ui/bag/potions_normal.png"), "res/ui/bag/potions_normal.png", false),
-						new Image(FileLoader.loadFile("res/ui/bag/potions_hover.png"), "res/ui/bag/potions_hover.png", false),
-						new Image(FileLoader.loadFile("res/ui/bag/potions_pressed.png"), "res/ui/bag/potions_pressed.png", false) };
-				Image[] berriescat = new Image[] {
-						new Image(FileLoader.loadFile("res/ui/bag/berries_normal.png"), "res/ui/bag/berries_normal.png", false),
-						new Image(FileLoader.loadFile("res/ui/bag/berries_hover.png"), "res/ui/bag/berries_hover.png", false),
-						new Image(FileLoader.loadFile("res/ui/bag/berries_pressed.png"), "res/ui/bag/berries_pressed.png", false)};
-				Image[] pokecat = new Image[] {
-						new Image(FileLoader.loadFile("res/ui/bag/pokeballs_normal.png"), "res/ui/bag/pokeballs_normal.png", false),
-						new Image(FileLoader.loadFile("res/ui/bag/pokeballs_hover.png"), "res/ui/bag/pokeballs_hover.png", false),
-						new Image(FileLoader.loadFile("res/ui/bag/pokeballs_pressed.png"), "res/ui/bag/pokeballs_pressed.png", false) };
-				Image[] tmscat = new Image[] {
-						new Image(FileLoader.loadFile("res/ui/bag/tms_normal.png"), "res/ui/bag/tms_normal.png", false),
-						new Image(FileLoader.loadFile("res/ui/bag/tms_hover.png"), "res/ui/bag/tms_hover.png", false),
-						new Image(FileLoader.loadFile("res/ui/bag/tms_pressed.png"), "res/ui/bag/tms_pressed.png", false) };
+		//remove any existing Bag gui content
+		getContentPane().removeAll();
+		try {
+			Image[] bagcat = new Image[] {
+					new Image(FileLoader.loadFile("res/ui/bag/bag_normal.png"), "res/ui/bag/bag_normal.png", false),
+					new Image(FileLoader.loadFile("res/ui/bag/bag_hover.png"), "res/ui/bag/bag_hover.png", false),
+					new Image(FileLoader.loadFile("res/ui/bag/bag_pressed.png"), "res/ui/bag/bag_pressed.png", false)};
+			Image[] potioncat = new Image[] {
+					new Image(FileLoader.loadFile("res/ui/bag/potions_normal.png"), "res/ui/bag/potions_normal.png", false),
+					new Image(FileLoader.loadFile("res/ui/bag/potions_hover.png"), "res/ui/bag/potions_hover.png", false),
+					new Image(FileLoader.loadFile("res/ui/bag/potions_pressed.png"), "res/ui/bag/potions_pressed.png", false) };
+			Image[] berriescat = new Image[] {
+					new Image(FileLoader.loadFile("res/ui/bag/berries_normal.png"), "res/ui/bag/berries_normal.png", false),
+					new Image(FileLoader.loadFile("res/ui/bag/berries_hover.png"), "res/ui/bag/berries_hover.png", false),
+					new Image(FileLoader.loadFile("res/ui/bag/berries_pressed.png"), "res/ui/bag/berries_pressed.png", false)};
+			Image[] pokecat = new Image[] {
+					new Image(FileLoader.loadFile("res/ui/bag/pokeballs_normal.png"), "res/ui/bag/pokeballs_normal.png", false),
+					new Image(FileLoader.loadFile("res/ui/bag/pokeballs_hover.png"), "res/ui/bag/pokeballs_hover.png", false),
+					new Image(FileLoader.loadFile("res/ui/bag/pokeballs_pressed.png"), "res/ui/bag/pokeballs_pressed.png", false) };
+			Image[] tmscat = new Image[] {
+					new Image(FileLoader.loadFile("res/ui/bag/tms_normal.png"), "res/ui/bag/tms_normal.png", false),
+					new Image(FileLoader.loadFile("res/ui/bag/tms_hover.png"), "res/ui/bag/tms_hover.png", false),
+					new Image(FileLoader.loadFile("res/ui/bag/tms_pressed.png"), "res/ui/bag/tms_pressed.png", false) };
+			for (int i = 0; i < m_categoryButtons.length; i++) {
+				final int j = i;
 
 				switch (i) {
 				case 0:
@@ -208,27 +233,26 @@ public class BigBagDialog extends Frame {
 
 				m_items.put(i, new ArrayList<PlayerItem>());
 				m_scrollIndex.put(i, 0);
-			} catch (Exception e) {
-				e.printStackTrace();
+				m_categoryButtons[i].setSize(40, 40);
+				if (i == 0)
+					m_categoryButtons[i].setLocation(80, 10);
+				else
+					m_categoryButtons[i].setLocation(m_categoryButtons[i - 1]
+							.getX() + 65, 10);
+				m_categoryButtons[i].setFont(GameClient.getFontLarge());
+				m_categoryButtons[i].setOpaque(false);
+				m_categoryButtons[i].addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						destroyPopup();
+						m_curCategory = j;
+						m_update = true;
+					}
+				});
+				getContentPane().add(m_categoryButtons[i]);
 			}
-			m_categoryButtons[i].setSize(40, 40);
-			if (i == 0)
-				m_categoryButtons[i].setLocation(80, 10);
-			else
-				m_categoryButtons[i].setLocation(m_categoryButtons[i - 1]
-						.getX() + 65, 10);
-			m_categoryButtons[i].setFont(GameClient.getFontLarge());
-			m_categoryButtons[i].setOpaque(false);
-			m_categoryButtons[i].addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					destroyPopup();
-					m_curCategory = j;
-					m_update = true;
-				}
-			});
-			getContentPane().add(m_categoryButtons[i]);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
 		// Bag Image
 		Label bagicon = new Label("");
 		bagicon.setSize(40, 40);
@@ -363,6 +387,7 @@ public class BigBagDialog extends Frame {
 				m_rightButton.setEnabled(true);
 			
 			// Update items and stocks
+			System.out.println("Looping through items to display");
 			for (int i = 0; i < 5; i++) {
 				try {
 					m_itemBtns.get(i).setName(
