@@ -149,8 +149,11 @@ public class GameClient extends BasicGame {
 		m_fontSmall = new AngelCodeFont("res/fonts/dp-small.fnt", "res/fonts/dp-small.png");
 		Player.loadSpriteFactory();
 		try {
+			/*DOES NOT WORK YET!!!
+			 */
 			m_trueTypeFont = new TrueTypeFont(java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, new File("res/fonts/PokeFont.ttf"))
 					.deriveFont(java.awt.Font.PLAIN, 10), false);
+			//m_trueTypeFont = m_fontSmall;
 		} catch (Exception e) {e.printStackTrace(); m_trueTypeFont = m_fontSmall;}
 		/*
 		 * Time/Weather Services
@@ -418,6 +421,7 @@ public class GameClient extends BasicGame {
 		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() &&
 				!m_ui.getChat().isActive() && !getDisplay().containsChild(MoveLearningManager.getInstance()
 						.getMoveLearning()) && !getDisplay().containsChild(getUi().getShop())) {
+			System.out.println("Space Bar hit!");
 			if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
 					.getBattleWindow()) ){
 				m_packetGen.writeTcpMessage("Ct");
@@ -539,6 +543,22 @@ public class GameClient extends BasicGame {
         	if(getDisplay().containsChild(m_ui.getChat())){
         		m_ui.getChat().dropFocus();
         	}
+        	if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
+					.getBattleWindow()) ){
+				m_packetGen.writeTcpMessage("Ct");
+			}
+			if (getDisplay().containsChild(BattleManager.getInstance().getBattleWindow()) && 
+					 getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
+					 && !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
+				BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
+			} else{
+				try {
+					m_ui.getNPCSpeech().advance();
+				} catch (Exception e) { 
+					m_ui.nullSpeechFrame();
+//					m_packetGen.write("F"); 
+				}
+			}
         }
 	}
 

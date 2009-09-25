@@ -18,6 +18,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
+
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.FileLoader;
 import org.pokenet.client.backend.Translator;
@@ -31,15 +32,15 @@ import org.pokenet.client.ui.base.ProgressBar;
  */
 @SuppressWarnings("deprecation")
 public class PartyInfoDialog extends Frame {
-	Container[] m_container = new Container[6];
-	Label[] m_pokeBall = new Label[6];
-	Label[] m_hpBar = new Label[6];
-	Label[] m_pokeIcon = new Label[6];
-	Label[] m_pokeName = new Label[6];
-	Label[] m_level = new Label[6];
-	ProgressBar[] m_hp = new ProgressBar[6];
-	Button[] m_switchUp = new Button[6];
-	Button[] m_switchDown = new Button[6];
+	Container[] m_container;
+	Label[] m_pokeBall;
+	Label[] m_hpBar;
+	Label[] m_pokeIcon;
+	Label[] m_pokeName;
+	Label[] m_level;
+	ProgressBar[] m_hp;
+	Button[] m_switchUp;
+	Button[] m_switchDown;
 
 	OurPokemon[] m_pokes;
 
@@ -51,8 +52,27 @@ public class PartyInfoDialog extends Frame {
 	 */
 	public PartyInfoDialog(OurPokemon[] ourPokes) {
 		m_pokes = ourPokes;
+		allocateVariables();
 		loadImages(ourPokes);
+		/* ContentPane location is moved here instead of in initGUI so that
+		 * if/when initGui is recalled the ConentPane doesn't move.
+		 */
+		getContentPane().setX(getContentPane().getX() - 1);
+		getContentPane().setY(getContentPane().getY() + 1);
 		initGUI();
+	}
+	
+	private void allocateVariables()
+	{
+		m_switchDown = new Button[6];
+		m_switchUp = new Button[6];
+		m_hp = new ProgressBar[6];
+		m_level = new Label[6];
+		m_pokeName = new Label[6];
+		m_pokeIcon = new Label[6];
+		m_hpBar = new Label[6];
+		m_pokeBall = new Label[6];
+		m_container = new Container[6];
 	}
 
 	/**
@@ -60,8 +80,6 @@ public class PartyInfoDialog extends Frame {
 	 */
 	public void initGUI() {
 		InputStream f;
-		getContentPane().setX(getContentPane().getX() - 1);
-		getContentPane().setY(getContentPane().getY() + 1);
 		int y = -8;
 		this.getTitleBar().getCloseButton().setVisible(false);
 		this.setFont(GameClient.getFontSmall());
@@ -74,8 +92,9 @@ public class PartyInfoDialog extends Frame {
 			m_container[i].setVisible(true);
 			m_container[i].setLocation(2, y+10);
 			m_container[i].setBackground(new Color(0, 0, 0, 0));
-			y += 41;
+			System.out.println("Y: "+y);
 			getContentPane().add(m_container[i]);
+			y += 41;
 			m_container[i].setOpaque(true);
 			try {
 				Label tempLabel = new Label(); 
@@ -147,6 +166,13 @@ public class PartyInfoDialog extends Frame {
 						public void actionPerformed(ActionEvent e) {
 							GameClient.getInstance().getPacketGenerator().writeTcpMessage("s" + String.valueOf(j)
 									+ ","+String.valueOf(j - 1));
+							//swap pokemon on client
+							GameClient.getInstance().getOurPlayer().swapPokemon(j, j-1);
+							//reinitialize the gui
+							getContentPane().removeAll();
+							allocateVariables();
+							loadImages(m_pokes);
+							initGUI();
 						}
 					});
 					m_switchUp[i].setHeight(16);
@@ -160,6 +186,13 @@ public class PartyInfoDialog extends Frame {
 						public void actionPerformed(ActionEvent e) {
 							GameClient.getInstance().getPacketGenerator().writeTcpMessage("s" + String.valueOf(j)
 									+ ","+String.valueOf(j + 1));
+							//swap pokemon on client
+							GameClient.getInstance().getOurPlayer().swapPokemon(j, j+1);
+							//reinitialize the gui
+							getContentPane().removeAll();
+							allocateVariables();
+							loadImages(m_pokes);
+							initGUI();
 						}
 					});
 
