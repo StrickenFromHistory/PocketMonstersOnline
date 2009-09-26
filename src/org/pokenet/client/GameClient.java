@@ -540,25 +540,34 @@ public class GameClient extends BasicGame {
         			m_playerDialog.destroy();
         		}
         	} 
-        	if(getDisplay().containsChild(m_ui.getChat())){
-        		m_ui.getChat().dropFocus();
-        	}
-        	if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
-					.getBattleWindow()) ){
-				m_packetGen.writeTcpMessage("Ct");
-			}
-			if (getDisplay().containsChild(BattleManager.getInstance().getBattleWindow()) && 
-					 getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
-					 && !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
-				BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
-			} else{
-				try {
-					m_ui.getNPCSpeech().advance();
-				} catch (Exception e) { 
-					m_ui.nullSpeechFrame();
-//					m_packetGen.write("F"); 
+        	//repeats space bar items (space bar emulation for mouse. In case you done have a space bar!)
+        	System.out.println("Space bar emulation");
+        	try
+        	{
+	        	if(getDisplay().containsChild(m_ui.getChat())){
+	        		m_ui.getChat().dropFocus();
+	        	}
+	        	if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
+						.getBattleWindow()) ){
+					m_packetGen.writeTcpMessage("Ct");
 				}
-			}
+				if (getDisplay().containsChild(BattleManager.getInstance().getBattleWindow()) && 
+						 getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
+						 && !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
+					BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
+				} else{
+					try {
+						m_ui.getNPCSpeech().advance();
+					} catch (Exception e) { 
+						m_ui.nullSpeechFrame();
+	//					m_packetGen.write("F"); 
+					}
+				}
+        	} catch (Exception e)
+        	{
+        		System.out.println("Error in space bar emulation.");
+        	}
+			System.out.println("Space bar emulation ended.");
         }
 	}
 
