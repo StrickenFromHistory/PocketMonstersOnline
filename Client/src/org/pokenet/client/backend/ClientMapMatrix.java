@@ -104,6 +104,7 @@ public class ClientMapMatrix {
 	 * @param y
 	 */
 	public void loadMaps(int mapX, int mapY, Graphics g) {
+		System.out.println("Are we loading maps upon first entering the game?");
 		/*
 		 * Loads the main map and surrounding maps
 		 */
@@ -125,7 +126,8 @@ public class ClientMapMatrix {
 					shiftMap(0, 0, 0, 1);
 					//Load other maps
 					for (int i = 0; i < 3; i++) {
-						loadMap(mapX, mapY + 1, i, 0);
+						loadMap(mapX-1+i, mapY - 1, i, 0);
+						System.out.println("Load map( " + (mapX-1+i) + ", " + (mapY-1)+", "+i+", 0)");
 					}
 					break;
 				case 'd':
@@ -140,7 +142,8 @@ public class ClientMapMatrix {
 					shiftMap(2, 2, 2, 1);
 					//Load other maps
 					for (int i = 0; i < 3; i++) {
-						loadMap(mapX, mapY - 1, i, 2);
+						loadMap(mapX-1+i, mapY + 1, i, 2);
+						System.out.println("Load map( " + (mapX-1+i) + ", " + (mapY+1)+", "+i+", 2)");
 					}
 					break;
 				case 'r':
@@ -148,14 +151,15 @@ public class ClientMapMatrix {
 					// Shift current maps
 					System.out.println("RIGHT");
 					shiftMap(1, 0, 0, 0);
-					shiftMap(2, 0, 1, 0);
 					shiftMap(1, 1, 0, 1);
-					shiftMap(2, 1, 1, 1);
 					shiftMap(1, 2, 0, 2);
-					shiftMap(1, 2, 2, 2);
+					shiftMap(2, 0, 1, 0);
+					shiftMap(2, 1, 1, 1);
+					shiftMap(2, 2, 1, 2);
 					//Load other maps
 					for (int i = 0; i < 3; i++) {
-						loadMap(mapX + 1, mapY, 2, i);
+						loadMap(mapX + 1, mapY-1+i, 2, i);
+						System.out.println("Load map( " + (mapX+1) + ", " + (mapY-1+i)+", 2, "+i+")");
 					}
 					break;
 				case 'l':
@@ -163,14 +167,15 @@ public class ClientMapMatrix {
 					// Shift current maps
 					System.out.println("LEFT");
 					shiftMap(1, 0, 2, 0);
-					shiftMap(0, 0, 1, 0);
 					shiftMap(1, 1, 2, 1);
-					shiftMap(0, 1, 1, 1);
 					shiftMap(1, 2, 2, 2);
+					shiftMap(0, 0, 1, 0);
+					shiftMap(0, 1, 1, 1);
 					shiftMap(0, 2, 1, 2);
 					//Load other maps
 					for (int i = 0; i < 3; i++) {
-						loadMap(mapX - 1, mapY, 0, i);
+						loadMap(mapX - 1, mapY-1+i, 0, i);
+						System.out.println("Load map( " + (mapX-1) + ", " + (mapY-1+i)+", 0,"+ i+")");
 					}
 					break;
 				case 'n':

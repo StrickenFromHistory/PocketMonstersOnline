@@ -428,14 +428,15 @@ public class ClientMap extends TiledMap {
 			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY + 1);
 			if (map != null) {
 				if (m_mapMatrix.getMap(1, 2) != null) { // The bottom map exists
-					map.setYOffset(m_mapMatrix.getMap(1, 0).m_yOffset
-							- m_mapMatrix.getMap(1, 0).m_yOffsetModifier
+					map.setYOffset(m_mapMatrix.getMap(1, 2).m_yOffset
+							- m_mapMatrix.getMap(1, 2).m_yOffsetModifier
 							+ map.getYOffsetModifier(), false);
 				} else if (m_mapMatrix.getMap(2, 1) != null) { // The right map
 																// exists
 					map.setYOffset(m_mapMatrix.getMap(2, 1).m_yOffset
 							+ m_mapMatrix.getMap(2, 1).getHeight() * 32, false);
 				} else { // Try in previous way
+					System.out.println("else");
 					map.setYOffset(offset + getHeight() * 32, false);
 				}
 			}
