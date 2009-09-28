@@ -114,3 +114,13 @@ false
 -2
 0
 [/warp]
+[hmobject]
+STRENGTH_BOULDER
+3
+4
+[/hmobject]
+[hmobject]
+STRENGTH_BOULDER
+6
+4
+[/hmobject]
