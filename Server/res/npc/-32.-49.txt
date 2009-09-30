@@ -16,3 +16,8 @@
 -50
 0
 [/warp]
+[hmobject]
+ROCKSMASH_ROCK
+6
+6
+[/hmobject]
