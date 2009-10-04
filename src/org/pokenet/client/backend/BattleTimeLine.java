@@ -180,6 +180,9 @@ public class BattleTimeLine {
         + Integer.parseInt(data[1]);
       if (m_newHPValue < 0) {
         m_newHPValue = 0;
+      } else if(m_newHPValue > BattleManager.getInstance().getCurPoke().getMaxHP())
+      {
+    	  m_newHPValue = BattleManager.getInstance().getCurPoke().getMaxHP();
       }
       BattleManager.getInstance().getCurPoke().setCurHP(m_newHPValue);
       m_canvas.updatePlayerHP(BattleManager.getInstance().getCurPoke()
@@ -191,6 +194,9 @@ public class BattleTimeLine {
         + Integer.parseInt(data[1]);
       if (m_newHPValue < 0) {
         m_newHPValue = 0;
+      } else if(m_newHPValue > BattleManager.getInstance().getCurEnemyPoke().getMaxHP())
+      {
+    	  m_newHPValue = BattleManager.getInstance().getCurEnemyPoke().getMaxHP();
       }
       BattleManager.getInstance().getCurEnemyPoke().setCurHP(m_newHPValue);
       m_canvas.updateEnemyHP(BattleManager.getInstance().getCurEnemyPoke()
