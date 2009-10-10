@@ -10,6 +10,8 @@
   <property name="waterPokemonChances" value="Tentacool,90;Tentacruel,10;"/>
   <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>
+  <property name="fishPokemonLevels" value="10-20;10-40;40-40;20-40;20-40;"/>
+  <property name="fishPokemonChances" value="Magikarp,35;Krabby,28;Kingler,27;Corsola,5;Staryu,5;"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="256"/>
  </properties>
