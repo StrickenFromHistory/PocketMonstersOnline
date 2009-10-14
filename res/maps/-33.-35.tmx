@@ -10,6 +10,8 @@
   <property name="waterPokemonChances" value="Magikarp,100;"/>
   <property name="waterPokemonLevels" value="10-19;"/>
   <property name="wildProbability" value="10"/>
+  <property name="fishPokemonLevels" value="10-40;10-20;"/>
+  <property name="fishPokemonChances" value="Magikarp,99;Dratini,1;"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>

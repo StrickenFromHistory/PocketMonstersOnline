@@ -9,6 +9,8 @@
   <property name="waterPokemonChances" value="Goldeen,90;Seaking,10;"/>
   <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>
+  <property name="fishPokemonLevels" value="10-40;10-40;40-40;"/>
+  <property name="fishPokemonChances" value="Goldeen,70;Magikarp,20;Seaking,10;"/>
   <property name="xOffsetModifier" value="-64"/>
   <property name="yOffsetModifier" value="320"/>
  </properties>
