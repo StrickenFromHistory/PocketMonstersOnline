@@ -8,8 +8,8 @@
   <property name="nightPokemonLevels" value="22-22;22-22;24-24;21-23;20-20;"/>
   <property name="waterPokemonChances" value="Goldeen,60;Slowpoke,30;Seaking,10;"/>
   <property name="waterPokemonLevels" value="20-24;20-24;20-24;"/>
-  <property name="fishPokemonLevels" value="20-24;20-24;20-24;"/>
-  <property name="fishPokemonChances" value="Goldeen,60;Seaking,10;Slowpoke,30;"/>
+  <property name="fishPokemonLevels" value="10-40;10-40;40-40;"/>
+  <property name="fishPokemonChances" value="Magikarp,60;Goldeen,37;Seaking,3;"/>
   <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
