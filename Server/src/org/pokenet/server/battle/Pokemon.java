@@ -1960,6 +1960,37 @@ public class Pokemon extends PokemonSpecies {
     return applied;
   }
 
+  /**
+   * Add a status effect to this pokemon caused by item. 
+   */
+  public StatusEffect addStatus(StatusEffect eff) {
+    if (m_fainted) return null;
+
+    // Make sure there isn't another copy of this effect applied already.
+    synchronized (m_statuses) {
+      Iterator<StatusEffect> i = m_statuses.iterator();
+      while (i.hasNext()) {
+        Object o = i.next();
+        if (o != null) {
+          StatusEffect j = (StatusEffect) o;
+          if (!j.isRemovable() && (eff.equals(j) || eff.isExclusiveWith(j))) { return null; }
+        }
+      }
+    }
+
+    StatusEffect applied = (StatusEffect) eff.clone();
+    applied.activate();
+    
+    if (applied.apply(this)) {
+      m_statuses.add(applied);
+      if (m_field != null) {
+        m_field.informStatusApplied(this, applied);
+      }
+      
+    }
+    return applied;
+  }
+  
   public PokemonNature getNature() {
     return m_nature;
   }

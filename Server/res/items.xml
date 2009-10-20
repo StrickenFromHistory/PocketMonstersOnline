@@ -5969,5 +5969,103 @@
 				</m_attributes>
 			</item>
 		</entry>
+		<entry>
+			<integer>800</integer>
+			<item>
+				<m_name>Voltorb Lollipop</m_name>
+				<m_description>Heals 50HP, but might Paralize your Pokemon</m_description>
+				<m_id>800</m_id>
+				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
+				<m_price>10</m_price>
+				<m_attributes>
+					<itemAttribute>POKEMON</itemAttribute>
+				</m_attributes>
+			</item>
+		</entry>
+		<entry>
+			<integer>801</integer>
+			<item>
+				<m_name>Sweet Chills</m_name>
+				<m_description>Restores 5PP to all moves, but might Freeze your Pokemon</m_description>
+				<m_id>801</m_id>
+				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
+				<m_price>10</m_price>
+				<m_attributes>
+					<itemAttribute>POKEMON</itemAttribute>
+				</m_attributes>
+			</item>
+		</entry>
+		<entry>
+			<integer>802</integer>
+			<item>
+				<m_name>Cinnamon Candy</m_name>
+				<m_description>Heals All Status, but might Burn your Pokemon</m_description>
+				<m_id>802</m_id>
+				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
+				<m_price>10</m_price>
+				<m_attributes>
+					<itemAttribute>POKEMON</itemAttribute>
+				</m_attributes>
+			</item>
+		</entry>
+		<entry>
+			<integer>803</integer>
+			<item>
+				<m_name>Candy Corn</m_name>
+				<m_description>Raises Happiness, but might Poison your Pokemon</m_description>
+				<m_id>803</m_id>
+				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
+				<m_price>10</m_price>
+				<m_attributes>
+					<itemAttribute>POKEMON</itemAttribute>
+				</m_attributes>
+			</item>
+		</entry>
+		<entry>
+			<integer>804</integer>
+			<item>
+				<m_name>Poke'Choc</m_name>
+				<m_description>Raises Happiness, and might Heal 30HP to your Pokemon</m_description>
+				<m_id>804</m_id>
+				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
+				<m_price>10</m_price>
+				<m_attributes>
+					<itemAttribute>POKEMON</itemAttribute>
+				</m_attributes>
+			</item>
+		</entry>
+		<entry>
+			<integer>805</integer>
+			<item>
+				<m_name>Sour Candy</m_name>
+				<m_description>Raises Happiness, but might Paralize your Pokemon</m_description>
+				<m_id>805</m_id>
+				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
+				<m_price>10</m_price>
+				<m_attributes>
+					<itemAttribute>POKEMON</itemAttribute>
+				</m_attributes>
+			</item>
+		</entry>
+		<entry>
+			<integer>806</integer>
+			<item>
+				<m_name>Funball</m_name>
+				<m_description>Heals your Pokemon's HP for an unknown ammount. </m_description>
+				<m_id>806</m_id>
+				<m_category>Food</m_category>
+				<m_shop>0</m_shop>
+				<m_price>10</m_price>
+				<m_attributes>
+					<itemAttribute>POKEMON</itemAttribute>
+				</m_attributes>
+			</item>
+		</entry>
 	</m_items>
 </itemDatabase>

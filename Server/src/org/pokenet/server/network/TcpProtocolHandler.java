@@ -365,6 +365,14 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 								return;
 							}
 							break;
+						case 'n':
+							//Announce message to server
+							if(p.getAdminLevel() == 2) {
+								String mes = message.substring(3);
+								GameServer.getServiceManager().getNetworkService().getChatManager().
+								queueLocalChatMessage("<SERVER> " + mes, p.getMapX(), p.getMapY(), p.getLanguage());
+							}
+							break;
 						}
 					} catch (Exception e) {}
 				}
@@ -416,6 +424,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			case 'I':
 				//Use an item, applies inside and outside of battle
 				details = message.substring(1).split(",");
+				System.out.println("Item used. "+message);
 				new Thread(new ItemProcessor(p, details)).start();
 				break;
 			case 'i':
