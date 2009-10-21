@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<system additive="true" points="false">
+<emitter imageName="res/effects/fog/fog.tga" name="Default" renderType="inherit" useAdditive="false" useOriented="true">
+<spawnInterval enabled="true" max="2000.0" min="2000.0"/>
+<spawnCount enabled="true" max="1.0" min="1.0"/>
+<initialLife enabled="true" max="20000.0" min="20000.0"/>
+<initialSize enabled="true" max="1000.0" min="1000.0"/>
+<xOffset enabled="true" max="864.0" min="32.0"/>
+<yOffset enabled="true" max="632.0" min="256.0"/>
+<initialDistance enabled="true" max="20.0" min="0.0"/>
+<speed enabled="true" max="120.0" min="1.0"/>
+<length enabled="false" max="1000.0" min="1000.0"/>
+<emitCount enabled="false" max="1000.0" min="1000.0"/>
+<spread type="random" value="21.0"/>
+<angularOffset type="simple" value="259.0"/>
+<growthFactor type="simple" value="24.0"/>
+<gravityFactor type="simple" value="-2.0"/>
+<windFactor type="simple" value="-2.0"/>
+<startAlpha type="simple" value="255.0"/>
+<endAlpha type="simple" value="0.0"/>
+<alpha active="false" max="255" min="0" type="linear">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="255.0"/>
+</alpha>
+<size active="false" max="255" min="0" type="linear">
+<point x="0.0" y="73.892044"/>
+<point x="0.08130081" y="34.772728"/>
+<point x="0.24796748" y="2.8977273"/>
+<point x="1.0" y="0.0"/>
+</size>
+<velocity active="true" max="1" min="0" type="linear">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="1.0"/>
+</velocity>
+<scaleY active="false" max="1" min="0" type="linear">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="1.0"/>
+</scaleY>
+<color>
+<step b="1.0" g="1.0" offset="0.0" r="1.0"/>
+<step b="0.2" g="0.2" offset="1.0" r="0.2"/>
+</color>
+</emitter>
+</system>

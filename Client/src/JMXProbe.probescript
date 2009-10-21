@@ -1,0 +1,18 @@
+REM unnamed_probe
+PROBE
+RULE com/ibm* * * * EXCLUDE
+RULE com/sun* * * * EXCLUDE
+RULE COM/ibm* * * * EXCLUDE
+RULE java* * * * EXCLUDE
+RULE org* * * * EXCLUDE
+RULE sun* * * * EXCLUDE
+RULE junit* * * * EXCLUDE
+RULE * JMXProbe_probe * * EXCLUDE
+RULE * JMXProbe_probe$Probe_0 * * EXCLUDE
+RULE * JMXProbe_probe * * EXCLUDE
+RULE * JMXProbe_probe$Probe_0 * * EXCLUDE
+RULE org/eclipse/tptp/trace/arm* * * * EXCLUDE
+RULE org/eclipse/tptp/monitoring/instrumentation* * * * EXCLUDE
+
+REF ONEXIT JMXProbe_probe$Probe_0 _exit (Ljava/lang/String;Ljava/lang/Object;)V methodName,thisObject
+REF ONENTRY JMXProbe_probe$Probe_0 _entry (Ljava/lang/String;Ljava/lang/String;)V className,methodName

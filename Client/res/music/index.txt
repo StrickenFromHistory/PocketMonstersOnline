@@ -1,0 +1,19 @@
+﻿introandgym:20-Title&Gym.ogg
+newbark:1-New Bark.ogg
+cherrygrove:2-Cherrygrove Town.ogg
+violet:3-Violet Town.ogg
+azalea:4-Azalea Town.ogg
+goldenrod:5-GoldenrodCity.ogg
+ecruteak:6-Ecruteak Town.ogg
+darkcave:7-Dark Cave.ogg
+sprouttower:8-Sprout Tower.ogg
+ruinsofalph:9-Ruins of Alph.ogg
+nationalpark:10-National Park.ogg
+burnedtower:11-Burned Tower.ogg
+tintower:12-Tin Tower.ogg
+lighthouse:13-Lighthouse.ogg
+dragonsden:14-Dragon Den.ogg
+pokecenter:15-PokeCenter.ogg
+pvnpc:18-GSBattle PvNPC.ogg
+pvgymleader:19-PvGymLeader.ogg
+route:21-Route.ogg
