@@ -1,0 +1,16 @@
+Bem-vindo ao sistema de armazenamento Pokemon.
+1F: Recepcao 
+2F: Vendas 
+3F: Pessoal 
+4F: Producao 
+5F: Escritorio do Diretor
+Canal da Sorte! 
+Ganhe com os numeros de ID Pokemon! 
+Troque Pokemons para colecionar varios numeros de ID!
+Bem-vindo!
+Por favor, sintonize os nossos programas de radio.
+Por favor, comunique este erro!
+Eu amo a Mary, do Bate-papo Pokemon. 
+Mas eu so conheco a voz dela.
+Ben e um DJ fabuloso. 
+Sua voz doce me derrete toda!

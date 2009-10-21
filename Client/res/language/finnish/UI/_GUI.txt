@@ -1,0 +1,49 @@
+Pokemon Team
+Level:
+Name:
+HP:
+Attack:
+Defense:
+Sp. Attack:
+Sp. Defense: 
+Speed:
+Ability:
+Exp:
+Nature:
+Type one:
+Type two:
+Gender:
+Options
+Full Screen view
+Mute
+Save
+Changes may not take effect until you restart.
+Pokenet Help
+Arrow keys or WASD keys/nMovement/n/n
+Spacebar/nTalk/n/n
+Right-click/nInteract with other players/n/n
+Use the whisper option to start a private chat. 
+Type the /playercount command into local chat to see how many players are online./n
+For more information, go to www.pokedev.org
+Chat: Local
+You must accept Terms of Service (ToS) before registering.
+Male
+Female
+None
+Lv. 
+PvP Battles/Trades
+Cancel
+Accept
+Decline
+Send Offer
+Your Offer:
+Their Offer:
+test
+Waiting...
+Send a Request
+Requests Received
+Trade: 
+Money only
+Battle
+Trade
+Disable Surrounding Maps

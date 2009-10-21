@@ -1,0 +1,49 @@
+Equipe Pokemon
+Level:
+Nome:
+HP:
+Attack:
+Defensa:
+Sp. Attack:
+Sp. Defensa:
+Velocidade:
+Abilidade:
+Exp:
+Nature:
+Tipo one:
+Tipo two:
+Genero:
+Opcoens
+Tela Cheia
+Mudo
+Salvar
+As mudancas terao efeito se voce reniciar.
+Pokenet: Ajuda online
+Os botoens de movimento sao as Setas e/ou WASD.
+A telca C abre o chat /n
+Use Espaco para conversar com a NPC(OU/nPersonagem nao jogador)./n
+Use o /w USERNAME TEXT/ncommando para chamar outros/njogadores.
+Use o /playercount commando to/npara ver quantos jogadores estao online.
+Se voce tiver insiguias use/nshift para surfar.
+Chat: Local
+Voce deve aceitar os termos do servico para se registar.
+Homem
+Mulher
+Duvidoso
+Lv.
+PvP Batalhas/Trocas
+Cancelar
+Aceitar
+Recusar
+Enviar Oferta:
+Sua Oferta:
+Oferta dele:
+teste
+Aguarde...
+Enviando Pedido
+Pedido Recebido
+Troca:
+Dinheiro apenas
+Batalha
+Troca
+Desactivar Circundantes Mapas
