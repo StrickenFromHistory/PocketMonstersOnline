@@ -23,19 +23,19 @@
    H4sIAAAAAAAAAGNgoD2wZmdgsIFiWyD+xwbByOIgDANWTMTh4aKeFAAAfg/sAbABAAA=
   </data>
  </layer>
- <layer name="random" width="12" height="9">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgIAx+MUIwsUCKCYKJBVbcDAzW3MSrpzpgh2IaAE8hBgYvIPYWIk59JlBdFhBn41APABEIzR2wAQAA
-  </data>
- </layer>
  <layer name="Collisions" width="12" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAABNiYGD4zcbA8AeK/wLxfyj+ycjA8AuI3fkgWIgBgqXZGRhkoFgWiO+xQbAkEwODFBCn80EwTD0uYMmEyiekHh3gUr8caPcKPuLVk2o+IfUbiNAEUgNTj44ZcIiDMABjG2eXsAEAAA==
+   H4sIAAAAAAAAABNiYGD4zcbA8AeK/wLxfyhm52NgcEfCQgwQLM3OwCADxbJAfI8NgtWBatKRMEw9LmDJhMonpB4d4FK/HGj3Cj7i1ZNqPiH1G4jQBFIDU4+OGXCIgzAAHiRSb7ABAAA=
+  </data>
+ </layer>
+ <layer name="random" width="12" height="9">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgIAx+cTEw/ObCLa/Jx8CgBcQeQJwBxFLcDAzS3LjVewLVePEh+FZAtdZ41NMcsEMxDYCnENCvQOwtRJz6TKC6LCDOxqEeAG9ghJ+wAQAA
   </data>
  </layer>
  <layer name="WalkBehind" width="12" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgIAx+cTEw/ObCLa/Jx8CgBcQeQJwBxFLcDAzS3LjVewLVePERYTEUtAPVdpCgntpgghB11FADAAC0SQeesAEAAA==
+   H4sIAAAAAAAAAGNgGPygnY+BoYNv4OyfIEQdNdQAAIHbX3+wAQAA
   </data>
  </layer>
 </map>
