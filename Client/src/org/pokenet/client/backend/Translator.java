@@ -20,13 +20,28 @@ public class Translator {
 	public List<String> translateText(String filename) {
 		List<String> translated = new ArrayList<String>();
 		try {
-			String path = "/res/language/" + GameClient.getLanguage() + "UI/" + filename + ".txt";
-			InputStream in = getClass().getResourceAsStream(path);
-			if(in != null) {
+			//First, add English to translated. 
+			try{
+				InputStream in = getClass().getResourceAsStream("/res/language/english/UI/" + filename + ".txt");
 				BufferedReader f = new BufferedReader(new InputStreamReader(in));
 				Scanner reader = new Scanner(f);
 				while(reader.hasNextLine()) {
 					translated.add(reader.nextLine().replaceAll("/n", "\n"));
+				}
+			}catch(Exception e){
+				translated.add("/n"); //If there's no english, display default line. 
+			}
+			//Now, overwrite English with the translation
+			String path = "/res/language/" + GameClient.getLanguage() + "/UI/" + filename + ".txt";
+			InputStream in = getClass().getResourceAsStream(path);
+			int index = 0;
+			if(in != null) {
+				BufferedReader f = new BufferedReader(new InputStreamReader(in));
+				Scanner reader = new Scanner(f);
+				while(reader.hasNextLine()) {
+					translated.remove(index);
+					translated.add(index,reader.nextLine().replaceAll("/n", "\n"));
+					index++;
 				}
 				/*if(translated.size()==0){
 					FileInputStream fis = new FileInputStream(f);
@@ -40,18 +55,6 @@ public class Translator {
 					 bis.close();
 					 dis.close();
 				}*/
-			}else{ //In case of emergencies, load english!
-				try{
-					in = getClass().getResourceAsStream("/res/language/english/UI/" + filename + ".txt");
-					BufferedReader f = new BufferedReader(new InputStreamReader(in));
-					Scanner reader = new Scanner(f);
-					while(reader.hasNextLine()) {
-						translated.add(reader.nextLine().replaceAll("/n", "\n"));
-					}
-				}catch(Exception e){
-					translated.add("/n"); //If there's no english, display default line. 
-				}
-
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

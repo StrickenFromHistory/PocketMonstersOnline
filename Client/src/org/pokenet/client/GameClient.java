@@ -766,6 +766,7 @@ public class GameClient extends BasicGame {
      * Creates a message Box
      */
     public static void messageDialog(String message, Container container) {
+    	message = message.replace("/n","\n");
         new MessageDialog(message.replace('~','\n'), container);
     }
     
