@@ -372,7 +372,9 @@ public class BigBagDialog extends Frame {
 					m_itemBtns.get(i).setToolTipText(
 							m_items.get(m_curCategory).get(
 									m_scrollIndex.get(m_curCategory) + i)
-									.getItem().getName());
+									.getItem().getName()+"\n"+m_items.get(m_curCategory).get(
+											m_scrollIndex.get(m_curCategory) + i)
+											.getItem().getDescription());
 					m_itemBtns.get(i).setImage(
 							m_items.get(m_curCategory).get(
 									m_scrollIndex.get(m_curCategory) + i)
