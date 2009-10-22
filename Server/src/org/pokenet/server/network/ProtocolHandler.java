@@ -263,6 +263,15 @@ public class ProtocolHandler extends IoHandlerAdapter {
 				} else if(p.getAdminLevel() > 0) {
 					try {
 						switch(message.charAt(1)) {
+						case 'a':
+							//Send an announcement
+							p.getSession().write("q"+message.substring(2));
+							break;
+						
+						case 'l':
+							//Send an alert
+							p.getSession().write("!"+message.substring(2));
+							break;
 						case 'b':
 							//Ban player
 							if(m_players.containsKey(message.substring(2))) {
