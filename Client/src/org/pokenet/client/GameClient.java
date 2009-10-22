@@ -103,7 +103,7 @@ public class GameClient extends BasicGame {
 				options.put("disableMaps", String.valueOf(false));
 				options.put("disableWeather", String.valueOf(false));
 			}
-			m_instance = new GameClient("Pokenet: Fearless Feebas (Update 1)");
+			m_instance = new GameClient("Pokenet: Fearless Feebas (Update 2)");
 			m_soundPlayer = new SoundManager();
 			m_soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
 			m_soundPlayer.start();

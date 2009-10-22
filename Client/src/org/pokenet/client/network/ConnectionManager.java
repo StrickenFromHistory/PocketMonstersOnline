@@ -754,6 +754,14 @@ public class ConnectionManager extends IoHandlerAdapter {
 				details = message.substring(2).split(",");
 				m_game.getOurPlayer().removeItem(Integer.parseInt(details[0]), Integer.parseInt(details[1]));
 				break;
+			case 'i': //Item used
+				try {
+					GameClient.getInstance().getUi().getNPCSpeech().advance();
+					GameClient.getInstance().getUi().getNPCSpeech().advance();
+				} catch (Exception e) {}
+				details = message.substring(2).split(",");
+				GameClient.getInstance().getUi().talkToNPC(details[0]);
+				break;
 			}
 			break;
 		case 'r':
