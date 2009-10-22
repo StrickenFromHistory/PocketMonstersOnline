@@ -205,4 +205,5 @@ public class ChatDialog extends Frame {
 			setTitle("Chat: " + m_possibleChats.getSelected());
 		}
 	}
+	
 }

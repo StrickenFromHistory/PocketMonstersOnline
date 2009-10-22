@@ -40,6 +40,16 @@ public class ModerationManager {
 		else if (x.length() >= 11 && x.substring(0, 11).equalsIgnoreCase("playercount")) {
 			m_ioSession.write("Mc");
 		}
+		// Server Announcement
+		else if (x.length() >= 9 && x.substring(0, 9).equalsIgnoreCase("announce ")) {
+			m_ioSession.write("Ma" + x.substring(9));
+			System.out.println("Ma" + x.substring(9));
+		}
+		// Server Alert
+		else if (x.length() >= 6 && x.substring(0, 6).equalsIgnoreCase("alert ")) {
+			m_ioSession.write("Ml" + x.substring(6));
+			System.out.println("Ml" + x.substring(6));
+		}
 		// Change Weather
 		else if (x.length() >= 8 && x.substring(0, 8).equalsIgnoreCase("weather ")) {
 			// Normal
