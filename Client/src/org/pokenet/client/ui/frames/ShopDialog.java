@@ -33,11 +33,12 @@ public class ShopDialog extends Frame {
 	private Button[] m_categoryButtons;
 	private Label[] m_categoryLabels;
 	private Button[] m_itemButtons;
+	private Button[] m_sellButton;
 	private Label[] m_itemPics;
 	private Label[] m_itemLabels;
 	private Label[] m_itemStockPics;
 	public Timer m_timer;
-	
+	private ListBox m_sellList;
 	List<Item> m_items;
 	private Button m_cancel;
 	private Button m_buy;
@@ -142,18 +143,20 @@ public class ShopDialog extends Frame {
 	}
 	
 	public void sellGUI() {
+		m_cancel.setVisible(false);
 		String[] m_items = new String[GameClient.getInstance().getOurPlayer().getItems().size()];
 		for (int i = 0; i < m_items.length; i++) {
 			m_items[i] = GameClient.getInstance().getOurPlayer().getItems().get(i).getItem().getName();
 		}
 		
-		final ListBox m_sellList = new ListBox(m_items);
+		m_sellList = new ListBox(m_items);
 		
-		Button m_sellButton = new Button("Sell");
-		m_sellButton.setFont(GameClient.getFontLarge());
-		m_sellButton.setSize(getWidth(), 35);
-		m_sellButton.setLocation(0, m_cancel.getY() - 35);
-		m_sellButton.addActionListener(new ActionListener() {
+		m_sellButton = new Button[1];
+		m_sellButton[0] = new Button("Sell");
+		m_sellButton[0].setFont(GameClient.getFontLarge());
+		m_sellButton[0].setSize(getWidth(), 35);
+		m_sellButton[0].setLocation(0, m_cancel.getY() - 35);
+		m_sellButton[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				try{
 				final ConfirmationDialog m_confirm = new ConfirmationDialog("Are you sure you want to sell " 
@@ -164,6 +167,7 @@ public class ShopDialog extends Frame {
 						GameClient.getInstance().getPacketGenerator().write("Ss" + ItemDatabase.getInstance()
 								.getItem(m_sellList.getSelectedName()).getId() + ",");
 						GameClient.getInstance().getDisplay().remove(m_confirm);
+						
 					}
 				});
 				m_confirm.addNoListener(new ActionListener(){
@@ -175,13 +179,25 @@ public class ShopDialog extends Frame {
 			}
 		});
 		
-		m_sellList.setSize(getWidth(), m_sellButton.getY());
+		m_sellList.setSize(getWidth(), m_sellButton[0].getY());
 		// Start the UI
 		m_buy.setVisible(false);
 		m_sell.setVisible(false);
 		
 		getContentPane().add(m_sellList);
-		getContentPane().add(m_sellButton);
+		getContentPane().add(m_sellButton[0]);
+		m_cancel = new Button("Cancel");
+		m_cancel.setSize(300,56);
+		m_cancel.setLocation(0,321);
+		m_cancel.setFont(GameClient.getFontLarge());
+		m_cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getContentPane().remove(m_sellList);
+				getContentPane().remove(m_sellButton[0]);
+				initGUI();
+			}
+		});
+		getContentPane().add(m_cancel);
 	}
 	
 	public void buyGUI() {
