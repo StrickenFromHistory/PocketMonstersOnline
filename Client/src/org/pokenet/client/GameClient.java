@@ -543,7 +543,7 @@ public class GameClient extends BasicGame {
 			fullscreen = false;
 		}
 		try {
-			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet: Fearless Feebas (Update 1)"),
+			AppGameContainer gc = new AppGameContainer(new GameClient("Pokenet: Fearless Feebas (Update 2)"),
 					800, 600, fullscreen);
 			gc.setTargetFrameRate(50);
 			gc.start();

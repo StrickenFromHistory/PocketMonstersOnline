@@ -97,7 +97,7 @@ public abstract class BagDialog extends Container {
         	for (int i = 0; i < m_items.size(); i++) {
         		final int j = i;
         		m_itemButtons[i] = new Button("       x" + m_items.get(i).getQuantity());
-        		m_itemButtons[i].setToolTipText(m_items.get(i).getItem().getName());
+        		m_itemButtons[i].setToolTipText(m_items.get(i).getItem().getName()+"\n"+m_items.get(i).getItem().getDescription());
         		LoadingList.setDeferredLoading(true);
         		try {
         			m_itemIcon[i] = new Label();
@@ -118,6 +118,7 @@ public abstract class BagDialog extends Container {
         		add(m_itemButtons[i]);
         	}
         	m_bag = new Button("Bag");
+        	m_bag.setToolTipText("Opens the Bag to see your items");
         	m_bag.addActionListener(new ActionListener() {
         		public void actionPerformed(ActionEvent e) {
         			loadBag();
@@ -126,6 +127,7 @@ public abstract class BagDialog extends Container {
         	add(m_bag);
         	
         	m_cancel = new Button("Cancel");
+        	m_bag.setToolTipText("Closes this dialog");
         	m_cancel.addActionListener(new ActionListener() {
         		public void actionPerformed(ActionEvent e) {
         			cancelled();
