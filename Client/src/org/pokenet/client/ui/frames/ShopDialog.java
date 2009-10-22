@@ -9,6 +9,8 @@ import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
+import mdes.slick.sui.event.MouseEvent;
+import mdes.slick.sui.event.MouseListener;
 
 import org.lwjgl.util.Timer;
 import org.newdawn.slick.Image;
@@ -348,7 +350,9 @@ public class ShopDialog extends Frame {
 		m_itemStockPics = new Label[m_items.size()];
 		for(int i = 0;i<m_items.size();i++){
 			final int itemChosen = m_items.get(i).getId();
+			final int buttonNumber = i;
 			m_itemButtons[i] = new Button("");
+			m_itemButtons[i].setToolTipText(m_items.get(i).getDescription());
 			m_itemButtons[i].setSize(300, 50);
 			if(i>0)
 				m_itemButtons[i].setLocation(0,(m_itemButtons[i-1].getY()+51));
@@ -361,7 +365,7 @@ public class ShopDialog extends Frame {
 					itemClicked(itemChosen);
 				}
 			});
-			getContentPane().add(m_itemButtons[i]);
+			getContentPane().add(m_itemButtons[i],i);
 			
 			try{
 				LoadingList.setDeferredLoading(true);
@@ -369,13 +373,16 @@ public class ShopDialog extends Frame {
 						"/res/items/24/" + m_items.get(i).getId() + ".png", false));
 				LoadingList.setDeferredLoading(false);
 				m_itemPics[i].setGlassPane(true);
+				m_itemPics[i].setToolTipText(m_items.get(i).getDescription());
 				m_itemPics[i].setSize(32,32);
 				if(i>0)
 					m_itemPics[i].setLocation(0,(m_itemPics[i-1].getY()+51));
 				else
 					m_itemPics[i].setLocation(0,12);
 				m_itemPics[i].setZIndex(1000);
-				getContentPane().add(m_itemPics[i]);
+//				m_itemButtons[i].add(m_itemPics[i],0);
+				getContentPane().add(m_itemPics[i],i);
+				
 			}catch(Exception e){
 				e.printStackTrace();
 			}
@@ -395,19 +402,22 @@ public class ShopDialog extends Frame {
 				LoadingList.setDeferredLoading(false);
 				m_itemStockPics[i].setGlassPane(true);
 				m_itemStockPics[i].setSize(32,32);
+				m_itemStockPics[i].setToolTipText("The number of items left");
 				if(i>0)
 					m_itemStockPics[i].setLocation(260,(m_itemStockPics[i-1].getY()+51));
 				else
 					m_itemStockPics[i].setLocation(260,12);
-				m_itemStockPics[i].setZIndex(1000);
-				getContentPane().add(m_itemStockPics[i]);
+				m_itemStockPics[i].setZIndex(1002);
+				getContentPane().add(m_itemStockPics[i],i);
+//				m_itemButtons[i].add(m_itemStockPics[i],1);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
 			
 			m_itemLabels[i] = new Label(m_items.get(i).getName()+" - $"+m_items.get(i).getPrice());
 			m_itemLabels[i].setSize(200,50);
-			m_itemLabels[i].setGlassPane(true);
+			m_itemLabels[i].setToolTipText(m_items.get(i).getDescription());
+			m_itemLabels[i].setGlassPane(false);
 			m_itemLabels[i].setFont(GameClient.getFontLarge());
 			m_itemLabels[i].setZIndex(1200);
 			m_itemLabels[i].setHorizontalAlignment(0);
@@ -415,9 +425,37 @@ public class ShopDialog extends Frame {
 				m_itemLabels[i].setLocation(30,(m_itemLabels[i-1].getY()+51));
 			else
 				m_itemLabels[i].setLocation(30,0);
-			getContentPane().add(m_itemLabels[i]);
+//			m_itemButtons[i].add(m_itemLabels[i],2);
+//			getContentPane().add(m_itemButtons[i],i);
+			m_itemLabels[i].updateAppearance();
+			m_itemLabels[i].addMouseListener(new MouseListener() {
+				boolean entered = false;
+				public void mouseReleased(MouseEvent arg0) {
+					if(entered)
+						itemClicked(itemChosen);
+					m_itemButtons[buttonNumber].setEnabled(true);
+				}
+				
+				public void mousePressed(MouseEvent arg0) {
+					m_itemButtons[buttonNumber].setEnabled(false);
+				}
+				
+				public void mouseMoved(MouseEvent arg0) {}
+				
+				public void mouseExited(MouseEvent arg0) {
+					entered = false;
+				}
+				
+				public void mouseEntered(MouseEvent arg0) {
+					entered = true;					
+				}
+				
+				public void mouseDragged(MouseEvent arg0) {}
+			});
+
+			getContentPane().add(m_itemLabels[i],i);
+			
 		}
-		
 		m_cancel = new Button("Cancel");
 		m_cancel.setSize(300,40);
 		m_cancel.setLocation(0,336);
