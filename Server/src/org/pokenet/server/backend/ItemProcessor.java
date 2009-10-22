@@ -1,5 +1,7 @@
 package org.pokenet.server.backend;
 
+import java.util.Random;
+
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.item.Item;
@@ -261,6 +263,7 @@ public class ItemProcessor implements Runnable {
                                                 //TODO: Add support for this
                                         }
                                 } else if(i.getCategory().equalsIgnoreCase("FOOD")) {
+                                		Random rand = new Random();
                                         poke = p.getParty()[Integer.parseInt(data[0])];
                                         if(poke == null)
                                                 return false;
@@ -343,7 +346,128 @@ public class ItemProcessor implements Runnable {
                                                 else
                                                 	 p.getBattleField().forceExecuteTurn();
                                                 return true;
-                                        }
+                                        }else if (i.getId() == 800) { //Voltorb Lollipop
+                    						String message = poke.getName()+" ate the Voltorb Lollipop/nThe Lollipop restored 50 HP to " +poke.getName()+"!";
+                    						poke.changeHealth(50);
+                    						int random = rand.nextInt(10);
+                    						if(random <3){
+                    							poke.addStatus(new ParalysisEffect());
+                    							message+="/n"+poke.getName()+" was Paralized from the Lollipop!";
+                    						}
+                    						if (p.isBattling()) {
+                    							p.getBattleField().forceExecuteTurn();
+                    						}else{
+                    							p.getSession().write("Ph" + data[0] + poke.getHealth());
+                    							p.getSession().write("Ii" + message);
+                    						}
+                    						return true;
+                    					} else if (i.getId() == 801) { //Sweet Chills
+                    						String message = poke.getName()+" ate the Sweet Chill/nThe Sweet Chill restored " +poke.getName()+"'s moves!";
+                    						for(int ppSlot=0;ppSlot<4;ppSlot++){
+                    							if (poke.getPp(ppSlot) + 5 <= poke.getMaxPp(ppSlot)) {
+                    								poke.setPp(ppSlot, poke.getPp(ppSlot) + 5);
+                    							} else {
+                    								poke.setPp(ppSlot, poke.getMaxPp(ppSlot));
+                    							}
+                    						}
+                    						int random = rand.nextInt(10);
+                    						if(random <3){
+                    							try{
+                    							poke.addStatus(new FreezeEffect());
+                    							message+="/n"+poke.getName()+" was frozen solid from the cold candy!";
+                    							}catch(Exception e){}//Already under a status effect. 
+                    						}
+                    						if (p.isBattling()) {
+                    							p.getBattleField().forceExecuteTurn();
+                    						}else
+                    							p.getSession().write("Ii" + message);
+                    						return true;
+                    					}else if (i.getId() == 802) { //Cinnamon Candy
+                    						String message = poke.getName()+" ate the Cinnamon Candy./nThe Cinnamon Candy restored " +poke.getName()+"'s status to normal!";
+                    						poke.removeStatusEffects(true);
+                    						int random = rand.nextInt(10);
+                    						if(random <3){
+                    							poke.addStatus(new BurnEffect());
+                    							message+="/n"+poke.getName()+" was burned from the candy!";
+                    						}
+                    						if (p.isBattling()) {
+                    							p.getBattleField().forceExecuteTurn();
+                    						}else{
+                    							p.getSession().write("Ph" + data[0] + poke.getHealth());
+                    							p.getSession().write("Ii"+message);
+                    						}
+                    						return true;
+                    					} else if (i.getId() == 803) { //Candy Corn
+                    						String message = poke.getName()+" ate the Candy Corn./n" +poke.getName()+" is happier!";
+                    						int happiness = poke.getHappiness()+15;
+                    						if(happiness<=300)
+                    							poke.setHappiness(happiness);
+                    						else
+                    							poke.setHappiness(300);
+                    						int random = rand.nextInt(10);
+                    						if(random <3){
+                    							poke.addStatus(new PoisonEffect());
+                    							message+="/n"+poke.getName()+" got Poisoned from the rotten candy!";
+                    						}
+                    						if (p.isBattling()) {
+                    							p.getBattleField().forceExecuteTurn();
+                    						}else
+                    							p.getSession().write("Ii"+message);
+                    						return true;
+                    					} else if (i.getId() == 804) { //Poke'Choc
+                    						String message = poke.getName()+" ate the Poke'Choc Bar!/n" +poke.getName()+" is happier!";
+                    						int happiness = poke.getHappiness()+10;
+                    						if(happiness<=300)
+                    							poke.setHappiness(happiness);
+                    						else
+                    							poke.setHappiness(300);
+                    						int random = rand.nextInt(10);
+                    						if(random <=3){
+                    							poke.changeHealth(30);
+                    							message+="/n"+poke.getName()+" recovered 30HP.";
+                    						}
+                    						if (p.isBattling()) {
+                    							p.getBattleField().forceExecuteTurn();
+                    						}else
+                    							p.getSession().write("Ii"+message);
+                    						return true;
+                    					} else if (i.getId() == 805) { //Sour Candy
+                    						String message = poke.getName()+" ate the Gummilax./n" +poke.getName()+" is happier!";
+                    						int happiness = poke.getHappiness()+rand.nextInt(30);
+                    						if(happiness<=300)
+                    							poke.setHappiness(happiness);
+                    						else
+                    							poke.setHappiness(300);
+                    						int random = rand.nextInt(10);
+                    						if(random <3){
+                    							poke.addStatus(new ParalysisEffect());
+                    							message+="/nThe gummi was too sweet for "+poke.getName()+"./n"+poke.getName()+" fell asleep!";
+                    						}
+                    						if (p.isBattling()) {
+                    							p.getBattleField().forceExecuteTurn();
+                    						}else
+                    							p.getSession().write("Ii"+message);
+                    						return true;
+                    					} else if (i.getId() == 806) { //Funball
+                    						String message = poke.getName()+" ate the Gengum.";
+                    						int randHealth = rand.nextInt(100);
+                    						randHealth-=20;
+                    						if(poke.getHealth()+randHealth<0)
+                    							poke.setHealth(1);
+                    						else
+                    							poke.changeHealth(randHealth);
+                    						if(randHealth>0)
+                    							message+="/n"+poke.getName()+" healed "+randHealth+"HP";
+                    						else
+                    							message+="/n"+poke.getName()+" lost "+-randHealth+"HP";
+                    						if (p.isBattling()) {
+                    							p.getBattleField().queueMove(0,BattleTurn.getMoveTurn(-1));
+                    						}else{
+                    							p.getSession().write("Ph" + data[0] + poke.getHealth());
+                    							p.getSession().write("Ii"+message);
+                    						}
+                    						return true;
+                    					}
                                 }
                         } else if(i.getAttributes().contains(ItemAttribute.BATTLE)) {
                                 /* Pokeballs */
