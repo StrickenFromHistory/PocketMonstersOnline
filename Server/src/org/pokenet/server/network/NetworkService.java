@@ -1,5 +1,6 @@
 package org.pokenet.server.network;
 
+import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
 
@@ -124,12 +125,14 @@ public class NetworkService {
 				new ProtocolCodecFilter(new PokenetCodecFactory()));
 		cfg.getFilterChain().addLast("threadPool", new ExecutorFilter(Executors
 				.newCachedThreadPool()));
-		try {
-			m_acceptor.bind(new InetSocketAddress(7001), m_connectionManager, cfg);
-			System.out.println("INFO: Networking Service started");
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
+		
+			try {
+				m_acceptor.bind(new InetSocketAddress(7001), m_connectionManager, cfg);
+				System.out.println("INFO: Networking Service started");
+			} catch (IOException e) {
+				if(!e.getMessage().equals("Connection reset by peer"));//Ignore connection reset by peer messages. They're useless. 
+					e.printStackTrace();
+			}
 	}
 	
 	/**
