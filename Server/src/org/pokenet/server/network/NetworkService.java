@@ -130,7 +130,7 @@ public class NetworkService {
 				m_acceptor.bind(new InetSocketAddress(7001), m_connectionManager, cfg);
 				System.out.println("INFO: Networking Service started");
 			} catch (IOException e) {
-				if(!e.getMessage().equals("Connection reset by peer"));//Ignore connection reset by peer messages. They're useless. 
+				if(!e.getMessage().contains("peer"));//Ignore connection reset by peer messages. They're useless. 
 					e.printStackTrace();
 			}
 	}

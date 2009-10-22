@@ -270,7 +270,8 @@ public class ProtocolHandler extends IoHandlerAdapter {
 						
 						case 'l':
 							//Send an alert
-							p.getSession().write("!"+message.substring(2));
+							if(p.getAdminLevel()>1)
+								p.getSession().write("!"+message.substring(2));
 							break;
 						case 'b':
 							//Ban player
