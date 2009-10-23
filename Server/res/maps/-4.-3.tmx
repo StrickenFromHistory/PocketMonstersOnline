@@ -2,10 +2,10 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="52" height="21" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonLevels" value="13-15;13-13;15-15;14-14;14-14;15-15;15-15;16-16;16-17;16-16;"/>
-  <property name="dayPokemonChances" value="Pidgey,15;Ledyba,15;Stantler,15;Growlithe,7;Vulpix,8;Pidgeotto,5;Ledian,5;Murkrow,10;Glameow,15;Misdreavus,5;"/>
-  <property name="nightPokemonLevels" value="14-16;13-13;15-15;15-15;15-15;14-14;14-14;16-16;16-17;16-16;"/>
-  <property name="nightPokemonChances" value="Stantler,20;Spinarak,20;Hoothoot,10;Noctowl,5;Ariados,5;Vulpix,5;Growlithe,5;Murkrow,10;Glameow,15;Misdreavus,5;"/>
+  <property name="dayPokemonLevels" value="13-15;13-13;15-15;14-14;14-14;15-15;15-15;"/>
+  <property name="dayPokemonChances" value="Pidgey,25;Ledyba,25;Stantler,25;Growlithe,7;Vulpix,8;Pidgeotto,5;Ledian,5;"/>
+  <property name="nightPokemonLevels" value="14-16;13-13;15-15;15-15;15-15;14-14;14-14;"/>
+  <property name="nightPokemonChances" value="Stantler,30;Spinarak,30;Hoothoot,20;Noctowl,5;Ariados,5;Vulpix,5;Growlithe,5;"/>
   <property name="waterPokemonLevels" value=""/>
   <property name="waterPokemonChances" value=""/>
   <property name="wildProbability" value="10"/>  

@@ -2,10 +2,10 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="56" height="19" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonChances" value="Nidoran-m,15;Nidoran-f,15;Pidgey,15;Growlithe,5;Vulpix,5;Stantler,5;Ledyba,5;Bellsprout,5;Murkrow,10,Glameow,15,Misdreavus,5"/>
-  <property name="dayPokemonLevels" value="12-12;12-12;13-15;13-13;13-13;13-13;4-4;5-5;15-15;15-16;15-15;"/>
-  <property name="nightPokemonChances" value="Nidoran-m,15;Nidoran-f,10;Hoothoot,15;Growlithe,5;Vulpix,5;Stantler,5;Bellsprout,5;Spinarak,5;Gastly,5;Murkrow,10,Glameow,15,Misdreavus,5;"/>
-  <property name="nightPokemonLevels" value="12-12;12-12;13-15;13-13;13-13;13-13;5-5;4-4;5-5;15-15;15-16;15-15;"/>
+  <property name="dayPokemonChances" value="Nidoran-m,20;Nidoran-f,20;Pidgey,25;Growlithe,5;Vulpix,5;Stantler,5;Ledyba,10;Bellsprout,10;"/>
+  <property name="dayPokemonLevels" value="12-12;12-12;13-15;13-13;13-13;13-13;4-4;5-5;"/>
+  <property name="nightPokemonChances" value="Nidoran-m,20;Nidoran-f,20;Hoothoot,20;Growlithe,5;Vulpix,5;Stantler,5;Bellsprout,10;Spinarak,10;Gastly,5;"/>
+  <property name="nightPokemonLevels" value="12-12;12-12;13-15;13-13;13-13;13-13;5-5;4-4;5-5;"/>
   <property name="waterPokemonChances" value=""/>
   <property name="waterPokemonLevels" value=""/>
   <property name="wildProbability" value="10"/>
