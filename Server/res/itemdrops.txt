@@ -195,9 +195,9 @@ Wooper 206 50 204 50
 Quagsire 206 50 204 50
 Umbreon 170 10 207 90
 Espeon 171 10 207 90
-Murkrow 202 90 801 5 803 5
+Murkrow 170 30 202 70
 Slowking 202 50 207 25 321 25
-Misdreavus 202 45 207 45 804 5 806 5
+Misdreavus 202 50 207 50
 Unown 206 100
 Wobbuffet 207 100
 Girafarig 207 100
@@ -429,7 +429,7 @@ Buneary 206 100
 Lopunny 206 99 317 1
 Mismagmius 170 1 209 50
 Honchkrow 170 1 209 50
-Glameow 206 85 800 5 802 5 805 5
+Glameow 206 100
 Purugly 206 50 209 50
 Chingling 205 80 320 5
 Stunky 206 100
