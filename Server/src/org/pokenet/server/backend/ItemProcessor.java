@@ -410,7 +410,7 @@ public class ItemProcessor implements Runnable {
 						int random = rand.nextInt(10);
 						if(random <3){
 							poke.addStatus(new ParalysisEffect());
-							message+="/n"+poke.getName()+" was Paralized from the Lollipop!";
+							message+="/n"+poke.getName()+" was Paralyzed from the Lollipop!";
 						}
 						if (p.isBattling()) {
 							p.getBattleField().forceExecuteTurn();
@@ -490,7 +490,7 @@ public class ItemProcessor implements Runnable {
 							p.getTcpSession().write("Ii"+message);
 						return true;
 					} else if (i.getId() == 805) { //Sour Candy
-						String message = poke.getName()+" ate the Sour Candy./n" +poke.getName()+" is happier!";
+						String message = poke.getName()+" ate the Gummilax./n" +poke.getName()+" is happier!";
 						int happiness = poke.getHappiness()+rand.nextInt(30);
 						if(happiness<=300)
 							poke.setHappiness(happiness);
@@ -499,7 +499,7 @@ public class ItemProcessor implements Runnable {
 						int random = rand.nextInt(10);
 						if(random <3){
 							poke.addStatus(new ParalysisEffect());
-							message+="/nThe candy was too sour for "+poke.getName()+"./n"+poke.getName()+" was Paralized";
+							message+="/nThe gummi was too sweet for "+poke.getName()+"./n"+poke.getName()+" fell asleep!";
 						}
 						if (p.isBattling()) {
 							p.getBattleField().forceExecuteTurn();
@@ -507,7 +507,7 @@ public class ItemProcessor implements Runnable {
 							p.getTcpSession().write("Ii"+message);
 						return true;
 					} else if (i.getId() == 806) { //Funball
-						String message = poke.getName()+" ate the Funball.";
+						String message = poke.getName()+" ate the Gengum.";
 						int randHealth = rand.nextInt(100);
 						randHealth-=20;
 						if(poke.getHealth()+randHealth<0)

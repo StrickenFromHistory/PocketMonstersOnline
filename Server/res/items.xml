@@ -5973,7 +5973,7 @@
 			<integer>800</integer>
 			<item>
 				<m_name>Voltorb Lollipop</m_name>
-				<m_description>Heals 50HP, but might Paralize your Pokemon</m_description>
+				<m_description>Heals 50HP, but might Paralyze your Pokemon</m_description>
 				<m_id>800</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -6042,8 +6042,8 @@
 		<entry>
 			<integer>805</integer>
 			<item>
-				<m_name>Sour Candy</m_name>
-				<m_description>Raises Happiness, but might Paralize your Pokemon</m_description>
+				<m_name>Gummilax</m_name>
+				<m_description>Raises Happiness, but might put your Pokemon to Sleep</m_description>
 				<m_id>805</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -6056,8 +6056,8 @@
 		<entry>
 			<integer>806</integer>
 			<item>
-				<m_name>Funball</m_name>
-				<m_description>Heals your Pokemon's HP for an unknown ammount. </m_description>
+				<m_name>Gengum</m_name>
+				<m_description>Heals your Pokemon's HP for an unknown amount. </m_description>
 				<m_id>806</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>

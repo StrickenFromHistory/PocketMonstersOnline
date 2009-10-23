@@ -411,10 +411,10 @@ TM91 Flash Cannon	666
 TM92 Trick Room	667	
 TM93 Surf	668	
 Secret Potion	750
-Voltorb Lollipop	800
-Sweet Chills	801
-Cinnamon Candy	802
-Candy Corn	803
-Poke'Choc	804
-Sour Candy	805
-Funball	806
+Voltorb Lollipop 800
+Sweet Chills 801
+Cinnamon Candy 802
+Candy Corn 803
+Poke'Choc 804
+Gummilax 805
+Gengum 806
