@@ -336,6 +336,7 @@ public class GameClient extends BasicGame {
 				try{
 					m_display.render(gc, g);
 				} catch (ConcurrentModificationException e){m_display.render(gc, g);}
+				catch(IndexOutOfBoundsException e){m_display.render(gc, g);}
 			}
 		} catch (Exception e) { e.printStackTrace(); }
 	}

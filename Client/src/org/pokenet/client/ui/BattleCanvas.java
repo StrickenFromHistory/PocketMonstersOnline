@@ -130,6 +130,7 @@ public class BattleCanvas extends Container {
 			} catch (Exception e) {}
 			enemyPoke = new Label (BattleManager.getInstance()
 					.getCurEnemyPoke().getSprite());
+			
 			enemyPoke.setSize(80, 80);
 			enemyPoke.setLocation(150, 21);
 			add(enemyPoke);

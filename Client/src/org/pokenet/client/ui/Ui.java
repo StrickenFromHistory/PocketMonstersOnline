@@ -202,7 +202,10 @@ public class Ui extends Frame {
 			break;
 		case 'l':
 			//Local Chat
-			m_chat.addChatLine("Local", m.substring(1));
+			if(m.substring(1).toLowerCase().contains(GameClient.getInstance().getOurPlayer().getUsername().toLowerCase())&&!m.substring(1).contains("<"+GameClient.getInstance().getOurPlayer().getUsername()+">"))
+				m_chat.addSystemMessage("!"+m.substring(1));
+			else
+				m_chat.addChatLine("Local", m.substring(1));
 			break;
 		case 'p':
 			//Private Chat

@@ -76,7 +76,7 @@ public class ConnectionManager extends IoHandlerAdapter {
 			break;
 		case 'q':
 			//Server announcement
-			GameClient.getInstance().getUi().getChat().addSystemMessage("*" + message.substring(1) + ".");
+			GameClient.getInstance().getUi().getChat().addSystemMessage("*" + message.substring(1) + "*");
 			break;		
 		case 'T':
 			//Trade
