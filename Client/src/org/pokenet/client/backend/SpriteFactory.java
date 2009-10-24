@@ -76,9 +76,9 @@ public class SpriteFactory {
 			
 			f = FileLoader.loadFile("/res/characters");
 			/*
-			 * WARNING: Change 219 to the amount of sprites we have in client
+			 * WARNING: Change 224 to the amount of sprites we have in client
 			 */
-			for(int i = -1; i < 219; i++) {
+			for(int i = -1; i < 224; i++) {
 				try {
 					location = "/res/characters/" + String.valueOf(i) + ".png";
 					f = FileLoader.loadFile(location);
