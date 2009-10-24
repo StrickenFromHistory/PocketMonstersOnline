@@ -352,7 +352,7 @@ public class ItemProcessor implements Runnable {
                     						int random = rand.nextInt(10);
                     						if(random <3){
                     							poke.addStatus(new ParalysisEffect());
-                    							message+="/n"+poke.getName()+" was Paralized from the Lollipop!";
+                    							message+="/n"+poke.getName()+" was Paralyzed from the Lollipop!";
                     						}
                     						if (p.isBattling()) {
                     							p.getBattleField().forceExecuteTurn();

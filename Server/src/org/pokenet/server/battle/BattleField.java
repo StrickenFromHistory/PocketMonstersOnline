@@ -767,53 +767,58 @@ public abstract class BattleField {
      */
     public void executeTurn(BattleTurn[] move) {       
         Pokemon[] active = getActivePokemon();
-        int[] order = PokemonWrapper.sortMoves(active, move);
-        
-        for (int i = 0; i < active.length; ++i) {
-            BattleTurn turn = move[i];
-            if (turn == null)
-                continue;
-            if (turn.isMoveTurn()) {
-                PokemonMove pokemonMove = turn.getMove(active[i]);
-                if (pokemonMove != null) {
-                    pokemonMove.beginTurn(move, i, active[i]);
-                }
-            }
-        }
-        
-        for (int i = 0; i < active.length; ++i) {
-            int other = (order[i] == 0) ? 1 : 0;
-            BattleTurn turn = move[i];
-            if (turn != null) {
-                executeTurn(turn, order[i], other);
-            }
-        }
-        
-        // Refresh the active array in case a trainer switched.
-        active = getActivePokemon();
-        
-        tickStatuses(active);
-        
-        boolean request = true;
-        for (int i = 0; i < active.length; ++i) {
-            // Synchronise statuses.
-            active[i].synchroniseStatuses();
-            
-            if (!active[i].isFainted()) {
-                continue;
-            }
-            
-            requestPokemonReplacement(i);
-            request = false;
-        }
-        
-        // Synchronise FieldEffects.
-        synchroniseFieldEffects();
-        
-        //showMessage("---");
-        
-        if (request) {
-            requestMoves();
+        if(active != null){
+	        int[] order = PokemonWrapper.sortMoves(active, move);
+	        
+	        for (int i = 0; i < active.length; ++i) {
+	            BattleTurn turn = move[i];
+	            if (turn == null)
+	                continue;
+	            if (turn.isMoveTurn()) {
+	                PokemonMove pokemonMove = turn.getMove(active[i]);
+	                if (pokemonMove != null) {
+	                    pokemonMove.beginTurn(move, i, active[i]);
+	                }
+	            }
+	        }
+	        
+	        for (int i = 0; i < active.length; ++i) {
+	            int other = (order[i] == 0) ? 1 : 0;
+	            BattleTurn turn = move[i];
+	            if (turn != null) {
+	                executeTurn(turn, order[i], other);
+	            }
+	        }
+	        
+	        // Refresh the active array in case a trainer switched.
+	        active = getActivePokemon();
+	        
+	        tickStatuses(active);
+	        
+	        boolean request = true;
+	        for (int i = 0; i < active.length; ++i) {
+	            // Synchronise statuses.
+	            active[i].synchroniseStatuses();
+	            
+	            if (!active[i].isFainted()) {
+	                continue;
+	            }
+	            
+	            requestPokemonReplacement(i);
+	            request = false;
+	        }
+	        
+	        // Synchronise FieldEffects.
+	        synchroniseFieldEffects();
+	        
+	        //showMessage("---");
+	        
+	        if (request) {
+	            requestMoves();
+	        }
+        }else{
+        	checkBattleEnd(1);//Check if player won
+        	checkBattleEnd(0);//Check if player won
         }
     }
 

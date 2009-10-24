@@ -265,13 +265,17 @@ public class ProtocolHandler extends IoHandlerAdapter {
 						switch(message.charAt(1)) {
 						case 'a':
 							//Send an announcement
-							p.getSession().write("q"+message.substring(2));
+							for (String s : m_players.keySet()){
+								m_players.get(s).getSession().write("q" + message.substring(2));
+							}
 							break;
 						
 						case 'l':
 							//Send an alert
 							if(p.getAdminLevel()>1)
-								p.getSession().write("!"+message.substring(2));
+								for (String s : m_players.keySet()){
+									m_players.get(s).getSession().write("!" + message.substring(2));
+								}
 							break;
 						case 'b':
 							//Ban player
