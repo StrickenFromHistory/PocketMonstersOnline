@@ -72,12 +72,12 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 		switch(message.charAt(0)) {
 		case '!':
 			//Server notification
-			GameClient.messageDialog(message.substring(1), 
-					GameClient.getInstance().getDisplay());
+			GameClient.messageDialog(message.substring(1), GameClient.getInstance().getDisplay());
 			break;
 		case 'q':
-			//Server notification
-			break;		
+			//Server announcement
+			GameClient.getInstance().getUi().getChat().addAnnouncement(message.substring(1));
+			break;			
 		case 'T':
 			//Trade
 			switch(message.charAt(1)) {

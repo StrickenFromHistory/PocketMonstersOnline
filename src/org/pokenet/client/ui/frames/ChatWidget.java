@@ -126,12 +126,22 @@ class ChatWidget extends Container{
     		m_shownChat.get(i).setForeground(m_foreColor);
     		m_shownChat.get(i).setLocation(0, y);
     		try {
-    			m_shownChat.get(i).setText(m_wrappedText.get(m_scrollIndex + i));
-    			// Make system messages yellow
-    			if (m_wrappedText.get(m_scrollIndex + i).charAt(0) == '*')
-    				m_shownChat.get(i).setForeground(Color.yellow);
-    			if (m_wrappedText.get(m_scrollIndex + i).charAt(0) == '!')
+    			// Make system messages red
+    			if (m_wrappedText.get(m_scrollIndex + i).charAt(0) == '*'){
     				m_shownChat.get(i).setForeground(Color.red);
+    				m_wrappedText.set(m_scrollIndex + i, m_wrappedText.get(m_scrollIndex + i).replaceFirst("*",""));
+    			}
+    			// Make announcements yellow
+    			if (m_wrappedText.get(m_scrollIndex + i).charAt(0) == '%'){
+    				m_shownChat.get(i).setForeground(Color.yellow);
+    				m_wrappedText.set(m_scrollIndex + i, m_wrappedText.get(m_scrollIndex + i).replaceFirst("%",""));
+    			}
+    			// Highlight chat when named. 
+    			if (m_wrappedText.get(m_scrollIndex + i).charAt(0) == '!'){
+    				m_shownChat.get(i).setForeground(Color.green);
+    				m_wrappedText.set(m_scrollIndex + i, m_wrappedText.get(m_scrollIndex + i).replaceFirst("!",""));
+    			}
+    			m_shownChat.get(i).setText(m_wrappedText.get(m_scrollIndex + i));
     		} catch (Exception e) {}
     		m_shownChat.get(i).pack();
     		add(m_shownChat.get(i));
