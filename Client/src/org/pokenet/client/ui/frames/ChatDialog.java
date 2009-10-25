@@ -173,7 +173,7 @@ public class ChatDialog extends Frame {
 	 */
 	public void addAnnouncement(String message){
 		for (String s : m_availableChats.keySet())
-			m_availableChats.get(s).add('*' + message);
+			m_availableChats.get(s).add('%' + message);
 		m_chatWidget.addLine();
 	}
 	
