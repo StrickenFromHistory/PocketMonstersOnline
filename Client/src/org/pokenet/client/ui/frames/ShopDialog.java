@@ -9,6 +9,8 @@ import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
+import mdes.slick.sui.event.MouseEvent;
+import mdes.slick.sui.event.MouseListener;
 
 import org.lwjgl.util.Timer;
 import org.newdawn.slick.Image;
@@ -31,11 +33,12 @@ public class ShopDialog extends Frame {
 	private Button[] m_categoryButtons;
 	private Label[] m_categoryLabels;
 	private Button[] m_itemButtons;
+	private Button[] m_sellButton;
 	private Label[] m_itemPics;
 	private Label[] m_itemLabels;
 	private Label[] m_itemStockPics;
 	public Timer m_timer;
-	
+	private ListBox m_sellList;
 	List<Item> m_items;
 	private Button m_cancel;
 	private Button m_buy;
@@ -140,18 +143,20 @@ public class ShopDialog extends Frame {
 	}
 	
 	public void sellGUI() {
+		m_cancel.setVisible(false);
 		String[] m_items = new String[GameClient.getInstance().getOurPlayer().getItems().size()];
 		for (int i = 0; i < m_items.length; i++) {
 			m_items[i] = GameClient.getInstance().getOurPlayer().getItems().get(i).getItem().getName();
 		}
 		
-		final ListBox m_sellList = new ListBox(m_items);
+		m_sellList = new ListBox(m_items);
 		
-		Button m_sellButton = new Button("Sell");
-		m_sellButton.setFont(GameClient.getFontLarge());
-		m_sellButton.setSize(getWidth(), 35);
-		m_sellButton.setLocation(0, m_cancel.getY() - 35);
-		m_sellButton.addActionListener(new ActionListener() {
+		m_sellButton = new Button[1];
+		m_sellButton[0] = new Button("Sell");
+		m_sellButton[0].setFont(GameClient.getFontLarge());
+		m_sellButton[0].setSize(getWidth(), 35);
+		m_sellButton[0].setLocation(0, m_cancel.getY() - 35);
+		m_sellButton[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				try{
 				final ConfirmationDialog m_confirm = new ConfirmationDialog("Are you sure you want to sell " 
@@ -173,13 +178,13 @@ public class ShopDialog extends Frame {
 			}
 		});
 		
-		m_sellList.setSize(getWidth(), m_sellButton.getY());
+		m_sellList.setSize(getWidth(), m_sellButton[0].getY());
 		// Start the UI
 		m_buy.setVisible(false);
 		m_sell.setVisible(false);
 		
 		getContentPane().add(m_sellList);
-		getContentPane().add(m_sellButton);
+		getContentPane().add(m_sellButton[0]);
 	}
 	
 	public void buyGUI() {
@@ -325,7 +330,7 @@ public class ShopDialog extends Frame {
 						cancelled();
 					}
 				});
-		setTitle("PokeShop");
+		setTitle("PokeMart");
 		setResizable(false);
 		setHeight(400);
 		setWidth(300);
@@ -348,6 +353,7 @@ public class ShopDialog extends Frame {
 		m_itemStockPics = new Label[m_items.size()];
 		for(int i = 0;i<m_items.size();i++){
 			final int itemChosen = m_items.get(i).getId();
+			final int buttonNumber = i;
 			m_itemButtons[i] = new Button("");
 			m_itemButtons[i].setSize(300, 50);
 			if(i>0)
@@ -407,14 +413,38 @@ public class ShopDialog extends Frame {
 			
 			m_itemLabels[i] = new Label(m_items.get(i).getName()+" - $"+m_items.get(i).getPrice());
 			m_itemLabels[i].setSize(200,50);
-			m_itemLabels[i].setGlassPane(true);
 			m_itemLabels[i].setFont(GameClient.getFontLarge());
 			m_itemLabels[i].setZIndex(1200);
 			m_itemLabels[i].setHorizontalAlignment(0);
+			m_itemLabels[i].addMouseListener(new MouseListener() {
+				boolean entered = false;
+				public void mouseReleased(MouseEvent arg0) {
+					if(entered)
+						itemClicked(itemChosen);
+					m_itemButtons[buttonNumber].setEnabled(true);
+				}
+				
+				public void mousePressed(MouseEvent arg0) {
+					m_itemButtons[buttonNumber].setEnabled(false);
+				}
+				
+				public void mouseMoved(MouseEvent arg0) {}
+				
+				public void mouseExited(MouseEvent arg0) {
+					entered = false;
+				}
+				
+				public void mouseEntered(MouseEvent arg0) {
+					entered = true;		
+				}
+				
+				public void mouseDragged(MouseEvent arg0) {}
+			});
 			if(i>0)
 				m_itemLabels[i].setLocation(30,(m_itemLabels[i-1].getY()+51));
 			else
 				m_itemLabels[i].setLocation(30,0);
+			m_itemLabels[i].updateAppearance();
 			getContentPane().add(m_itemLabels[i]);
 		}
 		
