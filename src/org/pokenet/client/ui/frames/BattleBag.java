@@ -23,14 +23,14 @@ public class BattleBag extends BigBagDialog {
 	public void useItem(int i){
 		destroyPopup();
 		if (m_curCategory == 0 || m_curCategory == 3){
-			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
+			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText().split("\n")[0], Integer.parseInt(
 					m_itemBtns.get(i).getName()), false, true);
 			setAlwaysOnTop(false);
 			m_popup.setLocation(m_itemBtns.get(i).getAbsoluteX(), m_itemBtns.get(i).getAbsoluteY() 
 					+ m_itemBtns.get(i).getHeight() - getTitleBar().getHeight());
 			getDisplay().add(m_popup);
 		} else {
-			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
+			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText().split("\n")[0], Integer.parseInt(
 					m_itemBtns.get(i).getName()), true, true);
 			setAlwaysOnTop(false);
 			m_popup.setLocation(m_itemBtns.get(i).getAbsoluteX(), m_itemBtns.get(i).getAbsoluteY() 

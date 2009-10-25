@@ -397,7 +397,9 @@ public class BigBagDialog extends Frame {
 					m_itemBtns.get(i).setToolTipText(
 							m_items.get(m_curCategory).get(
 									m_scrollIndex.get(m_curCategory) + i)
-									.getItem().getName());
+									.getItem().getName()+"\n"+m_items.get(m_curCategory).get(
+											m_scrollIndex.get(m_curCategory) + i)
+											.getItem().getDescription());
 					m_itemBtns.get(i).setImage(
 							m_items.get(m_curCategory).get(
 									m_scrollIndex.get(m_curCategory) + i)
@@ -495,7 +497,7 @@ class ItemPopup extends Frame{
 		getContentPane().setY(getContentPane().getY() + 1);
 		
 		// Item name label
-		m_name = new Label(item);
+		m_name = new Label(item.split("\n")[0]);
 		m_name.setFont(GameClient.getFontSmall());
 		m_name.setForeground(Color.white);
 		m_name.pack();
@@ -526,7 +528,7 @@ class ItemPopup extends Frame{
 			getContentPane().add(m_give);
 		}
 		// Destroy the item
-		m_destroy = new Button("Destroy");
+		m_destroy = new Button("Drop");
 		m_destroy.setSize(100,25);
 		if (!isBattle)
 			m_destroy.setLocation(0, m_give.getY() + 25);
