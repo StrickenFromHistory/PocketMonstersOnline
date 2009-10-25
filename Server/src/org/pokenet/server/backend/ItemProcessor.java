@@ -387,6 +387,16 @@ public class ItemProcessor implements Runnable {
                                             else
                                                	p.getBattleField().forceExecuteTurn();
                                             return true;
+                                        } else if(i.getId() == 214) { //Wiki Berry
+                                        	String message = poke.getName()+" ate the Wiki Berry/nThe Wiki Berry restored" +poke.getRawStat(0) / 8+" HP to " +poke.getName()+"!";
+                                            poke.changeHealth(poke.getRawStat(0) / 8);
+                                            if(!p.isBattling()) {
+                                              	p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                               	p.getSession().write("Ii" + message);
+                                            }
+                                            else
+                                               	p.getBattleField().forceExecuteTurn();
+                                            return true;
                                         } else if(i.getId() == 212) { //Mago Berry
                                         	String message = poke.getName()+" ate the Mago Berry/nThe Mago Berry restored" +poke.getRawStat(0) / 8+" HP to " +poke.getName()+"!";
                                             poke.changeHealth(poke.getRawStat(0) / 8);
