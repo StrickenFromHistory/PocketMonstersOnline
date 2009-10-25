@@ -1590,7 +1590,7 @@
 			<integer>209</integer>
 			<item>
 				<m_name>Sitrus Berry</m_name>
-				<m_description>Recovers 1/4 HP</m_description>
+				<m_description>Recovers 30 HP</m_description>
 				<m_id>209</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -1604,7 +1604,7 @@
 			<integer>210</integer>
 			<item>
 				<m_name>Figy Berry</m_name>
-				<m_description>Heals with a chance of confusion</m_description>
+				<m_description>Heals 1/8th of total HP with a chance of confusion</m_description>
 				<m_id>210</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -1618,7 +1618,7 @@
 			<integer>211</integer>
 			<item>
 				<m_name>Wiki Berry</m_name>
-				<m_description>Heals with a chance of confusion</m_description>
+				<m_description>Heals 1/8th of total HP with a chance of confusion</m_description>
 				<m_id>211</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -1632,7 +1632,7 @@
 			<integer>212</integer>
 			<item>
 				<m_name>Mago Berry</m_name>
-				<m_description>Heals with a chance of confusion</m_description>
+				<m_description>Heals 1/8th of total HP with a chance of confusion</m_description>
 				<m_id>212</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -1646,7 +1646,7 @@
 			<integer>213</integer>
 			<item>
 				<m_name>Auguav Berry</m_name>
-				<m_description>Heals with a chance of confusion</m_description>
+				<m_description>Heals 1/8th of total HP with a chance of confusion</m_description>
 				<m_id>213</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -1660,7 +1660,7 @@
 			<integer>214</integer>
 			<item>
 				<m_name>Iapapa Berry</m_name>
-				<m_description>Heals with a chance of confusion</m_description>
+				<m_description>Heals 1/8th of total HP with a chance of confusion</m_description>
 				<m_id>214</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -5973,7 +5973,7 @@
 			<integer>800</integer>
 			<item>
 				<m_name>Voltorb Lollipop</m_name>
-				<m_description>Heals 50HP, but might Paralize your Pokemon</m_description>
+				<m_description>Heals 50HP, but might Paralyze your Pokemon</m_description>
 				<m_id>800</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -6015,7 +6015,7 @@
 			<integer>803</integer>
 			<item>
 				<m_name>Candy Corn</m_name>
-				<m_description>Raises Happiness, but might Sleep your Pokemon</m_description>
+				<m_description>Raises Happiness, but might Poison your Pokemon</m_description>
 				<m_id>803</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -6042,8 +6042,8 @@
 		<entry>
 			<integer>805</integer>
 			<item>
-				<m_name>Sour Candy</m_name>
-				<m_description>Raises Happiness, but might Paralize your Pokemon</m_description>
+				<m_name>Gummilax</m_name>
+				<m_description>Raises Happiness, but might put your Pokemon to Sleep</m_description>
 				<m_id>805</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -6056,8 +6056,8 @@
 		<entry>
 			<integer>806</integer>
 			<item>
-				<m_name>Funball</m_name>
-				<m_description>Restores 100HP OR Substracts 30HP</m_description>
+				<m_name>Gengum</m_name>
+				<m_description>Heals your Pokemon's HP for an unknown amount. </m_description>
 				<m_id>806</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
