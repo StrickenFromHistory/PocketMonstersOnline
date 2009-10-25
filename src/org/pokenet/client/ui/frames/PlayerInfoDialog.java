@@ -260,8 +260,8 @@ public class PlayerInfoDialog extends Frame {
 	 */
 	public void showBadges() throws NullPointerException {
 		int[] badges = GameClient.getInstance().getOurPlayer().getBadges();
-		for (int i = 0; i < badges.length; i++) {
-			try {
+		try {
+			for (int i = 0; i < badges.length; i++) {
 				if (i < 8) {
 					// Kanto
 					if (badges[i] == 0)
@@ -297,10 +297,10 @@ public class PlayerInfoDialog extends Frame {
 				} else {
 					throw new NullPointerException("Bad Badge Number");
 				}
-			} catch (NullPointerException e) {
-				e.printStackTrace();
-				System.err.println("See http://xkcd.com/371/ for details");
 			}
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			System.err.println("See http://xkcd.com/371/ for details");
 		}
 	}
 	
