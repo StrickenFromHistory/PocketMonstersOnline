@@ -10,13 +10,13 @@ Blastoise 204 80 237 10 310 9 668 1
 Caterpie 206 100
 Metapod 206 100
 Butterfree 206 90 209 10
-Weedle 206 95 202 5
+Weedle 206 90 202 5 800 5
 Kakuna 206 95 202 5
 Beedrill 206 95 202 5
-Pidgey 206 75 35 25
+Pidgey 206 75 35 15 801 10
 Pidgeotto 206 95 35 5
 Pidgeot 206 95 35 4 615 1
-Rattata 206 100
+Rattata 206 80 802 20
 Raticate 206 95 205 5
 Spearow 206 100
 Fearow 206 95 205 5
@@ -24,12 +24,12 @@ Ekans 206 95 16 5
 Arbok 206 60 16 40
 Pikachu 241 40 206 30 477 30
 Raichu 241 40 206 30 477 25 599 5
-Sandshrew 206 95 235 5
+Sandshrew 206 15 235 5 803 10
 Sandslash 206 90 235 5 603 5
-Nidoran-f 206 90 168 10
+Nidoran-f 206 80 168 10 804 10
 Nidorina 206 90 168 10
 Nidoqueen 206 100
-Nidoran-m 206 90 168 10
+Nidoran-m 206 80 168 10 805 10
 Nidorino 206 90 168 10
 Nidoking 206 100
 Clefairy 168 25 206 75
@@ -38,12 +38,12 @@ Vulpix 164 20 206 80
 Ninetales 164 15 206 85
 Jigglypuff 206 100
 Wigglytuff 206 100
-Zubat 206 100
+Zubat 206 70 806 10 800 10 801 10
 Golbat 206 100
-Oddish 200 50 206 35 167 15
+Oddish 200 40 206 35 167 15 802 10
 Gloom 201 100
 Vileplume 597 5 209 50 206 45
-Paras 206 95 37 5
+Paras 206 75 37 5 803 10 804 10
 Parasect 209 100
 Venonat 318 5 206 95
 Venomoth 318 10 209 90
@@ -57,21 +57,21 @@ Mankey 206 100
 Primeape 209 90 301 10
 Growlithe 203 80 164 20
 Arcanine 203 50 303 40 241 10
-Poliwag 206 100
+Poliwag 206 70 805 15 806 15
 Poliwhirl 201 50 209 40 155 10
 Poliwrath 209 75 208 25
 Abra 207 95 604 5
 Kadabra 321 5 206 95
 Alakazam 209 69 321 10 374 10 388 10 340 1
-Machop 206 100
+Machop 206 80 801 20
 Machoke 209 95 301 5
 Machamp 209 100
-Bellsprout 200 90 173 10
+Bellsprout 200 70 173 10 802 20
 Weepinbell 206 50 209 50
 Victreebel 209 90 352 5 353 5
 Tentacool 202 100
 Tentacruel 209 50 206 30 313 10 202 10
-Geodude 206 100
+Geodude 206 60 803 15 804 10 805 15
 Graveler 206 40 209 40 237 20
 Golem 209 75 305 20 655 5
 Ponyta 206 90 164 10
@@ -89,13 +89,13 @@ Grimer 202 98 353 1 385 1
 Muk 202 80 353 10 385 3 581 7
 Shellder 206 100
 Cloyster 209 100
-Gastly  206 100
+Gastly  206 60 806 15 800 15 801 10
 Haunter 206 60 209 30 320 10
 Gengar 209 60 208 20 320 20
 Onix 206 80 305 5 603 10 651 5
 Drowzee 200 100
 Hypno 200 80 202 15 321 5
-Krabby 204 100
+Krabby 204 80 802 20
 Kingler 205 90 236 10
 Voltorb 206 100
 Electrode 209 50 241 35 307 5
@@ -158,14 +158,14 @@ Typhlosion 203 80 235 10 303 9 613 1
 Totodile 204 80 237 10 310 10
 Croconaw 204 80 237 10 310 10
 Feraligatr 204 80 237 10 310 9 668 1
-Sentret 206 100
-Furret 206 100
+Sentret 206 60 803 15 804 15 805 10
+Furret 206 90 806 10
 Hoothoot 207 100
 Noctowl 207 95 605 5
-Ledyba 207 50 202 50
+Ledyba 207 40 202 40 800 20
 Ledian 207 50 202 50
-Spinarak 202 100
-Ariados 202 100
+Spinarak 202 80 801 20
+Ariados 202 80 802 20
 Crobat 202 50 207 50
 Chinchou 200 25 204 25 206 50
 Latnurn 200 25 204 25 206 50
@@ -176,7 +176,7 @@ Togepi 206 50 207 40 375 9 169 1
 Togetic 206 50 207 48 169 2
 Natu 207 100
 Xatu 207 90 246 10
-Mareep 200 50 206 40 609 10
+Mareep 200 40 206 40 609 10 803 10
 Flaffy 200 50 206 40 609 10
 Ampharos 200 50 206 40 307 10
 Bellossom 208 85 167 15
@@ -187,7 +187,7 @@ Politoed 133 100
 Hoppip 201 50 202 40 584 10
 Skiploom 201 50 202 50
 Jumpluff 201 50 202 50
-Aimpom 206 100
+Aipom 206 100
 Sunkern 201 50 202 40 167 10
 Sunflora 201 50 202 45 167 5
 Yanma 253 25 206 5
