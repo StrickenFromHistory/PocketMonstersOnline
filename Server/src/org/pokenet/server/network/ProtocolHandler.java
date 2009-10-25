@@ -55,16 +55,17 @@ public class ProtocolHandler extends IoHandlerAdapter {
 		 */
 		try {
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
+			GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 			if(p != null) {
 				if (p.isBattling())
 					p.lostBattle();
 				m_logoutManager.queuePlayer(p);
-				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 				m_players.remove(p);
 			}
 			if(session.isConnected() || !session.isClosing())
 				session.close();
 		} catch (Exception e) {
+			System.out.println("Error on Session Closed: ");
 			e.printStackTrace();
 		}
 		t.printStackTrace();
@@ -537,6 +538,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 			if(session.isConnected() || !session.isClosing())
 				session.close();
 		} catch (Exception e) {
+			System.out.println("Error on Session Closed: ");
 			e.printStackTrace();
 		}
 	}

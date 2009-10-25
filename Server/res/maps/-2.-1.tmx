@@ -2,18 +2,20 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="50" height="55" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonLevels" value="3-4;4-5;3-4;4-5;2-4;3-3;4-4;"/>
-  <property name="dayPokemonChances" value="Caterpie,35;Metapod,15;Weedle,5;Kakuna,10;Pidgey,10;Ledyba,20;Hoppip,5;"/>
-  <property name="nightPokemonLevels" value="3-4;3-3;4-4;2-4;3-3;"/>
-  <property name="nightPokemonChances" value="Rattata,40;Zubat,5;Poliwag,20;Hoothoot,15;Spinarak,20;"/>
+  <property name="dayPokemonLevels" value="3-4;4-5;3-4;4-5;2-4;3-3;4-4;5-6;4-6"/>
+  <property name="dayPokemonChances" value="Caterpie,25;Metapod,10;Weedle,15;Kakuna,10;Pidgey,5;Ledyba,15;Hoppip,5;Glameow,10;Misdreavus,5;"/>
+  <property name="nightPokemonLevels" value="3-4;3-3;4-4;2-4;3-3;4-6"/>
+  <property name="nightPokemonChances" value="Rattata,30;Zubat,15;Poliwag,15;Hoothoot,15;Spinarak,15;Misdreavus,5;"/>
   <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="waterPokemonChances" value="Poliwag,90;Poliwhirl,10;"/>
+  <property name="fishPokemonLevels" value="10-40;10-40;40-40;"/>
+  <property name="fishPokemonChances" value="Poliwag,70;Magikarp,20;Poliwhirl,10;"/>
   <property name="wildProbability" value="10"/>
   <property name="xOffsetModifier" value="-64"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset firstgid="1" source="Tileset 1.tsx"/>
- <tileset firstgid="1025" source="Tileset 2.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
  <layer name="Walkable" width="50" height="56">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO2Z3Q2CQBCEF9FC1Ggf4IO2oVaiaCfanjW4D1yybgTuR2Hu4JIvPChmhmFv92JORHkgx5oTc/7B7w3J5AOLVHxcmCtTAWiZICqYktk1fJ5lRDMmz4bX2kZXfSxZ/4pZJ+JjUedisnnNh9fu40OCmE2Xj4I1l4pd7QMpk1T6h4sPpOev6eqDWjuyl5hzMHT1wVgYY50jk4qPaW7HwuxXse9Zpj5ir5HJBxYp+XhS/HvvJXL9PiDPvcjaxsSY+zjimcvWh8zt5ui7bx93oVVzE9+TfWbPHAKu//Bhi8xhw2wDrn34MM9dU4n70fL4prmyuB8tD9+aRckj9FyOkkcoKHm49jS9UPJwrQ+9UPKQPmxmXvQ82nq5fO9Q8zD7VRMP+nzvUPNwrR+9+tLhipxr22Zb9PNj07ylfaDTVC8VgLYxgnhm9SGV/6V8fdiu1H2kst766fKbwCsAAA==
