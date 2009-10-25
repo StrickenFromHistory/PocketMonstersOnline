@@ -131,11 +131,11 @@ public class ItemProcessor implements Runnable {
                                         } else if(i.getName().equalsIgnoreCase("SUPER POTION")) {
                                                 hpBoost = 50;
                                                 poke.changeHealth(hpBoost);
-                                                message = "You used Super Potion on "+poke.getName()+"/nThe Super Potion restored 20 HP";
+                                                message = "You used Super Potion on "+poke.getName()+"/nThe Super Potion restored 50 HP";
                                         } else if(i.getName().equalsIgnoreCase("HYPER POTION")) {
                                                 hpBoost = 200;
                                                 poke.changeHealth(hpBoost);
-                                                message = "You used Hyper Potion on "+poke.getName()+"/nThe Hyper Potion restored 20 HP";
+                                                message = "You used Hyper Potion on "+poke.getName()+"/nThe Hyper Potion restored 200 HP";
                                         } else if(i.getName().equalsIgnoreCase("MAX POTION")) {
                                                 poke.changeHealth(poke.getRawStat(0));
                                                 message = "You used Max Potion on "+poke.getName()+"/nThe Max Potion restored All HP";
@@ -330,7 +330,7 @@ public class ItemProcessor implements Runnable {
                                             	p.getSession().write("Ii" + message);
                                             return true;
                                         } else if(i.getId() == 205) { //Leppa Berry
-                                        	String message = "Leppa Berry had no effect"; // Move selection not completed, temp message
+                                        	String message = "Leppa Berry had no effect"; // Move selection not completed, temp message TODO. Add support for this
                                             int ppSlot = Integer.parseInt(data[1]);
                                             if(poke.getPp(ppSlot) + 10 <= poke.getMaxPp(ppSlot))
                                             	poke.setPp(ppSlot, poke.getPp(ppSlot) + 10);
@@ -512,7 +512,7 @@ public class ItemProcessor implements Runnable {
                     						}else
                     							p.getSession().write("Ii"+message);
                     						return true;
-                    					} else if (i.getId() == 805) { //Sour Candy
+                    					} else if (i.getId() == 805) { //Gummilax
                     						String message = poke.getName()+" ate the Gummilax./n" +poke.getName()+" is happier!";
                     						int happiness = poke.getHappiness()+rand.nextInt(30);
                     						if(happiness<=300)
@@ -529,7 +529,7 @@ public class ItemProcessor implements Runnable {
                     						}else
                     							p.getSession().write("Ii"+message);
                     						return true;
-                    					} else if (i.getId() == 806) { //Funball
+                    					} else if (i.getId() == 806) { //Gengum
                     						String message = poke.getName()+" ate the Gengum.";
                     						int randHealth = rand.nextInt(100);
                     						randHealth-=20;
