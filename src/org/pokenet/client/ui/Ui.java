@@ -455,6 +455,19 @@ public class Ui extends Frame {
     }
         
     /**
+     * Toggles the Chat Pane
+     */
+    public void toggleChat(){
+    	if (m_chat.isVisible()) {
+    		m_chat.setVisible(false);
+		} else{ 
+			if(m_chat==null)
+				m_chat = new ChatDialog();
+			m_chat.setLocation(0, GameClient.getInstance().getDisplay().getHeight() - m_chat.getHeight());
+			m_chat.setVisible(true);
+		}	
+    }
+    /**
      * Hides all HUD elements
      */
     private void hideHUDElements() {
