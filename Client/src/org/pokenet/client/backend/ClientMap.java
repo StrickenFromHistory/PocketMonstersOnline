@@ -1,6 +1,5 @@
 package org.pokenet.client.backend;
 
-import java.io.InputStream;
 import java.util.Iterator;
 
 import org.newdawn.slick.Graphics;
