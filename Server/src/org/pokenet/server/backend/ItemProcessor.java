@@ -121,25 +121,31 @@ public class ItemProcessor implements Runnable {
                                          */
                                         int hpBoost = 0;
                                         poke = p.getParty()[Integer.parseInt(data[0])];
+                                        String message;
                                         if(poke == null)
                                                 return false;
-                                        if(i.getName().equalsIgnoreCase("POTION")) {
+                                        if(i.getId() == 1) { //Potion
                                                 hpBoost = 20;
                                                 poke.changeHealth(hpBoost);
+                                                message = "You used Potion on "+poke.getName()+"/nThe Potion restored 20 HP";
                                         } else if(i.getName().equalsIgnoreCase("SUPER POTION")) {
                                                 hpBoost = 50;
                                                 poke.changeHealth(hpBoost);
+                                                message = "You used Super Potion on "+poke.getName()+"/nThe Super Potion restored 20 HP";
                                         } else if(i.getName().equalsIgnoreCase("HYPER POTION")) {
                                                 hpBoost = 200;
                                                 poke.changeHealth(hpBoost);
+                                                message = "You used Hyper Potion on "+poke.getName()+"/nThe Hyper Potion restored 20 HP";
                                         } else if(i.getName().equalsIgnoreCase("MAX POTION")) {
                                                 poke.changeHealth(poke.getRawStat(0));
+                                                message = "You used Max Potion on "+poke.getName()+"/nThe Max Potion restored All HP";
                                         } else {
                                                 return false;
                                         }
                                         if(!p.isBattling()) {
                                                 /* Update the client */
                                                 p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                                p.getSession().write("Ii" + message);
                                         } else {
                                                 /* Player is in battle, take a hit from enemy */
                                         	 p.getBattleField().forceExecuteTurn();
@@ -225,38 +231,54 @@ public class ItemProcessor implements Runnable {
                                         poke = p.getParty()[Integer.parseInt(data[0])];
                                         if(poke == null)
                                                 return false;
-                                        if(i.getName().equalsIgnoreCase("ANTIDOTE")) {
-                                                poke.removeStatus(PoisonEffect.class);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("PARALYZ HEAL")) {
-                                                poke.removeStatus(ParalysisEffect.class);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("AWAKENING")) {
-                                                poke.removeStatus(SleepEffect.class);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("BURN HEAL")) {
-                                                poke.removeStatus(BurnEffect.class);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("ICE HEAL")) {
-                                                poke.removeStatus(FreezeEffect.class);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("FULL HEAL")) {
-                                                //TODO: Add support for this
+                                		if(i.getId() == 16) { //Antidote
+                                			String message = "You used Antidote on "+poke.getName()+"/nThe Antidote restored "+poke.getName()+" status to normal";
+                                			poke.removeStatus(PoisonEffect.class);
+                                			if(p.isBattling())
+                                				p.getBattleField().forceExecuteTurn();
+                                			else
+                                				p.getSession().write("Ii" + message);
+                                			return true;
+                                        } else if(i.getId() == 17) { //Parlyz Heal
+                                        	String message = "You used Parlyz Heal on "+poke.getName()+"/nThe Parlyz Heal restored "+poke.getName()+" status to normal";
+                                        	poke.removeStatus(ParalysisEffect.class);
+                                        	if(p.isBattling())
+                                        		p.getBattleField().forceExecuteTurn();
+                                        	else
+                                        		p.getSession().write("Ii" + message);
+                                        	return true;
+                                        } else if(i.getId() == 18) { //Awakening
+                                        	String message = "You used Awakening on "+poke.getName()+"/nThe Awakening restored "+poke.getName()+" status to normal";
+                                        	poke.removeStatus(SleepEffect.class);
+                                        	if(p.isBattling())
+                                        		p.getBattleField().forceExecuteTurn();
+                                        	else
+                                        		p.getSession().write("Ii" + message);
+                                        	return true;
+                                        } else if(i.getId() == 19) { //Burn Heal
+                                        	String message = "You used Burn Heal on "+poke.getName()+"/nThe Burn Heal restored "+poke.getName()+" status to normal";
+                                        	poke.removeStatus(BurnEffect.class);
+                                        	if(p.isBattling())
+                                        		p.getBattleField().forceExecuteTurn();
+                                        	else
+                                        		p.getSession().write("Ii" + message);
+                                        	return true;
+                                        } else if(i.getId() == 20) { //Ice Heal
+                                        	String message = "You used Ice Heal on "+poke.getName()+"/nThe Ice Heal restored "+poke.getName()+" status to normal";
+                                        	poke.removeStatus(FreezeEffect.class);
+                                        	if(p.isBattling())
+                                        		p.getBattleField().forceExecuteTurn();
+                                        	else
+                                        		p.getSession().write("Ii" + message);
+                                        	return true;
+                                        } else if(i.getId() == 21) { //Full Heal
+                                        	String message = "You used Full Heal on "+poke.getName()+"/nThe Full Heal restored "+poke.getName()+" status to normal";
+                                        	poke.removeStatusEffects(true);
+                                        	if(p.isBattling())
+                                        		p.getBattleField().forceExecuteTurn();
+                                        	else
+                                        		p.getSession().write("Ii" + message);
+                                        	return true;
                                         } else if(i.getName().equalsIgnoreCase("LAVA COOKIE")) {
                                                 //TODO: Add support for this
                                         } else if(i.getName().equalsIgnoreCase("OLD GATEAU")) {
@@ -267,85 +289,134 @@ public class ItemProcessor implements Runnable {
                                         poke = p.getParty()[Integer.parseInt(data[0])];
                                         if(poke == null)
                                                 return false;
-                                        if(i.getName().equalsIgnoreCase("CHERI BERRY")) {
-                                                poke.removeStatus(ParalysisEffect.class);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("CHESTO BERRY")) {
-                                                poke.removeStatus(SleepEffect.class);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("PECHA BERRY")) {
-                                                poke.removeStatus(PoisonEffect.class);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("RAWST BERRY")) {
-                                                poke.removeStatus(BurnEffect.class);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("ASPEAR BERRY")) {
-                                                poke.removeStatus(FreezeEffect.class);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("LEPPA BERRY")) {
-                                                int ppSlot = Integer.parseInt(data[1]);
-                                                if(poke.getPp(ppSlot) + 10 <= poke.getMaxPp(ppSlot)) {
-                                                        poke.setPp(ppSlot, poke.getPp(ppSlot) + 10);
-                                                } else {
-                                                        poke.setPp(ppSlot, poke.getMaxPp(ppSlot));
-                                                }
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("ORAN BERRY")) {
-                                                poke.changeHealth(10);
-                                                if(!p.isBattling())
-                                                        p.getSession().write("Ph" + data[0] + poke.getHealth());
-                                                else {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("PERSIM BERRY")) {
-                                                poke.removeStatus(ConfuseEffect.class);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("LUM BERRY")) {
-                                                poke.removeStatusEffects(true);
-                                                if(p.isBattling()) {
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                }
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("SITRUS BERRY")) {
-                                                poke.changeHealth(30);
-                                                if(!p.isBattling())
-                                                        p.getSession().write("Ph" + data[0] + poke.getHealth());
-                                                else
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                return true;
-                                        } else if(i.getName().equalsIgnoreCase("FIGY BERRY") || 
-                                                        i.getName().equalsIgnoreCase("WIKI BERRY") ||
-                                                        i.getName().equalsIgnoreCase("MAGO BERRY") ||
-                                                        i.getName().equalsIgnoreCase("AGUAV BERRY") ||
-                                                        i.getName().equalsIgnoreCase("IAPAPA BERRY")) {
-                                                poke.changeHealth(poke.getRawStat(0) / 8);
-                                                if(!p.isBattling())
-                                                        p.getSession().write("Ph" + data[0] + poke.getHealth());
-                                                else
-                                                	 p.getBattleField().forceExecuteTurn();
-                                                return true;
+                                        if(i.getId() == 200) { //Cheri Berry
+                                        	String message = poke.getName()+" ate the Cheri Berry/nThe Cheri Berry restored "+poke.getName()+" status to normal";
+                                        	poke.removeStatus(ParalysisEffect.class);
+                                            if(p.isBattling())
+                                            	p.getBattleField().forceExecuteTurn();
+                                            else
+                                            	p.getSession().write("Ii" + message);
+                                            return true;
+                                        } else if(i.getId() == 201) { //Chesto Berry
+                                        	String message = poke.getName()+" ate the Chesto Berry/nThe Chesto Berry restored "+poke.getName()+" status to normal";
+                                        	poke.removeStatus(SleepEffect.class);
+                                            if(p.isBattling())
+                                            	p.getBattleField().forceExecuteTurn();
+                                            else
+                                            	p.getSession().write("Ii" + message);
+                                            return true;
+                                        } else if(i.getId() == 202) { //Pecha Berry
+                                        	String message = poke.getName()+" ate the Pecha Berry/nThe Pecha Berry restored "+poke.getName()+" status to normal";
+                                            poke.removeStatus(PoisonEffect.class);
+                                            if(p.isBattling())
+                                            	p.getBattleField().forceExecuteTurn();
+                                            else
+                                            	p.getSession().write("Ii" + message);
+                                            return true;
+                                        } else if(i.getId() == 203) { //Rawst Berry
+                                        	String message = poke.getName()+" ate the Rawst Berry/nThe Rawst Berry restored "+poke.getName()+" status to normal";
+                                        	poke.removeStatus(BurnEffect.class);
+                                        	if(p.isBattling())
+                                            	p.getBattleField().forceExecuteTurn();
+                                            else
+                                            	p.getSession().write("Ii" + message);
+                                            return true;
+                                        } else if(i.getId() == 204) { //Aspear Berry
+                                        	String message = poke.getName()+" ate the Aspear Berry/nThe Aspear Berry restored "+poke.getName()+" status to normal";
+                                            poke.removeStatus(FreezeEffect.class);
+                                            if(p.isBattling())
+                                            	p.getBattleField().forceExecuteTurn();
+                                            else
+                                            	p.getSession().write("Ii" + message);
+                                            return true;
+                                        } else if(i.getId() == 205) { //Leppa Berry
+                                        	String message = "Leppa Berry had no effect"; // Move selection not completed, temp message
+                                            int ppSlot = Integer.parseInt(data[1]);
+                                            if(poke.getPp(ppSlot) + 10 <= poke.getMaxPp(ppSlot))
+                                            	poke.setPp(ppSlot, poke.getPp(ppSlot) + 10);
+                                            else
+                                            	poke.setPp(ppSlot, poke.getMaxPp(ppSlot));
+                                            if(p.isBattling())
+                                            	p.getBattleField().forceExecuteTurn();
+                                            else
+                                            	p.getSession().write("Ii" + message);
+                                            return true;
+                                        } else if(i.getId() == 206) { //Oran Berry
+                                        	String message = poke.getName()+" ate the Oran Berry/nThe Oran Berry restored 10HP";
+                                        	poke.changeHealth(10);
+                                            if(!p.isBattling()) {
+                                            	p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                            	p.getSession().write("Ii" + message);
+                                            }
+                                            else
+                                            	p.getBattleField().forceExecuteTurn();
+                                            return true;
+                                        } else if(i.getId() == 207) { //Persim Berry
+                                        	String message = poke.getName()+" ate the Persim Berry/nThe Persim Berry restored "+poke.getName()+" status to normal";
+                                        	poke.removeStatus(ConfuseEffect.class);
+                                            if(p.isBattling())
+                                            	p.getBattleField().forceExecuteTurn();
+                                            else
+                                            	p.getSession().write("Ii" + message);
+                                            return true;
+                                        } else if(i.getId() == 208) { //Lum Berry
+                                        	String message = poke.getName()+" ate the Lum Berry/nThe Lum Berry restored "+poke.getName()+" status to normal";
+                                            poke.removeStatusEffects(true);
+                                            if(p.isBattling())
+                                            	p.getBattleField().forceExecuteTurn();
+                                            else
+                                               	p.getSession().write("Ii" + message);
+                                            return true;
+                                        } else if(i.getId() == 209) { //Sitrus Berry
+                                        	String message = poke.getName()+" ate the Sitrus Berry/nThe Sitrus Berry restored 30HP";
+                                            poke.changeHealth(30);
+                                            if(!p.isBattling()) {
+                                              	p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                            	p.getSession().write("Ii" + message);
+                                            }
+                                            else
+                                            	p.getBattleField().forceExecuteTurn();
+                                            return true;
+                                        } else if(i.getId() == 210) { //Figy Berry
+                                        	String message = poke.getName()+" ate the Figy Berry/nThe Figy Berry restored" +poke.getRawStat(0) / 8+" HP to " +poke.getName()+"!";
+                                            poke.changeHealth(poke.getRawStat(0) / 8);
+                                            if(!p.isBattling()) {
+                                              	p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                               	p.getSession().write("Ii" + message);
+                                            }
+                                            else
+                                               	p.getBattleField().forceExecuteTurn();
+                                            return true;
+                                        } else if(i.getId() == 212) { //Mago Berry
+                                        	String message = poke.getName()+" ate the Mago Berry/nThe Mago Berry restored" +poke.getRawStat(0) / 8+" HP to " +poke.getName()+"!";
+                                            poke.changeHealth(poke.getRawStat(0) / 8);
+                                            if(!p.isBattling()) {
+                                              	p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                               	p.getSession().write("Ii" + message);
+                                            }
+                                            else
+                                               	p.getBattleField().forceExecuteTurn();
+                                            return true;
+                                        } else if(i.getId() == 213) { //Aguav Berry
+                                        	String message = poke.getName()+" ate the Aguav Berry/nThe Aguav Berry restored" +poke.getRawStat(0) / 8+" HP to " +poke.getName()+"!";
+                                            poke.changeHealth(poke.getRawStat(0) / 8);
+                                            if(!p.isBattling()) {
+                                              	p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                               	p.getSession().write("Ii" + message);
+                                            }
+                                            else
+                                               	p.getBattleField().forceExecuteTurn();
+                                            return true;
+                                        } else if(i.getId() == 214) { //Iapapa Berry
+                                        	String message = poke.getName()+" ate the Iapapa Berry/nThe Iapapa Berry restored" +poke.getRawStat(0) / 8+" HP to " +poke.getName()+"!";
+                                            poke.changeHealth(poke.getRawStat(0) / 8);
+                                            if(!p.isBattling()) {
+                                              	p.getSession().write("Ph" + data[0] + poke.getHealth());
+                                               	p.getSession().write("Ii" + message);
+                                            }
+                                            else
+                                               	p.getBattleField().forceExecuteTurn();
+                                            return true;
                                         }else if (i.getId() == 800) { //Voltorb Lollipop
                     						String message = poke.getName()+" ate the Voltorb Lollipop/nThe Lollipop restored 50 HP to " +poke.getName()+"!";
                     						poke.changeHealth(50);
