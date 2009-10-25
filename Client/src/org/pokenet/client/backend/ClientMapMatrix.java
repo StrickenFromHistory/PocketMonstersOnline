@@ -66,6 +66,7 @@ public class ClientMapMatrix {
 				} catch (Exception e) {
 					m_mapMatrix[x][y] = null;
 					System.out.println((mapX) + "." + (mapY) + ".tmx could not be loaded");
+					e.printStackTrace();
 				}
 			} else {
 				m_mapMatrix[x][y] = null;

@@ -1,6 +1,7 @@
 package org.pokenet.client;
 
 import java.io.File;
+import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 import java.util.ConcurrentModificationException;
@@ -11,6 +12,7 @@ import mdes.slick.sui.Display;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
+import org.apache.mina.core.RuntimeIoException;
 import org.apache.mina.core.future.ConnectFuture;
 import org.apache.mina.core.future.IoFuture;
 import org.apache.mina.core.future.IoFutureListener;
@@ -596,11 +598,19 @@ public class GameClient extends BasicGame {
 								+ "The server may be offline.\n"
 								+ "Contact an administrator for assistance.", getDisplay());
 						m_host = "";
+						m_packetGen = null;
 					}
-				} catch (Exception e) {
+				}catch(RuntimeIoException e){ 
+					messageDialog("Connection timed out.\n"
+							+ "The server may be offline.\n"
+							+ "Contact an administrator for assistance.", getDisplay());
+					m_host = "";
+					m_packetGen = null;
+				}catch (Exception e) {
 					e.printStackTrace();
 					messageDialog("Unexpected exception.", getDisplay());
 					m_host = "";
+					m_packetGen = null;
 				}
 			}
 		});
@@ -623,18 +633,27 @@ public class GameClient extends BasicGame {
     							+ "The server may be offline.\n"
     							+ "Contact an administrator for assistance.", getDisplay());
     					m_host = "";
+    					m_packetGen = null;
     				}
-        		} catch (Exception e) {
+        		}catch(RuntimeIoException e){ 
+					messageDialog("Connection timed out.\n"
+							+ "The server may be offline.\n"
+							+ "Contact an administrator for assistance.", getDisplay());
+					m_host = "";
+					m_packetGen = null;
+				} catch (Exception e) {
         			e.printStackTrace();
 					messageDialog("Unexpected exception.", getDisplay());
 					m_host = "";
+					m_packetGen = null;
         		}
 			}
 		});
         /*
          * Show login screen
          */
-        m_login.showLogin();
+        if(!m_host.equals(""))
+        		m_login.showLogin();
 	}
 	
 	/**
