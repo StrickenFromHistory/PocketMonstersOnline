@@ -127,7 +127,7 @@ public abstract class BagDialog extends Container {
         	add(m_bag);
         	
         	m_cancel = new Button("Cancel");
-        	m_bag.setToolTipText("Closes this dialog");
+        	m_cancel.setToolTipText("Closes this dialog");
         	m_cancel.addActionListener(new ActionListener() {
         		public void actionPerformed(ActionEvent e) {
         			cancelled();
