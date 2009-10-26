@@ -235,6 +235,7 @@ public class RegisterDialog extends Frame{
 			}
 			f = FileLoader.loadFile("res/pokemon/icons/001.gif");
 			m_starters[0].setImage(new Image(f, "res/pokemon/icons/001.gif", false));
+			m_starters[0].setDisabledImage(new Image(f, "res/pokemon/icons/001.gif", false));
 			m_starters[0].setLocation(160, 24);
 			m_starters[0].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -246,6 +247,7 @@ public class RegisterDialog extends Frame{
 			
 			f = FileLoader.loadFile("res/pokemon/icons/152.gif");
 			m_starters[1].setImage(new Image(f, "res/pokemon/icons/152.gif", false));
+			m_starters[1].setDisabledImage(new Image(f, "res/pokemon/icons/152.gif", false));
 			m_starters[1].setLocation(192, 24);
 			m_starters[1].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -257,6 +259,7 @@ public class RegisterDialog extends Frame{
 			
 			f = FileLoader.loadFile("res/pokemon/icons/252.gif");
 			m_starters[2].setImage(new Image(f, "res/pokemon/icons/252.gif", false));
+			m_starters[2].setDisabledImage(new Image(f, "res/pokemon/icons/252.gif", false));
 			m_starters[2].setLocation(224, 24);
 			m_starters[2].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -268,6 +271,7 @@ public class RegisterDialog extends Frame{
 			
 			f = FileLoader.loadFile("res/pokemon/icons/387.gif");
 			m_starters[3].setImage(new Image(f, "res/pokemon/icons/387.gif", false));
+			m_starters[3].setDisabledImage(new Image(f, "res/pokemon/icons/387.gif", false));
 			m_starters[3].setLocation(256, 24);
 			m_starters[3].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -279,6 +283,7 @@ public class RegisterDialog extends Frame{
 			
 			f = FileLoader.loadFile("res/pokemon/icons/004.gif");
 			m_starters[4].setImage(new Image(f, "res/pokemon/icons/004.gif", false));
+			m_starters[4].setDisabledImage(new Image(f, "res/pokemon/icons/004.gif", false));
 			m_starters[4].setLocation(160, 56);
 			m_starters[4].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -290,6 +295,7 @@ public class RegisterDialog extends Frame{
 			
 			f = FileLoader.loadFile("res/pokemon/icons/155.gif");
 			m_starters[5].setImage(new Image(f, "res/pokemon/icons/155.gif", false));
+			m_starters[5].setDisabledImage(new Image(f, "res/pokemon/icons/155.gif", false));
 			m_starters[5].setLocation(192, 56);
 			m_starters[5].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -301,6 +307,7 @@ public class RegisterDialog extends Frame{
 			
 			f = FileLoader.loadFile("res/pokemon/icons/255.gif");
 			m_starters[6].setImage(new Image(f, "res/pokemon/icons/255.gif", false));
+			m_starters[6].setDisabledImage(new Image(f, "res/pokemon/icons/255.gif", false));
 			m_starters[6].setLocation(224, 56);
 			m_starters[6].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -312,6 +319,7 @@ public class RegisterDialog extends Frame{
 			
 			f = FileLoader.loadFile("res/pokemon/icons/390.gif");
 			m_starters[7].setImage(new Image(f, "res/pokemon/icons/390.gif", false));
+			m_starters[7].setDisabledImage(new Image(f, "res/pokemon/icons/390.gif", false));
 			m_starters[7].setLocation(256, 56);
 			m_starters[7].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -323,6 +331,7 @@ public class RegisterDialog extends Frame{
 			
 			f = FileLoader.loadFile("res/pokemon/icons/007.gif");
 			m_starters[8].setImage(new Image(f, "res/pokemon/icons/007.gif", false));
+			m_starters[8].setDisabledImage(new Image(f, "res/pokemon/icons/007.gif", false));
 			m_starters[8].setLocation(160, 88);
 			m_starters[8].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -334,6 +343,7 @@ public class RegisterDialog extends Frame{
 			
 			f = FileLoader.loadFile("res/pokemon/icons/158.gif");
 			m_starters[9].setImage(new Image(f, "res/pokemon/icons/158.gif", false));
+			m_starters[9].setDisabledImage(new Image(f, "res/pokemon/icons/158.gif", false));
 			m_starters[9].setLocation(192, 88);
 			m_starters[9].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -345,6 +355,7 @@ public class RegisterDialog extends Frame{
 			
 			f = FileLoader.loadFile("res/pokemon/icons/258.gif");
 			m_starters[10].setImage(new Image(f, "res/pokemon/icons/258.gif", false));
+			m_starters[10].setDisabledImage(new Image(f, "res/pokemon/icons/258.gif", false));
 			m_starters[10].setLocation(224, 88);
 			m_starters[10].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -356,6 +367,7 @@ public class RegisterDialog extends Frame{
 			
 			f = FileLoader.loadFile("res/pokemon/icons/393.gif");
 			m_starters[11].setImage(new Image(f, "res/pokemon/icons/393.gif", false));
+			m_starters[11].setDisabledImage(new Image(f, "res/pokemon/icons/393.gif", false));
 			m_starters[11].setLocation(256, 88);
 			m_starters[11].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -375,44 +387,44 @@ public class RegisterDialog extends Frame{
 	 */
 	private void selectStarter(int m_starter) {
 		for(int i = 0; i < m_starters.length; i++) {
-			m_starters[i].setSelected(false);
+			m_starters[i].setEnabled(true);
 		}
 		switch(m_starter) {
 		case 1:
-			m_starters[0].setSelected(true);
+			m_starters[1].setEnabled(false);
 			break;
 		case 4:
-			m_starters[4].setSelected(true);
+			m_starters[4].setEnabled(false);
 			break;
 		case 7:
-			m_starters[8].setSelected(true);
+			m_starters[8].setEnabled(false);
 			break;
 		case 152:
-			m_starters[1].setSelected(true);
+			m_starters[1].setEnabled(false);
 			break;
 		case 155:
-			m_starters[5].setSelected(true);
+			m_starters[5].setEnabled(false);
 			break;
 		case 158:
-			m_starters[9].setSelected(true);
+			m_starters[9].setEnabled(false);
 			break;
 		case 252:
-			m_starters[2].setSelected(true);
+			m_starters[2].setEnabled(false);
 			break;
 		case 255:
-			m_starters[6].setSelected(true);
+			m_starters[6].setEnabled(false);
 			break;
 		case 258:
-			m_starters[10].setSelected(true);
+			m_starters[10].setEnabled(false);
 			break;
 		case 387:
-			m_starters[3].setSelected(true);
+			m_starters[3].setEnabled(false);
 			break;
 		case 390:
-			m_starters[7].setSelected(true);
+			m_starters[7].setEnabled(false);
 			break;
 		case 393:
-			m_starters[11].setSelected(true);
+			m_starters[11].setEnabled(false);
 			break;
 		}
 	}
