@@ -212,22 +212,27 @@ public class BigBagDialog extends Frame {
 				case 0:
 					m_categoryButtons[i] = new ImageButton(bagcat[0],
 							bagcat[1], bagcat[2]);
+					m_categoryButtons[i].setToolTipText("Bag");
 					break;
 				case 1:
 					m_categoryButtons[i] = new ImageButton(potioncat[0],
 							potioncat[1], potioncat[2]);
+					m_categoryButtons[i].setToolTipText("Potions");
 					break;
 				case 2:
 					m_categoryButtons[i] = new ImageButton(berriescat[0],
 							berriescat[1], berriescat[2]);
+					m_categoryButtons[i].setToolTipText("Food");
 					break;
 				case 3:
 					m_categoryButtons[i] = new ImageButton(pokecat[0],
 							pokecat[1], pokecat[2]);
+					m_categoryButtons[i].setToolTipText("Pokeballs");
 					break;
 				case 4:
 					m_categoryButtons[i] = new ImageButton(tmscat[0],
 							tmscat[1], tmscat[2]);
+					m_categoryButtons[i].setToolTipText("TMs");
 					break;
 				}
 
@@ -429,17 +434,17 @@ public class BigBagDialog extends Frame {
 		if (m_curCategory == 0 || m_curCategory == 3){
 			if (ItemDatabase.getInstance().getItem(Integer.valueOf(m_itemBtns.get(i).getName()))
 					.getCategory().equals("Evolution")){
-				m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
+				m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText().split("\n")[0], Integer.parseInt(
 						m_itemBtns.get(i).getName()), true, false);				
 			} else {
-				m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
+				m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText().split("\n")[0], Integer.parseInt(
 						m_itemBtns.get(i).getName()), false, false);
 			}
 			m_popup.setLocation(m_itemBtns.get(i).getAbsoluteX(), m_itemBtns.get(i).getAbsoluteY() 
 					+ m_itemBtns.get(i).getHeight() - getTitleBar().getHeight());
 			getDisplay().add(m_popup);
 		} else {
-			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText(), Integer.parseInt(
+			m_popup = new ItemPopup(m_itemBtns.get(i).getToolTipText().split("\n")[0], Integer.parseInt(
 					m_itemBtns.get(i).getName()), true, false);
 			m_popup.setLocation(m_itemBtns.get(i).getAbsoluteX(), m_itemBtns.get(i).getAbsoluteY() 
 					+ m_itemBtns.get(i).getHeight() - getTitleBar().getHeight());

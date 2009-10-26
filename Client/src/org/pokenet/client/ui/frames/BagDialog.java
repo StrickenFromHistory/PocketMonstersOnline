@@ -106,6 +106,7 @@ public abstract class BagDialog extends Container {
             		f = FileLoader.loadFile("res/items/24/" + m_items.get(i).getNumber() + ".png");
         			m_itemIcon[i].setImage(new Image(f, "res/items/24/" + m_items.get(i).getNumber() + ".png", false));
         			m_itemIcon[i].setGlassPane(true);
+        			m_itemIcon[i].setToolTipText(m_items.get(i).getItem().getName()+"\n"+m_items.get(i).getItem().getDescription());
 					m_itemButtons[i].add(m_itemIcon[i]);
 				} catch (Exception e1) {
 //					e1.printStackTrace();
