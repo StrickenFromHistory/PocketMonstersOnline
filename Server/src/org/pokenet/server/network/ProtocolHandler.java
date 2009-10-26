@@ -54,12 +54,12 @@ public class ProtocolHandler extends IoHandlerAdapter {
 		 * Attempt to disconnect and logout the player (save their data)
 		 */
 		try {
-			PlayerChar p = (PlayerChar) session.getAttribute("player");
-			GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
+			PlayerChar p = (PlayerChar) session.getAttribute("player");		
 			if(p != null) {
 				if (p.isBattling())
 					p.lostBattle();
 				m_logoutManager.queuePlayer(p);
+				GameServer.getServiceManager().getMovementService().removePlayer(p.getName());
 				m_players.remove(p);
 			}
 			if(session.isConnected() || !session.isClosing())
