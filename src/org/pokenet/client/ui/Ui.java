@@ -311,8 +311,11 @@ public class Ui extends Frame {
      * Toggles the Player Stats pane
      */
     public void toggleStats() {
-    	hideHUDElements();
-    	if(m_stats == null) {
+    	if (m_stats != null) {
+			getDisplay().remove(m_stats);
+			hideHUDElements();
+		} else {
+			hideHUDElements(); 	
         	m_stats = new PlayerInfoDialog();
         	m_stats.setBackground(new Color(0, 0, 0, 70));
     		m_stats.setResizable(false);
@@ -320,9 +323,6 @@ public class Ui extends Frame {
     		m_stats.getTitleBar().setVisible(false);
     		m_stats.setLocation(m_buttons[0].getX(), 67 - getTitleBar().getHeight() * 2);
     		getDisplay().add(m_stats);
-    	} else {
-    		m_stats.setVisible(true);
-    		m_stats.updateDialog();
     	}
     }
     
@@ -471,20 +471,28 @@ public class Ui extends Frame {
      * Hides all HUD elements
      */
     private void hideHUDElements() {
-            if (m_display.containsChild(m_requestsForm)) m_display.remove(m_requestsForm);
-            if (m_bagForm != null) m_bagForm.setVisible(false);
+            if (m_display.containsChild(m_requestsForm)) 
+            	m_display.remove(m_requestsForm);
+            if (m_bagForm != null) 
+            	m_bagForm.setVisible(false);
             m_bagForm = null;
-            if (m_teamInfo != null) m_teamInfo.setVisible(false);
+            if (m_teamInfo != null) 
+            	m_teamInfo.setVisible(false);
             m_teamInfo = null;
-            if (m_optionsForm != null) m_optionsForm.setVisible(false);
+            if (m_optionsForm != null) 
+            	m_optionsForm.setVisible(false);
             m_optionsForm = null;
-            if (m_helpForm != null) m_helpForm.setVisible(false);
+            if (m_helpForm != null) 
+            	m_helpForm.setVisible(false);
             m_helpForm = null;
-            if (m_map.isVisible()) m_map.setVisible(false);
-            if (m_friendsList.isVisible()) m_friendsList.setVisible(false);
-            if (m_stats != null && m_stats.isVisible()) {
+            if (m_map.isVisible()) 
+            	m_map.setVisible(false);
+            if (m_friendsList.isVisible()) 
+            	m_friendsList.setVisible(false);
+            if (m_stats != null && m_stats.isVisible()) 
             	m_stats.setVisible(false);
-            }
+            m_stats = null;
+       
     }
     
     /**
