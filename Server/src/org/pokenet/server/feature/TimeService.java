@@ -20,6 +20,7 @@ import org.pokenet.server.battle.mechanics.statuses.field.SandstormEffect;
 public class TimeService implements Runnable {
 	private boolean m_isRunning;
 	private long m_lastWeatherUpdate;
+	private int m_forcedWeather=0;
 	private Thread m_thread;
 	private static int m_hour;
 	private static int m_minutes;
@@ -38,8 +39,11 @@ public class TimeService implements Runnable {
 		/*
 		 * Generate random weather
 		 */
-		Random r = new Random();
-		switch(r.nextInt(4)) {
+		
+		int weather = m_forcedWeather;
+		if(weather == 9)
+			weather = new Random().nextInt(4);
+		switch(weather) {
 		case 0:
 			m_weather = Weather.NORMAL;
 			break;
@@ -51,6 +55,9 @@ public class TimeService implements Runnable {
 			break;
 		case 3:
 			m_weather = Weather.FOG;
+			break;
+		case 4:
+			m_weather = Weather.SANDSTORM;
 			break;
 		default:
 			m_weather = Weather.NORMAL;
@@ -139,8 +146,10 @@ public class TimeService implements Runnable {
 		/*
 		 * Generate random weather
 		 */
-		Random r = new Random();
-		switch(r.nextInt(4)) {
+		int weather = m_forcedWeather;
+		if(weather == 9)
+			weather = new Random().nextInt(4);
+		switch(weather) {
 		case 0:
 			m_weather = Weather.NORMAL;
 			break;
@@ -152,6 +161,9 @@ public class TimeService implements Runnable {
 			break;
 		case 3:
 			m_weather = Weather.FOG;
+			break;
+		case 4:
+			m_weather = Weather.SANDSTORM;
 			break;
 		default:
 			m_weather = Weather.NORMAL;
@@ -211,6 +223,27 @@ public class TimeService implements Runnable {
 		return m_hour >= 20 || m_hour < 6;
 	}
 	
+	/**
+	 * Returns the current Weather. 
+	 * @return
+	 */
+	public int getForcedWeather() {
+		return m_forcedWeather;
+	}
+	
+	/**
+	 * Sets the weather. 
+	 * 0: Weather.NORMAL;
+	 * 1: Weather.RAIN;
+	 * 2: Weather.HAIL;
+	 * 3: Weather.FOG;
+	 * 9: Weather.RANDOM;
+	 * @return
+	 */
+	public void setForcedWeather(int mForcedWeather) {
+		m_forcedWeather = mForcedWeather;
+	}
+
 	/**
 	 * Returns the id of the weather
 	 * @return

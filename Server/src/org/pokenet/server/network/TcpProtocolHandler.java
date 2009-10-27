@@ -13,7 +13,6 @@ import org.pokenet.server.backend.entity.PlayerChar.RequestType;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.impl.PvPBattleField;
 import org.pokenet.server.battle.impl.WildBattleField;
-import org.pokenet.server.feature.TimeService.Weather;
 import org.pokenet.server.network.message.ItemMessage;
 import org.pokenet.server.network.message.PokenetMessage;
 import org.pokenet.server.network.message.RequestMessage;
@@ -271,8 +270,15 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						case 'a':
 							//Server announcement
 							for (String s : m_players.keySet()){
-								m_players.get(s).getTcpSession().write("Ca" + message.substring(2));
+								m_players.get(s).getTcpSession().write("q" + message.substring(2));
 							}
+							break;						
+						case 'l':
+							//Send an alert
+							if(p.getAdminLevel()>1)
+								for (String s : m_players.keySet()){
+									m_players.get(s).getTcpSession().write("!" + message.substring(2));
+								}
 							break;
 						case 'b':
 							//Ban player
@@ -340,23 +346,27 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 							switch(message.charAt(2)) {
 							case 'n':
 								//Normal
-								p.getMap().setWeather(Weather.NORMAL);
-								break;
-							case 's':
-								//Snow/Hail
-								p.getMap().setWeather(Weather.HAIL);
+								GameServer.getServiceManager().getTimeService().setForcedWeather(0);
 								break;
 							case 'r':
 								//Rain
-								p.getMap().setWeather(Weather.RAIN);
+								GameServer.getServiceManager().getTimeService().setForcedWeather(1);
 								break;
+							case 's':
+								//Snow/Hail
+								GameServer.getServiceManager().getTimeService().setForcedWeather(2);
+								break;		
 							case 'f':
 								//Fog
-								p.getMap().setWeather(Weather.FOG);
+								GameServer.getServiceManager().getTimeService().setForcedWeather(3);
 								break;
 							case 'S':
-								//Fog
-								p.getMap().setWeather(Weather.SANDSTORM);
+								//Sandstorm
+								GameServer.getServiceManager().getTimeService().setForcedWeather(4);
+								break;
+							case 'R':
+								//Random
+								GameServer.getServiceManager().getTimeService().setForcedWeather(9);
 								break;
 							}
 						case 's':
