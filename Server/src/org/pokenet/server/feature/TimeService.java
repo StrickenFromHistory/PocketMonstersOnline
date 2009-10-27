@@ -242,6 +242,7 @@ public class TimeService implements Runnable {
 	 */
 	public void setForcedWeather(int mForcedWeather) {
 		m_forcedWeather = mForcedWeather;
+		m_lastWeatherUpdate = 0;
 	}
 
 	/**
