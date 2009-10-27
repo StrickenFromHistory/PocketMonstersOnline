@@ -60,9 +60,12 @@ public class ModerationManager {
 			// Fog
 			else if (x.substring(8).equalsIgnoreCase("fog"))
 				m_ioSession.writeTcpMessage("Muf");
-			// Fog
+			// Sandstorm
 			else if (x.substring(8).equalsIgnoreCase("sandstorm"))
 				m_ioSession.writeTcpMessage("MuS");
+			// Random
+			else if (x.substring(8).equalsIgnoreCase("random"))
+				m_ioSession.writeTcpMessage("MuR");
 		}
 		// Stop server
 		else if (x.length() >= 4 && x.substring(0, 4).equalsIgnoreCase("stop")) {

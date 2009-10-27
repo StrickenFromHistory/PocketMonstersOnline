@@ -406,18 +406,20 @@ public class GameClient extends BasicGame {
 				} else if (key == Input.KEY_C) {
 					m_ui.toggleChat();
 				} else if (key == (Input.KEY_1)) {
-					m_ui.togglePokemon();
+					m_ui.toggleStats();
 				} else if (key == (Input.KEY_2)) {
-					m_ui.toggleBag();
+					m_ui.togglePokemon();
 				} else if (key == (Input.KEY_3)) {
-					m_ui.toggleMap();
+					m_ui.toggleBag();
 				} else if (key == (Input.KEY_4)) {
-					m_ui.toggleFriends();
+					m_ui.toggleMap();
 				} else if (key == (Input.KEY_5)) {
-					m_ui.toggleRequests();
+					m_ui.toggleFriends();
 				} else if (key == (Input.KEY_6)) {
-					m_ui.toggleOptions();
+					m_ui.toggleRequests();
 				} else if (key == (Input.KEY_7)) {
+					m_ui.toggleOptions();
+				} else if (key == (Input.KEY_8)) {
 					m_ui.toggleHelp();
 				}
 			}
@@ -610,7 +612,9 @@ public class GameClient extends BasicGame {
 					m_packetGen = null;
 				}catch (Exception e) {
 					e.printStackTrace();
-					messageDialog("Unexpected exception.", getDisplay());
+					messageDialog("Connection timed out.\n"
+							+ "The server may be offline.\n"
+							+ "Contact an administrator for assistance.", getDisplay());
 					m_host = "";
 					m_packetGen = null;
 				}
@@ -644,8 +648,10 @@ public class GameClient extends BasicGame {
 					m_host = "";
 					m_packetGen = null;
 				} catch (Exception e) {
-        			e.printStackTrace();
-					messageDialog("Unexpected exception.", getDisplay());
+					e.printStackTrace();
+					messageDialog("Connection timed out.\n"
+							+ "The server may be offline.\n"
+							+ "Contact an administrator for assistance.", getDisplay());
 					m_host = "";
 					m_packetGen = null;
         		}
