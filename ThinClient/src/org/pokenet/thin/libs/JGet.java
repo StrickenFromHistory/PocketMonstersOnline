@@ -16,8 +16,7 @@ public class JGet
 	{
 		URL u = new URL(input);
 		InputStream is = u.openStream();
-		new File("download/").mkdir();
-		File f = new File("download/"+output);
+		File f = new File(output);
 
 		OutputStream out = new FileOutputStream(f);
 		byte buf[] = new byte[1024];

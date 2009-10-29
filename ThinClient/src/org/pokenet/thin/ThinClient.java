@@ -24,13 +24,8 @@ import java.util.Map;
 import java.util.Random;
 import java.awt.Dimension;
 
-public class ThinClient extends JPanel
-implements ActionListener, 
-PropertyChangeListener {
+public class ThinClient extends JPanel implements ActionListener, PropertyChangeListener {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2718141354198299420L;
 	private static JFrame m_masterFrame = new JFrame("Pokenet: Updating Ursaring");
 	private JProgressBar m_progressBar;
@@ -44,6 +39,7 @@ PropertyChangeListener {
 	private static int m_progressSize;
 	private static double m_latestversion;
 	private static HashMap<String, String> m_updates = new HashMap<String, String>();
+	private static String m_installpath = "";
 
 	class Task extends SwingWorker<Void, Void> {
 		/*
@@ -56,6 +52,8 @@ PropertyChangeListener {
 			setProgress(0);
 			for (Map.Entry<String, String> entry : m_updates.entrySet()) {
 				try{
+					new File(m_installpath+"res/").mkdir();
+					System.out.println("Downloading: "+entry.getValue());
 					JGet.getFile(m_mirror+entry.getKey(),entry.getValue());
 					progress+=m_progressSize;
 					setProgress(Math.min(progress, 100));
@@ -92,7 +90,7 @@ PropertyChangeListener {
 			 */
 
 			try {
-				File f = new File("res/.version");
+				File f = new File(m_installpath+"res/.version");
 				if(f.exists())
 					f.delete();
 				PrintWriter pw;
@@ -101,10 +99,8 @@ PropertyChangeListener {
 				pw.flush();
 				pw.close();
 			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
 
+			}
 			int answer = JOptionPane.showConfirmDialog(
 					m_masterFrame,
 					"Your game has finished updating. \nWould you like to play?",
@@ -139,7 +135,6 @@ PropertyChangeListener {
 				System.out.println(s);
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.exit(0);
@@ -149,7 +144,10 @@ PropertyChangeListener {
 		super(new BorderLayout());
 
 		//Create the demo's UI.
-		m_startButton = new JButton("Update");
+		if(!m_installpath.equals(""))
+			m_startButton = new JButton("Install");
+		else
+			m_startButton = new JButton("Update");
 		m_startButton.setActionCommand("update");
 		m_startButton.addActionListener(this);
 
@@ -180,6 +178,20 @@ PropertyChangeListener {
 
 		setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
+			SwingUtilities.updateComponentTreeUI(this);
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -246,13 +258,26 @@ PropertyChangeListener {
 
 	public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
+
 			public void run() {
+				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (InstantiationException e) {
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					e.printStackTrace();
+				} catch (UnsupportedLookAndFeelException e) {
+					e.printStackTrace();
+				}
 				/**
 				 *  Connect to Updates
 				 */
 				try {
 					ArrayList<String> updateSites = new ArrayList<String>();
-					FileInputStream mirrorstream = new FileInputStream("res/.mirrors");
+					FileInputStream mirrorstream = new FileInputStream(m_installpath+"res/.mirrors");
 
 					// Get the object of DataInputStream
 					DataInputStream mirrorin = new DataInputStream(mirrorstream);
@@ -263,36 +288,84 @@ PropertyChangeListener {
 					while ((strLine = mirrorbr.readLine()) != null)   {
 						updateSites.add(strLine); //Add mirrors to list
 					}
-
-					// Check current version
-					double version = 0.0;
-					try{
-						FileInputStream versionstream = new FileInputStream("res/.version");
-						DataInputStream versionin = new DataInputStream(versionstream);
-						BufferedReader versionbr = new BufferedReader(new InputStreamReader(versionin));
-						if ((strLine = versionbr.readLine()) != null)   {
-							version = Double.parseDouble(strLine); // Get current version
-						}
-						versionin.close();
-					}catch(Exception e){
-						//Use default version. 0.0. 
-					}
-
 					/**
 					 *  Check Updates
 					 */
 					//Pick mirror at random
 					m_mirror = updateSites.get(new Random().nextInt(updateSites.size()));
+					mirrorin.close();
 
-					//Check mirror contents
+				} catch (FileNotFoundException e) {
+					// File Not Found
+					System.out.println("File not found. Using emergency mirror");
+					m_mirror = "http://localhost/pokenet/";
+				} catch (IOException e) {
+					// Error reading file
+					e.printStackTrace();
+					System.out.println("Error reading file. Using emergency mirror");
+					m_mirror = "http://localhost/pokenet/";
+				}
+				// Check current version
+				double version = 0.0;
+				try{
+					String strLine;
+					FileInputStream versionstream = new FileInputStream(m_installpath+"res/.version");
+					DataInputStream versionin = new DataInputStream(versionstream);
+					BufferedReader versionbr = new BufferedReader(new InputStreamReader(versionin));
+					if ((strLine = versionbr.readLine()) != null)   {
+						version = Double.parseDouble(strLine); // Get current version
+					}
+					versionin.close();
+				}catch(Exception e){
+					int answer = JOptionPane.showConfirmDialog(
+							m_masterFrame,
+							"Would you like to install this game?",
+							"Pokenet Update System",
+							JOptionPane.YES_NO_OPTION);
+					Toolkit.getDefaultToolkit().beep();
+					if(answer==0){
+						JFileChooser fc = new JFileChooser();
+						fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+						int returnVal = fc.showDialog(m_masterFrame, "Install here");
+						if (returnVal == JFileChooser.APPROVE_OPTION) {
+							File file = fc.getSelectedFile();
+							try {
+								m_installpath = file.getCanonicalPath()+"/";
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+							System.out.println(m_installpath);
+						}else{
+							JOptionPane.showMessageDialog(
+									m_masterFrame,
+									"Thanks for choosing us!",
+									"Pokenet Install System",
+									JOptionPane.INFORMATION_MESSAGE);
+							System.exit(0);
+						}
+					}else{
+						JOptionPane.showMessageDialog(
+								m_masterFrame,
+								"Thanks for choosing us!",
+								"Pokenet Install System",
+								JOptionPane.INFORMATION_MESSAGE);
+						System.exit(0);
+					}
+				}
+
+
+
+				//Check mirror contents
+
+				try {
 					URL site = new URL(m_mirror+"updates.txt");
-					mirrorbr = new BufferedReader(new InputStreamReader(site.openStream()));
+
+					BufferedReader updateSite = new BufferedReader(new InputStreamReader(site.openStream()));
 
 					String inputLine;
 					int answer = 3;
 					JFrame frame = new JFrame("Pokenet Update System");
-					JFrame.setDefaultLookAndFeelDecorated(true);
-					while ((inputLine = mirrorbr.readLine()) != null){
+					while ((inputLine = updateSite.readLine()) != null){
 						//Check latest version
 						if(inputLine.contains("--v")){
 							inputLine = inputLine.replaceAll("-","");
@@ -312,26 +385,30 @@ PropertyChangeListener {
 								 *  Download NEW Content
 								 */
 
-								while(((inputLine = mirrorbr.readLine()) != null ) && !inputLine.equals("-EOF-")){
+								while(((inputLine = updateSite.readLine()) != null ) && !inputLine.equals("-EOF-")){
 									System.out.println(inputLine);
 									if(!inputLine.startsWith("-")){
 										String[] inout = inputLine.split(" ");
-										m_updates.put(inout[0], inout[1]);
+										m_updates.put(inout[0], m_installpath+inout[1]);
 										m_progressSize++;
 									}
 								}
 							}
 						}	
 					}
-					if(version<m_latestversion){
-						answer = JOptionPane.showConfirmDialog(
-								frame,
-								"There is a Pokenet Update. \nWould you like to Update?\n(You won't be able to play unless you do)\nCurrent version: v"+version+"\nLatest version: v"+m_latestversion,
-								"Pokenet Update System",
-								JOptionPane.YES_NO_OPTION);
-					}else{
+					System.out.println(m_installpath);
+					if(m_installpath.equals(""))
+						if(version<m_latestversion){
+							answer = JOptionPane.showConfirmDialog(
+									frame,
+									"There is a Pokenet Update. \nWould you like to Update?\n(You won't be able to play unless you do)\nCurrent version: v"+version+"\nLatest version: v"+m_latestversion,
+									"Pokenet Update System",
+									JOptionPane.YES_NO_OPTION);
+						}else{
+							answer=0;
+						}
+					else
 						answer=0;
-					}
 
 					if(answer==0){
 						if(m_progressSize!=0){
@@ -344,16 +421,12 @@ PropertyChangeListener {
 						System.exit(0);
 					}
 					frame= null;
-					mirrorin.close();
-
-				} catch (FileNotFoundException e) {
-					// File Not Found
-					System.out.println("File not found"+"\n");
+				} catch (MalformedURLException e1) {
+					e1.printStackTrace();
 				} catch (IOException e) {
-					// Error reading file
 					e.printStackTrace();
-					System.out.println("Error reading file"+"\n");
 				}
+				
 			}
 		});
 	}
@@ -372,6 +445,14 @@ PropertyChangeListener {
 
 		frame.setBounds(X, Y, widthWindow, heightWindow);
 
+	}
+
+	public String getM_installpath() {
+		return m_installpath;
+	}
+
+	public void setM_installpath(String mInstallpath) {
+		m_installpath = mInstallpath;
 	}
 
 }
