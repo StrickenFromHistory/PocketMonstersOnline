@@ -45,10 +45,6 @@
 94: Vial - $-1
 95: Poffin Case - $-1
 96: Berry Blender - $-1
-97: Old rod - $-1
-98: Good Rod - $-1
-99: Great Rod - $-1
-100: Ultra Rod - $-1
 101: Cleanse Tag - $200
 126: Glass - $50
 127: Coal - $50
@@ -427,6 +423,10 @@
 
  === Shop 3 === 
 {{{
+97: Old rod - $2000
+98: Good Rod - $25000
+99: Great Rod - $75000
+100: Ultra Rod - $500000
 }}} 
 
  === Shop 4 === 

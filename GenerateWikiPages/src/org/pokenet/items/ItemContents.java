@@ -1,4 +1,4 @@
-package net.pokenet.main;
+package org.pokenet.items;
 
 import java.util.ArrayList;
 
@@ -11,46 +11,46 @@ public class ItemContents {
 	private String m_price;
 	private ArrayList<Attributes> m_attributes;
 
-	public int getM_id() {
+	public int getId() {
 		return m_id;
 	}
-	public String getM_description() {
+	public String getDescription() {
 		return m_description;
 	}
-	public void setM_description(String mDescription) {
+	public void setDescription(String mDescription) {
 		m_description = mDescription;
 	}
-	public String getM_category() {
+	public String getCategory() {
 		return m_category;
 	}
-	public void setM_category(String mCategory) {
+	public void setCategory(String mCategory) {
 		m_category = mCategory;
 	}
-	public String getM_shop() {
+	public String getShop() {
 		return m_shop;
 	}
-	public void setM_shop(String mShop) {
+	public void setShop(String mShop) {
 		m_shop = mShop;
 	}
-	public String getM_price() {
+	public String getPrice() {
 		return m_price;
 	}
-	public void setM_price(String mPrice) {
+	public void setPrice(String mPrice) {
 		m_price = mPrice;
 	}
-	public void setM_id(int m_id) {
+	public void setId(int m_id) {
 		this.m_id = m_id;
 	}
-	public String getM_name() {
+	public String getName() {
 		return m_name;
 	}
-	public void setM_name(String m_name) {
+	public void setName(String m_name) {
 		this.m_name = m_name;
 	}
-	public ArrayList<Attributes> getM_attributes() {
+	public ArrayList<Attributes> getAttributes() {
 		return m_attributes;
 	}
-	public void setM_attributes(ArrayList<Attributes> m_attributes) {
+	public void setAttributes(ArrayList<Attributes> m_attributes) {
 		this.m_attributes = m_attributes;
 	}
 	

@@ -1,4 +1,4 @@
-package net.pokenet.main;
+package org.pokenet.items;
 
 public class ItemBean {
 	private int BigID = 0;

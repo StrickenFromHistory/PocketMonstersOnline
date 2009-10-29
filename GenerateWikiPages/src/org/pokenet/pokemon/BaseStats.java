@@ -1,6 +1,6 @@
-package net.pokenet.main;
+package org.pokenet.pokemon;
 
-public class Attributes {
+public class BaseStats {
 
 	private String itemAttribute;
 
