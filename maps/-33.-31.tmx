@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="20" height="16" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonLevels" value="21-23;22-22;22-22;22-22;22-22;"/>
+  <property name="dayPokemonChances" value="Swinub,40;Golbat,30;Delibird,20;Zubat,5;Jynx,5;"/>
+  <property name="nightPokemonLevels" value="21-23;22-22;22-22;22-22;22-22;22-22;"/>
+  <property name="nightPokemonChances" value="Swinub,40;Golbat,30;Delibird,20;Zubat,5;Jynx,4;Sneasel,1;"/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="wildProbability" value="10"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="normal9.tsx"/> 
+ <tileset firstgid="1025" source="normal10.tsx"/> 
+ <tileset firstgid="1835" source="normal7.tsx"/> 
+ <layer name="Walkable" width="20" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAXUBE7MA+2CUTAKRgGxAAA6kJj4AAUAAA==
+  </data>
+ </layer>
+ <layer name="Walkable" width="20" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAXUBC85BtoF5AE25oF2wSgYBfQHAHvfONkABQAA
+  </data>
+ </layer>
+ <layer name="Grass" width="20" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAADvEzMBwaAhgJzQ8WM0DASc89uDCxLqPEvNAdAqR7j6EQz254crMgonJDWtsZpFjHi5zKHEfNc2jtvsoMY8a8YbLHZSaRwkGANkuEXQABQAA
+  </data>
+ </layer>
+ <layer name="Collisions" width="20" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAOtmZmDopjJWBGIlNKxMgXmOQIwOnGlgHjZ348LKRJiHTRwXcKaheYlAnATFIACik3GYp4KkFl09ejgiA0LxhK4WRuMyDwQS0dwCcwcugC2uyQXkpi10P1JiJjXcSEg/seZRI2yoESbUxgA5hMm/AAUAAA==
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="20" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGNngJMdAu2AUjIJRMFAAAPNROYQABQAA
+  </data>
+ </layer>
+</map>

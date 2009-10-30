@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="10" height="11" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="dayPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="normal1.tsx"/> 
+ <tileset firstgid="1025" source="normal2.tsx"/> 
+ <layer name="Walkable" width="10" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgIB7IMuLHo+qoow4GhPDEBQChyrUeuAEAAA==
+  </data>
+ </layer>
+ <layer name="Walkable" width="10" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGH7gJxt2NrnqqAk8gfZ4AbE3AfsygfJZQJyNQx0Agh3Nm7gBAAA=
+  </data>
+ </layer>
+ <layer name="LedgesDown" width="10" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAVDEQAAPZwvYrgBAAA=
+  </data>
+ </layer>
+ <layer name="Ledgesleft" width="10" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAVDEQAAPZwvYrgBAAA=
+  </data>
+ </layer>
+ <layer name="LedgesRight" width="10" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAVDEQAAPZwvYrgBAAA=
+  </data>
+ </layer>
+ <layer name="Collisions" width="10" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAABNiYGBgJICFoLiGAIapm0MAw9Q9YIJgBWYGrACmjhDAps6ahYHBhoWwumigmhgi1FHDfQpMuNWA5IQYUDEDA6YYDAMAGzGRlrgBAAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="10" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgIB7UoOH77AwMD9gRfBg4wATBDMwQ/n+gGgYOEiwaaoCJTDkKAADBpHD1uAEAAA==
+  </data>
+ </layer>
+</map>

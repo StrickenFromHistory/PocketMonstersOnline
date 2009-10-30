@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="22" height="20" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="dayPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="normal1.tsx"/> 
+ <tileset firstgid="1025" source="normal2.tsx"/> 
+ <tileset firstgid="2049" source="normal3.tsx"/> 
+ <tileset firstgid="3073" source="normal4.tsx"/> 
+ <tileset firstgid="4097" source="normal5.tsx"/> 
+ <tileset firstgid="5121" source="normal6.tsx"/> 
+ <tileset firstgid="6145" source="normal7.tsx"/> 
+ <tileset firstgid="7169" source="normal8.tsx"/> 
+ <layer name="Walkable" width="22" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoB24xENdTKy5pLpjuJoLwpWsDAxVrNQNX1rF26i5o+aOmjtyzaUFAAAEULun4AYAAA==
+  </data>
+ </layer>
+ <layer name="Walkable" width="22" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAXUBBOlBtoFo2AUjIJRMApAAABf+Kmy4AYAAA==
+  </data>
+ </layer>
+ <layer name="LedgesLeft" width="22" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwCoYfAABGqpj94AYAAA==
+  </data>
+ </layer>
+ <layer name="LedgesRight" width="22" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwCoYfAABGqpj94AYAAA==
+  </data>
+ </layer>
+ <layer name="LedgesDown" width="22" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwCoYfAABGqpj94AYAAA==
+  </data>
+ </layer>
+ <layer name="Collisions" width="22" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNkYGBgpBG2Ymdg8GXDjrHJ2eJRD5JDNhcXsGLHdIctHvX4zDXjhuChYC628IxGkgexQXqjkTC6HC5zCQFy3TtQ5lZSaC5y/OHjI4vjMreSRuYiA3RzsPkJHVBiLrXjDWZPFFr6RcaUmIsP4DIXlzvQ3YTLPmLLM1xuooe56HIwc4nxO7E4Fkv5R00MAPG5kN3gBgAA
+  </data>
+ </layer>
+</map>

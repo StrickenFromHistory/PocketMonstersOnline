@@ -1,0 +1,5418 @@
+<itemDatabase>
+	<items>
+		<item>
+			<name>Potion</name>
+			<description>Basic healing item, 20hp</description>
+			<id>1</id>
+			<category>Potion</category>
+			<shop>1</shop>
+			<price>300</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Super Potion</name>
+			<description>Next step from potion. 50hp</description>
+			<id>2</id>
+			<category>Potion</category>
+			<shop>1</shop>
+			<price>700</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Hyper Potion</name>
+			<description>Will heal 200hp</description>
+			<id>3</id>
+			<category>Potion</category>
+			<shop>0</shop>
+			<price>1200</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>	
+		<item>
+			<name>Max Potion</name>
+			<description>Will heal pokemon's health fully</description>
+			<id>4</id>
+			<category>Potion</category>
+			<shop>0</shop>
+			<price>2500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Full Restore</name>
+			<description>What happens when a max potion and a full heal
+				have a baby.</description>
+			<id>5</id>
+			<category>Potion</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Antidote</name>
+			<description>Will heal any poison</description>
+			<id>16</id>
+			<category>Medicine</category>
+			<shop>1</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Parlyz Heal</name>
+			<description>Will heal paralysis</description>
+			<id>17</id>
+			<category>Medicine</category>
+			<shop>1</shop>
+			<price>200</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Awakening</name>
+			<description>A bucket of water in the face of sleep
+			</description>
+			<id>18</id>
+			<category>Medicine</category>
+			<shop>1</shop>
+			<price>250</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Burn Heal</name>
+			<description>heals burns... yeah...</description>
+			<id>19</id>
+			<category>Medicine</category>
+			<shop>1</shop>
+			<price>250</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Ice Heal</name>
+			<description>heals frozen pokemon</description>
+			<id>20</id>
+			<category>Medicine</category>
+			<shop>1</shop>
+			<price>250</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Full Heal</name>
+			<description>Will heal any status condition</description>
+			<id>21</id>
+			<category>Medicine</category>
+			<shop>0</shop>
+			<price>600</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+		<item>
+			<name>Lava Cookie</name>
+			<description>Full heals in cookie form</description>
+			<id>22</id>
+			<category>Medicine</category>
+			<shop>0</shop>
+			<price>200</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Old Gateau</name>
+			<description>Like a full heal</description>
+			<id>23</id>
+			<category>Medicine</category>
+			<shop>0</shop>
+			<price>500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+		<item>
+			<name>Poke Ball</name>
+			<description>the basic pokemon catching machine</description>
+			<id>35</id>
+			<category>Pokeball</category>
+			<shop>1</shop>
+			<price>200</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Great Ball</name>
+			<description>Higher catch rate... try pressing a+b
+				(nostalgia)</description>
+			<id>36</id>
+			<category>Pokeball</category>
+			<shop>1</shop>
+			<price>600</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Ultra Ball</name>
+			<description>Best normal type of poke ball</description>
+			<id>37</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1200</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Master Ball</name>
+			<description>Will catch anything</description>
+			<id>38</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>-1</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Safari Ball</name>
+			<description>For use in the safari zone</description>
+			<id>39</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>200</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Park Ball</name>
+			<description>For use in bug-catching contests</description>
+			<id>40</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Level Ball</name>
+			<description>The higher level you are in comparison, the better
+			</description>
+			<id>41</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Lure Ball</name>
+			<description>Works well when fishing</description>
+			<id>42</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Moon Ball</name>
+			<description>Works well if the pokemon evolves with moon
+				stone</description>
+			<id>43</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Friend Ball</name>
+			<description>Makes the pokemon friendlier</description>
+			<id>44</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Fast Ball</name>
+			<description>Works well on pokemon with tendencies to flee
+			</description>
+			<id>45</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Heavy Ball</name>
+			<description>Works well on heavy pokemon</description>
+			<id>46</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Love Ball</name>
+			<description>Works well if the pokemon are opposite genders
+			</description>
+			<id>47</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Luxury Ball</name>
+			<description>So you can buy love! will make pokemon closer to
+				you</description>
+			<id>48</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Premier Ball</name>
+			<description>For buying 10 poke balls... an 11th one free
+			</description>
+			<id>49</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Net Ball</name>
+			<description>Works better on bugs and water pokemon </description>
+			<id>50</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Dive Ball</name>
+			<description>Works better under water</description>
+			<id>51</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Nest Ball</name>
+			<description>Works well on weaker pokemon</description>
+			<id>52</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Repeat Ball</name>
+			<description>Works better on pokemon caught before
+			</description>
+			<id>53</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Timer Ball</name>
+			<description>Works better earlier in a battle</description>
+			<id>54</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Heal Ball</name>
+			<description>Fully heals caught pokemon</description>
+			<id>55</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>300</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Dusk Ball</name>
+			<description>Works better in caves</description>
+			<id>56</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Cherish Ball</name>
+			<description>An event poke ball</description>
+			<id>57</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Quick Ball</name>
+			<description>Works better earlier in battle</description>
+			<id>58</id>
+			<category>Pokeball</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>HP Up</name>
+			<description>Increases HP EVs</description>
+			<id>70</id>
+			<category>Vitamins</category>
+			<shop>0</shop>
+			<price>9800</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Protein</name>
+			<description>Strengthens pokemon's attack EVs
+			</description>
+			<id>71</id>
+			<category>Vitamins</category>
+			<shop>0</shop>
+			<price>9800</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Iron</name>
+			<description>Hardens the Defense EVs</description>
+			<id>72</id>
+			<category>Vitamins</category>
+			<shop>0</shop>
+			<price>9800</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Calcium</name>
+			<description>Develops the Sp. Attack Evs</description>
+			<id>73</id>
+			<category>Vitamins</category>
+			<shop>0</shop>
+			<price>9800</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Zinc</name>
+			<description>Hardens the Sp. defense EVs</description>
+			<id>74</id>
+			<category>Vitamins</category>
+			<shop>0</shop>
+			<price>9800</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Carbos</name>
+			<description>Provides energy for Speed EVs</description>
+			<id>75</id>
+			<category>Vitamins</category>
+			<shop>0</shop>
+			<price>9800</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>PP Up</name>
+			<description>Increases the PP of a move</description>
+			<id>76</id>
+			<category>Vitamins</category>
+			<shop>0</shop>
+			<price>9800</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>PP Max</name>
+			<description>three PP Ups rolled into one</description>
+			<id>77</id>
+			<category>Vitamins</category>
+			<shop>0</shop>
+			<price>15000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Rare Candy</name>
+			<description>Provides the energy to allow pokemon level
+				growth</description>
+			<id>78</id>
+			<category>Vitamins</category>
+			<shop>0</shop>
+			<price>-1</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Repel</name>
+			<description>Repels the wild pokemon for 100 steps
+			</description>
+			<id>85</id>
+			<category>Field</category>
+			<shop>1</shop>
+			<price>350</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Super Repel</name>
+			<description>Repels the wild pokemon for 200 steps
+			</description>
+			<id>86</id>
+			<category>Field</category>
+			<shop>1</shop>
+			<price>500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Max Repel</name>
+			<description>Repels the wild pokemon for 250 steps
+			</description>
+			<id>87</id>
+			<category>Field</category>
+			<shop>0</shop>
+			<price>700</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Escape Rope</name>
+			<description>Escapes caves easily</description>
+			<id>91</id>
+			<category>Field</category>
+			<shop>1</shop>
+			<price>250</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Mach Bike</name>
+			<description>Ride as fast as the wind</description>
+			<id>92</id>
+			<category>Field</category>
+			<shop>0</shop>
+			<price>-1</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Acro Bike</name>
+			<description>Perform tricks like none other</description>
+			<id>93</id>
+			<category>Field</category>
+			<shop>0</shop>
+			<price>-1</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Vial</name>
+			<description>Used in many pokemon crafts</description>
+			<id>94</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>-1</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Poffin Case</name>
+			<description>A case for poffins</description>
+			<id>95</id>
+			<category>Other</category>
+			<shop>0</shop>
+			<price>-1</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Berry Blender</name>
+			<description>Blend berries into poke blocks</description>
+			<id>96</id>
+			<category>Other</category>
+			<shop>0</shop>
+			<price>-1</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Old rod</name>
+			<description>A beginner's rod</description>
+			<id>97</id>
+			<category>Field</category>
+			<shop>3</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Good Rod</name>
+			<description>A slight upgrade from the old rod</description>
+			<id>98</id>
+			<category>Field</category>
+			<shop>3</shop>
+			<price>25000</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+	
+		<item>
+			<name>Great Rod</name>
+			<description>Second best rod</description>
+			<id>99</id>
+			<category>Field</category>
+			<shop>3</shop>
+			<price>75000</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Ultra Rod</name>
+			<description>Best rod there is</description>
+			<id>100</id>
+			<category>Field</category>
+			<shop>3</shop>
+			<price>500000</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Cleanse Tag</name>
+			<description>Keeps wild pokemon away</description>
+			<id>101</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>200</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Glass</name>
+			<description>ModMe</description>
+			<id>126</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>CRAFT</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Coal</name>
+			<description>ModMe</description>
+			<id>127</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>CRAFT</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Iron</name>
+			<description>ModMe</description>
+			<id>128</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>CRAFT</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Steel</name>
+			<description>ModMe</description>
+			<id>129</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>CRAFT</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Rubber</name>
+			<description>ModMe</description>
+			<id>130</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>CRAFT</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Cloth</name>
+			<description>ModMe</description>
+			<id>131</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>CRAFT</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>String</name>
+			<description>ModMe</description>
+			<id>132</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>CRAFT</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Flax</name>
+			<description>ModMe</description>
+			<id>133</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>CRAFT</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Nugget</name>
+			<description>ModMe</description>
+			<id>134</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>CRAFT</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Wood</name>
+			<description>ModMe</description>
+			<id>135</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>CRAFT</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>DeepSeaScale</name>
+			<description>Item for a clampearl</description>
+			<id>150</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>DeepSeaTooth</name>
+			<description>Item for a clamperl</description>
+			<id>151</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Dragon Scale</name>
+			<description>Seadra item</description>
+			<id>152</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Dubious Disc</name>
+			<description>Porygon2 item</description>
+			<id>153</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Electirizer</name>
+			<description>Electrabuzz item</description>
+			<id>154</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>King's Rock</name>
+			<description>Can cause flinching</description>
+			<id>155</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Magmarizer</name>
+			<description>Magmar item</description>
+			<id>156</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Metal Coat</name>
+			<description>Allows evolution into steel type
+			</description>
+			<id>157</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Oval Stone</name>
+			<description>Happiny item</description>
+			<id>158</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Protector</name>
+			<description>Rhyhorn item</description>
+			<id>159</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Razor Claw</name>
+			<description>Sneasle item; raises critical hits
+			</description>
+			<id>160</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Razor Fang</name>
+			<description>Gligar item; raises flinching</description>
+			<id>161</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Reaper Cloth</name>
+			<description>Dusclops item</description>
+			<id>162</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Up-Grade</name>
+			<description>Porygon item</description>
+			<id>163</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Fire Stone</name>
+			<description>Allows fire type evolution</description>
+			<id>164</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Water Stone</name>
+			<description>Allows water type evolution</description>
+			<id>165</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Thunder Stone</name>
+			<description>Allows electric type evolution</description>
+			<id>166</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Sun Stone</name>
+			<description>Allows growth under the sun</description>
+			<id>167</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Moon Stone</name>
+			<description>Allows growth under the moon</description>
+			<id>168</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Shiny Stone</name>
+			<description>Allows evolution</description>
+			<id>169</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Dusk Stone</name>
+			<description>Allows evolution</description>
+			<id>170</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Dawn Stone</name>
+			<description>Allows evolution</description>
+			<id>171</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Everstone</name>
+			<description>Prevents evolution</description>
+			<id>172</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Leaf Stone</name>
+			<description>Allows plant type evolution</description>
+			<id>173</id>
+			<category>Evolution</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Full Incense</name>
+			<description>Holder moves last</description>
+			<id>181</id>
+			<category>Breeding</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Lax Incense</name>
+			<description>Increases evasion</description>
+			<id>182</id>
+			<category>Breeding</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Luck Incense</name>
+			<description>Doubles money</description>
+			<id>183</id>
+			<category>Breeding</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Odd Incense</name>
+			<description>Raises psychic moves</description>
+			<id>184</id>
+			<category>Breeding</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Rock Incense</name>
+			<description>Raises rock moves</description>
+			<id>185</id>
+			<category>Breeding</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Rose Incense</name>
+			<description>Raises grass moves</description>
+			<id>186</id>
+			<category>Breeding</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Sea Incense</name>
+			<description>Raises water moves</description>
+			<id>187</id>
+			<category>Breeding</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Wave Incense</name>
+			<description>Raises water moves</description>
+			<id>188</id>
+			<category>Breeding</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Pure Incense</name>
+			<description>Prevents wild pokemon encounters if holder is
+				first in party</description>
+			<id>189</id>
+			<category>Breeding</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Cheri Berry</name>
+			<description>Cures paralysis</description>
+			<id>200</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Chesto Berry</name>
+			<description>Cures Sleep</description>
+			<id>201</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Pecha Berry</name>
+			<description>Cures poison</description>
+			<id>202</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Rawst Berry</name>
+			<description>Heals burns</description>
+			<id>203</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Aspear Berry</name>
+			<description>Defrosts pokemon</description>
+			<id>204</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Leppa Berry</name>
+			<description>Restores PP</description>
+			<id>205</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Oran Berry</name>
+			<description>Restores HP</description>
+			<id>206</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Persim Berry</name>
+			<description>Cures confusion</description>
+			<id>207</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Lum Berry</name>
+			<description>Cures any status</description>
+			<id>208</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Sitrus Berry</name>
+			<description>Recovers 30 HP</description>
+			<id>209</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Figy Berry</name>
+			<description>Heals 1/8th of total HP with a chance of confusion</description>
+			<id>210</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Wiki Berry</name>
+			<description>Heals 1/8th of total HP with a chance of confusion</description>
+			<id>211</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Mago Berry</name>
+			<description>Heals 1/8th of total HP with a chance of confusion</description>
+			<id>212</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Auguav Berry</name>
+			<description>Heals 1/8th of total HP with a chance of confusion</description>
+			<id>213</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Iapapa Berry</name>
+			<description>Heals 1/8th of total HP with a chance of confusion</description>
+			<id>214</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Razz Berry</name>
+			<description>Poffin ingredient</description>
+			<id>215</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Bluk Berry</name>
+			<description>Poffin ingredient</description>
+			<id>216</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Nanab Berry</name>
+			<description>Poffin ingredient</description>
+			<id>217</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Weaper Berry</name>
+			<description>Poffin ingredient</description>
+			<id>218</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Pomeg Berry</name>
+			<description>Raises happiness but lowers EV</description>
+			<id>219</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Kelpsy Berry</name>
+			<description>Raises happiness but lowers EV</description>
+			<id>220</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Qualot Berry</name>
+			<description>Raises happiness but lowers EV</description>
+			<id>221</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Hondew Berry</name>
+			<description>Raises happiness but lowers EV</description>
+			<id>222</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Grepa Berry</name>
+			<description>Raises happiness but lowers EV</description>
+			<id>223</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Tamato Berry</name>
+			<description>Poffin ingredient</description>
+			<id>224</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Cornn Berry</name>
+			<description>Poffin ingredient</description>
+			<id>225</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Magost Berry</name>
+			<description>Poffin ingredient</description>
+			<id>226</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Rabuta Berry</name>
+			<description>Poffin ingredient</description>
+			<id>227</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Nomel Berry</name>
+			<description>Poffin ingredient</description>
+			<id>228</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Spelon Berry</name>
+			<description>Poffin ingredient</description>
+			<id>229</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Pamtre Berry</name>
+			<description>Poffin ingredient</description>
+			<id>230</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Watmel Berry</name>
+			<description>Poffin ingredient</description>
+			<id>231</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Durin Berry</name>
+			<description>Poffin ingredient</description>
+			<id>232</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Belue Berry</name>
+			<description>Poffin ingredient</description>
+			<id>233</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Occa Berry</name>
+			<description>Weakens fire</description>
+			<id>234</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Passho Berry</name>
+			<description>Weakens water</description>
+			<id>235</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Wacan Berry</name>
+			<description>Weakens electric</description>
+			<id>236</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Rindo Berry</name>
+			<description>Weakens grass</description>
+			<id>237</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Yache Berry</name>
+			<description>Weakens ice</description>
+			<id>238</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Chople Berry</name>
+			<description>Weakens fighting</description>
+			<id>239</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Kebia Berry</name>
+			<description>Weakens poison</description>
+			<id>240</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Shuca Berry</name>
+			<description>Weakens ground</description>
+			<id>241</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Coba Berry</name>
+			<description>Weakens flying</description>
+			<id>242</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Payapa Berry</name>
+			<description>Weakens psychic</description>
+			<id>243</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Tanga Berry</name>
+			<description>Weakens bugs</description>
+			<id>244</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Charti Berry</name>
+			<description>Weakens rock</description>
+			<id>245</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Kasib Berry</name>
+			<description>Weakens ghost</description>
+			<id>246</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Haban Berry</name>
+			<description>Weakens dragon</description>
+			<id>247</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Colbur Berry</name>
+			<description>Weakens dark</description>
+			<id>248</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Babiri Berry</name>
+			<description>Weakens steel</description>
+			<id>249</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Chilan Berry</name>
+			<description>Weakens normal</description>
+			<id>250</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Liechi Berry</name>
+			<description>Raises attack when weak</description>
+			<id>251</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Ganlon Berry</name>
+			<description>Raises defense when weak</description>
+			<id>252</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Salac Berry</name>
+			<description>Raises speed when weak</description>
+			<id>253</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Petaya Berry</name>
+			<description>Raises SP. attack when weak</description>
+			<id>254</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Apicot Berry</name>
+			<description>Raises SP. Defense when weak</description>
+			<id>255</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Starf Berry</name>
+			<description>Raises Critical hit ratio when weak
+			</description>
+			<id>256</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Enigma Berry</name>
+			<description>Restores HP when hit by a supper effective
+				attack</description>
+			<id>257</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Micle Berry</name>
+			<description>Raises accuracy</description>
+			<id>258</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Custap Berry</name>
+			<description>Moves first</description>
+			<id>259</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Jaboca Berry</name>
+			<description>Causes recoil on physical moves</description>
+			<id>260</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Rowap Berry</name>
+			<description>Causes recoil on special moves</description>
+			<id>261</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Adamant Orb</name>
+			<description>Dialga's signature item</description>
+			<id>300</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Black Belt</name>
+			<description>Enhances fighting moves</description>
+			<id>301</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>BlackGlasses</name>
+			<description>Enhances dark moves</description>
+			<id>302</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Charcoal</name>
+			<description>Enhances fire moves</description>
+			<id>303</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>4900</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Dragon Fang</name>
+			<description>Enhances dragon moves</description>
+			<id>304</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Hard Stone</name>
+			<description>Enhances rock moves</description>
+			<id>305</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Lustrous Orb</name>
+			<description>Palkia's signature item</description>
+			<id>306</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Magnet</name>
+			<description>Enhances electric moves</description>
+			<id>307</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Metal Coat</name>
+			<description>Enhances steel moves</description>
+			<id>308</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Miracle Seed</name>
+			<description>Enhances grass moves</description>
+			<id>309</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Mystic Water</name>
+			<description>Enhances water moves</description>
+			<id>310</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>NeverMeltIce</name>
+			<description>Enhances ice moves</description>
+			<id>311</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Pink Bow</name>
+			<description>Enhances normal moves</description>
+			<id>312</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Poison Barb</name>
+			<description>Enhances poison moves</description>
+			<id>313</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Polkadot Bow</name>
+			<description>Enhances normal moves</description>
+			<id>314</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Griseous Orb</name>
+			<description>Giratina's signature item</description>
+			<id>315</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Sharp Beak</name>
+			<description>Enhances flying moves</description>
+			<id>316</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Silk Scarf</name>
+			<description>Enhances normal moves</description>
+			<id>317</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>SilverPowder</name>
+			<description>Enhances bug moves</description>
+			<id>318</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Soft Sand</name>
+			<description>Enhances ground moves</description>
+			<id>319</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Spell Tag</name>
+			<description>Enhances ghost moves</description>
+			<id>320</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>TwistedSpoon</name>
+			<description>Enhances psychic moves</description>
+			<id>321</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Draco Plate</name>
+			<description>Enhances dragon moves</description>
+			<id>331</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Dread Plate</name>
+			<description>Enhances dark moves</description>
+			<id>332</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Earth Plate</name>
+			<description>Enhances ground moves</description>
+			<id>333</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Fist Plate</name>
+			<description>Enhances fighting moves</description>
+			<id>334</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Flame Plate</name>
+			<description>Enhances fire moves</description>
+			<id>335</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Icicle Plate</name>
+			<description>Enhances ice moves</description>
+			<id>336</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Insect Plate</name>
+			<description>Enhances bug moves</description>
+			<id>337</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Iron Plate</name>
+			<description>Enhances steel moves</description>
+			<id>338</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Meadow Plate</name>
+			<description>Enhances grass moves</description>
+			<id>339</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Mind Plate</name>
+			<description>Enhances psychic moves</description>
+			<id>340</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Sky Plate</name>
+			<description>Enhances flying moves</description>
+			<id>341</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Splash Plate</name>
+			<description>Enhances water moves</description>
+			<id>342</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Spooky Plate</name>
+			<description>Enhances ghost moves</description>
+			<id>343</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Stone Plate</name>
+			<description>Enhances rock moves</description>
+			<id>344</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Toxic Plate</name>
+			<description>Enhances poison moves</description>
+			<id>345</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Zap Plate</name>
+			<description>Enhances electric moves</description>
+			<id>346</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Amulet Coin</name>
+			<description>Doubles winnings</description>
+			<id>350</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Berserk Gene</name>
+			<description>Confuses and ups attack</description>
+			<id>351</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Big Root</name>
+			<description>Increases HP drain</description>
+			<id>352</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>250</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Black Sludge</name>
+			<description>Heals poison types, hurts others</description>
+			<id>353</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>BrightPowder</name>
+			<description>Raises evasion</description>
+			<id>354</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Choice Band</name>
+			<description>Increases only one attack</description>
+			<id>355</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Choice Scarf</name>
+			<description>Increases speed but can only use one move
+			</description>
+			<id>356</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Choice Specs</name>
+			<description>Increases Sp. attack but can only use one
+				move</description>
+			<id>357</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Damp Rock</name>
+			<description>lengthens rain dance</description>
+			<id>358</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Destiny Knot</name>
+			<description>Both pokemon become infatuated at the same time
+			</description>
+			<id>359</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Exp. Share</name>
+			<description>Splits exp. among pokemon</description>
+			<id>360</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>10000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Expert Belt</name>
+			<description>Boosts super effective moves</description>
+			<id>361</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		
+		
+
+		<item>
+			<name>Flame Orb</name>
+			<description>Burns holder</description>
+			<id>362</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Focus Band</name>
+			<description>Can survive with one hp left</description>
+			<id>363</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Focus Sash</name>
+			<description>Can't be one hit KOed with full health
+			</description>
+			<id>364</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Grip Claw</name>
+			<description>Lengthens trapping moves</description>
+			<id>365</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Heat Rock</name>
+			<description>Lengthens sunny day</description>
+			<id>366</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Icy Rock</name>
+			<description>Lengthens hail</description>
+			<id>367</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Iron Ball</name>
+			<description>Cuts speed and cancel's flying type
+			</description>
+			<id>368</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Lagging Tail</name>
+			<description>Makes user move last</description>
+			<id>369</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Leftovers</name>
+			<description>Heals at the end of each turn</description>
+			<id>370</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Life Orb</name>
+			<description>Boosts attack at cost of HP</description>
+			<id>371</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Light Clay</name>
+			<description>Lengthens light screen and reflect
+			</description>
+			<id>372</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Lucky Egg</name>
+			<description>Boosts experience gained</description>
+			<id>373</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>10000</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Mental Herb</name>
+			<description>Prevents attraction</description>
+			<id>374</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Metronome</name>
+			<description>Increases consecutive attacks
+			</description>
+			<id>375</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Muscle Band</name>
+			<description>Increases physical moves</description>
+			<id>376</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>2500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Power Herb</name>
+			<description>No charge move required</description>
+			<id>377</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Quick Claw</name>
+			<description>Allows user to move first</description>
+			<id>378</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Scope Lens</name>
+			<description>Increases critical hits</description>
+			<id>379</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Shed Shell</name>
+			<description>Can switch even if trapped</description>
+			<id>380</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>2500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Shell Bell</name>
+			<description>Gains HP based on attacks</description>
+			<id>381</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>2500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Smoke Ball</name>
+			<description>Can escape from wild pokemon</description>
+			<id>382</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Smooth Rock</name>
+			<description>Lengthens sandstorm</description>
+			<id>383</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Sticky Barb</name>
+			<description>Hurts use every turn but can latch on to other
+				pokemon</description>
+			<id>384</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Toxic Orb</name>
+			<description>Poisons user</description>
+			<id>385</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>White Herb</name>
+			<description>Negates negative stat changes</description>
+			<id>386</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Wide Lens</name>
+			<description>Boosts accuracy</description>
+			<id>387</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>2500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Wise Glasses</name>
+			<description>Boosts special moves</description>
+			<id>388</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>2500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Zoom Lens</name>
+			<description>Bossts accuracy if moves second</description>
+			<id>389</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>2500</price>
+			<attributes>
+				<itemAttribute>BATTLE</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Red Pokeblock</name>
+			<description>Raises coolness</description>
+			<id>400</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Blue Pokeblock</name>
+			<description>Raises beauty</description>
+			<id>401</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Pink Pokeblock</name>
+			<description>Raises cuteness</description>
+			<id>402</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Green Pokeblock</name>
+			<description>Raises smartness</description>
+			<id>403</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Yellow Pokeblock</name>
+			<description>Raises toughness</description>
+			<id>404</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Purple Pokeblock</name>
+			<description>Raises coolness and something else
+			</description>
+			<id>405</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Indigo Pokeblock</name>
+			<description>Raises beauty and something else
+			</description>
+			<id>406</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Brown Pokeblock</name>
+			<description>Raises cuteness and something else
+			</description>
+			<id>407</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>LiteBlue Pokeblock</name>
+			<description>Raises smartness and something else
+			</description>
+			<id>408</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Olive Pokeblock</name>
+			<description>Raises toughness and something else
+			</description>
+			<id>409</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Black Pokeblock</name>
+			<description>The flavors of the berries canceled out
+			</description>
+			<id>410</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Gold Pokeblock</name>
+			<description>Raises one or two attributes</description>
+			<id>411</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Gray Pokeblock</name>
+			<description>Raises 3 attributes</description>
+			<id>412</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>White Pokeblock</name>
+			<description>Raises 4 attributes</description>
+			<id>413</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Bitter Poffin</name>
+			<description>Raises smartness</description>
+			<id>414</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Spicy Poffin</name>
+			<description>Raises coolness</description>
+			<id>415</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Sweet Poffin</name>
+			<description>Raises cuteness</description>
+			<id>416</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Dry Poffin</name>
+			<description>Raises beauty</description>
+			<id>417</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Sour Poffin</name>
+			<description>Raises toughness</description>
+			<id>418</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Mild Poffin</name>
+			<description>Raises multiple attributes</description>
+			<id>419</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Honey</name>
+			<description>Slather on a tree to attract pokemon
+			</description>
+			<id>420</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Big Apple</name>
+			<description>An apple a day keeps the haunter away
+			</description>
+			<id>421</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Huge Apple</name>
+			<description>A bigger version of the big apple?</description>
+			<id>422</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Golden Apple</name>
+			<description>Not actually made out of gold</description>
+			<id>423</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Perfect Apple</name>
+			<description>DON'T EAT IT... too precious</description>
+			<id>424</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Banana</name>
+			<description>Is that a banana in your pocket or are you just
+				happy to see me?</description>
+			<id>425</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Grimy Food</name>
+			<description>A food that came out of a grimer, do you really want
+				to eat it?</description>
+			<id>426</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Chestnut</name>
+			<description>A mankey's favorite food</description>
+			<id>427</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Black Gummi</name>
+			<description>A gummi that is black</description>
+			<id>428</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Blue Gummi</name>
+			<description>A gummi that is blue</description>
+			<id>429</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Brown Gummi</name>
+			<description>A gummi that is brown</description>
+			<id>430</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Clear Gummi</name>
+			<description>A gummi that is clear</description>
+			<id>431</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Gold Gummi</name>
+			<description>A gummi that is gold</description>
+			<id>432</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Grass Gummi</name>
+			<description>A gummi that is made out of grass?</description>
+			<id>433</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Green Gummi</name>
+			<description>A gummi that is green</description>
+			<id>434</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Grey Gummi</name>
+			<description>A gummi that is gray</description>
+			<id>435</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Orange Gummi</name>
+			<description>A gummi that is orange</description>
+			<id>436</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Pink Gummi</name>
+			<description>A gummi that is pink</description>
+			<id>437</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Purple Gummi</name>
+			<description>A gummi that is purple</description>
+			<id>438</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Red Gummi</name>
+			<description>A gummi that is red</description>
+			<id>439</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Royal Gummi</name>
+			<description>A gummi that is fit for a king</description>
+			<id>440</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Silver Gummi</name>
+			<description>A gummi that is silver</description>
+			<id>441</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Sky Gummi</name>
+			<description>A gummi that is made out of clouds?</description>
+			<id>442</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>White Gummi</name>
+			<description>A gummi that is white</description>
+			<id>443</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Yellow Gummi</name>
+			<description>A gummi that is yellow</description>
+			<id>444</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Wonder Gummi</name>
+			<description>A gummi that is a mystery O.O</description>
+			<id>445</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>100</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Light Ball</name>
+			<description>Doubles Sp. attack and attack of pikachu
+			</description>
+			<id>477</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Lucky Punch</name>
+			<description>Raises critical hit ratio of chansey
+			</description>
+			<id>478</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Metal Powder</name>
+			<description>Raises defense and Sp. defense of ditto
+			</description>
+			<id>479</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Quick Powder</name>
+			<description>Increases ditto's speed</description>
+			<id>480</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Soul Dew</name>
+			<description>Increases Sp. attack and Sp. defense of
+				latios and latias</description>
+			<id>481</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>10000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Stick</name>
+			<description>Increases the critical hit ratio of farfetch
+			</description>
+			<id>482</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Thick Club</name>
+			<description>Doubles attack of cubone and marowak
+			</description>
+			<id>483</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Blue Scarf</name>
+			<description>Increases beauty</description>
+			<id>490</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Green Scarf</name>
+			<description>Increases smarts</description>
+			<id>491</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Pink Scarf</name>
+			<description>Increases cuteness</description>
+			<id>492</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Red Scarf</name>
+			<description>Increases coolness</description>
+			<id>493</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Yellow Scarf</name>
+			<description>Increases toughness</description>
+			<id>494</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>HOLD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>White Apricorn</name>
+			<description>Makes a fast ball</description>
+			<id>500</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>30</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Red Apricorn</name>
+			<description>Makes a level ball</description>
+			<id>501</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>30</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Blue Apricorn</name>
+			<description>Makes a lure ball</description>
+			<id>502</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>30</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Black Apricorn</name>
+			<description>Makes a heavy ball</description>
+			<id>503</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>30</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Pink Apricorn</name>
+			<description>Makes a love ball</description>
+			<id>504</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>30</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Green Apricorn</name>
+			<description>Makes a friend ball</description>
+			<id>505</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>30</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Yellow Aprocorn</name>
+			<description>Makes a moon ball</description>
+			<id>506</id>
+			<category>Tools</category>
+			<shop>0</shop>
+			<price>30</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Soothe Bell</name>
+			<description>Increases friendship</description>
+			<id>525</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>5000</price>
+			<attributes>
+				<itemAttribute>FIELD</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Air Mail</name>
+			<description>A piece of mail</description>
+			<id>550</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>OTHER</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Bloom Mail</name>
+			<description>A piece of mail</description>
+			<id>551</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>OTHER</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Bubble Mail</name>
+			<description>A piece of mail</description>
+			<id>552</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>OTHER</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Flame Mail</name>
+			<description>A piece of mail</description>
+			<id>553</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>OTHER</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Grass Mail</name>
+			<description>A piece of mail</description>
+			<id>554</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>OTHER</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Hearth Mail</name>
+			<description>A piece of mail</description>
+			<id>555</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>OTHER</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Snom Mail</name>
+			<description>A piece of mail</description>
+			<id>556</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>OTHER</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Space Mail</name>
+			<description>A piece of mail</description>
+			<id>557</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>OTHER</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Steel Mail</name>
+			<description>A piece of mail</description>
+			<id>558</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>OTHER</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Tunnel Mail</name>
+			<description>A piece of mail</description>
+			<id>559</id>
+			<category>Held</category>
+			<shop>0</shop>
+			<price>50</price>
+			<attributes>
+				<itemAttribute>OTHER</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM01 Focus Punch</name>
+			<description>Teaches focus punch</description>
+			<id>576</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM02 Dragon Claw</name>
+			<description>Teaches dragon claw</description>
+			<id>577</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM03 Water Pulse</name>
+			<description>Teaches water pulse</description>
+			<id>578</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM04 Calm Mind</name>
+			<description>Teaches calm mind</description>
+			<id>579</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>7500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM05 Roar</name>
+			<description>Teaches roar</description>
+			<id>580</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM06 Toxic</name>
+			<description>Teaches toxic</description>
+			<id>581</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM07 Hail</name>
+			<description>Teaches hail</description>
+			<id>582</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM08 Bulk Up</name>
+			<description>Teaches bulk up</description>
+			<id>583</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM09 Bullet Seed</name>
+			<description>Teaches bullet seed</description>
+			<id>584</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM10 Hidden Power</name>
+			<description>Teaches hidden power</description>
+			<id>585</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>7500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM11 Sunny Day</name>
+			<description>Teaches sunny day</description>
+			<id>586</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM12 Taunt</name>
+			<description>Teaches taunt</description>
+			<id>587</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM13 Ice Beam</name>
+			<description>Teaches ice beam</description>
+			<id>588</id>
+			<category>TM</category>
+			<shop>2</shop>
+			<price>15000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM14 Blizzard</name>
+			<description>Teaches blizzard</description>
+			<id>589</id>
+			<category>TM</category>
+			<shop>2</shop>
+			<price>20000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM15 Hyper Beam</name>
+			<description>Teaches hyper beam</description>
+			<id>590</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>7500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM16 Light Screen</name>
+			<description>Teaches light screen</description>
+			<id>591</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM17 Protect</name>
+			<description>Teaches protect</description>
+			<id>592</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM18 Rain Dance</name>
+			<description>Teaches rain dance</description>
+			<id>593</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM19 Giga Drain</name>
+			<description>Teaches giga drain</description>
+			<id>594</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM20 Safeguard</name>
+			<description>Teaches safeguard</description>
+			<id>595</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM21 Frustration</name>
+			<description>Teaches frustration</description>
+			<id>596</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM22 SolarBeam</name>
+			<description>Teaches solarbeam</description>
+			<id>597</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM23 Iron Tail</name>
+			<description>Teaches iron tail</description>
+			<id>598</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM24 Thunderbolt</name>
+			<description>Teaches thunderbolt</description>
+			<id>599</id>
+			<category>TM</category>
+			<shop>2</shop>
+			<price>15000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM25 Thunder</name>
+			<description>Teaches thunder</description>
+			<id>600</id>
+			<category>TM</category>
+			<shop>2</shop>
+			<price>20000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM26 Earthquake</name>
+			<description>Teaches earthquake</description>
+			<id>601</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>7500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM27 Return</name>
+			<description>Teaches return</description>
+			<id>602</id>
+			<category>TM</category>
+			<shop>2</shop>
+			<price>10000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM28 Dig</name>
+			<description>Teaches dig</description>
+			<id>603</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM29 Psychic</name>
+			<description>Teaches psychic</description>
+			<id>604</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>7500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM30 Shadow Ball</name>
+			<description>Teaches shadow ball</description>
+			<id>605</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>7500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM31 Brick Break</name>
+			<description>Teaches brick break</description>
+			<id>606</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM32 Double Team</name>
+			<description>Teaches double team</description>
+			<id>607</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM33 Reflect</name>
+			<description>Teaches reflect</description>
+			<id>608</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM34 Shock Wave</name>
+			<description>Teaches shock wave</description>
+			<id>609</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM35 Flamethrower</name>
+			<description>Teaches flamethrower</description>
+			<id>610</id>
+			<category>TM</category>
+			<shop>2</shop>
+			<price>15000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM36 Sludge Bomb</name>
+			<description>Teaches sludge bomb</description>
+			<id>611</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM37 Sandstorm</name>
+			<description>Teaches sandstorm</description>
+			<id>612</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM38 Fire Blast</name>
+			<description>Teaches fire blast</description>
+			<id>613</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>7500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM39 Rock Tomb</name>
+			<description>Teaches rock tomb</description>
+			<id>614</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM40 Aerial Ace</name>
+			<description>Teaches aerial ace</description>
+			<id>615</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM41 Torment</name>
+			<description>Teaches torment</description>
+			<id>616</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM42 Facade</name>
+			<description>Teaches facade</description>
+			<id>617</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM43 Secret Power</name>
+			<description>Teaches secret power</description>
+			<id>618</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM44 Rest</name>
+			<description>Teaches rest</description>
+			<id>619</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM45 Attract</name>
+			<description>Teaches attract</description>
+			<id>620</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM46 Thief</name>
+			<description>Teaches thief</description>
+			<id>621</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM47 Steel Wing</name>
+			<description>Teaches steel wing</description>
+			<id>622</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM48 Skill Swap</name>
+			<description>Teaches skill swap</description>
+			<id>623</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM49 Snatch</name>
+			<description>Teaches snatch</description>
+			<id>624</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM50 Overheat</name>
+			<description>Teaches overheat</description>
+			<id>625</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM51 Roost</name>
+			<description>Teaches roost</description>
+			<id>626</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM52 Focus Blast</name>
+			<description>Teaches focus blast</description>
+			<id>627</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM53 Energy Ball</name>
+			<description>Teaches energy ball</description>
+			<id>628</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM54 False Swipe</name>
+			<description>Teaches false swipe</description>
+			<id>629</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM55 Brine</name>
+			<description>Teaches brine</description>
+			<id>630</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM56 Fling</name>
+			<description>Teaches fling</description>
+			<id>631</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM57 Charge Beam</name>
+			<description>Teaches charge beam</description>
+			<id>632</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM58 Endure</name>
+			<description>Teaches endure</description>
+			<id>633</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM59 Dragon Pulse</name>
+			<description>Teaches dragon pulse</description>
+			<id>634</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM60 Drain Punch</name>
+			<description>Teaches drain punch</description>
+			<id>635</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM61 Will-O-Wisp</name>
+			<description>Teaches will-o-wisp</description>
+			<id>636</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM62 Silver Wind</name>
+			<description>Teaches silver wind</description>
+			<id>637</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM63 Embargo</name>
+			<description>Teaches embargo</description>
+			<id>638</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM64 Explosion</name>
+			<description>Teaches explosion</description>
+			<id>639</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>4000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM65 Shadow Claw</name>
+			<description>Teaches shadow claw</description>
+			<id>640</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM66 Payback</name>
+			<description>Teaches payback</description>
+			<id>641</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM67 Recycle</name>
+			<description>Teaches recycle</description>
+			<id>642</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM68 Giga Impact</name>
+			<description>Teaches giga impact</description>
+			<id>643</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM69 Rock Polish</name>
+			<description>Teaches rock polish</description>
+			<id>644</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM70 Flash</name>
+			<description>Teaches flash</description>
+			<id>645</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM71 Stone Edge</name>
+			<description>Teaches stone edge</description>
+			<id>646</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM72 Avalanche</name>
+			<description>Teaches avalanche</description>
+			<id>647</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>4000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM73 Thunder Wave</name>
+			<description>Teaches thunder wave</description>
+			<id>648</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM74 Gyro Ball</name>
+			<description>Teaches gyro ball</description>
+			<id>649</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM75 Swords Dance</name>
+			<description>Teaches swords dance</description>
+			<id>650</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM76 Stealth Rock</name>
+			<description>Teaches stealth rock</description>
+			<id>651</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM77 Psych Up</name>
+			<description>Teaches psych up</description>
+			<id>652</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM78 Captivate</name>
+			<description>Teaches captivate</description>
+			<id>653</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM79 Dark Pulse</name>
+			<description>Teaches dark pulse</description>
+			<id>654</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM80 Rock Slide</name>
+			<description>Teaches rock slide</description>
+			<id>655</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM81 X-Scissor</name>
+			<description>Teaches x-scissor</description>
+			<id>656</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM82 Sleep Talk</name>
+			<description>Teaches sleep talk</description>
+			<id>657</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM83 Natural Gift</name>
+			<description>Teaches natural gift</description>
+			<id>658</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM84 Poison Jab</name>
+			<description>Teaches poison jab</description>
+			<id>659</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>4000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM85 Dream Eater</name>
+			<description>Teaches dream eater</description>
+			<id>660</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM86 Grass Knot</name>
+			<description>Teaches grass knot</description>
+			<id>661</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM87 Swagger</name>
+			<description>Teaches swagger</description>
+			<id>662</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM88 Pluck</name>
+			<description>Teaches pluck</description>
+			<id>663</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>2000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM89 U-turn</name>
+			<description>Teaches u-turn</description>
+			<id>664</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM90 Substitute</name>
+			<description>Teaches substitute</description>
+			<id>665</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>5500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM91 Flash Cannon</name>
+			<description>Teaches flash cannon</description>
+			<id>666</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>4000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM92 Trick Room</name>
+			<description>Teaches trick room</description>
+			<id>667</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>3000</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>TM93 Surf</name>
+			<description>Teaches surf</description>
+			<id>668</id>
+			<category>TM</category>
+			<shop>0</shop>
+			<price>7500</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+				<itemAttribute>MOVESLOT</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Secret Potion</name>
+			<description>Known to cure psyduck headaches</description>
+			<id>750</id>
+			<category>Key</category>
+			<shop>0</shop>
+			<price>1000</price>
+			<attributes>
+				<itemAttribute>OTHER</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Voltorb Lollipop</name>
+			<description>Heals 50HP, but might Paralyze your Pokemon</description>
+			<id>800</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Sweet Chills</name>
+			<description>Restores 5PP to all moves, but might Freeze your Pokemon</description>
+			<id>801</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Cinnamon Candy</name>
+			<description>Heals All Status, but might Burn your Pokemon</description>
+			<id>802</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Candy Corn</name>
+			<description>Raises Happiness, but might Poison your Pokemon</description>
+			<id>803</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Poke'Choc</name>
+			<description>Raises Happiness, and might Heal 30HP to your Pokemon</description>
+			<id>804</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Gummilax</name>
+			<description>Raises Happiness, but might put your Pokemon to Sleep</description>
+			<id>805</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+		<item>
+			<name>Gengum</name>
+			<description>Heals your Pokemon's HP for an unknown amount. </description>
+			<id>806</id>
+			<category>Food</category>
+			<shop>0</shop>
+			<price>10</price>
+			<attributes>
+				<itemAttribute>POKEMON</itemAttribute>
+			</attributes>
+		</item>
+	</items>
+</itemDatabase>

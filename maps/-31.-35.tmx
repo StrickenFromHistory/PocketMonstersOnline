@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="22" height="19" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonChances" value=""/>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
+ <tileset firstgid="2049" source="normal3.tsx"/>
+ <tileset firstgid="3073" source="normal4.tsx"/>
+ <tileset firstgid="4097" source="normal5.tsx"/>
+ <tileset firstgid="5121" source="normal6.tsx"/>
+ <tileset firstgid="6145" source="normal7.tsx"/>
+ <tileset firstgid="7169" source="normal8.tsx"/>
+ <tileset firstgid="8193" source="normal9.tsx"/>
+ <layer name="Walkable" width="22" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgYGB4xEhdDAOj5o6aO2ruqLmj5g6suZn8DAxZ/NQzFwaEoJgaAAA6KJqMiAYAAA==
+  </data>
+ </layer>
+ <layer name="Collisions" width="22" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAKWT0Q3DMAhE/ZEJMmFG6igZwaNVVXIqeuIwSk5CiTB+YLD3Mcax/W2+/P5sH5fN2/9W4ohbKTvHSuRmZ8o4rgeOq/piXIyP+bJY+SKXa9SxeT/luN0Zujg3t2lqZ22Kq/rLeXW4XFMe1pv1qhLrdFzm5dyz/HPBfTI35lv1ofOuqjsnbvdeOlX34RPi9K9Y966z90fuGbin2ae9mUVVfSDH+StuV+yjWxeXfPqf2BdANCwtiAYAAA==
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="22" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwCgYOAABX9/HXiAYAAA==
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="24" height="32" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="dayPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="normal2.tsx"/> 
+ <tileset firstgid="1025" source="normal3.tsx"/> 
+ <tileset firstgid="2049" source="normal4.tsx"/> 
+ <tileset firstgid="3073" source="normal5.tsx"/> 
+ <tileset firstgid="4097" source="Tileset 9.tsx"/> 
+ <layer name="Walkable" width="24" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBQMZfBZED+mhvmmQrjxqPmj5o+aP2r+UDV/FIyCkQoAo+SlXAAMAAA=
+  </data>
+ </layer>
+ <layer name="Walkable" width="24" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMAuKAAe9Au2DwAh8eBgZfKPbjGWjXkA5G3T+wYKi7n9YgExgmWUCcTaOw6QSa2wXE3aNhPwpGCAAAU90SUgAMAAA=
+  </data>
+ </layer>
+ <layer name="Walkable" width="24" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglFAKTDgRcVDDYy6f2DBUHf/KBgFo2BoAQDwnw6WAAwAAA==
+  </data>
+ </layer>
+ <layer name="Collisions" width="24" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYGSDzYLYMbXAZUHseBSMglEwCkbBKBgFo2AgAABeruAZAAwAAA==
+  </data>
+ </layer>
+ <layer name="Collisions" width="24" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYPCCQB7iMCXm+zEyMPgDcTUQ1wBxLRDXAfFmQQim1Pw8oFn5QDwbiOcA8VwgngfElwUhmFLz+4Bm9TPiV0OJ+dRQMxjM38PJwLAXivdxUt98StQQo3fU/eS5bdT9o+bj00vL+mUUjILBDADD0MFSAAwAAA==
+  </data>
+ </layer>
+</map>

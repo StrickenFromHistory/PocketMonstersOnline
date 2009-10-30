@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="24" height="36" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonLevels" value="16-16;16-16;17-17;16-16;16-16;16-16;15-15;15-15;"/>
+  <property name="dayPokemonChances" value="Rattata,15;Meowth,15;Raticate,30;Magnemite,20;Farfetch'd,5;Pidgeotto,5;Miltank,5;Tauros,5;"/>
+  <property name="nightPokemonLevels" value="16-16;16-16;17-17;16-16;16-16;15-15;15-15;"/>
+  <property name="nightPokemonChances" value="Rattata,20;Meowth,20;Raticate,30;Magnemite,20;Noctowl,5;Miltank,3;Tauros,2;"/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="wildProbability" value="10"/>
+  <property name="xOffsetModifier" value="-64"/>
+  <property name="yOffsetModifier" value="128"/>
+ </properties>
+ <tileset firstgid="1" source="normal1.tsx"/> 
+ <tileset firstgid="1025" source="normal3.tsx"/> 
+ <tileset firstgid="2049" source="normal2.tsx"/> 
+ <layer name="Walkable" width="24" height="36">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAMWXaxKCMAyEi8UZr4HgQZT734UjWJRq3EnS9DX+2BlQ+LpN0rR455wnOg2/kn57KVyPTpeH+ym8c1V0C3oELUFzB/58+J+MfJSFP3bkn48cjOTaD984xNyU8rU5+Y589C+NU+O/Fz/mgRPHjzWuaTGOzfEtdWedZ4ov1QLla/O1+Ke58gw/N7+x3rj/JX5OfdLnpRhx/lNsLT4WvrU/aPX8qeuEf4l/N9Q+roMc/yltl7donrn81vK19YK1bNX+/MDkYefTedX45/rT2pgv9Y+S/dKyPqLWDvyaWOT6b8lv7buXf+58R/sNrrfaMTA+pXzs/1EYnxr/3J7UKj7YZ2i/wf3B8h2Awn1AO++U1BPupdp555/8J8AJPDSADQAA
+  </data>
+ </layer>
+ <layer name="Grass" width="24" height="36">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3MMQ0AAAgEsbeCf5MsiCDQJrdeAgBsU5O//8c/XNaVnGoAgA0AAA==
+  </data>
+ </layer>
+ <layer name="LedgesDown" width="24" height="36">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwCkbBKBi64BgTgr0MyH4KxcjigxmMun8UjIKRBQAyrNtvgA0AAA==
+  </data>
+ </layer>
+ <layer name="LedgesLeft" width="24" height="36">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwCkbBYAXLmWhr/vEhbj6twaj7R8EoGAXUBgBbvavwgA0AAA==
+  </data>
+ </layer>
+ <layer name="Collisions" width="24" height="36">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAN2Xa27CMBCEF5sSrgBtf1V5XITHUbh2pV6iL6lTkYgw2SXe4PxoRxqt5NjLZ8dZm1pEGrhuYxFFXkOa1/EyzooH+NiLS4xhPRQiK7iA18WlPcTheI78e+8rkQ/4E/6Cv+ESOSu4hhvKXyJWMowW/wbjt/Aj/AQ/wzt4Dx/gI+XfIe5lGC3+UlkfS0HpW7Vt3TyYP9D71XSS87NGyb9o27p5ML/G5NGCxmv8U/U7r5rmr/HfWh/e/2O6hz+l7z3rn9L3r/Fz/crNz/szN3+X36o/ufJb9Wdu/ug4X27VH4t/UE/luq6PaYyfI9f11Pyp/F55+b1azsSfen+w+N+Ms6xT6v3hv/Cn7vep/Lzfc/O/tJ6L35N7Kr9HXv6+TjPwe+Xlt/5P5OLX5qOdV2XU74Gp32//fWj5A9VLjj9UuexfgA0AAA==
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="24" height="36">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgIAyesjEwPAPi50D8go0IDXjATqD+XUC8G4j3APFeCs0bBaNgFIwCegN2IOYYaEcMQQALN1z0KBicYDSeRsEoGAXUAqPlCQQAAAZDDRKADQAA
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="20" height="28" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonChances" value=""/>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal7.tsx"/>
+ <tileset firstgid="2049" source="normal10.tsx"/>
+ <layer name="Layer 6" width="20" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMAtKAK9NAu2AUjIJRMNIBAPYrDDzACAAA
+  </data>
+ </layer>
+ <layer name="Walkable" width="20" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBQMd+DKNNAuGAWjYBSMAuoCAK8RQ83ACAAA
+  </data>
+ </layer>
+ <layer name="Grass" width="20" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoC5wZRrFo3gUDzZM7by5n3Xg/TSKR/EoHtkYAFZlqLzACAAA
+  </data>
+ </layer>
+ <layer name="Collisions" width="20" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAKtkY2AQ5YTgXigdyIldDMRm5ULInYSKw8QqgWbNBGJlLurgmVDzqAVoad56JHFy2bRyHygsfyKZ+5PMOBqND+q4j5ywxxZ/9Ao/ogEjqt4RlZ4ZR9PzYE7Pg908asXvTiq6D2TWTSqaBzKL3LyKKw0BANRhpz7ACAAA
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="20" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAOWT0QkDIQyGfbmC934TdISb5Ca5SaQjdAAncYRO4BpFzMcFEQutgtAfJDGJL19+jflPPTrlI7Ssxrxu1z3lm83HSTwkT7P0gtSptbTbfLzEU3Ldi1KnNlIz7wOmhzAmh3mQPNWd7KDcX+ohmJ7C+L7mHObRXry92kFLnxg8l+/f/qoaD3jhaby7qUg/yAyq8YAXnsa7u4r0o/L6KM3sZ2fr/GvsuZf7C4qft3X+Nfb6rhUH76O3Zt5vb7mGL/ibeKqc0d5CvuEL/iaeKme0t5LeZqHRgMAIAAA=
+  </data>
+ </layer>
+</map>

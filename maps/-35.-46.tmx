@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="20" height="5" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonChances" value="Krabby,40;Zubat,30;Seel,25;Golbat,5;"/>
+  <property name="dayPokemonLevels" value="22-24;23-23;22-24;25-25;"/>
+  <property name="nightPokemonChances" value="Krabby,40;Zubat,30;Seel,25;Golbat,5;"/>
+  <property name="nightPokemonLevels" value="22-24;23-23;22-24;25-25;"/>
+  <property name="waterPokemonChances" value="Tentacool,60;Horsea,30;Tentacruel,10;"/>
+  <property name="waterPokemonLevels" value="20-24;15-19;20-24;"/>
+  <property name="wildProbability" value="10"/>
+  <property name="fishPokemonLevels" value="10-20;10-40;40-40;20-40;40-40;"/>
+  <property name="fishPokemonChances" value="Magikarp,35;Krabby,28;Kingler,27;Horsea,5;Seadra,5;"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal7.tsx"/>
+ <layer name="Walkable" width="20" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGDrAimVwmEdtdyADAIcGAEuQAQAA
+  </data>
+ </layer>
+ <layer name="Grass" width="20" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGBrAnRFBw9iE1GPDyHL7Wckzbz8LdvOogQHVrQCpkAEAAA==
+  </data>
+ </layer>
+ <layer name="Water" width="20" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGJrAjZmBwR0H9mAm3bw2oJ52HLiDDPPIBQActOwHkAEAAA==
+  </data>
+ </layer>
+ <layer name="Collisions" width="20" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAADvKzMBwlMq4GYgfoeGnBDC6+hYk8w4DMaXgIA3NW0olDDILAIdHYo2QAQAA
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="20" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGDpgPutAu4D2AADrgS4jkAEAAA==
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,5150 @@
+<movesDatabase>
+	<entry>
+		<id>0</id>
+		<name>Struggle</name>
+		<description>An attack that is used in desperation only if the user has no PP. It also hurts the user slightly.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>0</pp>
+		<power>50</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>1</id>
+		<name>Pound</name>
+		<description>Pounds the foe with forelegs or tail.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>35</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>2</id>
+		<name>Karate Chop</name>
+		<description>A chopping attack with a high critical-hit ratio.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>25</pp>
+		<power>50</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>3</id>
+		<name>DoubleSlap</name>
+		<description>Repeatedly slaps the foe 2 to 5 times.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>15</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>4</id>
+		<name>Comet Punch</name>
+		<description>Repeatedly punches the foe 2 to 5 times.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>18</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>5</id>
+		<name>Mega Punch</name>
+		<description>A strong punch thrown with incredible power.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>80</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>6</id>
+		<name>Pay Day</name>
+		<description>Throws coins at the foe. Money is recovered after.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>7</id>
+		<name>Fire Punch</name>
+		<description>A fiery punch that may burn the foe.</description>
+		<type>Fire</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>75</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>8</id>
+		<name>Ice Punch</name>
+		<description>An icy punch that may freeze the foe.</description>
+		<type>Ice</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>75</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>9</id>
+		<name>ThunderPunch</name>
+		<description>An electrified punch that may paralyze the foe.</description>
+		<type>Electric</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>75</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>10</id>
+		<name>Scratch</name>
+		<description>Scratches the foe with sharp claws.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>35</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>11</id>
+		<name>ViceGrip</name>
+		<description>Grips the foe with large and powerful pincers.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>30</pp>
+		<power>55</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>12</id>
+		<name>Guillotine</name>
+		<description>A powerful pincer attack that may cause fainting.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>OHKO</power>
+		<accuracy>30</accuracy>
+	</entry>
+	<entry>
+		<id>13</id>
+		<name>Razor Wind</name>
+		<description>A 2-turn move that strikes the foe on the 2nd turn.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>14</id>
+		<name>Swords Dance</name>
+		<description>A fighting dance that sharply raises ATTACK.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>15</id>
+		<name>Cut</name>
+		<description>Cuts the foe with sharp scythes, claws, etc.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>30</pp>
+		<power>50</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>16</id>
+		<name>Gust</name>
+		<description>Strikes the foe with a gust of wind whipped up by wings.</description>
+		<type>Flying</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>35</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>17</id>
+		<name>Wing Attack</name>
+		<description>Strikes the foe with wings spread wide.</description>
+		<type>Flying</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>35</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>18</id>
+		<name>Whirlwind</name>
+		<description>Blows away the foe with wind and ends the battle.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>19</id>
+		<name>Fly</name>
+		<description>Flies up on the first turn, then strikes the next turn.</description>
+		<type>Flying</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>90</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>20</id>
+		<name>Bind</name>
+		<description>Binds and squeezes the foe for 2 to 5 turns.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>15</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>21</id>
+		<name>Slam</name>
+		<description>Slams the foe with a long tail, vine, etc.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>80</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>22</id>
+		<name>Vine Whip</name>
+		<description>Strikes the foe with slender, whiplike vines.</description>
+		<type>Grass</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>35</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>23</id>
+		<name>Stomp</name>
+		<description>Stomps the enemy with a big foot. May cause flinching.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>65</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>24</id>
+		<name>Double Kick</name>
+		<description>A double-kicking attack that strikes the foe twice.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>30</pp>
+		<power>30</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>25</id>
+		<name>Mega Kick</name>
+		<description>An extremely powerful kick with intense force.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>26</id>
+		<name>Jump Kick</name>
+		<description>A strong jumping kick. May miss and hurt the kicker.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>25</pp>
+		<power>85</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>27</id>
+		<name>Rolling Kick</name>
+		<description>A fast kick delivered from a rapid spin.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>60</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>28</id>
+		<name>Sand-Attack</name>
+		<description>Reduces the foe's accuracy by hurling sand in its face.</description>
+		<type>Ground</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>29</id>
+		<name>Headbutt</name>
+		<description>A ramming attack that may cause flinching.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>30</id>
+		<name>Horn Attack</name>
+		<description>Jabs the foe with sharp horns.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>25</pp>
+		<power>65</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>31</id>
+		<name>Fury Attack</name>
+		<description>Jabs the foe 2 to 5 times with sharp horns, etc.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>15</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>32</id>
+		<name>Horn Drill</name>
+		<description>A one-hit KO attack that uses a horn like a drill.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>OHKO</power>
+		<accuracy>30</accuracy>
+	</entry>
+	<entry>
+		<id>33</id>
+		<name>Tackle</name>
+		<description>Charges the foe with a full- body tackle.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>35</pp>
+		<power>35</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>34</id>
+		<name>Body Slam</name>
+		<description>A full-body slam that may cause paralysis.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>85</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>35</id>
+		<name>Wrap</name>
+		<description>Wraps and squeezes the foe 2 to 5 times with vines, etc.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>15</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>36</id>
+		<name>Take Down</name>
+		<description>A reckless charge attack that also hurts the user.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>90</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>37</id>
+		<name>Thrash</name>
+		<description>A rampage of 2 to 3 turns that confuses the user.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>90</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>38</id>
+		<name>Double-Edge</name>
+		<description>A life-risking tackle that also hurts the user.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>120</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>39</id>
+		<name>Tail Whip</name>
+		<description>Wags the tail to lower the foe's DEFENSE.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>40</id>
+		<name>Poison Sting</name>
+		<description>A toxic attack with barbs, etc., that may poison.</description>
+		<type>Poison</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>35</pp>
+		<power>15</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>41</id>
+		<name>Twineedle</name>
+		<description>Stingers on the forelegs jab the foe twice.</description>
+		<type>Bug</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>25</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>42</id>
+		<name>Pin Missile</name>
+		<description>Sharp pins are fired to strike 2 to 5 times.</description>
+		<type>Bug</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>14</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>43</id>
+		<name>Leer</name>
+		<description>Frightens the foe with a leer to lower DEFENSE.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>44</id>
+		<name>Bite</name>
+		<description>Bites with vicious fangs. May cause flinching.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>25</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>45</id>
+		<name>Growl</name>
+		<description>Growls cutely to reduce the foe's ATTACK.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>46</id>
+		<name>Roar</name>
+		<description>Makes the foe flee to end the battle.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>47</id>
+		<name>Sing</name>
+		<description>A soothing song lulls the foe into a deep slumber.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>55</accuracy>
+	</entry>
+	<entry>
+		<id>48</id>
+		<name>Supersonic</name>
+		<description>Emits bizarre sound waves that may confuse the foe.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>55</accuracy>
+	</entry>
+	<entry>
+		<id>49</id>
+		<name>SonicBoom</name>
+		<description>Launches shock waves that always inflict 20 HP damage.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>50</id>
+		<name>Disable</name>
+		<description>Psychically disables one of the foe's moves.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>55</accuracy>
+	</entry>
+	<entry>
+		<id>51</id>
+		<name>Acid</name>
+		<description>Sprays a hide-melting acid. May lower DEFENSE.</description>
+		<type>Poison</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>30</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>52</id>
+		<name>Ember</name>
+		<description>A weak fire attack that may inflict a burn.</description>
+		<type>Fire</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>25</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>53</id>
+		<name>Flamethrower</name>
+		<description>A powerful fire attack that may inflict a burn.</description>
+		<type>Fire</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>95</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>54</id>
+		<name>Mist</name>
+		<description>Creates a mist that stops reduction of abilities.</description>
+		<type>Ice</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>55</id>
+		<name>Water Gun</name>
+		<description>Squirts water to attack the foe.</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Cute</contest>
+		<pp>25</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>56</id>
+		<name>Hydro Pump</name>
+		<description>Blasts water at high power to strike the foe.</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>57</id>
+		<name>Surf</name>
+		<description>Creates a huge wave, then crashes it down on the foe.</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>95</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>58</id>
+		<name>Ice Beam</name>
+		<description>Blasts the foe with an icy beam that may freeze it.</description>
+		<type>Ice</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>95</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>59</id>
+		<name>Blizzard</name>
+		<description>Hits the foe with an icy storm that may freeze it.</description>
+		<type>Ice</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>70</accuracy>
+	</entry>
+	<entry>
+		<id>60</id>
+		<name>Psybeam</name>
+		<description>Fires a peculiar ray that may confuse the foe.</description>
+		<type>Psychic</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>65</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>61</id>
+		<name>BubbleBeam</name>
+		<description>Forcefully sprays bubbles that may lower SPEED.</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>65</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>62</id>
+		<name>Aurora Beam</name>
+		<description>Fires a rainbow-colored beam that may lower ATTACK.</description>
+		<type>Ice</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>65</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>63</id>
+		<name>Hyper Beam</name>
+		<description>Powerful, but leaves the user immobile the next turn.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>150</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>64</id>
+		<name>Peck</name>
+		<description>Attacks the foe with a jabbing beak, etc.</description>
+		<type>Flying</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>35</pp>
+		<power>35</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>65</id>
+		<name>Drill Peck</name>
+		<description>A corkscrewing attack with the beak acting as a drill.</description>
+		<type>Flying</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>66</id>
+		<name>Submission</name>
+		<description>A reckless body slam that also hurts the user.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>25</pp>
+		<power>80</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>67</id>
+		<name>Low Kick</name>
+		<description>A kick that inflicts more damage on heavier foes.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>68</id>
+		<name>Counter</name>
+		<description>Retaliates any physical hit with double the power.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>69</id>
+		<name>Seismic Toss</name>
+		<description>Inflicts damage identical to the user's level.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>70</id>
+		<name>Strength</name>
+		<description>Builds enormous power, then slams the foe.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>71</id>
+		<name>Absorb</name>
+		<description>An attack that absorbs half the damage inflicted.</description>
+		<type>Grass</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>25</pp>
+		<power>20</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>72</id>
+		<name>Mega Drain</name>
+		<description>An attack that absorbs half the damage inflicted.</description>
+		<type>Grass</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>73</id>
+		<name>Leech Seed</name>
+		<description>Plants a seed on the foe to steal HP on every turn.</description>
+		<type>Grass</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>74</id>
+		<name>Growth</name>
+		<description>Forces the body to grow and heightens SP. ATK.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>75</id>
+		<name>Razor Leaf</name>
+		<description>Cuts the enemy with leaves. High critical-hit ratio.</description>
+		<type>Grass</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>25</pp>
+		<power>55</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>76</id>
+		<name>SolarBeam</name>
+		<description>Absorbs light in one turn, then attacks next turn.</description>
+		<type>Grass</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>120</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>77</id>
+		<name>PoisonPowder</name>
+		<description>Scatters a toxic powder that may poison the foe.</description>
+		<type>Poison</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>35</pp>
+		<power>–</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>78</id>
+		<name>Stun Spore</name>
+		<description>Scatters a powder that may paralyze the foe.</description>
+		<type>Grass</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>79</id>
+		<name>Sleep Powder</name>
+		<description>Scatters a powder that may cause the foe to sleep.</description>
+		<type>Grass</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>80</id>
+		<name>Petal Dance</name>
+		<description>A rampage of 2 to 3 turns that confuses the user.</description>
+		<type>Grass</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>90</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>81</id>
+		<name>String Shot</name>
+		<description>Binds the foe with string to reduce its SPEED.</description>
+		<type>Bug</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>82</id>
+		<name>Dragon Rage</name>
+		<description>Launches shock waves that always inflict 40 HP damage.</description>
+		<type>Dragon</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>83</id>
+		<name>Fire Spin</name>
+		<description>Traps the foe in a ring of fire for 2 to 5 turns.</description>
+		<type>Fire</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>15</power>
+		<accuracy>70</accuracy>
+	</entry>
+	<entry>
+		<id>84</id>
+		<name>ThunderShock</name>
+		<description>An electrical attack that may paralyze the foe.</description>
+		<type>Electric</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>30</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>85</id>
+		<name>Thunderbolt</name>
+		<description>A strong electrical attack that may paralyze the foe.</description>
+		<type>Electric</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>95</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>86</id>
+		<name>Thunder Wave</name>
+		<description>A weak jolt of electricity that paralyzes the foe.</description>
+		<type>Electric</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>87</id>
+		<name>Thunder</name>
+		<description>A lightning attack that may cause paralysis.</description>
+		<type>Electric</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>120</power>
+		<accuracy>70</accuracy>
+	</entry>
+	<entry>
+		<id>88</id>
+		<name>Rock Throw</name>
+		<description>Throws small rocks to strike the foe.</description>
+		<type>Rock</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>50</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>89</id>
+		<name>Earthquake</name>
+		<description>A powerful quake, but has no effect on flying foes.</description>
+		<type>Ground</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>100</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>90</id>
+		<name>Fissure</name>
+		<description>A one-hit KO move that drops the foe in a fissure.</description>
+		<type>Ground</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>OHKO</power>
+		<accuracy>30</accuracy>
+	</entry>
+	<entry>
+		<id>91</id>
+		<name>Dig</name>
+		<description>Digs underground the first turn and strikes next turn.</description>
+		<type>Ground</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>92</id>
+		<name>Toxic</name>
+		<description>Poisons the foe with an intensifying toxin.</description>
+		<type>Poison</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>93</id>
+		<name>Confusion</name>
+		<description>A psychic attack that may cause confusion.</description>
+		<type>Psychic</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>25</pp>
+		<power>50</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>94</id>
+		<name>Psychic</name>
+		<description>A powerful psychic attack that may lower SP. DEF.</description>
+		<type>Psychic</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>90</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>95</id>
+		<name>Hypnosis</name>
+		<description>A hypnotizing move that may induce sleep.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>60</accuracy>
+	</entry>
+	<entry>
+		<id>96</id>
+		<name>Meditate</name>
+		<description>Meditates in a peaceful fashion to raise ATTACK.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>97</id>
+		<name>Agility</name>
+		<description>Relaxes the body to sharply boost SPEED.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>98</id>
+		<name>Quick Attack</name>
+		<description>An extremely fast attack that always strikes first.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>30</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>99</id>
+		<name>Rage</name>
+		<description>Raises the user's ATTACK every time it is hit.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>20</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>100</id>
+		<name>Teleport</name>
+		<description>A psychic move for fleeing from battle instantly.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>101</id>
+		<name>Night Shade</name>
+		<description>Inflicts damage identical to the user's level.</description>
+		<type>Ghost</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>102</id>
+		<name>Mimic</name>
+		<description>Copies a move used by the foe during one battle.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>103</id>
+		<name>Screech</name>
+		<description>Emits a screech to sharply reduce the foe's DEFENSE.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>104</id>
+		<name>Double Team</name>
+		<description>Creates illusory copies to raise evasiveness.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>105</id>
+		<name>Recover</name>
+		<description>Recovers up to half the user's maximum HP.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>106</id>
+		<name>Harden</name>
+		<description>Stiffens the body's  muscles to raise DEFENSE.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>107</id>
+		<name>Minimize</name>
+		<description>Minimizes the user's size to raise evasiveness.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>108</id>
+		<name>SmokeScreen</name>
+		<description>Lowers the foe's accuracy using smoke, ink, etc.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>109</id>
+		<name>Confuse Ray</name>
+		<description>A sinister ray that confuses the foe.</description>
+		<type>Ghost</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>110</id>
+		<name>Withdraw</name>
+		<description>Withdraws the body into its hard shell to raise DEFENSE.</description>
+		<type>Water</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>111</id>
+		<name>Defense Curl</name>
+		<description>Curls up to conceal weak spots and raise DEFENSE.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>112</id>
+		<name>Barrier</name>
+		<description>Creates a barrier that sharply raises DEFENSE.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>113</id>
+		<name>Light Screen</name>
+		<description>Creates a wall of light that lowers SP. ATK damage.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>114</id>
+		<name>Haze</name>
+		<description>Creates a black haze that eliminates all stat changes.</description>
+		<type>Ice</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>115</id>
+		<name>Reflect</name>
+		<description>Creates a wall of light that weakens physical attacks.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>116</id>
+		<name>Focus Energy</name>
+		<description>Focuses power to raise the critical-hit ratio.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>117</id>
+		<name>Bide</name>
+		<description>Endures attack for 2 turns to retaliate double.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>118</id>
+		<name>Metronome</name>
+		<description>Waggles a finger to use any POKéMON move at random.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>119</id>
+		<name>Mirror Move</name>
+		<description>Counters the foe's attack with the same move.</description>
+		<type>Flying</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>120</id>
+		<name>Selfdestruct</name>
+		<description>Inflicts severe damage but makes the user faint.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>200</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>121</id>
+		<name>Egg Bomb</name>
+		<description>An egg is forcibly hurled at the foe.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>100</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>122</id>
+		<name>Lick</name>
+		<description>Licks with a long tongue to injure. May also paralyze.</description>
+		<type>Ghost</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>30</pp>
+		<power>20</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>123</id>
+		<name>Smog</name>
+		<description>An exhaust-gas attack that may also poison.</description>
+		<type>Poison</type>
+		<category>Special</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>20</power>
+		<accuracy>70</accuracy>
+	</entry>
+	<entry>
+		<id>124</id>
+		<name>Sludge</name>
+		<description>Sludge is hurled to inflict damage. May also poison.</description>
+		<type>Poison</type>
+		<category>Special</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>65</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>125</id>
+		<name>Bone Club</name>
+		<description>Clubs the foe with a bone. May cause flinching.</description>
+		<type>Ground</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>65</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>126</id>
+		<name>Fire Blast</name>
+		<description>A fiery blast that scorches all. May cause a burn.</description>
+		<type>Fire</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>127</id>
+		<name>Waterfall</name>
+		<description>Charges the foe with speed to climb waterfalls.</description>
+		<type>Water</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>128</id>
+		<name>Clamp</name>
+		<description>Traps and squeezes the foe for 2 to 5 turns.</description>
+		<type>Water</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>35</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>129</id>
+		<name>Swift</name>
+		<description>Sprays star-shaped rays that never miss.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>130</id>
+		<name>Skull Bash</name>
+		<description>Tucks in the head, then attacks on the next turn.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>100</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>131</id>
+		<name>Spike Cannon</name>
+		<description>Launches sharp spikes that strike 2 to 5 times.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>20</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>132</id>
+		<name>Constrict</name>
+		<description>Constricts to inflict pain. May lower SPEED.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>35</pp>
+		<power>10</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>133</id>
+		<name>Amnesia</name>
+		<description>Forgets about something and sharply raises SP. DEF.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>134</id>
+		<name>Kinesis</name>
+		<description>Distracts the foe. May lower accuracy.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>135</id>
+		<name>Softboiled</name>
+		<description>Recovers up to half the user's maximum HP.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>136</id>
+		<name>Hi Jump Kick</name>
+		<description>A jumping knee kick. If it misses, the user is hurt.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>100</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>137</id>
+		<name>Glare</name>
+		<description>Intimidates and frightens the foe into paralysis.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>138</id>
+		<name>Dream Eater</name>
+		<description>Takes one half the damage inflicted on a sleeping foe.</description>
+		<type>Psychic</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>100</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>139</id>
+		<name>Poison Gas</name>
+		<description>Envelops the foe in a toxic gas that may poison.</description>
+		<type>Poison</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>55</accuracy>
+	</entry>
+	<entry>
+		<id>140</id>
+		<name>Barrage</name>
+		<description>Hurls round objects at the foe 2 to 5 times.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>15</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>141</id>
+		<name>Leech Life</name>
+		<description>An attack that steals half the damage inflicted.</description>
+		<type>Bug</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>20</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>142</id>
+		<name>Lovely Kiss</name>
+		<description>Demands a kiss with a scary face that induces sleep.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>143</id>
+		<name>Sky Attack</name>
+		<description>Searches out weak spots, then strikes the next turn.</description>
+		<type>Flying</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>140</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>144</id>
+		<name>Transform</name>
+		<description>Alters the user's cells to become a copy of the foe.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>145</id>
+		<name>Bubble</name>
+		<description>An attack using bubbles. May lower the foe's SPEED.</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Cute</contest>
+		<pp>30</pp>
+		<power>20</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>146</id>
+		<name>Dizzy Punch</name>
+		<description>A rhythmic punch that may confuse the foe.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>147</id>
+		<name>Spore</name>
+		<description>Scatters a cloud of spores that always induce sleep.</description>
+		<type>Grass</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>148</id>
+		<name>Flash</name>
+		<description>Looses a powerful blast of light that cuts accuracy.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>70</accuracy>
+	</entry>
+	<entry>
+		<id>149</id>
+		<name>Psywave</name>
+		<description>Attacks with a psychic wave of varying intensity.</description>
+		<type>Psychic</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>Varies</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>150</id>
+		<name>Splash</name>
+		<description>It's just a splash... Has no effect whatsoever.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>151</id>
+		<name>Acid Armor</name>
+		<description>Liquifies the user's body to sharply raise DEFENSE.</description>
+		<type>Poison</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>152</id>
+		<name>Crabhammer</name>
+		<description>Hammers with a pincer. Has a high critical-hit ratio.</description>
+		<type>Water</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>90</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>153</id>
+		<name>Explosion</name>
+		<description>Inflicts severe damage but makes the user faint.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>250</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>154</id>
+		<name>Fury Swipes</name>
+		<description>Rakes the foe with sharp claws, etc., 2 to 5 times.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>18</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>155</id>
+		<name>Bonemerang</name>
+		<description>Throws a bone boomerang that strikes twice.</description>
+		<type>Ground</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>50</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>156</id>
+		<name>Rest</name>
+		<description>The user sleeps for 2 turns, restoring HP and status.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>157</id>
+		<name>Rock Slide</name>
+		<description>Large boulders are hurled. May cause flinching.</description>
+		<type>Rock</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>75</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>158</id>
+		<name>Hyper Fang</name>
+		<description>Attacks with sharp fangs. May cause flinching.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>159</id>
+		<name>Sharpen</name>
+		<description>Reduces the polygon count and raises ATTACK.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>160</id>
+		<name>Conversion</name>
+		<description>Changes the user's type into an own move's type.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>161</id>
+		<name>Tri Attack</name>
+		<description>Fires three types of beams at the same time.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>162</id>
+		<name>Super Fang</name>
+		<description>Attacks with sharp fangs and cuts half the foe's HP.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>Varies</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>163</id>
+		<name>Slash</name>
+		<description>Slashes with claws, etc. Has a high critical-hit ratio.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>164</id>
+		<name>Substitute</name>
+		<description>Creates a decoy using 1/4 of the user's maximum HP.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>165</id>
+		<name>Struggle</name>
+		<description>Used only if all PP are gone. Also hurts the user a little.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>1</pp>
+		<power>50</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>166</id>
+		<name>Sketch</name>
+		<description>Copies the foe's last move permanently.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>1</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>167</id>
+		<name>Triple Kick</name>
+		<description>Kicks the foe 3 times in a row with rising intensity.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>10</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>168</id>
+		<name>Thief</name>
+		<description>While attacking, it may steal the foe's held item.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>169</id>
+		<name>Spider Web</name>
+		<description>Ensnares the foe to stop it from fleeing or switching.</description>
+		<type>Bug</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>170</id>
+		<name>Mind Reader</name>
+		<description>Senses the foe's action to ensure the next move's hit.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>171</id>
+		<name>Nightmare</name>
+		<description>Inflicts 1/4 damage on a sleeping foe every turn.</description>
+		<type>Ghost</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>172</id>
+		<name>Flame Wheel</name>
+		<description>A fiery charge attack that may inflict a burn.</description>
+		<type>Fire</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>25</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>173</id>
+		<name>Snore</name>
+		<description>A loud attack that can be used only while asleep.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>174</id>
+		<name>Curse</name>
+		<description>A move that functions differently for GHOSTS.</description>
+		<type>???</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>175</id>
+		<name>Flail</name>
+		<description>Inflicts more damage when the user's HP is down.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>176</id>
+		<name>Conversion 2</name>
+		<description>Makes the user resistant to the last attack's type.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>177</id>
+		<name>Aeroblast</name>
+		<description>Launches a vacuumed blast. High critical-hit ratio.</description>
+		<type>Flying</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>100</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>178</id>
+		<name>Cotton Spore</name>
+		<description>Spores cling to the foe, sharply reducing SPEED.</description>
+		<type>Grass</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>179</id>
+		<name>Reversal</name>
+		<description>Inflicts more damage when the user's HP is down.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>180</id>
+		<name>Spite</name>
+		<description>Spitefully cuts the PP of the foe's last move.</description>
+		<type>Ghost</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>181</id>
+		<name>Powder Snow</name>
+		<description>Blasts the foe with a snowy gust. May cause freezing.</description>
+		<type>Ice</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>25</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>182</id>
+		<name>Protect</name>
+		<description>Evades attack, but may fail if used in succession.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>183</id>
+		<name>Mach Punch</name>
+		<description>A punch is thrown at wicked speed to strike first.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>30</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>184</id>
+		<name>Scary Face</name>
+		<description>Frightens with a scary face to sharply reduce SPEED.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>185</id>
+		<name>Faint Attack</name>
+		<description>Draws the foe close, then strikes without fail.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>186</id>
+		<name>Sweet Kiss</name>
+		<description>Demands a kiss with a cute look. May cause confusion.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>187</id>
+		<name>Belly Drum</name>
+		<description>Maximizes ATTACK while sacrificing HP.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>188</id>
+		<name>Sludge Bomb</name>
+		<description>Sludge is hurled to inflict damage. May also poison.</description>
+		<type>Poison</type>
+		<category>Special</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>90</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>189</id>
+		<name>Mud-Slap</name>
+		<description>Hurls mud in the foe's face to reduce its accuracy.</description>
+		<type>Ground</type>
+		<category>Special</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>20</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>190</id>
+		<name>Octazooka</name>
+		<description>Fires a lump of ink to damage and cut accuracy.</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>65</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>191</id>
+		<name>Spikes</name>
+		<description>Sets spikes that hurt a  foe switching out.</description>
+		<type>Ground</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>192</id>
+		<name>Zap Cannon</name>
+		<description>Powerful and sure to cause paralysis, but inaccurate.</description>
+		<type>Electric</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>50</accuracy>
+	</entry>
+	<entry>
+		<id>193</id>
+		<name>Foresight</name>
+		<description>Negates the foe's efforts to heighten evasiveness.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>194</id>
+		<name>Destiny Bond</name>
+		<description>If the user faints, the foe is also made to faint.</description>
+		<type>Ghost</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>195</id>
+		<name>Perish Song</name>
+		<description>Any POKéMON hearing this song faints in 3 turns.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>196</id>
+		<name>Icy Wind</name>
+		<description>A chilling attack that lowers the foe's SPEED.</description>
+		<type>Ice</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>55</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>197</id>
+		<name>Detect</name>
+		<description>Evades attack, but may fail if used in succession.</description>
+		<type>Fighting</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>198</id>
+		<name>Bone Rush</name>
+		<description>Strikes the foe with a bone in hand 2 to 5 times.</description>
+		<type>Ground</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>25</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>199</id>
+		<name>Lock-On</name>
+		<description>Locks on to the foe to ensure the next move hits.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>200</id>
+		<name>Outrage</name>
+		<description>A rampage of 2 to 3 turns that confuses the user.</description>
+		<type>Dragon</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>120</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>201</id>
+		<name>Sandstorm</name>
+		<description>Causes a sandstorm that rages for several turns.</description>
+		<type>Rock</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>202</id>
+		<name>Giga Drain</name>
+		<description>An attack that steals half the damage inflicted.</description>
+		<type>Grass</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>203</id>
+		<name>Endure</name>
+		<description>Endures any attack for 1 turn, leaving at least 1HP.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>204</id>
+		<name>Charm</name>
+		<description>Charms the foe and sharply reduces its ATTACK.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>205</id>
+		<name>Rollout</name>
+		<description>An attack lasting 5 turns with rising intensity.</description>
+		<type>Rock</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>30</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>206</id>
+		<name>False Swipe</name>
+		<description>An attack that leaves the foe with at least 1 HP.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>40</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>207</id>
+		<name>Swagger</name>
+		<description>Confuses the foe, but also sharply raises ATTACK.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>208</id>
+		<name>Milk Drink</name>
+		<description>Recovers up to half the user's maximum HP.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>209</id>
+		<name>Spark</name>
+		<description>An electrified tackle that may paralyze the foe.</description>
+		<type>Electric</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>65</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>210</id>
+		<name>Fury Cutter</name>
+		<description>An attack that intensifies on each successive hit.</description>
+		<type>Bug</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>10</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>211</id>
+		<name>Steel Wing</name>
+		<description>Strikes the foe with hard wings spread wide.</description>
+		<type>Steel</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>25</pp>
+		<power>70</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>212</id>
+		<name>Mean Look</name>
+		<description>Fixes the foe with a mean look that prevents escape.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>213</id>
+		<name>Attract</name>
+		<description>Makes the opposite gender less likely to attack.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>214</id>
+		<name>Sleep Talk</name>
+		<description>Uses an own move randomly while asleep.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>215</id>
+		<name>Heal Bell</name>
+		<description>Chimes soothingly to heal all status abnormalities.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>216</id>
+		<name>Return</name>
+		<description>An attack that increases in power with friendship.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>217</id>
+		<name>Present</name>
+		<description>A gift in the form of a bomb. May restore HP.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>Varies</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>218</id>
+		<name>Frustration</name>
+		<description>An attack that is stronger if the TRAINER is disliked.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>219</id>
+		<name>Safeguard</name>
+		<description>A mystical force prevents all status problems.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>25</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>220</id>
+		<name>Pain Split</name>
+		<description>Adds the user and foe's HP, then shares them equally.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>221</id>
+		<name>Sacred Fire</name>
+		<description>A mystical fire attack that may inflict a burn.</description>
+		<type>Fire</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>100</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>222</id>
+		<name>Magnitude</name>
+		<description>A ground-shaking attack of random intensity.</description>
+		<type>Ground</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>30</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>223</id>
+		<name>DynamicPunch</name>
+		<description>Powerful and sure to cause confusion, but inaccurate.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>100</power>
+		<accuracy>50</accuracy>
+	</entry>
+	<entry>
+		<id>224</id>
+		<name>Megahorn</name>
+		<description>A brutal ramming attack using out-thrust horns.</description>
+		<type>Bug</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>120</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>225</id>
+		<name>DragonBreath</name>
+		<description>Strikes the foe with an incredible blast of breath.</description>
+		<type>Dragon</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>226</id>
+		<name>Baton Pass</name>
+		<description>Switches out the user while keeping effects in play.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>227</id>
+		<name>Encore</name>
+		<description>Makes the foe repeat its last move over 2 to 6 turns.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>228</id>
+		<name>Pursuit</name>
+		<description>Inflicts bad damage if used on a foe switching out.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>229</id>
+		<name>Rapid Spin</name>
+		<description>Spins the body at high speed to strike the foe.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>40</pp>
+		<power>20</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>230</id>
+		<name>Sweet Scent</name>
+		<description>Allures the foe to reduce evasiveness.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>231</id>
+		<name>Iron Tail</name>
+		<description>Attacks with a rock-hard tail. May lower DEFENSE.</description>
+		<type>Steel</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>100</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>232</id>
+		<name>Metal Claw</name>
+		<description>A claw attack that may raise the user's ATTACK.</description>
+		<type>Steel</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>35</pp>
+		<power>50</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>233</id>
+		<name>Vital Throw</name>
+		<description>Makes the user's move last, but it never misses.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>234</id>
+		<name>Morning Sun</name>
+		<description>Restores HP. The amount varies with the weather.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>235</id>
+		<name>Synthesis</name>
+		<description>Restores HP. The amount varies with the weather.</description>
+		<type>Grass</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>236</id>
+		<name>Moonlight</name>
+		<description>Restores HP. The amount varies with the weather.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>237</id>
+		<name>Hidden Power</name>
+		<description>The effectiveness varies with the user.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>238</id>
+		<name>Cross Chop</name>
+		<description>A double-chopping attack. High critical-hit ratio.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>100</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>239</id>
+		<name>Twister</name>
+		<description>Whips up a vicious twister to tear at the foe.</description>
+		<type>Dragon</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>240</id>
+		<name>Rain Dance</name>
+		<description>Boosts the power of WATER- type moves for 5 turns.</description>
+		<type>Water</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>241</id>
+		<name>Sunny Day</name>
+		<description>Boosts the power of FIRE- type moves for 5 turns.</description>
+		<type>Fire</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>242</id>
+		<name>Crunch</name>
+		<description>Crunches with sharp fangs. May lower SP. DEF.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>243</id>
+		<name>Mirror Coat</name>
+		<description>Counters the foe's special attack at double the power.</description>
+		<type>Psychic</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>244</id>
+		<name>Psych Up</name>
+		<description>Copies the foe's effects and gives to the user.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>245</id>
+		<name>ExtremeSpeed</name>
+		<description>An extremely fast and powerful attack.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>246</id>
+		<name>AncientPower</name>
+		<description>An attack that may raise all stats.</description>
+		<type>Rock</type>
+		<category>Special</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>247</id>
+		<name>Shadow Ball</name>
+		<description>Hurls a black blob that may lower the foe's SP. DEF.</description>
+		<type>Ghost</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>248</id>
+		<name>Future Sight</name>
+		<description>Heightens inner power to strike 2 turns later.</description>
+		<type>Psychic</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>249</id>
+		<name>Rock Smash</name>
+		<description>A rock-crushing attack that may lower DEFENSE.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>250</id>
+		<name>Whirlpool</name>
+		<description>Traps and hurts the foe in a whirlpool for 2 to 5 turns.</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>15</power>
+		<accuracy>70</accuracy>
+	</entry>
+	<entry>
+		<id>251</id>
+		<name>Beat Up</name>
+		<description>Summons party POKéMON to join in the attack.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>10</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>252</id>
+		<name>Fake Out</name>
+		<description>A 1st-turn, 1st-strike move that causes flinching.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>253</id>
+		<name>Uproar</name>
+		<description>Causes an uproar for 2 to 5 turns and prevents sleep.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>50</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>254</id>
+		<name>Stockpile</name>
+		<description>Charges up power for up to 3 turns.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>255</id>
+		<name>Spit Up</name>
+		<description>Releases stockpiled power the more the better.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>100</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>256</id>
+		<name>Swallow</name>
+		<description>Absorbs stockpiled power and restores HP.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>257</id>
+		<name>Heat Wave</name>
+		<description>Exhales a hot breath on the foe. May inflict a burn.</description>
+		<type>Fire</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>100</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>258</id>
+		<name>Hail</name>
+		<description>Summons a hailstorm that strikes every turn.</description>
+		<type>Ice</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>259</id>
+		<name>Torment</name>
+		<description>Torments the foe and stops successive use of a move.</description>
+		<type>Dark</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>260</id>
+		<name>Flatter</name>
+		<description>Confuses the foe, but raises its SP. ATK.</description>
+		<type>Dark</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>261</id>
+		<name>Will-O-Wisp</name>
+		<description>Inflicts a burn on the foe with intense fire.</description>
+		<type>Fire</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>262</id>
+		<name>Memento</name>
+		<description>The user faints and lowers the foe's abilities.</description>
+		<type>Dark</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>263</id>
+		<name>Facade</name>
+		<description>Boosts ATTACK when burned, paralyzed, or poisoned.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>264</id>
+		<name>Focus Punch</name>
+		<description>A powerful loyalty attack. The user flinches if hit.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>150</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>265</id>
+		<name>SmellingSalt</name>
+		<description>Powerful against paralyzed foes, but also heals them.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>266</id>
+		<name>Follow Me</name>
+		<description>Draws attention to make foes attack only the user.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>267</id>
+		<name>Nature Power</name>
+		<description>The type of attack varies depending on the location.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>268</id>
+		<name>Charge</name>
+		<description>Charges power to boost the electric move used next.</description>
+		<type>Electric</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>269</id>
+		<name>Taunt</name>
+		<description>Taunts the foe into only using attack moves.</description>
+		<type>Dark</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>270</id>
+		<name>Helping Hand</name>
+		<description>Boosts the power of the recipient's moves.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>271</id>
+		<name>Trick</name>
+		<description>Tricks the foe into trading held items.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>272</id>
+		<name>Role Play</name>
+		<description>Mimics the target and copies its special ability.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>273</id>
+		<name>Wish</name>
+		<description>A wish that restores HP. It takes time to work.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>274</id>
+		<name>Assist</name>
+		<description>Attacks randomly with one of the partner's moves.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>275</id>
+		<name>Ingrain</name>
+		<description>Lays roots that restore HP. The user can't switch out.</description>
+		<type>Grass</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>276</id>
+		<name>Superpower</name>
+		<description>Boosts strength sharply, but lowers abilities.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>277</id>
+		<name>Magic Coat</name>
+		<description>Reflects special effects back to the attacker.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>278</id>
+		<name>Recycle</name>
+		<description>Recycles a used item for one more use.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>279</id>
+		<name>Revenge</name>
+		<description>An attack that gains power if injured by the foe.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>280</id>
+		<name>Brick Break</name>
+		<description>Destroys barriers such as REFLECT and causes damage.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>75</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>281</id>
+		<name>Yawn</name>
+		<description>Lulls the foe into yawning, then sleeping next turn.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>282</id>
+		<name>Knock Off</name>
+		<description>Knocks down the foe's held item to prevent its use.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>20</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>283</id>
+		<name>Endeavor</name>
+		<description>Gains power if the user's HP is lower than the foe's HP.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>284</id>
+		<name>Eruption</name>
+		<description>The higher the user's HP, the more damage caused.</description>
+		<type>Fire</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>150</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>285</id>
+		<name>Skill Swap</name>
+		<description>The user swaps special abilities with the target.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>286</id>
+		<name>Imprison</name>
+		<description>Prevents foes from using moves known by the user.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>287</id>
+		<name>Refresh</name>
+		<description>Heals poisoning, paralysis, or a burn.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>288</id>
+		<name>Grudge</name>
+		<description>If the user faints, deletes the PP of the final move.</description>
+		<type>Ghost</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>289</id>
+		<name>Snatch</name>
+		<description>Steals the effects of the move the foe uses next.</description>
+		<type>Dark</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>290</id>
+		<name>Secret Power</name>
+		<description>An attack with effects that vary by location.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>291</id>
+		<name>Dive</name>
+		<description>Dives underwater the first turn and strikes next turn.</description>
+		<type>Water</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>292</id>
+		<name>Arm Thrust</name>
+		<description>Straight-arm punches that strike the foe 2 to 5 times.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>15</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>293</id>
+		<name>Camouflage</name>
+		<description>Alters the POKéMON's type depending on the location.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>294</id>
+		<name>Tail Glow</name>
+		<description>Flashes a light that sharply raises SP. ATK.</description>
+		<type>Bug</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>295</id>
+		<name>Luster Purge</name>
+		<description>Attacks with a burst of light. May lower SP. DEF.</description>
+		<type>Psychic</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>296</id>
+		<name>Mist Ball</name>
+		<description>Attacks with a flurry of down. May lower SP. ATK.</description>
+		<type>Psychic</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>297</id>
+		<name>FeatherDance</name>
+		<description>Envelops the foe with down to sharply reduce ATTACK.</description>
+		<type>Flying</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>298</id>
+		<name>Teeter Dance</name>
+		<description>Confuses all POKéMON on the scene.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>299</id>
+		<name>Blaze Kick</name>
+		<description>A kick with a high critical- hit ratio. May cause a burn.</description>
+		<type>Fire</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>85</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>300</id>
+		<name>Mud Sport</name>
+		<description>Covers the user in mud to raise electrical resistance.</description>
+		<type>Ground</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>301</id>
+		<name>Ice Ball</name>
+		<description>A 5-turn attack that gains power on successive hits.</description>
+		<type>Ice</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>30</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>302</id>
+		<name>Needle Arm</name>
+		<description>Attacks with thorny arms. May cause flinching.</description>
+		<type>Grass</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>303</id>
+		<name>Slack Off</name>
+		<description>Slacks off and restores half the maximum HP.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>304</id>
+		<name>Hyper Voice</name>
+		<description>A loud attack that uses sound waves to injure.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>90</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>305</id>
+		<name>Poison Fang</name>
+		<description>A sharp-fanged attack. May badly poison the foe.</description>
+		<type>Poison</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>50</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>306</id>
+		<name>Crush Claw</name>
+		<description>Tears at the foe with sharp claws. May lower DEFENSE.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>75</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>307</id>
+		<name>Blast Burn</name>
+		<description>Powerful, but leaves the user immobile the next turn.</description>
+		<type>Fire</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>150</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>308</id>
+		<name>Hydro Cannon</name>
+		<description>Powerful, but leaves the user immobile the next turn.</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>150</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>309</id>
+		<name>Meteor Mash</name>
+		<description>Fires a meteor-like punch. May raise ATTACK.</description>
+		<type>Steel</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>100</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>310</id>
+		<name>Astonish</name>
+		<description>An attack that may shock the foe into flinching.</description>
+		<type>Ghost</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>30</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>311</id>
+		<name>Weather Ball</name>
+		<description>The move's type and power change with the weather.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>50</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>312</id>
+		<name>Aromatherapy</name>
+		<description>Heals all status problems with a soothing scent.</description>
+		<type>Grass</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>313</id>
+		<name>Fake Tears</name>
+		<description>Feigns crying to sharply lower the foe's SP. DEF.</description>
+		<type>Dark</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>314</id>
+		<name>Air Cutter</name>
+		<description>Hacks with razorlike wind. High critical-hit ratio.</description>
+		<type>Flying</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>25</pp>
+		<power>55</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>315</id>
+		<name>Overheat</name>
+		<description>Allows a full-power attack, but sharply lowers SP. ATK.</description>
+		<type>Fire</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>140</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>316</id>
+		<name>Odor Sleuth</name>
+		<description>Negates the foe's efforts to heighten evasiveness.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>317</id>
+		<name>Rock Tomb</name>
+		<description>Stops the foe from moving with rocks and cuts SPEED.</description>
+		<type>Rock</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>50</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>318</id>
+		<name>Silver Wind</name>
+		<description>A powdery attack that may raise abilities.</description>
+		<type>Bug</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>319</id>
+		<name>Metal Sound</name>
+		<description>Emits a horrible screech that sharply lowers SP. DEF.</description>
+		<type>Steel</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>320</id>
+		<name>GrassWhistle</name>
+		<description>Lulls the foe into sleep with a pleasant melody.</description>
+		<type>Grass</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>55</accuracy>
+	</entry>
+	<entry>
+		<id>321</id>
+		<name>Tickle</name>
+		<description>Makes the foe laugh to lower ATTACK and DEFENSE.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>322</id>
+		<name>Cosmic Power</name>
+		<description>Raises DEFENSE and SP. DEF with a mystic power.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>323</id>
+		<name>Water Spout</name>
+		<description>Inflicts more damage if the user's HP is high.</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>150</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>324</id>
+		<name>Signal Beam</name>
+		<description>A strange beam attack that may confuse the foe.</description>
+		<type>Bug</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>75</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>325</id>
+		<name>Shadow Punch</name>
+		<description>An unavoidable punch that is thrown from shadows.</description>
+		<type>Ghost</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>326</id>
+		<name>Extrasensory</name>
+		<description>Attacks with a peculiar power. May cause flinching.</description>
+		<type>Psychic</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>30</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>327</id>
+		<name>Sky Uppercut</name>
+		<description>An uppercut thrown as if leaping into the sky.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>85</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>328</id>
+		<name>Sand Tomb</name>
+		<description>Traps and hurts the foe in quicksand for 2 to 5 turns.</description>
+		<type>Ground</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>15</power>
+		<accuracy>70</accuracy>
+	</entry>
+	<entry>
+		<id>329</id>
+		<name>Sheer Cold</name>
+		<description>A chilling attack that causes fainting if it hits.</description>
+		<type>Ice</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>OHKO</power>
+		<accuracy>30</accuracy>
+	</entry>
+	<entry>
+		<id>330</id>
+		<name>Muddy Water</name>
+		<description>Attacks with muddy water. May lower accuracy.</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>95</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>331</id>
+		<name>Bullet Seed</name>
+		<description>Shoots 2 to 5 seeds in a row to strike the foe.</description>
+		<type>Grass</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>30</pp>
+		<power>10</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>332</id>
+		<name>Aerial Ace</name>
+		<description>An extremely speedy and unavoidable attack.</description>
+		<type>Flying</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>333</id>
+		<name>Icicle Spear</name>
+		<description>Attacks the foe by firing 2 to 5 icicles in a row.</description>
+		<type>Ice</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>30</pp>
+		<power>10</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>334</id>
+		<name>Iron Defense</name>
+		<description>Hardens the body's surface to sharply raise DEFENSE.</description>
+		<type>Steel</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>335</id>
+		<name>Block</name>
+		<description>Blocks the foe's way to prevent escape.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>336</id>
+		<name>Howl</name>
+		<description>Howls to raise the spirit and boosts ATTACK.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>337</id>
+		<name>Dragon Claw</name>
+		<description>Slashes the foe with sharp claws.</description>
+		<type>Dragon</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>338</id>
+		<name>Frenzy Plant</name>
+		<description>Powerful, but leaves the user immobile the next turn.</description>
+		<type>Grass</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>150</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>339</id>
+		<name>Bulk Up</name>
+		<description>Bulks up the body to boost both ATTACK and DEFENSE.</description>
+		<type>Fighting</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>340</id>
+		<name>Bounce</name>
+		<description>Bounces up, then down the next turn. May paralyze.</description>
+		<type>Flying</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>5</pp>
+		<power>85</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>341</id>
+		<name>Mud Shot</name>
+		<description>Hurls mud at the foe and reduces SPEED.</description>
+		<type>Ground</type>
+		<category>Special</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>55</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>342</id>
+		<name>Poison Tail</name>
+		<description>Has a high critical-hit ratio. May also poison.</description>
+		<type>Poison</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>25</pp>
+		<power>50</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>343</id>
+		<name>Covet</name>
+		<description>Cutely begs to obtain an item held by the foe.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>40</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>344</id>
+		<name>Volt Tackle</name>
+		<description>A life-risking tackle that slightly hurts the user.</description>
+		<type>Electric</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>120</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>345</id>
+		<name>Magical Leaf</name>
+		<description>Attacks with a strange leaf that cannot be evaded.</description>
+		<type>Grass</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>346</id>
+		<name>Water Sport</name>
+		<description>The user becomes soaked to raise resistance to fire.</description>
+		<type>Water</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>347</id>
+		<name>Calm Mind</name>
+		<description>Raises SP. ATK and SP. DEF by focusing the mind.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>348</id>
+		<name>Leaf Blade</name>
+		<description>Slashes with a sharp leaf. High critical-hit ratio.</description>
+		<type>Grass</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>90</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>349</id>
+		<name>Dragon Dance</name>
+		<description>A mystical dance that ups ATTACK and SPEED.</description>
+		<type>Dragon</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>350</id>
+		<name>Rock Blast</name>
+		<description>Hurls boulders at the foe 2 to 5 times in a row.</description>
+		<type>Rock</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>25</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>351</id>
+		<name>Shock Wave</name>
+		<description>A fast and unavoidable electric attack.</description>
+		<type>Electric</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>352</id>
+		<name>Water Pulse</name>
+		<description>Attacks with ultrasonic waves. May confuse the foe</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>353</id>
+		<name>Doom Desire</name>
+		<description>Summons strong sunlight to attack 2 turns later.</description>
+		<type>Steel</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>354</id>
+		<name>Psycho Boost</name>
+		<description>Allows a full-power attack, but sharply lowers SP. ATK.</description>
+		<type>Psychic</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>140</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>355</id>
+		<name>Roost</name>
+		<description>The user lands and rests its body. It restores the user's HP by up to half of its max HP.</description>
+		<type>Flying</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>356</id>
+		<name>Gravity</name>
+		<description>Gravity is intensified for five turns, disabling Levitation and moves involving flying.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>357</id>
+		<name>Miracle Eye</name>
+		<description>Enables the user to hit a Dark type with any type of move. It also enables the user to hit an evasive foe.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>40</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>358</id>
+		<name>Wake-Up Slap</name>
+		<description>This attack inflicts high damage on a sleeping foe. It also wakes the foe up, however.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>359</id>
+		<name>Hammer Arm</name>
+		<description>The user swings and hits with its strong and heavy fist. It lowers the user's Speed, however.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>100</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>360</id>
+		<name>Gyro Ball</name>
+		<description>The user tackles the foe with a high-speed spin. The faster the opponent and the slower the user, the greater the damage.</description>
+		<type>Steel</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>361</id>
+		<name>Healing Wish</name>
+		<description>The user faints. In return, the Pokémon taking its place will have its HP restored and status cured.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>362</id>
+		<name>Brine</name>
+		<description>If the foe's HP is down to about half, this attack will hit with double the power.</description>
+		<type>Water</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>65</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>363</id>
+		<name>Natural Gift</name>
+		<description>The user draws power to attack by using its held Berry. The Berry determines its type and power.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>364</id>
+		<name>Feint</name>
+		<description>An attack that hits a foe using Protect or Detect. It also lifts the effects of those moves.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>50</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>365</id>
+		<name>Pluck</name>
+		<description>The user pecks the foe. If the foe is holding a Berry, the user plucks it and gains its effect.</description>
+		<type>Flying</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>366</id>
+		<name>Tailwind</name>
+		<description>The user whips up a turbulent whirlwind that ups the Speed of all party Pokémon for three turns.</description>
+		<type>Flying</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>367</id>
+		<name>Acupressure</name>
+		<description>The user applies pressure to stress points, sharply boosting one of its stats.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>368</id>
+		<name>Metal Burst</name>
+		<description>The user retaliates against the foe that last inflicted damage on it with much greater power.</description>
+		<type>Steel</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>369</id>
+		<name>U-turn</name>
+		<description>After making its attack, the user rushes back to switch places with a party Pokémon in waiting.</description>
+		<type>Bug</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>370</id>
+		<name>Close Combat</name>
+		<description>The user fights the foe in close without guarding itself. It also cuts the user's Defense and Sp. Def.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>371</id>
+		<name>Payback</name>
+		<description>If the user can use this attack after the foe attacks, its power is doubled.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>50</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>372</id>
+		<name>Assurance</name>
+		<description>If the foe has already taken some damage in the same turn, this attack's power is doubled.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>50</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>373</id>
+		<name>Embargo</name>
+		<description>It prevents the foe from using its held item. Its Trainer is also prevented from using items on it.</description>
+		<type>Dark</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>374</id>
+		<name>Fling</name>
+		<description>The user flings its held item at the foe to attack. Its power and effects depend on the item.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>10</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>375</id>
+		<name>Psycho Shift</name>
+		<description>Using its psychic power of suggestion, the user transfers its status problems to the target.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>376</id>
+		<name>Trump Card</name>
+		<description>The fewer PP this move has, the more power it has for attack.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>Varies</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>377</id>
+		<name>Heal Block</name>
+		<description>The user prevents the foe from using any HP-recovery moves for five turns.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>378</id>
+		<name>Wring Out</name>
+		<description>The user powerfully wrings the foe. The more HP the foe has, the greater this attack's power.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>379</id>
+		<name>Power Trick</name>
+		<description>The user employs its psychic power to switch its Attack with its Defense stat.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>380</id>
+		<name>Gastro Acid</name>
+		<description>The user hurls up its stomach acids on the foe. The fluid eliminates the effect of the foe's ability.</description>
+		<type>Poison</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>381</id>
+		<name>Lucky Chant</name>
+		<description>The user chants an incantation toward the sky, preventing the foe from landing critical hits.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>30</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>382</id>
+		<name>Me First</name>
+		<description>The user tries to cut ahead of the foe to steal and use the foe's intended move with greater power.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>383</id>
+		<name>Copycat</name>
+		<description>The user mimics the move used immediately before it. The move fails if no other move has been used yet.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>384</id>
+		<name>Power Swap</name>
+		<description>The user employs its psychic power to switch changes to its Attack and Sp. Atk with the foe.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>385</id>
+		<name>Guard Swap</name>
+		<description>The user employs its psychic power to switch changes to its Defense and Sp. Def with the foe.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>386</id>
+		<name>Punishment</name>
+		<description>This attack's power increases the more the foe has powered up with stat changes.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>387</id>
+		<name>Last Resort</name>
+		<description>This move can be used only after the user has used all the other moves it knows in the battle.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>5</pp>
+		<power>130</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>388</id>
+		<name>Worry Seed</name>
+		<description>A seed that causes worry is planted on the foe. It prevents sleep by making its ability Insomnia.</description>
+		<type>Grass</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>389</id>
+		<name>Sucker Punch</name>
+		<description>This move enables the user to attack first. It fails if the foe is not readying an attack, however.</description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>390</id>
+		<name>Toxic Spikes</name>
+		<description>The user lays a trap of poison spikes at the foe's feet. They poison foes that switch into battle.</description>
+		<type>Poison</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>391</id>
+		<name>Heart Swap</name>
+		<description>The user employs its psychic power to switch stat changes with the foe.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>392</id>
+		<name>Aqua Ring</name>
+		<description>The user envelops itself in a veil made of water. It regains some HP on every turn.</description>
+		<type>Water</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>393</id>
+		<name>Magnet Rise</name>
+		<description>The user levitates using electrically generated magnetism for five turns.</description>
+		<type>Electric</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>394</id>
+		<name>Flare Blitz</name>
+		<description>The user cloaks itself in fire and charges at the foe. The user sustains serious damage, too.</description>
+		<type>Fire</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>120</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>395</id>
+		<name>Force Palm</name>
+		<description>The foe is attacked with a shock wave. It may also leave the target paralyzed.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>396</id>
+		<name>Aura Sphere</name>
+		<description>The user looses a blast of aura power from deep within its body. This move is certain to hit.</description>
+		<type>Fighting</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>90</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>397</id>
+		<name>Rock Polish</name>
+		<description>The user polishes its body to reduce drag. It can sharply raise the Speed stat.</description>
+		<type>Rock</type>
+		<category>Status</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>398</id>
+		<name>Poison Jab</name>
+		<description>The foe is stabbed with a tentacle or arm steeped in poison. It may also poison the foe.</description>
+		<type>Poison</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>399</id>
+		<name>Dark Pulse</name>
+		<description>The user releases a horrible aura imbued with dark thoughts. It may also make the target flinch.</description>
+		<type>Dark</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>400</id>
+		<name>Night Slash</name>
+		<description>The user slashes the foe the instant an opportunity arises. It has a high critical-hit ratio. </description>
+		<type>Dark</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>401</id>
+		<name>Aqua Tail</name>
+		<description>The user attacks by swinging its tail as if it were a vicious wave in a raging storm.</description>
+		<type>Water</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>90</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>402</id>
+		<name>Seed Bomb</name>
+		<description>The user slams a barrage of hard-shelled seeds down on the foe from above.</description>
+		<type>Grass</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>403</id>
+		<name>Air Slash</name>
+		<description>The user attacks with a blade of air that slices even the sky. It may also make the target flinch</description>
+		<type>Flying</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>75</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>404</id>
+		<name>X-Scissor</name>
+		<description>The user slashes at the foe by crossing its scythes or claws as if they were a pair of scissors. </description>
+		<type>Bug</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>405</id>
+		<name>Bug Buzz</name>
+		<description>The user vibrates its wings to generate a damaging sound wave. It may also lower the foe's Sp. Def stat.</description>
+		<type>Bug</type>
+		<category>Special</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>90</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>406</id>
+		<name>Dragon Pulse</name>
+		<description>The foe is attacked with a shock wave generated by the user's gaping mouth.</description>
+		<type>Dragon</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>90</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>407</id>
+		<name>Dragon Rush</name>
+		<description>The user tackles the foe while exhibiting overwhelming menace. It may also make the target flinch.</description>
+		<type>Dragon</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>100</power>
+		<accuracy>75</accuracy>
+	</entry>
+	<entry>
+		<id>408</id>
+		<name>Power Gem</name>
+		<description>The user attacks with a ray of light that sparkles as if it were made of gemstones.</description>
+		<type>Rock</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>409</id>
+		<name>Drain Punch</name>
+		<description>An energy-draining punch. The user's HP is restored by half the damage taken by the target.</description>
+		<type>Fighting</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>410</id>
+		<name>Vacuum Wave</name>
+		<description>The user whirls its fists to send a wave of pure vacuum at the foe. This move always goes first.</description>
+		<type>Fighting</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>30</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>411</id>
+		<name>Focus Blast</name>
+		<description>The user heightens its mental focus and unleashes its power. It may also lower the target's Sp. Def.</description>
+		<type>Fighting</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>70</accuracy>
+	</entry>
+	<entry>
+		<id>412</id>
+		<name>Energy Ball</name>
+		<description>The user draws power from nature and fires it at the foe. It may also lower the target's Sp. Def.</description>
+		<type>Grass</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>413</id>
+		<name>Brave Bird</name>
+		<description>The user tucks in its wings and charges from a low altitude. The user also takes serious damage.</description>
+		<type>Flying</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>120</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>414</id>
+		<name>Earth Power</name>
+		<description>The user makes the ground under the foe erupt with power. It may also lower the target's Sp. Def.</description>
+		<type>Ground</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>90</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>415</id>
+		<name>Switcheroo</name>
+		<description>The user trades held items with the foe faster than the eye can follow.</description>
+		<type>Dark</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>416</id>
+		<name>Giga Impact</name>
+		<description>The user charges at the foe using every bit of its power. The user must rest on the next turn.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>5</pp>
+		<power>150</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>417</id>
+		<name>Nasty Plot</name>
+		<description>The user stimulates its brain by thinking bad thoughts. It sharply raises the user's Sp. Atk.</description>
+		<type>Dark</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>418</id>
+		<name>Bullet Punch</name>
+		<description>The user strikes with a tough punch as fast as a bullet. This move always goes first.</description>
+		<type>Steel</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>30</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>419</id>
+		<name>Avalanche</name>
+		<description>An attack move that inflicts double the damage if the user has been hurt by the foe in the same turn.</description>
+		<type>Ice</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>10</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>420</id>
+		<name>Ice Shard</name>
+		<description>The user flash freezes chunks of ice and hurls them. This move always goes first</description>
+		<type>Ice</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>30</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>421</id>
+		<name>Shadow Claw</name>
+		<description>The user slashes with a sharp claw made from shadows. It has a high critical-hit ratio.</description>
+		<type>Ghost</type>
+		<category>Physical</category>
+		<contest>Cute</contest>
+		<pp>15</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>422</id>
+		<name>Thunder Fang</name>
+		<description>The user bites with electrified fangs. It may also make the foe become paralyzed.</description>
+		<type>Electric</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>65</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>423</id>
+		<name>Ice Fang</name>
+		<description>The user bites with cold-infused fangs. It may also make the foe flinch or freeze.</description>
+		<type>Ice</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>65</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>424</id>
+		<name>Fire Fang</name>
+		<description>The user bites with flame-cloaked fangs. It may also make the foe sustain a burn.</description>
+		<type>Fire</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>65</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>425</id>
+		<name>Shadow Sneak</name>
+		<description>The user extends its shadow and attacks the foe from behind. This move always goes first.</description>
+		<type>Ghost</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>30</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>426</id>
+		<name>Mud Bomb</name>
+		<description>The user launches a hard-packed mud ball to attack. It may also lower the target's accuracy.</description>
+		<type>Ground</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>65</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>427</id>
+		<name>Psycho Cut</name>
+		<description>The user tears at the foe with blades formed by psychic power. It has a high critical-hit ratio.</description>
+		<type>Psychic</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>428</id>
+		<name>Zen Headbutt</name>
+		<description>The user focuses its willpower to its head and rams the foe. It may also make the target flinch.</description>
+		<type>Psychic</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>429</id>
+		<name>Mirror Shot</name>
+		<description>The user looses a flash of energy from its polished body. It may also lower the target's accuracy.</description>
+		<type>Steel</type>
+		<category>Special</category>
+		<contest>Cute</contest>
+		<pp>10</pp>
+		<power>65</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>430</id>
+		<name>Flash Cannon</name>
+		<description>The user gathers all its light energy and releases it at once. It may also lower the foe's Sp. Def stat.</description>
+		<type>Steel</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>431</id>
+		<name>Rock Climb</name>
+		<description>A charging attack that may also leave the foe confused. It can also be used to scale rocky walls.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>90</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>432</id>
+		<name>Defog</name>
+		<description>Obstacles are moved, reducing the foe's evasion stat. It can also be used to clear deep fog, etc.</description>
+		<type>Flying</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>15</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>433</id>
+		<name>Trick Room</name>
+		<description>The user creates a bizarre area in which slower Pokémon get to move first for five turns.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Cute</contest>
+		<pp>5</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>434</id>
+		<name>Draco Meteor</name>
+		<description>Comets are summoned down from the sky. The attack's recoil sharply reduces the user's Sp. Atk stat.</description>
+		<type>Dragon</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>140</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>435</id>
+		<name>Discharge</name>
+		<description>A flare of electricityis released to strike all Pokémon in battle. It may also cause paralysis.</description>
+		<type>Electric</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>436</id>
+		<name>Lava Plume</name>
+		<description>An inferno of scarlet flames washes over all Pokémon in battle. It may also inflict burns.</description>
+		<type>Fire</type>
+		<category>Special</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>437</id>
+		<name>Leaf Storm</name>
+		<description>A storm of sharp leaves is whipped up. The attack's recoil sharply reduces the user's Sp. Atk stat.</description>
+		<type>Grass</type>
+		<category>Special</category>
+		<contest>Cute</contest>
+		<pp>5</pp>
+		<power>140</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>438</id>
+		<name>Power Whip</name>
+		<description>The user violently whirls its vines or tentacles to harshly lash the foe.</description>
+		<type>Grass</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>120</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>439</id>
+		<name>Rock Wrecker</name>
+		<description>The user launches a huge boulder at the foe to attack. It must rest on the next turn, however.</description>
+		<type>Rock</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>150</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>440</id>
+		<name>Cross Poison</name>
+		<description>A slashing attack that may also leave the target poisoned. It has a high critical-hit ratio.</description>
+		<type>Poison</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>70</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>441</id>
+		<name>Gunk Shot</name>
+		<description>The user shoots filthy garbage at the foe to attack. It may also poison the target.</description>
+		<type>Poison</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>70</accuracy>
+	</entry>
+	<entry>
+		<id>442</id>
+		<name>Iron Head</name>
+		<description>The foe slams the target with its steel-hard head. It may also make the target flinch.</description>
+		<type>Steel</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>80</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>443</id>
+		<name>Magnet Bomb</name>
+		<description>The user launches a steel bomb that sticks to the target. This attack will not miss.</description>
+		<type>Steel</type>
+		<category>Physical</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>444</id>
+		<name>Stone Edge</name>
+		<description>The user stabs the foe with a sharpened stone. It has a high critical-hit ratio.</description>
+		<type>Rock</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>100</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>445</id>
+		<name>Captivate</name>
+		<description>If it is the opposite gender of the user, the foe is charmed into sharply lowering its Sp. Atk stat.</description>
+		<type>Normal</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>446</id>
+		<name>Stealth Rock</name>
+		<description>The user lays a trap of levitating stones around the foe. The trap hurts foes that switch into battle.</description>
+		<type>Rock</type>
+		<category>Status</category>
+		<contest>Cool</contest>
+		<pp>20</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>447</id>
+		<name>Grass Knot</name>
+		<description>The user snares the foe with grass and trips it. The heavier the foe, the greater the damage.</description>
+		<type>Grass</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>448</id>
+		<name>Chatter</name>
+		<description>The user attacks using a sound wave based on words it has learned. It may also confuse the foe.</description>
+		<type>Flying</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>449</id>
+		<name>Judgment</name>
+		<description>The user releases countless shots of light. Its type varies with the kind of Plate the user is holding.</description>
+		<type>Normal</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>100</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>450</id>
+		<name>Bug Bite</name>
+		<description>The user bites the foe. If the foe is holding a Berry, the user eats it and gains its effect.</description>
+		<type>Bug</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>20</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>451</id>
+		<name>Charge Beam</name>
+		<description>The user fires a concentrated bundle of electricity. It may also raise the user's Sp. Atk stat.</description>
+		<type>Electric</type>
+		<category>Special</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>50</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>452</id>
+		<name>Wood Hammer</name>
+		<description>The user slams its rugged body into the foe to attack. The user also sustains serious damage.</description>
+		<type>Grass</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>15</pp>
+		<power>120</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>453</id>
+		<name>Aqua Jet</name>
+		<description>The user lunges at the foe at a speed that makes it almost invisible. It is sure to strike first.</description>
+		<type>Water</type>
+		<category>Physical</category>
+		<contest>Beauty</contest>
+		<pp>20</pp>
+		<power>40</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>454</id>
+		<name>Attack Order</name>
+		<description>The user calls out its underlings to pummel the foe. It has a high critical-hit ratio.</description>
+		<type>Bug</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>15</pp>
+		<power>90</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>455</id>
+		<name>Defend Order</name>
+		<description>The user calls out its underlings to make a living shield, raising its Defense and Sp. Def stats.</description>
+		<type>Bug</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>456</id>
+		<name>Heal Order</name>
+		<description>The user calls out its underlings to heal it. The user regains up to half of its max HP.</description>
+		<type>Bug</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>457</id>
+		<name>Head Smash</name>
+		<description>The user delivers a life-endangering head butt at full power. The user also takes terrible damage.</description>
+		<type>Rock</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>150</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>458</id>
+		<name>Double Hit</name>
+		<description>The user slams the foe with a tail, etc. The target is hit twice in a row.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>35</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>459</id>
+		<name>Roar of Time</name>
+		<description>The user blasts the foe with power that distorts even time. The user must rest on the next turn.</description>
+		<type>Dragon</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>150</power>
+		<accuracy>90</accuracy>
+	</entry>
+	<entry>
+		<id>460</id>
+		<name>Spacial Rend</name>
+		<description>The user tears the foe along with the space around it. This move has a high critical-hit ratio.</description>
+		<type>Dragon</type>
+		<category>Special</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>100</power>
+		<accuracy>95</accuracy>
+	</entry>
+	<entry>
+		<id>461</id>
+		<name>Lunar Dance</name>
+		<description>The user faints. In return, the Pokémon taking its place will have its status and HP fully restored.</description>
+		<type>Psychic</type>
+		<category>Status</category>
+		<contest>Beauty</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>–</accuracy>
+	</entry>
+	<entry>
+		<id>462</id>
+		<name>Crush Grip</name>
+		<description>The foe is crushed with great force. The attack is more powerful the more HP the foe has left.</description>
+		<type>Normal</type>
+		<category>Physical</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>Varies</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>463</id>
+		<name>Magma Storm</name>
+		<description>The foe becomes trapped within a maelstrom of fire that rages for two to five turns.</description>
+		<type>Fire</type>
+		<category>Special</category>
+		<contest>Tough</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>70</accuracy>
+	</entry>
+	<entry>
+		<id>464</id>
+		<name>Dark Void</name>
+		<description>The foe is dragged into a world of total darkness that puts it to sleep.</description>
+		<type>Dark</type>
+		<category>Status</category>
+		<contest>Smart</contest>
+		<pp>10</pp>
+		<power>–</power>
+		<accuracy>80</accuracy>
+	</entry>
+	<entry>
+		<id>465</id>
+		<name>Seed Flare</name>
+		<description>The user generates a shock wave from within its body. It may also lower the target's Sp. Def.</description>
+		<type>Grass</type>
+		<category>Special</category>
+		<contest>Cool</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>85</accuracy>
+	</entry>
+	<entry>
+		<id>466</id>
+		<name>Ominous Wind</name>
+		<description>The user creates a gust of repulsive wind. It may also raise all the user's stats at once.</description>
+		<type>Ghost</type>
+		<category>Special</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>60</power>
+		<accuracy>100</accuracy>
+	</entry>
+	<entry>
+		<id>467</id>
+		<name>Shadow Force</name>
+		<description>The user disappears, then strikes the foe on the second turn. It hits even if the foe used Protect.</description>
+		<type>Ghost</type>
+		<category>Physical</category>
+		<contest>Smart</contest>
+		<pp>5</pp>
+		<power>120</power>
+		<accuracy>100</accuracy>
+	</entry>
+</movesDatabase>

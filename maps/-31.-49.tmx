@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="dayPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
+ <tileset firstgid="2049" source="normal3.tsx"/>
+ <tileset firstgid="3073" source="normal4.tsx"/>
+ <tileset firstgid="4097" source="normal5.tsx"/>
+ <tileset firstgid="5121" source="normal6.tsx"/>
+ <tileset firstgid="6145" source="normal7.tsx"/>
+ <tileset firstgid="7169" source="normal8.tsx"/>
+ <tileset firstgid="8193" source="normal9.tsx"/>
+ <tileset firstgid="9217" source="normal10.tsx"/>
+ <tileset firstgid="10027" source="normal18.tsx"/>
+ <tileset firstgid="11051" source="normal17.tsx"/>
+ <tileset firstgid="12075" source="normal16.tsx"/>
+ <tileset firstgid="13099" source="normal15.tsx"/>
+ <tileset firstgid="14123" source="normal14.tsx"/>
+ <tileset firstgid="15147" source="normal13.tsx"/>
+ <layer name="Walkable" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoD54ooIfw4CCKn480Oq4OPFjUtXBACMQ83NAaHQAACzIfm+QAQAA
+  </data>
+ </layer>
+ <layer name="Walkable" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoD44zcXAcIYLU/wsUKwXizixgJsMveToIRdY8jEwWAGxNR9+dZFA+SggjsaiDgDWPcNNkAEAAA==
+  </data>
+ </layer>
+ <layer name="Collisions" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgYGDw54RgdIAuns8JwegAlzgtwDou+tgzUAAAdkvny5ABAAA=
+  </data>
+ </layer>
+ <layer name="Collisions" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAOPnYGDo5mJg6AFif05UDAK+QHF+DgheDWSvAeJ8TlS8FiiWi6SOEKBEnS0rA8N6LsLqzgHVnCdCHbXdh08dMsYlDgBn94zxkAEAAA==
+  </data>
+ </layer>
+</map>
