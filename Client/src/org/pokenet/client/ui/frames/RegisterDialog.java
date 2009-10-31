@@ -386,6 +386,7 @@ public class RegisterDialog extends Frame{
 	 * @param m_starter
 	 */
 	private void selectStarter(int m_starter) {
+		System.out.println(m_starter);
 		for(int i = 0; i < m_starters.length; i++) {
 			m_starters[i].setEnabled(true);
 		}

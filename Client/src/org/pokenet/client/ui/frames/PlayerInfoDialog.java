@@ -63,6 +63,7 @@ public class PlayerInfoDialog extends Frame {
 	/**
 	 * Initializes the interface
 	 */
+	@SuppressWarnings("all")
 	private void initGUI() {
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
