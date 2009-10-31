@@ -35,6 +35,15 @@ false
 -2
 0
 [/warp]
+[warp]
+3
+2
+1
+10
+-44
+-16
+0
+[/warp]
 [hmobject]
 STRENGTH_BOULDER
 4
