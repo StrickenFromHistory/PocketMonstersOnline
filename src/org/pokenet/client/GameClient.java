@@ -1,7 +1,6 @@
 package org.pokenet.client;
 
 import java.io.File;
-import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 import java.util.ConcurrentModificationException;
