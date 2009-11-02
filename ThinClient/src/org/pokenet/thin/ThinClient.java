@@ -126,7 +126,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		m_masterFrame.setVisible(false);
 		try {
 			String s;
-			Process p = Runtime.getRuntime().exec("java -jar Pokenet.jar");
+			Process p = Runtime.getRuntime().exec("java -Djava.library.path=lib/native -jar Pokenet.jar");
 			BufferedReader stdInput = new BufferedReader(new 
 					InputStreamReader(p.getInputStream()));
 
@@ -401,7 +401,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 													System.out.println(inputLine);
 													if(!inputLine.startsWith("-")){
 														String[] inout = inputLine.split("\\|");
-														m_updates.add(new UpgradeActionBean(inout[1].trim().replace(" ","\\ "), m_installpath+inout[2].trim().replace(" ","\\ "), inout[3].trim()));
+														m_updates.add(new UpgradeActionBean(inout[1].trim().replace(" ","%20"), m_installpath+inout[2].trim(), inout[3].trim()));
 														m_progressSize++;
 													}
 												}
