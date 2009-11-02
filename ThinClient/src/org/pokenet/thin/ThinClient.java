@@ -19,8 +19,6 @@ import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 import java.awt.Dimension;
 
@@ -38,7 +36,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 	private static String m_mirror;
 	private static int m_progressSize;
 	private static double m_latestversion;
-	private static HashMap<String, String> m_updates = new HashMap<String, String>();
+	private static ArrayList<UpgradeActionBean> m_updates = new ArrayList<UpgradeActionBean>();
 	private static String m_installpath = "";
 
 	class Task extends SwingWorker<Void, Void> {
@@ -50,27 +48,30 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 			int progress = 0;
 			//Initialize progress property.
 			setProgress(0);
-			for (Map.Entry<String, String> entry : m_updates.entrySet()) {
+			for (int i =0;i<m_updates.size();i++) {
 				try{
-					new File(m_installpath+"res/").mkdir();
-					System.out.println("Downloading: "+entry.getValue());
-					JGet.getFile(m_mirror+entry.getKey(),entry.getValue());
+					UpgradeActionBean uab = m_updates.get(i);
+					uab.setOutput(uab.getOutput().replace("+",""));
+					System.out.println(m_mirror+uab.getInput()+" "+uab.getOutput()+uab.getChecksum());
+					if(uab.getChecksum().equals("mkdir"))
+						new File(uab.getOutput()).mkdir();
+					else{
+						JGet.getFile(m_mirror+uab.getInput(),uab.getOutput());
+					}		
 					progress+=m_progressSize;
 					setProgress(Math.min(progress, 100));
 					m_progressBar.setValue(progress);
 					m_taskOutput.append(String.format(
 							"Completed %d%% of task.\n", m_task.getProgress()));
-				}catch(FileNotFoundException e){
-					// Add "File not found" to the not found array
-				} catch (MalformedURLException e) {
-					// Bad URL
-					e.printStackTrace();
-				} catch (IOException e) {
+				}catch (IOException e) {
 					// Impossible to open or save file
 					e.printStackTrace();
+					JOptionPane.showMessageDialog(
+							m_masterFrame,
+							"There seems to be an issue saving files. \nCould you check that one for us and try again?",
+							"Pokenet Install System",
+							JOptionPane.WARNING_MESSAGE);
 				}
-
-
 			}          
 			return null;
 		}
@@ -125,7 +126,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		m_masterFrame.setVisible(false);
 		try {
 			String s;
-			Process p = Runtime.getRuntime().exec("java -jar Test.jar");
+			Process p = Runtime.getRuntime().exec("java -jar Pokenet.jar");
 			BufferedReader stdInput = new BufferedReader(new 
 					InputStreamReader(p.getInputStream()));
 
@@ -135,7 +136,11 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 				System.out.println(s);
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					m_masterFrame,
+					"Ouch! Something happened and we couldn't run the game. \nMaybe it didn't install properly?",
+					"Pokenet Install System",
+					JOptionPane.WARNING_MESSAGE);
 		}
 		System.exit(0);
 	}
@@ -298,12 +303,11 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 				} catch (FileNotFoundException e) {
 					// File Not Found
 					System.out.println("File not found. Using emergency mirror");
-					m_mirror = "http://localhost/pokenet/";
+					m_mirror = "http://189.160.195.95/pokenet/";
 				} catch (IOException e) {
 					// Error reading file
-					e.printStackTrace();
 					System.out.println("Error reading file. Using emergency mirror");
-					m_mirror = "http://localhost/pokenet/";
+					m_mirror = "http://189.160.195.95/pokenet/";
 				}
 				// Check current version
 				double version = 0.0;
@@ -334,7 +338,6 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 							} catch (IOException e1) {
 								e1.printStackTrace();
 							}
-							System.out.println(m_installpath);
 						}else{
 							JOptionPane.showMessageDialog(
 									m_masterFrame,
@@ -354,79 +357,111 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 				}
 
 
-
-				//Check mirror contents
-
-				try {
-					URL site = new URL(m_mirror+"updates.txt");
-
-					BufferedReader updateSite = new BufferedReader(new InputStreamReader(site.openStream()));
-
+				try{
+					URL site = new URL(m_mirror+"latest");
 					String inputLine;
-					int answer = 3;
-					JFrame frame = new JFrame("Pokenet Update System");
+					BufferedReader updateSite = new BufferedReader(new InputStreamReader(site.openStream()));
 					while ((inputLine = updateSite.readLine()) != null){
 						//Check latest version
-						if(inputLine.contains("--v")){
-							inputLine = inputLine.replaceAll("-","");
+						if(inputLine.contains("v")){
 							inputLine = inputLine.replace("v","");
 							try{
 								m_latestversion = Double.parseDouble(inputLine);
 							}catch(Exception e){}//Perhaps its badly formatted?
 
-
 							if(version < m_latestversion){ //Time to update!
-								/**
-								 *  Ask user to update
-								 */
+								//Check mirror contents
 
-								System.out.println("Reading list v"+Double.parseDouble(inputLine));
-								/**
-								 *  Download NEW Content
-								 */
+								try {
+									site = new URL(m_mirror+"updates.txt");
+									updateSite = new BufferedReader(new InputStreamReader(site.openStream()));
+									inputLine = "";
+									int answer = 3;
+									JFrame frame = new JFrame("Pokenet Update System");
+									while ((inputLine = updateSite.readLine()) != null){
+										//Check latest version
+										if(inputLine.contains("--v")){
+											inputLine = inputLine.replaceAll("-","");
+											inputLine = inputLine.replace("v","");
+											try{
+												m_latestversion = Double.parseDouble(inputLine);
+											}catch(Exception e){}//Perhaps its badly formatted?
+											
+											if(version < m_latestversion){ //Time to update!
+												/**
+												 *  Ask user to update
+												 */
 
-								while(((inputLine = updateSite.readLine()) != null ) && !inputLine.equals("-EOF-")){
-									System.out.println(inputLine);
-									if(!inputLine.startsWith("-")){
-										String[] inout = inputLine.split(" ");
-										m_updates.put(inout[0], m_installpath+inout[1]);
-										m_progressSize++;
+												System.out.println("Reading list v"+Double.parseDouble(inputLine));
+												/**
+												 *  Download NEW Content
+												 */
+
+												while(((inputLine = updateSite.readLine()) != null ) && !inputLine.equals("-EOF-")){
+													System.out.println(inputLine);
+													if(!inputLine.startsWith("-")){
+														String[] inout = inputLine.split("\\|");
+														m_updates.add(new UpgradeActionBean(inout[1].trim().replace(" ","\\ "), m_installpath+inout[2].trim().replace(" ","\\ "), inout[3].trim()));
+														m_progressSize++;
+													}
+												}
+											}
+										}	
 									}
-								}
-							}
-						}	
-					}
-					System.out.println(m_installpath);
-					if(m_installpath.equals(""))
-						if(version<m_latestversion){
-							answer = JOptionPane.showConfirmDialog(
-									frame,
-									"There is a Pokenet Update. \nWould you like to Update?\n(You won't be able to play unless you do)\nCurrent version: v"+version+"\nLatest version: v"+m_latestversion,
-									"Pokenet Update System",
-									JOptionPane.YES_NO_OPTION);
-						}else{
-							answer=0;
-						}
-					else
-						answer=0;
+									System.out.println(m_installpath);
+									if(m_installpath.equals(""))
+										if(version<m_latestversion){
+											answer = JOptionPane.showConfirmDialog(
+													frame,
+													"There is a Pokenet Update. \nWould you like to Update?\n(You won't be able to play unless you do)\nCurrent version: v"+version+"\nLatest version: v"+m_latestversion,
+													"Pokenet Update System",
+													JOptionPane.YES_NO_OPTION);
+										}else{
+											answer=0;
+										}
+									else
+										answer=0;
 
-					if(answer==0){
-						if(m_progressSize!=0){
-							m_progressSize = 100/m_progressSize;
-							createAndShowGUI();
-						}else{
-							LaunchPokenet();
+									if(answer==0){
+										if(m_progressSize!=0){
+											m_progressSize = 100/m_progressSize;
+											createAndShowGUI();
+										}else{
+											LaunchPokenet();
+										}
+									}else{
+										System.exit(0);
+									}
+									frame= null;
+								} catch (MalformedURLException e1) {
+									JOptionPane.showMessageDialog(
+											m_masterFrame,
+											"Ouch! Something happened and we couldn't upgrade. \nTry again later?",
+											"Pokenet Install System",
+											JOptionPane.WARNING_MESSAGE);
+								} catch (IOException e) {
+									JOptionPane.showMessageDialog(
+											m_masterFrame,
+											"Ouch! Something happened and we couldn't upgrade. \nTry again later?",
+											"Pokenet Install System",
+											JOptionPane.WARNING_MESSAGE);
+								}
+							}else{
+								//Time to play
+								LaunchPokenet();
+							}
 						}
-					}else{
-						System.exit(0);
 					}
-					frame= null;
-				} catch (MalformedURLException e1) {
-					e1.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
+				}catch(Exception e){
+					JOptionPane.showMessageDialog(
+							m_masterFrame,
+							"Ouch! Something happened and we couldn't upgrade. \nTry again later?",
+							"Pokenet Install System",
+							JOptionPane.WARNING_MESSAGE);
 				}
-				
+
+
+
 			}
 		});
 	}
