@@ -29,7 +29,7 @@ import java.awt.Dimension;
 public class ThinClient extends JPanel implements ActionListener, PropertyChangeListener {
 
 	private static final long serialVersionUID = 2718141354198299420L;
-	private static JFrame m_masterFrame = new JFrame("Pokenet: Tiny Turtwig");
+	private static JFrame m_masterFrame = new JFrame("Pokenet: Valiant Venonat");
 	private JProgressBar m_progressBar;
 	private JButton m_startButton;
 	private JButton m_hideButton;
@@ -91,6 +91,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 					setProgress(Math.min((int)progress, 100));
 					m_progressBar.setValue((int)progress);
 					m_taskOutput.append("Downloading... "+uab.getInput()+"\n");
+					m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
 				}catch (IOException e) {
 					// Impossible to open or save file
 					e.printStackTrace();
@@ -112,30 +113,33 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 			if(getProgress()<100){
 				setProgress(100);
 				m_taskOutput.append("Download complete!");
+				m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
 			}
 			
 			if(!m_installpath.equals("")){
 				m_taskOutput.append("Installing Start Menu Program...");
+				m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
 				
 				String OS = System.getProperty("os.name");
 				if(OS.contains("Windows")){
-					String folderPath = "";
-					if(!OS.contains("Vista")||!OS.contains("7")){
-						folderPath = "Start Menu\\Programs\\Pokenet\\";
-					}else{
-							folderPath = "AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Pokenet\\";
-							
-					}
 					try {
-						String home = System.getProperty("user.home");
-						new File(home+folderPath).mkdir();
-						 JShellLink link = new JShellLink();
-						 link.setFolder(JShellLink.getDirectory("programs"));
-						 link.setName("Pokenet: Valiant Venonat");
-						 link.setPath("java -jar "+m_installpath+"ThinClient.jar");
-						 link.save();
+						File f = new File(System.getenv("APPDATA")+"/.pokenet");
+						if(f.exists())
+							f.delete();
+						PrintWriter pw = new PrintWriter(f);
+						pw.println(m_installpath);
+						pw.flush();
+						pw.close();
+						new File(JShellLink.getDirectory("programs")+"\\Pokenet\\").mkdir();
+						JShellLink link = new JShellLink();
+						link.setFolder(JShellLink.getDirectory("programs")+"\\Pokenet\\");
+						link.setIconLocation(m_installpath+"res\\ui\\pokenet.ico");
+						link.setName("Pokenet Valiant Venonat");
+						link.setPath(m_installpath+"ThinClient.jar");
+						link.save();
 
 						}catch(Exception e){
+							e.printStackTrace();
 							JOptionPane.showInternalMessageDialog(
 									m_masterFrame,
 									"Hmm. Couldn't generate the Start Menu shortcut \nTry running as admin?",
@@ -227,9 +231,10 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		m_progressBar.setValue(0);
 		m_progressBar.setStringPainted(true);
 
-		m_taskOutput = new JTextArea(5, 20);
+		m_taskOutput = new JTextArea(10, 40);
 		m_taskOutput.setMargin(new Insets(5,5,5,5));
 		m_taskOutput.setEditable(false);
+		m_taskOutput.setAutoscrolls(true);
 		m_output = new JScrollPane(m_taskOutput);
 
 
@@ -278,12 +283,12 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 			if(!m_showOutput){
 				m_output.setVisible(true);
 				m_hideButton.setText("Hide Details...");
-				m_masterFrame.setSize(new Dimension(300, 220));
+				m_masterFrame.setSize(new Dimension(400, 220));
 				m_showOutput=true;
 			}else{
 				m_output.setVisible(false);
 				m_hideButton.setText("Show Details...");
-				m_masterFrame.setSize(new Dimension(300, 130));
+				m_masterFrame.setSize(new Dimension(400, 130));
 				m_showOutput=false;
 			}
 		}
@@ -342,7 +347,21 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 				} catch (UnsupportedLookAndFeelException e) {
 					e.printStackTrace();
 				}
-
+				String OS = System.getProperty("os.name");
+				String path = "";
+				if(OS.contains("Windows")){
+					path = System.getenv("APPDATA")+"\\.pokenet";
+				}else if(OS.contains("Linux")){
+					
+				}
+				if(!path.equals("")){
+					BufferedReader br = null;
+					try
+					{
+						br = new BufferedReader(new FileReader(path));
+						m_installpath = br.readLine();
+					}catch(Exception e){}
+				}
 				/**
 				 *  Connect to Updates
 				 */
@@ -387,6 +406,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 					}
 					versionin.close();
 				}catch(Exception e){
+					System.out.println("Version not found! "+m_installpath+"res/.version");
 					int answer = JOptionPane.showConfirmDialog(
 							m_masterFrame,
 							"Would you like to install this game?",

@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Tue Nov 03 11:37:40 CST 2009
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=PokenetThinClient_fat.jar
+manifest.mergeall=true
+manifest.mainclass=org.pokenet.thin.ThinClient
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=
