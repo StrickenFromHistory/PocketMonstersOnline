@@ -27,7 +27,7 @@ import java.awt.Dimension;
 public class ThinClient extends JPanel implements ActionListener, PropertyChangeListener {
 
 	private static final long serialVersionUID = 2718141354198299420L;
-	private static JFrame m_masterFrame = new JFrame("Pokenet: Updating Ursaring");
+	private static JFrame m_masterFrame = new JFrame("Pokenet: Tiny Turtwig");
 	private JProgressBar m_progressBar;
 	private JButton m_startButton;
 	private JButton m_hideButton;
@@ -57,22 +57,38 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 					if(uab.getChecksum().equals("mkdir"))
 						new File(uab.getOutput()).mkdir();
 					else{
-						
 						try {
 							String checksum = new CheckSums().getSHA1Checksum(uab.getOutput());
-							if(!uab.getChecksum().equals(checksum))
-								JGet.getFile(m_mirror+uab.getInput(),uab.getOutput());
+							if(!uab.getChecksum().equals(checksum)){
+								boolean exit = false;
+								while(!exit){
+									JGet.getFile(m_mirror+uab.getInput(),uab.getOutput());
+									checksum = new CheckSums().getSHA1Checksum(uab.getOutput());
+									if(checksum.equals(uab.getChecksum()))
+										exit = true;
+								}
+							}
 						} catch (Exception e) {
 							// File not found. Get file anyways. 
-							JGet.getFile(m_mirror+uab.getInput(),uab.getOutput());
+							boolean exit = false;
+							String checksum = "";
+							while(!exit){
+								JGet.getFile(m_mirror+uab.getInput(),uab.getOutput());
+								try {
+									checksum = new CheckSums().getSHA1Checksum(uab.getOutput());
+									if(checksum.equals(uab.getChecksum()))
+										exit = true;
+								} catch (Exception e1) {
+									// File not downloaded properly?
+								}
+							}
 						}
 						
 					}		
 					progress+=getProgressSize();
 					setProgress(Math.min((int)progress, 100));
 					m_progressBar.setValue((int)progress);
-					m_taskOutput.setText(String.format(
-							"Completed %d%% of task.\n", m_task.getProgress()));
+					m_taskOutput.append("Downloading... "+uab.getInput()+"\n");
 				}catch (IOException e) {
 					// Impossible to open or save file
 					e.printStackTrace();
@@ -93,8 +109,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		public void done() {
 			if(getProgress()<100){
 				setProgress(100);
-				m_taskOutput.setText(String.format(
-						"Completed %d%% of task.\n", m_task.getProgress()));
+				m_taskOutput.append("Download complete!");
 			}
 			/**
 			 * Update version.txt to latest. 
@@ -146,9 +161,9 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 				System.out.println(s);
 			}
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(
+			JOptionPane.showInternalMessageDialog(
 					m_masterFrame,
-					"Ouch! Something happened and we couldn't run the game. \nMaybe it didn't install properly?",
+					"Ouch! Something happened and we couldn't run the game. \nMaybe it didn't install properly?\nError: "+e.getLocalizedMessage(),
 					"Pokenet Install System",
 					JOptionPane.WARNING_MESSAGE);
 		}
@@ -316,11 +331,11 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 
 				} catch (FileNotFoundException e) {
 					// File Not Found
-					System.out.println("File not found. Using emergency mirror");
+					System.out.println("Mirror not found. Using emergency mirror");
 					m_mirror = "http://pokeglobal.sourceforge.net/game/pokenet7/";
 				} catch (IOException e) {
 					// Error reading file
-					System.out.println("Error reading file. Using emergency mirror");
+					System.out.println("Error reading Mirror. Using emergency mirror");
 					m_mirror = "http://pokeglobal.sourceforge.net/game/pokenet7/";
 				}
 				// Check current version
