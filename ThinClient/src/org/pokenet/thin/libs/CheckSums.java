@@ -25,7 +25,7 @@ public class CheckSums {
 	
 	// see this How-to for a faster way to convert 
 	// a byte array to a HEX string 
-	public static String getSHA1Checksum(String filename) throws Exception {
+	public String getSHA1Checksum(String filename) throws Exception {
 		byte[] b = createChecksum(filename);
 		String result = "";
 		for (int i=0; i < b.length; i++) {

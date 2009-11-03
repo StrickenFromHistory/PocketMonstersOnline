@@ -5,6 +5,8 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+import net.jimmc.jshortcut.JShellLink;
+
 import org.pokenet.thin.libs.CheckSums;
 import org.pokenet.thin.libs.JGet;
 
@@ -110,6 +112,42 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 			if(getProgress()<100){
 				setProgress(100);
 				m_taskOutput.append("Download complete!");
+			}
+			
+			if(!m_installpath.equals("")){
+				m_taskOutput.append("Installing Start Menu Program...");
+				
+				String OS = System.getProperty("os.name");
+				if(OS.contains("Windows")){
+					String folderPath = "";
+					if(!OS.contains("Vista")||!OS.contains("7")){
+						folderPath = "Start Menu\\Programs\\Pokenet\\";
+					}else{
+							folderPath = "AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Pokenet\\";
+							
+					}
+					try {
+						String home = System.getProperty("user.home");
+						new File(home+folderPath).mkdir();
+						 JShellLink link = new JShellLink();
+						 link.setFolder(JShellLink.getDirectory("programs"));
+						 link.setName("Pokenet: Valiant Venonat");
+						 link.setPath("java -jar "+m_installpath+"ThinClient.jar");
+						 link.save();
+
+						}catch(Exception e){
+							JOptionPane.showInternalMessageDialog(
+									m_masterFrame,
+									"Hmm. Couldn't generate the Start Menu shortcut \nTry running as admin?",
+									"Pokenet Install System",
+									JOptionPane.WARNING_MESSAGE);
+						}
+					
+				}else if(OS.contains("Linux")){
+					
+				}
+					
+				
 			}
 			/**
 			 * Update version.txt to latest. 
@@ -258,8 +296,6 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		if ("progress" == evt.getPropertyName()) {
 			int progress = (Integer) evt.getNewValue();
 			m_progressBar.setValue(progress);
-			//            taskOutput.append(String.format(
-			//                    "Completed %d%% of task.\n", task.getProgress()));
 		} 
 	}
 
@@ -306,6 +342,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 				} catch (UnsupportedLookAndFeelException e) {
 					e.printStackTrace();
 				}
+
 				/**
 				 *  Connect to Updates
 				 */
