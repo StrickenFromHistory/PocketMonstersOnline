@@ -5,6 +5,7 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+import org.pokenet.thin.libs.CheckSums;
 import org.pokenet.thin.libs.JGet;
 
 import java.beans.*;
@@ -13,6 +14,7 @@ import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -34,7 +36,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 	private Component m_output;
 	private boolean m_showOutput = true;
 	private static String m_mirror;
-	private static int m_progressSize;
+	private static float m_progressSize = 0;
 	private static double m_latestversion;
 	private static ArrayList<UpgradeActionBean> m_updates = new ArrayList<UpgradeActionBean>();
 	private static String m_installpath = "";
@@ -45,23 +47,31 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		 */
 		@Override
 		public Void doInBackground() {
-			int progress = 0;
+			float progress = 0;
 			//Initialize progress property.
 			setProgress(0);
 			for (int i =0;i<m_updates.size();i++) {
 				try{
 					UpgradeActionBean uab = m_updates.get(i);
 					uab.setOutput(uab.getOutput().replace("+",""));
-					System.out.println(m_mirror+uab.getInput()+" "+uab.getOutput()+uab.getChecksum());
 					if(uab.getChecksum().equals("mkdir"))
 						new File(uab.getOutput()).mkdir();
 					else{
-						JGet.getFile(m_mirror+uab.getInput(),uab.getOutput());
+						
+						try {
+							String checksum = new CheckSums().getSHA1Checksum(uab.getOutput());
+							if(!uab.getChecksum().equals(checksum))
+								JGet.getFile(m_mirror+uab.getInput(),uab.getOutput());
+						} catch (Exception e) {
+							// File not found. Get file anyways. 
+							JGet.getFile(m_mirror+uab.getInput(),uab.getOutput());
+						}
+						
 					}		
-					progress+=m_progressSize;
-					setProgress(Math.min(progress, 100));
-					m_progressBar.setValue(progress);
-					m_taskOutput.append(String.format(
+					progress+=getProgressSize();
+					setProgress(Math.min((int)progress, 100));
+					m_progressBar.setValue((int)progress);
+					m_taskOutput.setText(String.format(
 							"Completed %d%% of task.\n", m_task.getProgress()));
 				}catch (IOException e) {
 					// Impossible to open or save file
@@ -83,7 +93,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		public void done() {
 			if(getProgress()<100){
 				setProgress(100);
-				m_taskOutput.append(String.format(
+				m_taskOutput.setText(String.format(
 						"Completed %d%% of task.\n", m_task.getProgress()));
 			}
 			/**
@@ -126,7 +136,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		m_masterFrame.setVisible(false);
 		try {
 			String s;
-			Process p = Runtime.getRuntime().exec("java -Djava.library.path=lib/native -jar Pokenet.jar");
+			Process p = Runtime.getRuntime().exec("java -Djava.library.path="+m_installpath+"lib/native -jar "+m_installpath+"Pokenet.jar");
 			BufferedReader stdInput = new BufferedReader(new 
 					InputStreamReader(p.getInputStream()));
 
@@ -150,7 +160,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 
 		//Create the demo's UI.
 		if(!m_installpath.equals(""))
-			m_startButton = new JButton("Install");
+			m_startButton = new JButton("Install Now!");
 		else
 			m_startButton = new JButton("Update");
 		m_startButton.setActionCommand("update");
@@ -242,10 +252,10 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 	/**
 	 * Create the GUI and show it. As with all GUI code, this must run
 	 * on the event-dispatching thread.
+	 * @param mProgressSize 
 	 */
 	private static void createAndShowGUI() {
 		//Create and set up the window.
-
 		m_masterFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		m_masterFrame.setSize(new Dimension(282, 242));
@@ -262,6 +272,10 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 	}
 
 	public static void main(String[] args) {
+		runApp();
+	}
+
+	public static void runApp(){
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
@@ -303,11 +317,11 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 				} catch (FileNotFoundException e) {
 					// File Not Found
 					System.out.println("File not found. Using emergency mirror");
-					m_mirror = "http://189.160.195.95/pokenet/";
+					m_mirror = "http://pokeglobal.sourceforge.net/game/pokenet7/";
 				} catch (IOException e) {
 					// Error reading file
 					System.out.println("Error reading file. Using emergency mirror");
-					m_mirror = "http://189.160.195.95/pokenet/";
+					m_mirror = "http://pokeglobal.sourceforge.net/game/pokenet7/";
 				}
 				// Check current version
 				double version = 0.0;
@@ -373,8 +387,8 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 								//Check mirror contents
 
 								try {
-									site = new URL(m_mirror+"updates.txt");
-									updateSite = new BufferedReader(new InputStreamReader(site.openStream()));
+									JGet.getFile(m_mirror+"updates.txt", "tempupdates.txt");
+									updateSite = new BufferedReader(new FileReader("tempupdates.txt"));
 									inputLine = "";
 									int answer = 3;
 									JFrame frame = new JFrame("Pokenet Update System");
@@ -402,12 +416,15 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 													if(!inputLine.startsWith("-")){
 														String[] inout = inputLine.split("\\|");
 														m_updates.add(new UpgradeActionBean(inout[1].trim().replace(" ","%20"), m_installpath+inout[2].trim(), inout[3].trim()));
-														m_progressSize++;
+														setProgressSize(getProgressSize()+1);
 													}
 												}
 											}
 										}	
 									}
+									//Lets delete the tempfile
+									new File("tempupdates.txt").delete();
+									
 									System.out.println(m_installpath);
 									if(m_installpath.equals(""))
 										if(version<m_latestversion){
@@ -423,8 +440,8 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 										answer=0;
 
 									if(answer==0){
-										if(m_progressSize!=0){
-											m_progressSize = 100/m_progressSize;
+										if(getProgressSize()!=0){
+											setProgressSize(100/getProgressSize());
 											createAndShowGUI();
 										}else{
 											LaunchPokenet();
@@ -465,7 +482,6 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 			}
 		});
 	}
-
 	/**
 	 * This method is used to center the GUI
 	 * @param frame - Frame that needs to be centered.
@@ -481,12 +497,20 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		frame.setBounds(X, Y, widthWindow, heightWindow);
 
 	}
+	
+	public static float getProgressSize() {
+		return m_progressSize;
+	}
 
-	public String getM_installpath() {
+	public static void setProgressSize(float f) {
+		m_progressSize = f;
+	}
+
+	public String getInstallpath() {
 		return m_installpath;
 	}
 
-	public void setM_installpath(String mInstallpath) {
+	public void setInstallpath(String mInstallpath) {
 		m_installpath = mInstallpath;
 	}
 
