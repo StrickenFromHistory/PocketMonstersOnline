@@ -112,6 +112,8 @@ public class PokemonInfoDialog extends Frame{
                         i = x - 2;
                 } else if (x <= 416) {
                         i = 413;
+                } else if(x==431){
+                	i = 431;
                 } else {
                         i = x - 4;
                 }
