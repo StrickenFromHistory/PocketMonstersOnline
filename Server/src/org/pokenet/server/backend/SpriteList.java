@@ -32,7 +32,7 @@ public class SpriteList {
 	 * Initialises the list
 	 */
 	public void initialise() {
-		File f = new File("./res/sprites.txt");
+		File f = new File("res/sprites.txt");
 		if(f.exists()) {
 			try {
 				Scanner s = new Scanner(f);

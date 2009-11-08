@@ -6,7 +6,6 @@ import java.util.Random;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.item.Item;
-import org.pokenet.server.backend.item.ItemDatabase;
 import org.pokenet.server.backend.item.Item.ItemAttribute;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.DataService;
@@ -56,7 +55,7 @@ public class ItemProcessor implements Runnable {
 		for (int i = 1; i < m_details.length; i++)
 			data[i - 1] = m_details[i];
 		if (useItem(m_player, Integer.parseInt(m_details[0]), data) &&
-				!ItemDatabase.getInstance().getItem(Integer.parseInt(m_details[0])).getName().contains("Rod")) {
+				!GameServer.getServiceManager().getItemdatabase().getItem(Integer.parseInt(m_details[0])).getName().contains("Rod")) {
 			m_player.getBag().removeItem(Integer.parseInt(m_details[0]), 1);
 			m_player.getTcpSession().write("Ir" + m_details[0] + "," + 1);
 		}
@@ -75,7 +74,7 @@ public class ItemProcessor implements Runnable {
 		/* Check that the bag contains the item */
 		if (p.getBag().containsItem(itemId) < 0) return false;
 		/* We have the item, so let us use it */
-		Item i = ItemDatabase.getInstance().getItem(itemId);
+		Item i = GameServer.getServiceManager().getItemdatabase().getItem(itemId);
 		/* Pokemon object we might need */
 		Pokemon poke = null;
 		try {
@@ -564,10 +563,10 @@ public class ItemProcessor implements Runnable {
 					} else if (i.getId() == 805) { //Gummilax
 						String message = poke.getName()+" ate the Gummilax./n" +poke.getName()+" is happier!";
 						int happiness = poke.getHappiness()+rand.nextInt(30);
-						if(happiness<=300)
+						if(happiness<=255)
 							poke.setHappiness(happiness);
 						else
-							poke.setHappiness(300);
+							poke.setHappiness(255);
 						int random = rand.nextInt(10);
 						if(random <3){
 							poke.addStatus(new ParalysisEffect());

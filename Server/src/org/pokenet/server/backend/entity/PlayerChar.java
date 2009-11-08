@@ -8,7 +8,6 @@ import java.util.HashMap;
 
 import org.apache.mina.core.session.IoSession;
 import org.pokenet.server.GameServer;
-import org.pokenet.server.backend.item.ItemDatabase;
 import org.pokenet.server.backend.map.ServerMap;
 import org.pokenet.server.backend.map.ServerMap.PvPType;
 import org.pokenet.server.battle.BattleField;
@@ -1522,10 +1521,10 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 					this.updateClientMoney();
 					//Let player know he bought the item
 					TcpProtocolHandler.writeMessage(m_tcpSession, 
-							new ShopBuyMessage(ItemDatabase.getInstance().getItem(id).getId()));
+							new ShopBuyMessage(GameServer.getServiceManager().getItemdatabase().getItem(id).getId()));
 					//Update player inventory
 					TcpProtocolHandler.writeMessage(m_tcpSession, new ItemMessage(true, 
-							ItemDatabase.getInstance().getItem(id).getId(), 1));
+							GameServer.getServiceManager().getItemdatabase().getItem(id).getId(), 1));
 				}
 			}else{
 				//Return You have no money, fool!
@@ -1550,15 +1549,15 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_bag.removeItem(id, q);
 			//Tell the client to remove the item from the player's inventory
 			TcpProtocolHandler.writeMessage(m_tcpSession, new ItemMessage(false, 
-					ItemDatabase.getInstance().getItem(id).getId(), q));
+					GameServer.getServiceManager().getItemdatabase().getItem(id).getId(), q));
 			//Update the client's money
 			this.updateClientMoney();
 			//Let player know he sold the item.
 			TcpProtocolHandler.writeMessage(m_tcpSession, 
-					new ShopSellMessage(ItemDatabase.getInstance().getItem(id).getId()));
+					new ShopSellMessage(GameServer.getServiceManager().getItemdatabase().getItem(id).getId()));
 		} else {
 			//Return You don't have that item, fool!
-			TcpProtocolHandler.writeMessage(m_tcpSession, new ShopNoItemMessage(ItemDatabase.getInstance()
+			TcpProtocolHandler.writeMessage(m_tcpSession, new ShopNoItemMessage(GameServer.getServiceManager().getItemdatabase()
 					.getItem(id).getName()));
 		}
 	}

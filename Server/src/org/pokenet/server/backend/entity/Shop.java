@@ -3,7 +3,7 @@ package org.pokenet.server.backend.entity;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import org.pokenet.server.backend.item.ItemDatabase;
+import org.pokenet.server.GameServer;
 
 /**
  * Handles shops. Stored internally in npcs with a shop attribute.
@@ -30,9 +30,9 @@ public class Shop implements Runnable {
 		/*
 		 * Generate all the item stocks amd prices
 		 */
-	    for (int i : ItemDatabase.getInstance().getShopItems()){
+	    for (int i : GameServer.getServiceManager().getItemdatabase().getShopItems()){
 	    	m_stock.put(i, 100);
-	    	m_prices.put(i, ItemDatabase.getInstance().getItem(i).getPrice());
+	    	m_prices.put(i, GameServer.getServiceManager().getItemdatabase().getItem(i).getPrice());
 	    }
 	    /*
 	     * Set delta to 20 minutes
@@ -87,7 +87,7 @@ public class Shop implements Runnable {
 	 * @return
 	 */
 	public int getPriceForItem(int itemid) {	
-		return ItemDatabase.getInstance().getItem(itemid).getPrice();
+		return GameServer.getServiceManager().getItemdatabase().getItem(itemid).getPrice();
 	}
 	
 	/**

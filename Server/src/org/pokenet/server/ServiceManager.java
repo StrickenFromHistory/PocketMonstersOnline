@@ -22,6 +22,7 @@ public class ServiceManager {
 	private JythonService m_jythonService;
 	private IdleTimer m_idleTimer;
 	private SpriteList m_sprites;
+	private ItemDatabase m_itemdatabase;
 	
 	/**
 	 * Default constructor
@@ -34,6 +35,7 @@ public class ServiceManager {
 		m_timeService = new TimeService();
 		m_dataService = new DataService();
 		m_networkService = new NetworkService();
+		m_itemdatabase = new ItemDatabase();
 		m_movementService = new MovementService();
 		m_idleTimer = new IdleTimer();
 		m_sprites = new SpriteList();
@@ -96,8 +98,7 @@ public class ServiceManager {
 		 * Then start all other services with TimeService last.
 		 */
 		m_sprites.initialise();
-		ItemDatabase db = new ItemDatabase();
-		db.reinitialise();
+		m_itemdatabase.initialise();
 		m_movementService.start();
 		m_networkService.start();
 		m_timeService.start();
@@ -118,5 +119,13 @@ public class ServiceManager {
 		m_movementService.stop();
 		m_networkService.stop();
 		System.out.println("INFO: Service Manager stopped.");
+	}
+
+	public ItemDatabase getItemdatabase() {
+		return m_itemdatabase;
+	}
+
+	public void setItemdatabase(ItemDatabase mItemdatabase) {
+		m_itemdatabase = mItemdatabase;
 	}
 }
