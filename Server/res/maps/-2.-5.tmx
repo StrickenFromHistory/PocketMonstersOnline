@@ -2,10 +2,10 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="25" height="53" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonChances" value="Pidgeotto,20;Girafarig,10;Sentret,10;Flaaffy,5;Farfetch'd,5;Furret,8;Mareep,7;Venonat,2;Raticate,3;Glameow,10;Murkrow,15;Misdreavus,5;"/>
-  <property name="dayPokemonLevels" value="17-17;15-15;15-15;15-15;16-16;15-17;15-15;16-16;17-17;18-18;18-19;18-18;"/>
-  <property name="nightPokemonChances" value="Flaaffy,20;Girafarig,10;Venomoth,10;Noctowl,15;Venonat,10;Mareep,2;Raticate,3;Glameow,10;Murkrow,15;Misdreavus,5;"/>
-  <property name="nightPokemonLevels" value="15-15;15-15;17-17;16-16;15-17;15-15;16-17;18-18;18-19;18-18;"/>
+  <property name="dayPokemonChances" value="Pidgeotto,30;Girafarig,15;Sentret,15;Flaaffy,10;Farfetch'd,10;Furret,8;Mareep,7;Venonat,2;Raticate,3;"/>
+  <property name="dayPokemonLevels" value="17-17;15-15;15-15;15-15;16-16;15-17;15-15;16-16;17-17;"/>
+  <property name="nightPokemonChances" value="Flaaffy,30;Girafarig,15;Venomoth,15;Noctowl,20;Venonat,15;Mareep,2;Raticate,3;"/>
+  <property name="nightPokemonLevels" value="15-15;15-15;17-17;16-16;15-17;15-15;16-17;"/>
   <property name="pvp" value="enforced"/>
   <property name="waterPokemonChances" value="Magikarp,100;"/>
   <property name="waterPokemonLevels" value="15-24;"/>

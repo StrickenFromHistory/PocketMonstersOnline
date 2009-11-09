@@ -2,10 +2,10 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="60" height="18" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonChances" value="Lickitung,35;Tangela,20;Bellsprout,20;Weepinbell,5;Murkrow,15;Misdreavus,5;"/>
-  <property name="dayPokemonLevels" value="22-26;23-23;22-22;24-24;26-26;26-26;"/>
-  <property name="nightPokemonChances" value="Tangela,25;Poliwag,15;Bellsprout,20;Weepinbell,5;Poliwhirl,5;Lickitung,10;Murkrow,15;Misdreavus,5;"/>
-  <property name="nightPokemonLevels" value="23-23;22-22;22-22;24-24;24-26;22-26;26-26;26-26;"/>
+  <property name="dayPokemonChances" value="Lickitung,40;Tangela,30;Bellsprout,20;Weepinbell,10;"/>
+  <property name="dayPokemonLevels" value="22-26;23-23;22-22;24-24;"/>
+  <property name="nightPokemonChances" value="Tangela,30;Poliwag,15;Bellsprout,20;Weepinbell,10;Poliwhirl,5;Lickitung,20;"/>
+  <property name="nightPokemonLevels" value="23-23;22-22;22-22;24-24;24-26;22-26;"/>
   <property name="waterPokemonChances" value="Poliwag,90;Poliwhirl,10;"/>
   <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>

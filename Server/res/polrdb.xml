@@ -20774,7 +20774,7 @@
             <int>85</int>
             <int>42</int>
          </baseStats>
-         <rareness>75</rareness>
+         <rareness>30</rareness>
          <baseEXP>107</baseEXP>
          <happiness>35</happiness>
          <growthRate>PARABOLIC</growthRate>
@@ -41494,21 +41494,9 @@
          <femalePercentage>0</femalePercentage>
          <moves>
             <entry>
-               <integer>33</integer>
-               <string>Brine</string>
-            </entry>
-            <entry>
                <integer>4</integer>
                <string>Growl</string>
-            </entry>
-            <entry>
-               <integer>39</integer>
-               <string>Whirlpool</string>
-            </entry>
-            <entry>
-               <integer>36</integer>
-               <string>Aqua Jet</string>
-            </entry>
+            </entry>   
             <entry>
                <integer>8</integer>
                <string>Bubble</string>
@@ -41534,20 +41522,36 @@
                <string>Bubblebeam</string>
             </entry>
             <entry>
-               <integer>52</integer>
-               <string>Drill Peck</string>
-            </entry>
-            <entry>
-               <integer>59</integer>
-               <string>Hydro Pump</string>
-            </entry>
-            <entry>
                <integer>24</integer>
                <string>Swagger</string>
             </entry>
             <entry>
                <integer>28</integer>
                <string>Fury Attack</string>
+            </entry>
+           <entry>
+               <integer>33</integer>
+               <string>Brine</string>
+            </entry>
+            <entry>
+               <integer>36</integer>
+               <string>Aqua Jet</string>
+            </entry>
+              <entry>
+               <integer>39</integer>
+               <string>Whirlpool</string>
+            </entry>
+             <entry>
+               <integer>46</integer>
+               <string>Mist</string>
+            </entry>
+            <entry>
+               <integer>52</integer>
+               <string>Drill Peck</string>
+            </entry>
+            <entry>
+               <integer>59</integer>
+               <string>Hydro Pump</string>
             </entry>
          </moves>
          <starterMoves>
