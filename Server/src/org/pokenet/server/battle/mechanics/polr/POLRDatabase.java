@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.Set;
 
 import org.ini4j.Ini;
+import org.pokenet.server.GameServer;
+import org.pokenet.server.battle.DataService;
+import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.PokemonSpecies;
 import org.pokenet.server.battle.PokemonSpeciesData;
 import org.pokenet.server.battle.Pokemon.ExpTypes;
@@ -31,7 +34,7 @@ public class POLRDatabase {
 		PokemonSpeciesData sp = null;
 		try {
 			sp = new Persister().read(PokemonSpeciesData.class, new File(
-			"pokeglobal/server/res/species.xml"));
+			"res/species.xml"));
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -40,7 +43,7 @@ public class POLRDatabase {
 
 		Ini ini = null;
 		try {
-			ini = new Ini(new FileInputStream("pokeglobal/server/res/db.ini"));
+			ini = new Ini(new FileInputStream("res/db.ini"));
 		} catch (Exception e) { e.printStackTrace(); }
 
 		Ini.Section[] sections = new Ini.Section[498];
@@ -124,7 +127,7 @@ public class POLRDatabase {
 			db.m_temp[i].setBattlerAltitude(Integer.parseInt(s.get("BattlerAltitude")));*/
 		}
 		Serializer serializer = new Persister();
-		File userfile = new File("pokeglobal/server/res/polrdb.xml");
+		File userfile = new File("res/polrdb.xml");
 		userfile.delete();
 		try {
 			serializer.write(db, userfile);
@@ -159,4 +162,23 @@ public class POLRDatabase {
 	public POLRDataEntry getPokemonData(int i) {
 		return m_pokemonData[i];
 	}
+	
+	 /**
+     * Get the mass of a given pokemon.
+     */
+    public static double getMass(Pokemon species) {
+        return getMass(species.getSpeciesName());
+    }
+    
+    /**
+     * Get the mass of a given pokemon.
+     */
+    public static double getMass(String species) {
+    	try{
+			return DataService.getPOLRDatabase().getPokemonData(PokemonSpecies.getDefaultData().getPokemonByName(species)).getWeight();
+    	}catch(Exception e){
+    		System.out.println("Warning: no mass for " + species + ".");
+    		return 0.0;
+    	}
+    }   
 }

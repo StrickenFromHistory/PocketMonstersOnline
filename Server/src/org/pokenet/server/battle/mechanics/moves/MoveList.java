@@ -38,12 +38,12 @@ import java.util.Set;
 import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.Pokemon;
-import org.pokenet.server.battle.PokemonMass;
 import org.pokenet.server.battle.PokemonSpecies;
 import org.pokenet.server.battle.mechanics.BattleMechanics;
 import org.pokenet.server.battle.mechanics.JewelMechanics;
 import org.pokenet.server.battle.mechanics.PokemonType;
 import org.pokenet.server.battle.mechanics.StatMultiplier;
+import org.pokenet.server.battle.mechanics.polr.POLRDatabase;
 import org.pokenet.server.battle.mechanics.statuses.BurnEffect;
 import org.pokenet.server.battle.mechanics.statuses.ChargeEffect;
 import org.pokenet.server.battle.mechanics.statuses.ConfuseEffect;
@@ -6205,7 +6205,7 @@ public class MoveList {
 			 super(type, 0, accuracy, pp);
 		 }
 		 public int use(BattleMechanics mech, Pokemon user, Pokemon target) {
-			 final double mass = PokemonMass.getMass(target);
+			 final double mass = POLRDatabase.getMass(target);
 			 if (mass <= 10.0) {
 				 setPower(20);
 			 } else if (mass <= 25.0) {
