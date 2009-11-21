@@ -456,6 +456,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					 * 36 - 41 Undefined
 					 */
 					m_game.getOurPlayer().initBadges(message.substring(3));
+					GameClient.getInstance().setOurPlayer(m_game.getOurPlayer());
 					break;
 				}
 				break;
