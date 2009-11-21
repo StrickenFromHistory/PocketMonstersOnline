@@ -153,8 +153,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			return;
 		/* Check if the pokemon exists */
 		if(m_boxes[box].getPokemon(slot) != null) {
-			if(m_boxes[box].getPokemon(slot).getDatabaseID() > -1
-					&& m_boxes[box].getDatabaseId() > -1) {
+			if(m_boxes[box].getPokemon(slot).getDatabaseID() > -1) {
 				/* This box exists and the pokemon exists in the database */
 				int id = m_boxes[box].getPokemon(slot).getDatabaseID();
 				MySqlManager m = new MySqlManager();
@@ -188,7 +187,6 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		/* Ensure the box exists */
 		if(m_boxes[box] == null) {
 			m_boxes[box] = new PokemonBox();
-			m_boxes[box].setDatabaseId(-1);
 			m_boxes[box].setPokemon(new Pokemon[30]);
 		}
 		/* Make sure we're not depositing our only Pokemon */
@@ -1166,7 +1164,6 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			} else {
 				/* We need a new box */
 				m_boxes[i] = new PokemonBox();
-				m_boxes[i].setDatabaseId(-1);
 				m_boxes[i].setPokemon(new Pokemon[30]);
 				m_boxes[i].setPokemon(0, p);
 				break;
@@ -1463,7 +1460,6 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		/* If box is non-existant, create it and send small packet */
 		if(m_boxes[j] == null) {
 			m_boxes[j] = new PokemonBox();
-			m_boxes[j].setDatabaseId(-1);
 			m_boxes[j].setPokemon(new Pokemon[30]);
 			m_tcpSession.write("B");
 		}

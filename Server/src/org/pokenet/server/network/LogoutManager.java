@@ -184,11 +184,11 @@ public class LogoutManager implements Runnable {
 					if(p.getParty() != null && p.getParty()[i] != null) {
 						if(p.getParty()[i].getDatabaseID() < 1) {
 							//This is a new Pokemon, add it to the database
-							if(saveNewPokemon(p.getParty()[i], m_database) < 1)
+							if(saveNewPokemon(p.getParty()[i], p.getName(), m_database) < 1)
 								return false;
 						} else {
 							//Old Pokemon, just update
-							if(!savePokemon(p.getParty()[i]))
+							if(!savePokemon(p.getParty()[i], p.getName()))
 								return false;
 						}
 					}
@@ -216,43 +216,21 @@ public class LogoutManager implements Runnable {
 				if(p.getBoxes() != null) {
 					for(int i = 0; i < 9; i++) {
 						if(p.getBoxes()[i] != null) {
-							if(p.getBoxes()[i].getDatabaseId() == -1) {
-								//New box
-								m_database.query("INSERT INTO pn_box(member) " +
-										"VALUES ('" + p.getId() + "')");
-								ResultSet result = m_database.query("SELECT * FROM pn_box WHERE member='" + p.getId() + "'");
-								result.last();
-								p.getBoxes()[i].setDatabaseId(result.getInt("id"));
-							}
 							/* Save all pokemon in box */
 							for(int j = 0; j < p.getBoxes()[i].getPokemon().length; j++) {
 								if(p.getBoxes()[i].getPokemon()[j] != null) {
 									if(p.getBoxes()[i].getPokemon()[j].getDatabaseID() < 1) {
 										/* This is a new Pokemon, create it in the database */
-										int pokedbNo = saveNewPokemon(p.getBoxes()[i].getPokemon(j), m_database);
-										if(pokedbNo > -1) {
-											m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  pokedbNo + "' " +
-													"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
-										} else {
+										if(saveNewPokemon(p.getBoxes()[i].getPokemon(j), p.getName(), m_database) < 1)
 											return false;
-										}
 									} else {
 										/* Update an existing pokemon */
-										if(savePokemon(p.getBoxes()[i].getPokemon()[j])) {
-											m_database.query("UPDATE pn_box SET pokemon" + j + "='" +  p.getBoxes()[i].getPokemon(j).getDatabaseID() + "' " +
-													"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
-										} else {
+										if(!savePokemon(p.getBoxes()[i].getPokemon()[j], p.getName())) {
 											return false;
 										}
 									}
-								} else {
-									m_database.query("UPDATE pn_box SET pokemon" + j + "='-1' " +
-											"WHERE id='" + p.getBoxes()[i].getDatabaseId() + "'");
 								}
 							}
-							/* Now save the reference to the box in the player's poke list */
-							m_database.query("UPDATE pn_mypokes SET box" + i + "='" + p.getBoxes()[i].getDatabaseId() + "' WHERE member='"
-									+ p.getId() + "'");
 						}
 					}
 				}
@@ -272,7 +250,7 @@ public class LogoutManager implements Runnable {
 	 * Saves a pokemon to the database that didn't exist in it before
 	 * @param p
 	 */
-	private int saveNewPokemon(Pokemon p, MySqlManager db) {
+	private int saveNewPokemon(Pokemon p, String currentTrainer, MySqlManager db) {
 		try {
 			/*
 			 * Due to issues with Pokemon not receiving abilities,
@@ -293,7 +271,7 @@ public class LogoutManager implements Runnable {
 			 */
 			db.query("INSERT INTO pn_pokemon" +
 					"(name, speciesName, exp, baseExp, expType, isFainted, level, happiness, " +
-					"gender, nature, abilityName, itemName, isShiny, originalTrainerName, date, contestStats)" +
+					"gender, nature, abilityName, itemName, isShiny, currentTrainerName, originalTrainerName, date, contestStats)" +
 					"VALUES (" +
 					"'" + MySqlManager.parseSQL(p.getName()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getSpeciesName()) +"', " +
@@ -308,6 +286,7 @@ public class LogoutManager implements Runnable {
 					"'" + MySqlManager.parseSQL(p.getAbility().getName()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getItemName()) +"', " +
 					"'" + String.valueOf(p.isShiny()) +"', " +
+					"'" + currentTrainer + "', " +
 					"'" + MySqlManager.parseSQL(p.getOriginalTrainer()) + "', " +
 					"'" + MySqlManager.parseSQL(p.getDateCaught()) + "', " +
 					"'" + p.getContestStatsAsString() + "')");
@@ -367,7 +346,7 @@ public class LogoutManager implements Runnable {
 	 * Updates a pokemon in the database
 	 * @param p
 	 */
-	private boolean savePokemon(Pokemon p) {
+	private boolean savePokemon(Pokemon p, String currentTrainer) {
 		try {
 			/*
 			 * Due to issues with Pokemon not receiving abilities,
@@ -400,6 +379,7 @@ public class LogoutManager implements Runnable {
 					"abilityName='" + MySqlManager.parseSQL(p.getAbility().getName()) +"', " +
 					"itemName='" + MySqlManager.parseSQL(p.getItemName()) +"', " +
 					"isShiny='" + String.valueOf(p.isShiny()) +"', " +
+					"currentTrainerName='" + currentTrainer +"', " +
 					"contestStats='" + p.getContestStatsAsString() +"' " +
 					"WHERE id='" + p.getDatabaseID() + "'");
 			m_database.query("UPDATE pn_pokemon SET move0='" + MySqlManager.parseSQL(p.getMove(0).getName()) +

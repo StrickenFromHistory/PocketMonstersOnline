@@ -8,7 +8,6 @@ import org.pokenet.server.battle.Pokemon;
  *
  */
 public class PokemonBox {
-	private int m_boxId = -1;
 	private Pokemon [] m_pokemon;
 	
 	/**
@@ -43,21 +42,5 @@ public class PokemonBox {
 	 */
 	public void setPokemon(int index, Pokemon p) {
 		m_pokemon[index] = p;
-	}
-	
-	/**
-	 * Returns the id of this box in the database
-	 * @return
-	 */
-	public int getDatabaseId() {
-		return m_boxId;
-	}
-	
-	/**
-	 * Sets the id of this box in the database
-	 * @param i
-	 */
-	public void setDatabaseId(int i) {
-		m_boxId = i;
 	}
 }
