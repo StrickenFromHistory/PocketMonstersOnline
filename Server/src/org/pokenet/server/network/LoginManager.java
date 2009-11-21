@@ -366,6 +366,7 @@ public class LoginManager implements Runnable {
 		try {
 			PlayerChar p = new PlayerChar();
 			Pokemon [] party = new Pokemon[6];
+			PokemonBox[] boxes = new PokemonBox[9];
 			
 			p.setName(result.getString("username"));
 			p.setVisible(true);
@@ -389,45 +390,55 @@ public class LoginManager implements Runnable {
 			p.setCoordinatingExp(result.getInt("skCoord"));
 			p.setBreedingExp(result.getInt("skBreed"));
 			//Retrieve refences to all Pokemon
-			int pokesId = result.getInt("pokemons");
-			ResultSet pokemons = m_database.query("SELECT * FROM pn_mypokes WHERE id='" + pokesId + "'");
-			pokemons.first();
-			p.setDatabasePokemon(pokemons);
-			//Attach party
-			ResultSet partyInfo = m_database.query("SELECT * FROM pn_party WHERE id='" + pokemons.getInt("party") + "'");
-			partyInfo.first();
-			for(int i = 0; i < 6; i++) {
-				party[i] = partyInfo.getInt("pokemon" + i) != -1 ? 
-						getPokemonObject(m_database.query("SELECT * FROM pn_pokemon WHERE id='" + partyInfo.getInt("pokemon" + i) + "'"))
-						: null;
-			}
-			p.setParty(party);
-			//Attach boxes
-			PokemonBox[] boxes = new PokemonBox[9];
-			ResultSet boxInfo;
-			for(int i = 0; i < 9; i++) {
-				/*
-				 * -1 is stored in the database if no box exists
-				 */
-				if(pokemons.getInt("box" + i) != -1) {
-					boxInfo = m_database.query("SELECT * FROM pn_box WHERE id='" + pokemons.getInt("box" + i) + "'");
-					boxInfo.first();
-					boxes[i] = new PokemonBox();
-					boxes[i].setPokemon(new Pokemon[30]);
-					boxes[i].setDatabaseId(boxInfo.getInt("id"));
-					for(int j = 0; j < 30; j++) {
-						/*
-						 * -1 stored in the database if no pokemon exists
-						 */
-						if(boxInfo.getInt("pokemon" + j) > 0) {
-							boxes[i].setPokemon(j, getPokemonObject(m_database.query("SELECT * FROM pn_pokemon WHERE id='" + boxInfo.getInt("pokemon" + j) + "'")));
+			int partyId = result.getInt("party");
+			ResultSet partyData = m_database.query("SELECT * FROM pn_party WHERE id='" + partyId + "'");
+			partyData.first();
+			
+			ResultSet pokemons = m_database.query("SELECT * FROM pn_pokemon WHERE currentTrainerName='" + p.getName() + "'");
+			int boxNumber = 0;
+			int boxPosition = 0;
+			/* Loop through all Pokemon belonging to this player and add them to their party/box */
+			while(pokemons.next()) {
+				boolean isParty = false;
+				int partyIndex = -1;
+				/* Checks if Pokemon is in party */
+				for(int i = 0; i < 6; i++) {
+					if(partyData.getInt("pokemon" + i) == pokemons.getInt("id")) {
+						isParty = true;
+						partyIndex = i;
+						break;
+					}
+				}
+				/* If the pokemon is in party, add it to party */
+				if(isParty) {
+					party[partyIndex] = getPokemonObject(pokemons);
+				} else {
+					/* Else, add it to box if space is available */
+					if(boxNumber < 9) {
+						/* Avoid null pointers */
+						if(boxes[boxNumber] == null)
+							boxes[boxNumber] = new PokemonBox();
+						if(boxes[boxNumber].getPokemon() == null)
+							boxes[boxNumber].setPokemon(new Pokemon[30]);
+						/* If there's space in this box, add it to the box */
+						if(boxPosition < 30) {
+							boxes[boxNumber].setPokemon(boxPosition, getPokemonObject(pokemons));
 						} else {
-							boxes[i].setPokemon(j, null);
+							/* Else open up a new box and add it to box */
+							boxPosition = 0;
+							boxNumber++;
+							if(boxNumber < 9) {
+								boxes[boxNumber].setPokemon(new Pokemon[30]);
+								boxes[boxNumber].setPokemon(boxPosition, getPokemonObject(pokemons));
+							}
 						}
+						boxPosition++;
 					}
 				}
 			}
+			p.setParty(party);
 			p.setBoxes(boxes);
+			
 			//Attach bag
 			p.setBag(getBagObject(m_database.query("SELECT * FROM pn_bag WHERE member='" + result.getInt("id") + "'"),p.getId()));
 
@@ -448,7 +459,6 @@ public class LoginManager implements Runnable {
 	private Pokemon getPokemonObject(ResultSet data) {
 		if(data != null) {
 			try {
-				data.first();
 				/*
 				 * First generate the Pokemons moves
 				 */

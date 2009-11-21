@@ -56,7 +56,6 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	private IoSession m_tcpSession = null;
 	private IoSession m_udpSession = null;
 	private int m_money;
-	private ResultSet m_databasePokemon;
 	private ArrayList<String> m_friends;
 	private long m_lastLogin;
 	private int m_skillHerbExp = 0;
@@ -1128,22 +1127,6 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	}
 	
 	/**
-	 * Stores the id of this player's party and boxes in the database
-	 * @param r
-	 */
-	public void setDatabasePokemon(ResultSet r) {
-		m_databasePokemon = r;
-	}
-	
-	/**
-	 * Returns the result set of the party and box ids in the database
-	 * @return
-	 */
-	public ResultSet getDatabasePokemon() {
-		return m_databasePokemon;
-	}
-	
-	/**
 	 * Stores a caught Pokemon in the player's party or box
 	 * @param p
 	 */
@@ -1290,7 +1273,6 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		super.dispose();
 		m_pokemon = null;
 		m_boxes = null;
-		m_databasePokemon = null;
 		m_friends = null;
 		m_bag = null;
 		m_currentShop = null;
