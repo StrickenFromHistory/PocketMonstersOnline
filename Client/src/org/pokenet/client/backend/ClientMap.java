@@ -468,6 +468,7 @@ public class ClientMap extends TiledMap {
 		m_xOffset = offset;
 
 		if (calibrate) {
+			int thisX = (this.getXOffset() + (this.getWidth() * 32));
 			// 0, 1 -- Left
 			ClientMap map = m_mapMatrix.getMap(m_mapX - 1, m_mapY);
 			if (map != null)
@@ -525,6 +526,9 @@ public class ClientMap extends TiledMap {
 							- getXOffsetModifier() + map.getXOffsetModifier(),
 							false);
 				}
+				//Overlap check
+				if(map.getXOffset() < thisX)
+					map.setXOffset(thisX, false);
 			}
 			// 2, 2 -- Lower Right
 			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY + 1);
@@ -544,6 +548,9 @@ public class ClientMap extends TiledMap {
 							- getXOffsetModifier() + map.getXOffsetModifier(),
 							false);
 				}
+				//Overlap check
+				if(map.getXOffset() < thisX)
+					map.setXOffset(thisX, false);
 			}
 			// 2, 0 -- Lower Left
 			map = m_mapMatrix.getMap(m_mapX + 1, m_mapY - 1);
