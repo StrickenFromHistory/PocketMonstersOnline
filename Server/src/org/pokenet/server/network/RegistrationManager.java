@@ -137,16 +137,9 @@ public class RegistrationManager implements Runnable {
 			data = m_database.query("SELECT * FROM pn_party WHERE member='" + playerId + "'");
 			data.first();
 			/*
-			 * Create the players pokemon storage
-			 */
-			m_database.query("INSERT INTO pn_mypokes (member, party, box0, box1, box2, box3, box4, box5, box6, box7, box8) VALUES ('" +
-					+ playerId + "','" + data.getInt("id") + "','-1','-1','-1','-1','-1','-1','-1','-1','-1')");
-			data = m_database.query("SELECT * FROM pn_mypokes WHERE member='" + playerId + "'");
-			data.first();
-			/*
 			 * Attach pokemon to the player
 			 */
-			m_database.query("UPDATE pn_members SET pokemons='" + data.getInt("id") + "' WHERE id='" + playerId + "'");
+			m_database.query("UPDATE pn_members SET party='" + data.getInt("id") + "' WHERE id='" + playerId + "'");
 			/* Attach a bag of 5 pokeballs to the player */
 			m_database.query("INSERT INTO pn_bag (member,item,quantity) VALUES ('" + playerId + "', '35', '5')");
 			/*
@@ -218,7 +211,7 @@ public class RegistrationManager implements Runnable {
 			 */
 			db.query("INSERT INTO pn_pokemon" +
 					"(name, speciesName, exp, baseExp, expType, isFainted, level, happiness, " +
-					"gender, nature, abilityName, itemName, isShiny, originalTrainerName, date, contestStats)" +
+					"gender, nature, abilityName, itemName, isShiny, currentTrainerName, originalTrainerName, date, contestStats)" +
 					"VALUES (" +
 					"'" + MySqlManager.parseSQL(p.getName()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getSpeciesName()) +"', " +
@@ -233,6 +226,7 @@ public class RegistrationManager implements Runnable {
 					"'" + MySqlManager.parseSQL(p.getAbility().getName()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getItemName()) +"', " +
 					"'" + String.valueOf(p.isShiny()) +"', " +
+					"'" + MySqlManager.parseSQL(p.getOriginalTrainer()) + "', " +
 					"'" + MySqlManager.parseSQL(p.getOriginalTrainer()) + "', " +
 					"'" + MySqlManager.parseSQL(p.getDateCaught()) + "', " +
 					"'" + p.getContestStatsAsString() + "')");
