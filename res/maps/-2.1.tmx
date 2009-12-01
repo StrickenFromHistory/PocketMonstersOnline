@@ -4,13 +4,13 @@
  <properties>
   <property name="dayPokemonChances" value="Doduo,50;Raticate,15;Arbok,15;Quagsire,10;Ponyta,5;Dodrio,2;Sandslash,3;"/>
   <property name="dayPokemonLevels" value="28-30;28-28;28-28;28-28;32-32;30-30;30-30;"/>
+  <property name="fishPokemonChances" value="Magikarp,25;Krabby,28;Kingler,27;Corsola,5;Staryu,8;Starmie,7"/>
+  <property name="fishPokemonLevels" value="10-20;20-40;40-40;30-40;30-40;40-40;"/>
   <property name="nightPokemonChances" value="Quagsire,50;Raticate,20;Ponyta,5;Arbok,2;Sandslash,3;Noctowl,20;"/>
   <property name="nightPokemonLevels" value="28-30;28-30;32-32;28-28;30-30;28-32;"/>
   <property name="waterPokemonChances" value="Tentacool,90;Tentacruel,10;"/>
   <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>
-  <property name="fishPokemonLevels" value="10-20;20-40;40-40;30-40;30-40;40-40;"/>
-  <property name="fishPokemonChances" value="Magikarp,25;Krabby,28;Kingler,27;Corsola,5;Staryu,8;Starmie,7"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
@@ -40,7 +40,7 @@
  </layer>
  <layer name="Collisions" width="48" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAANWXWwrCMBBFU0E/Ujcg6oeC7kR34qJ9LcQXeIdSaAKxyUxeHrjMR5gSzqShbeZKTRApU2RWoG6w961g/ztkX7ASjWAGpbz3lZDMoAb/BHcGNfgnuDOoxT/BmcEBOapwb32fq4b6J3K+B7GeN0RyD7n8ufyOkdu/ja/ns1bqglyRG3LXZn/oHCUzGOLr+YH9PpEX8kY+2uwP8U/EnIEPi7arS9QVsm7N9Vznf4wTs6/U+Y9FLf655PbPvfdd66m/f2xC7wu7j/u8f/0PIGK4T/2d+ct/jnOfqn4BmDKjbQAPAAA=
+   H4sIAAAAAAAAAM1WywrCMBBMBT20nryJelCof6J/4kf7+hBf4Cyy0ARjk92aZGAYSLphM5OGVFNjRqAWY3CSQdfofaPovwW3GZVQKTLI5TsrQZNBCf4TpBmU4D9BmkEp/hMkGezAvYn3jet8Gus/IeV/MNR6XWjuIZ9/Pn/7kNp/F6E+H2tjTuAZvIDX2q6PzVGTQRehPt/Q7x18gE/wVdv1Mf4ThswgBPPmowvoElw19nyq89+Hg7Au1/kfCqX4L0Vq/6X3vm9e8/7hsZhcYu8Lt066Xtd77pfHWH/tJ+f7x+3Ld458+wnx6V/6ra9Q8PezDL6zvgHHj+lvAA8AAA==
   </data>
  </layer>
  <layer name="WalkBehind" width="48" height="20">
