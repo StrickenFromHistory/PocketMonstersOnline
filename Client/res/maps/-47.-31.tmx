@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="24" height="18" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonChances" value=""/>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+<tileset firstgid="1" source="normal1.tsx"/> 
+<tileset firstgid="1025" source="normal2.tsx"/>
+<tileset firstgid="2049" source="normal5.tsx"/>
+<tileset firstgid="3073" source="normal3.tsx"/>
+ <layer name="Walkable" width="24" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBQMNHjDSxtzedgh+A0bJn4HxTA+SJ0uO0SMl51487GZjQ17IqnVIdP8t0juRsfv0eyjxP0vgfgVEL/G4x9yzPeC8jmBNBcQc2OxH6aGHPNhYawJpLWAWBuL+Z5kmA8Ld/QwxhY370kIH3xAiAg1ADbGgCnABgAA
+  </data>
+ </layer>
+ <layer name="random" width="24" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMAgYGb9aBdsHAgV9sDAw/2fCrAcn/IqAGlz5aqifVTeT4AR1kcjAwZAFxNgflZmEDnUBzu4C4m4D5AIFpnFjABgAA
+  </data>
+ </layer>
+ <layer name="Collisions" width="24" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYGgCIw7KMSHze9kYGD6QgfvYiDN/LVCdADuED6KJxeuIMJ+Rh4HhLBuq2C0mBoYaIK5lQogZsDIw3GdCVXeODaKfkPno4BfQnN9A/AeI/wLxPyj+z0ScflLkCYHBZD4nMIy5WPGrR1dDivmaQH1aBMxHVzMYwodSDADxWuVIwAYAAA==
+  </data>
+ </layer>
+ <layer name="random2" width="24" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBTgA6d5GRjOAPFZXlTx96wMDB9YEXxuVgaywGuguW+A+C0Q72JiYOAFmsMHxPxsDAwCIAxk7weKa5Np/igYBcMVAADbbhwMwAYAAA==
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="24" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwCoYeAACLWkJewAYAAA==
+  </data>
+ </layer>
+</map>
