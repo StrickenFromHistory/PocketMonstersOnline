@@ -308,47 +308,67 @@ public class NonPlayerChar extends Char {
 		int level;
 		String name;
 		Random r = DataService.getBattleMechanics().getRandom();
-		int playerPartySize = p.getPartyCount();
-		if(m_minPartySize < playerPartySize && m_possiblePokemon.size() >= playerPartySize + 1) {
-			/*
-			 * The player has more Pokemon, generate a random party
-			 */
-			/*
-			 * First, get a random party size that is greater than m_minPartySize
-			 * and less than or equal to the amount of pokemon in the player's party + 1
-			 */
-			int pSize = r.nextInt(playerPartySize + 1 > 6 ? 6 : playerPartySize + 1);
-			while(pSize < m_minPartySize) {
-				pSize = r.nextInt(playerPartySize + 1 > 6 ? 6 : playerPartySize + 1);
-			}
-			/*
-			 * Now generate the random Pokemon
-			 */
-			for(int i = 0; i <= pSize; i++) {
-				//Select a random Pokemon
-				name = (String) m_possiblePokemon.keySet().toArray()[r.nextInt(m_possiblePokemon.keySet().size())];
-				level = m_possiblePokemon.get(name);
-				/* Level scaling */
-				/*while(level < p.getHighestLevel() - 3) {
-					level = r.nextInt(p.getHighestLevel() + 5);
-				}*/
-				poke = Pokemon.getRandomPokemon(name, level);
-				party[i] = poke;
+		if(isGymLeader()) {
+			if(p.getBadgeCount() > 8) {
+				/* If a player has 8 badges, level 80s all round */
+				for(int i = 0; i < 6; i++) {
+					name = (String) m_possiblePokemon.keySet().toArray()[r.nextInt(m_possiblePokemon.keySet().size())];
+					level = 80;
+					poke = Pokemon.getRandomPokemon(name, level);
+					party[i] = poke;
+				}
+			} else {
+				/* If a player hasn't got 8 badges, give them normal levels */
+				for(int i = 0; i < m_minPartySize; i++) {
+					name = (String) m_possiblePokemon.keySet().toArray()[r.nextInt(m_possiblePokemon.keySet().size())];
+					level = m_possiblePokemon.get(name);
+					poke = Pokemon.getRandomPokemon(name, level);
+					party[i] = poke;
+				}
 			}
 		} else {
-			/*
-			 * Generate a party of size m_minPartySize
-			 */
-			for(int i = 0; i < m_minPartySize; i++) {
-				//Select a random Pokemon from this list of possible Pokemons
-				name = (String) m_possiblePokemon.keySet().toArray()[r.nextInt(m_possiblePokemon.keySet().size())];
-				level = m_possiblePokemon.get(name);
-				//Ensure levels are the similiar
-				/*while(level < p.getHighestLevel() - 3) {
-					level = r.nextInt(p.getHighestLevel() + 5);
-				}*/
-				poke = Pokemon.getRandomPokemon(name, level);
-				party[i] = poke;
+			int playerPartySize = p.getPartyCount();
+			if(m_minPartySize < playerPartySize && m_possiblePokemon.size() >= playerPartySize + 1) {
+				/*
+				 * The player has more Pokemon, generate a random party
+				 */
+				/*
+				 * First, get a random party size that is greater than m_minPartySize
+				 * and less than or equal to the amount of pokemon in the player's party + 1
+				 */
+				int pSize = r.nextInt(playerPartySize + 1 > 6 ? 6 : playerPartySize + 1);
+				while(pSize < m_minPartySize) {
+					pSize = r.nextInt(playerPartySize + 1 > 6 ? 6 : playerPartySize + 1);
+				}
+				/*
+				 * Now generate the random Pokemon
+				 */
+				for(int i = 0; i <= pSize; i++) {
+					//Select a random Pokemon
+					name = (String) m_possiblePokemon.keySet().toArray()[r.nextInt(m_possiblePokemon.keySet().size())];
+					level = m_possiblePokemon.get(name);
+					/* Level scaling */
+					/*while(level < p.getHighestLevel() - 3) {
+						level = r.nextInt(p.getHighestLevel() + 5);
+					}*/
+					poke = Pokemon.getRandomPokemon(name, level);
+					party[i] = poke;
+				}
+			} else {
+				/*
+				 * Generate a party of size m_minPartySize
+				 */
+				for(int i = 0; i < m_minPartySize; i++) {
+					//Select a random Pokemon from this list of possible Pokemons
+					name = (String) m_possiblePokemon.keySet().toArray()[r.nextInt(m_possiblePokemon.keySet().size())];
+					level = m_possiblePokemon.get(name);
+					//Ensure levels are the similiar
+					/*while(level < p.getHighestLevel() - 3) {
+						level = r.nextInt(p.getHighestLevel() + 5);
+					}*/
+					poke = Pokemon.getRandomPokemon(name, level);
+					party[i] = poke;
+				}
 			}
 		}
 		return party;
