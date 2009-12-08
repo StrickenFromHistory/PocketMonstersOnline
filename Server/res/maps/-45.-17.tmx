@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="49" height="40" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="Xoffsetmodifier" value="0"/>
+  <property name="Yoffsetmodifier" value="0"/>
+  <property name="wildprobability" value="610"/>
+  <property name="wildspecies" value="0"/>
+ </properties>
+ <tileset name="set7" firstgid="1" tilewidth="16" tileheight="16">
+  <image source="normal7.png" trans="000000"/>
+ </tileset>
+ <tileset name="set9" firstgid="1025" tilewidth="16" tileheight="16">
+  <image source="normal9.png" trans="000000"/>
+ </tileset>
+ <layer name="Walkable" width="49" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2WQQrAIAwEfZfQ/3+rJy9Cg22tbrYzIHgJyZiAKUWL48YZif06Jw5xbDVwaB7ZHRz6MJpTCRw0wEEDHDRof3Nmh37PmHVWMrNuHJ4T1fFmvlbi0AdlHN4FBw1w0AAHDXDQoN97MuLWBweHHbPksAvjgMMsolrqxV3NAf7DCSPFLZmgHgAA
+  </data>
+ </layer>
+ <layer name="Grass" width="49" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2YXw6DIAzGe425k4xl2a7h03b/I2wv0kSSpgP/FBRK+ku+F6OlXypYC2D0xIPo6/Vj10rFXooXro9eblbOGrn5S+LRe4KP3LXomnu88Oe2xuP33Xasl1pLUo8tcVLxpB5agnsY66YjotRerIn2/JEe6nAF+VnYCnfQXQMEv2kD/NdDE45omKUNF5E2Yh6C+F6J9aUl+z0pSx5QdJ/k9DRHsuaB16J0r2oYZ9DD+6m9j0PMQxs8vV6g28Pb6wO6PdD36FI5Fyk0f429KELnReahLmHmpd2D1vljoIX5Y8lZcA1SueJZGeYPe/4Tz4b3zfysj81T1vwYxlFM3mUhg6AeAAA=
+  </data>
+ </layer>
+ <layer name="Collisions" width="49" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2ZYQ7CIAxG8STjQLsKR/Bou4heRkkkmqYNBQp8El7SPyz7uufUFXWujftNX9Z5QXFujphxMfV415NZpz05uDypOIeLuJyZfvH48akch9PneVKaPClb01Pqkesp5SWHHN7ZOZRg+ZrQPCSH2rwWh9LqlVfrgMSqDl5YR2XF++CFdWS4a9U8k5BY8b2UKJkhW2bVGQ5pLq2Zj0c7oGeP6rMdyvr0rFasvieC+34+6fUFctyamj0tEtx9/KfnVmQ7YLAdMNgOGGwHDFZx8MzaKOJcY7EXnOlwLuKg/X/il/T7vXTuDIceuaPo1Wu0A+recDYrOFBeUoo4+KAeAAA=
+  </data>
+ </layer>
+ <layer name="random" width="49" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3XSREAIAwEMPAvAim1hgeOAUoioNerWwq3afX0BPMiwQ67jN4mFtcb6QUAQG7+wLzkTAAA+INcxws6nJhSbqAeAAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="49" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3MQQ0AAAgEoLN/CKuawL9uEIAE/ui6/QEAAAAAAAC7AQaJBxSgHgAA
+  </data>
+ </layer>
+</map>
