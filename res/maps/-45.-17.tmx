@@ -2,17 +2,20 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="49" height="40" tilewidth="16" tileheight="16">
  <properties>
-  <property name="Xoffsetmodifier" value="0"/>
-  <property name="Yoffsetmodifier" value="0"/>
-  <property name="wildprobability" value="610"/>
-  <property name="wildspecies" value="0"/>
+  <property name="dayPokemonChances" value="Zubat,70;Geodude,18;Paras,10;Clefairy,2;"/>
+  <property name="dayPokemonLevels" value="7-11;7-9;10-10;9-9;"/>
+  <property name="fishPokemonChances" value=""/>
+  <property name="fishPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value="Zubat,60;Geodude,28;Paras,10;Clefairy,2;"/>
+  <property name="nightPokemonLevels" value="7-11;7-9;10-10;9-9;"/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="wildProbability" value="10"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset name="set7" firstgid="1" tilewidth="16" tileheight="16">
-  <image source="normal7.png" trans="000000"/>
- </tileset>
- <tileset name="set9" firstgid="1025" tilewidth="16" tileheight="16">
-  <image source="normal9.png" trans="000000"/>
- </tileset>
+<tileset firstgid="1" source="normal7.tsx"/>
+<tileset firstgid="1025" source="normal9.tsx"/>
  <layer name="Walkable" width="49" height="40">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO2WQQrAIAwEfZfQ/3+rJy9Cg22tbrYzIHgJyZiAKUWL48YZif06Jw5xbDVwaB7ZHRz6MJpTCRw0wEEDHDRof3Nmh37PmHVWMrNuHJ4T1fFmvlbi0AdlHN4FBw1w0AAHDXDQoN97MuLWBweHHbPksAvjgMMsolrqxV3NAf7DCSPFLZmgHgAA
