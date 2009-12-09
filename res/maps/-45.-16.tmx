@@ -14,9 +14,9 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
-<tileset firstgid="1" source="normal1.tsx"/>
-<tileset firstgid="1025" source="normal7.tsx"/>
-<tileset firstgid="2049" source="normal9.tsx"/>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal7.tsx"/>
+ <tileset firstgid="2049" source="normal9.tsx"/>
  <layer name="Walkable" width="48" height="40">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO3XUQqAIBCEYYmu0xG8/7V66DkdqZjR/oV5k+VzwQVLua+6Z2W03F7F7zbhnyf4s/3HdqXXRz03EqXn6vNPD/41/F+837/Ov1Vu79M7uW348+P0t/aYuuOYP378+PHjx6/lzf8D88+w4sePHz9+/DP5T4yxhIMAHgAA
@@ -29,7 +29,7 @@
  </layer>
  <layer name="Collisions" width="48" height="40">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2YXW7CMAzH+1BedodNnGNTr7KDjI6T0J6Ecom9bd1d1kiNMJY/S5JWGn/JQoLE/tWxm4ShrqrhYavZabJ+Axwee9tVVTd9joA/fJdCfeacBM7gv5stxgqfW+c/zL5Pc+5z82O97uh8cuO+J/sh2Evln/oNi4rLjcP8sP7PYI5Wf9K4i5P/PM+DPi9G/k6IFdU61+Xo5LcK8+P6h9rXt/M88taPVd78N/V1nkdW/uB/7/AN2WPNDUIsOM8jC39gbwx+4RiKXeNvwHj4Louiejpn/WD2yP+p2FGJC9coFz/FPjDPFPeL2CNaXCv/c83by5ynVhhDje+AjfVtX1v5YQ6k978m7z7aI/5uIT9Waf5R4ef64Jfpl3G3Xv5Hgp9bB6l3JP54PouCtUedJ7izfc/k3srPSaufd+ddg1sTmH/8HFRuqXOVhR/vsyn5qfWn9iVvPOlMkpJ/yTxLPOwbngXW5m+Z905Oo84AS/nD9x9K7S2xg+CX6r17+HPcz6X31tdTen6vqLscrIut82t3da/fe/kb5zNod/XS/FGee6AWj2Oi/jvS9tPU9aNJ8puqXnEcbw1p8UryNwt6QItXij/XPluCnzv3pzCuJ1Py5xS1TwU9+NfVf+TP2aep+voPsV3HOgAeAAA=
+   H4sIAAAAAAAAAO2YbW7DIAyG8yM5xqaeY7vLDrJmPUnJSZoeZMvusiCB5Lo2xgQC0vJKVqQU8BNj89G577r5sGp2XW1qgENj70PXmfW5AH77LoemwjGxnHZ848z7ss/W+c9u7KuLfWl+rLeBjifX7nu1H4J9r/hTv2FRfrl2mB/m/w30kfIv1O6u5L+5fnDMeyS/CfjyGpXzclHyxwrz4/yHOvWP/TTS5k+sUuNfkv+kGBuy+5ybK/NrRLHH8Pv2cC3zomq6JD9m9/xfgl0Ev3COSvFT7DPzTX6/8DUi+Y3lf+l5e3VxGgNtqPYG2NI/1nUsP4xBaP2XpN1HJ8RvEvmx9uZfBH6uDn6ZelmGevFfCH5uHkK1E+L35zMvmHvUeYI7209M7GP5OUn586G8a3BzAuOPv4OKLXWuiuHH+2xOfmr+qX1J62+v+Kf0i/HXMv/IrDsljToDpPLb959C7qXYOTAuVXtb+Evcz7X73lZ+rai7HMyL1vmlu3rr/NJdvRa/5h4o+eOYqP+OpP00d/wlhcbNla+Sny06+J/H496X2mf34OfO/TmMq8mc/DV08NfVf+QvWae56voPwsuY7QAeAAA=
   </data>
  </layer>
  <layer name="random" width="48" height="40">
