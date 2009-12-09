@@ -4,14 +4,14 @@
  <properties>
   <property name="dayPokemonChances" value=""/>
   <property name="dayPokemonLevels" value=""/>
+  <property name="fishPokemonChances" value="Magikarp,35;Krabby,28;Kingler,27;Corsola,5;Staryu,5;"/>
+  <property name="fishPokemonLevels" value="10-20;10-40;40-40;20-40;20-40;"/>
   <property name="nightPokemonChances" value=""/>
   <property name="nightPokemonLevels" value=""/>
   <property name="pvp" value="disabled"/>
   <property name="waterPokemonChances" value="Tentacool,90;Tentacruel,10;"/>
   <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>
-  <property name="fishPokemonLevels" value="10-20;10-40;40-40;20-40;20-40;"/>
-  <property name="fishPokemonChances" value="Magikarp,35;Krabby,28;Kingler,27;Corsola,5;Staryu,5;"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="256"/>
  </properties>
@@ -21,7 +21,7 @@
  <tileset firstgid="3073" source="normal18.tsx"/>
  <layer name="Layer 4" width="48" height="31">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3MMQ0AAAgEMQTgXyAYwQP5sZd0ve2qBQAAAACAsEQT+nw61pxpV0AXAAA=
+   H4sIAAAAAAAAAO3OwQkAIAwEQcGvfdq3acQWRAIBnYP5HhujtSg0+5nKxt/6q5sAAAAAgDdkbCX93GwDg+cCeEAXAAA=
   </data>
  </layer>
  <layer name="Walkable" width="70" height="70">
