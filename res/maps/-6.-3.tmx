@@ -4,13 +4,13 @@
  <properties>
   <property name="dayPokemonChances" value=""/>
   <property name="dayPokemonLevels" value=""/>
+  <property name="fishPokemonChances" value="Magikarp,35;Krabby,28;Kingler,27;Staryu,5;Corsola,5;"/>
+  <property name="fishPokemonLevels" value="10-20;10-40;40-40;20-40;20-40;"/>
   <property name="nightPokemonChances" value=""/>
   <property name="nightPokemonLevels" value=""/>
   <property name="waterPokemonChances" value="Tentacool,90;Tentacruel,10;"/>
   <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>
-  <property name="fishPokemonLevels" value="10-20;10-40;40-40;20-40;20-40;"/>
-  <property name="fishPokemonChances" value="Magikarp,35;Krabby,28;Kingler,27;Staryu,5;Corsola,5;"/>
   <property name="xOffsetModifier" value="-256"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
@@ -22,9 +22,14 @@
  <tileset firstgid="5121" source="normal17.tsx"/>
  <tileset firstgid="6145" source="normal5.tsx"/>
  <tileset firstgid="7169" source="normal8.tsx"/>
+ <layer name="random" width="40" height="36">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OMQEAAAgDoGW1fwhD7NADEpAAAADQmOsAAMBTC4kRUoOAFgAA
+  </data>
+ </layer>
  <layer name="Walkable" width="40" height="36">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2WS07DMBCGnVc33bHMrjwOQpC4AkteBwFVIHHDnoI7kAFGnU5n7IkfLY9Y+hZNo/jLP2PHrXOuTWBVOXeqcFalPTsHs9/f9Gt+gV9j9GuO5GfJ7xhuU/svp2M9kcvRYVC4qrb3NQy8nup3LuRy8T3/jufIwOBOErF+vv6idUPuRx4Ij4X9fP1F9w2cg/sBWl8iqX2JNcP53rr9GiIvgl+/3Hei12L8ViQfKRMrpeoLfl0l91SMn3VY/ejan+oHNSvhR/N+b/1+0D8+P3Qs5ZeS37rbza/O5AeZSX40j5j+y+UnrSu+L/j2tZJ+3AuztPgdIj9tX4I5rpeyx+c3ZHE4v1ogZe8DXp3+XaGEPC1+tyfOPfV+pvpjXUL5DQr0ve/67f3a+64ZfMT6hXIBng1+vH99fnR9ac/T5osdP90PzhU33RchP2CzkP24Z04/PNNZ/LT1+9/90HHq4D7a79A61f4PrY9UH21+67l2ZiaGD9kwHAeAFgAA
+   H4sIAAAAAAAAAO2WS07DMBCGnVc33bHMrhQOQpC4Akv6OAioAokb9hTcgYxg1OnUY49fLY9Y+hZNo/jL7xnHrTGmTWBRGXMtsKzSnp2Dye9v+jW/wK9R+jUX8tPkdwm30PrL6VgHcjc6DAL31eG+hoHXU/1uLLncfs9/5DkyMLiTjVg/V33RdUPWIxvCtrCfq77ovoFzcD9AqksktS5xzXC+9+50DZFXi18/P3Wi12L8FiQfWyZaSq0v+HWVvaZi/LRD60d7P9QP1qyEH837o3X7Qf24/NCxlF9KfrvuOL86kx9kZvOjecTUXy4/W1/xfcG1r5X0416YpcbvHPlJ+xLM8TCXPZaz8/nVFlL2PuDNyN8Vis9T4/d0Zcxz7ybUH9fFl98gQN971R/ul953x+Aj1s+XC/Ci8OP16/Kj/SU9T5ovdvx0PzhXPHZf+PyA/czuxz1z+uGZTuMn9e9/90PH0MF9pN++PpX+9/VHqo80v/ZcOzERwyc7g0idgBYAAA==
   </data>
  </layer>
  <layer name="Grass" width="40" height="36">
