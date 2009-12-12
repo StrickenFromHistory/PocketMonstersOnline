@@ -24,6 +24,7 @@ import org.xml.sax.SAXParseException;
  * @author ZombieBear
  */
 public class ItemDatabase {
+	private static HashMap<Integer, Item> m_items;
 	
 	public void initialise() {
 		try {
@@ -114,7 +115,7 @@ public class ItemDatabase {
 			t.printStackTrace();
 		}
 	}
-	private static HashMap<Integer, Item> m_items;
+
 		
 	public HashMap<Integer, Item> getItemsList() {
 		return m_items;
@@ -175,12 +176,13 @@ public class ItemDatabase {
 
 	/**
 	 * Returns the ids of the items that should be added to the shop
+	 * @param type 
 	 * @return the ids of the items that should be added to the shop
 	 */
-	public List<Integer> getShopItems(){
+	public List<Integer> getShopItems(int type){
 		List<Integer> shopItems = new ArrayList<Integer>();
 		for (int i : m_items.keySet()){
-			if (m_items.get(i).getShop() == 1)
+			if (m_items.get(i).getShop() <= type)
 				shopItems.add(i);
 		}
 		return shopItems;

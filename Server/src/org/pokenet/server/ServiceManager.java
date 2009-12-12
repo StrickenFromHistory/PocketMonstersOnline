@@ -121,11 +121,11 @@ public class ServiceManager {
 		System.out.println("INFO: Service Manager stopped.");
 	}
 
-	public ItemDatabase getItemdatabase() {
+	public ItemDatabase getItemDatabase() {
 		return m_itemdatabase;
 	}
 
-	public void setItemdatabase(ItemDatabase mItemdatabase) {
+	public void setItemDatabase(ItemDatabase mItemdatabase) {
 		m_itemdatabase = mItemdatabase;
 	}
 }

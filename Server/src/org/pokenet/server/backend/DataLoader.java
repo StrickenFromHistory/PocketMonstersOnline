@@ -86,16 +86,16 @@ public class DataLoader implements Runnable {
 					npc.setBox(Boolean.parseBoolean(reader.nextLine().toLowerCase()));
 					
 					//Setting ShopKeeper as an Int instead of Bool. 
-					String shop = reader.nextLine().toLowerCase();
+					String shop = reader.nextLine();
 					try{ //Is it an old NPC Shop?
-						if(Boolean.parseBoolean(shop)){
+						if(Boolean.parseBoolean(shop.toLowerCase())){
 							npc.setShopKeeper(1); //Its an old shop! Yay!
-						}else if(!Boolean.parseBoolean(shop)){
+						} else {
 							npc.setShopKeeper(0); //Its an old npc. Not a shop. 
 						}
 					}catch(Exception e){
 						try{ //Not a boolean. Is it an int?
-							npc.setShopKeeper(Integer.parseInt(shop));//Its a new NPC, setting shop type
+							npc.setShopKeeper(Integer.parseInt(shop.trim()));//Its a new NPC, setting shop type
 						}catch(Exception ex){ 
 							npc.setShopKeeper(0);//Dunno what the hell it is, but its not a shop. 
 						}

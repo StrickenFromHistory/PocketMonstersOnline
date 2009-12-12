@@ -1486,12 +1486,6 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		if(m_bag.hasSpace(id)) {
 			/* First, check if the player can afford this */
 			if(m_money - (q * m_currentShop.getPriceForItem(id)) >= 0) {
-				/* Then, check if the player has right amount of badges to buy the item */
-//				switch(id) {
-//				case 0:
-//					//TODO: Check badge based on items that require x amount of badges to buy
-//					break;
-//				}
 				/* Finally, if the item is in stock, buy it */
 				if(m_currentShop.buyItem(id, q)) {
 					m_money = m_money - (q * m_currentShop.getPriceForItem(id));
@@ -1499,10 +1493,10 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 					this.updateClientMoney();
 					//Let player know he bought the item
 					TcpProtocolHandler.writeMessage(m_tcpSession, 
-							new ShopBuyMessage(GameServer.getServiceManager().getItemdatabase().getItem(id).getId()));
+							new ShopBuyMessage(GameServer.getServiceManager().getItemDatabase().getItem(id).getId()));
 					//Update player inventory
 					TcpProtocolHandler.writeMessage(m_tcpSession, new ItemMessage(true, 
-							GameServer.getServiceManager().getItemdatabase().getItem(id).getId(), 1));
+							GameServer.getServiceManager().getItemDatabase().getItem(id).getId(), 1));
 				}
 			}else{
 				//Return You have no money, fool!
@@ -1527,15 +1521,15 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_bag.removeItem(id, q);
 			//Tell the client to remove the item from the player's inventory
 			TcpProtocolHandler.writeMessage(m_tcpSession, new ItemMessage(false, 
-					GameServer.getServiceManager().getItemdatabase().getItem(id).getId(), q));
+					GameServer.getServiceManager().getItemDatabase().getItem(id).getId(), q));
 			//Update the client's money
 			this.updateClientMoney();
 			//Let player know he sold the item.
 			TcpProtocolHandler.writeMessage(m_tcpSession, 
-					new ShopSellMessage(GameServer.getServiceManager().getItemdatabase().getItem(id).getId()));
+					new ShopSellMessage(GameServer.getServiceManager().getItemDatabase().getItem(id).getId()));
 		} else {
 			//Return You don't have that item, fool!
-			TcpProtocolHandler.writeMessage(m_tcpSession, new ShopNoItemMessage(GameServer.getServiceManager().getItemdatabase()
+			TcpProtocolHandler.writeMessage(m_tcpSession, new ShopNoItemMessage(GameServer.getServiceManager().getItemDatabase()
 					.getItem(id).getName()));
 		}
 	}

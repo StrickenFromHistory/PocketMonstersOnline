@@ -24,15 +24,15 @@ public class Shop implements Runnable {
 	private long m_delta;
 	private boolean m_isRunning = false;
 	
-	public Shop() {
+	public Shop(int type) {
 		m_stock = new HashMap<Integer, Integer>();
 		m_prices = new HashMap<Integer, Integer>();
 		/*
 		 * Generate all the item stocks amd prices
 		 */
-	    for (int i : GameServer.getServiceManager().getItemdatabase().getShopItems()){
+	    for (int i : GameServer.getServiceManager().getItemDatabase().getShopItems(type)){
 	    	m_stock.put(i, 100);
-	    	m_prices.put(i, GameServer.getServiceManager().getItemdatabase().getItem(i).getPrice());
+	    	m_prices.put(i, GameServer.getServiceManager().getItemDatabase().getItem(i).getPrice());
 	    }
 	    /*
 	     * Set delta to 20 minutes
@@ -87,7 +87,7 @@ public class Shop implements Runnable {
 	 * @return
 	 */
 	public int getPriceForItem(int itemid) {	
-		return GameServer.getServiceManager().getItemdatabase().getItem(itemid).getPrice();
+		return m_prices.get(itemid);
 	}
 	
 	/**

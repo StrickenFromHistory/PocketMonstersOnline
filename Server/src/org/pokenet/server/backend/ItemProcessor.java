@@ -55,7 +55,7 @@ public class ItemProcessor implements Runnable {
 		for (int i = 1; i < m_details.length; i++)
 			data[i - 1] = m_details[i];
 		if (useItem(m_player, Integer.parseInt(m_details[0]), data) &&
-				!GameServer.getServiceManager().getItemdatabase().getItem(Integer.parseInt(m_details[0])).getName().contains("Rod")) {
+				!GameServer.getServiceManager().getItemDatabase().getItem(Integer.parseInt(m_details[0])).getName().contains("Rod")) {
 			m_player.getBag().removeItem(Integer.parseInt(m_details[0]), 1);
 			m_player.getTcpSession().write("Ir" + m_details[0] + "," + 1);
 		}
@@ -74,7 +74,7 @@ public class ItemProcessor implements Runnable {
 		/* Check that the bag contains the item */
 		if (p.getBag().containsItem(itemId) < 0) return false;
 		/* We have the item, so let us use it */
-		Item i = GameServer.getServiceManager().getItemdatabase().getItem(itemId);
+		Item i = GameServer.getServiceManager().getItemDatabase().getItem(itemId);
 		/* Pokemon object we might need */
 		Pokemon poke = null;
 		try {
