@@ -182,7 +182,7 @@ public class ItemDatabase {
 	public List<Integer> getShopItems(int type){
 		List<Integer> shopItems = new ArrayList<Integer>();
 		for (int i : m_items.keySet()){
-			if (m_items.get(i).getShop() != 0 && 
+			if (m_items.get(i).getShop() > 0 && 
 					m_items.get(i).getShop() <= type)
 				shopItems.add(i);
 		}
