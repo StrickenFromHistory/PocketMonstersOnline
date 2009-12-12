@@ -46,6 +46,10 @@ public class ShopDialog extends Frame {
 	private List<Integer> m_merch = new ArrayList<Integer>();
 	private HashMap<Integer, Integer> m_stock;
 
+	/**
+	 * Constructor
+	 * @param stock
+	 */
 	public ShopDialog(HashMap<Integer, Integer> stock) {
 		for (Integer i : stock.keySet()){
 			m_merch.add(i);
@@ -59,6 +63,19 @@ public class ShopDialog extends Frame {
 		initGUI();
 	}
 	
+	/**
+	 * Updates the stock
+	 * @param stock
+	 */
+	public void updateStock(HashMap<Integer, Integer> stock) {
+		m_stock = stock;
+		initGUI();
+	}
+	
+	/**
+	 * Called when a category for item to buy is selected
+	 * @param name
+	 */
 	public void categoryClicked(int name) {
 		m_items = new ArrayList<Item>();
 		switch(name){
@@ -93,6 +110,9 @@ public class ShopDialog extends Frame {
 		}
 	}
 	
+	/**
+	 * Initialises the gui when first opened
+	 */
 	public void initGUI(){
 		m_buy = new Button("Buy");
 		m_buy.setLocation(0,0);
@@ -142,6 +162,9 @@ public class ShopDialog extends Frame {
 		setVisible(true);
 	}
 	
+	/**
+	 * Displays the selling item gui
+	 */
 	public void sellGUI() {
 		m_cancel.setVisible(false);
 		String[] m_items = new String[GameClient.getInstance().getOurPlayer().getItems().size()];
@@ -187,6 +210,9 @@ public class ShopDialog extends Frame {
 		getContentPane().add(m_sellButton[0]);
 	}
 	
+	/**
+	 * Displays the item buying GUI
+	 */
 	public void buyGUI() {
 		m_buy.setVisible(false);
 		m_sell.setVisible(false);
