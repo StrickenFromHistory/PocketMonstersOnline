@@ -314,22 +314,28 @@ public class PokemonSpeciesData {
         return null;
     }
     
-    /**
-     * Return a TreeSet of moves that the pokemon can learn.
-     */
-    public TreeSet<?> getLearnableMoves(int i) {
-        return m_movesets[i];
-    }
+
     
     /**
      * Return whether this species can learn a particular move.
      */
-    public boolean canLearn(int i, String move) {
-        TreeSet<?> set = m_movesets[i];
-        if (set == null) {
-            return false;
-        }
-        return set.contains(move);
+    public boolean canLearn(int species, String move) {
+    	ArrayList<String> moves = m_database[species].getStarterMoves();
+    	for(int i = 0; i < moves.size(); i++) {
+    		if(moves.get(i).equalsIgnoreCase(move))
+    			return true;
+    	}
+    	Iterator<String> it = m_database[species].getLevelMoves().values().iterator();
+    	while(it.hasNext()) {
+    		if(it.next().equalsIgnoreCase(move))
+    			return true;
+    	}
+        moves = m_database[species].getTMMoves();
+        for(int i = 0; i < moves.size(); i++) {
+    		if(moves.get(i).equalsIgnoreCase(move))
+    			return true;
+    	}
+        return false;
     }
     
 }

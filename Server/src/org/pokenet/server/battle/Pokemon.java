@@ -647,7 +647,7 @@ public class Pokemon extends PokemonSpecies {
     PokemonSpeciesData speciesData = data.getSpeciesData();
     PokemonSpecies species = new PokemonSpecies(speciesData, random
       .nextInt(speciesData.getSpeciesCount()));
-    TreeSet<?> moveset = species.getLearnableMoves(speciesData);
+    ArrayList<String> moveset = species.getLearnableMoves();
     if ((moveset == null) || (moveset.size() == 0)) { return null; }
     int moveCount = moveset.size();
     String[] moves = moveset.toArray(new String[moveCount]);
