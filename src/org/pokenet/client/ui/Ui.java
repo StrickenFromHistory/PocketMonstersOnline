@@ -632,9 +632,17 @@ public class Ui extends Frame {
      * @param trainer
      */
     public void startShop(HashMap<Integer, Integer> stock){
+    	if(m_shop != null) {
+    		/* Attempt to remove previous GUI */
+    		m_display.remove(m_shop);
+    	}
     	if (!m_display.containsChild(m_shop)) {
     		m_shop = new ShopDialog(stock);
     		m_display.add(m_shop);
+    	} else {
+    		/* If previous GUI couldn't be removed, just update it */
+    		m_shop.updateStock(stock);
+    		m_shop.setVisible(true);
     	}
     }
     
