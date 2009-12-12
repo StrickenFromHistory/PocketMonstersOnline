@@ -2103,6 +2103,23 @@ public class Pokemon extends PokemonSpecies {
     /*
      * m_pp = new int[4]; m_maxPp = new int[4]; m_ppUp = new int[4];
      */
+    /* Check validity of moves */
+    if(m_move[0] != null && !PokemonSpecies.getDefaultData().
+    		canLearn(getSpeciesNumber(), getMoveName(0))) {
+    	m_move[0] = null;
+    }
+    if(m_move[1] != null && !PokemonSpecies.getDefaultData().
+    		canLearn(getSpeciesNumber(), getMoveName(1))) {
+    	m_move[1] = null;
+    }
+    if(m_move[2] != null && !PokemonSpecies.getDefaultData().
+    		canLearn(getSpeciesNumber(), getMoveName(2))) {
+    	m_move[2] = null;
+    }
+    if(m_move[3] != null && !PokemonSpecies.getDefaultData().
+    		canLearn(getSpeciesNumber(), getMoveName(3))) {
+    	m_move[3] = null;
+    }
   }
 
   /**
