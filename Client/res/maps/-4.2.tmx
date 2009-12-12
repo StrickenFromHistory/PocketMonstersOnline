@@ -15,6 +15,11 @@
  <tileset firstgid="1" source="normal1.tsx"/>
  <tileset firstgid="1025" source="normal2.tsx"/>
  <tileset firstgid="2049" source="normal3.tsx"/>
+ <layer name="random" width="71" height="35">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OAQkAAAgDsGP/0KY4ImwJlgAAAPDJXAcAAAAAAACKFsQ6eOjUJgAA
+  </data>
+ </layer>
  <layer name="Walkable" width="71" height="35">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO3Y3Q2CMBQF4JYfE+dwEsok4iSgJg6iM7iAy/jqBNaEB0Kg0t5buY3n4YtvyDnF22KmlMoAAAAmdOX698DhXvBer7JMrxaQj5qDM8PeanoHARmpOTgzoJs0u9Hafo7kOr1unsxz8KOyPZiROsFuHlu7pszdhOTwzbDbxO8mV7RuDNGpz3BmuNb4mtRuqBrh1uym83SNkP/m+L7jit1MyR2Gs8CV6RspzwYnnznZFvMkn2Ekd/OKcC5JtRvXHjd8T9Oe9+qaDUtI6MaF8nsbvs+H4OzmUoZ1E2ufWtr/HK5ufP+r+MUsbh2dL0FdC6PCzsdSzr6S1mKKtPNdKOrs59oTJPqnbmJlBQAAAFjLGwMLnNvUJgAA

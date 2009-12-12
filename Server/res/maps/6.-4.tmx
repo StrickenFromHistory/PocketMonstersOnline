@@ -22,12 +22,12 @@
  <tileset firstgid="5121" source="normal13.tsx"/>
  <layer name="Walkable" width="48" height="40">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAOWXTU7DMBCFLTtlwzE4CeQW7CAnKS0Sd2ALR+E8XIFYMOowmR+PZScRPOmprePYXyb2SxpCnT7StznR5kTcS8Dk8d74W2gr/qHROH+BX3MvteLPwrwDcdbt7DvBYyULd05ui+gzkrbP4fIZ0W9wYs7Nepj9KHhqzA+1GhGDdA201iksa4D532c//fitAz+ea3KMExnj9cON6Z2Hm1fS/bVvHG3NSWP25PeOY9WfE+b3suRnl3bOq1J/egyv/0h+a+NRfnyOdO3WntdyrpUhLyk/3DdNFr+Wc60Mc2N+mreSILtOBj/OudaGubn6W/zcs5Hjn5Q+dDy65un+5TKpdv1YquHn2igv9xzU+GmdS1gsfi5DuDHp/ZCs5U+tYMznUJ4j3DVZPBq/5lJ+T45k31z55qzlt2p6Dnb+0PeuGOQ9WsofjP6gmtrm98wULu+b0r7jsiehtpfD7zaNX6q/lc24tsCM2fOnZ4+U3GtP/TXRmli50cq9+OG/CFYK7Z/Rp0783Hi1uVGSi1vxSxqE77TPmvyJ6SNpL/zYHD84v18s8u6wzfrRsvFc0MfjsQP/mm6Zn8fQ739L7/z0KlYek9Si/luY28v/kd+SlHmUIzJ91uCzRDlDWLJp17g1P651RG0e/pp93Up0rdA2fEzqs5f60/XD7cMe/F/RqZBpAB4AAA==
+   H4sIAAAAAAAAAOWXTU7DMBCFLTtdcSroLdhBTgItEndgC0fhPFyBWDDqdDI/HmvcVPCkp7aOY3+Z2C9pSn36LD/mRJsL8SgBk8fXxh+hrfinoHH+Ar/mUYrir8K8E3HV7eI7wftOFu6c2pbRZyZtX9PpM6Pf4MKcW/Ww+FHwHMwPtdojBukaaK1LWtcA838sfv71+wB+PNfsGCczxuuHG9M7DzevpPsb3zjampPGHMnvHceqPyfM72Wpzy7tnDel/vQYXv+Z/NbGo/z4HOnarT2v5VyUIS8pP9w3TRa/lnNRhrkxP81bSZBdB4Mf51y0YW6u/hY/92zk+GelDx2Prnm6f7lM6l0/lnr4uTbKyz0HNX5a5xYWi5/LEG5Mej8ka/nTKxjzJbXnCHdNFo/Gr7mV35MjPXP28ls1PSY7f+h7V07yHm3lT0Z/UE9t63tmSaf3TWnfcdlTUNvr7rxN45fqb2Uzri0wY/b66dkjLffaU39NtCZWbkR5FD/8F8EqKf4ZfRjEz43XmxstGbUVv6RJ+E77XJK/MH0kXQs/NscPru8Xq7zbbbN+tGw8NvTxeD+A/5KOzM+nNO5/y+j89Cp3HpMUUf8tzO3l/8hvSco8ypGZPpfgs0Q5U1qzade4NT+udUZtHv6efR0lulZoGz4m9bmW+tP1w+3DEfzfvVrNrwAeAAA=
   </data>
  </layer>
  <layer name="Walkable" width="48" height="40">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2XyQ3CMBBF55D4gpI2oB2WHqgECgAqASoBCsISB0zAMGN/b8RfGimJPf4vk8gLURjteqK9jkP/3tYE8kSq8qfVUXOfdJwL5b9o7quOm4WfGz6S+Eh8uVwI/hCq/Pz84RiIf9Y2Jlq/xv3UltPcUvnl7S45ytIhl1q6clR+jND80ue+is2P3MN883PNS1H/kPuslAq5fx2zmsF1LvXdtETb9nk/VY+Yqdd+Q/7SxOXP6duY8q3/v/GvJx4wnv6x+RHrWwn83LMF+v9fdETLzmFQgUco/rnBvQK8A8e/zj/xFZPfXO9Qa2Hp9Tc1Vn7p2YDjY8uLfQ5B88dW5ZfloZUL/x2+OimNAB4AAA==
+   H4sIAAAAAAAAAO2XTQ7CIBBGZ1G7Me0lXOh1/LmDJ9EDqCdRT6IeSBIXEhSdgW8oKC+ZpC0d5pU2BYh02PVEexOH/rWtUaqJpPoPy9F4n0ycC/W/GO+riZvHnxsxSOpI6nK9EP4aVH9+vtsH4pv19YnmW7/v2nL6t1R/eXtITuu5IZexDPWo/hjQ/tLrsaT2R65hPtULzRti/DXXWUOitX6dtPFuJdM4xxr7gxA2I6Lt6Hk+bR8xc96X618aXP+c3o1N7Pj/mv96HCETWT+1P2J+K8Gfu7dAf/+LjmjZBXQqqKHlP7e8V4Bn4NSv/5/0pPS35zvUXFj6+Nv8q790b8Cp48vT2odIPbTy0FR/WR6aXPzvRDKVFgAeAAA=
   </data>
  </layer>
  <layer name="LedgesDown" width="48" height="40">

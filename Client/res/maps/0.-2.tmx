@@ -4,19 +4,24 @@
  <properties>
   <property name="dayPokemonChances" value=""/>
   <property name="dayPokemonLevels" value=""/>
+  <property name="fishPokemonChances" value="Poliwag,70;Magikarp,20;Poliwhirl,10;"/>
+  <property name="fishPokemonLevels" value="10-40;10-40;40-40;"/>
   <property name="nightPokemonChances" value=""/>
   <property name="nightPokemonLevels" value=""/>
   <property name="waterPokemonChances" value="Magikarp,100;"/>
   <property name="waterPokemonLevels" value="5-19;"/>
   <property name="wildProbability" value="10"/>
-  <property name="fishPokemonLevels" value="10-40;10-40;40-40;"/>
-  <property name="fishPokemonChances" value="Poliwag,70;Magikarp,20;Poliwhirl,10;"/>
   <property name="xOffsetModifier" value="352"/>
   <property name="yOffsetModifier" value="-2304"/>
  </properties>
  <tileset firstgid="1" source="normal1.tsx"/>
  <tileset firstgid="1025" source="normal2.tsx"/>
  <tileset firstgid="2049" source="normal3.tsx"/>
+ <layer name="random" width="47" height="47">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OMQEAAAgDoGW1fwhTTB9IQAIAAAAAAABcmu8AABQsji4bj4QiAAA=
+  </data>
+ </layer>
  <layer name="Walkable" width="47" height="47">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO3YQQ6CQAwF0AkGXXAJoycRT6LeRFx4B/fexHuJC2NiFFqmnf6SLv4GZpiX0swQqpRSJZDHgpfvuRKGHPuv6+tm+lxru/bcOdun9LC2nTon11baLlVTK7umd452ylkw1guW9n9Wav+W6HOK/R3KGYdW99znebKX7BdU+7X2a+euJ7FuabtGHawdOX6LdXd9WkL2gPZDnyMhp6TzPV7KbuGTsrdguTDslHGICbtv+2bl1y6VW+PX7rnuYcdP2MMedpyM/e/XWrerh+9vlzS757qH/ZM74X2j2j3XXdtL2UuQ7Nx9EM3OGe/dfgbJy84Z3/V5AlGwZoyEIgAA

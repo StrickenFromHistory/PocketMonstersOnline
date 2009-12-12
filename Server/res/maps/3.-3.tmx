@@ -26,12 +26,12 @@
  </tileset>
  <layer name="Layer 5" width="48" height="40">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3WMQoAIAwDwED//2d3dbEiONxNIVPGJAAAwCt12P+msm7ddQAA0FFT9jMB4N4A9gNgDQAeAAA=
+   H4sIAAAAAAAAAO3WMQoAIAwDwEL9/5vdtYuI2OFuCpkyJgIAAHglD/tuMvatVQcA3Y3fA4BSLtnPBIB7E9Hdh3cAHgAA
   </data>
  </layer>
  <layer name="Walkable" width="48" height="40">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2XXU7DMAzH3XTdCw97540vwTUGr8AdgJsggbjG4CTb4CAweOYKJFotuZaTNInbCWmW/mqXKckvrp04AGk2SdDe0q2qAAxRbfVrnVnD9llqbggcC5/SnLl2ZPseE51U3fk0+Dn7RJgz1+a27yXRVcuv6X8qN98pYT9r58w1Q8bm76aA1YCc4zV0fYb+KuGnijFwXuN5+nziGzvHX8iQousZwI3V7SzOS7n6/pfLv7B6VdCbwOjyaEKeXAvSN5d/abVS0Bq6vnXMdA2SLUnfXNPkD8WMtAZN/h+rrwx9g+x/aR2HB8Px4/ypwv4fEM+RFfv9PiB/yCT+0tjbNX9O/NHYG5Kft0v8feKvams2qa82/1MD8Nxs31/a5/kU4GLq58dcpYa5jPVb067BKPOH8o/nHT2r+vC7NqzfsG7T5k/Nt1D8PDZyXTFv2TXj5xPS824j8PPvx7+ZJI39M2fP194/ce0uLun3MhCvT2l9Fau3Qvwl+yePS2Sm8eezEDta7RFA2fnN145xydlD95yQv2PsWvzrwDx8Pomfi8ccH2cI/lzjzNz/lN/tiyH/8/5j8XN2+h67n0lngotHKl+bJn/p/sjjh48pzaEZP77/Yucb7oE0fsb2v4+/z3kQy19fXA7Bz+93lN23hl3vP84nmKN9ahZfDdPn/jhE/eP4c2o4Gvu5d3/UpoA/9ZtT3VndWz2QNukcCe1B2F7CbwLiXLRN4vflrBHeqUr4Nf3P1xE6W+j6xjbO/99sz79bG5v/D/YTgJ8AHgAA
+   H4sIAAAAAAAAAO2XUU7DMAyG3XTdCw975w0GgmsMXoE7ADdBAnGNjZNsg4PA4JkrkGi15FlO0iRuJ6RZ+tUuU5Ivrp04AGk2StDB0q2qAAxRbfVrnVnD9llqbggcC5/SnLl2YvueEk2r3fk0+Dn7SJgz12a27xXRdcuv6X8qN98ZYT9v58w1Q8bm76aA1YCc4zXs+gz9VcJPFWPgvMbz9PnEN3aOv5AhRTcTgFuru0mcl3J1/S+Xf261UNCbwOjyaESeXHPSN5d/abVS0Bp2feuY6RokW5K+uabJH4oZaQ2a/D9WXxn6Btn/0jqOj/rjx/lThf0/IJ4jK/b7vUf+kEn8pbG3b/6c+KOx1yc/b5f4u8Rf1dZsUl9t/ucG4KXZvr+2z4sxwOXYz4+5Sg1zGeu3pl2DUeYP5R/PO3pWdeF3bVi/Yd2mzZ+ab6H4eWrkumLWsmvGzyek591G4Offj38zSRr7Z86er71/4tpdXNLvZSBen9L6KlZvhfhL9k8el8hM489nIXa02iOAsvObrx3jkrOH7jkhf8fYtfjXgXn4fBI/F485Pk4f/LnGmbn/Kf90HPY/7z8UP2en77H7mXQmuHik8rVp8pfujzx++JjSHJrx4/svdr7hHkjjZ2j/+/i7nAex/PXFZR/8/H5H2X1r2Pf+43yCOdqlZvHVMF3uj33UP44/p4ajsZ9790dtCvhTvznVvdWD1SNpk86R0B6E7SX8JiDORdskfl/OGuGdqoRf0/98HaGzha5vaOP8/80O/Pu1ofn/AGsO/DQAHgAA
   </data>
  </layer>
  <layer name="LedgesDown" width="48" height="40">
