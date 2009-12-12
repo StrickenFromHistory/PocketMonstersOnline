@@ -46,7 +46,7 @@ down
 103
 5
 3
-Steelix,87,Skarmory,86,Magneton,86,Forretress,86,Scizor,86
+Steelix,41,Skarmory,41,Magneton,41,Forretress,41,Scizor,41
 5
 13
 3,4,5,6,7

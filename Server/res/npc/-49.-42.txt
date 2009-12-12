@@ -4,7 +4,7 @@ down
 43
 5
 11
-Pidgeot,81,Fearow,80,Farfetch'd,80,Dodrio,81,Noctowl,80,Murkrow,81
+Pidgeot,15,Fearow,15,Farfetch'd,15,Dodrio,15,Noctowl,15,Murkrow,15
 6
 8
 0,1,2,3,4,5

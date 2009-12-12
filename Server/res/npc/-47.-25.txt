@@ -83,7 +83,7 @@ down
 21
 7
 5
-Golem,80,Onix,81,Aerodactyl,81,Tyranitar,81,Kabutops,80,Omastar,80
+Golem,15,Onix,15,Aerodactyl,15,Tyranitar,15,Kabutops,15,Omastar,15
 6
 0
 10,11,12,13,14,15,16

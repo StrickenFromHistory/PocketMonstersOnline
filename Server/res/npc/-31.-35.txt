@@ -102,7 +102,7 @@ down
 207
 9
 3
-Blissey,83,Miltank,83,Ursaring,83,Granbull,82,Snorlax,82,Clefable,82
+Blissey,26,Miltank,26,Ursaring,26,Granbull,26,Snorlax,26,Clefable,26
 6
 10
 10,11,12,13

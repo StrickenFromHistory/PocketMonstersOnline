@@ -60,7 +60,7 @@ down
 150
 6
 2
-Gengar,84,Misdreavus,84,Haunter,84,Gastly,84
+Gengar,32,Misdreavus,32,Haunter,32,Gastly,32
 4
 11
 6,7,8,9,10,11,12,13,14

@@ -88,7 +88,7 @@ down
 34
 4
 1
-Primeape,84,Machamp,85,Poliwrath,85,Hitmontop,85,Hitmonlee,84,Hitmonchan,84
+Primeape,37,Machamp,37,Poliwrath,37,Hitmontop,37,Hitmonlee,37,Hitmonchan,37
 6
 12
 6,7,8,9,10,11

@@ -88,7 +88,7 @@ down
 25
 24
 22
-Butterfree,82,Beedrill,82,Parasect,81,Heracross,81,Yanma,81,Scyther,82
+Butterfree,22,Beedrill,22,Parasect,22,Heracross,22,Yanma,22,Scyther,22
 6
 9
 12,13,14

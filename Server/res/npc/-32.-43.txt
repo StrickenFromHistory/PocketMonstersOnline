@@ -116,7 +116,7 @@ down
 175
 6
 4
-Jynx,87,Piloswine,88,Delibird,87,Dewgong,88,Cloyster,87,Lapras,88
+Jynx,44,Piloswine,44,Delibird,44,Dewgong,44,Cloyster,44,Lapras,44
 6
 14
 11,12,13,14,15,16
