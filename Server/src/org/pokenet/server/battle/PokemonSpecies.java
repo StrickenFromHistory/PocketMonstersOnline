@@ -467,12 +467,11 @@ public class PokemonSpecies {
 	public void setLevelMoves(HashMap<Integer, String> mMoves) {
 		m_levelMoves = mMoves;
 	}
+	
 	public ArrayList<String> getStarterMoves() {
 		return m_starterMoves;
 	}
-	public void setStarterMoves(ArrayList<String> mStarterMoves) {
-		m_starterMoves = mStarterMoves;
-	}
+
 	public ArrayList<String> getEggMoves() {
 		return m_eggMoves;
 	}
