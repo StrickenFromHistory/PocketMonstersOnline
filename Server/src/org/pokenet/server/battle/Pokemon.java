@@ -45,8 +45,6 @@ import org.pokenet.server.battle.mechanics.clauses.Clause.PendanticDamageClause;
 import org.pokenet.server.battle.mechanics.moves.MoveList;
 import org.pokenet.server.battle.mechanics.moves.MoveListEntry;
 import org.pokenet.server.battle.mechanics.moves.PokemonMove;
-import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
-import org.pokenet.server.battle.mechanics.polr.POLREvolution;
 import org.pokenet.server.battle.mechanics.statuses.AwesomeEffect;
 import org.pokenet.server.battle.mechanics.statuses.BurnEffect;
 import org.pokenet.server.battle.mechanics.statuses.ChargeEffect;
@@ -120,7 +118,7 @@ public class Pokemon extends PokemonSpecies {
   @Element
   private int                               m_happiness;
   /* Stores the evolution this Pokemon is waiting to evolve to */
-  private POLREvolution                     m_evolution      = null;
+  private PokemonEvolution                     m_evolution      = null;
 
   // Intrinsic statistics.
   @Element
@@ -344,7 +342,7 @@ public class Pokemon extends PokemonSpecies {
    * 
    * @param e
    */
-  public void setEvolution(POLREvolution e) {
+  public void setEvolution(PokemonEvolution e) {
     m_evolution = e;
   }
 
@@ -377,13 +375,12 @@ public class Pokemon extends PokemonSpecies {
 
       if (allow) {
         /* The player is allowing evolution, evolve the Pokemon */
-        this.evolve(DataService.getSpeciesDatabase().getSpecies(
-          DataService.getSpeciesDatabase().getPokemonByName(
-            m_evolution.getEvolveTo())));
+        this.evolve(DataService.getSpeciesDatabase().getPokemonByName(
+                m_evolution.getEvolveTo()));
       }
       /* Retrieve the Pokemon data */
-      POLRDataEntry pokeData = DataService.getPOLRDatabase().getPokemonData(
-        DataService.getSpeciesDatabase().getPokemonByName(getSpeciesName()));
+      PokemonSpecies pokeData = DataService.getSpeciesDatabase().
+      			getPokemonByName(getSpeciesName());
 
       setHappiness(m_happiness + 2);
       calculateStats(false);
@@ -395,8 +392,8 @@ public class Pokemon extends PokemonSpecies {
       /* Generate a list of moves this Pokemon wants to learn */
       m_movesLearning.clear();
       for (int i = oldLevel + 1; i <= level; i++) {
-        if (pokeData.getMoves().get(i) != null) {
-          move = pokeData.getMoves().get(i);
+        if (pokeData.getLevelMoves().get(i) != null) {
+          move = pokeData.getLevelMoves().get(i);
           if (move != null && !move.equalsIgnoreCase("") && !hasMove(move))
             m_movesLearning.add(move);
         }
@@ -710,8 +707,7 @@ public class Pokemon extends PokemonSpecies {
     /*
      * First obtain species data
      */
-    int speciesNo = PokemonSpecies.getDefaultData().getPokemonByName(species);
-    PokemonSpecies ps = PokemonSpecies.getDefaultData().getSpecies(speciesNo);
+    PokemonSpecies ps = PokemonSpecies.getDefaultData().getPokemonByName(species);
     MoveListEntry[] moves = new MoveListEntry[4];
     /*
      * Generate a list of possible moves this Pokemon could have at this level
@@ -721,19 +717,15 @@ public class Pokemon extends PokemonSpecies {
     /*
      * Get all starter moves
      */
-    for (int i = 0; i < DataService.getPOLRDatabase().getPokemonData(speciesNo)
-      .getStarterMoves().size(); i++) {
-      possibleMoves.add(moveList.getMove(DataService.getPOLRDatabase()
-        .getPokemonData(speciesNo).getStarterMoves().get(i)));
+    for (int i = 0; i < ps.getStarterMoves().size(); i++) {
+      possibleMoves.add(moveList.getMove(ps.getStarterMoves().get(i)));
     }
     /*
      * Get moves learned by levelling up
      */
     for (int i = 1; i <= level; i++) {
-      if (DataService.getPOLRDatabase().getPokemonData(speciesNo).getMoves()
-        .containsKey(i)) {
-        MoveListEntry m = moveList.getMove(DataService.getPOLRDatabase()
-          .getPokemonData(speciesNo).getMoves().get(i));
+      if (ps.getLevelMoves().containsKey(i)) {
+        MoveListEntry m = moveList.getMove(ps.getLevelMoves().get(i));
         boolean exists = false;
         /* Check if this move is already in the list of possible moves */
         for (int j = 0; j < possibleMoves.size(); j++) {
@@ -806,13 +798,10 @@ public class Pokemon extends PokemonSpecies {
         random.nextInt(32), random.nextInt(32) },
       new int[] { 0, 0, 0, 0, 0, 0 }, // EVs
       moves, new int[] { 0, 0, 0, 0 });
-    p.setBaseExp(DataService.getPOLRDatabase().getPokemonData(speciesNo)
-      .getBaseEXP());
-    p.setExpType(DataService.getPOLRDatabase().getPokemonData(speciesNo)
-      .getGrowthRate());
+    p.setBaseExp(ps.getBaseEXP());
+    p.setExpType(ps.getGrowthRate());
     p.setExp(DataService.getBattleMechanics().getExpForLevel(p, level));
-    p.setHappiness(DataService.getPOLRDatabase().getPokemonData(speciesNo)
-      .getHappiness());
+    p.setHappiness(ps.getHappiness());
     return p;
   }
 

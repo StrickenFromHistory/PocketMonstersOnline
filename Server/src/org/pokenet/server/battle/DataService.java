@@ -3,11 +3,9 @@ package org.pokenet.server.battle;
 import java.io.File;
 import java.util.ArrayList;
 
-import org.pokenet.server.backend.item.DropDatabase;
 import org.pokenet.server.battle.mechanics.JewelMechanics;
 import org.pokenet.server.battle.mechanics.moves.MoveList;
 import org.pokenet.server.battle.mechanics.moves.MoveSetData;
-import org.pokenet.server.battle.mechanics.polr.POLRDatabase;
 import org.pokenet.server.feature.FishDatabase;
 import org.simpleframework.xml.core.Persister;
 
@@ -18,11 +16,9 @@ import org.simpleframework.xml.core.Persister;
  */
 public class DataService {
 	private static PokemonSpeciesData m_speciesData;
-	private static POLRDatabase m_polrData;
 	private static JewelMechanics m_mechanics;
 	private static MoveList m_moveList;
 	private static MoveSetData m_moveSetData;
-	private static DropDatabase m_dropData;
 	private static FishDatabase m_fishingData;
 	private static ArrayList<String> m_nonTrades;
 	
@@ -39,16 +35,13 @@ public class DataService {
 			m_moveSetData = new MoveSetData();
 			m_speciesData = new PokemonSpeciesData();
 			m_mechanics = new JewelMechanics(5);
-			m_dropData = new DropDatabase();
-			m_dropData.reinitialise();
 			m_fishingData = new FishDatabase();
 			m_fishingData.reinitialise();
 			JewelMechanics.loadMoveTypes("res/movetypes.txt");
 			File f = new File(".");
 			m_moveSetData = stream.read(MoveSetData.class, new File(f.getCanonicalPath() + "/res/movesets.xml"));
-			m_speciesData = stream.read(PokemonSpeciesData.class, new File(f.getCanonicalPath() + "/res/species.xml"));
+			m_speciesData = stream.read(PokemonSpeciesData.class, new File(f.getCanonicalPath() + "/res/pokedex.xml"));
 			PokemonSpecies.setDefaultData(m_speciesData);
-			m_polrData = stream.read(POLRDatabase.class, new File(f.getCanonicalPath() + "/res/polrdb.xml"));
 			System.out.println("INFO: Pokemon Databases loaded.");
 			/*
 			 * List of non-tradeable Pokemon
@@ -118,26 +111,11 @@ public class DataService {
 	}
 	
 	/**
-	 * Returns the drop database
-	 * @return
-	 */
-	public static DropDatabase getDropDatabase() {
-		return m_dropData;
-	}
-	/**
 	 * Returns the fish database
 	 * @return
 	 */
 	public static FishDatabase getFishDatabase() {
 		return m_fishingData;
-	}
-	
-	/**
-	 * Returns the polr database (contains evolution, move learning, etc.)
-	 * @return
-	 */
-	public static POLRDatabase getPOLRDatabase() {
-		return m_polrData;
 	}
 	
 	/**

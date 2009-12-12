@@ -155,7 +155,7 @@ public class PokemonType implements Serializable {
      */
     public static PokemonType getType(String type) {
         for (int i = 0; i < m_types.length; ++i) {
-            if (type.equals(m_types[i])) {
+            if (type.equalsIgnoreCase(m_types[i])) {
                 return getType(i);
             }
         }

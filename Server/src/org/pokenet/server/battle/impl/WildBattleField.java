@@ -10,11 +10,11 @@ import org.pokenet.server.battle.BattleField;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.battle.PokemonEvolution;
+import org.pokenet.server.battle.PokemonSpecies;
+import org.pokenet.server.battle.PokemonEvolution.EvolutionTypes;
 import org.pokenet.server.battle.mechanics.BattleMechanics;
 import org.pokenet.server.battle.mechanics.MoveQueueException;
-import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
-import org.pokenet.server.battle.mechanics.polr.POLREvolution;
-import org.pokenet.server.battle.mechanics.polr.POLREvolution.EvoTypes;
 import org.pokenet.server.battle.mechanics.statuses.StatusEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.FieldEffect;
 import org.pokenet.server.battle.mechanics.statuses.field.HailEffect;
@@ -517,8 +517,7 @@ public class WildBattleField extends BattleField {
         showMessage(m_player.getName() + " threw a Pokeball!");
         if (getMechanics().isCaught(
           m_wildPoke,
-          DataService.getPOLRDatabase().getPokemonData(
-            m_wildPoke.getSpeciesNumber()).getRareness(), 1.0, 1)) {
+          m_wildPoke.getRareness(), 1.0, 1)) {
           m_wildPoke.calculateStats(false);
           m_player.catchPokemon(m_wildPoke);
           showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
@@ -534,8 +533,7 @@ public class WildBattleField extends BattleField {
         showMessage(m_player.getName() + " threw a Great Ball!");
         if (getMechanics().isCaught(
           m_wildPoke,
-          DataService.getPOLRDatabase().getPokemonData(
-            m_wildPoke.getSpeciesNumber()).getRareness(), 1.5, 1)) {
+          m_wildPoke.getRareness(), 1.5, 1)) {
           m_wildPoke.calculateStats(false);
           m_player.catchPokemon(m_wildPoke);
           showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
@@ -551,8 +549,7 @@ public class WildBattleField extends BattleField {
         showMessage(m_player.getName() + " threw an Ultra Ball!");
         if (getMechanics().isCaught(
           m_wildPoke,
-          DataService.getPOLRDatabase().getPokemonData(
-            m_wildPoke.getSpeciesNumber()).getRareness(), 2.0, 1)) {
+          m_wildPoke.getRareness(), 2.0, 1)) {
           m_wildPoke.calculateStats(false);
           m_player.catchPokemon(m_wildPoke);
           showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
@@ -568,8 +565,7 @@ public class WildBattleField extends BattleField {
         showMessage(m_player.getName() + " threw a Master Ball!");
         if (getMechanics().isCaught(
           m_wildPoke,
-          DataService.getPOLRDatabase().getPokemonData(
-            m_wildPoke.getSpeciesNumber()).getRareness(), 255.0, 1)) {
+          m_wildPoke.getRareness(), 255.0, 1)) {
           m_wildPoke.calculateStats(false);
           m_player.catchPokemon(m_wildPoke);
           showMessage("You successfuly caught " + m_wildPoke.getSpeciesName());
@@ -620,8 +616,7 @@ public class WildBattleField extends BattleField {
     /*
      * First calculate earnings
      */
-    int item = DataService.getDropDatabase().getRandomItem(
-      m_wildPoke.getSpeciesName());
+    int item = m_wildPoke.getRandomItem();
     if (item > -1) {
       m_player.getBag().addItem(item, 1);
       TcpProtocolHandler.writeMessage(m_player.getTcpSession(),
@@ -642,10 +637,7 @@ public class WildBattleField extends BattleField {
       /*
        * Secondly, calculate EVs and exp
        */
-      POLRDataEntry poke = DataService.getPOLRDatabase().getPokemonData(
-        DataService.getSpeciesDatabase().getPokemonByName(
-          m_wildPoke.getSpeciesName()));
-      int[] evs = poke.getEffortPoints();
+      int[] evs = m_wildPoke.getEffortPoints();
 
       /*
        * Finally, add the EVs and exp to the participating Pokemon
@@ -693,7 +685,7 @@ public class WildBattleField extends BattleField {
         //Make sure that value isn't negative.
         if (expTillLvl < 0){
             expTillLvl = 0;
-    }
+        }
         TcpProtocolHandler.writeMessage(m_player.getTcpSession(),
           new BattleExpMessage(p.getSpeciesName(), exp, expTillLvl));
 
@@ -705,36 +697,34 @@ public class WildBattleField extends BattleField {
           p.getLevel() + 1)
           - p.getExp();
         if (levelExp <= 0) {
-          POLRDataEntry pokeData = DataService.getPOLRDatabase()
-            .getPokemonData(
-              DataService.getSpeciesDatabase().getPokemonByName(
-                p.getSpeciesName()));
+          PokemonSpecies pokeData = DataService.getSpeciesDatabase().getPokemonByName(
+                  p.getSpeciesName());
           boolean evolve = false;
           /* Handle evolution */
           for (int i = 0; i < pokeData.getEvolutions().size(); i++) {
-            POLREvolution evolution = pokeData.getEvolutions().get(i);
-            if (evolution.getType() == EvoTypes.Level) {
+            PokemonEvolution evolution = pokeData.getEvolutions().get(i);
+            if (evolution.getType() == EvolutionTypes.Level) {
               if (evolution.getLevel() <= p.getLevel() + 1) {
                 p.setEvolution(evolution);
                 m_player.getTcpSession().write("PE" + index);
                 evolve = true;
                 i = pokeData.getEvolutions().size();
               }
-            } else if (evolution.getType() == EvoTypes.HappinessDay) {
+            } else if (evolution.getType() == EvolutionTypes.HappinessDay) {
               if (p.getHappiness() > 220 && !TimeService.isNight()) {
                 p.setEvolution(evolution);
                 m_player.getTcpSession().write("PE" + index);
                 evolve = true;
                 i = pokeData.getEvolutions().size();
               }
-            } else if (evolution.getType() == EvoTypes.HappinessNight) {
+            } else if (evolution.getType() == EvolutionTypes.HappinessNight) {
               if (p.getHappiness() > 220 && TimeService.isNight()) {
                 p.setEvolution(evolution);
                 m_player.getTcpSession().write("PE" + index);
                 evolve = true;
                 i = pokeData.getEvolutions().size();
               }
-            } else if (evolution.getType() == EvoTypes.Happiness) {
+            } else if (evolution.getType() == EvolutionTypes.Happiness) {
               if (p.getHappiness() > 220) {
                 p.setEvolution(evolution);
                 m_player.getTcpSession().write("PE" + index);
@@ -758,8 +748,8 @@ public class WildBattleField extends BattleField {
           /* Move learning */
           p.getMovesLearning().clear();
           for (int i = oldLevel + 1; i <= level; i++) {
-            if (pokeData.getMoves().get(i) != null) {
-              move = pokeData.getMoves().get(i);
+            if (pokeData.getLevelMoves().get(i) != null) {
+              move = pokeData.getLevelMoves().get(i);
               p.getMovesLearning().add(move);
               m_player.getTcpSession().write("Pm" + index + move);
             }

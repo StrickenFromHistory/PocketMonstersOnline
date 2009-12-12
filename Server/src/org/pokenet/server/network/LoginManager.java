@@ -480,8 +480,7 @@ public class LoginManager implements Runnable {
 				 */
 				Pokemon p = new Pokemon(
 						DataService.getBattleMechanics(),
-						PokemonSpecies.getDefaultData().getSpecies(
-								PokemonSpecies.getDefaultData().getPokemonByName(data.getString("speciesName")))
+						PokemonSpecies.getDefaultData().getPokemonByName(data.getString("speciesName"))
 						,
 						PokemonNature.getNatureByName(data.getString("nature")),
 						data.getString("abilityName"),

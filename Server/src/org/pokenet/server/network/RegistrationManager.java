@@ -295,73 +295,56 @@ public class RegistrationManager implements Runnable {
 		PokemonSpecies species = null;
 		switch(speciesIndex) {
 		case 1:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Bulbasaur"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Bulbasaur");
 			break;
 		case 4:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Charmander"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Charmander");
 			break;
 		case 7:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Squirtle"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Squirtle");
 			break;
 		case 152:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Chikorita"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Chikorita");
 			break;
 		case 155:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Cyndaquil"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Cyndaquil");
 			break;
 		case 158:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Totodile"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Totodile");
 			break;
 		case 252:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Treecko"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Treecko");
 			break;
 		case 255:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Torchic"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Torchic");
 			break;
 		case 258:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Mudkip"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Mudkip");
 			break;
 		case 387:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Turtwig"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Turtwig");
 			break;
 		case 390:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Chimchar"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Chimchar");
 			break;
 		case 393:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Piplup"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Piplup");
 			break;
 		default:
-			species = PokemonSpecies.getDefaultData().getSpecies
-			(PokemonSpecies.getDefaultData().getPokemonByName("Mudkip"));
+			species = PokemonSpecies.getDefaultData().getPokemonByName("Mudkip");
 		}
         
         ArrayList<MoveListEntry> possibleMoves = new ArrayList<MoveListEntry>();
         MoveListEntry[] moves = new MoveListEntry[4];
         Random random = DataService.getBattleMechanics().getRandom();
-
-        for (int i = 0; i < DataService.getPOLRDatabase().getPokemonData(speciesIndex)
-                        .getStarterMoves().size(); i++) {
+        for (int i = 0; i < species.getStarterMoves().size(); i++) {
                 possibleMoves.add(DataService.getMovesList().getMove(
-                		DataService.getPOLRDatabase().getPokemonData(
-                                speciesIndex).getStarterMoves().get(i)));
+                		species.getStarterMoves().get(i)));
         }
         for (int i = 1; i <= 5; i++) {
-                if (DataService.getPOLRDatabase().getPokemonData(speciesIndex).getMoves().containsKey(i)) {
+                if (species.getLevelMoves().containsKey(i)) {
                         possibleMoves.add(DataService.getMovesList().getMove(
-                        		DataService.getPOLRDatabase().getPokemonData(
-                                        speciesIndex).getMoves().get(i)));
+                        		species.getLevelMoves().get(i)));
                 }
         }
         /*
@@ -427,14 +410,13 @@ public class RegistrationManager implements Runnable {
                                         random.nextInt(32) }, new int[] { 0, 0, 0, 0, 0, 0 }, //EVs
                         moves, new int[] { 0, 0, 0, 0 });
         /* Attach their growth rate */
-        starter.setExpType(DataService.getPOLRDatabase().getPokemonData(speciesIndex)
-                        .getGrowthRate());
+        starter.setExpType(species.getGrowthRate());
         /* Attach base experience */
-        starter.setBaseExp(DataService.getPOLRDatabase().getPokemonData(speciesIndex).getBaseEXP());
+        starter.setBaseExp(species.getBaseEXP());
         /* Set their current exp */
         starter.setExp(DataService.getBattleMechanics().getExpForLevel(starter, 5));
         /* Set their happiness */
-        starter.setHappiness(DataService.getPOLRDatabase().getPokemonData(speciesIndex).getHappiness());
+        starter.setHappiness(species.getHappiness());
         /* Set their name as their species */
         starter.setName(starter.getSpeciesName());
         return starter;

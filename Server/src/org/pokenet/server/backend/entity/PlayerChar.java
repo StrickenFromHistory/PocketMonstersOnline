@@ -1135,7 +1135,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		p.setOriginalTrainer(this.getName());
 		p.setDatabaseID(-1);
 		addPokemon(p);
-		addTrainingExp(1000/(DataService.getPOLRDatabase().getPokemonData(p.getSpeciesNumber()).getRareness()));
+		addTrainingExp(1000/p.getRareness());
 	}
 	
 	/**

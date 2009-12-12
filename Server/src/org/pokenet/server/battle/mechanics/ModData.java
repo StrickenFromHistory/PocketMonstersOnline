@@ -168,7 +168,6 @@ public class ModData {
      */
     public void saveModData(OutputStream output) {
         try {
-            m_species.saveSpeciesDatabase(output, true);
             m_moveSets.saveToFile(output);
             m_items.saveItemData(output);
             m_moves.saveMoveList(output);
@@ -307,9 +306,6 @@ public class ModData {
                 names.remove(name);
             }
         }
-        m_species.setAbilities(species,
-                (String[])names.toArray(new String[names.size()]),
-                true);
     }
     
     /**
@@ -371,7 +367,7 @@ public class ModData {
             return;
         }
         String species = line.substring(0, idx).trim();
-        int id = m_species.getPokemonByName(species);
+        int id = m_species.getPokemonByName(species).getSpecies();
         if (id == -1) {
             System.out.println("Warning: no existing species of " + species + ".");
             return;

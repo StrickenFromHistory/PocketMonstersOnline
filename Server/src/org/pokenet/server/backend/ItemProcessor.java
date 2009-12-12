@@ -10,10 +10,10 @@ import org.pokenet.server.backend.item.Item.ItemAttribute;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.battle.PokemonEvolution;
+import org.pokenet.server.battle.PokemonSpecies;
+import org.pokenet.server.battle.PokemonEvolution.EvolutionTypes;
 import org.pokenet.server.battle.impl.WildBattleField;
-import org.pokenet.server.battle.mechanics.polr.POLRDataEntry;
-import org.pokenet.server.battle.mechanics.polr.POLREvolution;
-import org.pokenet.server.battle.mechanics.polr.POLREvolution.EvoTypes;
 import org.pokenet.server.battle.mechanics.statuses.BurnEffect;
 import org.pokenet.server.battle.mechanics.statuses.ConfuseEffect;
 import org.pokenet.server.battle.mechanics.statuses.FreezeEffect;
@@ -200,16 +200,14 @@ public class ItemProcessor implements Runnable {
 					poke = p.getParty()[Integer.parseInt(data[0])];
 					/* Ensure poke exists */
 					if (poke == null) return false;
-					POLRDataEntry pokeData = DataService.getPOLRDatabase()
-					.getPokemonData(
-							DataService.getSpeciesDatabase().getPokemonByName(
-									poke.getSpeciesName()));
+					PokemonSpecies pokeData = DataService.getSpeciesDatabase().getPokemonByName(
+							poke.getSpeciesName());
 					for (int j = 0; j < pokeData.getEvolutions().size(); j++) {
-						POLREvolution evolution = pokeData.getEvolutions().get(j);
+						PokemonEvolution evolution = pokeData.getEvolutions().get(j);
 						/*
 						 * Check if this pokemon evolves by item
 						 */
-						if (evolution.getType() == EvoTypes.Item) {
+						if (evolution.getType() == EvolutionTypes.Item) {
 							/*
 							 * Check if the item is an evolution stone If so, evolve the
 							 * Pokemon

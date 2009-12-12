@@ -32,6 +32,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -53,12 +54,6 @@ import org.simpleframework.xml.Root;
  */
 @Root
 public class PokemonSpeciesData {
-	@ElementMap
-    private HashMap<String, String[]> m_abilities =
-            new HashMap<String, String[]>();
-    @ElementMap
-    private HashMap<String, String[]> m_ablNames = 
-            new HashMap<String, String[]>();
     private TreeSet<String> m_unimplemented = new TreeSet<String>();
     private long m_lastModified;
     
@@ -81,39 +76,6 @@ public class PokemonSpeciesData {
      */
     public long getLastModified() {
         return m_lastModified;
-    }
-
-    /**
-     * Save a database of pokemon species to a file.
-     */
-    public void saveSpeciesDatabase(File f) throws IOException {
-        FileOutputStream output = new FileOutputStream(f);
-        saveSpeciesDatabase(output, false);
-        output.close();
-    }
-    
-    /**
-     * Save a database of pokemon speices to an arbitrary file.
-     */
-    public void saveSpeciesDatabase(OutputStream out, boolean requireImplementation) throws IOException {
-        ObjectOutputStream stream = new ObjectOutputStream(out);
-        stream.writeInt(m_database.length);
-        for (int i = 0; i < m_database.length; ++i) {
-            PokemonSpecies s = m_database[i];
-            stream.writeObject(s.m_name);
-            stream.writeObject(s.m_type);
-            stream.writeObject(s.m_base);
-            stream.writeInt(s.m_genders);
-            if (requireImplementation) {
-                @SuppressWarnings("unused")
-				String [] set = m_abilities.get(s.m_name);
-                //String[] abilities = (String[])set.toArray(new String[set.size()]);
-                //stream.writeObject(abilities);
-            } else {
-                stream.writeObject((String[])m_ablNames.get(s.m_name));
-            }
-        }
-        stream.flush();
     }
     
     /**
@@ -143,21 +105,21 @@ public class PokemonSpeciesData {
             boolean requireImplementation) throws IOException {
         ObjectInputStream stream = new ObjectInputStream(input);
         int size = stream.readInt();
-        m_abilities = new HashMap<String, String[]>();
-        m_ablNames = new HashMap<String, String[]>();
         m_unimplemented = new TreeSet<String>();
         m_database = new PokemonSpecies[size];
         for (int i = 0; i < size; ++i) {
             try {
                 String name = (String)stream.readObject();
-                PokemonType[] type = (PokemonType[])stream.readObject();
+                try {
+                    PokemonType[] type = (PokemonType[])stream.readObject();
+                } catch(Exception e) {}
                 int[] base = (int[])stream.readObject();
                 int genders = stream.readInt();
                 String[] ability = (String[])stream.readObject();
-                
-                setAbilities(name, ability, requireImplementation);
-                m_database[i] = new PokemonSpecies(i, name, base, type, genders);
+ 
+                m_database[i] = new PokemonSpecies(i, name, base, genders);
             } catch (ClassNotFoundException e) {
+            	e.printStackTrace();
                 throw new InternalError();
             }
         }
@@ -250,28 +212,6 @@ public class PokemonSpeciesData {
     }
     
     /**
-     * Add a pokemon's abilities to the HashMap.
-     */
-    public void setAbilities(String name, String[] abilities, boolean impl) {
-        m_ablNames.put(name, abilities);
-        String[] set = new String[2];
-        if (abilities == null) {
-            abilities = new String[0];
-        }
-        for (int i = 0; i < abilities.length; ++i) {
-            String ability = abilities[i];
-            if (impl && (IntrinsicAbility.getInstance(ability) == null)) {
-                if (m_unimplemented != null) {
-                    m_unimplemented.add(ability);
-                }
-            } else {
-                set[i] = ability;
-            }
-        }
-        m_abilities.put(name, set);
-    }
-    
-    /**
      * Return whether an ability is implemented.
      */
     public boolean isAbilityImplemented(String ability) {
@@ -288,17 +228,15 @@ public class PokemonSpeciesData {
     	if (ability == null) {
             return false;
         }
-        String[] set = m_abilities.get(name);
-        if (set == null) {
-            return false;
-        }
-        if (set[1] == null) {
-                return set[0].equals(ability);
-        }
-        if (set[0] == null) {
-                return set[1].equals(ability);
-        }
-        return set[0].equals(ability) || set[1].equals(ability);
+    	ArrayList<String> possibleAbilities =
+    		getPokemonByName(name).getAbilities();
+    	if(possibleAbilities == null)
+    		return false;
+    	for(int i = 0; i < possibleAbilities.size(); i++) {
+    		if(possibleAbilities.get(i).equalsIgnoreCase(ability))
+    			return true;
+    	}
+    	return false;
     }
     
     /**
@@ -307,7 +245,7 @@ public class PokemonSpeciesData {
      * as implemented ones.
      */
     public String[] getAbilityNames(String name) {
-        return (String[])m_ablNames.get(name);
+        return getPossibleAbilities(name);
     }
     
     /**
@@ -315,7 +253,15 @@ public class PokemonSpeciesData {
      * that are actually implemented.
      */
     public String[] getPossibleAbilities(String name) {
-        return m_abilities.get(name);
+    	ArrayList<String> possibleAbilities =
+    		getPokemonByName(name).getAbilities();
+    	if(possibleAbilities == null)
+    		return null;
+    	String [] result = new String[possibleAbilities.size()];
+    	for(int i = 0; i < result.length; i++) {
+    		result[i] = possibleAbilities.get(i);
+    	}
+        return result;
     }
     
     /**
@@ -330,9 +276,9 @@ public class PokemonSpeciesData {
      */
     public PokemonSpecies getSpecies(int i) throws PokemonException {
     	if(i < 0)
-    		throw new PokemonException();
+    		return null;
         if (i >= m_database.length)
-            throw new PokemonException();
+            return null;
         return m_database[i];
     }
     
@@ -358,14 +304,14 @@ public class PokemonSpeciesData {
     /**
      * Find a pokemon by name.
      */
-    public int getPokemonByName(String name) {
+    public PokemonSpecies getPokemonByName(String name) {
         for (int i = 0; i < m_database.length; ++i) {
             if (m_database[i] != null && m_database[i].getName() != null && 
             		m_database[i].getName().equalsIgnoreCase(name)) {
-                return i;
+                return m_database[i];
             }
         }
-        return -1;
+        return null;
     }
     
     /**

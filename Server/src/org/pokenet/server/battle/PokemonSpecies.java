@@ -1,57 +1,27 @@
-/*
- * PokemonSpecies.java
- *
- * Created on December 15, 2006, 9:38 PM
- *
- * This file is a part of Shoddy Battle.
- * Copyright (C) 2006  Colin Fitzpatrick
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, visit the Free Software Foundation, Inc.
- * online at http://gnu.org.
- */
-
 package org.pokenet.server.battle;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
 import java.util.TreeSet;
 
+import org.pokenet.server.backend.item.DropData;
+import org.pokenet.server.battle.Pokemon.ExpTypes;
 import org.pokenet.server.battle.mechanics.PokemonType;
 import org.pokenet.server.battle.mechanics.StatException;
 import org.pokenet.server.battle.mechanics.moves.MoveSet;
 import org.pokenet.server.battle.mechanics.moves.MoveSetData;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementArray;
+import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.ElementMap;
 
-/**
- * This class represents a species of pokemon.
- * @author Colin
- */
-public class PokemonSpecies implements Serializable {
-    
-    private static final long serialVersionUID = -7424802824344211309L;
-    
-    /**
-     * Serialised data. Note that both the species ID and the species name
-     * are written. Only one of these is actually required in order to
-     * load the Pokemon, but both are written in case the server operator
-     * would rather load by name (ID is the default) - this allows for
-     * removing pokemon from the database without breaking existing teams,
-     * although it is somewhat slow.
-     */
+public class PokemonSpecies {
+	
+	private static PokemonSpeciesData m_default = new PokemonSpeciesData();
     @Element
     protected int m_species;
     @Element
@@ -67,14 +37,108 @@ public class PokemonSpecies implements Serializable {
     
     @ElementArray
     transient protected int[] m_base;
-    @ElementArray
+ 
+	@ElementArray
     transient protected PokemonType[] m_type;
     @Element
     transient protected int m_genders; // Possible genders.
-    
-    private static PokemonSpeciesData m_default = new PokemonSpeciesData();
-    
-    /**
+	@Element
+	protected String m_internalName;
+	@Element
+	protected String m_kind;
+	@Element
+	protected String m_pokedex;
+	
+	@Element
+	protected String m_type1;
+	@Element(required=false)
+	protected String m_type2;
+	
+	@ElementArray
+	protected int[] m_baseStats = new int[6];
+	
+	@Element
+	protected int m_rareness;
+	
+	@Element
+	protected int m_baseEXP;
+	@Element
+	protected int m_happiness;
+	@Element
+	protected ExpTypes m_growthRate;
+	@Element
+	protected int m_stepsToHatch;
+	
+	@Element
+	protected String m_color;
+	@Element(required=false)
+	protected String m_habitat;
+	
+	@ElementArray
+	protected int[] m_effortPoints = new int[6];
+	@ElementList
+	protected ArrayList<String> m_abilities
+		= new ArrayList<String>();
+	
+	@ElementArray
+	protected int[] m_compatibility = new int[2];
+	
+	@Element
+	protected float m_height;
+	@Element
+	protected float m_weight;
+	
+	@Element
+	protected int m_femalePercentage;
+	
+	@ElementMap
+	protected HashMap<Integer, String> m_levelMoves =
+		new HashMap<Integer, String>();
+	@ElementList
+	protected ArrayList<String> m_starterMoves =
+		new ArrayList<String>();
+	@ElementList
+	protected ArrayList<String> m_eggMoves
+		= new ArrayList<String>();
+	@ElementList
+	protected ArrayList<PokemonEvolution> m_evolutions 
+		= new ArrayList<PokemonEvolution>();
+	@ElementList
+	protected ArrayList<String> m_tmMoves
+		= new ArrayList<String>();
+	@ElementList
+	protected ArrayList<DropData> m_drops
+		= new ArrayList<DropData>();
+	
+	public ArrayList<DropData> getDropData() {
+		return m_drops;
+	}
+	
+	public void setDropData(ArrayList<DropData> d) {
+		m_drops = d;
+	}
+	
+	/**
+	 * Returns a random item dropped by the Pokemon, -1 if no item was dropped
+	 * @return
+	 */
+	public int getRandomItem() {
+		if(DataService.getBattleMechanics().getRandom().nextInt(99) < 30) {
+            int r = 100;
+            ArrayList<Integer> m_result = new ArrayList<Integer>();
+            for(int i = 0; i < m_drops.size(); i++) {
+                    r = DataService.getBattleMechanics().getRandom().nextInt(100) + 1;
+                    if(r < m_drops.get(i).getProbability())
+                            m_result.add(m_drops.get(i).getItemNumber());
+            }
+            return m_result.size() > 0 ? 
+                            m_result.get(DataService.getBattleMechanics()
+                                            .getRandom().nextInt(m_result.size())) : -1;
+		}
+		return - 1;
+	}
+	
+	  /**
      * Returns the pokedex number
      * @return
      */
@@ -147,11 +211,10 @@ public class PokemonSpecies implements Serializable {
     /**
      * Construct a new pokemon species with arbitrary stats.
      */
-    /*package*/ PokemonSpecies(int species, String name, int[] base, PokemonType[] type, int gender) {
+    public PokemonSpecies(int species, String name, int[] base, int gender) {
         m_species = species;
         m_name = name;
         m_base = base;
-        m_type = type;
         m_genders = gender;
     }
     
@@ -219,48 +282,13 @@ public class PokemonSpecies implements Serializable {
     /** Constructor used for serialization */
     public PokemonSpecies() {}
     
-    /**
-     * Construct by name.
-     */
-    public PokemonSpecies(PokemonSpeciesData data, String str) throws PokemonException {
-        this(data, data.getPokemonByName(str));
-    }
-    
-    /**
-     * Get this pokemon's base stats.
-     */
-    public int[] getBaseStats() {
-        return m_base;
-    }
-    
     public PokemonType[] getTypes() {
         return m_type;
-    }
-    
-    /**
-     * Set the type of this pokemon.
-     */
-    public void setType(PokemonType[] type) {
-        m_type = type;
     }
     
     public int getBase(int i) throws StatException {
         if ((i < 0) || (i > 5)) throw new StatException();
         return m_base[i];
-    }
-    
-    /**
-     * Get the name of this species.
-     */
-    public String getName() {
-        return m_name;
-    }
-    
-    /**
-     * Set the name of this species.
-     */ 
-    public void setName(String name) {
-        m_name = name;
     }
     
     /**
@@ -284,4 +312,179 @@ public class PokemonSpecies implements Serializable {
         return data.canLearn(m_species, move);
     }
 
+	
+	public int getSpecies() {
+		return m_species;
+	}
+	public void setSpecies(int mSpecies) {
+		m_species = mSpecies;
+	}
+	public String getName() {
+		return m_name;
+	}
+	public void setName(String mName) {
+		m_name = mName;
+	}
+	public int[] getBase() {
+		return m_base;
+	}
+	public void setBase(int[] mBase) {
+		m_base = mBase;
+	}
+	public PokemonType[] getType() {
+		return m_type;
+	}
+	public void setType(PokemonType[] mType) {
+		m_type = mType;
+	}
+	public int getGenders() {
+		return m_genders;
+	}
+	public void setGenders(int mGenders) {
+		m_genders = mGenders;
+	}
+	public String getInternalName() {
+		return m_internalName;
+	}
+	public void setInternalName(String mInternalName) {
+		m_internalName = mInternalName;
+	}
+	public String getKind() {
+		return m_kind;
+	}
+	public void setKind(String mKind) {
+		m_kind = mKind;
+	}
+	public String getPokedexInfo() {
+		return m_pokedex;
+	}
+	public void setPokedexInfo(String mPokedex) {
+		m_pokedex = mPokedex;
+	}
+	public String getType1() {
+		return m_type1;
+	}
+	public void setType1(String mType1) {
+		m_type1 = mType1;
+	}
+	public String getType2() {
+		return m_type2;
+	}
+	public void setType2(String mType2) {
+		m_type2 = mType2;
+	}
+	public int[] getBaseStats() {
+		return m_baseStats;
+	}
+	public void setBaseStats(int[] mBaseStats) {
+		m_baseStats = mBaseStats;
+	}
+	public int getRareness() {
+		return m_rareness;
+	}
+	public void setRareness(int mRareness) {
+		m_rareness = mRareness;
+	}
+	public int getBaseEXP() {
+		return m_baseEXP;
+	}
+	public void setBaseEXP(int mBaseEXP) {
+		m_baseEXP = mBaseEXP;
+	}
+	public int getHappiness() {
+		return m_happiness;
+	}
+	public void setHappiness(int mHappiness) {
+		m_happiness = mHappiness;
+	}
+	public ExpTypes getGrowthRate() {
+		return m_growthRate;
+	}
+	public void setGrowthRate(ExpTypes mGrowthRate) {
+		m_growthRate = mGrowthRate;
+	}
+	public int getStepsToHatch() {
+		return m_stepsToHatch;
+	}
+	public void setStepsToHatch(int mStepsToHatch) {
+		m_stepsToHatch = mStepsToHatch;
+	}
+	public String getColor() {
+		return m_color;
+	}
+	public void setColor(String mColor) {
+		m_color = mColor;
+	}
+	public String getHabitat() {
+		return m_habitat;
+	}
+	public void setHabitat(String mHabitat) {
+		m_habitat = mHabitat;
+	}
+	public int[] getEffortPoints() {
+		return m_effortPoints;
+	}
+	public void setEffortPoints(int[] mEffortPoints) {
+		m_effortPoints = mEffortPoints;
+	}
+	public ArrayList<String> getAbilities() {
+		return m_abilities;
+	}
+	public void setAbilities(ArrayList<String> mAbilities) {
+		m_abilities = mAbilities;
+	}
+	public int[] getCompatibility() {
+		return m_compatibility;
+	}
+	public void setCompatibility(int[] mCompatibility) {
+		m_compatibility = mCompatibility;
+	}
+	public float getHeight() {
+		return m_height;
+	}
+	public void setHeight(float mHeight) {
+		m_height = mHeight;
+	}
+	public float getWeight() {
+		return m_weight;
+	}
+	public void setWeight(float mWeight) {
+		m_weight = mWeight;
+	}
+	public int getFemalePercentage() {
+		return m_femalePercentage;
+	}
+	public void setFemalePercentage(int mFemalePercentage) {
+		m_femalePercentage = mFemalePercentage;
+	}
+	public HashMap<Integer, String> getLevelMoves() {
+		return m_levelMoves;
+	}
+	public void setLevelMoves(HashMap<Integer, String> mMoves) {
+		m_levelMoves = mMoves;
+	}
+	public ArrayList<String> getStarterMoves() {
+		return m_starterMoves;
+	}
+	public void setStarterMoves(ArrayList<String> mStarterMoves) {
+		m_starterMoves = mStarterMoves;
+	}
+	public ArrayList<String> getEggMoves() {
+		return m_eggMoves;
+	}
+	public void setEggMoves(ArrayList<String> mEggMoves) {
+		m_eggMoves = mEggMoves;
+	}
+	public ArrayList<PokemonEvolution> getEvolutions() {
+		return m_evolutions;
+	}
+	public void setEvolutions(ArrayList<PokemonEvolution> mEvolutions) {
+		m_evolutions = mEvolutions;
+	}
+	public ArrayList<String> getTMMoves() {
+		return m_tmMoves;
+	}
+	public void setTMMoves(ArrayList<String> mPossibleMoves) {
+		m_tmMoves = mPossibleMoves;
+	}
 }
