@@ -1606,7 +1606,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 */
 	public void updateClientParty(int i) {
 		if(this.getParty()[i] != null) {
-			m_tcpSession.write("Pi" + i + PokemonSpecies.getDefaultData().getPokemonByName(this.getParty()[i].getSpeciesName()) + "," +
+			m_tcpSession.write("Pi" + i + PokemonSpecies.getDefaultData().getPokemonByName(this.getParty()[i].getSpeciesName()).getSpeciesNumber() + "," +
 					this.getParty()[i].getName() + "," +
 					this.getParty()[i].getHealth() + "," +
 					this.getParty()[i].getGender() + "," +

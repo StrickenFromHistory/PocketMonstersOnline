@@ -319,18 +319,18 @@ public class PokemonSpeciesData {
     /**
      * Return whether this species can learn a particular move.
      */
-    public boolean canLearn(int species, String move) {
-    	ArrayList<String> moves = m_database[species].getStarterMoves();
+    public boolean canLearn(PokemonSpecies species, String move) {
+    	ArrayList<String> moves = species.getStarterMoves();
     	for(int i = 0; i < moves.size(); i++) {
     		if(moves.get(i).equalsIgnoreCase(move))
     			return true;
     	}
-    	Iterator<String> it = m_database[species].getLevelMoves().values().iterator();
+    	Iterator<String> it = species.getLevelMoves().values().iterator();
     	while(it.hasNext()) {
     		if(it.next().equalsIgnoreCase(move))
     			return true;
     	}
-        moves = m_database[species].getTMMoves();
+        moves = species.getTMMoves();
         for(int i = 0; i < moves.size(); i++) {
     		if(moves.get(i).equalsIgnoreCase(move))
     			return true;

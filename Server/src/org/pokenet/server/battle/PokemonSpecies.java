@@ -302,7 +302,7 @@ public class PokemonSpecies {
      * Return whether this species can learn a particular move.
      */
     public boolean canLearn(PokemonSpeciesData data, String move) {
-        return data.canLearn(m_species, move);
+        return data.canLearn(this, move);
     }
     
     public ArrayList<String> getLearnableMoves() {

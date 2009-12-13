@@ -2105,19 +2105,19 @@ public class Pokemon extends PokemonSpecies {
      */
     /* Check validity of moves */
     if(m_move[0] != null && !PokemonSpecies.getDefaultData().
-    		canLearn(getSpeciesNumber(), getMoveName(0))) {
+    		canLearn(this, getMoveName(0))) {
     	m_move[0] = null;
     }
     if(m_move[1] != null && !PokemonSpecies.getDefaultData().
-    		canLearn(getSpeciesNumber(), getMoveName(1))) {
+    		canLearn(this, getMoveName(1))) {
     	m_move[1] = null;
     }
     if(m_move[2] != null && !PokemonSpecies.getDefaultData().
-    		canLearn(getSpeciesNumber(), getMoveName(2))) {
+    		canLearn(this, getMoveName(2))) {
     	m_move[2] = null;
     }
     if(m_move[3] != null && !PokemonSpecies.getDefaultData().
-    		canLearn(getSpeciesNumber(), getMoveName(3))) {
+    		canLearn(this, getMoveName(3))) {
     	m_move[3] = null;
     }
   }
