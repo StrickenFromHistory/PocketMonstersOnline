@@ -392,7 +392,7 @@ public class RegisterDialog extends Frame{
 		}
 		switch(m_starter) {
 		case 1:
-			m_starters[1].setEnabled(false);
+			m_starters[0].setEnabled(false);
 			break;
 		case 4:
 			m_starters[4].setEnabled(false);
