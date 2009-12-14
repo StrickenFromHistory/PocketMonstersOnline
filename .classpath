@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="PokenetClientVenonat/lib/native"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="PokenetClient/lib/native"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry excluding="src/|lib/|res/" kind="src" path=""/>
