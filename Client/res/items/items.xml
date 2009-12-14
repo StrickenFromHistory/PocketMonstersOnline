@@ -1548,7 +1548,7 @@
 			<integer>206</integer>
 			<item>
 				<m_name>Oran Berry</m_name>
-				<m_description>Resores HP</m_description>
+				<m_description>Restores HP</m_description>
 				<m_id>206</m_id>
 				<m_category>Food</m_category>
 				<m_shop>0</m_shop>
@@ -2263,7 +2263,7 @@
 			<integer>257</integer>
 			<item>
 				<m_name>Enigma Berry</m_name>
-				<m_description>Resores HP when hit by a supper effective
+				<m_description>Restores HP when hit by a supper effective
 					attack</m_description>
 				<m_id>257</m_id>
 				<m_category>Food</m_category>
