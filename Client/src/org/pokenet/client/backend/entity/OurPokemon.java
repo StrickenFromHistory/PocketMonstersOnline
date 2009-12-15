@@ -58,6 +58,9 @@ public class OurPokemon extends Pokemon {
 	 */
 	private void setBackSprite() {
 		try {
+			String respath = System.getProperty("res.path");
+			if(respath==null)
+				respath="";
 			InputStream f;
 			LoadingList.setDeferredLoading(true);
 			String path = new String();
@@ -84,15 +87,15 @@ public class OurPokemon extends Pokemon {
 				gender = 0;
 
 			try {
-				path = "res/pokemon/back/" + isShiny + index + "-"
+				path = respath+"res/pokemon/back/" + isShiny + index + "-"
 						+ String.valueOf(gender) + ".png";
 				f = FileLoader.loadFile(path);
 				m_backSprite = new Image(f, path.toString(), false);
 			} catch (Exception e) {
 				if (gender == 3) {
-					path = "res/pokemon/back/" + isShiny + index + "-1.png";
+					path = respath+"res/pokemon/back/" + isShiny + index + "-1.png";
 				} else {
-					path = "res/pokemon/back/" + isShiny + index + "-0.png";
+					path = respath+"res/pokemon/back/" + isShiny + index + "-0.png";
 				}
 				m_backSprite = new Image(path.toString(), false);
 				e.printStackTrace();

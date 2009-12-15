@@ -225,6 +225,9 @@ public class RegisterDialog extends Frame{
 	 * Generates starter buttons
 	 */
 	private void generateStarters() {
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
 			InputStream f;
 			m_starters = new ToggleButton[12];
@@ -233,9 +236,9 @@ public class RegisterDialog extends Frame{
 				m_starters[i].setSize(32, 32);
 				m_starters[i].setVisible(true);
 			}
-			f = FileLoader.loadFile("res/pokemon/icons/001.gif");
-			m_starters[0].setImage(new Image(f, "res/pokemon/icons/001.gif", false));
-			m_starters[0].setDisabledImage(new Image(f, "res/pokemon/icons/001.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/001.gif");
+			m_starters[0].setImage(new Image(f, respath+"res/pokemon/icons/001.gif", false));
+			m_starters[0].setDisabledImage(new Image(f, respath+"res/pokemon/icons/001.gif", false));
 			m_starters[0].setLocation(160, 24);
 			m_starters[0].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -245,9 +248,9 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[0]);
 			
-			f = FileLoader.loadFile("res/pokemon/icons/152.gif");
-			m_starters[1].setImage(new Image(f, "res/pokemon/icons/152.gif", false));
-			m_starters[1].setDisabledImage(new Image(f, "res/pokemon/icons/152.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/152.gif");
+			m_starters[1].setImage(new Image(f, respath+"res/pokemon/icons/152.gif", false));
+			m_starters[1].setDisabledImage(new Image(f, respath+"res/pokemon/icons/152.gif", false));
 			m_starters[1].setLocation(192, 24);
 			m_starters[1].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -257,9 +260,9 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[1]);
 			
-			f = FileLoader.loadFile("res/pokemon/icons/252.gif");
-			m_starters[2].setImage(new Image(f, "res/pokemon/icons/252.gif", false));
-			m_starters[2].setDisabledImage(new Image(f, "res/pokemon/icons/252.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/252.gif");
+			m_starters[2].setImage(new Image(f, respath+"res/pokemon/icons/252.gif", false));
+			m_starters[2].setDisabledImage(new Image(f, respath+"res/pokemon/icons/252.gif", false));
 			m_starters[2].setLocation(224, 24);
 			m_starters[2].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -269,9 +272,9 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[2]);
 			
-			f = FileLoader.loadFile("res/pokemon/icons/387.gif");
-			m_starters[3].setImage(new Image(f, "res/pokemon/icons/387.gif", false));
-			m_starters[3].setDisabledImage(new Image(f, "res/pokemon/icons/387.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/387.gif");
+			m_starters[3].setImage(new Image(f, respath+"res/pokemon/icons/387.gif", false));
+			m_starters[3].setDisabledImage(new Image(f, respath+"res/pokemon/icons/387.gif", false));
 			m_starters[3].setLocation(256, 24);
 			m_starters[3].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -281,9 +284,9 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[3]);
 			
-			f = FileLoader.loadFile("res/pokemon/icons/004.gif");
-			m_starters[4].setImage(new Image(f, "res/pokemon/icons/004.gif", false));
-			m_starters[4].setDisabledImage(new Image(f, "res/pokemon/icons/004.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/004.gif");
+			m_starters[4].setImage(new Image(f, respath+"res/pokemon/icons/004.gif", false));
+			m_starters[4].setDisabledImage(new Image(f, respath+"res/pokemon/icons/004.gif", false));
 			m_starters[4].setLocation(160, 56);
 			m_starters[4].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -293,9 +296,9 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[4]);
 			
-			f = FileLoader.loadFile("res/pokemon/icons/155.gif");
-			m_starters[5].setImage(new Image(f, "res/pokemon/icons/155.gif", false));
-			m_starters[5].setDisabledImage(new Image(f, "res/pokemon/icons/155.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/155.gif");
+			m_starters[5].setImage(new Image(f, respath+"res/pokemon/icons/155.gif", false));
+			m_starters[5].setDisabledImage(new Image(f, respath+"res/pokemon/icons/155.gif", false));
 			m_starters[5].setLocation(192, 56);
 			m_starters[5].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -305,9 +308,9 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[5]);
 			
-			f = FileLoader.loadFile("res/pokemon/icons/255.gif");
-			m_starters[6].setImage(new Image(f, "res/pokemon/icons/255.gif", false));
-			m_starters[6].setDisabledImage(new Image(f, "res/pokemon/icons/255.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/255.gif");
+			m_starters[6].setImage(new Image(f, respath+"res/pokemon/icons/255.gif", false));
+			m_starters[6].setDisabledImage(new Image(f, respath+"res/pokemon/icons/255.gif", false));
 			m_starters[6].setLocation(224, 56);
 			m_starters[6].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -317,9 +320,9 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[6]);
 			
-			f = FileLoader.loadFile("res/pokemon/icons/390.gif");
-			m_starters[7].setImage(new Image(f, "res/pokemon/icons/390.gif", false));
-			m_starters[7].setDisabledImage(new Image(f, "res/pokemon/icons/390.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/390.gif");
+			m_starters[7].setImage(new Image(f, respath+"res/pokemon/icons/390.gif", false));
+			m_starters[7].setDisabledImage(new Image(f, respath+"res/pokemon/icons/390.gif", false));
 			m_starters[7].setLocation(256, 56);
 			m_starters[7].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -329,9 +332,9 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[7]);
 			
-			f = FileLoader.loadFile("res/pokemon/icons/007.gif");
-			m_starters[8].setImage(new Image(f, "res/pokemon/icons/007.gif", false));
-			m_starters[8].setDisabledImage(new Image(f, "res/pokemon/icons/007.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/007.gif");
+			m_starters[8].setImage(new Image(f, respath+"res/pokemon/icons/007.gif", false));
+			m_starters[8].setDisabledImage(new Image(f, respath+"res/pokemon/icons/007.gif", false));
 			m_starters[8].setLocation(160, 88);
 			m_starters[8].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -341,9 +344,9 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[8]);
 			
-			f = FileLoader.loadFile("res/pokemon/icons/158.gif");
-			m_starters[9].setImage(new Image(f, "res/pokemon/icons/158.gif", false));
-			m_starters[9].setDisabledImage(new Image(f, "res/pokemon/icons/158.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/158.gif");
+			m_starters[9].setImage(new Image(f, respath+"res/pokemon/icons/158.gif", false));
+			m_starters[9].setDisabledImage(new Image(f, respath+"res/pokemon/icons/158.gif", false));
 			m_starters[9].setLocation(192, 88);
 			m_starters[9].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -353,9 +356,9 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[9]);
 			
-			f = FileLoader.loadFile("res/pokemon/icons/258.gif");
-			m_starters[10].setImage(new Image(f, "res/pokemon/icons/258.gif", false));
-			m_starters[10].setDisabledImage(new Image(f, "res/pokemon/icons/258.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/258.gif");
+			m_starters[10].setImage(new Image(f, respath+"res/pokemon/icons/258.gif", false));
+			m_starters[10].setDisabledImage(new Image(f, respath+"res/pokemon/icons/258.gif", false));
 			m_starters[10].setLocation(224, 88);
 			m_starters[10].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -365,9 +368,9 @@ public class RegisterDialog extends Frame{
 			});
 			this.add(m_starters[10]);
 			
-			f = FileLoader.loadFile("res/pokemon/icons/393.gif");
-			m_starters[11].setImage(new Image(f, "res/pokemon/icons/393.gif", false));
-			m_starters[11].setDisabledImage(new Image(f, "res/pokemon/icons/393.gif", false));
+			f = FileLoader.loadFile(respath+"res/pokemon/icons/393.gif");
+			m_starters[11].setImage(new Image(f, respath+"res/pokemon/icons/393.gif", false));
+			m_starters[11].setDisabledImage(new Image(f, respath+"res/pokemon/icons/393.gif", false));
 			m_starters[11].setLocation(256, 88);
 			m_starters[11].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {

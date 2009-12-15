@@ -92,8 +92,11 @@ public class SpeechFrame extends Frame {
     	InputStream f;
     	try {
     		LoadingList.setDeferredLoading(true);
-    		f = FileLoader.loadFile("res/ui/speechbox.png");
-    		bg = new Image(f, "res/ui/speechbox.png", false);
+    		String respath = System.getProperty("res.path");
+    		if(respath==null)
+    			respath="";
+    		f = FileLoader.loadFile(respath+"res/ui/speechbox.png");
+    		bg = new Image(f, respath+"res/ui/speechbox.png", false);
     		LoadingList.setDeferredLoading(false);
     	} catch (Exception e) {
     		e.printStackTrace();

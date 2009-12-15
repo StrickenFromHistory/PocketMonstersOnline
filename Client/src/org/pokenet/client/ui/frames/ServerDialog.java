@@ -60,6 +60,9 @@ public class ServerDialog extends Frame {
 		/*
 		 * Create all the server buttons
 		 */
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
 			m_servers = new Button[5];
 			m_host = new String[5];
@@ -68,7 +71,7 @@ public class ServerDialog extends Frame {
 				URL url = new URL("http://pokeglobal.sourceforge.net/servers.txt");
 				stream = url.openStream();
 			} catch (Exception e) {
-				stream = new FileInputStream("res/servers.txt");
+				stream = new FileInputStream(respath+"res/servers.txt");
 			}
 	        BufferedReader in = new BufferedReader(new InputStreamReader(stream));
 

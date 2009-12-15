@@ -50,6 +50,9 @@ public class Pokemon {
          * Loads the sprite
          */
         private void setSprite() {
+        	String respath = System.getProperty("res.path");
+			if(respath==null)
+				respath="";
         	try{
         		InputStream f;
         		LoadingList.setDeferredLoading(true);
@@ -77,7 +80,7 @@ public class Pokemon {
         			pathGender = 2;
 
         		try {
-        			path = "res/pokemon/front/" + isShiny + index + "-"
+        			path = respath+"res/pokemon/front/" + isShiny + index + "-"
         				+ pathGender + ".png";
         			f = FileLoader.loadFile(path);
         			m_sprite = new Image(f, path.toString(), false);
@@ -86,7 +89,7 @@ public class Pokemon {
         				pathGender = 2;
         			else
         				pathGender = 3;
-        			path = "res/pokemon/front/" + isShiny + index + "-"
+        			path = respath+"res/pokemon/front/" + isShiny + index + "-"
         				+ pathGender + ".png";
         			m_sprite = new Image(path.toString(), false);
         			e.printStackTrace();
@@ -107,6 +110,9 @@ public class Pokemon {
          * Loads the icon
          */
         private void setIcon() {
+        	String respath = System.getProperty("res.path");
+			if(respath==null)
+				respath="";
                 try{
                 		LoadingList.setDeferredLoading(true);
                         String path = new String();
@@ -122,7 +128,7 @@ public class Pokemon {
                                 index = String.valueOf(m_spriteNum);
                         }
                        
-                        path = "res/pokemon/icons/" + index + ".gif";
+                        path = respath+"res/pokemon/icons/" + index + ".gif";
                         m_icon = new Image(path, false);
                         LoadingList.setDeferredLoading(false);
                 }catch (SlickException e){e.printStackTrace();}
@@ -405,7 +411,10 @@ public class Pokemon {
         public static String getIconPathByIndex(int i){
         	String path = new String();
         	String index = new String();
-
+        	String respath = System.getProperty("res.path");
+			if(respath==null)
+				respath="";
+			
         	if (i < 10) {
         		index = "00" + String.valueOf(i);
         	} else if (i < 100){
@@ -414,7 +423,7 @@ public class Pokemon {
         		index = String.valueOf(i);
         	}
                
-                path = "res/pokemon/icons/" + index + ".gif";
+                path = respath+"res/pokemon/icons/" + index + ".gif";
                 return path;
         }
 }

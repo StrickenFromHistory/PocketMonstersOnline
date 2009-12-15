@@ -39,6 +39,9 @@ public class LoginScreen extends Window {
 	 * Default constructor
 	 */
 	public LoginScreen() {
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
 			InputStream f;
 //			m_bgColor = new Color(255, 255, 255, 70);
@@ -47,7 +50,7 @@ public class LoginScreen extends Window {
 			/*
 			 * Load the background image
 			 */
-			f = new FileInputStream("res/pokenet.png");
+			f = new FileInputStream(respath+"res/pokenet.png");
 			m_bg = new Label(new Image(f, "bg", false));
 			m_bg.pack();
 			m_bg.setLocation(0, 0);

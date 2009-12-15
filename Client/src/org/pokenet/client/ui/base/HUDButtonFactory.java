@@ -77,15 +77,24 @@ public class HUDButtonFactory {
         private static Font font;
         
         private static Image getRolloverImage(String text) throws SlickException {
-            return new Image("res/ui/" + text + "_32x32.png", false);
+        	String respath = System.getProperty("res.path");
+    		if(respath==null)
+    			respath="";
+            return new Image(respath+"res/ui/" + text + "_32x32.png", false);
         }
         
         private static Image getNormalImage(String text) throws SlickException {
-            return new Image("res/ui/" + text + "_32x32.png", false);
+        	String respath = System.getProperty("res.path");
+    		if(respath==null)
+    			respath="";
+            return new Image(respath+"res/ui/" + text + "_32x32.png", false);
         }
         
         private static Image getDownImage(String text) throws SlickException {
-        	return new Image("res/ui/" + text + "Pressed_32x32.png", false);
+        	String respath = System.getProperty("res.path");
+    		if(respath==null)
+    			respath="";
+        	return new Image(respath+"res/ui/" + text + "Pressed_32x32.png", false);
         }
         
         public static ImageButton getButton(String text) {

@@ -20,12 +20,16 @@ public class SoundManager extends Thread{
 	private boolean m_tracksLoaded = false, m_trackChanged = true, m_isRunning = false;
 	private boolean m_mute = false;
 
-	private final String m_audioPath = "res/music/";
+	private String m_audioPath = "res/music/";
 
 	/**
 	 * Default Constructor
 	 */
 	public SoundManager() {
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
+		m_audioPath = respath+m_audioPath;
 		m_files = new HashMap<String, AudioImpl>();
 		loadFileList();
 		loadLocations();
@@ -58,8 +62,11 @@ public class SoundManager extends Thread{
 	 * Loads the locations and their respective keys
 	 */
 	private void loadLocations() {
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
-			BufferedReader stream = FileLoader.loadTextFile("res/language/english/_MUSICKEYS.txt");
+			BufferedReader stream = FileLoader.loadTextFile(respath+"res/language/english/_MUSICKEYS.txt");
 			m_locations = new HashMap<String, String>();
 
 			String f;

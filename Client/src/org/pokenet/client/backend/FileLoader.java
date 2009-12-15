@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
  *
  */
 public class FileLoader {
+	
 	/**
 	 *  Loads a file as an InputStream
 	 * @param path

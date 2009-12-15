@@ -9,7 +9,10 @@ import org.pokenet.client.GameClient;
 public class BattleButtonFactory {
     static {
     	try {
-    		final String path = "res/ui/";
+    		String respath = System.getProperty("res.path");
+    		if(respath==null)
+    			respath="";
+    		String path = respath+"res/ui/";
 
     		normal = new Image(	path + "button.png", false);
     		normalDown = new Image(path + "button_pressed.png", false);

@@ -46,8 +46,11 @@ public class TownMap extends Frame {
 		m_timer = new Timer();
 		
 		LoadingList.setDeferredLoading(true);
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
-			m_map = new Label(new Image("res/ui/KantoandJohto.png", false));
+			m_map = new Label(new Image(respath+"res/ui/KantoandJohto.png", false));
 		} catch (SlickException e) {}
 		LoadingList.setDeferredLoading(false);
 
@@ -87,13 +90,17 @@ public class TownMap extends Frame {
 	 * Reads the list of locations and adds them to the map
 	 */
 	public void loadLocations() {
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
 			BufferedReader reader;
+			
 			try{
-				reader = new BufferedReader(new InputStreamReader(FileLoader.loadFile("res/language/" 
+				reader = new BufferedReader(new InputStreamReader(FileLoader.loadFile(respath+"res/language/" 
 						+ GameClient.getLanguage() + "/UI/_MAP.txt")));
 			} catch (Exception e){
-				reader = new BufferedReader(new InputStreamReader(FileLoader.loadFile(
+				reader = new BufferedReader(new InputStreamReader(FileLoader.loadFile(respath+
 						"res/language/english/UI/_MAP.txt")));
 			}
 			m_containers = new HashMap<String, Container>();

@@ -41,11 +41,14 @@ public class ClientMap extends TiledMap {
 	 * @param tileSetsLocation
 	 * @throws SlickException
 	 */
-	public ClientMap(String tileSetsLocation)
+	public ClientMap(String path, String tileSetsLocation)
 			throws SlickException {
 		super(tileSetsLocation);
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
-			m_grassOverlay = new Image("res/ui/grass_overlay.png", false);
+			m_grassOverlay = new Image(respath+"res/ui/grass_overlay.png", false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -468,7 +471,7 @@ public class ClientMap extends TiledMap {
 		m_xOffset = offset;
 
 		if (calibrate) {
-			int thisX = (this.getXOffset() + (this.getWidth() * 32));
+//			int thisX = (this.getXOffset() + (this.getWidth() * 32));
 			// 0, 1 -- Left
 			ClientMap map = m_mapMatrix.getMap(m_mapX - 1, m_mapY);
 			if (map != null)
