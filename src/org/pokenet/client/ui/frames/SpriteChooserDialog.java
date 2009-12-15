@@ -27,11 +27,15 @@ public class SpriteChooserDialog extends Frame {
 	protected String m_mustLoadSprite;
 	private List<String> m_sprites;
 	private InputStream m_stream;
+	private String m_respath;
 
 	public SpriteChooserDialog() {
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		m_sprites = new ArrayList<String>();
+		m_respath = System.getProperty("res.path");
+		if(m_respath==null)
+			m_respath="";
 		for (int i = 1; i <= 218; i++) {
 			m_sprites.add(String.valueOf(i));
 		}
@@ -41,7 +45,7 @@ public class SpriteChooserDialog extends Frame {
 		
 		try {
 			InputStream in;
-			in = FileLoader.loadFile("res/characters/sprites.txt");
+			in = FileLoader.loadFile(m_respath+"res/characters/sprites.txt");
 			Scanner s = new Scanner(in);
 			while(s.hasNextLine()) {
 				m_sprites.remove(s.nextLine());
@@ -57,7 +61,7 @@ public class SpriteChooserDialog extends Frame {
 				@Override
 				protected void itemClicked(String itemName, int idx) {
 					super.itemClicked(itemName, idx);
-					m_mustLoadSprite = "res/characters/" + itemName + ".png";
+					m_mustLoadSprite = m_respath+"res/characters/" + itemName + ".png";
 				}
 			};
 			m_spriteList.setSize(105, 317);

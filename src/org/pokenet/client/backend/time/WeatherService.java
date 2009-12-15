@@ -28,20 +28,24 @@ public class WeatherService {
 		 */
 		m_systems = new ParticleSystem[4];
 		
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
+		
 		try {
 			LoadingList.setDeferredLoading(true);
 			File f;
 			//Rain
-			f = new File("res/effects/rain/rain.xml");
+			f = new File(respath+"res/effects/rain/rain.xml");
 			m_systems[0] = ParticleIO.loadConfiguredSystem(f);
 			//Hail
-			f = new File("res/effects/hail/snow.xml");
+			f = new File(respath+"res/effects/hail/snow.xml");
 			m_systems[1] = ParticleIO.loadConfiguredSystem(f);
 			//Sandstorm
-			f = new File("res/effects/sandstorm/sand.xml");
+			f = new File(respath+"res/effects/sandstorm/sand.xml");
 			m_systems[2] = ParticleIO.loadConfiguredSystem(f);
 			//Fog
-			f = new File("res/effects/fog/fog.xml");
+			f = new File(respath+"res/effects/fog/fog.xml");
 			m_systems[3] = ParticleIO.loadConfiguredSystem(f);
 			LoadingList.setDeferredLoading(false);
 		} catch (Exception e) {

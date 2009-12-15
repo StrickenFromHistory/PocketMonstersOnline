@@ -20,8 +20,11 @@ public class Translator {
 	 */
 	public List<String> translateText(String filename) {
 		List<String> translated = new ArrayList<String>();
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
-			String path = "res/language/" + GameClient.getLanguage() + "/UI/" + filename + ".txt";
+			String path = respath+"res/language/" + GameClient.getLanguage() + "/UI/" + filename + ".txt";
 			InputStream in = new FileInputStream(path);
 			if(in != null) {
 				BufferedReader f = new BufferedReader(new InputStreamReader(in));
@@ -43,7 +46,7 @@ public class Translator {
 				}*/
 			}else{ //In case of emergencies, load english!
 				try{
-					in = new FileInputStream("res/language/english/UI/" + filename + ".txt");
+					in = new FileInputStream(respath+"res/language/english/UI/" + filename + ".txt");
 					BufferedReader f = new BufferedReader(new InputStreamReader(in));
 					Scanner reader = new Scanner(f);
 					while(reader.hasNextLine()) {

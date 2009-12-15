@@ -71,13 +71,15 @@ public class SpriteFactory {
 		spriteSheets = new HashMap<Integer, SpriteSheet>();	
 		try {
 			String location;
-			
+			String respath = System.getProperty("res.path");
+			if(respath==null)
+				respath="";
 			/*
 			 * WARNING: Change 224 to the amount of sprites we have in client
 			 */
 			for(int i = -5; i < 224; i++) {
 				try {
-					location = "res/characters/" + String.valueOf(i) + ".png";
+					location = respath+"res/characters/" + String.valueOf(i) + ".png";
 					spriteSheets.put(i, new SpriteSheet(new Image(location), 41, 51));
 				} catch (Exception e) {}
 			}

@@ -95,6 +95,9 @@ public abstract class BagDialog extends Container {
         	InputStream f;
         	Label[] m_itemIcon = new Label[m_items.size()];
         	m_itemButtons = new Button[m_items.size()];
+        	String respath = System.getProperty("res.path");
+    		if(respath==null)
+    			respath="";
         	for (int i = 0; i < m_items.size(); i++) {
         		final int j = i;
         		m_itemButtons[i] = new Button("       x" + m_items.get(i).getQuantity());
@@ -103,8 +106,8 @@ public abstract class BagDialog extends Container {
         		try {
         			m_itemIcon[i] = new Label();
             		m_itemIcon[i].setSize(32, 32);
-            		f = FileLoader.loadFile("res/items/24/" + m_items.get(i).getNumber() + ".png");
-        			m_itemIcon[i].setImage(new Image(f, "res/items/24/" + m_items.get(i).getNumber() + ".png", false));
+            		f = FileLoader.loadFile(respath+"res/items/24/" + m_items.get(i).getNumber() + ".png");
+        			m_itemIcon[i].setImage(new Image(f, respath+"res/items/24/" + m_items.get(i).getNumber() + ".png", false));
         			m_itemIcon[i].setGlassPane(true);
         			m_itemIcon[i].setToolTipText(m_items.get(i).getItem().getName()+"\n"+m_items.get(i).getItem().getDescription());
 					m_itemButtons[i].add(m_itemIcon[i]);

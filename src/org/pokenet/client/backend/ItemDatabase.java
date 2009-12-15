@@ -66,7 +66,10 @@ public class ItemDatabase {
 	public void reinitialise() {
 		Serializer serializer = new Persister();
 		try {
-			InputStream source = FileLoader.loadFile("res/items/items.xml");
+			String respath = System.getProperty("res.path");
+			if(respath==null)
+				respath="";
+			InputStream source = FileLoader.loadFile(respath+"res/items/items.xml");
 			m_instance = serializer.read(ItemDatabase.class, source);
 			System.out.println("INFO: Items database loaded.");
 		} catch (Exception e) {

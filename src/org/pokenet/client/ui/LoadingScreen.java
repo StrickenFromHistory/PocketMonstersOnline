@@ -20,6 +20,9 @@ public class LoadingScreen extends Frame {
 	public LoadingScreen() {
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
 			this.setSize(800, 632);
 			this.setBackground(new Color(255, 255, 255, 70));
@@ -27,7 +30,7 @@ public class LoadingScreen extends Frame {
 			this.setResizable(false);
 			this.getTitleBar().setVisible(false);
 			
-			m_bg = new Label(new Image("res/ui/loading.png", false));
+			m_bg = new Label(new Image(respath+"res/ui/loading.png", false));
 			m_bg.pack();
 			m_bg.setLocation(400 - (m_bg.getWidth() / 2), 300 - (m_bg.getHeight() /2));
 			m_bg.setVisible(true);

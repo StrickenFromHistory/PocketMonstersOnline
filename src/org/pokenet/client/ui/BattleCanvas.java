@@ -47,6 +47,10 @@ public class BattleCanvas extends Container {
 	 * Default constructor
 	 */
 	public BattleCanvas(){
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
+		m_path = respath+m_path;
 		setSize(257, 144);
 		setVisible(true);
 		loadImages();
@@ -265,16 +269,19 @@ public class BattleCanvas extends Container {
 	 */
 	public void drawBackground(){
 		LoadingList.setDeferredLoading(true);
+		String respath = System.getProperty("res.path");
+		if(respath.equals("null"))
+			respath="";
 		try {
-			bgPic = new Label(new Image("res/ui/DP_darkgrass.png", false));
+			bgPic = new Label(new Image(respath+"res/ui/DP_darkgrass.png", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		} try {
-			playerDataBG = new Label(new Image("res/battle/singlePlayerBox3.png", false));
+			playerDataBG = new Label(new Image(respath+"res/battle/singlePlayerBox3.png", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		} try {
-			enemyDataBG = new Label(new Image("res/battle/singleEnemyBox3.png", false));
+			enemyDataBG = new Label(new Image(respath+"res/battle/singleEnemyBox3.png", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}

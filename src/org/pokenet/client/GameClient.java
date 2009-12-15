@@ -73,6 +73,7 @@ public class GameClient extends BasicGame {
 	private Animator m_animator;
 	private static HashMap<String, String> options;
 	//Static variables
+	private static String m_filepath="";
 	private static Font m_fontLarge, m_fontSmall, m_trueTypeFont;
 	private static String m_host;
 	//UI
@@ -90,16 +91,24 @@ public class GameClient extends BasicGame {
 	private ConfirmationDialog m_confirm;
 	private PlayerPopupDialog m_playerDialog;
 	private MoveLearningManager m_moveLearningManager;
-    private static SoundManager m_soundPlayer;
-    private static boolean m_disableMaps = false;
-    public static String UDPCODE = "";
-    
+	private static SoundManager m_soundPlayer;
+	private static boolean m_disableMaps = false;
+	public static String UDPCODE = "";
+
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
 	 * Load options
 	 */
 	static {
 		try {
+			try{
+				m_filepath = System.getProperty("res.path");
+				System.out.println("Path: "+m_filepath);
+				if(m_filepath==null)
+					m_filepath="";
+			}catch(Exception e){
+				m_filepath="";
+			}
 			options = new FileMuffin().loadFile("options.dat");
 			if (options == null) {
 				options = new HashMap<String,String>();
@@ -142,17 +151,17 @@ public class GameClient extends BasicGame {
 		gc.getGraphics().setWorldClip(-32, -32, 832, 832);
 		gc.setShowFPS(false);
 		m_display = new Display(gc);
-		
+
 		/*
 		 * Setup variables
 		 */
-		m_fontLarge = new AngelCodeFont("res/fonts/dp.fnt","res/fonts/dp.png");
-		m_fontSmall = new AngelCodeFont("res/fonts/dp-small.fnt", "res/fonts/dp-small.png");
+		m_fontLarge = new AngelCodeFont(m_filepath+"res/fonts/dp.fnt",m_filepath+"res/fonts/dp.png");
+		m_fontSmall = new AngelCodeFont(m_filepath+"res/fonts/dp-small.fnt", m_filepath+"res/fonts/dp-small.png");
 		Player.loadSpriteFactory();
 		try {
 			/*DOES NOT WORK YET!!!
 			 */
-			m_trueTypeFont = new TrueTypeFont(java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, new File("res/fonts/PokeFont.ttf"))
+			m_trueTypeFont = new TrueTypeFont(java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, new File(m_filepath+"res/fonts/PokeFont.ttf"))
 					.deriveFont(java.awt.Font.PLAIN, 10), false);
 			//m_trueTypeFont = m_fontSmall;
 		} catch (Exception e) {e.printStackTrace(); m_trueTypeFont = m_fontSmall;}
@@ -163,17 +172,17 @@ public class GameClient extends BasicGame {
 		m_weather = new WeatherService();
 		if(options != null)
 			m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
-		
+
 		/*
 		 * Add the ui components
 		 */
 		m_loading = new LoadingScreen();
 		m_display.add(m_loading);
-		
+
 		m_login = new LoginScreen();
 		m_login.showLanguageSelect();
 		m_display.add(m_login);
-		
+
 		m_ui = new Ui(m_display);
 		m_ui.setAllVisible(false);
 
@@ -182,19 +191,19 @@ public class GameClient extends BasicGame {
 		 */
 		ItemDatabase m_itemdb = new ItemDatabase();
 		m_itemdb.reinitialise();
-		
+
 		/*
 		 * Move Leraning Manager
 		 */
 		m_moveLearningManager = new MoveLearningManager();
 		m_moveLearningManager.start();
-		
+
 		/*
 		 * The animator and map matrix
 		 */
-		m_mapMatrix = new ClientMapMatrix();
+		m_mapMatrix = new ClientMapMatrix(m_filepath);
 		m_animator = new Animator(m_mapMatrix);
-		
+
 		gc.getInput().enableKeyRepeat(50, 300);
 	}
 
@@ -285,42 +294,42 @@ public class GameClient extends BasicGame {
 			ClientMap thisMap;
 			g.setFont(m_fontLarge);
 			g.scale(2, 2);
-            for (int x = 0; x <= 2; x++) {
-            	for (int y = 0; y <= 2; y++) {
-            		thisMap = m_mapMatrix.getMap(x, y);
-            		if (thisMap != null && thisMap.isRendering()) {
-            			thisMap.render(thisMap.getXOffset() / 2,
-            					thisMap.getYOffset() / 2, 0, 0,
-            					(gc.getScreenWidth() - thisMap.getXOffset()) / 32,
-            					(gc.getScreenHeight() - thisMap.getYOffset()) / 32,
-            					false);
-            		}
-            	}
-            }
-            g.resetTransform();
-            try {
-            	m_mapMatrix.getCurrentMap().renderTop(g);
-            }catch (ConcurrentModificationException e){
-            	m_mapMatrix.getCurrentMap().renderTop(g);
-            }
+			for (int x = 0; x <= 2; x++) {
+				for (int y = 0; y <= 2; y++) {
+					thisMap = m_mapMatrix.getMap(x, y);
+					if (thisMap != null && thisMap.isRendering()) {
+						thisMap.render(thisMap.getXOffset() / 2,
+								thisMap.getYOffset() / 2, 0, 0,
+								(gc.getScreenWidth() - thisMap.getXOffset()) / 32,
+								(gc.getScreenHeight() - thisMap.getYOffset()) / 32,
+								false);
+					}
+				}
+			}
+			g.resetTransform();
+			try {
+				m_mapMatrix.getCurrentMap().renderTop(g);
+			}catch (ConcurrentModificationException e){
+				m_mapMatrix.getCurrentMap().renderTop(g);
+			}
 
-           	if(m_mapX > -30) {
-                //Render the current weather
-                if(m_weather.isEnabled() && m_weather.getParticleSystem() != null) {
-                	try {
-                      	m_weather.getParticleSystem().render();
-                	} catch(Exception e) {
-                		m_weather.setEnabled(false);
-                	}
-                }
-                //Render the current daylight
-                if(m_time.getDaylight() > 0 || 
-                		(m_weather.getWeather() != Weather.NORMAL && 
-                				m_weather.getWeather() != Weather.SANDSTORM)) {
-                	g.setColor(m_daylight);
-                	g.fillRect(0, 0, 800, 600);
-                }
-            }
+			if(m_mapX > -30) {
+				//Render the current weather
+				if(m_weather.isEnabled() && m_weather.getParticleSystem() != null) {
+					try {
+						m_weather.getParticleSystem().render();
+					} catch(Exception e) {
+						m_weather.setEnabled(false);
+					}
+				}
+				//Render the current daylight
+				if(m_time.getDaylight() > 0 || 
+						(m_weather.getWeather() != Weather.NORMAL && 
+								m_weather.getWeather() != Weather.SANDSTORM)) {
+					g.setColor(m_daylight);
+					g.fillRect(0, 0, 800, 600);
+				}
+			}
 		}
 		/*
 		 * Render the UI layer
@@ -333,7 +342,7 @@ public class GameClient extends BasicGame {
 			}
 		} catch (Exception e) { e.printStackTrace(); }
 	}
-	
+
 	/**
 	 * Accepts the user input.
 	 * @param key The integer representing the key pressed.
@@ -347,7 +356,7 @@ public class GameClient extends BasicGame {
 			if (key == (Input.KEY_TAB))
 				m_login.tabKeyDefault();
 		}
-		
+
 		if (key == (Input.KEY_ESCAPE)) {
 			if(m_confirm==null){
 				ActionListener yes = new ActionListener() {
@@ -357,7 +366,7 @@ public class GameClient extends BasicGame {
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
-				
+
 					}
 				};
 				ActionListener no = new ActionListener() {
@@ -432,20 +441,20 @@ public class GameClient extends BasicGame {
 				m_packetGen.writeTcpMessage("Ct");
 			}
 			if (getDisplay().containsChild(BattleManager.getInstance().getBattleWindow()) && 
-					 getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
-					 && !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
+					getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
+					&& !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
 				BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
 			} else{
 				try {
 					m_ui.getNPCSpeech().advance();
 				} catch (Exception e) { 
 					m_ui.nullSpeechFrame();
-//					m_packetGen.write("F"); 
+					//					m_packetGen.write("F"); 
 				}
 			}
 		}
 	}
-	
+
 	@Override
 	public void controllerDownPressed(int controller){
 		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
@@ -516,79 +525,79 @@ public class GameClient extends BasicGame {
 	@Override
 	public void mousePressed(int button, int x, int y) {
 		// Right Click
-        if (button == 1) {
-        	// loop through the players and look for one that's in the
-        	// place where the user just right-clicked
-        	for (Player p : m_mapMatrix.getPlayers()) {
-        		if ((x >= p.getX() + m_mapMatrix.getCurrentMap().getXOffset() && x <= p.getX() + 32 + m_mapMatrix.getCurrentMap().getXOffset()) 
-        				&& (y >= p.getY() + m_mapMatrix.getCurrentMap().getYOffset() && y <= p.getY() + 40 + m_mapMatrix.getCurrentMap().getYOffset())) {
-        			// Brings up a popup menu with player options
-        			if (!p.isOurPlayer()){
-        				if (getDisplay().containsChild(m_playerDialog))
-        					getDisplay().remove(m_playerDialog);
-        				m_playerDialog = new PlayerPopupDialog(p.getUsername());
-        				m_playerDialog.setLocation(x, y);
-        				getDisplay().add(m_playerDialog);
-        			}
-        		}
-        	}
-        }
-        //Left click
-        if (button == 0){
-        	//Get rid of the popup if you click outside of it
-        	if (getDisplay().containsChild(m_playerDialog)){
-        		if (x > m_playerDialog.getAbsoluteX() || x < m_playerDialog.getAbsoluteX()
-        				+ m_playerDialog.getWidth()){
-        			m_playerDialog.destroy();
-        		} else if (y > m_playerDialog.getAbsoluteY() || y < m_playerDialog.getAbsoluteY() 
-        				+ m_playerDialog.getHeight()){
-        			m_playerDialog.destroy();
-        		}
-        	} 
-        	//repeats space bar items (space bar emulation for mouse. In case you done have a space bar!)
-        	System.out.println("Space bar emulation");
-        	try
-        	{
-	        	if(getDisplay().containsChild(m_ui.getChat())){
-	        		m_ui.getChat().dropFocus();
-	        	}
-	        	if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
+		if (button == 1) {
+			// loop through the players and look for one that's in the
+			// place where the user just right-clicked
+			for (Player p : m_mapMatrix.getPlayers()) {
+				if ((x >= p.getX() + m_mapMatrix.getCurrentMap().getXOffset() && x <= p.getX() + 32 + m_mapMatrix.getCurrentMap().getXOffset()) 
+						&& (y >= p.getY() + m_mapMatrix.getCurrentMap().getYOffset() && y <= p.getY() + 40 + m_mapMatrix.getCurrentMap().getYOffset())) {
+					// Brings up a popup menu with player options
+					if (!p.isOurPlayer()){
+						if (getDisplay().containsChild(m_playerDialog))
+							getDisplay().remove(m_playerDialog);
+						m_playerDialog = new PlayerPopupDialog(p.getUsername());
+						m_playerDialog.setLocation(x, y);
+						getDisplay().add(m_playerDialog);
+					}
+				}
+			}
+		}
+		//Left click
+		if (button == 0){
+			//Get rid of the popup if you click outside of it
+			if (getDisplay().containsChild(m_playerDialog)){
+				if (x > m_playerDialog.getAbsoluteX() || x < m_playerDialog.getAbsoluteX()
+						+ m_playerDialog.getWidth()){
+					m_playerDialog.destroy();
+				} else if (y > m_playerDialog.getAbsoluteY() || y < m_playerDialog.getAbsoluteY() 
+						+ m_playerDialog.getHeight()){
+					m_playerDialog.destroy();
+				}
+			} 
+			//repeats space bar items (space bar emulation for mouse. In case you done have a space bar!)
+			System.out.println("Space bar emulation");
+			try
+			{
+				if(getDisplay().containsChild(m_ui.getChat())){
+					m_ui.getChat().dropFocus();
+				}
+				if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
 						.getBattleWindow()) ){
 					m_packetGen.writeTcpMessage("Ct");
 				}
 				if (getDisplay().containsChild(BattleManager.getInstance().getBattleWindow()) && 
-						 getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
-						 && !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
+						getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
+						&& !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
 					BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
 				} else{
 					try {
 						m_ui.getNPCSpeech().advance();
 					} catch (Exception e) { 
 						m_ui.nullSpeechFrame();
-	//					m_packetGen.write("F"); 
+						//					m_packetGen.write("F"); 
 					}
 				}
-        	} catch (Exception e)
-        	{
-        		System.out.println("Error in space bar emulation.");
-        	}
+			} catch (Exception e)
+			{
+				System.out.println("Error in space bar emulation.");
+			}
 			System.out.println("Space bar emulation ended.");
-        }
+		}
 	}
 
-	
+
 	/**
 	 * Connects to a selected server
 	 */
 	public void connect() {
-        m_packetGen = new PacketGenerator();
+		m_packetGen = new PacketGenerator();
 		/*
 		 * Connect via TCP
 		 */
 		NioSocketConnector connector = new NioSocketConnector();
 		connector.getFilterChain().addLast("codec",
-	              new ProtocolCodecFilter(
-	                      new TextLineCodecFactory(Charset.forName("US-ASCII"))));
+				new ProtocolCodecFilter(
+						new TextLineCodecFactory(Charset.forName("US-ASCII"))));
 		connector.setHandler(new TcpProtocolHandler(this));
 		ConnectFuture cf = connector.connect(new InetSocketAddress(m_host, 7002));
 		cf.addListener(new IoFutureListener() {
@@ -619,28 +628,28 @@ public class GameClient extends BasicGame {
 				}
 			}
 		});
-        /*
-         * Connect via UDP
-         */
-        NioDatagramConnector udp = new NioDatagramConnector();
-        udp.getFilterChain().addLast("codec",
-	              new ProtocolCodecFilter(
-	                      new TextLineCodecFactory(Charset.forName("US-ASCII"))));
-        udp.setHandler(new UdpProtocolHandler(this));
-        cf = udp.connect(new InetSocketAddress(m_host, 7005));
-        cf.addListener(new IoFutureListener() {
-        	public void operationComplete(IoFuture s) {
-        		try {
-    				if(s.getSession().isConnected()) {
-    					m_packetGen.setUdpSession(s.getSession());
-    				} else {
-    					messageDialog("Connection timed out.\n"
-    							+ "The server may be offline.\n"
-    							+ "Contact an administrator for assistance.", getDisplay());
-    					m_host = "";
-    					m_packetGen = null;
-    				}
-        		}catch(RuntimeIoException e){ 
+		/*
+		 * Connect via UDP
+		 */
+		NioDatagramConnector udp = new NioDatagramConnector();
+		udp.getFilterChain().addLast("codec",
+				new ProtocolCodecFilter(
+						new TextLineCodecFactory(Charset.forName("US-ASCII"))));
+		udp.setHandler(new UdpProtocolHandler(this));
+		cf = udp.connect(new InetSocketAddress(m_host, 7005));
+		cf.addListener(new IoFutureListener() {
+			public void operationComplete(IoFuture s) {
+				try {
+					if(s.getSession().isConnected()) {
+						m_packetGen.setUdpSession(s.getSession());
+					} else {
+						messageDialog("Connection timed out.\n"
+								+ "The server may be offline.\n"
+								+ "Contact an administrator for assistance.", getDisplay());
+						m_host = "";
+						m_packetGen = null;
+					}
+				}catch(RuntimeIoException e){ 
 					messageDialog("Connection timed out.\n"
 							+ "The server may be offline.\n"
 							+ "Contact an administrator for assistance.", getDisplay());
@@ -653,16 +662,16 @@ public class GameClient extends BasicGame {
 							+ "Contact an administrator for assistance.", getDisplay());
 					m_host = "";
 					m_packetGen = null;
-        		}
+				}
 			}
 		});
-        /*
-         * Show login screen
-         */
-        if(!m_host.equals(""))
-        		m_login.showLogin();
+		/*
+		 * Show login screen
+		 */
+		if(!m_host.equals(""))
+			m_login.showLogin();
 	}
-	
+
 	/**
 	 * Returns the map matrix
 	 * @return
@@ -670,7 +679,7 @@ public class GameClient extends BasicGame {
 	public ClientMapMatrix getMapMatrix() {
 		return m_mapMatrix;
 	}
-	
+
 	/**
 	 * If you don't know what this does, you shouldn't be programming!
 	 * @param args
@@ -720,7 +729,7 @@ public class GameClient extends BasicGame {
 			getUi().getDisplay().add(m_confirm);
 		}		
 		return m_close;
-	 }
+	}
 
 	/**
 	 * Returns the font in large
@@ -729,7 +738,7 @@ public class GameClient extends BasicGame {
 	public static Font getFontLarge() {
 		return m_fontLarge;
 	}
-	
+
 	/**
 	 * Returns the font in small
 	 * @return
@@ -737,11 +746,11 @@ public class GameClient extends BasicGame {
 	public static Font getFontSmall() {
 		return m_fontSmall;
 	}
-	
+
 	public static Font getTrueTypeFont() {
 		return m_trueTypeFont;
 	}
-	
+
 	/**
 	 * Sets the server host. The server will connect once m_host is not equal to ""
 	 * @param s
@@ -749,7 +758,7 @@ public class GameClient extends BasicGame {
 	public static void setHost(String s) {
 		m_host = s;
 	}
-	
+
 	/**
 	 * Returns this instance of game client
 	 * @return
@@ -757,7 +766,7 @@ public class GameClient extends BasicGame {
 	public static GameClient getInstance() {
 		return m_instance;
 	}
-	
+
 	/**
 	 * Returns the packet generator
 	 * @return
@@ -765,7 +774,7 @@ public class GameClient extends BasicGame {
 	public PacketGenerator getPacketGenerator() {
 		return m_packetGen;
 	}
-	
+
 	/**
 	 * Returns the login screen
 	 * @return
@@ -773,7 +782,7 @@ public class GameClient extends BasicGame {
 	public LoginScreen getLoginScreen() {
 		return m_login;
 	}
-	
+
 	/**
 	 * Returns the loading screen
 	 * @return
@@ -781,7 +790,7 @@ public class GameClient extends BasicGame {
 	public LoadingScreen getLoadingScreen() {
 		return m_loading;
 	}
-	
+
 	/**
 	 * Returns the weather service
 	 * @return
@@ -789,7 +798,7 @@ public class GameClient extends BasicGame {
 	public WeatherService getWeatherService() {
 		return m_weather;
 	}
-	
+
 	/**
 	 * Returns the time service
 	 * @return
@@ -797,7 +806,7 @@ public class GameClient extends BasicGame {
 	public TimeService getTimeService() {
 		return m_time;
 	}
-	
+
 	/**
 	 * Stores the player's id
 	 * @param id
@@ -805,7 +814,7 @@ public class GameClient extends BasicGame {
 	public void setPlayerId(int id) {
 		m_playerId = id;
 	}
-	
+
 	/**
 	 * Returns this player's id
 	 * @return
@@ -813,8 +822,8 @@ public class GameClient extends BasicGame {
 	public int getPlayerId() {
 		return m_playerId;
 	}
-	 
-	
+
+
 	/**
 	 * Resets the client back to the z
 	 */
@@ -833,7 +842,7 @@ public class GameClient extends BasicGame {
 		m_login.setVisible(true);
 		m_login.showLanguageSelect();
 	}
-	
+
 	/**
 	 * Sets the map and loads them on next update() call
 	 * @param x
@@ -847,7 +856,7 @@ public class GameClient extends BasicGame {
 		m_ui.getReqWindow().clearOffers();
 		m_soundPlayer.setTrackByLocation(m_mapMatrix.getMapName(x, y));
 	}
-	
+
 	/**
 	 * Returns our player
 	 * @return
@@ -855,7 +864,7 @@ public class GameClient extends BasicGame {
 	public OurPlayer getOurPlayer() {
 		return m_ourPlayer;
 	}
-	
+
 	/**
 	 * Sets our player
 	 * @param pl
@@ -863,82 +872,89 @@ public class GameClient extends BasicGame {
 	public void setOurPlayer(OurPlayer pl) {
 		m_ourPlayer = pl;
 	}
-	
+
 	/**
 	 * Returns the user interface
 	 */
 	public Ui getUi() {
 		return m_ui;
 	}
-	
+
+	/**
+	 * Returns the File Path, if any
+	 */
+	public static String getFilePath() {
+		return m_filepath;
+	}
+
 	/**
 	 * Returns the options
 	 */
-    public static HashMap<String, String> getOptions() {
-        return options;
-    }
+	public static HashMap<String, String> getOptions() {
+		return options;
+	}
 
-    /**
-     * Reloads options
-     */
-    public static void reloadOptions() {
-        try {
-        options = new FileMuffin().loadFile("options.dat");
-        if (options == null) options = new HashMap<String,String>();
-        } catch (Exception e) {
-                e.printStackTrace();
-                System.exit(32);
-        }
-    }
-    
-    /**
-     * Returns the sound player
-     * @return
-     */
-    public static SoundManager getSoundPlayer() {
-        return m_soundPlayer;
-    }
+	/**
+	 * Reloads options
+	 */
+	public static void reloadOptions() {
+		try {
+			options = new FileMuffin().loadFile("options.dat");
+			if (options == null) options = new HashMap<String,String>();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(32);
+		}
+	}
 
-    
-    /**
-     * Creates a message Box
-     */
-    public static void messageDialog(String message, Container container) {
-        new MessageDialog(message.replace('~','\n'), container);
-    }
-    
-    /**
-     * Returns the display
-     */
-    public Display getDisplay(){
-    	return m_display;
-    }
-    
-    /**
-     * Returns the language selection
-     * @return
-     */
-    public static String getLanguage() {
-    	return m_language;
-    }
-    /**
-     * Sets the language selection
-     * @return
-     */
-    public static String setLanguage(String lang) {
-    	m_language = lang;
-    	m_languageChosen=true;
-    	return m_language;
-    }
-    
-    /**
-     * Changes the playing track
-     * @param fileKey
-     */
+	/**
+	 * Returns the sound player
+	 * @return
+	 */
+	public static SoundManager getSoundPlayer() {
+		return m_soundPlayer;
+	}
+
+
+	/**
+	 * Creates a message Box
+	 */
+	public static void messageDialog(String message, Container container) {
+		new MessageDialog(message.replace('~','\n'), container);
+	}
+
+	/**
+	 * Returns the display
+	 */
+	public Display getDisplay(){
+		return m_display;
+	}
+
+	/**
+	 * Returns the language selection
+	 * @return
+	 */
+	public static String getLanguage() {
+		return m_language;
+	}
+	/**
+	 * Sets the language selection
+	 * @return
+	 */
+	public static String setLanguage(String lang) {
+		m_language = lang;
+		m_languageChosen=true;
+		return m_language;
+	}
+
+	/**
+	 * Changes the playing track
+	 * @param fileKey
+	 */
 	public static void changeTrack(String fileKey){
 		m_soundPlayer.setTrack(fileKey);
 	}
-	
+
 	/**
 	 * Returns false if the user has disabled surrounding map loading
 	 * @return
@@ -946,7 +962,7 @@ public class GameClient extends BasicGame {
 	public static boolean disableMaps() {
 		return m_disableMaps;
 	}
-	
+
 	/**
 	 * Sets if the client should load surrounding maps
 	 * @param b
@@ -954,11 +970,11 @@ public class GameClient extends BasicGame {
 	public static void setDisableMaps(boolean b) {
 		m_disableMaps = b;
 	}
-    
-    /**
-    * Slick Native library finder.
-    */
-    /*static {
+
+	/**
+	 * Slick Native library finder.
+	 */
+	/*static {
 		String s = File.separator;
       	// Modify this to point to the location of the native libraries.
       	String newLibPath = System.getProperty("user.dir") + s + "lib" + s + "native";

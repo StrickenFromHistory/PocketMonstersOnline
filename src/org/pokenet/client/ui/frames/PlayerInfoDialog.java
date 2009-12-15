@@ -188,7 +188,10 @@ public class PlayerInfoDialog extends Frame {
 	 * Loads the status icons
 	 */
 	public void loadImages() {
-		String m_path = "res/badges/";
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
+		String m_path = respath+"res/badges/";
 		// Kanto Badges
 		for (int i = 0; i < 8; i++) {
 			try {

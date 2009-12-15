@@ -96,14 +96,17 @@ public class PartyInfoDialog extends Frame {
 			getContentPane().add(m_container[i]);
 			y += 41;
 			m_container[i].setOpaque(true);
+			String respath = System.getProperty("res.path");
+			if(respath==null)
+				respath="";
 			try {
 				Label tempLabel = new Label(); 
 				if (i ==0) {
-					f = FileLoader.loadFile("res/ui/party_info/partyActive.png");
-					tempLabel = new Label(new Image(f, "res/ui/party_info/partyActive.png", false));
+					f = FileLoader.loadFile(respath+"res/ui/party_info/partyActive.png");
+					tempLabel = new Label(new Image(f, respath+"res/ui/party_info/partyActive.png", false));
 				} else {
-					f = FileLoader.loadFile("res/ui/party_info/partyInactive.png");
-					tempLabel = new Label(new Image(f, "res/ui/party_info/partyInactive.png", false));
+					f = FileLoader.loadFile(respath+"res/ui/party_info/partyInactive.png");
+					tempLabel = new Label(new Image(f, respath+"res/ui/party_info/partyInactive.png", false));
 				}
 				tempLabel.setSize(170, 42);
 				tempLabel.setY(-4);
@@ -111,8 +114,8 @@ public class PartyInfoDialog extends Frame {
 			} catch (Exception e) {e.printStackTrace();}
 			
 			try{
-				f = FileLoader.loadFile("res/ui/party_info/HPBar.png");
-				m_hpBar[i] = new Label(new Image(f, "res/ui/party_info/HPBar.png", false));
+				f = FileLoader.loadFile(respath+"res/ui/party_info/HPBar.png");
+				m_hpBar[i] = new Label(new Image(f, respath+"res/ui/party_info/HPBar.png", false));
 				m_hpBar[i].setSize(98, 11);
 				m_hpBar[i].setVisible(false);
 				m_container[i].add(m_hpBar[i]);
@@ -232,10 +235,12 @@ public class PartyInfoDialog extends Frame {
 			m_pokeIcon[i].setSize(32, 32);
 
 			m_pokeName[i].pack();
-
+			String respath = System.getProperty("res.path");
+			if(respath==null)
+				respath="";
 			try {
-				f = FileLoader.loadFile("res/ui/Pokeball.gif");
-				m_pokeBall[i].setImage(new Image(f, "res/ui/Pokeball.gif", false));
+				f = FileLoader.loadFile(respath+"res/ui/Pokeball.gif");
+				m_pokeBall[i].setImage(new Image(f, respath+"res/ui/Pokeball.gif", false));
 				m_pokeBall[i].setSize(30, 30);
 			} catch (SlickException e) {
 				System.out.println("Couldn't load pokeball");

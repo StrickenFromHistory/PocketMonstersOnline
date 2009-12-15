@@ -245,8 +245,7 @@ public class Ui extends Frame {
     public void update(boolean money){
     	if (money){
     		try{
-    			m_moneyLabel.setText("$" + String.valueOf(GameClient.getInstance()
-    					.getOurPlayer().getMoney()));
+    			m_moneyLabel.setText("$" + String.valueOf(GameClient.getInstance().getOurPlayer().getMoney()));
     			m_moneyLabel.pack();
     		} catch (Exception e) {System.err.println("Failed to update money");}
     	} else {

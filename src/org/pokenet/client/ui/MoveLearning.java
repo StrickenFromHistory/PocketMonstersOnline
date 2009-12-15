@@ -42,7 +42,7 @@ public class MoveLearning extends Frame {
 	private MoveLearnCanvas m_canvas;
 
 	// Image Loading tools
-	final String m_path = "res/battle/";
+	String m_path = "res/battle/";
 	InputStream f;
 	
 	/**
@@ -53,6 +53,10 @@ public class MoveLearning extends Frame {
 	 * @param isMoveLearning
 	 */
 	public MoveLearning() {
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
+		m_path = respath+m_path;
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		m_canvas = new MoveLearnCanvas();
@@ -71,9 +75,12 @@ public class MoveLearning extends Frame {
 		// TRUE = Move Learning
 		// FALSE = Evolution
 		m_bg = new Label();
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
-			f = FileLoader.loadFile("res/ui/bg.png");
-			m_bg = new Label(new Image(f, "res/ui", false));
+			f = FileLoader.loadFile(respath+"res/ui/bg.png");
+			m_bg = new Label(new Image(f, respath+"res/ui", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {

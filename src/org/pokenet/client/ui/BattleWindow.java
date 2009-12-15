@@ -65,7 +65,7 @@ public class BattleWindow extends Frame {
 	public HashMap<String, Image> m_statusIcons = new HashMap<String, Image>();
 	
 	// Image Loading tools
-	final String m_path = "res/battle/";
+	private String m_path = "res/battle/";
 	InputStream f;
 	
 	/**
@@ -75,6 +75,10 @@ public class BattleWindow extends Frame {
 	 * @param wild
 	 */
 	public BattleWindow(String title) {
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
+		m_path=respath+m_path;
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		setTitle(title);
@@ -165,9 +169,12 @@ public class BattleWindow extends Frame {
 		LoadingList.setDeferredLoading(true);
 		this.setBackground(new Color(0, 0, 0, 0));
 		Label bg = new Label();
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
-			f = FileLoader.loadFile("res/ui/bg.png");
-			bg = new Label(new Image(f, "res/ui/bg.png", false));
+			f = FileLoader.loadFile(respath+"res/ui/bg.png");
+			bg = new Label(new Image(f, respath+"res/ui/bg.png", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {

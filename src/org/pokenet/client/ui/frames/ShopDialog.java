@@ -222,10 +222,13 @@ public class ShopDialog extends Frame {
 		
 		m_categoryButtons[0] = new Button(" ");
 		LoadingList.setDeferredLoading(true);
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try{
 			
-			m_categoryButtons[0].setImage(new Image(FileLoader.loadFile("res/ui/shop/pokeball.png"), 
-					"res/ui/shop/pokeball.png", false));
+			m_categoryButtons[0].setImage(new Image(FileLoader.loadFile(respath+"res/ui/shop/pokeball.png"), 
+					respath+"res/ui/shop/pokeball.png", false));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -251,8 +254,8 @@ public class ShopDialog extends Frame {
 		m_categoryButtons[1] = new Button(" ");
 		LoadingList.setDeferredLoading(true);
 		try{
-			m_categoryButtons[1].setImage(new Image(FileLoader.loadFile("res/ui/shop/potion.png"),
-					"res/ui/shop/potion.png", false));
+			m_categoryButtons[1].setImage(new Image(FileLoader.loadFile(respath+"res/ui/shop/potion.png"),
+					respath+"res/ui/shop/potion.png", false));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -278,8 +281,8 @@ public class ShopDialog extends Frame {
 		m_categoryButtons[2] = new Button(" ");
 		LoadingList.setDeferredLoading(true);
 		try{
-			m_categoryButtons[2].setImage(new Image(FileLoader.loadFile("res/ui/shop/status.png"),
-					"res/ui/shop/status.png", false));
+			m_categoryButtons[2].setImage(new Image(FileLoader.loadFile(respath+"res/ui/shop/status.png"),
+					respath+"res/ui/shop/status.png", false));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -306,8 +309,8 @@ public class ShopDialog extends Frame {
 		m_categoryButtons[3] = new Button(" ");
 		LoadingList.setDeferredLoading(true);
 		try{
-			m_categoryButtons[3].setImage(new Image(FileLoader.loadFile("res/ui/shop/field.png"),
-					"res/ui/shop/field.png", false));
+			m_categoryButtons[3].setImage(new Image(FileLoader.loadFile(respath+"res/ui/shop/field.png"),
+					respath+"res/ui/shop/field.png", false));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -394,11 +397,13 @@ public class ShopDialog extends Frame {
 				}
 			});
 			getContentPane().add(m_itemButtons[i]);
-			
+			String respath = System.getProperty("res.path");
+			if(respath==null)
+				respath="";
 			try{
 				LoadingList.setDeferredLoading(true);
-				m_itemPics[i] = new Label(new Image(FileLoader.loadFile("res/items/24/" + m_items.get(i).getId() + ".png"),
-						"res/items/24/" + m_items.get(i).getId() + ".png", false));
+				m_itemPics[i] = new Label(new Image(FileLoader.loadFile(respath+"res/items/24/" + m_items.get(i).getId() + ".png"),
+						respath+"res/items/24/" + m_items.get(i).getId() + ".png", false));
 				LoadingList.setDeferredLoading(false);
 				m_itemPics[i].setGlassPane(true);
 				m_itemPics[i].setSize(32,32);
@@ -422,8 +427,8 @@ public class ShopDialog extends Frame {
 				} else if (m_stock.get(m_items.get(i).getId()) < 60 && m_stock.get(m_items.get(i).getId()) >= 30){
 					stock = "halfempty";
 				}
-				m_itemStockPics[i] = new Label(new Image(FileLoader.loadFile("res/ui/shop/"+stock+".png"),
-						"res/ui/shop/"+stock+".png", false));
+				m_itemStockPics[i] = new Label(new Image(FileLoader.loadFile(respath+"res/ui/shop/"+stock+".png"),
+						respath+"res/ui/shop/"+stock+".png", false));
 				LoadingList.setDeferredLoading(false);
 				m_itemStockPics[i].setGlassPane(true);
 				m_itemStockPics[i].setSize(32,32);

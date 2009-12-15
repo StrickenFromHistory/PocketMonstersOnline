@@ -25,23 +25,26 @@ public class PlayerItem {
             m_number = number;
             m_quantity = quantity;
             m_item = getItem(m_number);
+            String respath = System.getProperty("res.path");
+			if(respath==null)
+				respath="";
             try {
             	InputStream f;
             	LoadingList.setDeferredLoading(true);
             	if (m_item.getCategory().equalsIgnoreCase("TM")){
-            		f = FileLoader.loadFile("res/items/48/TM.png");
+            		f = FileLoader.loadFile(respath+"res/items/48/TM.png");
             	} else {
-            		f = FileLoader.loadFile("res/items/48/" + m_item.getId() + ".png");
+            		f = FileLoader.loadFile(respath+"res/items/48/" + m_item.getId() + ".png");
             	}
-            	m_bagImage = new Image(f, "res/items/48/" + m_item.getId() + ".png", false);
+            	m_bagImage = new Image(f, respath+"res/items/48/" + m_item.getId() + ".png", false);
             	LoadingList.setDeferredLoading(false);
             	
             } catch (Exception e){
             	try {
             	InputStream f;
             	LoadingList.setDeferredLoading(true);
-            	f = FileLoader.loadFile("res/items/48/0.png");
-            	m_bagImage = new Image(f, "res/items/48/0.png", false);
+            	f = FileLoader.loadFile(respath+"res/items/48/0.png");
+            	m_bagImage = new Image(f, respath+"res/items/48/0.png", false);
             	LoadingList.setDeferredLoading(false);
             	} catch (Exception e2){
             		e2.printStackTrace();
