@@ -1,0 +1,23 @@
+[npc]
+Medicine Crafter
+right
+166
+8
+4
+NULL
+0
+-1
+0,1,2
+false
+false
+false
+[/npc]
+[warp]
+5
+8
+17
+12
+6
+-4
+0
+[/warp]
