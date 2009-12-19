@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="19" height="21" tilewidth="16" tileheight="16">
-  <properties>
+ <properties>
   <property name="dayPokemonChances" value=""/>
   <property name="dayPokemonLevels" value=""/>
   <property name="nightPokemonChances" value=""/>
@@ -12,9 +12,9 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
- <tileset firstgid="1" source="normal9.tsx"/> 
- <tileset firstgid="1025" source="normal1.tsx"/> 
- <tileset firstgid="2049" source="normal7.tsx"/> 
+ <tileset firstgid="1" source="normal9.tsx"/>
+ <tileset firstgid="1025" source="normal1.tsx"/>
+ <tileset firstgid="2049" source="normal7.tsx"/>
  <layer name="Walkable" width="19" height="21">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAGNgGDlAipF8jAxmAvEsCjExZiEDYs2iBAwVs7ZQgIeKH6lp1mh4DS6zsOVtYsyiVplDLQAAmKijpTwGAAA=
@@ -27,7 +27,7 @@
  </layer>
  <layer name="Collisions" width="19" height="21">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAANvBwMCwE4h3oeHdSPRFND662j1AvBeIbwDxTSC+hYZvE6CR8R0gvgvEP4D4JxD/QsO/CdDI+A8Q/4W6S5KRgSIgA9QvywgxixJwnIuB4QQXdcx6DjTnBZXMAgFVbuqZBQIjySxQ2FHLLGqA4W7WYE+rP/DIr2fBz0c3S4LCsgvZLEYW6mEAS866zzwGAAA=
+   H4sIAAAAAAAAANvBwMCwE4h3oeHdSPRFND662j1AvBeIbwDxTSC+hYZvE6CR8R0gvgvEP4D4JxD/QsO/CdDI+A8Q/4W6S5KRgSIgA9QvywgxixJwnIuB4QQXdcx6DjTnBZXMAgFVbuqZBQIjySxQ2FHLLGqA4W7WYE+rP/DIr2fBz0c3S4LCsgvZLEYWwhgEiFEHAOl0q4E8BgAA
   </data>
  </layer>
  <layer name="random" width="19" height="21">
