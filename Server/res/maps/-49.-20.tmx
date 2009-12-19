@@ -15,30 +15,24 @@
 <tileset firstgid="1" source="normal1.tsx"/>
 <tileset firstgid="1025" source="normal2.tsx"/>
 <tileset firstgid="2049" source="normal3.tsx"/>
-<tileset firstgid="3073" source="normal7.tsx"/>
-  <layer name="Walkable" width="43" height="20" x="-15" y="-6">
+ <layer name="Walkable" width="13" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3OsQkAMAgAQduY/fcNbmBnhDv4/iMA+NE9/abVQzab5tXrpldgvwdeJmeVcA0AAA==
+   H4sIAAAAAAAAAGNgYGDg5mRg4CISwwC5evSIxJTaM5z0kAoA9YOixtQBAAA=
   </data>
  </layer>
- <layer name="random" width="70" height="76" x="-15" y="-6">
+ <layer name="Collisions" width="13" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3SsQ3AIBADwK+QMg2skTAJyf59foY0EHEnubcsRwAAAF/UY3YD/qpt/J2zRFyZXmY3WcvIPe7MYxcAAAAAAAAAAAAAAAAAAAAANvUCL80npCBTAAA=
+   H4sIAAAAAAAAAGNkYGCoIwEzQvE8EjBMzwdOBCYEYHoIgXVcDAzruUjTcw6o/jyaHgMuCB5oe5ABI5kYAK5ZFBbUAQAA
   </data>
  </layer>
- <layer name="Collisions" width="43" height="20" x="-15" y="-6">
+ <layer name="random" width="13" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWjYBSMAvLBHDYGhjoG4jFI/UABkN3zGIjHA+3WOCYEJkb9QAFi7F7HxcCwnot49bQCxNh9DujO84PErQZcEIwLjIYr6YCYcEVXP1AAZDc6xiWOLD8KRsEoGFwAAHcDjvFwDQAA
+   H4sIAAAAAAAAAGNgQAW9nAwME6AYBDy5GBi8uBA0DFzgROC1QLwBitcC1WQCcRYSTQicBarpBOIuJJpWQJ+TdmbjAgY47PRkA4YpEHuzEW9WJlBtFhBn49EDAIVgfSfUAQAA
   </data>
  </layer>
- <layer name="random" width="70" height="76" x="-15" y="-6">
+ <layer name="WalkBehind" width="13" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3QQQqCABRF0ecwJ62rdmI7MQjaiOBGXJGTviAoNI4Kz4HLn35eAsA/aL79wI9q8r7N45Q81xaXNrm22z2S+bw11B7j2lA7dNVtd0mm2qGv7rsLAAAAAAAAAAAAAAAAAAAAAADA570A/abQziBTAAA=
-  </data>
- </layer>
- <layer name="WalkBehind" width="43" height="20" x="-15" y="-6">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3QoQ0AAAjAMDSK/69FYJE42mQPLAIA/qicuOUrwK4BwVljW3ANAAA=
+   H4sIAAAAAAAAAGNgGH5AgAuCh4s9pAIAEhbNhtQBAAA=
   </data>
  </layer>
 </map>

@@ -12,34 +12,29 @@
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
-<tileset firstgid="1" source="normal1.tsx"/>
+<tileset firstgid="1" source="normal1.tsx"/> 
 <tileset firstgid="1025" source="normal2.tsx"/>
 <tileset firstgid="2049" source="normal3.tsx"/>
 <tileset firstgid="3073" source="normal4.tsx"/>
 <tileset firstgid="4097" source="normal8.tsx"/>
- <layer name="Walkable" width="43" height="20" x="-15" y="-6">
+  <layer name="Walkable" width="13" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWjYBSMglEwGAE3J/F4oAHIDVxQvFOQgWEXGt4tiJAfaIDs1ptAd91Cw7dH3UqxW38C3fULDf8epG4lhEfBKBgFo4BSAACEzPHLcA0AAA==
+   H4sIAAAAAAAAAGNgYGDg5mRg4CISwwC5evSIxNjs2SnIwLALDe8WxO+2m0D5W2j4Ng30/ATK/0LDvwnoITbcSAUA7PQyR9QBAAA=
   </data>
  </layer>
- <layer name="random" width="70" height="76" x="-15" y="-6">
+ <layer name="Collisions" width="13" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3QMQqAMBAEwKvS5gf6Hs1LTP7fe52VkE4hM7BwxRbHRgAAALO2+tx7fe+txi7MOkrEmWnl60/+5co9embYBQAAAAAAAAAAAAAAAAAAAIBF3VfvFbogUwAA
+   H4sIAAAAAAAAAGNkYGCoIwEzQvE8EjBMDymA2nrWcTEwrOciTc85oPrzJOoh5LYPnMSpB6mD6SEVAwCjQ3bV1AEAAA==
   </data>
  </layer>
- <layer name="Collisions" width="43" height="20" x="-15" y="-6">
+ <layer name="random" width="13" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWjYBSMAvKBEBDXkYCFBsaZYACyex4JeKDdSkv11ATDwa3ruBgY1nMRr54eAJfd54DuPD9E3Eot9dQEILs3sBGnFqRuoN2KjnGJI8sPBBgMbhgFo2CwAgDhZ1L5cA0AAA==
+   H4sIAAAAAAAAAGNgQAA/LgYGfy4I2xdKT+CE4G4g7uFEqPUGyvsAcR4Q50PV5kLpDZwQvBqI1yDpyQbK5wBxHxD3Q9X2cjHQHMjxI9jy/LjVUaqHVODJxsDgBcTebMTryQSqzQLibDx6AJrQOa7UAQAA
   </data>
  </layer>
- <layer name="random" width="70" height="76" x="-15" y="-6">
+ <layer name="WalkBehind" width="13" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3QyQ0CMRBFwZ6jnRpbIGyBsOYBB0KkJftCAhg0VdKTfWz9CAD+wTT6gB81xec26xqxqe2/6u+9tE7ZuXz7wrEWucEyO2THvse+v6/SemTPme2yzQ122TW79T0udexNAAAAAAAAAAAAAAAAAAAAAAAAc/YGFKrsJCBTAAA=
-  </data>
- </layer>
- <layer name="WalkBehind" width="43" height="20" x="-15" y="-6">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3KMREAAAgEoF/tX8xIhtDJg5kEAGCn6/YBfDGxgH1fcA0AAA==
+   H4sIAAAAAAAAAGNgGAXkgguc1FVHLQAAtbsFq9QBAAA=
   </data>
  </layer>
 </map>
