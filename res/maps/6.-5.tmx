@@ -11,7 +11,7 @@
   <property name="waterPokemonChances" value="Tentacool,50;Goldeen,49;Seaking,1;"/>
   <property name="waterPokemonLevels" value="5-40;5-14;10-14;"/>
   <property name="wildProbability" value="10"/>
-  <property name="xOffsetModifier" value="0"/>
+  <property name="xOffsetModifier" value="384"/>
   <property name="yOffsetModifier" value="-320"/>
  </properties>
  <tileset firstgid="1" source="normal1.tsx"/>
