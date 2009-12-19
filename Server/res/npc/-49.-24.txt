@@ -67,7 +67,7 @@ FALSE
 Picnicker Diana
 down
 30
-16
+17
 8
 Goldeen,19
 1

@@ -23,7 +23,7 @@
  </layer>
  <layer name="Collisions" width="12" height="9">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNkYGCoIxIzQvE8JMyAxkfGMPWEwAdWCCZWPQzA1IP04gLr2BgY1rOhqscHzgHVnkdTj898bO4hFjCSgQGy9orAsAEAAA==
+   H4sIAAAAAAAAAGNkYGCoIxIzQvE8JMyAxkfGMPWEwAdWCCZWPQzA1IP04gLr2BgY1rOhqscHzgHVnkdTj898bO4hFjBiwbjEYRgAGPNQMbABAAA=
   </data>
  </layer>
  <layer name="random" width="12" height="9">
