@@ -24,17 +24,15 @@ public class ClientMapMatrix {
 	private HashMap<String, String> m_mapNames;
 	private Timer m_calibrationTimer = new Timer();
 	private char m_newMapPos;
-	private String m_path;
 	
 	/**
 	 * Default constructor
 	 */
-	public ClientMapMatrix(String path) {
+	public ClientMapMatrix() {
 		m_mapMatrix = new ClientMap[3][3];
 		m_players = new ArrayList<Player>();
 		m_speech = new ArrayList<String>();
 		m_mapNames = new HashMap<String, String>();
-		m_path = path;
 		loadMapNames();
 	}
 	
@@ -46,14 +44,16 @@ public class ClientMapMatrix {
 	 * @param y Map's Y within the map matrix
 	 */
 	public void loadMap (int mapX, int mapY, int x, int y){
-		
+		String respath = System.getProperty("res.path");
+		if(respath==null)
+			respath="";
 		try {
 			System.out.println("Map: " + x + ", " + y);
-			InputStream f = FileLoader.loadFile(m_path+"res/maps/" + (mapX) + "." + (mapY) + ".tmx");
+			InputStream f = FileLoader.loadFile(respath+"res/maps/" + (mapX) + "." + (mapY) + ".tmx");
 			if(f != null) {
 				try {
 					System.out.println("Loading Map...");
-					m_mapMatrix[x][y] = new ClientMap(m_path,"res/maps/"+(mapX)+"."+(mapY)+".tmx");
+					m_mapMatrix[x][y] = new ClientMap(respath+"res/maps/"+(mapX)+"."+(mapY)+".tmx");
 					if(m_mapMatrix[x][y]==null) System.out.println("Client Map is null");
 					m_mapMatrix[x][y].setMapMatrix(this);
 					System.out.println("MapMatrix is set");
@@ -72,11 +72,11 @@ public class ClientMapMatrix {
 				}
 			} else {
 				m_mapMatrix[x][y] = null;
-				System.out.println(m_path+(mapX) + "." + (mapY) + ".tmx could not be loaded");
+				System.out.println(respath+(mapX) + "." + (mapY) + ".tmx could not be loaded");
 			}
 		} catch (FileNotFoundException e1) {
 			m_mapMatrix[x][y] = null;
-			System.out.println("File not found: "+m_path+(mapX) + "." + (mapY) + ".tmx");
+			System.out.println("File not found: "+respath+(mapX) + "." + (mapY) + ".tmx");
 		}
 		
 	}
