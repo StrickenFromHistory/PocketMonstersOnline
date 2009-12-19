@@ -3,9 +3,9 @@
 -|Initial Installation|-
 --------
 |Pokenet.bat |+Pokenet.bat |cab219cc4dc1d672c7a1adc1270b3c2df8f5570c
-|Pokenet.jar |+Pokenet.jar |ef9dfb885f3749356e957d8620382481c5c5cdae
+|Pokenet.jar |+Pokenet.jar |fd6935d8cfac5900b5215149563917d5274af4ef
 |Pokenet.sh |+Pokenet.sh |78d6c87e45d0168aa538aa03db92881cb7e2afa3
-|bin |+bin |mkdir
+|ThinClient.jar |+ThinClient.jar |6dc76778b13b309cf59f38124b83a74d76e0979c
 |lib |+lib |mkdir
 |lib/AppleJavaExtensions.jar |+lib/AppleJavaExtensions.jar |7f384023880a280b547347e643d2ceb041b6d57e
 |lib/jinput.jar |+lib/jinput.jar |2d5a40f2a25f8b4ec1ea35f3e5ca79119ed5d027
@@ -79,7 +79,6 @@
 |res/badges/sinnoh7.png |+res/badges/sinnoh7.png |08b2c45f61a28e1c80ae6e9a44960fcf8f17b16f
 |res/badges/sinnoh8.png |+res/badges/sinnoh8.png |26838ff66b9da3ff4a3526fbb1ba31eee96d0e14
 |res/battle |+res/battle |mkdir
-|res/battle/.directory |+res/battle/.directory |67986e85fcb08b4710bfaae9aabefd6075edd83a
 |res/battle/BRN.png |+res/battle/BRN.png |53d439eb13d1cc9940fbd73e351510650c2da529
 |res/battle/FRZ.png |+res/battle/FRZ.png |9d0907d344d6b4e7c2d910c1240344db1d8416fb
 |res/battle/HPBar.png |+res/battle/HPBar.png |e9934e32959d2330654619f885db0c8ed67ee2b6
@@ -4378,7 +4377,6 @@
 |res/pokenet.png |+res/pokenet.png |26597a7bf0fb6b95bb6380289f3866b1b97ea8e6
 |res/servers.txt |+res/servers.txt |038429033a75ae71c15a22267306b18dffc1dda1
 |res/ui |+res/ui |mkdir
-|res/ui/.directory |+res/ui/.directory |95dfe2d9e6da5c499f0f9333628af27e856b173c
 |res/ui/DP_darkgrass.png |+res/ui/DP_darkgrass.png |8205337f4f692b3ebdc5fc08c5187e24b0aa22e0
 |res/ui/GrassBattleBG00.PNG |+res/ui/GrassBattleBG00.PNG |53fbacb1ad9faf06490241324f14f4d29650ce1d
 |res/ui/KantoandJohto.png |+res/ui/KantoandJohto.png |1ac56bce83a267b1cfdbc482a33b34d8d567a8ae

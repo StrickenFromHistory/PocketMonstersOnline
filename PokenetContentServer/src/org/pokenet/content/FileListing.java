@@ -29,7 +29,7 @@ public final class FileListing {
 			String filename = file.getAbsolutePath();
 			filename = filename.replace("/home/Nushio/Workspace/PokenetContentServer/../PokenetClientVenonat/","");
 			if(!filename.contains("src"))
-				if(!filename.contains(".settings")||!filename.contains(".classpath")||!filename.contains(".directory")||!filename.contains("MANIFEST.MF")||!filename.contains(".svn")||!filename.contains("bin/"))
+				if(!filename.contains(".project")&&!filename.contains(".settings")&&!filename.contains(".classpath")&&!filename.contains(".directory")&&!filename.contains("MANIFEST.MF")&&!filename.contains(".svn")&&!filename.contains("bin"))
 					if(file.isFile())
 						updates.add("|"+filename+" |+"+filename+" |"+getMD5Checksum(file.getAbsolutePath()));
 					else
