@@ -54,8 +54,11 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 			setProgress(0);
 			for (int i =0;i<m_updates.size();i++) {
 				try{
+					
 					UpgradeActionBean uab = m_updates.get(i);
 					uab.setOutput(uab.getOutput().replace("+",""));
+					m_taskOutput.append("Downloading... "+uab.getInput());
+					m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
 					if(uab.getChecksum().equals("mkdir"))
 						new File(uab.getOutput()).mkdir();
 					else{
@@ -89,9 +92,10 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 					}		
 					progress+=getProgressSize();
 					setProgress(Math.min((int)progress, 100));
-					m_progressBar.setValue((int)progress);
-					m_taskOutput.append("Downloading... "+uab.getInput()+"\n");
+					m_taskOutput.append(" Done."+"\n");
 					m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
+					m_progressBar.setValue((int)progress);
+					
 				}catch (IOException e) {
 					// Impossible to open or save file
 					e.printStackTrace();
@@ -193,16 +197,21 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		m_masterFrame.setVisible(false);
 		try {
 			String s;
-			Process p = Runtime.getRuntime().exec("java -Djava.library.path="+m_installpath+"lib/native -jar "+m_installpath+"Pokenet.jar");
+			Process p = Runtime.getRuntime().exec("java -Dres.path="+m_installpath+" -Djava.library.path="+m_installpath+"lib/native -jar "+m_installpath+"Pokenet.jar");
 			BufferedReader stdInput = new BufferedReader(new 
 					InputStreamReader(p.getInputStream()));
-
+			BufferedReader stdError = new BufferedReader(new 
+	                 InputStreamReader(p.getErrorStream()));
 			// read the output from the command
 
 			while ((s = stdInput.readLine()) != null) {
 				System.out.println(s);
 			}
+			while ((s = stdError.readLine()) != null) {
+                System.out.println("Error: "+s);
+            }
 		} catch (IOException e) {
+			e.printStackTrace();
 			JOptionPane.showInternalMessageDialog(
 					m_masterFrame,
 					"Ouch! Something happened and we couldn't run the game. \nMaybe it didn't install properly?\nError: "+e.getLocalizedMessage(),
@@ -354,6 +363,12 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 				}else if(OS.contains("Linux")){
 					
 				}
+//				JOptionPane.showMessageDialog(
+//						m_masterFrame,
+//						"OS.NAME : "+System.getProperty("os.name")+"\n" +
+//						"OS.Version "+System.getProperty("os.version")+"",
+//						"Pokenet Install System",
+//						JOptionPane.INFORMATION_MESSAGE);
 				if(!path.equals("")){
 					BufferedReader br = null;
 					try
@@ -391,7 +406,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 					m_mirror = "http://pokeglobal.sourceforge.net/game/pokenet7/";
 				} catch (IOException e) {
 					// Error reading file
-					System.out.println("Error reading Mirror. Using emergency mirror");
+					System.out.println("No mirrors found. Using default mirror");
 					m_mirror = "http://pokeglobal.sourceforge.net/game/pokenet7/";
 				}
 				// Check current version
@@ -523,12 +538,14 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 									}
 									frame= null;
 								} catch (MalformedURLException e1) {
+									e1.printStackTrace();
 									JOptionPane.showMessageDialog(
 											m_masterFrame,
 											"Ouch! Something happened and we couldn't upgrade. \nTry again later?",
 											"Pokenet Install System",
 											JOptionPane.WARNING_MESSAGE);
 								} catch (IOException e) {
+									e.printStackTrace();
 									JOptionPane.showMessageDialog(
 											m_masterFrame,
 											"Ouch! Something happened and we couldn't upgrade. \nTry again later?",
@@ -542,11 +559,13 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 						}
 					}
 				}catch(Exception e){
+					e.printStackTrace();
 					JOptionPane.showMessageDialog(
 							m_masterFrame,
 							"Ouch! Something happened and we couldn't upgrade. \nTry again later?",
 							"Pokenet Install System",
 							JOptionPane.WARNING_MESSAGE);
+//					System.exit(0);
 				}
 
 
