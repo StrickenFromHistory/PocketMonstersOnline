@@ -41,7 +41,7 @@ public class ClientMap extends TiledMap {
 	 * @param tileSetsLocation
 	 * @throws SlickException
 	 */
-	public ClientMap(String path, String tileSetsLocation)
+	public ClientMap(String tileSetsLocation)
 			throws SlickException {
 		super(tileSetsLocation);
 		String respath = System.getProperty("res.path");

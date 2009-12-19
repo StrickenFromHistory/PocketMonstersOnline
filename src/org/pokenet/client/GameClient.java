@@ -201,7 +201,7 @@ public class GameClient extends BasicGame {
 		/*
 		 * The animator and map matrix
 		 */
-		m_mapMatrix = new ClientMapMatrix(m_filepath);
+		m_mapMatrix = new ClientMapMatrix();
 		m_animator = new Animator(m_mapMatrix);
 
 		gc.getInput().enableKeyRepeat(50, 300);
