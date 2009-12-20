@@ -5,6 +5,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.TreeSet;
 
@@ -92,25 +94,25 @@ public class PokemonSpecies {
 	protected int m_femalePercentage;
 	
 	@ElementMap
-	protected HashMap<Integer, String> m_levelMoves =
+	protected Map<Integer, String> m_levelMoves =
 		new HashMap<Integer, String>();
 	@ElementList
-	protected ArrayList<String> m_starterMoves =
+	protected List<String> m_starterMoves =
 		new ArrayList<String>();
 	@ElementList
-	protected ArrayList<String> m_eggMoves
+	protected List<String> m_eggMoves
 		= new ArrayList<String>();
 	@ElementList
-	protected ArrayList<PokemonEvolution> m_evolutions 
+	protected List<PokemonEvolution> m_evolutions 
 		= new ArrayList<PokemonEvolution>();
 	@ElementList
-	protected ArrayList<String> m_tmMoves
+	protected List<String> m_tmMoves
 		= new ArrayList<String>();
 	@ElementList
-	protected ArrayList<DropData> m_drops
+	protected List<DropData> m_drops
 		= new ArrayList<DropData>();
 	
-	public ArrayList<DropData> getDropData() {
+	public List<DropData> getDropData() {
 		return m_drops;
 	}
 	
@@ -461,30 +463,30 @@ public class PokemonSpecies {
 	public void setFemalePercentage(int mFemalePercentage) {
 		m_femalePercentage = mFemalePercentage;
 	}
-	public HashMap<Integer, String> getLevelMoves() {
+	public Map<Integer, String> getLevelMoves() {
 		return m_levelMoves;
 	}
 	public void setLevelMoves(HashMap<Integer, String> mMoves) {
 		m_levelMoves = mMoves;
 	}
 	
-	public ArrayList<String> getStarterMoves() {
+	public List<String> getStarterMoves() {
 		return m_starterMoves;
 	}
 
-	public ArrayList<String> getEggMoves() {
+	public List<String> getEggMoves() {
 		return m_eggMoves;
 	}
 	public void setEggMoves(ArrayList<String> mEggMoves) {
 		m_eggMoves = mEggMoves;
 	}
-	public ArrayList<PokemonEvolution> getEvolutions() {
+	public List<PokemonEvolution> getEvolutions() {
 		return m_evolutions;
 	}
 	public void setEvolutions(ArrayList<PokemonEvolution> mEvolutions) {
 		m_evolutions = mEvolutions;
 	}
-	public ArrayList<String> getTMMoves() {
+	public List<String> getTMMoves() {
 		return m_tmMoves;
 	}
 	public void setTMMoves(ArrayList<String> mPossibleMoves) {

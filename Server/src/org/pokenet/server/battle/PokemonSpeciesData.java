@@ -37,6 +37,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.TreeSet;
 
 import org.pokenet.server.battle.mechanics.PokemonType;
@@ -320,7 +321,7 @@ public class PokemonSpeciesData {
      * Return whether this species can learn a particular move.
      */
     public boolean canLearn(PokemonSpecies species, String move) {
-    	ArrayList<String> moves = species.getStarterMoves();
+    	List<String> moves = species.getStarterMoves();
     	for(int i = 0; i < moves.size(); i++) {
     		if(moves.get(i).equalsIgnoreCase(move))
     			return true;
