@@ -19,6 +19,7 @@
  <tileset firstgid="2049" source="normal3.tsx"/>
  <tileset firstgid="3073" source="normal5.tsx"/>
  <tileset firstgid="4097" source="normal6.tsx"/>
+ <tileset firstgid="5121" source="normal15.tsx"/>
  <layer name="Layer 8" width="80" height="20">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO3WMQqAMAxA0YKr97+Rt/Aw4pwisbFD8T3IUpLlT22NVRzbu/fq7sh+9e6r+7/J9tJ1nHaRJnUaRueeG/q0qdEP4Nn9d+kNeb12mo7Tbg4tIz1gXRcpF+GVABkAAA==
@@ -26,7 +27,7 @@
  </layer>
  <layer name="Walkable" width="80" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO1YW07EMAxMm4gPLsI5gA+4BqwQXIPXUTjKnocr0Iha6521HSdN2B9GGjUNqZuMH/USwj/OgdTAHvZ64WHho8HRyGeZVyZ2H9k8/5uXs0FrXVrfHRWb+ExJPy976cfPgHO47jsdX71a8eei410JxpHNnVM/aW8YB5oeqB1dNTsR7OX1ZCeGU59FwRaPS5p7XfjWgYS76ZcX6TBG3k++3NPyR8tPSwfND5qPUD+03Zuon8WsH+aidG/VKCtfSzqX6mRNDfXq4gVp9LTwWeHLdHpOKdZ4vvA4KumHuVo6pxajJR/VxJUHNRppfuRrNB1qz9ryXE28SnnTol+Lf2rqH665Xniz8Fawy78ZWLcwpmMFEegbPMPVpY9cP+yf+Jzks9a6TL3DrsJPUkxs0Y/sky9bifpxv2rxhd9JSUtrXx+rfp/OPVKc9gSdaWsfmLGPbfVFinsa9+pPeZz2BObCV9jW/yH2UtAHWWvstfK4V3+a+R7G6MfjbxeO48BLSSdLO2kfRKn3n4V7mrN6FayxqSxJFTBPKMa1WrsVLfHYUguk+RHA/MX4GwlNS74v/vtW67HwXvvd1gszjHmdoRoxKv684JpJ/yuQenPs8Ubkrcd3o2Peg9ZvOf8G0ZXGBKsvL5G/R9Kt1e5fYou2Kdh1o/Rejxa19vMzP7yi8Z0AGQAA
+   H4sIAAAAAAAAAO1Yy00DMRB1YosD5/RAHcAB2gCEoABEzvw6CJ2QElIPLWCLjBheZsZjx0suPOlpvcY7a7/57IQQ/nEIpA6OsDcKV5nXBqdGOct8y8TuI5vnf/NybtBal7bvjopNfKamn5ej9ONnwDlc95l+X71a8eei410JxpHNHVI/aW8YB5oeqB1dNTsR7JX1ZCeGXZ9FwRaPS5p7ynweQMLF7JtH6WeMvJz5ck/LHy0/LR00P2g+Qv3Q9miifhaLfpiL0r1Vo6x8relcq5MtNdSrixek0W3mncL72e45pVjj+cLjqKYf5mrtnFqM1nzUElcetGik+ZGv0XRoPWvPcy3xKuVNj349/mmpf7jmNPMs81ywy78ZWLcwpmMDEegbPMPJsY9cP+yf+Jzks966TL3DTYOfpJjYRz+yL/nyYxHCg5OoH/erFl/4nZS0pH1JfN3q92as4aSzjQSdSfLlMuuyynx3XAs2sa++SHFP41H9KT/bSFi5sHRqt1ro9jdS0AdZa+y1ynhUf1r4EqbRD+OP9r7Oujw6KelkaSftA/Pf6g35nNWrYI1NTerUgXlC8afV2n3RE489tUCanwJS/vb2L63QtOT74r9vtR4L77XfbaMwhzGvM1Qjpoo/L7hm0v8KpN4ce7wp8tbju6lj3oPebzn/BtGVxgSrL6+Rv0fSrdfuX2IfbVOw60btvR4tWu2XZ74ARMOrXwAZAAA=
   </data>
  </layer>
  <layer name="Grass" width="80" height="20">
