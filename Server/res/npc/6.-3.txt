@@ -12,3 +12,12 @@ false
 false
 false
 [/npc]
+[warp]
+31
+31
+7
+8
+-50
+-33
+0
+[/warp]
