@@ -1,0 +1,23 @@
+[npc]
+Fishing Guru
+down
+47
+5
+5
+NULL
+0
+-1
+0
+false
+false
+3
+[/npc]
+[warp]
+5
+8
+9
+7
+6
+0
+0
+[/warp]
