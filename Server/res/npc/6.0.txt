@@ -113,6 +113,15 @@ false
 -35
 0
 [/warp]
+[warp]
+12
+17
+6
+10
+-50
+-36
+0
+[/warp]
 [hmobject]
 CUT_TREE
 19
