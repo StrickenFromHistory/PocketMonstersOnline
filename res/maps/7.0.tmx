@@ -18,9 +18,7 @@
  <tileset firstgid="1025" source="normal3.tsx"/>
  <tileset firstgid="2049" source="normal18.tsx"/>
  <tileset firstgid="3073" source="normal2.tsx"/>
- <tileset name="13" firstgid="4097" tilewidth="16" tileheight="16">
-  <image source="normal13.png" trans="ffffff"/>
- </tileset>
+ <tileset firstgid="4097" source="normal13.tsx"/>
  <layer name="Walkable" width="72" height="21">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO2WbQ7CIAyG2Uz85TnUa/jtNfyaXkM9m/eSJZKgKaUUGE2E5EmWsDb0pbRtlVJtpVKAaaPULAHzJp1vyFdqXqNvXP9t9Vl2CdgDMXF9Q75KYWK4aK4MzgR9qL4xX6X14Z4Jsw/13X10ug30vqBvyfoMzXgSnz++Grsm6LMRUI8pQLFi8dkx5qzPUvILO69PH1eNjanPLlv7Hk1uLTRLBqsAfTrkjK43QM0vyJ5q+7tv36PZO2iODE4Zcyokv2JsXfr0eWd62V3zYPCM1AfKKQhXz8XsffOMTx8pdSkXvjirPrza9m/6hNYnSfqYXppjRuP2d0n6UGdcDtzZwGcn8Q3EwJ0NJOhD7e8xcGYDzC6UuvD1BloY/0agFwAA
