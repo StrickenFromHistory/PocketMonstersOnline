@@ -18,6 +18,11 @@
  <tileset firstgid="1025" source="normal2.tsx"/>
  <tileset firstgid="2049" source="normal5.tsx"/>
  <tileset firstgid="3073" source="normal3.tsx"/>
+ <layer name="random" width="24" height="53">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OAQkAAAgDsIP9O5viCLIlWAIA0DfXAQAAeGoBS/vU7OATAAA=
+  </data>
+ </layer>
  <layer name="Walkable" width="24" height="53">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO2WTQrDIBCFFSGLbnqFQiHtQdKfi/TnnELv1UoV7KA4zoxQJQ/eIot8TmaSN7FGNZVd+Si+EfCI/ItW6uB91G34wSfmGSW+87Vj/u3jp/AMXubrRwO2U+/v/wh862fckl8ylY8Rh0+tX1XUDzMi9m6bZtX0J8d2eZH6rveTDB9m3RztitS+qOGnsu5cOL+Gn8rpu+9XMDyfy5eaL3UPlPi594XLz/VTis9h/gMfm18cPtVYPkU1/Jb1U3o9Cj/O6xb8OLck+U4wF2v50+b3ega9wPAx/2+BuwAWtn6neE7Qi07vICwfc+/I/FV0cbK55J6fIegNhg23t+ATAAA=
@@ -40,7 +45,7 @@
  </layer>
  <layer name="Collisions" width="24" height="53">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2X223CMBRAU0IgsEXfc/SDQSr1o3OU9DFHIYE1eHeNBgiM0WPFUS1EHOcloZYrHUVByfG1Y3ztwLasPoQV48EUljCDqmNy9ufy9yRJ9Ox8PNnH/VFF+T+k+EPZRl3+quKv+n1JULItnT+Q87QOv4hlSb9u/lfhF1Fn/qfg9zPIml86v4k7q39pfhOS8Zs43MMM5rBwsv1bAyLp/8YXwho2sDXwC/oat4ikjYuWZTXAhiY4LTO/6dy5xHclnTdcbwv41Zr0LO+vDdquIv86/Vl9OOdfr//U88+7XzvkUePPWj+LrNuqf1jCnTa2qn8OiwLo6p7q39hm67SKZ+gvcvbyZJ9N/Ore/KVDe+DBK7zBO3xA4FrWCMZu7C7i/8QzgCH4wgkjGMMS78qNnyvqn+KZwRwWwgkr+III9w72Mn/xzaKc/hDPGjawFU7YwR5a0Aa3E/uTb5d2Njnmb3SprdAEpxv/1ubqwh3e+87v+GStK+r+eaB57ljk8R/2wSSS/4vu3FbGbxJn///xl6lfOkz3/2UxqY9JnU3eEZH2XqC4fwDfERS04BMAAA==
+   H4sIAAAAAAAAAO2X223CMBRAU0IgsEXfc/SDQSr1gzlK+pijQGAN3l2jAQJj9Fg4qlUR23lJqOVKR1FQcnztGF87dB2nB1HJBDCFJcyg7Jic/Zn8HUkSHTcbT+5xf1xS/g8p/ki2UZW/rPir/qEkLNiWzh/KeVqFX8SyoF83/8vwi6gy/1PwDw2Y5pfOb+M29S/Nb0MyfhOPe5jBHBae2b+1IJb+L3wRrGEDWwu/oKdxi0jauGg4Tg1cqIPXsPPbzp1LfFfSecP1NodfrUldeX9t0XYZ+VfpN/XhnH+1/lPPP+t+7TePGr9p/cyzbqv+QQF32tiq/jkscqCre6p/49qt0yqBpT/P2SuQfbbxq3vz5xbtQQAv8Apv8A6h7zgjGPsHdx7/B54+DGAonDCCMSzxrvzDc3n9UzwzmMNCOGEFnxDj3sFe5i++WZzRH+FZwwa2wgk72EMDmuC3Dv7k26WdTY75a21qK9TBax9+a3L14Q7vfetnfEzrirp/7mueOxZZ/L/7kERX40/+L7pzm8lfNM7+/+MvUr902O7/i2JTH5M6m7wjIu29UHF/A/O03sLgEwAA
   </data>
  </layer>
  <layer name="WalkBehind" width="24" height="53">
