@@ -45,6 +45,9 @@ public class LogoutManager implements Runnable {
 	 * @param player
 	 */
 	private boolean attemptLogout(PlayerChar player) {
+		//Remove player from their map if it hasn't been done already
+		if(player.getMap() != null)
+			player.getMap().removeChar(player);
 		TcpProtocolHandler.removePlayer(player);
 		UdpProtocolHandler.removePlayer(player);
 		GameServer.getInstance().updatePlayerCount();
@@ -60,9 +63,6 @@ public class LogoutManager implements Runnable {
 		//Finally, store that the player is logged out and close connection
 		m_database.query("UPDATE pn_members SET lastLoginServer='null' WHERE id='" + player.getId() + "'");
 		m_database.close();
-		//Close the session fully if its not closed already
-		if(player.getTcpSession() != null && player.getTcpSession().isConnected())
-			player.getTcpSession().close(true);
 		GameServer.getServiceManager().getMovementService().removePlayer(player.getName());
 		return true;
 	}
