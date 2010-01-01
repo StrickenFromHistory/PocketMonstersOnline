@@ -54,6 +54,15 @@ false
 false
 false
 [/npc]
+[warp]
+13
+22
+8
+8
+-48
+-31
+0
+[/warp]
 [hmobject]
 CUT_TREE
 10
