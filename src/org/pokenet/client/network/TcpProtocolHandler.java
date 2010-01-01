@@ -35,7 +35,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 	public TcpProtocolHandler(GameClient game) {
 		m_game = game;
 	}
-	
+
 	/**
 	 * Called when we lose or close the connection
 	 */
@@ -45,14 +45,14 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 		translated = Translator.translate("_LOGIN");
 		GameClient.messageDialog(translated.get(40), GameClient.getInstance().getDisplay());
 	}
-	
+
 	/**
 	 * Called when connected is made to the server
 	 */
 	public void sessionOpened(IoSession session) {
 		System.out.println("Connected to game server.");
 	}
-	
+
 	/**
 	 * Catches networking exceptions
 	 * @param session
@@ -165,7 +165,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				GameClient.getInstance().getDisplay().add(new SpriteChooserDialog());
 				break;
 			}
-			
+
 			break;
 		case 'B':
 			//Box access - receiving a string of pokedex numbers, e.g. B15,23,24,
@@ -175,19 +175,19 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			 */
 			if(message.length() > 1) {
 				String[] indexes = message.substring(1).split(",");
-		    	for (int i = 0; i < 30; i++){
-		    		if(indexes.length > i)
-		    			if(indexes[i] == null || indexes[i].compareTo("") == 0)
-		    				pokes[i] = -1;
-		    			else
-		    				pokes[i] = (Integer.parseInt(indexes[i]) - 1);
-		    		else
-		    			pokes[i] = -1;
-		    	}
+				for (int i = 0; i < 30; i++){
+					if(indexes.length > i)
+						if(indexes[i] == null || indexes[i].compareTo("") == 0)
+							pokes[i] = -1;
+						else
+							pokes[i] = (Integer.parseInt(indexes[i]) - 1);
+					else
+						pokes[i] = -1;
+				}
 			} else {
 				for (int i = 0; i < pokes.length; i++){
-		    		pokes[i] = -1;
-		    	}
+					pokes[i] = -1;
+				}
 			}
 			if (GameClient.getInstance().getUi().getStorageBox() == null){
 				GameClient.getInstance().getUi().useStorageBox(pokes);
@@ -465,37 +465,37 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				}
 				break;
 
-				case 's':
-					//You gained a skill level or your skills are being initialized
-					switch (message.charAt(2)){
-					case 'b':
-						//Breeding
-						if(m_game.getOurPlayer().getBreedingLevel() != -1 && m_game.getOurPlayer().getBreedingLevel() != Integer.parseInt(message.substring(3)))
-							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your breeding level is now " + message.substring(3) + ".");
-						m_game.getOurPlayer().setBreedingLevel(Integer.parseInt(message.substring(3)));
-						break;
-					case 'f':
-						//Fishing
-						if(m_game.getOurPlayer().getFishingLevel() != -1 && m_game.getOurPlayer().getFishingLevel() != Integer.parseInt(message.substring(3)))
-							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your fishing level is now " + message.substring(3) + ".");
-						m_game.getOurPlayer().setFishingLevel(Integer.parseInt(message.substring(3)));
-						break;
-					case 't':
-						//Trainer
-						if(m_game.getOurPlayer().getTrainerLevel() != -1 && m_game.getOurPlayer().getTrainerLevel() != Integer.parseInt(message.substring(3)))
-							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your trainer level is now " + message.substring(3) + ".");
-						m_game.getOurPlayer().setTrainerLevel(Integer.parseInt(message.substring(3)));
-						break;
-					case 'c':
-						//Coordinating
-						if(m_game.getOurPlayer().getCoordinatingLevel() != -1 && m_game.getOurPlayer().getCoordinatingLevel() != Integer.parseInt(message.substring(3)))
-							GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your coordinating level is now " + message.substring(3) + ".");
-						m_game.getOurPlayer().setCoordinatingLevel(Integer.parseInt(message.substring(3)));
-						break;
-					}
+			case 's':
+				//You gained a skill level or your skills are being initialized
+				switch (message.charAt(2)){
+				case 'b':
+					//Breeding
+					if(m_game.getOurPlayer().getBreedingLevel() != -1 && m_game.getOurPlayer().getBreedingLevel() != Integer.parseInt(message.substring(3)))
+						GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your breeding level is now " + message.substring(3) + ".");
+					m_game.getOurPlayer().setBreedingLevel(Integer.parseInt(message.substring(3)));
 					break;
-				
-				case 'W':
+				case 'f':
+					//Fishing
+					if(m_game.getOurPlayer().getFishingLevel() != -1 && m_game.getOurPlayer().getFishingLevel() != Integer.parseInt(message.substring(3)))
+						GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your fishing level is now " + message.substring(3) + ".");
+					m_game.getOurPlayer().setFishingLevel(Integer.parseInt(message.substring(3)));
+					break;
+				case 't':
+					//Trainer
+					if(m_game.getOurPlayer().getTrainerLevel() != -1 && m_game.getOurPlayer().getTrainerLevel() != Integer.parseInt(message.substring(3)))
+						GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your trainer level is now " + message.substring(3) + ".");
+					m_game.getOurPlayer().setTrainerLevel(Integer.parseInt(message.substring(3)));
+					break;
+				case 'c':
+					//Coordinating
+					if(m_game.getOurPlayer().getCoordinatingLevel() != -1 && m_game.getOurPlayer().getCoordinatingLevel() != Integer.parseInt(message.substring(3)))
+						GameClient.getInstance().getUi().getChat().addSystemMessage("*" + "Congratulations! Your coordinating level is now " + message.substring(3) + ".");
+					m_game.getOurPlayer().setCoordinatingLevel(Integer.parseInt(message.substring(3)));
+					break;
+				}
+				break;
+
+			case 'W':
 				//Weather Change
 				switch(message.charAt(2)) {
 				case 'n':
@@ -865,7 +865,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				m_game.getLoginScreen().showLogin();
 				break;
 			}
-		
+
 			break;
 		case 'I': //I is for Items
 			switch(message.charAt(1)) {
