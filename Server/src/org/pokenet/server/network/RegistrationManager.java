@@ -223,7 +223,7 @@ public class RegistrationManager implements Runnable {
 					"'" + p.getHappiness() +"', " +
 					"'" + p.getGender() +"', " +
 					"'" + MySqlManager.parseSQL(p.getNature().getName()) +"', " +
-					"'" + MySqlManager.parseSQL(p.getAbility().getName()) +"', " +
+					"'" + MySqlManager.parseSQL(p.getAbilityName()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getItemName()) +"', " +
 					"'" + String.valueOf(p.isShiny()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getOriginalTrainer()) + "', " +
@@ -337,9 +337,9 @@ public class RegistrationManager implements Runnable {
         ArrayList<MoveListEntry> possibleMoves = new ArrayList<MoveListEntry>();
         MoveListEntry[] moves = new MoveListEntry[4];
         Random random = DataService.getBattleMechanics().getRandom();
-        for (int i = 0; i < species.getStarterMoves().size(); i++) {
+        for (int i = 0; i < species.getStarterMoves().length; i++) {
                 possibleMoves.add(DataService.getMovesList().getMove(
-                		species.getStarterMoves().get(i)));
+                		species.getStarterMoves()[i]));
         }
         for (int i = 1; i <= 5; i++) {
                 if (species.getLevelMoves().containsKey(i)) {
@@ -380,13 +380,9 @@ public class RegistrationManager implements Runnable {
         /*
          * Get all possible abilities
          */
-        String [] abilities = PokemonSpecies.getDefaultData().getPossibleAbilities(species.getName());
+        String [] abilities = species.getAbilities();
         /* First select an ability randomly */
-        String ab = "";
-        if(abilities.length == 1)
-        	ab = abilities[0];
-        else
-        	ab = abilities[random.nextInt(abilities.length)];
+        String ab = abilities[random.nextInt(abilities.length)];
         /*
          * Unfortunately, all Pokemon have two possible ability slots but some only have one.
          * If the null slot was selected, select the other slot

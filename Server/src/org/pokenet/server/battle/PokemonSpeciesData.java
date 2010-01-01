@@ -229,12 +229,12 @@ public class PokemonSpeciesData {
     	if (ability == null) {
             return false;
         }
-    	ArrayList<String> possibleAbilities =
+    	String [] possibleAbilities =
     		getPokemonByName(name).getAbilities();
     	if(possibleAbilities == null)
     		return false;
-    	for(int i = 0; i < possibleAbilities.size(); i++) {
-    		if(possibleAbilities.get(i).equalsIgnoreCase(ability))
+    	for(int i = 0; i < possibleAbilities.length; i++) {
+    		if(possibleAbilities[i].equalsIgnoreCase(ability))
     			return true;
     	}
     	return false;
@@ -254,15 +254,7 @@ public class PokemonSpeciesData {
      * that are actually implemented.
      */
     public String[] getPossibleAbilities(String name) {
-    	ArrayList<String> possibleAbilities =
-    		getPokemonByName(name).getAbilities();
-    	if(possibleAbilities == null)
-    		return null;
-    	String [] result = new String[possibleAbilities.size()];
-    	for(int i = 0; i < result.length; i++) {
-    		result[i] = possibleAbilities.get(i);
-    	}
-        return result;
+        return getPokemonByName(name).getAbilities();
     }
     
     /**
@@ -321,20 +313,21 @@ public class PokemonSpeciesData {
      * Return whether this species can learn a particular move.
      */
     public boolean canLearn(PokemonSpecies species, String move) {
-    	List<String> moves = species.getStarterMoves();
-    	for(int i = 0; i < moves.size(); i++) {
-    		if(moves.get(i).equalsIgnoreCase(move))
-    			return true;
-    	}
-    	Iterator<String> it = species.getLevelMoves().values().iterator();
-    	while(it.hasNext()) {
-    		if(it.next().equalsIgnoreCase(move))
-    			return true;
-    	}
-        moves = species.getTMMoves();
-        for(int i = 0; i < moves.size(); i++) {
-    		if(moves.get(i).equalsIgnoreCase(move))
-    			return true;
+    	try {
+        	String [] moves = species.getStarterMoves();
+        	for(int i = 0; i < moves.length; i++) {
+        		if(moves[i] != null && moves[i].equalsIgnoreCase(move))
+        			return true;
+        	}
+        	if(species.getLevelMoves().containsValue(move))
+        		return true;
+            moves = species.getTMMoves();
+            for(int i = 0; i < moves.length; i++) {
+        		if(moves[i] != null && moves[i].equalsIgnoreCase(move))
+        			return true;
+        	}
+    	} catch (Exception e) {
+    		e.printStackTrace();
     	}
         return false;
     }

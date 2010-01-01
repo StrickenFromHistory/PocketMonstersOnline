@@ -697,39 +697,39 @@ public class WildBattleField extends BattleField {
           p.getLevel() + 1)
           - p.getExp();
         if (levelExp <= 0) {
-          PokemonSpecies pokeData = DataService.getSpeciesDatabase().getPokemonByName(
+          PokemonSpecies pokeData = PokemonSpecies.getDefaultData().getPokemonByName(
                   p.getSpeciesName());
           boolean evolve = false;
           /* Handle evolution */
-          for (int i = 0; i < pokeData.getEvolutions().size(); i++) {
-            PokemonEvolution evolution = pokeData.getEvolutions().get(i);
+          for (int i = 0; i < pokeData.getEvolutions().length; i++) {
+            PokemonEvolution evolution = pokeData.getEvolutions()[i];
             if (evolution.getType() == EvolutionTypes.Level) {
               if (evolution.getLevel() <= p.getLevel() + 1) {
                 p.setEvolution(evolution);
                 m_player.getTcpSession().write("PE" + index);
                 evolve = true;
-                i = pokeData.getEvolutions().size();
+                i = pokeData.getEvolutions().length;
               }
             } else if (evolution.getType() == EvolutionTypes.HappinessDay) {
               if (p.getHappiness() > 220 && !TimeService.isNight()) {
                 p.setEvolution(evolution);
                 m_player.getTcpSession().write("PE" + index);
                 evolve = true;
-                i = pokeData.getEvolutions().size();
+                i = pokeData.getEvolutions().length;
               }
             } else if (evolution.getType() == EvolutionTypes.HappinessNight) {
               if (p.getHappiness() > 220 && TimeService.isNight()) {
                 p.setEvolution(evolution);
                 m_player.getTcpSession().write("PE" + index);
                 evolve = true;
-                i = pokeData.getEvolutions().size();
+                i = pokeData.getEvolutions().length;
               }
             } else if (evolution.getType() == EvolutionTypes.Happiness) {
               if (p.getHappiness() > 220) {
                 p.setEvolution(evolution);
                 m_player.getTcpSession().write("PE" + index);
                 evolve = true;
-                i = pokeData.getEvolutions().size();
+                i = pokeData.getEvolutions().length;
               }
             }
           }

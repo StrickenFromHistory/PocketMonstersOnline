@@ -458,12 +458,13 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 					m_game.getOurPlayer().initBadges(message.substring(3));
 					GameClient.getInstance().setOurPlayer(m_game.getOurPlayer());
 					break;
-				}
-				break;
 				case 'a':
 					//Add a badge
 					m_game.getOurPlayer().addBadge(Integer.valueOf(message.substring(3)));
 					break;
+				}
+				break;
+
 				case 's':
 					//You gained a skill level or your skills are being initialized
 					switch (message.charAt(2)){

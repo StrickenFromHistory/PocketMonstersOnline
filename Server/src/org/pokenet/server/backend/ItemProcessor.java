@@ -200,10 +200,10 @@ public class ItemProcessor implements Runnable {
 					poke = p.getParty()[Integer.parseInt(data[0])];
 					/* Ensure poke exists */
 					if (poke == null) return false;
-					PokemonSpecies pokeData = DataService.getSpeciesDatabase().getPokemonByName(
+					PokemonSpecies pokeData = PokemonSpecies.getDefaultData().getPokemonByName(
 							poke.getSpeciesName());
-					for (int j = 0; j < pokeData.getEvolutions().size(); j++) {
-						PokemonEvolution evolution = pokeData.getEvolutions().get(j);
+					for (int j = 0; j < pokeData.getEvolutions().length; j++) {
+						PokemonEvolution evolution = pokeData.getEvolutions()[j];
 						/*
 						 * Check if this pokemon evolves by item
 						 */

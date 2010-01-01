@@ -49,9 +49,9 @@ public class BreedingLogic {
 	 * @return
 	 */
 	public boolean canBreed(Pokemon poke1, Pokemon poke2) {
-		for (int i : DataService.getSpeciesDatabase().getPokemonByName(
+		for (int i : PokemonSpecies.getDefaultData().getPokemonByName(
 				poke1.getName()).getCompatibility()) {
-			for (int x : DataService.getSpeciesDatabase().getPokemonByName(
+			for (int x : PokemonSpecies.getDefaultData().getPokemonByName(
 					poke2.getName()).getCompatibility()) {
 				if (i == x) {
 					if (poke1.getGender() == Pokemon.GENDER_MALE
@@ -92,16 +92,16 @@ public class BreedingLogic {
 					|| femalePoke.getSpeciesName() == "Nidorina"
 					|| femalePoke.getSpeciesName() == "Nidoqueen") {
 				if (DataService.getBattleMechanics().getRandom().nextInt(2) == 0)
-					return DataService.getSpeciesDatabase().getPokemonByName("NidoranM").getSpeciesNumber();
+					return PokemonSpecies.getDefaultData().getPokemonByName("NidoranM").getSpeciesNumber();
 				else
-					return DataService.getSpeciesDatabase().getPokemonByName("NidoranF").getSpeciesNumber();
+					return PokemonSpecies.getDefaultData().getPokemonByName("NidoranF").getSpeciesNumber();
 			}
 			// Volbeat and Illumise
 			else if (femalePoke.getSpeciesName() == "Illumise") {
 				if (DataService.getBattleMechanics().getRandom().nextInt(2) == 0)
-					return DataService.getSpeciesDatabase().getPokemonByName("Illumise").getSpeciesNumber();
+					return PokemonSpecies.getDefaultData().getPokemonByName("Illumise").getSpeciesNumber();
 				else
-					return DataService.getSpeciesDatabase().getPokemonByName("Volbeat").getSpeciesNumber();
+					return PokemonSpecies.getDefaultData().getPokemonByName("Volbeat").getSpeciesNumber();
 			}
 			// Normal case
 			else
@@ -147,10 +147,10 @@ public class BreedingLogic {
 
 		// List of egg moves
 		possibleMoves.clear();
-		for (int i = 0; i < s.getEggMoves().size(); i++) {
+		for (int i = 0; i < s.getEggMoves().length; i++) {
 			for (int x = 0; i < 4; i++) {
-				if (malePoke.getMove(x) == moveList.getMove(s.getEggMoves().get(i))) {
-					possibleMoves.add(moveList.getMove(s.getEggMoves().get(i)));
+				if (malePoke.getMove(x) == moveList.getMove(s.getEggMoves()[i])) {
+					possibleMoves.add(moveList.getMove(s.getEggMoves()[i]));
 				}
 			}
 		}
@@ -172,7 +172,7 @@ public class BreedingLogic {
 	private Pokemon generateHatchling(int species) throws Exception{
 		Pokemon hatchling;
 		try{
-		PokemonSpecies speciesData = DataService.getSpeciesDatabase()
+		PokemonSpecies speciesData = PokemonSpecies.getDefaultData()
 				.getSpecies(species);
 		Random random = DataService.getBattleMechanics().getRandom();
 
@@ -221,13 +221,12 @@ public class BreedingLogic {
 			}
 		}
 
-		hatchling = new Pokemon(DataService.getBattleMechanics(), DataService
-				.getSpeciesDatabase().getSpecies(species),
+		hatchling = new Pokemon(DataService.getBattleMechanics(), 
+				PokemonSpecies.getDefaultData().getSpecies(species),
 				PokemonNature.getNature(natureIndex),
-				speciesData.getPossibleAbilities(DataService
-						.getSpeciesDatabase())[random
-						.nextInt(speciesData.getPossibleAbilities(DataService
-								.getSpeciesDatabase()).length)], "", Pokemon
+				speciesData.getPossibleAbilities(PokemonSpecies.getDefaultData())[random
+						.nextInt(speciesData.getPossibleAbilities(
+								PokemonSpecies.getDefaultData()).length)], "", Pokemon
 						.generateGender(speciesData.getPossibleGenders()), 5,
 				ivs, new int[6], getBabyMoves(species), new int[4]);
 		} catch (Exception e) {

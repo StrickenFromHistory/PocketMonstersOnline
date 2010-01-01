@@ -115,7 +115,6 @@ public class NetworkService {
 		 * Bind the TCP port
 		 */
 		m_tcpAcceptor = new NioSocketAcceptor();
-		m_tcpAcceptor.getFilterChain().addLast("logger", new LoggingFilter());
 		m_tcpAcceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(new PokenetCodecFactory()));
 		m_tcpAcceptor.setHandler(m_tcpProtocolHandler);
 		m_tcpAcceptor.getSessionConfig().setIdleTime(IdleStatus.READER_IDLE, 900000);
@@ -132,7 +131,7 @@ public class NetworkService {
 		m_udpAcceptor = new NioDatagramAcceptor();
 		m_udpAcceptor.setHandler(m_udpProtocolHandler);
 		DefaultIoFilterChainBuilder chain = m_udpAcceptor.getFilterChain(); 
-		chain.addLast("logger", new LoggingFilter()); 
+
 		chain.addLast("codec", new ProtocolCodecFilter(new PokenetCodecFactory()));
 		DatagramSessionConfig dcfg = m_udpAcceptor.getSessionConfig(); 
 		dcfg.setReuseAddress(true);

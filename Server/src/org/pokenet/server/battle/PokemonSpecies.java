@@ -79,8 +79,7 @@ public class PokemonSpecies {
 	@ElementArray
 	protected int[] m_effortPoints = new int[6];
 	@ElementList
-	protected ArrayList<String> m_abilities
-		= new ArrayList<String>();
+	protected String [] m_abilities;
 	
 	@ElementArray
 	protected int[] m_compatibility = new int[2];
@@ -94,29 +93,23 @@ public class PokemonSpecies {
 	protected int m_femalePercentage;
 	
 	@ElementMap
-	protected Map<Integer, String> m_levelMoves =
-		new HashMap<Integer, String>();
-	@ElementList
-	protected List<String> m_starterMoves =
-		new ArrayList<String>();
-	@ElementList
-	protected List<String> m_eggMoves
-		= new ArrayList<String>();
-	@ElementList
-	protected List<PokemonEvolution> m_evolutions 
-		= new ArrayList<PokemonEvolution>();
-	@ElementList
-	protected List<String> m_tmMoves
-		= new ArrayList<String>();
-	@ElementList
-	protected List<DropData> m_drops
-		= new ArrayList<DropData>();
+	protected Map<Integer, String> m_levelMoves;
+	@ElementArray
+	protected String [] m_starterMoves;
+	@ElementArray
+	protected String [] m_eggMoves;
+	@ElementArray
+	protected PokemonEvolution [] m_evolutions;
+	@ElementArray
+	protected String [] m_tmMoves;
+	@ElementArray
+	protected DropData [] m_drops;
 	
-	public List<DropData> getDropData() {
+	public DropData [] getDropData() {
 		return m_drops;
 	}
 	
-	public void setDropData(ArrayList<DropData> d) {
+	public void setDropData(DropData [] d) {
 		m_drops = d;
 	}
 	
@@ -128,10 +121,10 @@ public class PokemonSpecies {
 		if(DataService.getBattleMechanics().getRandom().nextInt(99) < 30) {
             int r = 100;
             ArrayList<Integer> m_result = new ArrayList<Integer>();
-            for(int i = 0; i < m_drops.size(); i++) {
+            for(int i = 0; i < m_drops.length; i++) {
                     r = DataService.getBattleMechanics().getRandom().nextInt(100) + 1;
-                    if(r < m_drops.get(i).getProbability())
-                            m_result.add(m_drops.get(i).getItemNumber());
+                    if(r < m_drops[i].getProbability())
+                            m_result.add(m_drops[i].getItemNumber());
             }
             return m_result.size() > 0 ? 
                             m_result.get(DataService.getBattleMechanics()
@@ -306,18 +299,6 @@ public class PokemonSpecies {
     public boolean canLearn(PokemonSpeciesData data, String move) {
         return data.canLearn(this, move);
     }
-    
-    public ArrayList<String> getLearnableMoves() {
-    	ArrayList<String> result = new ArrayList<String>();
-    	for(int i = 0; i < m_levelMoves.size(); i++) {
-    		result.add(m_levelMoves.get(i));
-    	}
-    	for(int i = 0; i < m_tmMoves.size(); i++) {
-    		result.add(m_tmMoves.get(i));
-    	}
-    	return result;
-    }
-
 	
 	public int getSpecies() {
 		return m_species;
@@ -433,10 +414,10 @@ public class PokemonSpecies {
 	public void setEffortPoints(int[] mEffortPoints) {
 		m_effortPoints = mEffortPoints;
 	}
-	public ArrayList<String> getAbilities() {
+	public String [] getAbilities() {
 		return m_abilities;
 	}
-	public void setAbilities(ArrayList<String> mAbilities) {
+	public void setAbilities(String [] mAbilities) {
 		m_abilities = mAbilities;
 	}
 	public int[] getCompatibility() {
@@ -470,26 +451,30 @@ public class PokemonSpecies {
 		m_levelMoves = mMoves;
 	}
 	
-	public List<String> getStarterMoves() {
+	public void setStarterMoves(String [] m) {
+		m_starterMoves = m;
+	}
+	
+	public String [] getStarterMoves() {
 		return m_starterMoves;
 	}
 
-	public List<String> getEggMoves() {
+	public String [] getEggMoves() {
 		return m_eggMoves;
 	}
-	public void setEggMoves(ArrayList<String> mEggMoves) {
+	public void setEggMoves(String [] mEggMoves) {
 		m_eggMoves = mEggMoves;
 	}
-	public List<PokemonEvolution> getEvolutions() {
+	public PokemonEvolution [] getEvolutions() {
 		return m_evolutions;
 	}
-	public void setEvolutions(ArrayList<PokemonEvolution> mEvolutions) {
+	public void setEvolutions(PokemonEvolution [] mEvolutions) {
 		m_evolutions = mEvolutions;
 	}
-	public List<String> getTMMoves() {
+	public String [] getTMMoves() {
 		return m_tmMoves;
 	}
-	public void setTMMoves(ArrayList<String> mPossibleMoves) {
+	public void setTMMoves(String [] mPossibleMoves) {
 		m_tmMoves = mPossibleMoves;
 	}
 }

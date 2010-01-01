@@ -375,11 +375,11 @@ public class Pokemon extends PokemonSpecies {
 
       if (allow) {
         /* The player is allowing evolution, evolve the Pokemon */
-        this.evolve(DataService.getSpeciesDatabase().getPokemonByName(
-                m_evolution.getEvolveTo()));
+        this.evolve(PokemonSpecies.getDefaultData().
+        		getPokemonByName(m_evolution.getEvolveTo()));
       }
       /* Retrieve the Pokemon data */
-      PokemonSpecies pokeData = DataService.getSpeciesDatabase().
+      PokemonSpecies pokeData = PokemonSpecies.getDefaultData().
       			getPokemonByName(getSpeciesName());
 
       setHappiness(m_happiness + 2);
@@ -620,7 +620,7 @@ public class Pokemon extends PokemonSpecies {
     m_gender = p.getGender();
     m_level = p.getLevel();
     m_move = p.getMoves();
-    m_abilityName = getAbilityName();
+    m_abilityName = p.getAbilityName();
     m_itemName = p.getItemName();
     m_ppUp = new int[] { 0, 0, 0, 0 };
     m_nickname = getSpeciesName();
@@ -647,10 +647,10 @@ public class Pokemon extends PokemonSpecies {
     PokemonSpeciesData speciesData = data.getSpeciesData();
     PokemonSpecies species = new PokemonSpecies(speciesData, random
       .nextInt(speciesData.getSpeciesCount()));
-    ArrayList<String> moveset = species.getLearnableMoves();
-    if ((moveset == null) || (moveset.size() == 0)) { return null; }
-    int moveCount = moveset.size();
-    String[] moves = moveset.toArray(new String[moveCount]);
+    String [] moveset = species.getStarterMoves();
+    if ((moveset == null) || (moveset.length == 0)) { return null; }
+    int moveCount = moveset.length;
+    String[] moves = (String [] ) species.getLevelMoves().values().toArray();
     MoveListEntry[] entries = new MoveListEntry[(moveCount >= 4) ? 4
       : moveCount];
     Set<String> moveSet = new HashSet<String>();
@@ -717,8 +717,8 @@ public class Pokemon extends PokemonSpecies {
     /*
      * Get all starter moves
      */
-    for (int i = 0; i < ps.getStarterMoves().size(); i++) {
-      possibleMoves.add(moveList.getMove(ps.getStarterMoves().get(i)));
+    for (int i = 0; i < ps.getStarterMoves().length; i++) {
+      possibleMoves.add(moveList.getMove(ps.getStarterMoves()[i]));
     }
     /*
      * Get moves learned by levelling up
@@ -2105,19 +2105,23 @@ public class Pokemon extends PokemonSpecies {
      */
     /* Check validity of moves */
     if(m_move[0] != null && !PokemonSpecies.getDefaultData().
-    		canLearn(this, getMoveName(0))) {
+    		canLearn(PokemonSpecies.getDefaultData().
+    				getPokemonByName(this.getSpeciesName()), getMoveName(0))) {
     	m_move[0] = null;
     }
     if(m_move[1] != null && !PokemonSpecies.getDefaultData().
-    		canLearn(this, getMoveName(1))) {
+    		canLearn(PokemonSpecies.getDefaultData().
+    				getPokemonByName(this.getSpeciesName()), getMoveName(1))) {
     	m_move[1] = null;
     }
     if(m_move[2] != null && !PokemonSpecies.getDefaultData().
-    		canLearn(this, getMoveName(2))) {
+    		canLearn(PokemonSpecies.getDefaultData().
+    				getPokemonByName(this.getSpeciesName()), getMoveName(2))) {
     	m_move[2] = null;
     }
     if(m_move[3] != null && !PokemonSpecies.getDefaultData().
-    		canLearn(this, getMoveName(3))) {
+    		canLearn(PokemonSpecies.getDefaultData().
+    				getPokemonByName(this.getSpeciesName()), getMoveName(3))) {
     	m_move[3] = null;
     }
   }

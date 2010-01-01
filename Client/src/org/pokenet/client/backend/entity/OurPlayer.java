@@ -237,7 +237,7 @@ public class OurPlayer extends Player {
 				m_pokemon[i].setShiny(false);
 			else
 				m_pokemon[i].setShiny(true);
-			m_pokemon[i].setSpriteNumber(Integer.parseInt(info[0]));
+			m_pokemon[i].setSpriteNumber(Integer.parseInt(info[0]) + 1);
 			m_pokemon[i].setMaxHP(Integer.parseInt(info[5]));
 			/*
 			 * Stats
