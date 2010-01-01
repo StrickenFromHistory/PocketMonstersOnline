@@ -74,7 +74,8 @@ public class LogoutManager implements Runnable {
 	public void queuePlayer(PlayerChar player) {
 		if(m_thread == null || !m_thread.isAlive())
 			start();
-		m_logoutQueue.offer(player);
+		if(!m_logoutQueue.contains(player))
+			m_logoutQueue.offer(player);
 	}
 
 	/**
@@ -349,20 +350,6 @@ public class LogoutManager implements Runnable {
 	private boolean savePokemon(Pokemon p, String currentTrainer) {
 		try {
 			/*
-			 * Due to issues with Pokemon not receiving abilities,
-			 * we're going to ensure they have one
-			 */
-			if(p.getAbility() == null || p.getAbility().getName().equalsIgnoreCase("")) {
-				String [] abilities = PokemonSpecies.getDefaultData().getPossibleAbilities(p.getSpeciesName());
-		        /* First select an ability randomly */
-		        String ab = "";
-		        if(abilities.length == 1)
-		        	ab = abilities[0];
-		        else
-		        	ab = abilities[DataService.getBattleMechanics().getRandom().nextInt(abilities.length)];
-		        p.setAbility(IntrinsicAbility.getInstance(ab), true);
-			}
-			/*
 			 * Update the pokemon in the database
 			 */
 			m_database.query("UPDATE pn_pokemon SET " +
@@ -376,7 +363,7 @@ public class LogoutManager implements Runnable {
 					"happiness='" + p.getHappiness() +"', " +
 					"gender='" + p.getGender() +"', " +
 					"nature='" + MySqlManager.parseSQL(p.getNature().getName()) +"', " +
-					"abilityName='" + MySqlManager.parseSQL(p.getAbility().getName()) +"', " +
+					"abilityName='" + MySqlManager.parseSQL(p.getAbilityName()) +"', " +
 					"itemName='" + MySqlManager.parseSQL(p.getItemName()) +"', " +
 					"isShiny='" + String.valueOf(p.isShiny()) +"', " +
 					"currentTrainerName='" + currentTrainer +"', " +
