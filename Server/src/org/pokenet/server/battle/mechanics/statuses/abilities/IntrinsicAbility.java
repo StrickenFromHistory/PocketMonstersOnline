@@ -1304,7 +1304,14 @@ public class IntrinsicAbility extends StatusEffect implements Comparable<Object>
      * Get an intrinsic ability by name.
      */
     public static IntrinsicAbility getInstance(String ability) {
-        return (IntrinsicAbility)m_map.get(ability);
+    	Iterator<String> it = m_map.keySet().iterator();
+    	while(it.hasNext()) {
+    		String a = it.next();
+    		if(a.equalsIgnoreCase(ability)) {
+    			return (IntrinsicAbility)m_map.get(a);
+    		}
+    	}
+        return null;
     }
     
     /**
