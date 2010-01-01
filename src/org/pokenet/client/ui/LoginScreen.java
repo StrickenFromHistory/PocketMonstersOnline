@@ -50,7 +50,7 @@ public class LoginScreen extends Window {
 			/*
 			 * Load the background image
 			 */
-			f = new FileInputStream(respath+"res/pokenet.png");
+			f = new FileInputStream(respath+"res/pokenet_venonat.png");
 			m_bg = new Label(new Image(f, "bg", false));
 			m_bg.pack();
 			m_bg.setLocation(0, 0);
