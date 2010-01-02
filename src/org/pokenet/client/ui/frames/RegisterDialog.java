@@ -26,10 +26,12 @@ import org.pokenet.client.backend.Translator;
 public class RegisterDialog extends Frame{
 	private TextField m_username, m_password, m_confirmPass, m_email, m_confirmEmail, m_day, m_month, m_year;
 	private ToggleButton [] m_starters;
-	private Label m_u, m_p, m_cp, m_d, m_e, m_ce, m_s, m_g, m_tos;
+	private Button [] m_regions;
+	private Label m_u, m_p, m_cp, m_d, m_e, m_ce, m_s, m_g, m_tos, m_reg;
 	private Button m_register, m_cancel, m_male, m_female, m_terms;
 	private int m_starter = 1;
 	private int m_gender = 0;
+	private int m_region = 0;
 	private Color m_white = new Color(255, 255, 255);
 	
 	/**
@@ -40,8 +42,8 @@ public class RegisterDialog extends Frame{
 		getContentPane().setY(getContentPane().getY() + 1);
 		List<String> translated = Translator.translate("_LOGIN");
 		this.setVisible(false);
-		this.setSize(320, 320);
-		this.setBackground(new Color(0, 0, 0, 120));
+		this.setSize(320, 360);
+		this.setBackground(new Color(0, 0, 0, 140));
 		this.setTitle(translated.get(9));
 		this.getTitleBar().getCloseButton().setVisible(false);
 		this.setLocation(420, 220);
@@ -183,16 +185,92 @@ public class RegisterDialog extends Frame{
 		});
 		this.add(m_female);
 		
+		m_reg = new Label("Starting Region:");
+		m_reg.setFont(GameClient.getFontSmall());
+		m_reg.setForeground(m_white);
+		m_reg.pack();
+		m_reg.setLocation(170, 182);
+		m_reg.setVisible(true);
+		this.add(m_reg);
+		
+		/* Generate region selection */
+		m_regions = new Button[4];
+		m_regions[0] = new Button("Kanto");
+		m_regions[0].setSize(64, 24);
+		m_regions[0].setLocation(170, 206);
+		m_regions[0].setToolTipText("A town-filled region\nconnected to the\neast of Johto");
+		m_regions[0].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				m_region = 0;
+				m_regions[0].setEnabled(false);
+				m_regions[1].setEnabled(true);
+				m_regions[2].setEnabled(false);
+				m_regions[3].setEnabled(false);
+			}
+		});
+		m_regions[0].setVisible(true);
+		this.add(m_regions[0]);
+		
+		m_regions[1] = new Button("Johto");
+		m_regions[1].setSize(64, 24);
+		m_regions[1].setLocation(234, 206);
+		m_regions[1].setToolTipText("A city-filled\nregion connected\nto the west\nof Kanto");
+		m_regions[1].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				m_region = 1;
+				m_regions[0].setEnabled(true);
+				m_regions[1].setEnabled(false);
+				m_regions[2].setEnabled(false);
+				m_regions[3].setEnabled(false);
+			}
+		});
+		m_regions[1].setVisible(true);
+		this.add(m_regions[1]);
+		
+		m_regions[2] = new Button("Hoenn");
+		m_regions[2].setSize(64, 24);
+		m_regions[2].setLocation(170, 230);
+		m_regions[2].setToolTipText("An island region\nsouth-west\nof Johto");
+		m_regions[2].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				m_region = 0;
+				m_regions[0].setEnabled(false);
+				m_regions[1].setEnabled(false);
+				m_regions[2].setEnabled(false);
+				m_regions[3].setEnabled(false);
+			}
+		});
+		m_regions[2].setVisible(true);
+		m_regions[2].setEnabled(false);
+		this.add(m_regions[2]);
+		
+		m_regions[3] = new Button("Sinnoh");
+		m_regions[3].setSize(64, 24);
+		m_regions[3].setLocation(234, 230);
+		m_regions[3].setToolTipText("A mountainous\nregion north\nof Kanto");
+		m_regions[3].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				m_region = 0;
+				m_regions[0].setEnabled(false);
+				m_regions[1].setEnabled(false);
+				m_regions[2].setEnabled(false);
+				m_regions[3].setEnabled(false);
+			}
+		});
+		m_regions[3].setVisible(true);
+		m_regions[3].setEnabled(false);
+		this.add(m_regions[3]);
+		
 		m_tos = new Label(translated.get(18));
 		m_tos.pack();
-		m_tos.setLocation(170, 182);
+		m_tos.setLocation(172, 256);
 		m_tos.setFont(GameClient.getFontSmall());
 		m_tos.setForeground(m_white);
 		this.add(m_tos);
 		
 		m_terms = new Button(translated.get(19));
 		m_terms.setSize(128, 24);
-		m_terms.setLocation(170, 204);
+		m_terms.setLocation(170, 276);
 		m_terms.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				m_terms.setEnabled(false);
@@ -201,8 +279,8 @@ public class RegisterDialog extends Frame{
 		this.add(m_terms);
 		
 		m_register = new Button(translated.get(8));
-		m_register.setSize(64, 32);
-		m_register.setLocation(188, 254);
+		m_register.setSize(64, 24);
+		m_register.setLocation(96, 308);
 		m_register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				register();
@@ -211,8 +289,8 @@ public class RegisterDialog extends Frame{
 		this.add(m_register);
 		
 		m_cancel = new Button(translated.get(20));
-		m_cancel.setSize(64, 32);
-		m_cancel.setLocation(252, 254);
+		m_cancel.setSize(64, 24);
+		m_cancel.setLocation(160, 308);
 		m_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				cancel();
@@ -453,7 +531,8 @@ public class RegisterDialog extends Frame{
 							GameClient.getInstance().getLoadingScreen().setVisible(true);
 							String bday = m_day.getText() + "/" + m_month.getText() + "/" + m_year.getText();
 							GameClient.getInstance().getPacketGenerator().register(m_username.getText(),
-									m_password.getText(), m_email.getText(), bday, m_starter, (m_gender == 0 ? 11: 20));
+									m_password.getText(), m_email.getText(), bday, m_starter, (m_gender == 0 ? 11: 20),
+									m_region);
 						} else {
 							GameClient.messageDialog(translated.get(28), GameClient.getInstance().getDisplay());
 						}

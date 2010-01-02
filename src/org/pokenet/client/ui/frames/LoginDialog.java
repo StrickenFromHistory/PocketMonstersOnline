@@ -35,7 +35,7 @@ public class LoginDialog extends Frame {
 		this.getTitleBar().setVisible(false);
 		this.setSize(320, 160);
 		this.setLocation(480, 424);
-		this.setBackground(new Color(0, 0, 0, 120));
+		this.setBackground(new Color(0, 0, 0, 140));
 		this.setDraggable(false);
 		this.setResizable(false);
 		

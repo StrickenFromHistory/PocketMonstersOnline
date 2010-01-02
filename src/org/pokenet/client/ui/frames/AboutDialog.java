@@ -24,7 +24,7 @@ public class AboutDialog extends Frame {
 	public AboutDialog() {
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
-		m_bg = new Color(0, 0, 0, 70);
+		m_bg = new Color(0, 0, 0, 140);
 		m_white = new Color(255, 255, 255);
 		List<String> translated = Translator.translate("_LOGIN");
 		this.setTitle(translated.get(34));

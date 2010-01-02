@@ -42,7 +42,7 @@ public class ServerDialog extends Frame {
 		this.setSize(316, 280);
 		this.setLocation(400 - 160, 280);
 		this.setTitle(translate.get(0));
-		this.setBackground(new Color(0, 0, 0, 120));
+		this.setBackground(new Color(0, 0, 0, 140));
 		this.getTitleBar().setForeground(m_black);
 		this.setDraggable(false);
 		this.setResizable(false);
