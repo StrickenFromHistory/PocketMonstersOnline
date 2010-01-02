@@ -159,21 +159,21 @@ public class BattleCanvas extends Container {
 	 */
 	public void drawOurInfo(){
 		// display player's data
-		playerNameLabel.setFont(GameClient.getTrueTypeFont());
+		playerNameLabel.setFont(GameClient.getFontSmall());
 		playerNameLabel.setForeground(Color.white);
 		playerNameLabel.setText(BattleManager.getInstance()
 				.getCurPoke().getName());
-        playerNameLabel.setSize(GameClient.getTrueTypeFont().getWidth(playerNameLabel
-        		.getText()), GameClient.getTrueTypeFont().getHeight(playerNameLabel
+        playerNameLabel.setSize(GameClient.getFontSmall().getWidth(playerNameLabel
+        		.getText()), GameClient.getFontSmall().getHeight(playerNameLabel
         				.getText()));
         playerNameLabel.setLocation(playerDataBG.getX() + 30, playerDataBG.getY() + 7);
         
         playerLv.setText("Lv:" + BattleManager.getInstance()
         		.getCurPoke().getLevel());
-        playerLv.setFont(GameClient.getTrueTypeFont());
+        playerLv.setFont(GameClient.getFontSmall());
         playerLv.setForeground(Color.white);
-        playerLv.setSize(GameClient.getTrueTypeFont().getWidth(playerLv.getText()),
-        		GameClient.getTrueTypeFont().getHeight(playerLv.getText()));
+        playerLv.setSize(GameClient.getFontSmall().getWidth(playerLv.getText()),
+        		GameClient.getFontSmall().getHeight(playerLv.getText()));
         playerLv.setLocation(playerDataBG.getX() + playerDataBG.getWidth() 
         		- playerLv.getWidth() - 5, playerDataBG.getY() + 7);
         
@@ -193,18 +193,18 @@ public class BattleCanvas extends Container {
         //display enemy's data
 		enemyNameLabel.setText(BattleManager.getInstance()
 				.getCurEnemyPoke().getName());
-		enemyNameLabel.setFont(GameClient.getTrueTypeFont());
+		enemyNameLabel.setFont(GameClient.getFontSmall());
 		enemyNameLabel.setForeground(Color.white);
-		enemyNameLabel.setSize(GameClient.getTrueTypeFont().getWidth(enemyNameLabel.getText()),
-        		GameClient.getTrueTypeFont().getHeight(enemyNameLabel.getText()));
+		enemyNameLabel.setSize(GameClient.getFontSmall().getWidth(enemyNameLabel.getText()),
+				GameClient.getFontSmall().getHeight(enemyNameLabel.getText()));
         enemyNameLabel.setLocation(enemyDataBG.getX() + 15, enemyDataBG.getY() + 7);
 
         enemyLv.setText("Lv: " + BattleManager.getInstance()
         		.getCurEnemyPoke().getLevel());
-        enemyLv.setFont(GameClient.getTrueTypeFont());
+        enemyLv.setFont(GameClient.getFontSmall());
         enemyLv.setForeground(Color.white);
-        enemyLv.setSize(GameClient.getTrueTypeFont().getWidth(enemyLv.getText()),
-        		GameClient.getTrueTypeFont().getHeight(enemyLv.getText()));
+        enemyLv.setSize(GameClient.getFontSmall().getWidth(enemyLv.getText()),
+        		GameClient.getFontSmall().getHeight(enemyLv.getText()));
         enemyLv.setLocation(enemyDataBG.getX() + enemyDataBG.getWidth() - enemyLv.getWidth()
         		- 25, enemyDataBG.getY() + 7);
 
