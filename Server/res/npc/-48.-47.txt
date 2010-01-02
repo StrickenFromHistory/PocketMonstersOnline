@@ -38,7 +38,7 @@ NULL
 3
 false
 false
-true
+2
 [/npc]
 [warp]
 13
