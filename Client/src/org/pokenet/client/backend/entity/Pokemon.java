@@ -53,9 +53,9 @@ public class Pokemon {
         	String respath = System.getProperty("res.path");
 			if(respath==null)
 				respath="";
+    		LoadingList.setDeferredLoading(true);
         	try{
         		InputStream f;
-        		LoadingList.setDeferredLoading(true);
         		String path = new String();
         		String index, isShiny = new String();
 

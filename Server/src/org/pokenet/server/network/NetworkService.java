@@ -117,7 +117,6 @@ public class NetworkService {
 		m_tcpAcceptor = new NioSocketAcceptor();
 		m_tcpAcceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(new PokenetCodecFactory()));
 		m_tcpAcceptor.setHandler(m_tcpProtocolHandler);
-		m_tcpAcceptor.getSessionConfig().setIdleTime(IdleStatus.READER_IDLE, 900000);
 		try {
 			m_tcpAcceptor.bind(new InetSocketAddress(7002)); 
 			System.out.println("INFO: TCP acceptor started.");

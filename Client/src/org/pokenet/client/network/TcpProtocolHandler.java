@@ -57,7 +57,9 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 	 * Catches networking exceptions
 	 * @param session
 	 */
-	public void exceptionCaught(IoSession session, Throwable cause) {}
+	public void exceptionCaught(IoSession session, Throwable cause) {
+		cause.printStackTrace();
+	}
 
 	/**
 	 * Once a message is received, this method is called

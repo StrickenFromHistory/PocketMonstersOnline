@@ -57,7 +57,8 @@ public class BattleTimeLine {
     addSpeech(poke + " fainted.");
     for (int i = 0; i < GameClient.getInstance().getOurPlayer().getPokemon().length; i++) {
       int counter = 0;
-      if (GameClient.getInstance().getOurPlayer().getPokemon()[i].getCurHP() <= 0) {
+      if (GameClient.getInstance().getOurPlayer().getPokemon()[i] != null &&
+    		  GameClient.getInstance().getOurPlayer().getPokemon()[i].getCurHP() <= 0) {
         counter++;
       }
       if (counter < i) {

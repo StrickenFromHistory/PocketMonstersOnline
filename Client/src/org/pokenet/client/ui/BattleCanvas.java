@@ -270,7 +270,7 @@ public class BattleCanvas extends Container {
 	public void drawBackground(){
 		LoadingList.setDeferredLoading(true);
 		String respath = System.getProperty("res.path");
-		if(respath.equals("null"))
+		if(respath == null || respath.equals("null"))
 			respath="";
 		try {
 			bgPic = new Label(new Image(respath+"res/ui/DP_darkgrass.png", false));
