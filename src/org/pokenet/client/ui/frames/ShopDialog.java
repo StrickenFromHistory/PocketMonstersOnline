@@ -102,7 +102,8 @@ public class ShopDialog extends Frame {
 			break;
 		case 3:
 			for (int i : m_merch){
-				if (PlayerItem.getItem(i).getCategory().equals("Field"))
+				if (PlayerItem.getItem(i).getCategory().equals("Field") ||
+						PlayerItem.getItem(i).getCategory().equals("TM"))
 					m_items.add(PlayerItem.getItem(i));
 			}
 			initItems();

@@ -122,7 +122,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				HashMap<Integer, Integer> stock = new HashMap<Integer, Integer>();
 				String[] merchData = message.substring(2).split(",");
 				for (int i = 0; i < merchData.length; i++) {
-					final String[] tempStockData = merchData[i].split(":");
+					String[] tempStockData = merchData[i].split(":");
 					stock.put(Integer.parseInt(tempStockData[0]), Integer.parseInt(tempStockData[1]));
 				}
 				GameClient.getInstance().getUi().startShop(stock);
