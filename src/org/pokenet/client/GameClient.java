@@ -555,7 +555,6 @@ public class GameClient extends BasicGame {
 				}
 			} 
 			//repeats space bar items (space bar emulation for mouse. In case you done have a space bar!)
-			System.out.println("Space bar emulation");
 			try
 			{
 				if(getDisplay().containsChild(m_ui.getChat())){
@@ -577,11 +576,7 @@ public class GameClient extends BasicGame {
 						//					m_packetGen.write("F"); 
 					}
 				}
-			} catch (Exception e)
-			{
-				System.out.println("Error in space bar emulation.");
-			}
-			System.out.println("Space bar emulation ended.");
+			} catch (Exception e) {}
 		}
 	}
 
