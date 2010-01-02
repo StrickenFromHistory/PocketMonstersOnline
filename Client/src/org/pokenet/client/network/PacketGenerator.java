@@ -111,8 +111,11 @@ public class PacketGenerator {
 			String email,
 			String dob,
 			int starter,
-			int sprite) {
-        m_tcpSession.write("r" + username + "," + (getPasswordHash(username, password)) + "," + email + "," + dob + "," + starter + "," + sprite);
+			int sprite,
+			int region) {
+        m_tcpSession.write("r" + region + username + 
+        		"," + (getPasswordHash(username, password)) + 
+        		"," + email + "," + dob + "," + starter + "," + sprite);
 	}
 	
 	/**

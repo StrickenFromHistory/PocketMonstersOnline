@@ -60,7 +60,9 @@ public class RegistrationManager implements Runnable {
 		if(!session.isConnected() || session.isClosing()) {
 			return;
 		}
-		String [] info = ((String) session.getAttribute("reg")).split(",");
+		int region = Integer.parseInt(String.valueOf
+				(((String) session.getAttribute("reg")).charAt(0)));
+		String [] info = ((String) session.getAttribute("reg")).substring(1).split(",");
 		m_database = new MySqlManager();
 		if(m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword())) {
 			m_database.selectDatabase(GameServer.getDatabaseName());
@@ -106,17 +108,52 @@ public class RegistrationManager implements Runnable {
 				return;
 			}
 			/*
-			 * Create the player in the database
+			 * Generate badge string
 			 */
 			String badges = "";
 			for(int i = 0; i < 50; i++)
 				badges = badges + "0";
+			/*
+			 * Generate starting position
+			 */
+			int mapX = 0;
+			int mapY = 0;
+			int x = 256;
+			int y = 440;
+			switch(region) {
+			case 0:
+				/* Kanto */
+				mapX = 3;
+				mapY = 1;
+				x = 512;
+				y = 440;
+				break;
+			case 1:
+				/* Johto */
+				mapX = 0;
+				mapY = 0;
+				x = 256;
+				y = 440;
+				break;
+			default:
+				/* Prevent breaking the system */
+				mapX = 0;
+				mapY = 0;
+				x = 256;
+				y = 440;
+				break;
+			}
+			/*
+			 * Insert player into database
+			 */
 			m_database.query("INSERT INTO pn_members (username, password, dob, email, lastLoginTime, lastLoginServer, " +
 					"sprite, money, skHerb, skCraft, skFish, skTrain, skCoord, skBreed, " +
 					"x, y, mapX, mapY, badges, healX, healY, healMapX, healMapY, isSurfing, adminLevel, muted) VALUE " +
 					"('" + MySqlManager.parseSQL(info[0]) + "', '" + MySqlManager.parseSQL(info[1]) + "', '" + MySqlManager.parseSQL(info[3]) + "', '" + MySqlManager.parseSQL(info[2]) + "', " +
-							"'0', 'null', '" + MySqlManager.parseSQL(info[5]) + "', '0', '0', '0', '0', '0', '0', '0', '256', '440', " +
-									"'0', '0', '" + badges + "', '256', '440', '0', '0', 'false', '0', 'false')");
+							"'0', 'null', '" + MySqlManager.parseSQL(info[5]) + "', '0', '0', " +
+									"'0', '0', '0', '0', '0', '" + x + "', '" + y + "', " +
+									"'" + mapX + "', '" + mapY + "', '" + badges + "', '" + x + "', '" + y + "', '" 
+									+ mapX + "', '" + mapY + "', 'false', '0', 'false')");
 			/*
 			 * Retrieve the player's unique id
 			 */

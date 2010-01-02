@@ -42,7 +42,9 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 		case 'U':
 			/* Move Up */
 			pid = message.substring(6);
-			p = m_playerList.get(Integer.parseInt(pid));
+			synchronized(m_playerList) {
+				p = m_playerList.get(Integer.parseInt(pid));
+			}
 			if(p != null) {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
@@ -55,7 +57,9 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 		case 'D':
 			/* Move Down */
 			pid = message.substring(6);
-			p = m_playerList.get(Integer.parseInt(pid));
+			synchronized(m_playerList) {
+				p = m_playerList.get(Integer.parseInt(pid));
+			}
 			if(p != null) {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
@@ -68,7 +72,9 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 		case 'L':
 			/* Move Left */
 			pid = message.substring(6);
-			p = m_playerList.get(Integer.parseInt(pid));
+			synchronized(m_playerList) {
+				p = m_playerList.get(Integer.parseInt(pid));
+			}
 			if(p != null) {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
@@ -81,7 +87,9 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 		case 'R':
 			/* Move Right */
 			pid = message.substring(6);
-			p = m_playerList.get(Integer.parseInt(pid));
+			synchronized(m_playerList) {
+				p = m_playerList.get(Integer.parseInt(pid));
+			}
 			if(p != null) {
 				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
 					if(!p.isBattling() && !p.isShopping()) {
