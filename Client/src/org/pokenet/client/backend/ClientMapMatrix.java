@@ -52,18 +52,14 @@ public class ClientMapMatrix {
 			InputStream f = FileLoader.loadFile(respath+"res/maps/" + (mapX) + "." + (mapY) + ".tmx");
 			if(f != null) {
 				try {
-					System.out.println("Loading Map...");
 					m_mapMatrix[x][y] = new ClientMap(respath+"res/maps/"+(mapX)+"."+(mapY)+".tmx");
 					if(m_mapMatrix[x][y]==null) System.out.println("Client Map is null");
 					m_mapMatrix[x][y].setMapMatrix(this);
-					System.out.println("MapMatrix is set");
 					m_mapMatrix[x][y].setMapX(x);
 					m_mapMatrix[x][y].setMapY(y);
 					m_mapMatrix[x][y].m_x = mapX + x;
 					m_mapMatrix[x][y].m_y = mapY + y;
 					m_mapMatrix[x][y].setCurrent(x == 1 && y == 1);
-					System.out.println((mapX) + "." + (mapY) + ".tmx loaded " +
-							"to MapMatrix[" + x + "][" + y + "] " + m_mapMatrix[x][y].isCurrent());
 					m_mapMatrix[x][y].setName(getMapName(mapX, mapY));
 				} catch (Exception e) {
 					m_mapMatrix[x][y] = null;
@@ -95,9 +91,6 @@ public class ClientMapMatrix {
 			m_mapMatrix[newX][newY].setMapY(newY);
 			m_mapMatrix[newX][newY].setCurrent(newX == 1 && newY == 1);
 			m_mapMatrix[newX][newY].reinitialize();
-			System.out.println("Shifted [" + originalX + "][" + originalY +"] to [" + newX + "][" + newY + "] " +
-					"Map Coords: " + m_mapMatrix[newX][newY].m_x + ", " + m_mapMatrix[newX][newY].m_y + " " + 
-					m_mapMatrix[newX][newY].isCurrent());
 		}
 	}
 	
@@ -107,7 +100,6 @@ public class ClientMapMatrix {
 	 * @param y
 	 */
 	public void loadMaps(int mapX, int mapY, Graphics g) {
-		System.out.println("Are we loading maps upon first entering the game?");
 		/*
 		 * Loads the main map and surrounding maps
 		 */
@@ -120,7 +112,6 @@ public class ClientMapMatrix {
 				case 'u':
 					// Moved Up
 					// Shift current maps
-					System.out.println("UP");
 					shiftMap(2, 1, 2, 2);
 					shiftMap(1, 1, 1, 2);
 					shiftMap(0, 1, 0, 2);
@@ -136,7 +127,6 @@ public class ClientMapMatrix {
 				case 'd':
 					// Moved Down
 					// Shift current maps
-					System.out.println("DOWN");
 					shiftMap(0, 1, 0, 0);
 					shiftMap(1, 1, 1, 0);
 					shiftMap(2, 1, 2, 0);
@@ -152,7 +142,6 @@ public class ClientMapMatrix {
 				case 'r':
 					// Moved Right
 					// Shift current maps
-					System.out.println("RIGHT");
 					shiftMap(1, 0, 0, 0);
 					shiftMap(1, 1, 0, 1);
 					shiftMap(1, 2, 0, 2);
@@ -168,7 +157,6 @@ public class ClientMapMatrix {
 				case 'l':
 					// Moved Left
 					// Shift current maps
-					System.out.println("LEFT");
 					shiftMap(1, 0, 2, 0);
 					shiftMap(1, 1, 2, 1);
 					shiftMap(1, 2, 2, 2);
