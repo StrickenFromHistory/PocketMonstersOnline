@@ -294,7 +294,7 @@ public class BattleManager {
 		m_enemyPokes[index].setGender(gender);
 		m_enemyPokes[index].setMaxHP(maxHP);
 		m_enemyPokes[index].setCurHP(curHP);
-		m_enemyPokes[index].setSpriteNumber(spriteNum);
+		m_enemyPokes[index].setSpriteNumber(spriteNum + 1);
 		m_enemyPokes[index].setShiny(isShiny);
 		
 		if ((index + 1) == m_enemyPokes.length)
