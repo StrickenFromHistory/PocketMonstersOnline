@@ -42,7 +42,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * An enum to store the player's selected language
 	 */
 	public enum Language { ENGLISH, PORTUGESE, ITALIAN, FRENCH, FINNISH, SPANISH, GERMAN, DUTCH }
-	
+
 	private Language m_language;
 	private Bag m_bag;
 	private int m_battleId;
@@ -101,7 +101,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * Stores the list of requests the player has sent
 	 */
 	private HashMap<String, RequestType> m_requests;
-	
+
 	/**
 	 * Constructor
 	 * NOTE: Minimal initialisations should occur here
@@ -109,7 +109,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public PlayerChar() {
 		m_requests = new HashMap<String, RequestType>();
 	}
-	
+
 	/**
 	 * Returns this player's ip address
 	 * @return
@@ -124,7 +124,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			return "";
 		}
 	}
-	
+
 	/**
 	 * Sets how many steps this Pokemon can repel for
 	 * @param steps
@@ -132,7 +132,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setRepel(int steps) {
 		m_repel = steps;
 	}
-	
+
 	/**
 	 * Returns how many steps this player can repel Pokemon for
 	 * @return
@@ -140,8 +140,8 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public int getRepel() {
 		return m_repel;
 	}
-	
-	
+
+
 	/**
 	 * Releases a pokemon from box
 	 * @param box
@@ -174,7 +174,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			}
 		}
 	}
-	
+
 	/**
 	 * Swaps pokemon between box and party 
 	 * @param box
@@ -204,7 +204,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_tcpSession.write("PN" + partySlot);
 		}
 	}
-	
+
 	/**
 	 * Sets if this player is interacting with
 	 * a sprite selection npc
@@ -213,7 +213,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setSpriting(boolean b) {
 		m_isSpriting = b;
 	}
-	
+
 	/**
 	 * Returns true if this player is
 	 * interacting with a sprite selection npc
@@ -222,7 +222,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public boolean isSpriting() {
 		return m_isSpriting;
 	}
-	
+
 	/**
 	 * Returns the preferred language of the user
 	 * @return
@@ -230,7 +230,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public Language getLanguage() {
 		return m_language;
 	}
-	
+
 	/**
 	 * Sets this player's preferred language
 	 * @param l
@@ -238,7 +238,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setLanguage(Language l) {
 		m_language = l;
 	}
-	
+
 	/**
 	 * Returns true if the player is trading
 	 * @return
@@ -246,14 +246,14 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public boolean isTrading() {
 		return m_trade != null;
 	}
-	
+
 	/**
 	 * Cancels this player's trade offer
 	 */
 	public void cancelTradeOffer() {
 		m_trade.cancelOffer(this);
 	}
-	
+
 	public void cancelTrade() {
 		m_trade.endTrade();
 	}
@@ -281,7 +281,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		if(b)
 			m_trade.checkForExecution();
 	}
-	
+
 	/**
 	 * Returns the trade that the player is involved in
 	 * @return
@@ -289,7 +289,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public Trade getTrade() {
 		return m_trade;
 	}
-	
+
 	/**
 	 * Sets the trade this player is involved in
 	 * @param t
@@ -297,7 +297,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setTrade(Trade t) {
 		m_trade = t;
 	}
-	
+
 	/**
 	 * Returns true if the player accepted the trade offer
 	 * @return
@@ -305,7 +305,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public boolean acceptedTradeOffer() {
 		return m_isReadyToTrade;
 	}
-	
+
 	/**
 	 * Returns true if the player is allowed trade
 	 * @return
@@ -313,7 +313,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public boolean canTrade() {
 		return System.currentTimeMillis() - m_lastTrade > 60000 && getPartyCount() >= 2;
 	}
-	
+
 	/**
 	 * Stores a request the player has sent
 	 * @param username
@@ -348,7 +348,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		/* Else, add the request */
 		m_requests.put(username, r);
 	}
-	
+
 	/**
 	 * Removes a request
 	 * @param username
@@ -356,7 +356,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void removeRequest(String username) {
 		m_requests.remove(username);
 	}
-	
+
 	/**
 	 * Called when a player accepts a request sent by this player
 	 * @param username
@@ -412,7 +412,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_tcpSession.write("r!0");
 		}
 	}
-	
+
 	/**
 	 * Clears the request list
 	 */
@@ -426,7 +426,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_requests.clear();
 		}
 	}
-	
+
 	/**
 	 * Sets the current shop
 	 * @param s
@@ -434,7 +434,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setShop(Shop s) {
 		m_currentShop = s;
 	}
-	
+
 	/**
 	 * Returns the shop the player is interacting with
 	 * @return
@@ -442,7 +442,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public Shop getShop() {
 		return m_currentShop;
 	}
-	
+
 	/**
 	 * Creates a new PlayerChar
 	 */
@@ -454,7 +454,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		}
 		m_isMuted = false;
 	}
-	
+
 	/**
 	 * Called when a player loses a battle
 	 */
@@ -483,28 +483,28 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_mapY = m_healMapY;
 		}
 	}
-	
+
 	/**
 	 * Heals the player's pokemon
 	 */
 	public void healPokemon() {
 		for (Pokemon pokemon : getParty()) {
-            if (pokemon != null) {
-                    pokemon.calculateStats(true);
-                    pokemon.reinitialise();
-                    pokemon.setIsFainted(false);
-                    for(int i = 0; i < pokemon.getMoves().length; i++) {
-                    	if(pokemon.getMoves()[i] != null) {
-                    		PokemonMove move = pokemon.getMoves()[i].getMove();
-                    		pokemon.setPp(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
-                    		pokemon.setMaxPP(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
-                    	}
-                    }
-            }
+			if (pokemon != null) {
+				pokemon.calculateStats(true);
+				pokemon.reinitialise();
+				pokemon.setIsFainted(false);
+				for(int i = 0; i < pokemon.getMoves().length; i++) {
+					if(pokemon.getMoves()[i] != null) {
+						PokemonMove move = pokemon.getMoves()[i].getMove();
+						pokemon.setPp(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
+						pokemon.setMaxPP(i, move.getPp() * (5 + pokemon.getPpUpCount(i)) / 5);
+					}
+				}
+			}
 		}
 		m_tcpSession.write("cH");
 	}
-	
+
 	/**
 	 * Removes temporary status effects such as StatChangeEffects
 	 */
@@ -515,7 +515,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns true if this player is accessing their box
 	 * @return
@@ -523,7 +523,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public boolean isBoxing() {
 		return m_isBoxing;
 	}
-	
+
 	/**
 	 * Sets if this player has box access at the moment
 	 * @param b
@@ -531,7 +531,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setBoxing(boolean b) {
 		m_isBoxing = b;
 	}
-	
+
 	/**
 	 * Returns true if this player is muted
 	 * @return
@@ -539,7 +539,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public boolean isMuted() {
 		return m_isMuted;
 	}
-	
+
 	/**
 	 * Sets if this player is muted
 	 * @param b
@@ -547,7 +547,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setMuted(boolean b) {
 		m_isMuted = b;
 	}
-	
+
 	/**
 	 * If the player's first Pokemon in party has 0 HP, 
 	 * it puts the first Pokemon in their party with more
@@ -563,7 +563,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			}
 		}
 	}
-	
+
 	/**
 	 * Swaps two Pokemon in a player's party
 	 * @param a
@@ -577,7 +577,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_tcpSession.write("cs" + a + "," + b);
 		}
 	}
-	
+
 	/**
 	 * Returns true if this player is talking to an npc
 	 * @return
@@ -585,7 +585,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public boolean isTalking() {
 		return m_isTalking;
 	}
-	
+
 	/**
 	 * Sets if this player is talking to an npc
 	 * @param b
@@ -593,7 +593,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setTalking(boolean b) {
 		m_isTalking = b;
 	}
-	
+
 	/**
 	 * Adds a friend to the friend list
 	 * @param username
@@ -606,7 +606,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_tcpSession.write("Fa" + username);
 		}
 	}
-	
+
 	/**
 	 * Removes a friend from the friends list
 	 * @param username
@@ -624,7 +624,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns the battlefield this player is on.
 	 */
@@ -646,7 +646,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		//DO WE REALLY NEED THIS?
 		return null;
 	}
-	
+
 	/**
 	 * Returns the amount of Pokemon in this player's party
 	 * @return
@@ -659,7 +659,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		}
 		return r;
 	}
-	
+
 	/**
 	 * Returns the highest level pokemon in the player's party
 	 * @return
@@ -686,7 +686,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public boolean isBattling() {
 		return m_isBattling;
 	}
-	
+
 	/**
 	 * Sets if this player is battling
 	 * @param b
@@ -715,7 +715,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setParty(Pokemon[] team) {
 		m_pokemon = team;
 	}
-	
+
 	/**
 	 * Sets the TCP session for this player (their connection to the server)
 	 * @param session
@@ -723,7 +723,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setTcpSession(IoSession session) {
 		m_tcpSession = session;
 	}
-	
+
 	/**
 	 * Returns the TCP session (connection to server) for this player
 	 * @return
@@ -731,7 +731,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public IoSession getTcpSession() {
 		return m_tcpSession;
 	}
-	
+
 	/**
 	 * Sets the UDP session for this player
 	 * @param session
@@ -739,7 +739,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setUdpSession(IoSession session) {
 		m_udpSession = session;
 	}
-	
+
 	/**
 	 * Returns the UDP session for this player
 	 * @return
@@ -747,7 +747,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public IoSession getUdpSession() {
 		return m_udpSession;
 	}
-	
+
 	/**
 	 * Forces the player to move in the direction they are facing.
 	 * Returns true if they were moved
@@ -776,12 +776,12 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 				}
 			} else {
 				if (this.getMap().facingWater(this, getFacing()));
-					m_tcpSession.write("Fu"); //"Not even a nibble!" message
+				m_tcpSession.write("Fu"); //"Not even a nibble!" message
 			}
 			this.setFishing(false);
 		}
 	}
-	
+
 	/**
 	 * Overrides char's move method.
 	 * Adds a check for wild battles and clears battle/trade request lists
@@ -823,7 +823,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Sets how much money this player has
 	 * @param money
@@ -831,7 +831,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setMoney(int money) {
 		m_money = money;
 	}
-	
+
 	/**
 	 * Returns how much money this player has
 	 * @return
@@ -846,7 +846,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public boolean isFishing() {
 		return m_isFishing;
 	}
-	
+
 	/**
 	 * Sets if this char is fishing or not and sends the sprite change information to everyone
 	 * @param b
@@ -859,7 +859,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			//Tell clients to update this char to reflect whether player is fishing or not.
 		}
 	}
-	
+
 	/**
 	 * Initializes the client's skill levels
 	 */
@@ -869,7 +869,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		m_tcpSession.write("csf" + getFishingLevel());
 		m_tcpSession.write("csc" + getCoordinatingLevel());
 	}
-	
+
 	/**
 	 * Sets the herbalism skill's exp points
 	 * @param exp
@@ -877,7 +877,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setHerbalismExp(int exp) {
 		m_skillHerbExp = exp;
 	}
-	
+
 	/**	
 	 * Add something to the herbalism skill exp points
 	 * @param exp
@@ -889,7 +889,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_tcpSession.write("csh" + getHerbalismLevel());
 		}
 	}
-	
+
 	/**
 	 * Returns the herbalism skill exp points
 	 * @return
@@ -897,7 +897,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public int getHerbalismExp() {
 		return m_skillHerbExp;
 	}
-	
+
 	/**
 	 * Returns the herbalism skill level
 	 * @return
@@ -916,7 +916,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setCraftingExp(int exp) {
 		m_skillCraftExp = exp;
 	}
-	
+
 	/**	
 	 * Add something to the crafting skill exp points
 	 * @param exp
@@ -928,7 +928,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_tcpSession.write("csC" + getCraftingLevel());
 		}
 	}
-	
+
 	/**
 	 * Returns the crafting skill exp points
 	 * @return
@@ -936,7 +936,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public int getCraftingExp() {
 		return m_skillCraftExp;
 	}
-	
+
 	/**
 	 * Returns the crafting skill level
 	 * @return
@@ -954,7 +954,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setFishingExp(int exp) {
 		m_skillFishExp = exp;
 	}
-	
+
 	/**	
 	 * Add something to the fishing skill exp points
 	 * @param exp
@@ -966,7 +966,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_tcpSession.write("csf" + getFishingLevel());
 		}
 	}
-	
+
 	/**
 	 * Returns the fishing skill exp points
 	 * @return
@@ -985,7 +985,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		else
 			return 100;
 	}
-	
+
 	/**	
 	 * Set the training skill exp points
 	 * @param exp
@@ -993,7 +993,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setTrainingExp(int exp) {
 		m_skillTrainingExp = exp;
 	}
-	
+
 	/**	
 	 * Add something to the training skill exp points
 	 * @param exp
@@ -1005,7 +1005,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_tcpSession.write("cst" + getTrainingLevel());
 		}
 	}
-	
+
 	/**
 	 * Return the training skill exp points
 	 * @return
@@ -1013,7 +1013,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public int getTrainingExp() {
 		return m_skillTrainingExp;
 	}
-	
+
 	/**
 	 * Returns the training skill level
 	 * @return
@@ -1025,7 +1025,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		else
 			return 100;
 	}
-	
+
 	/**
 	 * Sets the co-ordinating skill exp points
 	 * @param exp
@@ -1033,7 +1033,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setCoordinatingExp(int exp) {
 		m_skillCoordExp = exp;
 	}
-	
+
 	/**	
 	 * Add something to the coordinating skill exp points
 	 * @param exp
@@ -1045,7 +1045,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_tcpSession.write("csc" + getCoordinatingLevel());
 		}
 	}
-	
+
 	/**
 	 * Returns the co-ordinating skill exp points
 	 * @return
@@ -1053,7 +1053,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public int getCoordinatingExp() {
 		return m_skillCoordExp;
 	}
-	
+
 	/**
 	 * Returns the co-ordinating skill level
 	 * @return
@@ -1064,10 +1064,10 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			return level;
 		else
 			return 100;
-		
+
 	}	
-	
-	
+
+
 	/**
 	 * Sets the breeding skill exp points
 	 * @param exp
@@ -1075,7 +1075,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setBreedingExp(int exp) {
 		m_skillBreedExp = exp;
 	}
-	
+
 	/**	
 	 * Add something to the breeding skill exp points
 	 * @param exp
@@ -1087,7 +1087,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_tcpSession.write("csb" + getBreedingLevel());
 		}
 	}
-	
+
 	/**
 	 * Returns the breeding skill exp
 	 * @return
@@ -1095,7 +1095,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public int getBreedingExp() {
 		return m_skillBreedExp;
 	}
-	
+
 	/**
 	 * Returns the breeding skill level
 	 * @return
@@ -1107,7 +1107,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		else
 			return 100;
 	}	
-	
+
 	/**
 	 * Sets this player's boxes
 	 * @param boxes
@@ -1115,7 +1115,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setBoxes(PokemonBox [] boxes) {
 		m_boxes = boxes;
 	}
-	
+
 	/**
 	 * Returns this player's boxes
 	 * @return
@@ -1123,7 +1123,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public PokemonBox[] getBoxes() {
 		return m_boxes;
 	}
-	
+
 	/**
 	 * Stores a caught Pokemon in the player's party or box
 	 * @param p
@@ -1137,7 +1137,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		addPokemon(p);
 		addTrainingExp(1000/p.getRareness());
 	}
-	
+
 	/**
 	 * Adds a pokemon to this player's party or box
 	 * @param p
@@ -1170,7 +1170,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			}
 		}
 	}
-	
+
 	/**
 	 * Sets the last login time (used for connection downtimes)
 	 * @param t
@@ -1178,7 +1178,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setLastLoginTime(long t) {
 		m_lastLogin = t;
 	}
-	
+
 	/**
 	 * Returns the last login time
 	 * @return
@@ -1186,7 +1186,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public long getLastLoginTime() {
 		return m_lastLogin;
 	}
-	
+
 	/**
 	 * Returns the player's bag
 	 * @return
@@ -1194,7 +1194,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public Bag getBag() {
 		return m_bag;
 	}
-	
+
 	/**
 	 * Sets the player's bag
 	 * @param b
@@ -1202,7 +1202,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setBag(Bag b) {
 		m_bag = b;
 	}
-	
+
 	/**
 	 * Sets the map for this player
 	 */
@@ -1236,11 +1236,11 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		for(PlayerChar p : map.getPlayers().values()) {
 			c = p;
 			packet = packet + c.getName() + "," + 
-						c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
-						(c.getFacing() == Direction.Down ? "D" : 
-							c.getFacing() == Direction.Up ? "U" :
-								c.getFacing() == Direction.Left ? "L" :
-									"R") + ",";
+			c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
+			(c.getFacing() == Direction.Down ? "D" : 
+				c.getFacing() == Direction.Up ? "U" :
+					c.getFacing() == Direction.Left ? "L" :
+			"R") + ",";
 		}
 		//Send all npc information to the client
 		for(int i = 0; i < map.getNpcs().size(); i++) {
@@ -1249,9 +1249,9 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 				packet = packet + c.getName() + "," + 
 				c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
 				(c.getFacing() == Direction.Down ? "D" : 
-				c.getFacing() == Direction.Up ? "U" :
-					c.getFacing() == Direction.Left ? "L" :
-						"R") + ",";
+					c.getFacing() == Direction.Up ? "U" :
+						c.getFacing() == Direction.Left ? "L" :
+				"R") + ",";
 			}
 		}
 		/*
@@ -1262,7 +1262,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		/* Prevent another step being taken */
 		m_nextMovement = null;
 	}
-	
+
 	/**
 	 * Disposes of this player char
 	 */
@@ -1275,7 +1275,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		m_currentShop = null;
 		m_battleField = null;
 	}
-	
+
 	/**
 	 * Forces the player to be logged out
 	 */
@@ -1286,7 +1286,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			GameServer.getServiceManager().getNetworkService().getLogoutManager().queuePlayer(this);
 		}
 	}
-	
+
 	/**
 	 * Sets if this player is interacting with a shop npc
 	 * @param b
@@ -1297,7 +1297,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_currentShop = null;
 		}
 	}
-	
+
 	/**
 	 * Returns true if this player is shopping
 	 * @return
@@ -1305,7 +1305,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public boolean isShopping() {
 		return m_isShopping;
 	}
-	
+
 	/**
 	 * Returns true if the player has the badge
 	 * @param badge
@@ -1314,7 +1314,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public boolean hasBadge(int badge) {
 		return m_badges[badge] == 1;
 	}
-	
+
 	/**
 	 * Sets the badges this player has
 	 * @param badges
@@ -1322,7 +1322,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setBadges(byte [] badges) {
 		m_badges = badges;
 	}
-	
+
 	/**
 	 * Adds a badge to the player's badge collection
 	 * @param num
@@ -1333,7 +1333,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_tcpSession.write("cBa" + num);
 		}
 	}
-	
+
 	/**
 	 * Generates the player's badges from a string
 	 * @param badges
@@ -1352,7 +1352,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns the badges of this player
 	 * @return
@@ -1360,7 +1360,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public byte[] getBadges() {
 		return m_badges;
 	}
-	
+
 	/**
 	 * Sets the admin level for this player
 	 * @param adminLevel
@@ -1368,7 +1368,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void setAdminLevel(int adminLevel) {
 		m_adminLevel = adminLevel;
 	}
-	
+
 	/**
 	 * Returns the admin level of this player
 	 * @return
@@ -1376,7 +1376,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public int getAdminLevel() {
 		return m_adminLevel;
 	}
-	
+
 	/**
 	 * Sets the location this player was last healed at
 	 * @param x
@@ -1390,7 +1390,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		m_healMapX = mapX;
 		m_healMapY = mapY;
 	}
-	
+
 	/**
 	 * Returns the x co-ordinate of this player's last heal point
 	 * @return
@@ -1398,7 +1398,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public int getHealX() {
 		return m_healX;
 	}
-	
+
 	/**
 	 * Returns the y co-ordinate of this player's last heal point
 	 * @return
@@ -1406,7 +1406,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public int getHealY() {
 		return m_healY;
 	}
-	
+
 	/**
 	 * Returns the map x of this player's last heal point
 	 * @return
@@ -1414,7 +1414,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public int getHealMapX() {
 		return m_healMapX;
 	}
-	
+
 	/**
 	 * Returns the map y of this player's last heal point
 	 * @return
@@ -1422,15 +1422,15 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public int getHealMapY() {
 		return m_healMapY;
 	}
-	
+
 	/**
 	 * Returns true if this player can surf
 	 * @return
 	 */
 	public boolean canSurf() {
 		return (getTrainingLevel() >= 25);
-		}
-	
+	}
+
 	/**
 	 * Returns how many badges this player has
 	 * @return
@@ -1443,7 +1443,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * This player talks to the npc in front of them
 	 */
@@ -1451,7 +1451,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		if(m_map != null)
 			this.getMap().talkToNpc(this);
 	}
-	
+
 	/**
 	 * Sends box information to client
 	 * @param i - Box number
@@ -1473,7 +1473,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		}
 		m_tcpSession.write("B" + packet);
 	}
-	
+
 	/**
 	 * Allows the player to buy an item
 	 * @param id
@@ -1540,7 +1540,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void updateClientMoney() {
 		m_tcpSession.write("cM" + m_money);
 	}
-	
+
 	/**
 	 * Sends all badges to client
 	 */
@@ -1551,7 +1551,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		}
 		m_tcpSession.write("cBi" + data);
 	}
-	
+
 	/**
 	 * Sends all party information to the client
 	 */
@@ -1569,14 +1569,14 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			updateClientBag(i);
 		}
 	}
-	
+
 	/**
 	 * Updates the client with their sprite
 	 */
 	public void updateClientSprite() {
 		TcpProtocolHandler.writeMessage(m_tcpSession, new SpriteChangeMessage(m_id, m_sprite));
 	}
-	
+
 	/**
 	 * Sets the battlefield for this player
 	 */
@@ -1624,10 +1624,10 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 							this.getParty()[i].getLevel() + "," +
 							this.getParty()[i].getAbilityName() + "," +
 							this.getParty()[i].getNature().getName() + "," +
-					(this.getParty()[i].getMoves()[0] != null ? this.getParty()[i].getMoveName(0) : "") + "," +
-					(this.getParty()[i].getMoves()[1] != null ? this.getParty()[i].getMoveName(1) : "") + "," +
-					(this.getParty()[i].getMoves()[2] != null ? this.getParty()[i].getMoveName(2) : "") + "," +
-					(this.getParty()[i].getMoves()[3] != null ? this.getParty()[i].getMoveName(3) : "")
+							(this.getParty()[i].getMoves()[0] != null ? this.getParty()[i].getMoveName(0) : "") + "," +
+							(this.getParty()[i].getMoves()[1] != null ? this.getParty()[i].getMoveName(1) : "") + "," +
+							(this.getParty()[i].getMoves()[2] != null ? this.getParty()[i].getMoveName(2) : "") + "," +
+							(this.getParty()[i].getMoves()[3] != null ? this.getParty()[i].getMoveName(3) : "")
 			);
 			/* Update move pp */
 			for(int j = 0; j < 4; j++) {
@@ -1635,7 +1635,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			}
 		}
 	}
-	
+
 	/**
 	 * Updates stats for a Pokemon
 	 * @param i
@@ -1649,10 +1649,10 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 					m_pokemon[i].getStat(3) + "," +
 					m_pokemon[i].getStat(4) + "," +
 					m_pokemon[i].getStat(5));
-			
+
 		}
 	}
-	
+
 	/**
 	 * Updates the pp of a move
 	 * @param poke
@@ -1661,9 +1661,9 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	public void updateClientPP(int poke, int move) {
 		if(this.getParty()[poke] != null && this.getParty()[poke].getMove(move) != null)
 			m_tcpSession.write("Pp" + String.valueOf(poke) + String.valueOf(move) 
-				+ this.getParty()[poke].getPp(move) + "," + this.getParty()[poke].getMaxPp(move));
+					+ this.getParty()[poke].getPp(move) + "," + this.getParty()[poke].getMaxPp(move));
 	}
-	
+
 	/**
 	 * Updates the client for a specific Item
 	 * @param index
@@ -1675,7 +1675,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 					getBag().getItems().get(i).getQuantity()));
 		}
 	}
-	
+
 	/**
 	 * Generates the code used to id the player over udp
 	 */
@@ -1746,7 +1746,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns the udp identification code
 	 * @return

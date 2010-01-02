@@ -219,14 +219,12 @@ public class DataService {
 			String pokemon = "";
 			while(s.hasNextLine()) {
 				pokemon = s.nextLine();
-				DropData [] drops;
+				DropData [] drops = new DropData[10];
 				/* Parse the data in the form ITEM, PROBABILITY */
 				StringTokenizer st = new StringTokenizer(pokemon);
 				String pokeName = st.nextToken().toUpperCase();
 				if(pokeName.equalsIgnoreCase("ARCEUS")) {
 					drops = new DropData[17];
-				} else {
-					drops = new DropData[10];
 				}
 				int dp = 0;
 				while(st.hasMoreTokens()) {

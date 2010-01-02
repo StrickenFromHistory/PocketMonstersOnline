@@ -123,7 +123,7 @@ public class PokemonSpecies {
             ArrayList<Integer> m_result = new ArrayList<Integer>();
             for(int i = 0; i < m_drops.length; i++) {
                     r = DataService.getBattleMechanics().getRandom().nextInt(100) + 1;
-                    if(r < m_drops[i].getProbability())
+                    if(m_drops[i] != null && r < m_drops[i].getProbability())
                             m_result.add(m_drops[i].getItemNumber());
             }
             return m_result.size() > 0 ? 
