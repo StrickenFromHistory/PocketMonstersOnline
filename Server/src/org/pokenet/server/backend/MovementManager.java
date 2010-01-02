@@ -30,14 +30,18 @@ public class MovementManager implements Runnable {
 	 * @param player
 	 */
 	public void addPlayer(PlayerChar player) {
-		m_pLoad++;
-		m_players.put(player.getName(), player);
+		synchronized(m_players) {
+			m_pLoad++;
+			m_players.put(player.getName(), player);
+		}
 	}
 	
 	public void addHMObject(HMObject obj){
-		if (obj.getType() == objectType.STRENGTH_BOULDER){
-			m_pLoad++;
-			m_players.put(obj.getName() + obj.getObjId(), obj);
+		synchronized(m_players) {
+			if (obj.getType() == objectType.STRENGTH_BOULDER){
+				m_pLoad++;
+				m_players.put(obj.getName() + obj.getObjId(), obj);
+			}
 		}
 	}
 	
@@ -54,9 +58,11 @@ public class MovementManager implements Runnable {
 	 * @param player
 	 */
 	public boolean removePlayer(String player) {
-		if(m_players.remove(player) != null) {
-			m_pLoad--;
-			return true;
+		synchronized(m_players) {
+			if(m_players.remove(player) != null) {
+				m_pLoad--;
+				return true;
+			}
 		}
 		return false;
 	}

@@ -284,7 +284,7 @@ public class LogoutManager implements Runnable {
 					"'" + p.getHappiness() +"', " +
 					"'" + p.getGender() +"', " +
 					"'" + MySqlManager.parseSQL(p.getNature().getName()) +"', " +
-					"'" + MySqlManager.parseSQL(p.getAbility().getName()) +"', " +
+					"'" + MySqlManager.parseSQL(p.getAbilityName()) +"', " +
 					"'" + MySqlManager.parseSQL(p.getItemName()) +"', " +
 					"'" + String.valueOf(p.isShiny()) +"', " +
 					"'" + currentTrainer + "', " +
@@ -361,11 +361,7 @@ public class LogoutManager implements Runnable {
 					"isFainted='" + String.valueOf(p.isFainted()) +"', " +
 					"level='" + p.getLevel() +"', " +
 					"happiness='" + p.getHappiness() +"', " +
-					"gender='" + p.getGender() +"', " +
-					"nature='" + MySqlManager.parseSQL(p.getNature().getName()) +"', " +
-					"abilityName='" + MySqlManager.parseSQL(p.getAbilityName()) +"', " +
 					"itemName='" + MySqlManager.parseSQL(p.getItemName()) +"', " +
-					"isShiny='" + String.valueOf(p.isShiny()) +"', " +
 					"currentTrainerName='" + currentTrainer +"', " +
 					"contestStats='" + p.getContestStatsAsString() +"' " +
 					"WHERE id='" + p.getDatabaseID() + "'");
