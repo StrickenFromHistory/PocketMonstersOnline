@@ -38,6 +38,7 @@ public class BattleManager {
 		m_battle = new BattleWindow("Battle!");
 		m_timeLine = new BattleTimeLine();
 		m_battle.setVisible(false);
+		m_battle.setAlwaysOnTop(true);
 	}
 
 	/**
