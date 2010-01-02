@@ -124,7 +124,8 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 	
 	public static void writeMessage(IoSession s, PokenetMessage m) {
 		try {
-			s.write(m.getMessage());
+			if(s.isConnected())
+				s.write(m.getMessage());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

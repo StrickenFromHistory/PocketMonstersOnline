@@ -627,6 +627,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 	 * @param m
 	 */
 	public static void writeMessage(IoSession session, PokenetMessage m) {
-		session.write(m.getMessage());
+		if(session.isConnected())
+			session.write(m.getMessage());
 	}
 }

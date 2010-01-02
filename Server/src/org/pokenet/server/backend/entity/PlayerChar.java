@@ -482,6 +482,9 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_mapX = m_healMapX;
 			m_mapY = m_healMapY;
 		}
+		/* Turn back to normal sprite */
+		if(isSurfing())
+			setSurfing(false);
 	}
 
 	/**

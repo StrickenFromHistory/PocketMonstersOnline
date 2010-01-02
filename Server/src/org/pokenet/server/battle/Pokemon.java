@@ -761,11 +761,10 @@ public class Pokemon extends PokemonSpecies {
 				if (possibleMoves.size() == 0) {
 					moves[i] = null;
 				} else {
-					while (m == null) {
-						m = possibleMoves.get(random.nextInt(possibleMoves.size()));
-					}
+					m = possibleMoves.get(random.nextInt(possibleMoves.size()));
 					moves[i] = m;
 					possibleMoves.remove(m);
+					possibleMoves.trimToSize();
 					m = null;
 				}
 			}
@@ -773,14 +772,9 @@ public class Pokemon extends PokemonSpecies {
 		/*
 		 * Get all possible abilities
 		 */
-		String[] abilities = PokemonSpecies.getDefaultData().getPossibleAbilities(
-				ps.getName());
+		String[] abilities = ps.getAbilities();
 		/* First select an ability randomly */
-		String ab = "";
-		if (abilities.length == 1) ab = abilities[0];
-		else
-			ab = abilities[random.nextInt(abilities.length)];
-
+		String ab = abilities[random.nextInt(abilities.length)];
 		/*
 		 * Now lets create the pokemon itself
 		 */
