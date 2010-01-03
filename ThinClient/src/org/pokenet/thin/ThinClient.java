@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -163,16 +164,23 @@ public class ThinClient extends JFrame implements Runnable {
 		BufferedReader stdError = new BufferedReader(new 
 				InputStreamReader(p.getErrorStream()));
 		String line;
+		PrintWriter pw = new PrintWriter(new File("./errors.txt"));
 		while(true) {
 			while ((line = stdInput.readLine()) != null) {
 				System.out.println(line);
 			}
 			while ((line = stdError.readLine()) != null) {
-				System.out.println(line);
+				pw.println(line);
+				pw.flush();
 			}
 			try {
 				Thread.sleep(1000);
 			} catch (Exception e) {}
+			try {
+				if(p.exitValue() >= 0)
+					break;
+			} catch (Exception e) {}
 		}
+		pw.close();
 	}
 }
