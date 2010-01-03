@@ -309,7 +309,7 @@ public class NonPlayerChar extends Char {
 		String name;
 		Random r = DataService.getBattleMechanics().getRandom();
 		if(isGymLeader()) {
-			if(p.getBadgeCount() > 8) {
+			if(p.getBadgeCount() > 7) {
 				/* If a player has 8 badges, level 80s all round */
 				for(int i = 0; i < 6; i++) {
 					name = (String) m_possiblePokemon.keySet().toArray()[r.nextInt(m_possiblePokemon.keySet().size())];
