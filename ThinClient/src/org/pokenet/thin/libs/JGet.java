@@ -6,8 +6,13 @@ package org.pokenet.thin.libs;
  * Note: Could also strip out all of the html w/ jtidy.
  */
 
-import java.io.*;
-import java.net.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class JGet
 {
