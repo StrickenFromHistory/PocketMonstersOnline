@@ -684,6 +684,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						pl.set(p);
 						m_game.setOurPlayer(pl);
 						m_game.getMapMatrix().addPlayer(pl);
+						GameClient.getInstance().setOurPlayer(pl);
 						GameClient.getInstance().getOurPlayer().setAnimating(true);
 					} else{
 						m_game.getMapMatrix().addPlayer(p);
