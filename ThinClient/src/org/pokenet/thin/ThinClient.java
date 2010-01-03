@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,6 +35,7 @@ public class ThinClient extends JFrame implements Runnable {
 	 * NOTE: Must start with http:// and end with a /
 	 */
 	public static String UPDATEURL = "http://pokedev.org/";
+	public static String LOGOURL = "http://trainerdex.org/bg.png";
 
 	/**
 	 * Constructor
@@ -49,8 +51,12 @@ public class ThinClient extends JFrame implements Runnable {
 		this.setLocation(x, y);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		/* Add PokeNet Image */
-		m_logo = new ImageIcon("bg.png");
-		this.add(new JLabel(m_logo), BorderLayout.CENTER);
+		try {
+			m_logo = new ImageIcon(new URL(LOGOURL));
+			this.add(new JLabel(m_logo), BorderLayout.CENTER);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 		/* Create progress bar */
 		m_progress = new JProgressBar();
 		m_progress.setValue(0);
