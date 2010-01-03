@@ -8,7 +8,7 @@ The eastern part is still a habitat for wild Pokemon.
 We wanted to fully restore the Power Plant.
 But since the Power Plant was inhabited by wild Pokemon by then,
 we couldn't drive them all out. Some of them are protected species.
-Sometimes the wild Pokemon in the eastern part of the Power Plant drain energy.
-This can become a problem, if they drain too much.
+Sometimes the wild Pokemon in the eastern part of the Power Plant drain
+energy. This can become a problem, if they drain too much.
 This is the Power Plant control room. We watch over the machinery here.
 Please leave me alone until today's tests are finished.

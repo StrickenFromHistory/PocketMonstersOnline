@@ -2,15 +2,15 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="64" height="20" tilewidth="16" tileheight="16">
  <properties>
-  <property name="dayPokemonLevels" value=""/>
   <property name="dayPokemonChances" value=""/>
-  <property name="nightPokemonLevels" value=""/>
-  <property name="nightPokemonChances" value=""/>
-  <property name="waterPokemonLevels" value=""/>
-  <property name="waterPokemonChances" value=""/>
-  <property name="wildProbability" value="0"/>
-  <property name="fishPokemonLevels" value=""/>
+  <property name="dayPokemonLevels" value=""/>
   <property name="fishPokemonChances" value=""/>
+  <property name="fishPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="wildProbability" value="0"/>
   <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
@@ -37,7 +37,7 @@
  </layer>
  <layer name="Collisions" width="64" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2Xy0rDQBSGkwjaCMWF8QHqQttUzELdGwWvoK/gZSUu+hhtvZDH8P5UbrsQ1L3/0BmcTCfpmaQxDfjDR3pKTnL+n2Q6tazq6sS2rC7ogT644bjO72e1vgV34N4e9ldZAeZ/AI/gE/UX+AYtJ71+xflv9rC/yhLzN3BcBB5Y4t+l1Q073l9VBdxLCDbAJtjintLqkPcJ/8c4zmXgqOT8Au4li0LJPzuugFU7vm4k0QQtsA5qJbKWM/+O5H8P7INnAgfgEJwa5jYpRP669zfpWdY9q5Hk/8M1y46d35Fye+LZDFxahll5UfJXpT7LaVnJPVkUGeR2Vaedd12nXVPkr0p9lkVWRfg3URe+egT6xJyYogT/OlH9z45Zc9w/yCqP2gnvv6+Ze0F6/4VqTvraM++M9k+T2Pzv9ijy3EKBxn/TSV9/fCfeL7+rpmuoqdR76fJn889o8In+TUTpa3iWteyZXZfak3fdKtr/NjyEYAfsEjMw6ZmU//aYNS/r/usM85+DC3BJ9G/Sk3f/KdZEsUcQ+wZqXfb/pyDDzGrNJPYIYt9ArafBv+nMap1Huv1nUb8Buuvq7v8vM/0AdtlsygAUAAA=
+   H4sIAAAAAAAAANWXyU7DMBRF4yCVBqliQfiAsoAOiCyAPQGJUYJfYFghFuUv2jIon8H8Vd2yQAL23Ki2cFwnfY475UpH6avyknevEtd1nOLqlDlOG3RAF9xxPPf/s1rfgwfwyPr9RVaA+Z/AM/hG/QN+Qd3Nrt9x/gfr9xdZYv4qjkvAB8v8u6y6ypL9RVXAvYRgE2yBbe4pqw55n/B/guN8Do6nnF/AveRRKPmPj6tgjSXXjTRqoA42QHmKrFvm35L874MD8ErgEByBM8PcRoXIX/f+pj3Lumc1kvx/eWbZxee3pNxeeDafHi3DvLwp+atSn+WsrOSePIoMcruu0M67qdCuKfJXpT7LIqtx+DdRG746BLrEnGJFKf51ovovDVlzvAlkZaNmyvvf0My9KL3/QmU3e+1ZcAf7Z0nx/D02iDy3UKDxX3Oz15+Gm+yX31XTNdRU6r10+cfzz2loEP2biNJX9R1nxTe7LrXHdt0at/8deAjBLtgjZmDSMyr/zSFrXt791znmvwCX4Iro36THdv8p1kSxRxD7Bmo97f9PQY6Z1TqW2COIfQO1ngX/pjOrtY10+89x/Qborqu7/yR1W7JjVNew0R8TF7h6ABQAAA==
   </data>
  </layer>
  <layer name="random" width="64" height="20">
