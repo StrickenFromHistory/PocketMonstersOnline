@@ -34,7 +34,7 @@ public class ThinClient extends JFrame implements Runnable {
 	/* The root directory of update location 
 	 * NOTE: Must start with http:// and end with a /
 	 */
-	public static String UPDATEURL = "http://pokedev.org/";
+	public static String UPDATEURL = "http://pokeglobal.sourceforge.net/pokenet/";
 	public static String LOGOURL = "http://trainerdex.org/bg.png";
 
 	/**
