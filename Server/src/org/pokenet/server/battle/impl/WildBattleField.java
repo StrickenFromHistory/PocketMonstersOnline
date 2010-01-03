@@ -616,7 +616,8 @@ public class WildBattleField extends BattleField {
 		/*
 		 * First calculate earnings
 		 */
-		int item = m_wildPoke.getRandomItem();
+		int item = PokemonSpecies.getDefaultData().
+			getPokemonByName(m_wildPoke.getSpeciesName()).getRandomItem();
 		if (item > -1) {
 			m_player.getBag().addItem(item, 1);
 			TcpProtocolHandler.writeMessage(m_player.getTcpSession(),

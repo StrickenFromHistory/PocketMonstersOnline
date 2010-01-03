@@ -118,6 +118,10 @@ public class PokemonSpecies {
 	 * @return
 	 */
 	public int getRandomItem() {
+		if(m_drops == null) {
+			System.err.println("INFO: Drop data null for " + m_name);
+			return -1;
+		}
 		if(DataService.getBattleMechanics().getRandom().nextInt(99) < 30) {
             int r = 100;
             ArrayList<Integer> m_result = new ArrayList<Integer>();
