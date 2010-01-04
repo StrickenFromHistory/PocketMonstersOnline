@@ -32,6 +32,7 @@ import org.pokenet.thin.libs.JGet;
 public class ThinClient extends JFrame implements Runnable {
 	private ImageIcon m_logo;
 	private JProgressBar m_progress;
+	private JLabel m_update;
 	/* The root directory of update location 
 	 * NOTE: Must start with http:// and end with a /
 	 */
@@ -60,10 +61,11 @@ public class ThinClient extends JFrame implements Runnable {
 		}
 		/* Create progress bar */
 		m_progress = new JProgressBar();
-		m_progress.setValue(5);
+		m_progress.setValue(0);
 		/* Create bottom panel */
+		m_update = new JLabel("Updating: ");
 		JPanel l = new JPanel();
-		l.add(new JLabel("Updating: "));
+		l.add(m_update);
 		l.add(m_progress);
 		this.add(l, BorderLayout.SOUTH);
 		this.setVisible(true);
@@ -111,6 +113,7 @@ public class ThinClient extends JFrame implements Runnable {
 		}
 		int total = files.keySet().size();
 		int value = 0;
+		m_update.setText("Updating (" + value + "/" + total + "): ");
 		/* We got the list of checksums, let's see if we need to update */
 		Iterator<String> it = files.keySet().iterator();
 		CheckSums s;
@@ -135,6 +138,8 @@ public class ThinClient extends JFrame implements Runnable {
 					if(current.compareTo(online) != 0) {
 						/* We need to update */
 						f.delete();
+						f = new File(folder + file);
+						f.createNewFile();
 						JGet.getFile(UPDATEURL + file, f.getPath());
 					}
 				} catch (Exception e) {
@@ -154,9 +159,11 @@ public class ThinClient extends JFrame implements Runnable {
 			} else {
 				/* Check if directory exists */
 				try {
-					File dir = new File(f.getPath().substring(0, f.getPath().lastIndexOf('\\')));
-					if(!dir.exists())
-						dir.mkdirs();
+					if(f.getPath().contains("\\")) {
+						File dir = new File(f.getPath().substring(0, f.getPath().lastIndexOf('\\')));
+						if(!dir.exists())
+							dir.mkdirs();
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -172,7 +179,11 @@ public class ThinClient extends JFrame implements Runnable {
 				}
 			}
 			value++;
-			m_progress.setValue((value / total) * 100);
+			System.out.println(m_progress.getValue());
+			m_progress.setValue(m_progress.getValue() + 1);
+			if(m_progress.getValue() == m_progress.getMaximum())
+				m_progress.setValue(0);
+			m_update.setText("Updating (" + value + "/" + total + "): ");
 		}
 		/* Launch the game */
 		try {
