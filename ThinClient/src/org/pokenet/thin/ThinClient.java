@@ -179,7 +179,6 @@ public class ThinClient extends JFrame implements Runnable {
 				}
 			}
 			value++;
-			System.out.println(m_progress.getValue());
 			m_progress.setValue(m_progress.getValue() + 1);
 			if(m_progress.getValue() == m_progress.getMaximum())
 				m_progress.setValue(0);
