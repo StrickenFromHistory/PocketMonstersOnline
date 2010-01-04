@@ -119,7 +119,7 @@ public class ThinClient extends JFrame implements Runnable {
 		CheckSums s;
 		String folder = "./";
 		try {
-			folder = new File("./").getCanonicalPath();
+			folder = new File("./PokeNet/").getCanonicalPath();
 			folder = folder + "\\";
 		} catch (IOException e1) {
 			e1.printStackTrace();
@@ -197,8 +197,8 @@ public class ThinClient extends JFrame implements Runnable {
 	}
 
 	public void runPokenet() throws Exception {
-		Process p = Runtime.getRuntime().exec("java -Dres.path=./ -Djava.library.path=lib/native " +
-		"-Xmx512m -Xms512m -jar client.jar");
+		Process p = Runtime.getRuntime().exec("java -Dres.path=PokeNet/ -Djava.library.path=PokeNet/lib/native " +
+		"-Xmx512m -Xms512m -jar ./PokeNet/client.jar");
 		BufferedReader stdInput = new BufferedReader(new 
 				InputStreamReader(p.getInputStream()));
 		BufferedReader stdError = new BufferedReader(new 
