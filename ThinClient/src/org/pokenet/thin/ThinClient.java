@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.MalformedURLException;
@@ -59,7 +60,7 @@ public class ThinClient extends JFrame implements Runnable {
 		}
 		/* Create progress bar */
 		m_progress = new JProgressBar();
-		m_progress.setValue(0);
+		m_progress.setValue(5);
 		/* Create bottom panel */
 		JPanel l = new JPanel();
 		l.add(new JLabel("Updating: "));
@@ -95,6 +96,7 @@ public class ThinClient extends JFrame implements Runnable {
 			}
 			in.close();
 		} catch (Exception e) {
+			e.printStackTrace();
 			/* Update server not available, run game */
 			try {
 				this.setVisible(false);
@@ -112,10 +114,17 @@ public class ThinClient extends JFrame implements Runnable {
 		/* We got the list of checksums, let's see if we need to update */
 		Iterator<String> it = files.keySet().iterator();
 		CheckSums s;
+		String folder = "./";
+		try {
+			folder = new File("./").getCanonicalPath();
+			folder = folder + "\\";
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 		while(it.hasNext()) {
 			String file = it.next();
 			/* First check if we have the file */
-			File f = new File(file);
+			File f = new File(folder + file);
 			if(f.exists()) {
 				/* It exists, does it need updating? */
 				s = new CheckSums();
@@ -131,18 +140,33 @@ public class ThinClient extends JFrame implements Runnable {
 				} catch (Exception e) {
 					/* Error! Redownload file */
 					try {
+						f.delete();
+						f = new File(folder + file);
+						f.createNewFile();
 						JGet.getFile(UPDATEURL + file, f.getPath());
 					} catch (Exception ex) {
+						System.err.println(f.getPath());
 						ex.printStackTrace();
 						JOptionPane.showMessageDialog(null, "Could not download update.");
 						break;
 					}
 				}
 			} else {
+				/* Check if directory exists */
+				try {
+					File dir = new File(f.getPath().substring(0, f.getPath().lastIndexOf('\\')));
+					if(!dir.exists())
+						dir.mkdirs();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				/* We don't have it, download it */
 				try {
+					f.createNewFile();
 					JGet.getFile(UPDATEURL + file, f.getPath());
 				} catch (Exception e) {
+					System.err.println(f.getPath());
+					e.printStackTrace();
 					JOptionPane.showMessageDialog(null, "Could not download update.");
 					break;
 				}
