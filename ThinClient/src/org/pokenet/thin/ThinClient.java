@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -12,6 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Scanner;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -82,6 +84,16 @@ public class ThinClient extends JFrame implements Runnable {
 
 	@Override
 	public void run() {
+		int ourRev = 0;
+		int currentRev = 1;
+		/* Get the current revision, if any */
+		try {
+			Scanner revCheck = new Scanner("./PokeNet/rev.txt");
+			ourRev = revCheck.nextInt();
+			revCheck.close();
+		} catch (Exception e) {
+			ourRev = 0;
+		}
 		/* Hashmap of <files, checksums> */
 		HashMap<String, String> files = new HashMap<String, String>();
 		/* Download updates if possible */
@@ -90,11 +102,15 @@ public class ThinClient extends JFrame implements Runnable {
 			BufferedReader in = new BufferedReader(
 					new InputStreamReader(
 							u.openStream()));
-			String inputLine;
-			while ((inputLine = in.readLine()) != null) {
-				String checksum = inputLine.substring(0, inputLine.indexOf(' '));
-				String file = inputLine.substring(inputLine.indexOf(' ') + 1);
-				files.put(file, checksum);
+			/* Check current revision */
+			currentRev = Integer.parseInt(in.readLine());
+			if(ourRev < currentRev) {
+				String inputLine;
+				while ((inputLine = in.readLine()) != null) {
+					String checksum = inputLine.substring(0, inputLine.indexOf(' '));
+					String file = inputLine.substring(inputLine.indexOf(' ') + 1);
+					files.put(file, checksum);
+				}
 			}
 			in.close();
 		} catch (Exception e) {
@@ -102,6 +118,7 @@ public class ThinClient extends JFrame implements Runnable {
 			/* Update server not available, run game */
 			try {
 				this.setVisible(false);
+				storeRevision(ourRev);
 				runPokenet();
 				System.exit(0);
 			} catch (Exception ex) {
@@ -187,12 +204,24 @@ public class ThinClient extends JFrame implements Runnable {
 		/* Launch the game */
 		try {
 			this.setVisible(false);
+			storeRevision(ourRev);
 			runPokenet();
 			System.exit(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "An error occured while running the game.");
 			System.exit(0);
+		}
+	}
+	
+	public void storeRevision(int rev) {
+		/* Store our revision */
+		try {
+			PrintWriter p = new PrintWriter(new File("./PokeNet/rev.txt"));
+			p.println(rev);
+			p.close();
+		} catch (Exception e1) {
+			e1.printStackTrace();
 		}
 	}
 
@@ -204,7 +233,7 @@ public class ThinClient extends JFrame implements Runnable {
 		BufferedReader stdError = new BufferedReader(new 
 				InputStreamReader(p.getErrorStream()));
 		String line;
-		PrintWriter pw = new PrintWriter(new File("./errors.txt"));
+		PrintWriter pw = new PrintWriter(new File("./PokeNet/errors.txt"));
 		while(true) {
 			while ((line = stdInput.readLine()) != null) {
 				System.out.println(line);

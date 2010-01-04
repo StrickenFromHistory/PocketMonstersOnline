@@ -1,7 +1,10 @@
 package org.pokenet.thin;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -14,8 +17,22 @@ import org.pokenet.thin.libs.CheckSums;
  */
 public class UpdateCreator {
 	public static HashMap<String, String> m_files = new HashMap<String, String>();
+	public static String UPDATEURL = "http://pokeglobal.sourceforge.net/pokenet/";
 	
 	public static void main(String [] args) {
+		/* Create the revision number */
+		int revision = 1;
+		try {
+			URL u = new URL(UPDATEURL + "updates.txt");
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(
+							u.openStream()));
+			revision = Integer.parseInt(in.readLine());
+			revision++;
+			in.close();
+		} catch (Exception e) {
+			revision = 1;
+		}
 		CheckSums s;
 		try {
 			/* Create checksum for client.jar */
@@ -45,6 +62,7 @@ public class UpdateCreator {
 			/* Create updates.txt */
 			System.out.println("Generating updates.txt");
 			PrintWriter p = new PrintWriter(new File("updates.txt"));
+			p.println(revision);
 			Iterator<String> it = m_files.keySet().iterator();
 			while(it.hasNext()) {
 				String file = it.next();
