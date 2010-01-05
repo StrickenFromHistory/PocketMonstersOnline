@@ -88,7 +88,7 @@ public class ThinClient extends JFrame implements Runnable {
 		int currentRev = 1;
 		/* Get the current revision, if any */
 		try {
-			Scanner revCheck = new Scanner("./PokeNet/rev.txt");
+			Scanner revCheck = new Scanner(new File("./PokeNet/rev.txt"));
 			ourRev = revCheck.nextInt();
 			revCheck.close();
 		} catch (Exception e) {
@@ -204,7 +204,7 @@ public class ThinClient extends JFrame implements Runnable {
 		/* Launch the game */
 		try {
 			this.setVisible(false);
-			storeRevision(ourRev);
+			storeRevision(currentRev);
 			runPokenet();
 			System.exit(0);
 		} catch (Exception e) {
