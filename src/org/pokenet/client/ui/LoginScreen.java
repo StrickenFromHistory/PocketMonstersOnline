@@ -3,6 +3,8 @@ package org.pokenet.client.ui;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import mdes.slick.sui.Button;
@@ -49,8 +51,39 @@ public class LoginScreen extends Window {
 			translated = Translator.translate("_LOGIN");
 			/*
 			 * Load the background image
+			 * NOTE: Months start at 0, not 1
 			 */
-			f = new FileInputStream(respath+"res/pokenet_venonat.png");
+			Calendar cal = Calendar.getInstance();
+			if(cal.get(Calendar.MONTH) == 1 
+					&& cal.get(Calendar.DAY_OF_MONTH) >= 7
+					&& cal.get(Calendar.DAY_OF_MONTH) <= 14) {
+				/* Valentines day! */
+				f = new FileInputStream(respath+"res/pokenet_valentines.png");
+			} else if(cal.get(Calendar.MONTH) == 2 
+					&& cal.get(Calendar.DAY_OF_MONTH) > 14) {
+				/* If second half of March, show Easter login */
+				f = new FileInputStream(respath+"res/pokenet_easter.png");
+			} else if(cal.get(Calendar.MONTH) == 3 
+					&& cal.get(Calendar.DAY_OF_MONTH) < 26) {
+				/* If before April 26, show Easter login */
+				f = new FileInputStream(respath+"res/pokenet_easter.png");
+			} else if(cal.get(Calendar.MONTH) == 9) {
+				/* Halloween */
+				f = new FileInputStream(respath+"res/pokenet_halloween.png");
+			} else if(cal.get(Calendar.MONTH) == 11) {
+				/* Christmas! */
+				f = new FileInputStream(respath+"res/pokenet_xmas.png");
+			} else if(cal.get(Calendar.MONTH) == 0) {
+				/* January - Venonat Time! */
+				f = new FileInputStream(respath+"res/pokenet_venonat.png");
+			} else if(cal.get(Calendar.MONTH) >= 5 
+					&& cal.get(Calendar.MONTH) <= 7) {
+				/* Summer login */
+				f = new FileInputStream(respath+"res/pokenet_venonat.png");
+			} else {
+				/* Show normal login screen */
+				f = new FileInputStream(respath+"res/pokenet_normal.png");
+			}
 			m_bg = new Label(new Image(f, "bg", false));
 			m_bg.pack();
 			m_bg.setLocation(0, 0);
@@ -222,7 +255,4 @@ public class LoginScreen extends Window {
 			m_login.goToPass();
 		}
 	}
-	
-	
-	
 }
