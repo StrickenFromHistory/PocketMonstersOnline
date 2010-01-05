@@ -137,7 +137,7 @@ public class ThinClient extends JFrame implements Runnable {
 		String folder = "./";
 		try {
 			folder = new File("./PokeNet/").getCanonicalPath();
-			folder = folder + "\\";
+			folder = folder + "/";
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -178,6 +178,10 @@ public class ThinClient extends JFrame implements Runnable {
 				try {
 					if(f.getPath().contains("\\")) {
 						File dir = new File(f.getPath().substring(0, f.getPath().lastIndexOf('\\')));
+						if(!dir.exists())
+							dir.mkdirs();
+					} else if(f.getPath().contains("/")) {
+						File dir = new File(f.getPath().substring(0, f.getPath().lastIndexOf('/')));
 						if(!dir.exists())
 							dir.mkdirs();
 					}
