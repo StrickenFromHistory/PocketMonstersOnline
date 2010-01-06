@@ -6,8 +6,8 @@
   <property name="dayPokemonLevels" value="15-17;15-16;16-17;16-17;13-15;14-14;"/>
   <property name="fishPokemonChances" value=""/>
   <property name="fishPokemonLevels" value=""/>
-  <property name="nightPokemonChances" value="Zubat,40;Geodude,30;Onix,20;Haunter,5;Golbat,5;"/>
-  <property name="nightPokemonLevels" value="15-16;15-17;13-15;15-15;15-15;"/>
+  <property name="nightPokemonChances" value="Zubat,40;Geodude,30;Onix,20;Haunter,5;"/>
+  <property name="nightPokemonLevels" value="15-16;15-17;13-15;15-15;"/>
   <property name="waterPokemonChances" value=""/>
   <property name="waterPokemonLevels" value=""/>
   <property name="wildProbability" value="10"/>
@@ -34,6 +34,11 @@
  <layer name="random" width="48" height="40">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO3WMQ6AMAgFUCZXj9L7T55Iz9Bu3UnENr63k/wACURwHl8nmK5ETSvOn8n4V/eYzbPQfu1KHwHe5bYDq/MP7suNAQAAqNcBIGQ9zgAeAAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="48" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BAQ0AAADCoPdPbQ8HFAAAAAAAAAAPBvzwcm0AHgAA
   </data>
  </layer>
 </map>
