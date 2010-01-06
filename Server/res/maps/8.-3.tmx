@@ -9,23 +9,13 @@
   <property name="waterPokemonChances" value=""/>
   <property name="waterPokemonLevels" value=""/>
   <property name="wildProbability" value="0"/>
-  <property name="xOffsetModifier" value="1568"/>
+  <property name="xOffsetModifier" value="0"/>
   <property name="yOffsetModifier" value="224"/>
  </properties>
  <tileset firstgid="1" source="normal1.tsx"/>
- <tileset firstgid="1025" source="normal2.tsx"/>
- <tileset firstgid="2049" source="normal3.tsx"/>
- <tileset firstgid="3073" source="normal5.tsx"/>
- <tileset firstgid="4097" source="normal6.tsx"/>
- <tileset firstgid="5121" source="normal7.tsx"/>
- <tileset firstgid="6145" source="normal8.tsx"/>
- <tileset firstgid="7169" source="normal13.tsx"/>
- <tileset firstgid="8193" source="normal12.tsx"/>
- <tileset firstgid="9217" source="normal14.tsx"/>
- <tileset firstgid="10241" source="normal15.tsx"/>
- <tileset firstgid="11265" source="normal16.tsx"/>
- <tileset firstgid="12289" source="normal17.tsx"/>
- <tileset firstgid="13313" source="normal18.tsx"/>
+ <tileset firstgid="1025" source="normal3.tsx"/>
+ <tileset firstgid="2049" source="normal13.tsx"/>
+ <tileset firstgid="3073" source="normal15.tsx"/>
  <layer name="Water" width="24" height="27">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO3BMQEAAADCoPVP7WkJoAAA4AaiwPakIAoAAA==
@@ -33,7 +23,7 @@
  </layer>
  <layer name="Walkable" width="24" height="27">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2VQQ6EIAxFq8POQ3iUWY4XMTMX9V7iwqQ2/bQUoptZ/ECFvMK3wPYi2v5q0jzhsc9AtGSNRJRDSnTty7ma3tM15vOPVuOfsYdvqXX9Ja1ZP8FPnfgWm/Oj3nC2bKN8vmfke5Qv6zPK954NzZ8n+WsDX8txzju4X1Zvlq9JGSv5L+u41Of5RyB5vmRuxJffZIvuB+4fuqt68L37QFzkj6Uafi0b8b3etKxf89TLL50DVJc911zDupuP3o3o/7NyRGtvB7auq70gCgAA
+   H4sIAAAAAAAAAO2VQQ6EIAxFO0rixjvMccaLmJm1d/RegwuT2vTTUsi4mcUPVMgrfAvsI9H+V5OeEx57PYiWrIGIckiJrn05V9M2X2M+/2g1/hl7+JZa11/SmvUR/NSJb7E5P+oNZ8s2yud7Rr5H+bI+o3zv2dD8uZO/NvC1HOe8g/tm9Wb5mpSxkv+yjkt9nn8AkudL5kZ8+U226H7g/qG7qgffuw/ERf5YquHXshHf603L+jVPvfzSOUB12XPNNaxf89G7Ef1/Vo5o7X0BM14FmyAKAAA=
   </data>
  </layer>
  <layer name="Grass" width="24" height="27">
@@ -58,12 +48,12 @@
  </layer>
  <layer name="Collisions" width="24" height="27">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAN2VYQrCMAyFB17We+hRqidpdxL1HK6wQngkL2mcIAbyp2u+vYWXrJ2WpW7ZnFyNc60W70b4tz3vcP7Y8gn5Ineuk99xUfiMo+npYWlb9+cY2BNLB/K1XkT4lo5sHME/f5nPokLvrT5iFOHV4VePP6O91xXBjvgH76BGzCrqMnyp0cpP+dGdlOVrc6zNVoYfYc/M79He/zd+c7zI5tTjez735tTj10Ad83mWL/83ms9LoK+M33n4DtQ3GCwZn/Uksj9+lT88F+Fbu8bbXZ6vx7y8AdrHTnggCgAA
+   H4sIAAAAAAAAAN2VzQ3CMAyFI3HNcsASXFFHgFECkySdhHYOEkGk6Ml/CeUAlt6ltb+41nOads7FrKRoZp5TtZhr4d/eusPzR9YCWoWca+d3XAi+xMF+9t65Q9bR072V86jAmXB9nP0rf/L0+9XI5/oYjS34py/zpYgwe26OGKHxavWrxu/pvdSFhm3xD+Zgj6jY1I3w2x45fcq33kmjfOpeoXZrhG9h9+zv1t7/N35SvCjtqcbXfK7tqcaPhjrJ56P89n9D+TwY5irxCw/PoPrTJPGlmfwyv3rOwufuGu3u0nxd9+UJnITt8yAKAAA=
   </data>
  </layer>
  <layer name="WalkBehind" width="24" height="27">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3MyQ2CYBQA4b8JXGkDUawDZakD3OpARetgJ5ahiY1wdY7E8zu+Sb7rGKNpmqZpmmSWbcwEU8wwxwJLW+bv8FnBxRobeNgK/X0+O+wRIESEWOif8ElxwBEnnHER+md8rrjhjhwPPIX+BZ8SFWo0aNEJ/Xs+bwwjX7yE/5+R//8PKn1L6yAKAAA=
+   H4sIAAAAAAAAAO3MyRGCQBQA0TlOAuIWB27EAYLE4R6HChIHq5ZhYJWJeLWPU57/8XfVu7YxmqZpmqZJNrDGeBhihDEmmFqZv89nhjkWWGKFQOgf8omwRowEG6RC/y2fHfY44IgTzkL/C58rbsiQ445C6F/yqVCjQYsOD6H/k0+Pr+ODl/D/7fj//wA8Y+qQIAoAAA==
   </data>
  </layer>
 </map>
