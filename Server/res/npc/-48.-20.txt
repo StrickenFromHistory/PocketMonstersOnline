@@ -1,11 +1,11 @@
 [npc]
-Channeler Carly
+Channeler Laurel
 down
 63
-8
-9
-Gastly,24
-1
+16
+7
+Gastly,23,Gastly,23
+2
 -1
 0
 false
@@ -13,11 +13,11 @@ false
 false
 [/npc]
 [npc]
-Channeler Patricia
-down
+Channeler Jody
+left
 63
-9
 14
+13
 Gastly,22
 1
 -1
@@ -27,12 +27,12 @@ false
 false
 [/npc]
 [npc]
-Channeler Hope
-up
+Channeler Paula
+right
 63
-11
-4
-Gastly,23
+3
+12
+Gastly,24
 1
 -1
 2
@@ -41,20 +41,20 @@ false
 false
 [/npc]
 [warp]
-2
-10
-3
-10
--48
--22
-0
-[/warp]
-[warp]
 18
 10
 17
 10
 -48
--20
+-21
+0
+[/warp]
+[warp]
+2
+10
+3
+10
+-48
+-19
 0
 [/warp]
