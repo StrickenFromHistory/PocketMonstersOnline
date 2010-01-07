@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="21" height="18" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonChances" value="Gastly,90;Cubone,9;Haunter,1;"/>
+  <property name="dayPokemonLevels" value="18-24;20-22;25-25;"/>
+  <property name="fishPokemonChances" value=""/>
+  <property name="fishPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value="Gastly,90;Cubone,9;Haunter,1;"/>
+  <property name="nightPokemonLevels" value="18-24;20-22;25-25;"/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="wildProbability" value="5"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+<tileset firstgid="1" source="normal14.tsx"/> 
+ <layer name="Walkable" width="21" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGB5gERMmpqZZuDC9zSTFHGLMRZenhrnUNpMSP+MyF5s4NcxUY6bMTGVm+riT2mbSIy1Rw43UMJcQoKZZxJpPCAAAStOp8OgFAAA=
+  </data>
+ </layer>
+ <layer name="Grass" width="21" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAN3RMQ4AIAgDQGL8OP5EX6oOLoYgSnWwSddLCUR/hANRmuq1YmuZumtr1onNRkuykZ7mZoc3itwouYiNktnjtV7sRJveuyXvlon4kRakZfVXqUniFEToBQAA
+  </data>
+ </layer>
+ <layer name="random" width="21" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYOQCdmby9DHh0adOpplKePS5k2mmE5n6RsHwAgCpeDnD6AUAAA==
+  </data>
+ </layer>
+ <layer name="Collisions" width="21" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAKWS0Q3CMAxE3Zi/ToEog5QCe9BROxmJaMTpZAennHRSIjlPZzsivoYkcjOcUuPRD9acvRpeOtjIeu22FGUPxNp2t4Rs5iJvI0dkcc+NPqMq3AswZuJx1oiLStZRPuaM0Z6trJXJ6mHW2pq3MnkfzPR2hndVkZN+mVdt54wwiyZgPvL5qX6tJ6xb8vu7/j9PnhfOk7mt3q0/xDxxsh7RSGfc/5H/afWLc+hhevPzaji7tQeL9QZc8X4s6AUAAA==
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="21" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYGSAJ0wINiszAwMb88C5ZRSMAnoCAMm8PMzoBQAA
+  </data>
+ </layer>
+</map>
