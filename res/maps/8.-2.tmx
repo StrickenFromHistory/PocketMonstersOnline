@@ -18,22 +18,22 @@
  <tileset firstgid="3073" source="normal13.tsx"/>
  <layer name="Walkable" width="24" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAALWUAQqEMAwES+tTTl+m/vT+ZQQLy7IxvTMWFkXTcZM0luKvydSuK6re7Onr2+IY5j7le7xM/sg3f+Xj3mw+9lD1MouP+hhgNi3V5/MzlavHXw2wmXbB51y7lxk8tYCPqsDC+4m8bMJTCdh3I+L1pu97yscYrkGW/+i8KS9KeJ48/x4/6u/5Hs8T8qMcmD/6/1H14dpl89/yz/OFcx/FKfUec2/UjCFfxSntxOe54p6M1uQfnesAcJ4VR4AHAAA=
+   H4sIAAAAAAAAALWUgQ5AMAxEl82n4Mvwp/5LJZZcLlcdZsmF0D1tb5WSvwZTua6ofLOnrr3EMcz9yvd4Pfkt33zKx729+eih8tLjR/4xHzUaYDLN2efzM1Wrx18MsJo2wedaay4T5FQCPioDC+8HymUVOaWAfddiz5u67ysfY7gHvfKPzlsLn8+Tl7/Hj/w93+N5Qn5UA/Nb/z+qP9y73vy/8uf5wrmP4pSqx+yNmjHkqziljfg8V+xJa0/e6FwHQ5cKLYAHAAA=
   </data>
  </layer>
  <layer name="Walkable" width="24" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWjYOBBBe9Au2AUjIJRMAroCwDRGgjrgAcAAA==
+   H4sIAAAAAAAAAGNgGAUjESiz4Zc/ykwfd8BABS997RsF1AXzuAbaBaOAEGhiJU4dtrgcjV/aAADOO0qbgAcAAA==
   </data>
  </layer>
  <layer name="Collisions" width="24" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAM2UXUrDQBSFL9W8BLKoaruEqq39tT5kAyraVm2bZdifB3UfgnEfQus6PCEz9DLMxJuQgAc+hgzhy82cEKL8+Twi+gBxBl9qLRLu14nZNfdzlmDP+HE8P8/85t5/O5+q/N+gFRCdgXNwAdqgAy6D9GyL+neqnxt4bsFdkO7fY30AExAZ/mNFGQkpfceq/JTh5yTp+kQ90AcDMPRlc2i/y6vXKXwz8AiewHNOf9b8yTm+wLcCa7ABW+YPyf0s7W8a35D5HmaS/ZpCMv+7oAOb30zdIzoBp6DhHfz8n2DrUtrvCM4rMAbXhl/PautS2u8czgVYgsjht3WZ1a/k/KX/TB5XB2X6/wr3vwng39mr4H7t/wWMSD/7gAcAAA==
+   H4sIAAAAAAAAAK2UWU7DMBRFH23Sj0j5YQcgWAjTEpjHAh/dACBmULsMEHwA+wCa7gNIWQcnii0syw5GyZWOnmqlp89+bkT8GbXd60PWXyGrYKRqVUL8Opnx2fSb9IvvxSJv8A5DyOJ6/dtrH/g+4QtyGNf0Fz2PFd8w0RFpQRsiiDv1/PYZT+GbVs4Z6qzHn8NyKrICq7AG67ABm2nZq8sfklzt9wjPMZyk5fop9QzOYWD5I0UT6ak9ZurMm/aL4deJHBTZSkS2YQd2YS8J60P7fV5dL/BdwhVcw80//VX9F+d4h+8+KZ95oD4a/p74f0v7l6z7Y+/DTrHeUoT0/xIwA5ffzhz/83lYgMX412/ef9csQ+fbxbkPB3Bo+XWvrlmGzvdWvaf61IHH75pl1Xyr4jqf0Phm0KT/r5j+5wCKezYpJU8Bz2v/D3X/1zSABwAA
   </data>
  </layer>
- <layer name="Collisions" width="24" height="20">
+ <layer name="random" width="24" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3UOQ6CQBiG4V8RKijdK7cjuB/Ps3gQF7yBe+UCN3BvfAsNxmSQRClM5kuebniLIRnXEHEVJgjb1BaZYY4FllhhbQdnVO0o/QOdI04444Irbrb6m4EpMsQIY7jmb/sbelvssIcX0k87IhlkkUMeBRSd4EyPO/AefCQskSQMpGBa6n6dTgNNtNBGB92X/vsdl+iVUUEVtZB+lH36h98u7r4fc19PT+9/14/pfXh2702UclqABwAA
+   H4sIAAAAAAAAAO3VOQ6DMBRF0S+lNSVhWgdhWi9L8RIIQ9YRpjTcLhXCEqbCTzqd/22tHyJ6x9EaJfJGiw49BnzU/81e26T/pTNiwowFK37q+NZkV/d9T+SJACEixEg8O/2UzgsZchQoUVnqu7m5ud15tcE/daa7AaEftIOABwAA
   </data>
  </layer>
  <layer name="WalkBehind" width="24" height="20">
