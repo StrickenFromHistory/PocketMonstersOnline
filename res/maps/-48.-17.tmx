@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="19" height="19" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonChances" value="Gastly,75;Cubone,10;Haunter,15;"/>
+  <property name="dayPokemonLevels" value="20-24;22-24;28-30;"/>
+  <property name="fishPokemonChances" value=""/>
+  <property name="fishPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value="Gastly,75;Cubone,10;Haunter,15;"/>
+  <property name="nightPokemonLevels" value="20-24;22-24;28-30;"/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="wildProbability" value="12"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+<tileset firstgid="1" source="normal14.tsx"/>
+ <layer name="Walkable" width="19" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGJpgERMCUwLYmVHNAvEHg1nI5lDqz1GzBsYsbOZQ4i709DVczUI3jxKgRiWzqO0uUgAAMH1A5qQFAAA=
+  </data>
+ </layer>
+ <layer name="Grass" width="19" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAOXUOw6CMBzHccLfVRMHvYUaD+Jbj+HrCLgjPtBdd53UWzDqLXwsMvtrKLE2rSGWzSafhdBvCsm/rm1ZrmAKHsxgDgtYgg8rWINu7exPSXuqZ4GE9fa86cBEomoc4QRXSSA0MrCVxM2D0DjDBbL09q2ha7LGE0IoUcRJ2FA1C9hfhJpBR+yxf9dHa2PQifm2+ZnEs6Vxptg/tIaUTidP6bWqfHZyhr0m9rf4/JShQtFcy++xpWsM+HeNYMxnqA4Niu6JG9zhodkfCudoQwe60CP9HfnLegEj5/hhpAUAAA==
+  </data>
+ </layer>
+ <layer name="Collisions" width="19" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAI2TMW7CQBBFF69ESwo4AIpSmyI+QGKgdUjMAUD2+UgBF+ACSZGcIxTQ80eeUUaj3bVXekJ4/7ydHYNz4TXKnHs1lCDLIgURB9W8gH2Akr0pp/RBjh2zBGfFcoBzZByyVianv2un+LTnAD5Bw7TgCE6cbdWedopvrjyNQTy/gXOEE/f3yD3Rshnihz038AW+AxnxldxTaJ9mfWXPzDv3h88LPw/l95Ge5L1NfecpwAQ8+P89W0NLv3PLM3u2IAcLn86nqNlDPVXgrccVm9WZZ0rzytlVJe5I0Jkp32ygh3LjyO9BKNT9UjnyEKmczD3vyYiL2ASycqdK3dNmauWpjFPnnnx3xjv48F1d6F5j/m/KLDbGSazwbG1cNjNk2Zoh9XflQLn0pAUAAA==
+  </data>
+ </layer>
+ <layer name="random" width="19" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMgsEF2JmpZ5Y6Fc1yp6JZxAIAKRBvIaQFAAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="19" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMgsEBWJkZGNiYB9oVgwsAAB1XW4WkBQAA
+  </data>
+ </layer>
+</map>
