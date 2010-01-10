@@ -2,7 +2,7 @@
 Lass Julia
 right
 72
-62
+92
 13
 Clefairy,22,Clefairy,22
 2
@@ -16,7 +16,7 @@ false
 Gamer Rich
 down
 167
-56
+86
 14
 Growlithe,24,Vulpix,24
 2
@@ -30,7 +30,7 @@ false
 Supernerd Glenn
 right
 169
-48
+78
 9
 Grimer,22,Muk,22,Grimer,22
 3
@@ -44,7 +44,7 @@ false
 Twin Anne
 down
 132
-41
+71
 6
 Clefairy,22
 1
@@ -58,7 +58,7 @@ false
 Twin Eli
 up
 132
-40
+70
 5
 Jigglypuff,22
 1
@@ -72,7 +72,7 @@ false
 Lass Paige
 left
 72
-29
+59
 8
 Nidoran-f,23,Nidorina,23
 2
@@ -86,7 +86,7 @@ false
 Supernerd Leslie
 right
 169
-29
+59
 9
 Koffing,26
 1
@@ -100,7 +100,7 @@ false
 Lass Andrea
 left
 72
-29
+59
 10
 Meowth,24,Meowth,24,Meowth,24
 3
@@ -114,7 +114,7 @@ false
 Lass Megan
 right
 72
-29
+59
 11
 Pidgey,19,Pikachu,19,Rattata,19,Nidoran-m,19,Meowth,19
 5
@@ -128,7 +128,7 @@ false
 Biker Jaren
 up
 95
-22
+52
 18
 Grimer,24,Grimer,24
 2
@@ -142,7 +142,7 @@ false
 Biker Ricardo
 down
 95
-21
+51
 14
 Koffing,22,Koffing,22,Grimer,23
 3
@@ -156,7 +156,7 @@ false
 Gamer Stan
 down
 167
-20
+50
 2
 Poliwag,22,Poliwag,22,Poliwhirl,22
 3
@@ -170,7 +170,7 @@ false
 Supernerd Aidan
 right
 169
-9
+39
 6
 Voltorb,20,Magnemite,20,Voltorb,20,Koffing,20
 4
@@ -184,7 +184,7 @@ false
 NULL
 down
 0
-16
+46
 5
 NULL
 0
@@ -196,11 +196,11 @@ false
 [/npc]
 [hmobject]
 CUT_TREE
-47
+77
 12
 [/hmobject]
 [hmobject]
 CUT_TREE
-33
+63
 15
 [/hmobject]
