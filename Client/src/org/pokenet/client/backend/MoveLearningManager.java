@@ -71,6 +71,7 @@ public class MoveLearningManager extends Thread{
 	 * @param move
 	 */
 	public void learnMove(int pokeIndex, String move){
+		BattleManager.getInstance().getBattleWindow().setAlwaysOnTop(false);
 		m_moveLearning.learnMove(pokeIndex, move);
 		GameClient.getInstance().getDisplay().add(m_moveLearning);
 	}
@@ -79,6 +80,7 @@ public class MoveLearningManager extends Thread{
 	 * Removes the Move Learning window
 	 */
 	public void removeMoveLearning() {
+		BattleManager.getInstance().getBattleWindow().setAlwaysOnTop(true);
 		if (!m_moveLearningQueue.isEmpty())
 			m_canLearn = true;
 		GameClient.getInstance().getUi().nullSpeechFrame();
