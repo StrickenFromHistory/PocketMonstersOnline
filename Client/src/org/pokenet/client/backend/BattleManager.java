@@ -109,6 +109,7 @@ public class BattleManager {
 		} else {
 			setWild(true);
 		}
+		m_battle.showAttack();
 		m_battle.setVisible(true);
 		m_enemyPokes = new Pokemon[pokeAmount];
 		getPlayerData();
