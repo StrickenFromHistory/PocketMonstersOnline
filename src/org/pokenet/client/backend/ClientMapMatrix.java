@@ -9,6 +9,7 @@ import java.util.HashMap;
 import org.lwjgl.util.Timer;
 import org.newdawn.slick.Graphics;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.entity.HMObject;
 import org.pokenet.client.backend.entity.Player;
 
 /**
@@ -273,6 +274,15 @@ public class ClientMapMatrix {
 	 */
 	public ArrayList<Player> getPlayers() {
 		return m_players;
+	}
+	
+	public ArrayList<HMObject> getHMObjects() {
+		ArrayList<HMObject> temp = new ArrayList<HMObject>();
+		for (Player p : m_players) {
+			if(p.getType() == 2)
+				temp.add((HMObject)p);
+		}
+		return temp;
 	}
 	
 	public Player getPlayer(int id) {

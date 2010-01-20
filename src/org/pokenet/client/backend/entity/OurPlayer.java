@@ -326,4 +326,8 @@ public class OurPlayer extends Player {
 		m_badges[index] = 1;
 	}
 
+	@Override
+	public int getType(){
+		return 1;
+	}
 }

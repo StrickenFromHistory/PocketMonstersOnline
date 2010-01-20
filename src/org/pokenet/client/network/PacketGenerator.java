@@ -12,7 +12,7 @@ import org.pokenet.client.backend.entity.Player.Direction;
 public class PacketGenerator {
 	private IoSession m_tcpSession;
 	private IoSession m_udpSession;
-	private long m_lastMovement = 0;
+	//private long m_lastMovement = 0;
 	
 	// Used when attempting to update passwords with old hash method to the new method
 	private boolean updatePasswordHashMethod = false;

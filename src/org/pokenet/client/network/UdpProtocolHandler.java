@@ -27,7 +27,6 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 	 */
 	public void messageReceived(IoSession session, Object m) {
 		String message = (String) m;
-		Player p = null;
 		String [] details = null;
 		switch(message.charAt(0)) {
 		case 'M':
