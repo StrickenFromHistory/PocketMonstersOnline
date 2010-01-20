@@ -26,27 +26,19 @@ package org.pokenet.server.battle;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.TreeSet;
 
 import org.pokenet.server.battle.mechanics.PokemonType;
 import org.pokenet.server.battle.mechanics.moves.MoveList;
 import org.pokenet.server.battle.mechanics.moves.MoveSet;
 import org.pokenet.server.battle.mechanics.moves.MoveSetData;
-import org.pokenet.server.battle.mechanics.statuses.abilities.IntrinsicAbility;
 import org.simpleframework.xml.ElementArray;
-import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Root;
 
 /**
@@ -102,6 +94,7 @@ public class PokemonSpeciesData {
     /**
      * Load a database of pokemon species in from an input stream.
      */
+    @SuppressWarnings("unused")
     public void loadSpeciesDatabase(InputStream input,
             boolean requireImplementation) throws IOException {
         ObjectInputStream stream = new ObjectInputStream(input);
@@ -116,7 +109,7 @@ public class PokemonSpeciesData {
                 } catch(Exception e) {}
                 int[] base = (int[])stream.readObject();
                 int genders = stream.readInt();
-                String[] ability = (String[])stream.readObject();
+				String[] ability = (String[])stream.readObject();
  
                 m_database[i] = new PokemonSpecies(i, name, base, genders);
             } catch (ClassNotFoundException e) {

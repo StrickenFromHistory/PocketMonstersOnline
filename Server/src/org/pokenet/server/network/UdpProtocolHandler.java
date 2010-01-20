@@ -5,7 +5,6 @@ import java.util.HashMap;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IoSession;
 import org.pokenet.server.backend.entity.PlayerChar;
-import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.network.message.PokenetMessage;
 
 /**

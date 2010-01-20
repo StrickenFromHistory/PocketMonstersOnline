@@ -114,7 +114,7 @@ public class DataService {
 	}
 	
 	/**
-	 * Initialises the species database
+	 * Initializes the species database
 	 */
 	public void initialiseSpecies() {
 		/* Load shoddy database */
@@ -177,7 +177,7 @@ public class DataService {
 			e.printStackTrace();
 			return;
 		}
-		Iterator iterator = ini.keySet().iterator();
+		Iterator<String> iterator = ini.keySet().iterator();
 		while(iterator.hasNext()) {
 			String tm = (String) iterator.next();
 			Ini.Section s = ini.get(tm);

@@ -3,11 +3,9 @@ package org.pokenet.server.backend;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 
 import org.pokenet.server.backend.entity.Char;
 import org.pokenet.server.backend.entity.HMObject;
-import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.HMObject.objectType;
 
 /**
@@ -99,7 +97,7 @@ public class MovementManager implements Runnable {
 	 */
 	public void run() {
 		Char tmp = null;
-		ArrayList<Char> tmpArray = null;
+		//ArrayList<Char> tmpArray = null;
 		while(m_isRunning) {
 			/* Pull char of highest priority */
 			synchronized(m_waiting) {

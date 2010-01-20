@@ -1,12 +1,9 @@
 package org.pokenet.server.backend.entity;
 
-import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
 
 import org.apache.mina.core.session.IoSession;
 import org.pokenet.server.GameServer;

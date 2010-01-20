@@ -3,10 +3,7 @@ package org.pokenet.server.backend.entity;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.backend.map.ServerMap;
-import org.pokenet.server.battle.DataService;
-import org.pokenet.server.network.message.MoveMessage;
 import org.pokenet.server.network.message.SpriteChangeMessage;
 
 /**

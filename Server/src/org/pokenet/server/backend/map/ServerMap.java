@@ -11,7 +11,6 @@ import org.pokenet.server.backend.entity.Char;
 import org.pokenet.server.backend.entity.HMObject;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
-import org.pokenet.server.backend.entity.PlayerChar.Language;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
@@ -19,8 +18,6 @@ import org.pokenet.server.battle.impl.NpcBattleLauncher;
 import org.pokenet.server.feature.TimeService;
 import org.pokenet.server.feature.TimeService.Weather;
 import org.pokenet.server.network.TcpProtocolHandler;
-import org.pokenet.server.network.UdpProtocolHandler;
-import org.pokenet.server.network.message.MoveMessage;
 import org.pokenet.server.network.message.PokenetMessage;
 
 import tiled.core.Map;

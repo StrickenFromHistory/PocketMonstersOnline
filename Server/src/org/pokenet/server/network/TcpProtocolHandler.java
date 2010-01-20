@@ -395,7 +395,8 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						case 'n':
 							//Announce message to server
 							if(p.getAdminLevel() == 2) {
-								String mes = message.substring(3);
+								//TODO: add code?
+								//String mes = message.substring(3);
 							}
 							break;
 						}

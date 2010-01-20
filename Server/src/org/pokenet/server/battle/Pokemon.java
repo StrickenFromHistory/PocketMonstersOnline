@@ -30,7 +30,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.SortedSet;
-import java.util.TreeSet;
 
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.battle.mechanics.BattleMechanics;
