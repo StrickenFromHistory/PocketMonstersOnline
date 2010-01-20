@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import org.newdawn.slick.Image;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.SpriteFactory;
 
 /**
@@ -41,7 +42,9 @@ public class Player {
 	 * @param d
 	 */
 	public void queueMovement(Direction d) {
-		m_movementQueue.offer(d);
+		if (m_direction != d || !GameClient.getInstance().getMapMatrix()
+				.getCurrentMap().isColliding(this, d))
+			m_movementQueue.offer(d);
 	}
 	
 	/**
@@ -65,8 +68,8 @@ public class Player {
 	 * Moves this player right
 	 */
 	public void moveRight() {
-		m_svrX += 32;
-		m_isAnimating = true;
+			m_svrX += 32;
+			m_isAnimating = true;
 	}
 	
 	/**
@@ -295,5 +298,13 @@ public class Player {
 			return true;
 		}
 		return false;
+	}
+	
+	/**
+	 * Returns the type of player
+	 * @return 0 for NPC, 1 for Player, 2 for HMObject
+	 */
+	public int getType() {
+		return 0;
 	}
 }

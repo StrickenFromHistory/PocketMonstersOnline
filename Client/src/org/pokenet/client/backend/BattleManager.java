@@ -166,7 +166,7 @@ public class BattleManager {
 	 */
 	public void updateMoves() {
 		for (int i = 0; i < 4; i++){
-			if (m_curPoke.getMoves()[i] != null) {
+			if (m_curPoke != null && m_curPoke.getMoves()[i] != null) {
 				m_battle.m_moveButtons.get(i).setText(m_curPoke.getMoves()[i]);
 				m_battle.m_ppLabels.get(i).setText(m_curPoke.getMoveCurPP()[i] + "/"
 						+ m_curPoke.getMoveMaxPP()[i]);

@@ -97,4 +97,9 @@ public class HMObject extends Player {
 	public String getName(){
 		return m_objectName;
 	}
+	
+	@Override
+	public int getType(){
+		return 2;
+	}
 }

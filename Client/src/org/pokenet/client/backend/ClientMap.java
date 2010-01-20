@@ -8,6 +8,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.Layer;
 import org.newdawn.slick.tiled.TiledMap;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.entity.HMObject;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
 
@@ -176,7 +177,7 @@ public class ClientMap extends TiledMap {
 	 * @return
 	 */
 	private boolean isNewMap(int x, int y) {
-		return x < 0 || x >= this.getWidth() / 32 || y < 0
+		return x < 0 || x >= this.getWidth() * 32 || y < 0
 				|| y + 8 >= this.getHeight() * 32;
 	}
 
@@ -198,6 +199,7 @@ public class ClientMap extends TiledMap {
 	 * @return
 	 */
 	public boolean isColliding(Player p, Direction d) {
+		System.err.println("Starting collision checks");
 		int newX = 0, newY = 0;
 		switch (d) {
 		case Up:
@@ -219,9 +221,16 @@ public class ClientMap extends TiledMap {
 		}
 		if (isNewMap(newX, newY))
 			return false;
+		for (HMObject m_hmObj : m_mapMatrix.getHMObjects()){
+			if (m_hmObj.getX() == newX && m_hmObj.getY() == newY){
+				return true;
+			}
+		}
+		System.err.println("HM Collision over");
 		int collisionLayer = getLayer("Collisions").getTileID(newX / 32,
 				(newY + 8) / 32);
 		int ledgeLayer = 0;
+		System.err.println("NEW COORDS: "+newX+","+newY);
 		try {
 			if (p.getDirection() != Direction.Right) {
 				ledgeLayer = getLayer("LedgesRight").getTileID(newX / 32,
