@@ -199,7 +199,6 @@ public class ClientMap extends TiledMap {
 	 * @return
 	 */
 	public boolean isColliding(Player p, Direction d) {
-		System.err.println("Starting collision checks");
 		int newX = 0, newY = 0;
 		switch (d) {
 		case Up:
@@ -226,7 +225,6 @@ public class ClientMap extends TiledMap {
 				return true;
 			}
 		}
-		System.err.println("HM Collision over");
 		int collisionLayer = getLayer("Collisions").getTileID(newX / 32,
 				(newY + 8) / 32);
 		int ledgeLayer = 0;
