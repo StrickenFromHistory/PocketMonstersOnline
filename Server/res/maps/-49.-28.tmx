@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="13" height="21" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonChances" value=""/>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="fishPokemonChances" value=""/>
+  <property name="fishPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+<tileset firstgid="1" source="normal9.tsx"/>
+<tileset firstgid="1025" source="normal6.tsx"/>
+<tileset firstgid="2049" source="normal1.tsx"/> 
+<tileset firstgid="3073" source="normal2.tsx"/>
+ <layer name="Walkable" width="13" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAL2RSw6AIAxEa1fiNXSBHsPPUeSiejDLgqQZaagbm7wQkhmGAaL/ZhU2YW9wKM8tcEc0OdCelpbBczk8tRyG86zVyrG6sTPHupu3j5WT6WUfhIHe99U5RZeZFQH8OieCFlmo3qfkR9Cx0WdUfdDj+Z+aB3OS6opvkIAyZ6O/5m/P13kAsLSyikQEAAA=
+  </data>
+ </layer>
+ <layer name="random" width="13" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMFODJx8DgBcTefMTryQSqzQLibBx6AEPLpS5EBAAA
+  </data>
+ </layer>
+ <layer name="Collisions" width="13" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAK2R2w2AIAxF65v46QY+R9E5/HI8p3Av26REbBoE9SYnwZYr5ZIAQIpkTM5Uztr2CqREWqRDemZg5JoYkYk9MZp/8CzMUd9ZFA/VSRsjZT20L3Q29z/abE8K9Wj3cXs2A4Dr/j6PloGsfXkfO8uTYrJ21YKeAXhq0hOSgfS8mY20G//323PWSA/tb4wOeHon2drTu0QEAAA=
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="13" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGDjQwoWKcakBAXUoXsqFitXR1DFA1RADiFVHCKgTVoITwNyN7E9CdsHcjex/agBccYBP3UCENbqfsYkNFOjnwM8fjgAArQGa3EQEAAA=
+  </data>
+ </layer>
+</map>
