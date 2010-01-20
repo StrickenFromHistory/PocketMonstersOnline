@@ -20,7 +20,6 @@ public class HMObject extends Player {
 	
 	public static HMObjectType parseHMObject(String s) throws Exception {
 		for (HMObjectType HMObj : HMObjectType.values()) {
-			System.out.println(HMObj.name() + " " + s);
 			if (s.equalsIgnoreCase(HMObj.name()))
 				return HMObj;
 		}
