@@ -31,6 +31,45 @@ public class Animator {
 	 */
 	private void animatePlayer(Player p) {
 		/*
+		 * Check if we need to move the player
+		 */
+		if(p.requiresMovement()) {
+			switch(p.getNextMovement()) {
+			case Down:
+				if(p.getDirection() == Direction.Down)
+					p.setServerY(p.getY() + 32);
+				else {
+					p.setDirection(Direction.Down);
+					p.loadSpriteImage();
+				}
+				break;
+			case Left:
+				if(p.getDirection() == Direction.Left)
+					p.setServerX(p.getX() - 32);
+				else {
+					p.setDirection(Direction.Left);
+					p.loadSpriteImage();
+				}
+				break;
+			case Right:
+				if(p.getDirection() == Direction.Right)
+					p.setServerX(p.getX() + 32);
+				else {
+					p.setDirection(Direction.Right);
+					p.loadSpriteImage();
+				}
+				break;
+			case Up:
+				if(p.getDirection() == Direction.Up)
+					p.setServerY(p.getY() - 32);
+				else {
+					p.setDirection(Direction.Up);
+					p.loadSpriteImage();
+				}
+				break;
+			}
+		}
+		/*
 		 * Keep the screen following the player, i.e. move the map also
 		 */
 		if (p.isOurPlayer()) {
@@ -53,7 +92,7 @@ public class Animator {
 			}
 		}
 		/*
-		 * Move the player
+		 * Move the player on screen
 		 */
 		if (p.getX() > p.getServerX()) {
 			if(p.getX() % 32 == 0) {
