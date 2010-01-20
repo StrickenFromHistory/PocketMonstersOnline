@@ -495,7 +495,7 @@
 			<description>Increases HP EVs</description>
 			<id>70</id>
 			<category>Vitamins</category>
-			<shop>0</shop>
+			<shop>7</shop>
 			<price>9800</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -510,7 +510,7 @@
 			</description>
 			<id>71</id>
 			<category>Vitamins</category>
-			<shop>0</shop>
+			<shop>7</shop>
 			<price>9800</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -524,7 +524,7 @@
 			<description>Hardens the Defense EVs</description>
 			<id>72</id>
 			<category>Vitamins</category>
-			<shop>0</shop>
+			<shop>7</shop>
 			<price>9800</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -538,7 +538,7 @@
 			<description>Develops the Sp. Attack Evs</description>
 			<id>73</id>
 			<category>Vitamins</category>
-			<shop>0</shop>
+			<shop>7</shop>
 			<price>9800</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -552,7 +552,7 @@
 			<description>Hardens the Sp. defense EVs</description>
 			<id>74</id>
 			<category>Vitamins</category>
-			<shop>0</shop>
+			<shop>7</shop>
 			<price>9800</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -566,7 +566,7 @@
 			<description>Provides energy for Speed EVs</description>
 			<id>75</id>
 			<category>Vitamins</category>
-			<shop>0</shop>
+			<shop>7</shop>
 			<price>9800</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -1160,7 +1160,7 @@
 			<description>Allows fire type evolution</description>
 			<id>164</id>
 			<category>Evolution</category>
-			<shop>0</shop>
+			<shop>6</shop>
 			<price>1500</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -1174,7 +1174,7 @@
 			<description>Allows water type evolution</description>
 			<id>165</id>
 			<category>Evolution</category>
-			<shop>0</shop>
+			<shop>6</shop>
 			<price>1500</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -1188,7 +1188,7 @@
 			<description>Allows electric type evolution</description>
 			<id>166</id>
 			<category>Evolution</category>
-			<shop>0</shop>
+			<shop>6</shop>
 			<price>1500</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -1286,7 +1286,7 @@
 			<description>Allows plant type evolution</description>
 			<id>173</id>
 			<category>Evolution</category>
-			<shop>0</shop>
+			<shop>6</shop>
 			<price>1500</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -4263,7 +4263,7 @@
 			<description>Teaches roar</description>
 			<id>580</id>
 			<category>TM</category>
-			<shop>0</shop>
+			<shop>5</shop>
 			<price>2000</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -4383,7 +4383,7 @@
 			<description>Teaches hyper beam</description>
 			<id>590</id>
 			<category>TM</category>
-			<shop>0</shop>
+			<shop>5</shop>
 			<price>7500</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -4539,7 +4539,7 @@
 			<description>Teaches dig</description>
 			<id>603</id>
 			<category>TM</category>
-			<shop>0</shop>
+			<shop>5</shop>
 			<price>5500</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -4575,7 +4575,7 @@
 			<description>Teaches brick break</description>
 			<id>606</id>
 			<category>TM</category>
-			<shop>0</shop>
+			<shop>5</shop>
 			<price>5500</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -4719,7 +4719,7 @@
 			<description>Teaches secret power</description>
 			<id>618</id>
 			<category>TM</category>
-			<shop>0</shop>
+			<shop>5</shop>
 			<price>2000</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
@@ -4743,7 +4743,7 @@
 			<description>Teaches attract</description>
 			<id>620</id>
 			<category>TM</category>
-			<shop>0</shop>
+			<shop>5</shop>
 			<price>2000</price>
 			<attributes>
 				<itemAttribute>POKEMON</itemAttribute>
