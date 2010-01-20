@@ -84,11 +84,12 @@ public class ThinClient extends JFrame implements Runnable {
 
 	@Override
 	public void run() {
+		String folder = System.getProperty("user.home") + "/PokeNet/";
 		int ourRev = 0;
 		int currentRev = 1;
 		/* Get the current revision, if any */
 		try {
-			Scanner revCheck = new Scanner(new File("./PokeNet/rev.txt"));
+			Scanner revCheck = new Scanner(new File(folder + "rev.txt"));
 			ourRev = revCheck.nextInt();
 			revCheck.close();
 		} catch (Exception e) {
@@ -134,13 +135,6 @@ public class ThinClient extends JFrame implements Runnable {
 		/* We got the list of checksums, let's see if we need to update */
 		Iterator<String> it = files.keySet().iterator();
 		CheckSums s;
-		String folder = "./";
-		try {
-			folder = new File("./PokeNet/").getCanonicalPath();
-			folder = folder + "/";
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
 		while(it.hasNext()) {
 			String file = it.next();
 			/* First check if we have the file */
