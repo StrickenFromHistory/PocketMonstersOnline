@@ -5,6 +5,7 @@ import java.util.Queue;
 
 import org.newdawn.slick.Image;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.SpriteFactory;
 
 /**
@@ -43,8 +44,10 @@ public class Player {
 	 */
 	public void queueMovement(Direction d) {
 		if (m_direction != d || !GameClient.getInstance().getMapMatrix()
-				.getCurrentMap().isColliding(this, d))
-			m_movementQueue.offer(d);
+				.getCurrentMap().isColliding(this, d) && 
+				!GameClient.getInstance().getDisplay().containsChild(
+						BattleManager.getInstance().getBattleWindow()))
+				m_movementQueue.offer(d);
 	}
 	
 	/**
