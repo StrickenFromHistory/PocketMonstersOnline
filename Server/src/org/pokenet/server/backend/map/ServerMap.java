@@ -20,10 +20,8 @@ import org.pokenet.server.feature.TimeService;
 import org.pokenet.server.feature.TimeService.Weather;
 import org.pokenet.server.network.TcpProtocolHandler;
 import org.pokenet.server.network.UdpProtocolHandler;
-import org.pokenet.server.network.message.ChatMessage;
 import org.pokenet.server.network.message.MoveMessage;
 import org.pokenet.server.network.message.PokenetMessage;
-import org.pokenet.server.network.message.ChatMessage.ChatMessageType;
 
 import tiled.core.Map;
 import tiled.core.TileLayer;
@@ -280,24 +278,6 @@ public class ServerMap {
 				DataLoader d = new DataLoader(f, this);
 			} catch (Exception e) {
 				
-			}
-		}
-	}
-	
-	/**
-	 * Sends a chat message to everyone of the same language
-	 * @param message
-	 * @param l
-	 */
-	public void sendChatMessage(String message, Language l) {
-		synchronized(m_players) {
-			Collection<PlayerChar> list = m_players.values();
-			for(PlayerChar p: list) {
-				if(p.getLanguage() == l) {
-					TcpProtocolHandler.writeMessage(
-							p.getTcpSession(),
-							new ChatMessage(ChatMessageType.LOCAL, message));
-				}
 			}
 		}
 	}
@@ -1011,7 +991,7 @@ public class ServerMap {
 	 * @param moveMessage
 	 * @param char1
 	 */
-	public void sendMovementToAll(MoveMessage moveMessage, Char c) {
+	public void sendMovementToAll(Direction d, Char c) {
 		if(c instanceof PlayerChar) {
 			/*
 			 * If a player, send movement to everyone but themselves
@@ -1021,8 +1001,9 @@ public class ServerMap {
 			synchronized(m_players) {
 				Collection<PlayerChar> list = m_players.values();
 				for(PlayerChar pl: list) {
-					if(p != pl)
-						UdpProtocolHandler.writeMessage(pl.getUdpSession(), moveMessage);
+					if(p != pl) {
+						pl.queueOtherPlayerMovement(d, c.getId());
+					}
 				}
 			}
 		} else {
@@ -1032,7 +1013,7 @@ public class ServerMap {
 			synchronized(m_players) {
 				Collection<PlayerChar> list = m_players.values();
 				for(PlayerChar pl: list) {
-					UdpProtocolHandler.writeMessage(pl.getUdpSession(), moveMessage);
+					pl.queueOtherPlayerMovement(d, c.getId());
 				}
 			}
 		}

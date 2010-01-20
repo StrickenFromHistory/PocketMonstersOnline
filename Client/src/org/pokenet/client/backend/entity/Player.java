@@ -1,5 +1,8 @@
 package org.pokenet.client.backend.entity;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import org.newdawn.slick.Image;
 import org.pokenet.client.backend.SpriteFactory;
 
@@ -26,9 +29,36 @@ public class Player {
 	protected boolean m_wasOnGrass = false;
 	
 	public enum Direction {Up, Down, Left, Right}
+	/* Handles movement queue */
+	protected Queue<Direction> m_movementQueue = new LinkedList<Direction>();
 	
 	public static void loadSpriteFactory() {
 		m_spriteFactory = new SpriteFactory();
+	}
+	
+	/**
+	 * Queues a movement
+	 * @param d
+	 */
+	public void queueMovement(Direction d) {
+		m_movementQueue.offer(d);
+	}
+	
+	/**
+	 * Returns true if player has a movement queued
+	 * and can be moved
+	 * @return
+	 */
+	public boolean requiresMovement() {
+		return canMove() && m_movementQueue.size() > 0;
+	}
+	
+	/**
+	 * Returns the next movement for the player
+	 * @return
+	 */
+	public Direction getNextMovement() {
+		return m_movementQueue.poll();
 	}
 	
 	/**
@@ -252,5 +282,18 @@ public class Player {
 	 */
 	public boolean isOurPlayer() {
 		return m_ours;
+	}
+	
+	
+	/**
+	 * Returns true if our player can move
+	 * @return
+	 */
+	public boolean canMove() {
+		if(this.getX() == this.getServerX() && 
+				this.getY() == this.getServerY()) {
+			return true;
+		}
+		return false;
 	}
 }

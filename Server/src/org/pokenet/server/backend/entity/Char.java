@@ -1,5 +1,9 @@
 package org.pokenet.server.backend.entity;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
+import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.backend.map.ServerMap;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.network.message.MoveMessage;
@@ -11,13 +15,41 @@ import org.pokenet.server.network.message.SpriteChangeMessage;
  *
  */
 public class Char implements Positionable {
-	protected Direction m_nextMovement = null;
 	private Direction m_facing = Direction.Down;
-	private long m_lastMovement = System.currentTimeMillis();
 	protected int m_sprite, m_mapX, m_mapY, m_x, m_y, m_id;
 	private boolean m_isVisible, m_isSurfing;
 	protected String m_name;
 	protected ServerMap m_map;
+	/*
+	 * Stores a queue of movements for processing
+	 */
+	protected Queue<Direction> m_movementQueue = new LinkedList<Direction>();
+	
+	/**
+	 * Returns the priority of this player to be move checked
+	 * @return
+	 */
+	public int getPriority() {
+		return m_movementQueue.size();
+	}
+	
+	/**
+	 * Queues a movement to be checked
+	 * @param d
+	 */
+	public void queueMovement(Direction d) {
+		m_movementQueue.offer(d);
+	}
+	
+	/**
+	 * Returns next movement to be checked
+	 * @return
+	 */
+	public Direction getNextMovement() {
+		if(m_movementQueue.size() == 0)
+			return null;
+		return m_movementQueue.poll();
+	}
 	
 	/**
 	 * Returns the direction this char is facing
@@ -130,104 +162,68 @@ public class Char implements Positionable {
 	public void setName(String name) {
 		m_name = name;
 	}
+	
+	/**
+	 * Processes and checks all movements queued
+	 */
+	public void move() {
+		/* 
+		 * Moves player until queue becomes empty, 
+		 * collision encountered or pokemon encountered 
+		 */
+		while(move(getNextMovement())) {}
+	}
 
 	/**
-	 * Moves the char if m_nextMovement != null
-	 * Returns true if the char was successfully moved
+	 * Returns true if the char was successfully moved in direction d
+	 * @param d - Direction to be moved in
 	 */
-	public boolean move() {
-		if(m_nextMovement != null && m_map != null) {
+	public boolean move(Direction d) {
+		if(d != null && m_map != null) {
+			//Change direction if needs be
+			if(m_facing != d) {
+				setFacing(d);
+				return true;
+			}
 			//Move the player
-			if(m_map.moveChar(this, m_nextMovement)) {
-				/*
-				 * If it's a player, send the movement securely over TCP
-				 */
-				if(this instanceof PlayerChar) {
-					PlayerChar p = (PlayerChar) this;
-					switch(m_nextMovement) {
-					case Up:
-						p.getTcpSession().write("U");
-						break;
-					case Down:
-						p.getTcpSession().write("D");
-						break;
-					case Left:
-						p.getTcpSession().write("L");
-						break;
-					case Right:
-						p.getTcpSession().write("R");
-						break;
-					}
-				}
+			if(m_map.moveChar(this, d)) {
 				/*
 				 * Update co-ordinates and inform other players of movement
 				 */
-				switch(m_nextMovement) {
+				switch(d) {
 				case Up:
 					m_y -= 32;
 					m_facing = Direction.Up;
-					m_map.sendMovementToAll(new MoveMessage(this, false), this);
+					m_map.sendMovementToAll(d, this);
 					break;
 				case Down:
 					m_y += 32;
 					m_facing = Direction.Down;
-					m_map.sendMovementToAll(new MoveMessage(this, false), this);
+					m_map.sendMovementToAll(d, this);
 					break;
 				case Left:
 					m_x -= 32;
 					m_facing = Direction.Left;
-					m_map.sendMovementToAll(new MoveMessage(this, false), this);
+					m_map.sendMovementToAll(d, this);
 					break;
 				case Right:
 					m_x += 32;
 					m_facing = Direction.Right;
-					m_map.sendMovementToAll(new MoveMessage(this, false), this);
+					m_map.sendMovementToAll(d, this);
 					break;
 				}
-				m_nextMovement = null;
-				m_lastMovement = System.currentTimeMillis();
 				return true;
+			} else {
+				//Invalid movement
+				if(this instanceof PlayerChar) {
+					//If its a player, resync them
+					PlayerChar p = (PlayerChar) this;
+					p.getTcpSession().write("U" + getX() + "," + getY());
+					return false;
+				}
 			}
 		}
 		return false;
-	}
-
-	/**
-	 * Sets the char's next movement
-	 */
-	public void setNextMovement(Direction dir) {
-		if(System.currentTimeMillis() - m_lastMovement > 50 && dir != null) {
-			/*
-			 * If it's the same direction we're facing, queue the movement
-			 * Else, turn and *possibly* send the turn to other players
-			 */
-			if(m_facing == dir) {
-				m_nextMovement = dir;
-			} else {
-				if(this instanceof PlayerChar) {
-					PlayerChar p = (PlayerChar) this;
-					switch(dir) {
-					case Up:
-						p.getTcpSession().write("cU" + m_id);
-						break;
-					case Down:
-						p.getTcpSession().write("cD" + m_id);
-						break;
-					case Left:
-						p.getTcpSession().write("cL" + m_id);
-						break;
-					case Right:
-						p.getTcpSession().write("cR" + m_id);
-						break;
-					}
-				}
-				m_facing = dir;
-				/* Only send one-third of direction turns to reduce CPU overload due to threads */
-				if(DataService.getBattleMechanics().getRandom().nextInt(3) == 0) {
-					m_map.sendMovementToAll(new MoveMessage(this, true), this);
-				}
-			}
-		}
 	}
 
 	/**
@@ -317,7 +313,7 @@ public class Char implements Positionable {
 	public void setFacing(Direction d) {
 		m_facing = d;
 		if(m_map != null) {
-			m_map.sendMovementToAll(new MoveMessage(this, true), this);
+			m_map.sendMovementToAll(d, this);
 		}
 	}
 }

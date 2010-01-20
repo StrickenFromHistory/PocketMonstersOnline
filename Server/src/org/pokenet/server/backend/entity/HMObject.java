@@ -91,7 +91,7 @@ public class HMObject extends NonPlayerChar {
 		if (p.getTrainingLevel() >= getNecessaryTrainerLevel(getType())) {
 			switch (m_HMType){
 			case STRENGTH_BOULDER :
-				setNextMovement(p.getFacing());
+				queueMovement(p.getFacing());
 				if (addToMovementManager) {
 					GameServer.getServiceManager().getMovementService().getMovementManager().addHMObject(this);
 					addToMovementManager = false;

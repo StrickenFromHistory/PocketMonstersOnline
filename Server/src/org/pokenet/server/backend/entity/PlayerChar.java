@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import org.apache.mina.core.session.IoSession;
 import org.pokenet.server.GameServer;
@@ -72,7 +74,11 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	private Shop m_currentShop = null;
 	private int m_repel = 0;
 	private long m_lastTrade = 0;
-	private String m_udpCode = "";
+	/*
+	 * Stores movement of other players to be
+	 * sent in bulk to client
+	 */
+	private String [] m_movements = new String [4];
 	/*
 	 * Kicking timer
 	 */
@@ -102,12 +108,40 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 */
 	private HashMap<String, RequestType> m_requests;
 
+	
 	/**
 	 * Constructor
 	 * NOTE: Minimal initialisations should occur here
 	 */
 	public PlayerChar() {
 		m_requests = new HashMap<String, RequestType>();
+	}
+	
+	/**
+	 * Queues other player movements to be sent to client in bulk
+	 * @param d
+	 * @param player
+	 */
+	public void queueOtherPlayerMovement(Direction d, int player) {
+		String s = d + String.valueOf(player);
+		/* Queue the movement */
+		for(int i = 0; i < m_movements.length; i++) {
+			if(m_movements[i] == null) {
+				m_movements[i] = s;
+				return;
+			}
+		}
+		/* 
+		 * Unsuccessful, queue is full!
+		 * Send queue and place at 0
+		 */
+		String message = "M";
+		for(int i = 0; i < m_movements.length; i++) {
+			message = message + m_movements[i];
+			m_movements[i] = null;
+		}
+		m_udpSession.write(message);
+		m_movements[0] = s;
 	}
 
 	/**
@@ -752,14 +786,6 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	}
 
 	/**
-	 * Forces the player to move in the direction they are facing.
-	 * Returns true if they were moved
-	 */
-	public boolean forceMove() {
-		this.setNextMovement(getFacing());
-		return super.move();
-	}
-	/**
 	 * Fishes for a pokemon.
 	 */
 	public void fish(int rod) {
@@ -790,14 +816,15 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * Adds a check for wild battles and clears battle/trade request lists
 	 */
 	@Override
-	public boolean move() {
+	public boolean move(Direction d) {
 		if(!m_isBattling && !m_isTalking && !m_isShopping && !m_isBoxing) {
-			if(super.move()) {
+			if(super.move(d)) {
 				//If the player moved
 				if(this.getMap() != null) {
 					if(m_repel > 0)
 						m_repel--;
 					if(m_repel <= 0 && this.getMap().isWildBattle(m_x, m_y, this)) {
+						m_tcpSession.write("U" + getX() + "," + getY());
 						this.ensureHealthyPokemon();
 						m_battleField = new WildBattleField(
 								DataService.getBattleMechanics(),
@@ -821,8 +848,11 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 				return true;
 			}
 		} else {
-			//Ignore any movement request if the player can't move
-			this.setNextMovement(null);
+			if(getPriority() > 0) {
+				//Someone has been trying to move in-battle! RESYNC
+				m_movementQueue.clear();
+				m_tcpSession.write("U" + getX() + "," + getY());
+			}
 		}
 		return false;
 	}
@@ -1262,8 +1292,6 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		 */
 		if(packet.length() > 2)
 			m_tcpSession.write(packet);
-		/* Prevent another step being taken */
-		m_nextMovement = null;
 	}
 
 	/**
@@ -1677,84 +1705,5 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 					getBag().getItems().get(i).getItemNumber(), 
 					getBag().getItems().get(i).getQuantity()));
 		}
-	}
-
-	/**
-	 * Generates the code used to id the player over udp
-	 */
-	public void generateUdpCode() {
-		m_udpCode = "";
-		for(int i = 0; i < 5; i++) {
-			switch(DataService.getBattleMechanics().getRandom().nextInt(20)) {
-			case 0:
-				m_udpCode += String.valueOf(0);
-				break;
-			case 1:
-				m_udpCode += String.valueOf(1);
-				break;
-			case 2:
-				m_udpCode += String.valueOf(2);
-				break;
-			case 3:
-				m_udpCode += String.valueOf(3);
-				break;
-			case 4:
-				m_udpCode += String.valueOf(4);
-				break;
-			case 5:
-				m_udpCode += String.valueOf(5);
-				break;
-			case 6:
-				m_udpCode += String.valueOf(6);
-				break;
-			case 7:
-				m_udpCode += String.valueOf(7);
-				break;
-			case 8:
-				m_udpCode += String.valueOf(8);
-				break;
-			case 9:
-				m_udpCode += String.valueOf(9);
-				break;
-			case 10:
-				m_udpCode += "A";
-				break;
-			case 11:
-				m_udpCode += "B";
-				break;
-			case 12:
-				m_udpCode += "C";
-				break;
-			case 13:
-				m_udpCode += "D";
-				break;
-			case 14:
-				m_udpCode += "E";
-				break;
-			case 15:
-				m_udpCode += "F";
-				break;
-			case 16:
-				m_udpCode += "W";
-				break;
-			case 17:
-				m_udpCode += "X";
-				break;
-			case 18:
-				m_udpCode += "Y";
-				break;
-			case 19:
-				m_udpCode += "Z";
-				break;
-			}
-		}
-	}
-
-	/**
-	 * Returns the udp identification code
-	 * @return
-	 */
-	public String getUdpCode() {
-		return m_udpCode;
 	}
 }

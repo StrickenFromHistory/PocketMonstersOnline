@@ -1,5 +1,8 @@
 package org.pokenet.server.backend;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import org.pokenet.server.backend.entity.Char;
@@ -13,34 +16,42 @@ import org.pokenet.server.backend.entity.HMObject.objectType;
  *
  */
 public class MovementManager implements Runnable {
-	private HashMap<String, Char> m_players;
+	private ArrayList<Char> m_waiting;
+	private ArrayList<Char> m_moved;
 	private Thread m_thread;
 	private boolean m_isRunning;
 	private int m_pLoad = 0;
+	/** Comparator for comparing chars */
+	private Comparator<Char> m_comp;
 	
 	/**
 	 * Default constructor.
 	 */
 	public MovementManager() {
-		m_players = new HashMap<String, Char>();
+		m_waiting = new ArrayList<Char>();
+		m_moved = new ArrayList<Char>();
+		m_comp = new Comparator<Char>() {
+			public int compare(Char arg0, Char arg1) {
+				return arg0.getPriority() - arg1.getPriority();
+			}};
 	}
 	
 	/**
 	 * Adds a player to this movement service
 	 * @param player
 	 */
-	public void addPlayer(PlayerChar player) {
-		synchronized(m_players) {
+	public void addPlayer(Char player) {
+		synchronized(m_waiting) {
 			m_pLoad++;
-			m_players.put(player.getName(), player);
+			m_waiting.add(player);
 		}
 	}
 	
 	public void addHMObject(HMObject obj){
-		synchronized(m_players) {
+		synchronized(m_waiting) {
 			if (obj.getType() == objectType.STRENGTH_BOULDER){
 				m_pLoad++;
-				m_players.put(obj.getName() + obj.getObjId(), obj);
+				m_waiting.add(obj);
 			}
 		}
 	}
@@ -58,10 +69,26 @@ public class MovementManager implements Runnable {
 	 * @param player
 	 */
 	public boolean removePlayer(String player) {
-		synchronized(m_players) {
-			if(m_players.remove(player) != null) {
-				m_pLoad--;
-				return true;
+		/* Check waiting list */
+		synchronized(m_waiting) {
+			for(int i = 0; i < m_waiting.size(); i++) {
+				if(m_waiting.get(i).getName().equalsIgnoreCase(player)) {
+					m_waiting.remove(i);
+					m_waiting.trimToSize();
+					m_pLoad--;
+					return true;
+				}
+			}
+		}
+		/* Check moved list */
+		synchronized(m_moved) {
+			for(int i = 0; i < m_moved.size(); i++) {
+				if(m_moved.get(i).getName().equalsIgnoreCase(player)) {
+					m_moved.remove(i);
+					m_moved.trimToSize();
+					m_pLoad--;
+					return true;
+				}
 			}
 		}
 		return false;
@@ -71,19 +98,26 @@ public class MovementManager implements Runnable {
 	 * Called by m_thread.start(). Loops through all players calling PlayerChar.move() if the player requested to be moved.
 	 */
 	public void run() {
+		Char tmp = null;
+		ArrayList<Char> tmpArray = null;
 		while(m_isRunning) {
-			synchronized(m_players) {
-				for(Char p : m_players.values()) {
-					try {
-						p.move();
-					} catch (Exception e) {
-						e.printStackTrace();
-						removePlayer(p.getName());
-						if (p instanceof PlayerChar){
-							PlayerChar player = (PlayerChar) p;
-							player.forceLogout();
-						}
-					}
+			/* Pull char of highest priority */
+			synchronized(m_waiting) {
+				tmp = m_waiting.remove(0);
+				m_waiting.trimToSize();
+				Collections.sort(m_waiting, m_comp);
+			}
+			/* Move character */
+			tmp.move();
+			/* Place him in moved array */
+			synchronized(m_moved) {
+				m_moved.add(tmp);
+			}
+			/* If waiting array is empty, swap arrays */
+			synchronized(m_waiting) {
+				if(m_waiting.size() == 0) {
+					m_waiting = m_moved;;
+					m_moved = new ArrayList<Char>();
 				}
 			}
 			try {
@@ -113,7 +147,8 @@ public class MovementManager implements Runnable {
 	 * Stops the movement thread
 	 */
 	public void stop() {
-		m_players.clear();
+		m_moved.clear();
+		m_waiting.clear();
 		m_isRunning = false;
 	}
 

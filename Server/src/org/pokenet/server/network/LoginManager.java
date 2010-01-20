@@ -313,7 +313,6 @@ public class LoginManager implements Runnable {
 		p.setLastLoginTime(time);
 		p.setTcpSession(session);
 		p.setLanguage(Language.values()[Integer.parseInt(String.valueOf(language))]);
-		p.generateUdpCode();
 		/*
 		 * Update the database with login information
 		 */
@@ -339,7 +338,7 @@ public class LoginManager implements Runnable {
 	 * @param session
 	 */
 	private void initialiseClient(PlayerChar p, IoSession session) {
-		session.write("ls" + p.getId() + "," + p.getUdpCode() + "," + TimeService.getTime());
+		session.write("ls" + p.getId() + "," + TimeService.getTime());
 		//Add them to the map
 		p.setMap(GameServer.getServiceManager().getMovementService().getMapMatrix().getMapByGamePosition(p.getMapX(), p.getMapY()), null);
 		//Add them to a movement service

@@ -11,7 +11,6 @@ import org.apache.mina.transport.socket.DatagramSessionConfig;
 import org.apache.mina.transport.socket.nio.NioDatagramAcceptor;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 import org.pokenet.server.GameServer;
-import org.pokenet.server.feature.ChatManager;
 import org.pokenet.server.network.codec.PokenetCodecFactory;
 
 /**
@@ -25,7 +24,6 @@ public class NetworkService {
 	private LogoutManager m_logoutManager;
 	private IoAcceptor m_tcpAcceptor;
 	private NioDatagramAcceptor m_udpAcceptor;
-	private ChatManager [] m_chatManager;
 	
 	/**
 	 * Default constructor
@@ -33,7 +31,6 @@ public class NetworkService {
 	public NetworkService() {
 		m_logoutManager = new LogoutManager();
 		m_loginManager = new LoginManager(m_logoutManager);
-		m_chatManager = new ChatManager[3];
 		m_tcpProtocolHandler = new TcpProtocolHandler(m_loginManager, m_logoutManager);
 		m_udpProtocolHandler = new UdpProtocolHandler();
 	}
@@ -52,19 +49,6 @@ public class NetworkService {
 	 */
 	public LogoutManager getLogoutManager() {
 		return m_logoutManager;
-	}
-	
-	/**
-	 * Returns the chat manager with the least amount of processing to be done
-	 * @return
-	 */
-	public ChatManager getChatManager() {
-		int smallest = 0;
-		for(int i = 1; i < m_chatManager.length; i++) {
-			if(m_chatManager[i].getProcessingLoad() < m_chatManager[smallest].getProcessingLoad())
-				smallest = i;
-		}
-		return m_chatManager[smallest];
 	}
 	
 	/**
@@ -105,13 +89,6 @@ public class NetworkService {
 		m_logoutManager.start();
 		m_loginManager.start();
 		/*
-		 * Start the chat managers
-		 */
-		for(int i = 0; i < m_chatManager.length; i++) {
-			m_chatManager[i] = new ChatManager();
-			m_chatManager[i].start();
-		}
-		/*
 		 * Bind the TCP port
 		 */
 		m_tcpAcceptor = new NioSocketAcceptor();
@@ -150,8 +127,6 @@ public class NetworkService {
 	public void stop() {
 		//Stop all threads (do not use thread.stop() )
 		//Unbind network address
-		for(int i = 0; i < m_chatManager.length; i++)
-			m_chatManager[i].stop();
 		m_tcpAcceptor.unbind();
 		m_tcpProtocolHandler.logoutAll();
 	}

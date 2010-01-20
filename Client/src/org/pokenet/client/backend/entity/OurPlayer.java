@@ -303,27 +303,6 @@ public class OurPlayer extends Player {
 		m_pokemon[Poke2] = temp1;
 	}
 	
-	public boolean canMove() {
-		if(this.isAnimating()) {
-			switch(m_direction) {
-			case Up:
-				return this.getX() == this.getServerX();
-			case Down:
-				return this.getX() == this.getServerX();
-			case Left:
-				return this.getY() == this.getServerY();
-			case Right:
-				return this.getY() == this.getServerY();
-			}
-		} else {
-			if(this.getX() == this.getServerX() && 
-					this.getY() == this.getServerY()) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
 	/**
 	 * Initializes the player's badges
 	 * @param str
@@ -346,4 +325,5 @@ public class OurPlayer extends Player {
 	public void addBadge(int index) {
 		m_badges[index] = 1;
 	}
+
 }

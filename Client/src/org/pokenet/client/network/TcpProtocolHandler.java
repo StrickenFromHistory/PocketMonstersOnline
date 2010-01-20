@@ -586,28 +586,18 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			}
 			break;
 		case 'U':
-			//Our player moving up
+			//Updating our player co-ordinates (probably went out of sync)
+			//Ux,y
 			p = m_game.getOurPlayer();
-			if(p != null)
-				p.moveUp();
-			break;
-		case 'D':
-			//Our player moving down
-			p = m_game.getOurPlayer();
-			if(p != null)
-				p.moveDown();
-			break;
-		case 'L':
-			//Our player moving left
-			p = m_game.getOurPlayer();
-			if(p != null)
-				p.moveLeft();
-			break;
-		case 'R':
-			//Our player moving right
-			p = m_game.getOurPlayer();
-			if(p != null)
-				p.moveRight();
+			details = message.substring(1).split(",");
+			p.setX(Integer.parseInt(details[0]));
+			p.setY(Integer.parseInt(details[1]));
+			p.setServerX(p.getX());
+			p.setServerY(p.getY());
+			/* Reposition screen above player */
+			m_game.getMapMatrix().getCurrentMap().setXOffset(400 - p.getX(), false);
+			m_game.getMapMatrix().getCurrentMap().setYOffset(300 - p.getY(), false);
+			m_game.getMapMatrix().recalibrate();
 			break;
 		case 'm':
 			//Map Information
@@ -813,11 +803,10 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				m_game.getLoginScreen().setVisible(false);
 				m_game.getLoadingScreen().setVisible(false);
 				m_game.setPlayerId(Integer.parseInt(details[0]));
-				GameClient.UDPCODE = details[1];
 				m_game.getUi().setVisible(true);
 				m_game.getUi().getChat().setVisible(true);
-				m_game.getTimeService().setTime(Integer.parseInt(details[2].substring(0, 2)), 
-						Integer.parseInt(details[2].substring(2)));
+				m_game.getTimeService().setTime(Integer.parseInt(details[1].substring(0, 2)), 
+						Integer.parseInt(details[1].substring(2)));
 				break;
 			case 'u':
 				//Unknown problem occurred

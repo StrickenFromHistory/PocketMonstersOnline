@@ -32,74 +32,10 @@ public class UdpProtocolHandler extends IoHandlerAdapter {
 	
 	@Override 
 	public void messageReceived(IoSession session, Object o) throws Exception { 
-		String message = (String) o;
-		String pid = "";
-		PlayerChar p = null;
-		/* If the message has no size, just return */
-		if(message.length() < 1)
-			return;
-		switch(message.charAt(0)) {
-		case 'U':
-			/* Move Up */
-			pid = message.substring(6);
-			synchronized(m_playerList) {
-				p = m_playerList.get(Integer.parseInt(pid));
-			}
-			if(p != null) {
-				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
-					if(!p.isBattling() && !p.isShopping()) {
-						p.setNextMovement(Direction.Up);
-						p.setUdpSession(session);
-					}
-				}
-			}
-			break;
-		case 'D':
-			/* Move Down */
-			pid = message.substring(6);
-			synchronized(m_playerList) {
-				p = m_playerList.get(Integer.parseInt(pid));
-			}
-			if(p != null) {
-				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
-					if(!p.isBattling() && !p.isShopping()) {
-						p.setNextMovement(Direction.Down);
-						p.setUdpSession(session);
-					}
-				}
-			}
-			break;
-		case 'L':
-			/* Move Left */
-			pid = message.substring(6);
-			synchronized(m_playerList) {
-				p = m_playerList.get(Integer.parseInt(pid));
-			}
-			if(p != null) {
-				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
-					if(!p.isBattling() && !p.isShopping()) {
-						p.setNextMovement(Direction.Left);
-						p.setUdpSession(session);
-					}
-				}
-			}
-			break;
-		case 'R':
-			/* Move Right */
-			pid = message.substring(6);
-			synchronized(m_playerList) {
-				p = m_playerList.get(Integer.parseInt(pid));
-			}
-			if(p != null) {
-				if(p.getUdpCode().compareTo(message.substring(1, 6)) == 0) {
-					if(!p.isBattling() && !p.isShopping()) {
-						p.setNextMovement(Direction.Right);
-						p.setUdpSession(session);
-					}
-				}
-			}
-			break;
-		}
+		/* 
+		 * Nothing is sent over udp from client, this class merely allows packets
+		 * to be sent to client over udp.
+		 */
 	} 
 	
 	/**

@@ -10,6 +10,7 @@ import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.ItemProcessor;
 import org.pokenet.server.backend.entity.PlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar.RequestType;
+import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.BattleTurn;
 import org.pokenet.server.battle.impl.PvPBattleField;
 import org.pokenet.server.battle.impl.WildBattleField;
@@ -110,6 +111,22 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			PlayerChar p = (PlayerChar) session.getAttribute("player");
 			p.lastPacket = System.currentTimeMillis();
 			switch(message.charAt(0)) {
+			case 'U':
+				//Move up
+				p.queueMovement(Direction.Up);
+				break;
+			case 'D':
+				//Move down
+				p.queueMovement(Direction.Down);
+				break;
+			case 'L':
+				//Move left
+				p.queueMovement(Direction.Left);
+				break;
+			case 'R':
+				//Move right
+				p.queueMovement(Direction.Right);
+				break;
 			case 'P':
 				//Pokemon interaction
 				int pokemonIndex = 0;
@@ -379,8 +396,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 							//Announce message to server
 							if(p.getAdminLevel() == 2) {
 								String mes = message.substring(3);
-								GameServer.getServiceManager().getNetworkService().getChatManager().
-								queueLocalChatMessage("<SERVER> " + mes, p.getMapX(), p.getMapY(), p.getLanguage());
 							}
 							break;
 						}
@@ -472,21 +487,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			case 'C':
 				//Chat/Interact
 				switch(message.charAt(1)) {
-				case 'l':
-					//Local chat
-					String mes = message.substring(2);
-					if(!p.isMuted())
-						GameServer.getServiceManager().getNetworkService().getChatManager().
-						queueLocalChatMessage("<" + p.getName() + "> " + mes, p.getMapX(), p.getMapY(), p.getLanguage());
-					break;
-				case 'p':
-					//Private chat
-					details = message.substring(2).split(",");
-					if(m_players.containsKey(details[0])) {
-						GameServer.getServiceManager().getNetworkService().getChatManager().
-						queuePrivateMessage(details[1], m_players.get(details[0]).getTcpSession(), p.getName());
-					}
-					break;
 				case 't':
 					//Start talking
 					if(!p.isTalking() && !p.isBattling())

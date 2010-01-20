@@ -42,8 +42,10 @@ public interface Positionable {
 	public void setName(String name);
 	public int getSprite();
 
-	public boolean move();
-	public void setNextMovement(Direction dir);
+	public boolean move(Direction d);
+	public Direction getNextMovement();
+	public int getPriority();
+	public void queueMovement(Direction d);
 	public Direction getFacing();
 	public ServerMap getMap();
 

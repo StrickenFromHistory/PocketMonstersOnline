@@ -143,22 +143,19 @@ public class PacketGenerator {
 	 * @param d
 	 */
 	public void move(Direction d) {
-		if(System.currentTimeMillis() - m_lastMovement > 30) {
-			switch(d) {
-			case Down:
-				m_udpSession.write("D" + GameClient.UDPCODE + String.valueOf(GameClient.getInstance().getPlayerId()));
-				break;
-			case Up:
-				m_udpSession.write("U" + GameClient.UDPCODE + String.valueOf(GameClient.getInstance().getPlayerId()));
-				break;
-			case Left:
-				m_udpSession.write("L" + GameClient.UDPCODE + String.valueOf(GameClient.getInstance().getPlayerId()));
-				break;
-			case Right:
-				m_udpSession.write("R" + GameClient.UDPCODE + String.valueOf(GameClient.getInstance().getPlayerId()));
-				break;
-			}
-			m_lastMovement = System.currentTimeMillis();
+		switch(d) {
+		case Down:
+			m_tcpSession.write("D");
+			break;
+		case Up:
+			m_tcpSession.write("U");
+			break;
+		case Left:
+			m_tcpSession.write("L");
+			break;
+		case Right:
+			m_tcpSession.write("R");
+			break;
 		}
 	}
 	
