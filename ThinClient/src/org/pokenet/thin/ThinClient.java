@@ -84,7 +84,7 @@ public class ThinClient extends JFrame implements Runnable {
 
 	@Override
 	public void run() {
-		String folder = System.getProperty("user.home") + "/PokeNet/";
+		String folder = "./client/";
 		int ourRev = 0;
 		int currentRev = 1;
 		/* Get the current revision, if any */
@@ -215,7 +215,7 @@ public class ThinClient extends JFrame implements Runnable {
 	public void storeRevision(int rev) {
 		/* Store our revision */
 		try {
-			PrintWriter p = new PrintWriter(new File(System.getProperty("user.home") + "/PokeNet/rev.txt"));
+			PrintWriter p = new PrintWriter(new File("./client/rev.txt"));
 			p.println(rev);
 			p.close();
 		} catch (Exception e1) {
@@ -224,15 +224,15 @@ public class ThinClient extends JFrame implements Runnable {
 	}
 
 	public void runPokenet() throws Exception {
-		Process p = Runtime.getRuntime().exec("java -Dres.path=" + System.getProperty("user.home") + "/PokeNet/"
-				+ " -Djava.library.path=" + System.getProperty("user.home") + "/PokeNet/lib/native " +
-		"-Xmx512m -Xms512m -jar " + System.getProperty("user.home") + "/PokeNet/client.jar");
+		Process p = Runtime.getRuntime().exec("java -Dres.path=client/"
+				+ " -Djava.library.path=client/lib/native " +
+		"-Xmx512m -Xms512m -jar ./client/client.jar");
 		BufferedReader stdInput = new BufferedReader(new 
 				InputStreamReader(p.getInputStream()));
 		BufferedReader stdError = new BufferedReader(new 
 				InputStreamReader(p.getErrorStream()));
 		String line;
-		PrintWriter pw = new PrintWriter(new File(System.getProperty("user.home") + "/PokeNet/errors.txt"));
+		PrintWriter pw = new PrintWriter(new File("./client/errors.txt"));
 		while(true) {
 			while ((line = stdInput.readLine()) != null) {
 				System.out.println(line);
