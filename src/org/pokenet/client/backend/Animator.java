@@ -142,7 +142,7 @@ public class Animator {
 		/*
 		 * The player is now in sync with the server, stop moving/animating them
 		 */
-		if (p.getX() == p.getServerX() && p.getY() == p.getServerY() && p.isAnimating()) {
+		if (p.getX() == p.getServerX() && p.getY() == p.getServerY()) {
 			p.setDirection(p.getDirection());
 			p.setAnimating(false);
 			p.loadSpriteImage();
