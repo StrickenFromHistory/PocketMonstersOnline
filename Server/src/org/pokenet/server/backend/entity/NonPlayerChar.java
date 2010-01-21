@@ -8,6 +8,7 @@ import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
 import org.pokenet.server.battle.impl.NpcBattleField;
 import org.pokenet.server.network.TcpProtocolHandler;
+import org.pokenet.server.network.message.NpcSpeechMessage;
 import org.pokenet.server.network.message.SpriteSelectMessage;
 import org.pokenet.server.network.message.shop.ShopStockMessage;
 
@@ -85,7 +86,7 @@ public class NonPlayerChar extends Char {
 	public void challengePlayer(PlayerChar p) {
 		String speech = this.getSpeech();
 		if(!speech.equalsIgnoreCase("")) {
-			
+			TcpProtocolHandler.writeMessage(p.getTcpSession(), new NpcSpeechMessage(speech));
 		}
 	}
 	
@@ -98,7 +99,7 @@ public class NonPlayerChar extends Char {
 			if(canBattle()) {
 				String speech = this.getSpeech();
 				if(!speech.equalsIgnoreCase("")) {
-					
+					TcpProtocolHandler.writeMessage(p.getTcpSession(), new NpcSpeechMessage(speech));
 				}
 				setLastBattleTime(System.currentTimeMillis());
 				p.setBattling(true);
@@ -114,7 +115,7 @@ public class NonPlayerChar extends Char {
 			if(!speech.equalsIgnoreCase("")) {
 				if(!p.isShopping()) {
 					//Dont send if player is shopping!
-					
+					TcpProtocolHandler.writeMessage(p.getTcpSession(), new NpcSpeechMessage(speech));
 				}
 			}
 			/* If this NPC is a sprite selection npc */

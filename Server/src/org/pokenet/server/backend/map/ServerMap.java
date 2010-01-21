@@ -392,13 +392,19 @@ public class ServerMap {
 		}
 		synchronized(m_players) {
 			for(PlayerChar p : m_players.values()) {
-				if(c.getId() != p.getId())
-					p.getTcpSession().write("ma" + c.getName() + "," + 
-						c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
-						(c.getFacing() == Direction.Down ? "D" : 
-							c.getFacing() == Direction.Up ? "U" :
-								c.getFacing() == Direction.Left ? "L" :
-									"R"));
+				if(c.getId() != p.getId()) {
+					String name = c.getName();
+					if(c instanceof NonPlayerChar) {
+						name = "";
+					}
+					p.getTcpSession().write("ma" + name + "," + 
+							c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
+							(c.getFacing() == Direction.Down ? "D" : 
+								c.getFacing() == Direction.Up ? "U" :
+									c.getFacing() == Direction.Left ? "L" :
+										"R"));
+				}
+
 			}
 		}
 	}

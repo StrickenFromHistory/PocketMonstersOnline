@@ -119,7 +119,7 @@ public class MovementManager implements Runnable {
 				}
 			}
 			try {
-				Thread.sleep(250);
+				Thread.sleep(100);
 			} catch (Exception e) {}
 		}
 	}
