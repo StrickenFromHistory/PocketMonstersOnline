@@ -60,6 +60,30 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 	public void exceptionCaught(IoSession session, Throwable cause) {
 		cause.printStackTrace();
 	}
+	
+	
+	/**
+	 * Processes movement changes
+	 * @param player
+	 * @param direction
+	 */
+	private void processMovement(int player, char direction) {
+		Player p = m_game.getMapMatrix().getPlayer(player);
+		switch(direction) {
+		case 'D':
+			p.queueMovement(Direction.Down);
+			break;
+		case 'U':
+			p.queueMovement(Direction.Up);
+			break;
+		case 'L':
+			p.queueMovement(Direction.Left);
+			break;
+		case 'R':
+			p.queueMovement(Direction.Right);
+			break;
+		}
+	}
 
 	/**
 	 * Once a message is received, this method is called
@@ -598,6 +622,15 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			m_game.getMapMatrix().getCurrentMap().setXOffset(400 - p.getX(), false);
 			m_game.getMapMatrix().getCurrentMap().setYOffset(300 - p.getY(), false);
 			m_game.getMapMatrix().recalibrate();
+			break;
+		case 'M':
+			//Player movements
+			//Mdirpid,dirpid
+			details = message.substring(1).split(",");
+			for(int i = 0; i < details.length; i++) {
+				processMovement(Integer.parseInt(details[i].substring(1)), 
+						details[i].charAt(0));
+			}
 			break;
 		case 'm':
 			//Map Information
