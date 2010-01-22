@@ -134,9 +134,10 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 		 */
 		String message = "M";
 		for(int i = 0; i < m_movements.length; i++) {
-			message = message + m_movements[i];
+			message = message + m_movements[i] + ",";
 			m_movements[i] = null;
 		}
+		message = message.substring(0, message.length() - 1);
 		m_udpSession.write(message);
 		m_movements[0] = s;
 	}
