@@ -1,6 +1,6 @@
 package org.pokenet.server.network;
 
-import java.net.InetAddress;
+import java.net.Socket;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -64,7 +64,7 @@ public class LoginManager implements Runnable {
 	 * @param username
 	 * @param password
 	 */
-	private void attemptLogin(IoSession session, char l, String username, String password, boolean force) {
+	private void attemptLogin(IoSession session, char l, String username, String password) {
 		try {
 			//Check if we haven't reach the player limit
 			if(ProtocolHandler.getPlayerCount() >= GameServer.getMaxPlayers()) {
@@ -131,17 +131,30 @@ public class LoginManager implements Runnable {
 					 * They are logged in somewhere else.
 					 * Check if the server is up, if it is, don't log them in. If not, log them in
 					 */
-					if(InetAddress.getByName(result.getString("lastLoginServer")).isReachable(5000)) {
-						if(force) {
-							this.login(username, l, session, result);
-						} else {
-							session.write("l3");
-						}
+//					if(InetAddress.getByName(result.getString("lastLoginServer")).isReachable(5000)) {
+//						session.write("l3");
+//						return;
+//					} else {
+//						//The server they were on went down and they are trying to login elsewhere
+//						this.login(username, l, session, result);
+//					}
+					try{
+						/** 
+						 * This is a dirty hack. The old method used isReachable(5000) to determine if the server was alive. 
+						 * isReachable doesn't work unless you run as root due to sending IMCP Echo packets being forbidden
+						 * under normal user accounts.
+						 * 
+						 *  Instead, We open a socket to determine if server's alive. If it crashes, then server's down. 
+						 */ 
+						Socket socket = new Socket(result.getString("lastLoginServer"),7001);
+						socket.close();
+						session.write("l3");
 						return;
-					} else {
+					}catch(Exception e){
 						//The server they were on went down and they are trying to login elsewhere
 						this.login(username, l, session, result);
 					}
+					
 				}
 			} else {
 				//Password is wrong, say so.
@@ -165,13 +178,13 @@ public class LoginManager implements Runnable {
 	 * @param session
 	 * @param username
 	 * @param password
-	 * @param forceLogin - true if player wants to force login
+	 * 
 	 */
-	public void queuePlayer(IoSession session, String username, String password, boolean forceLogin) {
+	public void queuePlayer(IoSession session, String username, String password) {
 		if(m_thread == null || !m_thread.isAlive()) {
 			start();
 		}
-		m_loginQueue.offer(new Object[] {session, username, password, String.valueOf(forceLogin)});
+		m_loginQueue.offer(new Object[] {session, username, password});
 	}
 
 	/**
@@ -192,8 +205,7 @@ public class LoginManager implements Runnable {
 						l = ((String) o[1]).charAt(0);
 						username = ((String) o[1]).substring(1);
 						password = (String) o[2];
-						boolean force = Boolean.valueOf((String) o[3]);
-						this.attemptLogin(session, l, username, password, force);
+						this.attemptLogin(session, l, username, password);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -88,7 +88,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 			case 'l':
 				//Login packet
 				details = message.substring(1).split(",");
-				m_loginManager.queuePlayer(session, details[0], details[1], false);
+				m_loginManager.queuePlayer(session, details[0], details[1]);
 				break;
 			case 'r':
 				//Registration packet
@@ -97,7 +97,7 @@ public class ProtocolHandler extends IoHandlerAdapter {
 			case 'f':
 				//Force login
 				details = message.substring(1).split(",");
-				m_loginManager.queuePlayer(session, details[0], details[1], true);
+				m_loginManager.queuePlayer(session, details[0], details[1]);
 				break;
 			}
 		} else {
