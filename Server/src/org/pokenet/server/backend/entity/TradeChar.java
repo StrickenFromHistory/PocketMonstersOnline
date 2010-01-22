@@ -114,4 +114,8 @@ public class TradeChar extends NonPlayerChar implements Tradeable {
 			m_trade.checkForExecution();
 		}
 	}
+
+	public String getIpAddress() {
+		return "";
+	}
 }

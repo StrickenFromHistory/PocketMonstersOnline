@@ -27,6 +27,11 @@ public class Trade {
 		m_offers = new HashMap<Tradeable, TradeOffer[]>();
 		m_offers.put(player1, null);
 		m_offers.put(player2, null);
+		/* Block players of same IP address from trading */
+		if(player1.getIpAddress().equalsIgnoreCase(player2.getIpAddress())) {
+			endTrade();
+			return;
+		}
 		if(player1 instanceof PlayerChar) {
 			/* Tell the client to open the trade window */
 			PlayerChar p = (PlayerChar) player1;
@@ -217,10 +222,10 @@ public class Trade {
 						break;
 					case MONEY:
 						/* Ensure there was money offered */
-						/*if(o1[j].getQuantity() > 0) {
+						if(o1[j].getQuantity() > 0) {
 							player1.setMoney(player1.getMoney() - o1[j].getQuantity());
 							player2.setMoney(player2.getMoney() + o1[j].getQuantity());
-						}*/
+						}
 						break;
 					case ITEM:
 						break;
@@ -245,10 +250,10 @@ public class Trade {
 						break;
 					case MONEY:
 						/* Ensure there was money offered */
-						/*if(o2[j].getQuantity() > 0) {
+						if(o2[j].getQuantity() > 0) {
 							player2.setMoney(player2.getMoney() - o2[j].getQuantity());
 							player1.setMoney(player1.getMoney() + o2[j].getQuantity());
-						}*/
+						}
 						break;
 					case ITEM:
 						break;
@@ -294,7 +299,9 @@ public class Trade {
 		if(!m_isExecuting) {
 			Iterator<Tradeable> i = m_offers.keySet().iterator();
 			while(i.hasNext()) {
-				i.next().finishTrading();
+				Tradeable t = i.next();
+				if(t != null)
+					t.finishTrading();
 			}
 			m_offers.clear();
 			m_offers = null;

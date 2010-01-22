@@ -9,6 +9,11 @@ import org.pokenet.server.battle.Pokemon;
  */
 public interface Tradeable {
 	/**
+	 * Returns IP address of char
+	 * @return
+	 */
+	public String getIpAddress();
+	/**
 	 * Gets the name of the tradeable char
 	 * @return
 	 */
