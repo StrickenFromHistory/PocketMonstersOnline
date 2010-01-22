@@ -20,20 +20,27 @@ public class Trade {
 	/* Stores the offers */
 	private HashMap<PlayerChar, TradeObject[]> m_offers;
 	public boolean m_isExecuting = false;
-	
+
 	/**
 	 * Constructor
 	 * @param player1
 	 * @param player2
 	 */
 	public Trade(PlayerChar player1, PlayerChar player2) {
+
 		m_offers = new HashMap<PlayerChar, TradeObject[]>();
 		m_offers.put(player1, null);
 		m_offers.put(player2, null);
+		/* Block players of same IP address from trading */
+		if(player1.getIpAddress().equalsIgnoreCase(player2.getIpAddress())) {
+			endTrade();
+			return;
+		}
+
 		/* Tell the clients to open the window */
 		player1.getSession().write("Ts" + player2.getName());
 		player2.getSession().write("Ts" + player1.getName());
-		
+
 		/*
 		 * Send poke data to both clients
 		 */
@@ -57,10 +64,10 @@ public class Trade {
 								player1.getParty()[i].getLevel() + "," +
 								player1.getParty()[i].getAbilityName() + "," +
 								player1.getParty()[i].getNature().getName() + "," +
-						(player1.getParty()[i].getMoves()[0] != null ? player1.getParty()[i].getMoves()[0].getName() : "") + "," +
-						(player1.getParty()[i].getMoves()[1] != null ? player1.getParty()[i].getMoves()[1].getName() : "") + "," +
-						(player1.getParty()[i].getMoves()[2] != null ? player1.getParty()[i].getMoves()[2].getName() : "") + "," +
-						(player1.getParty()[i].getMoves()[3] != null ? player1.getParty()[i].getMoves()[3].getName() : ""));
+								(player1.getParty()[i].getMoves()[0] != null ? player1.getParty()[i].getMoves()[0].getName() : "") + "," +
+								(player1.getParty()[i].getMoves()[1] != null ? player1.getParty()[i].getMoves()[1].getName() : "") + "," +
+								(player1.getParty()[i].getMoves()[2] != null ? player1.getParty()[i].getMoves()[2].getName() : "") + "," +
+								(player1.getParty()[i].getMoves()[3] != null ? player1.getParty()[i].getMoves()[3].getName() : ""));
 			}
 		}
 		for(int i = 0; i < player2.getParty().length; i++) {
@@ -83,14 +90,14 @@ public class Trade {
 								player2.getParty()[i].getLevel() + "," +
 								player2.getParty()[i].getAbilityName() + "," +
 								player2.getParty()[i].getNature().getName() + "," +
-						(player2.getParty()[i].getMoves()[0] != null ? player2.getParty()[i].getMoves()[0].getName() : "") + "," +
-						(player2.getParty()[i].getMoves()[1] != null ? player2.getParty()[i].getMoves()[1].getName() : "") + "," +
-						(player2.getParty()[i].getMoves()[2] != null ? player2.getParty()[i].getMoves()[2].getName() : "") + "," +
-						(player2.getParty()[i].getMoves()[3] != null ? player2.getParty()[i].getMoves()[3].getName() : ""));
+								(player2.getParty()[i].getMoves()[0] != null ? player2.getParty()[i].getMoves()[0].getName() : "") + "," +
+								(player2.getParty()[i].getMoves()[1] != null ? player2.getParty()[i].getMoves()[1].getName() : "") + "," +
+								(player2.getParty()[i].getMoves()[2] != null ? player2.getParty()[i].getMoves()[2].getName() : "") + "," +
+								(player2.getParty()[i].getMoves()[3] != null ? player2.getParty()[i].getMoves()[3].getName() : ""));
 			}
 		}
 	}
-	
+
 	/**
 	 * Sets the offer from a player
 	 * @param p
@@ -108,17 +115,17 @@ public class Trade {
 					return;
 				}
 			}
-			
+
 			o[1] = new TradeObject();
 			o[1].setQuantity(money);
 			o[1].setType(TradeType.MONEY);
-			
+
 			m_offers.put(p, o);
 			/* Send the offer to the other player */
 			sendOfferInformation(p, poke, money);
 		}
 	}
-	
+
 	/**
 	 * Cancels an offer from a player
 	 * @param p
@@ -139,7 +146,7 @@ public class Trade {
 			otherPlayer.getSession().write("Tc");
 		}
 	}
-	
+
 	/**
 	 * Sends offer information from one player to another
 	 * @param p
@@ -157,7 +164,7 @@ public class Trade {
 			}
 		}
 	}
-	
+
 	/**
 	 * Checks if both player's agree to trade
 	 */
@@ -167,7 +174,7 @@ public class Trade {
 			executeTrade();
 		}
 	}
-	
+
 	/**
 	 * Executes the trade
 	 */
@@ -176,17 +183,17 @@ public class Trade {
 		if(!m_isExecuting) {
 			m_isExecuting = true;
 			Pokemon [] temp = new Pokemon[2];
-			
+
 			Iterator<PlayerChar> it = m_offers.keySet().iterator();
 			PlayerChar player1 = it.next();
 			PlayerChar player2 = it.next();
 			TradeObject [] o1 = m_offers.get(player1);
 			TradeObject [] o2 = m_offers.get(player2);
-			
+
 			/* Ensure each player has made an offer */
 			if(o1 == null || o2 == null)
 				return;
-			
+
 			/* Keep checking no player has left the trade */
 			if(player1 != null && player2 != null) {
 				/* Handle player 1's offers */
@@ -205,16 +212,16 @@ public class Trade {
 						break;
 					case MONEY:
 						/* Ensure there was money offered */
-						/*if(o1[j].getQuantity() > 0) {
+						if(o1[j].getQuantity() > 0) {
 							player1.setMoney(player1.getMoney() - o1[j].getQuantity());
 							player2.setMoney(player2.getMoney() + o1[j].getQuantity());
-						}*/
+						}
 						break;
 					case ITEM:
 						break;
 					}
 				}
-				
+
 				/* Handle player 2's offers */
 				for(int j = 0; j < o2.length; j++) {
 					switch(o2[j].getType()) {
@@ -231,22 +238,22 @@ public class Trade {
 						break;
 					case MONEY:
 						/* Ensure there was money offered */
-						/*if(o2[j].getQuantity() > 0) {
+						if(o2[j].getQuantity() > 0) {
 							player2.setMoney(player2.getMoney() - o2[j].getQuantity());
 							player1.setMoney(player1.getMoney() + o2[j].getQuantity());
-						}*/
+						}
 						break;
 					case ITEM:
 						break;
 					}
 				}
-				
+
 				/* Execute the Pokemon swap */
 				if(temp[1] != null)
 					player1.addPokemon(temp[1]);
 				if(temp[0] != null)
 					player2.addPokemon(temp[0]);
-				
+
 				/* Evolution checks */
 				for(int i = 0; i < 2; i++) {
 					if(temp[i] != null) {
@@ -269,7 +276,7 @@ public class Trade {
 							POLRDataEntry pokeData = DataService.getPOLRDatabase()
 							.getPokemonData(
 									DataService.getSpeciesDatabase()
-											.getPokemonByName(temp[i].getSpeciesName()));
+									.getPokemonByName(temp[i].getSpeciesName()));
 							POLREvolution evolution = null;
 							for(int j = 0; j < pokeData.getEvolutions().size(); j++) {
 								/*
@@ -290,7 +297,7 @@ public class Trade {
 						}
 					}
 				}
-				
+
 				/* Update the money */
 				player1.updateClientMoney();
 				player2.updateClientMoney();
@@ -300,7 +307,7 @@ public class Trade {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns true if the trade was ended
 	 */
