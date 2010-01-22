@@ -100,16 +100,18 @@ public class MovementManager implements Runnable {
 		//ArrayList<Char> tmpArray = null;
 		while(m_isRunning) {
 			/* Pull char of highest priority */
-			synchronized(m_waiting) {
-				tmp = m_waiting.remove(0);
-				m_waiting.trimToSize();
-				Collections.sort(m_waiting, m_comp);
-			}
-			/* Move character */
-			tmp.move();
-			/* Place him in moved array */
-			synchronized(m_moved) {
-				m_moved.add(tmp);
+			if(m_waiting != null && m_waiting.size() > 0) {
+				synchronized(m_waiting) {
+					tmp = m_waiting.remove(0);
+					m_waiting.trimToSize();
+					Collections.sort(m_waiting, m_comp);
+				}
+				/* Move character */
+				tmp.move();
+				/* Place him in moved array */
+				synchronized(m_moved) {
+					m_moved.add(tmp);
+				}
 			}
 			/* If waiting array is empty, swap arrays */
 			synchronized(m_waiting) {

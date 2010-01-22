@@ -1,11 +1,17 @@
 package org.pokenet.server.backend.entity;
 
+import java.net.InetSocketAddress;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
+import org.apache.mina.core.future.ConnectFuture;
+import org.apache.mina.core.future.IoFuture;
+import org.apache.mina.core.future.IoFutureListener;
 import org.apache.mina.core.session.IoSession;
+import org.apache.mina.transport.socket.nio.NioDatagramConnector;
+import org.apache.mina.transport.socket.nio.NioSocketConnector;
 import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.map.ServerMap;
 import org.pokenet.server.backend.map.ServerMap.PvPType;
@@ -75,7 +81,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * Stores movement of other players to be
 	 * sent in bulk to client
 	 */
-	private String [] m_movements = new String [4];
+	private String [] m_movements = new String [7];
 	/*
 	 * Kicking timer
 	 */
@@ -120,7 +126,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 * @param player
 	 */
 	public void queueOtherPlayerMovement(Direction d, int player) {
-		String s = d + String.valueOf(player);
+		String s = d.name().toUpperCase().charAt(0) + String.valueOf(player);
 		/* Queue the movement */
 		for(int i = 0; i < m_movements.length; i++) {
 			if(m_movements[i] == null) {
@@ -138,7 +144,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			m_movements[i] = null;
 		}
 		message = message.substring(0, message.length() - 1);
-		m_udpSession.write(message);
+		m_tcpSession.write(message);
 		m_movements[0] = s;
 	}
 
@@ -765,14 +771,6 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 	 */
 	public IoSession getTcpSession() {
 		return m_tcpSession;
-	}
-
-	/**
-	 * Sets the UDP session for this player
-	 * @param session
-	 */
-	public void setUdpSession(IoSession session) {
-		m_udpSession = session;
 	}
 
 	/**
