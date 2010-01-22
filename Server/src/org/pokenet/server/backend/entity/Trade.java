@@ -205,10 +205,10 @@ public class Trade {
 						break;
 					case MONEY:
 						/* Ensure there was money offered */
-						if(o1[j].getQuantity() > 0) {
+						/*if(o1[j].getQuantity() > 0) {
 							player1.setMoney(player1.getMoney() - o1[j].getQuantity());
 							player2.setMoney(player2.getMoney() + o1[j].getQuantity());
-						}
+						}*/
 						break;
 					case ITEM:
 						break;
@@ -231,10 +231,10 @@ public class Trade {
 						break;
 					case MONEY:
 						/* Ensure there was money offered */
-						if(o2[j].getQuantity() > 0) {
+						/*if(o2[j].getQuantity() > 0) {
 							player2.setMoney(player2.getMoney() - o2[j].getQuantity());
 							player1.setMoney(player1.getMoney() + o2[j].getQuantity());
-						}
+						}*/
 						break;
 					case ITEM:
 						break;
