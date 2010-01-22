@@ -29,6 +29,10 @@ public class Trade {
 		m_offers.put(player2, null);
 		/* Block players of same IP address from trading */
 		if(player1.getIpAddress().equalsIgnoreCase(player2.getIpAddress())) {
+			if(player1 instanceof PlayerChar) {
+				PlayerChar p = (PlayerChar) player1;
+				p.getTcpSession().write("!Trading cannot be done with that player");
+			}
 			endTrade();
 			return;
 		}
