@@ -17,6 +17,8 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 	private int m_roomCount = 12;
 	private LoginManager m_loginManager;
 	private static HashMap<String, User> m_users;
+	/* Amount of chatrooms server should be limited to (does not include private chats) */
+	private static int ROOMLIMIT = 10000;
 	
 	/**
 	 * Constructor
@@ -26,6 +28,9 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 		new Thread(m_loginManager).start();
 		m_users = new HashMap<String, User>();
 		m_chatrooms = new HashMap<Integer, ChatRoom>();
+		/*
+		 * Create reserved chatrooms
+		 */
 		m_chatrooms.put(0, new ChatRoom("Developer Channel", 0, 7, Language.NONE));
 		m_chatrooms.put(1, new ChatRoom("Game Moderator Channel", 1, 1, Language.NONE));
 		m_chatrooms.put(2, new ChatRoom("Chat Moderator Channel", 2, 2, Language.NONE));
@@ -71,10 +76,11 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 			case 'm':
 				//Make a new chatroom
 				while(m_chatrooms.containsKey(m_roomCount) && m_roomCount > 0) {
-					m_roomCount = m_roomCount == Integer.MAX_VALUE ? 0 : m_roomCount + 1;
+					m_roomCount = m_roomCount == ROOMLIMIT ? 0 : m_roomCount + 1;
 				}
 				if(m_roomCount == 0) {
-					//TODO: Tell client room could not be created
+					//Room could not be created
+					u.getSession().write("C");
 					return;
 				}
 				//Else, make room
@@ -86,14 +92,14 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 				}
 				break;
 			case 'j':
-				//Join chatroom
+				//Join chatroom - jROOMNUMBER
 				r = m_chatrooms.get(Integer.parseInt(message.substring(1)));
 				if(r != null) {
 					r.addUser(u);
 				}
 				break;
 			case 'l':
-				//Leave chatroom
+				//Leave chatroom - lROOMNUMBER
 				r = m_chatrooms.get(Integer.parseInt(message.substring(1)));
 				if(r != null) {
 					r.removeUser(u.getUsername());
@@ -107,13 +113,14 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 				}
 				break;
 			case 'c':
-				//Normal Chat
+				//Normal Chat - cROOMID,MESSAGE
 				details = message.substring(1).split(",");
 				r = m_chatrooms.get(Integer.parseInt(details[0]));
 				if(r != null) {
 					r.queueMessage(u, details[1]);
 				} else {
-					//TODO: Inform client chatroom no longer exists
+					//Chat room no longer exists
+					u.getSession().write("E");
 				}
 				break;
 			case '!':
@@ -168,18 +175,23 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 				int i = it.next();
 				r = m_chatrooms.get(i);
 				if(r.isJoinable(u)) {
-					//TODO: Send client info of room
+					u.getSession().write("R" + r.getId() + "," + r.getName());
 				}
 			}
 		}
 		synchronized(m_users) {
 			//Find all friends
 			Iterator<String> it = u.getFriends().iterator();
+			String friends = "f";
 			while(it.hasNext()) {
 				String s = it.next();
 				if(m_users.containsKey(s)) {
-					//TODO: Tell client friend is online
+					friends = friends + s + ",";
 				}
+			}
+			if(friends.endsWith(",")) {
+				friends = friends.substring(0, friends.length() - 1);
+				u.getSession().write(friends);
 			}
 			//Add user
 			m_users.put(u.getUsername(), u);

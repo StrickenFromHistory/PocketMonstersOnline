@@ -1,8 +1,11 @@
 package org.pokenet.chat.server;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 import org.apache.mina.core.session.IoSession;
 import org.pokenet.chat.server.User.Language;
@@ -22,6 +25,15 @@ public class LoginManager implements Runnable {
 	 */
 	public LoginManager() {
 		/* Load mysql settings from settings.txt */
+		try {
+			Scanner s = new Scanner(new File("./settings.txt"));
+			m_dbServer = s.nextLine();
+			m_dbDatabase = s.nextLine();
+			m_dbUser = s.nextLine();
+			m_dbPass = s.nextLine();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -59,7 +71,7 @@ public class LoginManager implements Runnable {
 				tmp = null;
 			}
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(500);
 			} catch (Exception e) {}
 		}
 	}
@@ -76,6 +88,7 @@ public class LoginManager implements Runnable {
 		username = MySqlManager.parseSQL(username);
 		password = MySqlManager.parseSQL(password);
 		if(m_mysql.connect(m_dbServer, m_dbUser, m_dbPass)) {
+			m_mysql.selectDatabase(m_dbDatabase);
 			ResultSet result = m_mysql.query("SELECT team, adminLevel" +
 					" FROM pn_members WHERE username='" + username + "' AND password='" +
 					password + "'");
@@ -93,11 +106,13 @@ public class LoginManager implements Runnable {
 				user.setSession(s);
 				/* TODO: Get friends list */
 				s.write("ls");
+				m_mysql.close();
 				return user;
 			} else {
 				//Invalid username or password
 				s.write("le");
 			}
+			m_mysql.close();
 		} else {
 			s.write("lc");
 		}

@@ -52,7 +52,7 @@ public class ChatRoom implements Runnable {
 					while(it.hasNext()) {
 						User u = it.next();
 						if(u != null) {
-							u.getSession().write("" + message);
+							u.getSession().write("c" + m_id + "," + message);
 						}
 					}
 				}
@@ -60,6 +60,13 @@ public class ChatRoom implements Runnable {
 			try {
 				Thread.sleep(250);
 			} catch (Exception e) {}
+			/* If nobody is in the room, end the room if it is not a reserved room */
+			if(m_users.size() == 0) {
+				if(m_id >= 12) {
+					ChatProtocolHandler.removeChatRoom(m_id);
+				}
+				return;
+			}
 		}
 	}
 
@@ -110,7 +117,7 @@ public class ChatRoom implements Runnable {
 			synchronized(m_users) {
 				m_users.put(u.getUsername(), u);
 			}
-			//TODO: Tell user they joined
+			u.getSession().write("j" + m_id + "," + m_name);
 			return true;
 		}
 		return false;
@@ -123,8 +130,9 @@ public class ChatRoom implements Runnable {
 	public boolean removeUser(String username) {
 		boolean found = false;
 		synchronized(m_users) {
-			if(m_users.remove(username) != null) {
-				//TODO: Tell client they left
+			User u = m_users.remove(username);
+			if(u != null) {
+				u.getSession().write("lr" + m_id);
 				found = true;
 			}
 		}

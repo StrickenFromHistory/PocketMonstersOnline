@@ -48,6 +48,7 @@ public class User {
 	 */
 	public void addFriend(String s) {
 		m_friends.add(s);
+		m_session.write("a" + s);
 	}
 	
 	/**
@@ -56,7 +57,7 @@ public class User {
 	 */
 	public void removeFriend(String s) {
 		if(m_friends.remove(s)) {
-			
+			m_session.write("r" + s);
 		}
 	}
 	
