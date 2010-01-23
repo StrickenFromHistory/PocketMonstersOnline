@@ -521,6 +521,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						((PvPBattleField) p.getBattleField()).disconnect(p.getBattleId());
 					}
 					p.setBattleField(null);
+					p.setBattling(false);
 					p.lostBattle();
 				}
 				/* If trading, end the trade */

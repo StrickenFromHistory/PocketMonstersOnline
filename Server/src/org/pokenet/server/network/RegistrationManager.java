@@ -63,6 +63,16 @@ public class RegistrationManager implements Runnable {
 		int region = Integer.parseInt(String.valueOf
 				(((String) session.getAttribute("reg")).charAt(0)));
 		String [] info = ((String) session.getAttribute("reg")).substring(1).split(",");
+		/* Check the username */
+		if(info[0].startsWith(" ") || info[0].endsWith(" ") || info[0].contains("!")
+				|| info[0].contains("&") || info[0].contains("%") || info[0].contains("(")
+				|| info[0].contains(")") || info[0].contains("[") || info[0].contains("]")
+				|| info[0].contains("~") || info[0].contains("#") || info[0].contains("|")
+				|| info[0].contains("?") || info[0].contains("/") || info[0].contains("\"")) {
+			//Invalid
+			session.write("r4");
+			return;
+		}
 		m_database = new MySqlManager();
 		if(m_database.connect(GameServer.getDatabaseHost(), GameServer.getDatabaseUsername(), GameServer.getDatabasePassword())) {
 			m_database.selectDatabase(GameServer.getDatabaseName());
@@ -433,7 +443,7 @@ public class RegistrationManager implements Runnable {
         Pokemon starter = new Pokemon(
         		DataService.getBattleMechanics(),
                         species,
-                        PokemonNature.getNature(random.nextInt(PokemonNature.getNatureNames().length)),
+                        PokemonNature.N_QUIRKY,
                                         ab,
                         null, (random.nextInt(100) > 87 ? Pokemon.GENDER_FEMALE
                                         : Pokemon.GENDER_MALE), 5, new int[] {
