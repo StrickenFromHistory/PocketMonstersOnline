@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import org.pokenet.chat.server.User.Language;
+
 /**
  * Represents a chat room
  * @author shadowkanji
@@ -18,19 +20,22 @@ public class ChatRoom implements Runnable {
 	private Queue<String> m_messageQueue;
 	private String m_name;
 	private int m_id;
+	private Language m_language;
 	
 	/**
 	 * Constructor
 	 * @param name
 	 * @param id
 	 * @param level
+	 * @param l
 	 */
-	public ChatRoom(String name, int id, int level) {
+	public ChatRoom(String name, int id, int level, Language l) {
 		m_name = name;
 		m_id = id;
 		m_level = level;
 		m_users = new HashMap<String, User>();
 		m_messageQueue = new LinkedList<String>();
+		m_language = l;
 	}
 
 	@Override
@@ -77,6 +82,10 @@ public class ChatRoom implements Runnable {
 	 * @return
 	 */
 	public boolean isJoinable(User u) {
+		//Make sure they're of same language
+		if(m_language != Language.NONE &&
+				u.getLanguage() != m_language)
+			return false;
 		if(u.getLevel() >= m_level) {
 			//If it's a team chatroom, only allow them if they're on team
 			if(m_team != null) {
@@ -101,6 +110,7 @@ public class ChatRoom implements Runnable {
 			synchronized(m_users) {
 				m_users.put(u.getUsername(), u);
 			}
+			//TODO: Tell user they joined
 			return true;
 		}
 		return false;
@@ -110,10 +120,15 @@ public class ChatRoom implements Runnable {
 	 * Removes a user from the chatroom
 	 * @param username
 	 */
-	public void removeUser(String username) {
+	public boolean removeUser(String username) {
+		boolean found = false;
 		synchronized(m_users) {
-			m_users.remove(username);
+			if(m_users.remove(username) != null) {
+				//TODO: Tell client they left
+				found = true;
+			}
 		}
+		return found;
 	}
 	
 	/**

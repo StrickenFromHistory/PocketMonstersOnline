@@ -1,5 +1,7 @@
 package org.pokenet.chat.server;
 
+import java.util.ArrayList;
+
 import org.apache.mina.core.session.IoSession;
 
 /**
@@ -8,10 +10,55 @@ import org.apache.mina.core.session.IoSession;
  *
  */
 public class User {
+	public enum Language { NONE, ENGLISH, PORTUGESE, ITALIAN, FRENCH, FINNISH, SPANISH, GERMAN, DUTCH }
+	private Language m_language;
 	private String m_username;
 	private int m_level;
 	private String m_team;
 	private IoSession m_session;
+	private ArrayList<String> m_friends;
+	
+	/**
+	 * Constructor
+	 */
+	public User(Language l) {
+		m_friends = new ArrayList<String>();
+		m_language = l;
+	}
+	
+	/**
+	 * Returns the language of the user
+	 * @return
+	 */
+	public Language getLanguage() {
+		return m_language;
+	}
+	
+	/**
+	 * Returns friends list
+	 * @return
+	 */
+	public ArrayList<String> getFriends() {
+		return m_friends;
+	}
+	
+	/**
+	 * Adds a friend to friends list
+	 * @param s
+	 */
+	public void addFriend(String s) {
+		m_friends.add(s);
+	}
+	
+	/**
+	 * Removes a friend
+	 * @param s
+	 */
+	public void removeFriend(String s) {
+		if(m_friends.remove(s)) {
+			
+		}
+	}
 	
 	/**
 	 * Sets username
