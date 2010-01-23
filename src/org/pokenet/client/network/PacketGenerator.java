@@ -12,6 +12,7 @@ import org.pokenet.client.backend.entity.Player.Direction;
 public class PacketGenerator {
 	private IoSession m_tcpSession;
 	private IoSession m_udpSession;
+	private IoSession m_chatSession;
 	//private long m_lastMovement = 0;
 	
 	// Used when attempting to update passwords with old hash method to the new method
@@ -36,6 +37,22 @@ public class PacketGenerator {
 	}
 	
 	/**
+	 * Sets the chat session
+	 * @param s
+	 */
+	public void setChatSession(IoSession s) {
+		m_chatSession = s;
+	}
+	
+	/**
+	 * Returns the chat session
+	 * @return
+	 */
+	public IoSession getChatSession() {
+		return m_chatSession;
+	}
+	
+	/**
 	 * Returns the UDP session
 	 * @return
 	 */
@@ -49,6 +66,15 @@ public class PacketGenerator {
 	 */
 	public IoSession getTcpSession() {
 		return m_tcpSession;
+	}
+	
+	/**
+	 * Writes a message to chat server
+	 * @param message
+	 */
+	public void writeChatServerMessage(String message) {
+		if(m_chatSession != null)
+			m_chatSession.write(message);
 	}
 	
 	/**

@@ -43,6 +43,7 @@ import org.pokenet.client.backend.entity.Player.Direction;
 import org.pokenet.client.backend.time.TimeService;
 import org.pokenet.client.backend.time.WeatherService;
 import org.pokenet.client.backend.time.WeatherService.Weather;
+import org.pokenet.client.network.ChatProtocolHandler;
 import org.pokenet.client.network.PacketGenerator;
 import org.pokenet.client.network.TcpProtocolHandler;
 import org.pokenet.client.network.UdpProtocolHandler;
@@ -75,7 +76,8 @@ public class GameClient extends BasicGame {
 	//Static variables
 	private static String m_filepath="";
 	private static Font m_fontLarge, m_fontSmall, m_trueTypeFont;
-	private static String m_host;
+	private static String HOST;
+	private static String CHATHOST = "";
 	//UI
 	private LoadingScreen m_loading;
 	private LoginScreen m_login;
@@ -225,7 +227,7 @@ public class GameClient extends BasicGame {
 		/*
 		 * Check if language was chosen.
 		 */
-		if(m_language != null && !m_language.equalsIgnoreCase("") && m_languageChosen==true && ((m_host != null && m_host.equalsIgnoreCase("")) || m_packetGen == null)){
+		if(m_language != null && !m_language.equalsIgnoreCase("") && m_languageChosen==true && ((HOST != null && HOST.equalsIgnoreCase("")) || m_packetGen == null)){
 			m_login.showServerSelect();
 		} else if(m_language == null || m_language.equalsIgnoreCase("")){
 			m_login.showLanguageSelect();
@@ -233,7 +235,7 @@ public class GameClient extends BasicGame {
 		/*
 		 * Check if we need to connect to a selected server
 		 */
-		if(m_host != null && !m_host.equalsIgnoreCase("") && m_packetGen == null) {
+		if(HOST != null && !HOST.equalsIgnoreCase("") && m_packetGen == null) {
 			this.connect();
 		}
 		/*
@@ -595,14 +597,14 @@ public class GameClient extends BasicGame {
 	public void connect() {
 		m_packetGen = new PacketGenerator();
 		/*
-		 * Connect via TCP
+		 * Connect via TCP to game server
 		 */
 		NioSocketConnector connector = new NioSocketConnector();
 		connector.getFilterChain().addLast("codec",
 				new ProtocolCodecFilter(
 						new TextLineCodecFactory(Charset.forName("US-ASCII"))));
 		connector.setHandler(new TcpProtocolHandler(this));
-		ConnectFuture cf = connector.connect(new InetSocketAddress(m_host, 7002));
+		ConnectFuture cf = connector.connect(new InetSocketAddress(HOST, 7002));
 		cf.addListener(new IoFutureListener() {
 			public void operationComplete(IoFuture s) {
 				try {
@@ -612,34 +614,34 @@ public class GameClient extends BasicGame {
 						messageDialog("Connection timed out.\n"
 								+ "The server may be offline.\n"
 								+ "Contact an administrator for assistance.", getDisplay());
-						m_host = "";
+						HOST = "";
 						m_packetGen = null;
 					}
 				}catch(RuntimeIoException e){ 
 					messageDialog("Connection timed out.\n"
 							+ "The server may be offline.\n"
 							+ "Contact an administrator for assistance.", getDisplay());
-					m_host = "";
+					HOST = "";
 					m_packetGen = null;
 				}catch (Exception e) {
 					e.printStackTrace();
 					messageDialog("Connection timed out.\n"
 							+ "The server may be offline.\n"
 							+ "Contact an administrator for assistance.", getDisplay());
-					m_host = "";
+					HOST = "";
 					m_packetGen = null;
 				}
 			}
 		});
 		/*
-		 * Connect via UDP
+		 * Connect via UDP to game server
 		 */
 		NioDatagramConnector udp = new NioDatagramConnector();
 		udp.getFilterChain().addLast("codec",
 				new ProtocolCodecFilter(
 						new TextLineCodecFactory(Charset.forName("US-ASCII"))));
 		udp.setHandler(new UdpProtocolHandler(this));
-		cf = udp.connect(new InetSocketAddress(m_host, 7005));
+		cf = udp.connect(new InetSocketAddress(HOST, 7005));
 		cf.addListener(new IoFutureListener() {
 			public void operationComplete(IoFuture s) {
 				try {
@@ -649,29 +651,60 @@ public class GameClient extends BasicGame {
 						messageDialog("Connection timed out.\n"
 								+ "The server may be offline.\n"
 								+ "Contact an administrator for assistance.", getDisplay());
-						m_host = "";
+						HOST = "";
 						m_packetGen = null;
 					}
 				}catch(RuntimeIoException e){ 
 					messageDialog("Connection timed out.\n"
 							+ "The server may be offline.\n"
 							+ "Contact an administrator for assistance.", getDisplay());
-					m_host = "";
+					HOST = "";
 					m_packetGen = null;
 				} catch (Exception e) {
 					e.printStackTrace();
 					messageDialog("Connection timed out.\n"
 							+ "The server may be offline.\n"
 							+ "Contact an administrator for assistance.", getDisplay());
-					m_host = "";
+					HOST = "";
 					m_packetGen = null;
+				}
+			}
+		});
+		/*
+		 * Connect via TCP to chat server
+		 */
+		NioSocketConnector chat = new NioSocketConnector();
+		chat.getFilterChain().addLast("codec",
+				new ProtocolCodecFilter(
+						new TextLineCodecFactory(Charset.forName("US-ASCII"))));
+		chat.setHandler(new ChatProtocolHandler());
+		ConnectFuture cf2 = connector.connect(new InetSocketAddress(CHATHOST, 7001));
+		cf2.addListener(new IoFutureListener() {
+			public void operationComplete(IoFuture s) {
+				try {
+					if(s.getSession() != null && s.getSession().isConnected()) {
+						m_packetGen.setChatSession(s.getSession());
+					} else {
+						messageDialog("Chat has been disabled.\n" +
+								"Could not connect to chat server.", getDisplay());
+						m_packetGen.setChatSession(null);
+					}
+				}catch(RuntimeIoException e){ 
+					messageDialog("Chat has been disabled.\n" +
+							"Could not connect to chat server.", getDisplay());
+					m_packetGen.setChatSession(null);
+				}catch (Exception e) {
+					e.printStackTrace();
+					messageDialog("Chat has been disabled.\n" +
+							"Could not connect to chat server.", getDisplay());
+					m_packetGen.setChatSession(null);
 				}
 			}
 		});
 		/*
 		 * Show login screen
 		 */
-		if(!m_host.equals(""))
+		if(!HOST.equals(""))
 			m_login.showLogin();
 	}
 
@@ -759,7 +792,7 @@ public class GameClient extends BasicGame {
 	 * @param s
 	 */
 	public static void setHost(String s) {
-		m_host = s;
+		HOST = s;
 	}
 
 	/**
@@ -832,7 +865,7 @@ public class GameClient extends BasicGame {
 	 */
 	public void reset() {
 		m_packetGen = null;
-		m_host = "";
+		HOST = "";
 		try {
 			if(BattleManager.getInstance() != null)
 				BattleManager.getInstance().endBattle();
