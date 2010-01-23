@@ -28,9 +28,12 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 				//Chat server couldn't connect to database - lc
 				break;
 			case 'r':
-				//Left a room - rROOMNUMBER
+				//This user left a room - rROOMNUMBER
 				break;
 			}
+			break;
+		case 'f':
+			//Friends online list - fUSERNAME,USERNAME,USERNAME,etc.
 			break;
 		case 'a':
 			//Friend added - aUSERNAME
@@ -45,7 +48,16 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 			//Private chat - pUSERNAME,MESSAGE
 			break;
 		case 'c':
-			//Chatroom chat - cROOMNUMBER,USERNAME,MESSAGE
+			//Chatroom chat - cROOMNUMBER,MESSAGE  (NOTE: MESSAGE = <Username> Hi guys!)
+			break;
+		case 'C':
+			//Chatroom could not be created
+			break;
+		case 'E':
+			//Chatroom no longer exists
+			break;
+		case 'R':
+			//Add room to list of available rooms - RROOMNUMBER,ROOMNAME
 			break;
 		case '!':
 			//Announcement - !MESSAGE
