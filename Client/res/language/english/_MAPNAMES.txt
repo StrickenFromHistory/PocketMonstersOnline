@@ -1,13 +1,21 @@
-7,0,Route 12
-6,0,Route 11
-5,0,Vermillion City
-5,-1,Route 6
-5,-2,Saffron City
-5,-3,Route 5
-5,-4,Cerulean City
-5,-5,Route 24
+12,-2,Celadon City
+8,0,Route 12
+8,-2,Lavender Town
+8,-3,Route 10
+8,-4,Route 10
+7,0,Route 11
+7,-2,Route 8
+7,-4,Route 9
+7,-5,Route 25
+6,0,Vermillion City
+6,-1,Route 6
+6,-2,Saffron City
+6,-3,Route 5
+6,-4,Cerulean City
+6,-5,Route 24
+5,-2,Route 7
+5,-4,Route 4
 4,-3,Route 3
-4,-4,Route 4
 3,2,Route 21
 3,1,Pallet Town
 3,0,Route 1
@@ -16,6 +24,8 @@
 3,-3,Pewter City
 2,0,Route 26
 2,-1,Route 22
+2,-2,Route 23
+2,-3,Indigo Plateau
 1,0,Route 27
 0,0,New Bark Town
 0,-1,Route 45
@@ -69,18 +79,52 @@
 -32,-40,Pokemon Center
 -33,-34,Pokemon Center
 -33,-38,Pokemon Center
+-45,-31,Pokemon Center
+-46,-30,Pokemon Center
+-46,-31,Pokemon Center
+-47,-31,Pokemon Center
+-48,-30,Pokemon Center
+-48,-31,Pokemon Center
+-49,-29,Pokemon Center
 -49,-35,Pokemon Center
 -49,-38,Pokemon Center
 -49,-41,Pokemon Center
 -49,-44,Pokemon Center
 -49,-46,Pokemon Center
+-50,-29,Pokemon Center
 -31,-35,Gym
 -32,-43,Gym
 -35,-35,Gym
 -38,-38,Gym
 -45,-45,Gym
 -46,-46,Gym
+-47,-25,Gym
+-48,-22,Gym
+-49,-24,Gym
+-49,-28,Gym
 -49,-37,Gym
 -49,-42,Gym
 -50,-50,Gym
 -36,-49,RoA
+-44,-14,Viridian Forest
+-44,-17,Victory Road
+-44,-16,Victory Road
+-44,-15,Victory Road
+-45,-13,Rock Tunnel
+-45,-14,Rock Tunnel
+-45,-15,Power Plant
+-45,-16,Mt. Moon
+-45,-17,Mt. Moon
+-45,-18,Mt. Moon
+-45,-24,Diglett's Cave
+-45,-25,Diglett's Cave
+-45,-26,Diglett's Cave
+-48,-17,Pokemon Tower
+-48,-18,Pokemon Tower
+-48,-19,Pokemon Tower
+-48,-20,Pokemon Tower
+-48,-21,Pokemon Tower
+-48,-22,Pokemon Tower
+-48,-23,Pokemon Tower
+-50,-31,Mt. Moon
+-50,-37,Power Plant
