@@ -228,7 +228,6 @@ public class ClientMap extends TiledMap {
 		int collisionLayer = getLayer("Collisions").getTileID(newX / 32,
 				(newY + 8) / 32);
 		int ledgeLayer = 0;
-		System.err.println("NEW COORDS: "+newX+","+newY);
 		try {
 			if (p.getDirection() != Direction.Right) {
 				ledgeLayer = getLayer("LedgesRight").getTileID(newX / 32,
@@ -245,6 +244,14 @@ public class ClientMap extends TiledMap {
 		}
 		if (ledgeLayer + collisionLayer != 0)
 			return true;
+		/* Check NPCs */
+		for(int i = 0; i < m_mapMatrix.getPlayers().size(); i++) {
+			Player tmp = m_mapMatrix.getPlayers().get(i);
+			System.err.println(tmp.getUsername());
+			if(tmp.getUsername().equalsIgnoreCase("!NPC!") &&
+					tmp.getX() == newX && tmp.getY() == newY)
+				return true;
+		}
 		return false;
 	}
 
@@ -667,7 +674,8 @@ public class ClientMap extends TiledMap {
 					} catch (Exception e) {}
 					g.resetTransform();
 					// Draw player names
-					g.drawString(p.getUsername(), m_xOffset
+					if(!p.getUsername().equalsIgnoreCase("!NPC!"))
+						g.drawString(p.getUsername(), m_xOffset
 							+ (p.getX() - (g.getFont()
 									.getWidth(p.getUsername()) / 2)) + 16,
 							m_yOffset + p.getY() - 36);
