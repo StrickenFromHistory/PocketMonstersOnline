@@ -19,3 +19,10 @@ Pokemon Center:pokecenter
 Gym:introandgym
 RoA:ruinsofalph
 Route:route
+Pallet Town:pallet
+Pewter City:pewter
+Viridian City:pewter
+Saffron City:pewter
+Vermillion City:vermillion
+Cerulean City:vermillion
+Lavender Town:lavender
