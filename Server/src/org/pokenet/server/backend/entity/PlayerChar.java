@@ -1276,7 +1276,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			c = map.getNpcs().get(i);
 			if(!c.getName().equalsIgnoreCase("NULL")) {
 				/* Send no name to indicate NPC */
-				packet = packet + "," + "," + 
+				packet = packet + "!NPC!," + 
 				c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 
 				(c.getFacing() == Direction.Down ? "D" : 
 					c.getFacing() == Direction.Up ? "U" :

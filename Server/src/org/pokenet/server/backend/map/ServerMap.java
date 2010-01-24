@@ -395,7 +395,7 @@ public class ServerMap {
 				if(c.getId() != p.getId()) {
 					String name = c.getName();
 					if(c instanceof NonPlayerChar) {
-						name = "";
+						name = "!NPC!";
 					}
 					p.getTcpSession().write("ma" + name + "," + 
 							c.getId() + "," + c.getSprite() + "," + c.getX() + "," + c.getY() + "," + 

@@ -64,6 +64,11 @@ public class RegistrationManager implements Runnable {
 				(((String) session.getAttribute("reg")).charAt(0)));
 		String [] info = ((String) session.getAttribute("reg")).substring(1).split(",");
 		/* Check the username */
+		if(info[0].equalsIgnoreCase("NULL") || info[0].equalsIgnoreCase("!NPC!")) {
+			//Invalid - resevered for NPCs
+			session.write("r4");
+			return;
+		}
 		if(info[0].startsWith(" ") || info[0].endsWith(" ") || info[0].contains("!")
 				|| info[0].contains("&") || info[0].contains("%") || info[0].contains("(")
 				|| info[0].contains(")") || info[0].contains("[") || info[0].contains("]")
