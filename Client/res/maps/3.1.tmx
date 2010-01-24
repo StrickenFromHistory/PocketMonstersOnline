@@ -22,7 +22,7 @@
  <tileset firstgid="4097" source="normal13.tsx"/>
  <layer name="Walkable " width="24" height="21">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAMWSSw7CMAxE3TYL1hwRTgKUwjmAAgfhcxV2XIAFsShSGNlxQqmwNGrVjF8tZ4jyalUQrYvMpow6ePbxCz7PNUlQ7bU0PFPh/zzX/EdaKPy910ZR0/WmeDQ+fy9J1izoTfH8m38ev54U4cc8Er+FHOw6fwvvlkfjD52flN5Yflgng6/1h9nT7rcM7lHj89ndfapKzM8Q/Mcon8881Jsf5kfKVG3wMX/Isu636ZmfC+zHwf5vCv8Kc2D1zT/uGyu2E9RW4DuQdF4ZT6lfyoo0v+az9AT4olws4AcAAA==
+   H4sIAAAAAAAAAMWSSQ7CMAxFXRqJPUcsJ2HmHGU8CMNV2LFiTywSKbVsx6FUWPqKmtivlv0BymJTAWyrwqKCOHn2+Qs+9tUYtPRaZXKmzP+xr/mPtBD4R69W0DrUWnIkPt6PgNcsqbXk/Jt/nXxOUPhaDsc/hP3vQ1785u60HIk/tH8stZp/LsFDGl+qT70n7TfuQOPj29N1VRv9MwT/NS7nI48q8jVPxTuNn+Y2DEvbb9xTH//cyHwcmf9D4N9JHzT6+p/Om4Y2E6odw3dE3HudObl6zitc/1JeTm/kbh5U4AcAAA==
   </data>
  </layer>
  <layer name="Layer 4" width="24" height="21">
