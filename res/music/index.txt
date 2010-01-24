@@ -17,3 +17,7 @@ pokecenter:15-PokeCenter.ogg
 pvnpc:18-GSBattle PvNPC.ogg
 pvgymleader:19-PvGymLeader.ogg
 route:21-Route.ogg
+pallet:22-Pallet Town.ogg
+pewter:23-Pewter City.ogg
+vermillion:24-Vermillion City.ogg
+lavender:25-Lavendar Town.ogg
