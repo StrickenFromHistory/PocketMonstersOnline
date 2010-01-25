@@ -45,6 +45,12 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 		m_players = new HashMap<String, PlayerChar>();
 	}
 	
+	@Override
+	public void sessionCreated(IoSession session) {
+		//Tell the client which revision the server is on
+		session.write("R" + GameServer.REVISION);
+	}
+	
 	/**
 	 * Handles any exceptions involving a player's session
 	 */

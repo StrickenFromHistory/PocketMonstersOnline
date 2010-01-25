@@ -1,10 +1,13 @@
 package org.pokenet.client.ui;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Scanner;
 
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Label;
@@ -12,7 +15,9 @@ import mdes.slick.sui.Window;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.Translator;
 import org.pokenet.client.ui.frames.AboutDialog;
 import org.pokenet.client.ui.frames.LanguageDialog;
@@ -27,7 +32,7 @@ import org.pokenet.client.ui.frames.ToSDialog;
  *
  */
 public class LoginScreen extends Window {
-	private Label m_bg;
+	private Label m_bg, m_serverRev, m_clientRev;
 	private ServerDialog m_select;
 	private LoginDialog m_login;
 	private LanguageDialog m_lang;
@@ -137,12 +142,71 @@ public class LoginScreen extends Window {
 				}
 			});
 			this.add(m_openToS);
+			
+			setClientRevision();
+			
+			m_serverRev = new Label("Server Version: ?");
+			m_serverRev.setFont(GameClient.getFontSmall());
+			m_serverRev.setForeground(new Color(255, 255, 255));
+			m_serverRev.pack();
+			m_serverRev.setLocation(m_clientRev.getX() + m_clientRev.getWidth() + 16, 
+					m_clientRev.getY());
+			m_serverRev.setVisible(true);
+			this.add(m_serverRev);
 
 			this.setLocation(0, 0);
 			this.setSize(800, 600);
 			this.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Sets the server version to be displayed
+	 * @param rev
+	 */
+	public void setServerRevision(String rev) {
+		m_serverRev.setText("Server Version: r" + rev);
+		m_serverRev.pack();
+		m_serverRev.setLocation(m_clientRev.getX() + m_clientRev.getWidth() + 16, 
+				m_clientRev.getY());
+	}
+	
+	/**
+	 * Displays client version (ThinClient Version) based on rev.txt
+	 * If rev.txt is not found, ? is displayed
+	 */
+	private void setClientRevision() {
+		String path = System.getProperty("res.path");
+		if(path == null || path.equalsIgnoreCase("NULL")) {
+			path = "./";
+		}
+		File f = new File(path + "rev.txt");
+		if(f.exists()) {
+			try {
+				Scanner s = new Scanner(f);
+				m_clientRev = new Label("Client Version: r" + s.nextLine());
+				m_clientRev.setFont(GameClient.getFontSmall());
+				m_clientRev.setForeground(new Color(255, 255, 255));
+				m_clientRev.pack();
+				m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
+				this.add(m_clientRev);
+			} catch (Exception e) {
+				m_clientRev = new Label("Client Version: ?");
+				m_clientRev.setFont(GameClient.getFontSmall());
+				m_clientRev.setForeground(new Color(255, 255, 255));
+				m_clientRev.pack();
+				m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
+				this.add(m_clientRev);
+			}
+		} else {
+			m_clientRev = new Label("Client Version: ?");
+			m_clientRev.setFont(GameClient.getFontSmall());
+			m_clientRev.setForeground(new Color(255, 255, 255));
+			m_clientRev.pack();
+			m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
+			this.add(m_clientRev);
 		}
 	}
 	
