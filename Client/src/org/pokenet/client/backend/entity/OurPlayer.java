@@ -35,6 +35,7 @@ public class OurPlayer extends Player {
 	 * @param original
 	 */
 	public OurPlayer(OurPlayer original) {
+		m_badges = original.getBadges();
 		m_pokemon = original.getPokemon();
 		m_items = original.getItems();
 		m_sprite = original.getSprite();
