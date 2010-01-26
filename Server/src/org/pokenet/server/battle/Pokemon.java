@@ -789,6 +789,7 @@ public class Pokemon extends PokemonSpecies {
 		p.setExpType(ps.getGrowthRate());
 		p.setExp(DataService.getBattleMechanics().getExpForLevel(p, level));
 		p.setHappiness(ps.getHappiness());
+		p.setRareness(ps.getRareness());
 		return p;
 	}
 
