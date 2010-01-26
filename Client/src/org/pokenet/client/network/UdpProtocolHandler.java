@@ -3,8 +3,6 @@ package org.pokenet.client.network;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IoSession;
 import org.pokenet.client.GameClient;
-import org.pokenet.client.backend.entity.Player;
-import org.pokenet.client.backend.entity.Player.Direction;
 
 /**
  * Protocol handler for UDP
