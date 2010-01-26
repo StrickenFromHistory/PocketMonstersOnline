@@ -70,7 +70,10 @@ public class Pokemon {
         		} else if (m_spriteNum < 100) {
         			index = "0" + String.valueOf(m_spriteNum);
         		} else {
-        			index = String.valueOf(m_spriteNum);
+        			if(getSpriteNumber() > 389)
+    					index = String.valueOf(getSpriteNumber() - 3);
+    				else
+    					index = String.valueOf(getSpriteNumber());
         		}
         		
         		int pathGender;
@@ -125,7 +128,10 @@ public class Pokemon {
                                 index = "0" + String.valueOf(m_spriteNum);
                         }
                         else{
-                                index = String.valueOf(m_spriteNum);
+                        	if(getSpriteNumber() > 389)
+            					index = String.valueOf(getSpriteNumber() - 3);
+            				else
+            					index = String.valueOf(getSpriteNumber());
                         }
                        
                         path = respath+"res/pokemon/icons/" + index + ".gif";
