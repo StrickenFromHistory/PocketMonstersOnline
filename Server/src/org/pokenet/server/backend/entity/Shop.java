@@ -117,7 +117,8 @@ public class Shop implements Runnable {
 	 * @return
 	 */
 	public int sellItem(int itemId, int quantity) {
-		return ((getPriceForItem(itemId) / 2) * quantity);
+		return ((GameServer.getServiceManager().
+				getItemDatabase().getItem(itemId).getPrice() / 2) * quantity);
 	}
 	/**
 	 * Starts the restocking thread
