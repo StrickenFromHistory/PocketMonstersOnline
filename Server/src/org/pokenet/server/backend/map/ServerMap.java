@@ -798,7 +798,7 @@ public class ServerMap {
 	 * @param p
 	 * @return
 	 */
-	public void isNpcBattle(PlayerChar p) {
+	public boolean isNpcBattle(PlayerChar p) {
 		NonPlayerChar n = null;
 		for(int i = 0; i < m_npcs.size(); i++) {
 			n = m_npcs.get(i);
@@ -814,14 +814,14 @@ public class ServerMap {
 						if(n.getFacing() == Direction.Up && n.canSee(p)) {
 							NpcBattleLauncher l = new NpcBattleLauncher(n, p);
 							l.start();
-							return;
+							return true;
 						}
 					} else {
 						/* NPC is below the player */
 						if(n.getFacing() == Direction.Down && n.canSee(p)) {
 							NpcBattleLauncher l = new NpcBattleLauncher(n, p);
 							l.start();
-							return;
+							return true;
 						}
 					}
 				} else if(n.getY() == p.getY()) {
@@ -831,19 +831,20 @@ public class ServerMap {
 						if(n.getFacing() == Direction.Left && n.canSee(p)) {
 							NpcBattleLauncher l = new NpcBattleLauncher(n, p);
 							l.start();
-							return;
+							return true;
 						}
 					} else {
 						/* NPC is left of the player */
 						if(n.getFacing() == Direction.Right && n.canSee(p)) {
 							NpcBattleLauncher l = new NpcBattleLauncher(n, p);
 							l.start();
-							return;
+							return true;
 						}
 					}
 				}
 			}
 		}
+		return false;
 	}
 	
 	/**

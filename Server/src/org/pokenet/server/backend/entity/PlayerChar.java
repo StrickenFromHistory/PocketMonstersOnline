@@ -826,8 +826,10 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 								DataService.getBattleMechanics(),
 								this,
 								this.getMap().getWildPokemon(this));
+						m_movementQueue.clear();
 					} else {
-						m_map.isNpcBattle(this);
+						if(m_map.isNpcBattle(this))
+							m_movementQueue.clear();
 					}
 					/* If it wasn't a battle see should we increase happiness */
 					if(this.getX() % 32 == 0 || (this.getY() + 8) % 32 == 0) {
