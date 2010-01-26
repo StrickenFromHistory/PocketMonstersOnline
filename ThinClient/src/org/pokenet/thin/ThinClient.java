@@ -227,28 +227,9 @@ public class ThinClient extends JFrame implements Runnable {
 		Process p = Runtime.getRuntime().exec("java -Dres.path=client/"
 				+ " -Djava.library.path=client/lib/native " +
 		"-Xmx512m -Xms512m -jar ./client/client.jar");
-		BufferedReader stdInput = new BufferedReader(new 
-				InputStreamReader(p.getInputStream()));
-		BufferedReader stdError = new BufferedReader(new 
-				InputStreamReader(p.getErrorStream()));
-		String line;
-		PrintWriter pw = new PrintWriter(new File("./client/errors.txt"));
-		while(true) {
-			while ((line = stdInput.readLine()) != null) {
-				System.out.println(line);
-			}
-			while ((line = stdError.readLine()) != null) {
-				pw.println(line);
-				pw.flush();
-			}
-			try {
-				Thread.sleep(1000);
-			} catch (Exception e) {}
-			try {
-				if(p.exitValue() >= 0)
-					break;
-			} catch (Exception e) {}
-		}
-		pw.close();
+		StreamReader r1 = new StreamReader(p.getInputStream(), "OUTPUT");
+		StreamReader r2 = new StreamReader(p.getErrorStream(), "ERROR");
+		new Thread(r1).start();
+		new Thread(r2).start();
 	}
 }
