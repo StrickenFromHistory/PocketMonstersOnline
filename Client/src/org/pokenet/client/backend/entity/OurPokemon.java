@@ -77,7 +77,10 @@ public class OurPokemon extends Pokemon {
 			} else if (getSpriteNumber() <= 99) {
 				index = "0" + String.valueOf(getSpriteNumber());
 			} else {
-				index = String.valueOf(getSpriteNumber());
+				if(getSpriteNumber() > 389)
+					index = String.valueOf(getSpriteNumber() - 3);
+				else
+					index = String.valueOf(getSpriteNumber());
 			}
 
 			int gender;
