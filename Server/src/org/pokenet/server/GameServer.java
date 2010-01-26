@@ -61,7 +61,7 @@ public class GameServer {
 	private JLabel m_pAmount, m_pHighest;
 	private JFrame m_gui;
 	/* The revision of the game server */
-	public static int REVISION = 1773;
+	public static int REVISION = 1782;
 	
 	/**
 	 * Load pre-existing settings if any

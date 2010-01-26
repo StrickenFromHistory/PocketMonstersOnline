@@ -678,8 +678,6 @@ public class WildBattleField extends BattleField {
 				}
 
 				/* Gain exp/level up and update client */
-				m_player.addTrainingExp((int) (exp / 10)); // Adds trainer exp to
-				// trainer.
 				p.setExp(p.getExp() + exp);
 				//Calculate how much exp is left to next level
 				int expTillLvl = (int)(DataService.getBattleMechanics().getExpForLevel(p, (p.getLevel() + 1)) - p.getExp());
