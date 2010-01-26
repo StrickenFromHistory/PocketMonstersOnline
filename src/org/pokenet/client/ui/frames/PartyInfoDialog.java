@@ -18,7 +18,6 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
-
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.FileLoader;
 import org.pokenet.client.backend.Translator;

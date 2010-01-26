@@ -247,7 +247,6 @@ public class ClientMap extends TiledMap {
 		/* Check NPCs */
 		for(int i = 0; i < m_mapMatrix.getPlayers().size(); i++) {
 			Player tmp = m_mapMatrix.getPlayers().get(i);
-			System.err.println(tmp.getUsername());
 			if(tmp.getUsername().equalsIgnoreCase("!NPC!") &&
 					tmp.getX() == newX && tmp.getY() == newY)
 				return true;
