@@ -33,15 +33,6 @@ public class Trade implements Runnable{
 		m_offers = new HashMap<Tradeable, TradeOffer[]>();
 		m_offers.put(player1, null);
 		m_offers.put(player2, null);
-		/* Block players of same IP address from trading */
-//		if(player1.getIpAddress().equalsIgnoreCase(player2.getIpAddress())) {
-//			if(player1 instanceof PlayerChar) {
-//				PlayerChar p = (PlayerChar) player1;
-//				p.getTcpSession().write("!Trading cannot be done with that player");
-//			}
-//			endTrade();
-//			return;
-//		}
 		if(player1 instanceof PlayerChar) {
 			/* Tell the client to open the trade window */
 			PlayerChar p = (PlayerChar) player1;

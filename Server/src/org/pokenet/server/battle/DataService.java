@@ -338,14 +338,15 @@ public class DataService {
             for (int j = 0; j < stringMoves.length; j++) {
                     if (j % 2 == 0) {
                     	int level = Integer.parseInt(stringMoves[j]);
+                    	String move = stringMoves[j + 1].charAt(0) + 
+                    		stringMoves[j + 1].substring(1).toLowerCase();
                     	if(level < 2) {
                     		if(sp <= 3) {
-	                    		startMoves[sp] = stringMoves[j + 1];
+	                    		startMoves[sp] = move;
 	                    		sp++;
                     		}
                     	} else {
-                    		species.getLevelMoves().put(level, 
-                                    stringMoves[j + 1]);
+                    		species.getLevelMoves().put(level, move);
                     	}
                     }
             }
