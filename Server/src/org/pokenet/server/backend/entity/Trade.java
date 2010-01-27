@@ -33,6 +33,15 @@ public class Trade implements Runnable{
 		m_offers = new HashMap<Tradeable, TradeOffer[]>();
 		m_offers.put(player1, null);
 		m_offers.put(player2, null);
+		/* Block players of same IP address from trading */		
+		if(player1.getIpAddress().equalsIgnoreCase(player2.getIpAddress())) {		
+			if(player1 instanceof PlayerChar) {		
+				PlayerChar p = (PlayerChar) player1;		
+				p.getTcpSession().write("!Trading cannot be done with that player");		
+			}		
+			endTrade();		
+			return;		
+		}
 		if(player1 instanceof PlayerChar) {
 			/* Tell the client to open the trade window */
 			PlayerChar p = (PlayerChar) player1;
@@ -223,7 +232,7 @@ public class Trade implements Runnable{
 							temp[0] = player1.getParty()[o1[j].getId()];
 							if(player1 instanceof PlayerChar && player2 instanceof PlayerChar) {
 								player1.getParty()[o1[j].getId()] = null;
-								m_queries.add("INSERT into pn_history (member,actiontaken,withwho,timestamp,tradedarticle) VALUES ('"+((PlayerChar) player1).getId()+"','1','"+((PlayerChar)player2).getId()+"','"+timestamp+"','"+temp[0].getDatabaseID()+"')");
+								m_queries.add("INSERT into pn_history (member,action,with,timestamp,details) VALUES ('"+((PlayerChar) player1).getId()+"','1','"+((PlayerChar)player2).getId()+"','"+timestamp+"','"+temp[0].getDatabaseID()+"')");
 							}
 							
 						}
@@ -234,7 +243,7 @@ public class Trade implements Runnable{
 							player1.setMoney(player1.getMoney() - o1[j].getQuantity());
 							player2.setMoney(player2.getMoney() + o1[j].getQuantity());
 							if(player1 instanceof PlayerChar && player2 instanceof PlayerChar) {
-								m_queries.add("INSERT into pn_history (member,actiontaken,withwho,timestamp,tradedarticle) VALUES ('"+((PlayerChar) player1).getId()+"','0','"+((PlayerChar)player2).getId()+"','"+timestamp+"','"+o1[j].getQuantity()+"')");
+								m_queries.add("INSERT into pn_history (member,action,with,timestamp,details) VALUES ('"+((PlayerChar) player1).getId()+"','0','"+((PlayerChar)player2).getId()+"','"+timestamp+"','"+o1[j].getQuantity()+"')");
 							}
 						}
 						break;
@@ -256,7 +265,7 @@ public class Trade implements Runnable{
 							temp[1] = player2.getParty()[o2[j].getId()];
 							if(player1 instanceof PlayerChar && player2 instanceof PlayerChar) {
 								player2.getParty()[o1[j].getId()] = null;
-								m_queries.add("INSERT into pn_history (member,actiontaken,withwho,timestamp,tradedarticle) VALUES ('"+((PlayerChar) player2).getId()+"','1','"+((PlayerChar)player1).getId()+"','"+timestamp+"','"+temp[1].getDatabaseID()+"')");
+								m_queries.add("INSERT into pn_history (member,action,with,timestamp,details) VALUES ('"+((PlayerChar) player2).getId()+"','1','"+((PlayerChar)player1).getId()+"','"+timestamp+"','"+temp[1].getDatabaseID()+"')");
 							}
 						}
 						break;
@@ -266,7 +275,7 @@ public class Trade implements Runnable{
 							player2.setMoney(player2.getMoney() - o2[j].getQuantity());
 							player1.setMoney(player1.getMoney() + o2[j].getQuantity());
 							if(player1 instanceof PlayerChar && player2 instanceof PlayerChar) {
-								m_queries.add("INSERT into pn_history (member,actiontaken,withwho,timestamp,tradedarticle) VALUES ('"+((PlayerChar) player2).getId()+"','0','"+((PlayerChar)player1).getId()+"','"+timestamp+"','"+o2[j].getQuantity()+"')");
+								m_queries.add("INSERT into pn_history (member,action,with,timestamp,details) VALUES ('"+((PlayerChar) player2).getId()+"','0','"+((PlayerChar)player1).getId()+"','"+timestamp+"','"+o2[j].getQuantity()+"')");
 							}
 						}
 						break;
