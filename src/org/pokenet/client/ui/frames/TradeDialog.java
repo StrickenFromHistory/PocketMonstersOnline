@@ -174,7 +174,6 @@ public class TradeDialog extends Frame {
 		
 		int x = 10, y = 10;
 		for (int i = 0; i < 6; i++){
-			final int j = i;
 			//Show Our Pokemon for Trade
 			m_ourPokes[i] = new ToggleButton();
 			m_ourPokes[i].setSize(32, 32);
@@ -185,20 +184,6 @@ public class TradeDialog extends Frame {
 			} catch (NullPointerException e){
 				m_ourPokes[i].setGlassPane(true);
 			}
-
-			m_ourPokes[i].addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
-					if (m_offerNum == j){
-						m_offerNum = 6;
-						m_ourPokes[j].setSelected(false);
-						untoggleOthers(j);
-					} else {
-						m_offerNum = j;
-						m_ourPokes[j].setSelected(true);
-						untoggleOthers(j);
-					}
-				};
-			});
 			
 			getContentPane().add(m_ourPokes[i]);
 			if (i < 3)
@@ -224,6 +209,84 @@ public class TradeDialog extends Frame {
 			else
 				y += 40;
 		}
+		m_ourPokes[0].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (m_offerNum == 0){
+					m_offerNum = 6;
+					m_ourPokes[0].setSelected(false);
+					untoggleOthers(6);
+				} else {
+					m_offerNum = 0;
+					m_ourPokes[0].setSelected(true);
+					untoggleOthers(0);
+				}
+			};
+		});
+		m_ourPokes[1].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (m_offerNum == 1){
+					m_offerNum = 6;
+					m_ourPokes[1].setSelected(false);
+					untoggleOthers(6);
+				} else {
+					m_offerNum = 1;
+					m_ourPokes[1].setSelected(true);
+					untoggleOthers(1);
+				}
+			};
+		});
+		m_ourPokes[2].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (m_offerNum == 2){
+					m_offerNum = 6;
+					m_ourPokes[2].setSelected(false);
+					untoggleOthers(6);
+				} else {
+					m_offerNum = 2;
+					m_ourPokes[2].setSelected(true);
+					untoggleOthers(2);
+				}
+			};
+		});
+		m_ourPokes[3].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (m_offerNum == 3){
+					m_offerNum = 6;
+					m_ourPokes[3].setSelected(false);
+					untoggleOthers(6);
+				} else {
+					m_offerNum = 3;
+					m_ourPokes[3].setSelected(true);
+					untoggleOthers(3);
+				}
+			};
+		});
+		m_ourPokes[4].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (m_offerNum == 4){
+					m_offerNum = 6;
+					m_ourPokes[4].setSelected(false);
+					untoggleOthers(6);
+				} else {
+					m_offerNum = 4;
+					m_ourPokes[4].setSelected(true);
+					untoggleOthers(4);
+				}
+			};
+		});
+		m_ourPokes[5].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (m_offerNum == 5){
+					m_offerNum = 6;
+					m_ourPokes[5].setSelected(false);
+					untoggleOthers(6);
+				} else {
+					m_offerNum = 5;
+					m_ourPokes[5].setSelected(true);
+					untoggleOthers(5);
+				}
+			};
+		});
 		
 		//UI Buttons
 		m_makeOfferBtn.setText("Make Offer");
@@ -311,9 +374,14 @@ public class TradeDialog extends Frame {
 	public void addPoke(int index, String[] data) {
         final int j = index;
 		LoadingList.setDeferredLoading(true);
+		int ic = Integer.parseInt(data[0]);
+		if(ic > 389) {
+			ic -= 2;
+		} else {
+			ic ++;
+		}
         try {
-        	m_theirPokes[index].setImage(new Image(Pokemon.getIconPathByIndex(
-        			Integer.parseInt(data[0]))));
+        	m_theirPokes[index].setImage(new Image(Pokemon.getIconPathByIndex(ic)));
         } catch (SlickException e){}
         LoadingList.setDeferredLoading(false);
         

@@ -150,10 +150,12 @@ public class RequestDialog extends Frame{
      * @param userIndex
      */
     public void acceptOffer(int userIndex) {
-    	GameClient.getInstance().getPacketGenerator().writeTcpMessage("ra" + m_offerUser.get(userIndex));
-    	m_offers.remove(m_offerUser.get(userIndex));
-    	m_offerUser.remove(userIndex);
-    	m_update = true;
+    	if(m_offerUser != null && m_offerUser.size() > 0) {
+        	GameClient.getInstance().getPacketGenerator().writeTcpMessage("ra" + m_offerUser.get(userIndex));
+        	m_offers.remove(m_offerUser.get(userIndex));
+        	m_offerUser.remove(userIndex);
+        	m_update = true;
+    	}
     }
     
     /**

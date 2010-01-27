@@ -238,10 +238,16 @@ public class OurPokemon extends Pokemon {
 	 * @return
 	 */
 	public OurPokemon initTradePokemon(String[] info) {
+		int sprite = Integer.parseInt(info[0]);
+		if(sprite > 389) {
+			sprite -= 2;
+		} else {
+			sprite++;
+		}
 		/*
 		 * Set sprite, name, gender and hp
 		 */
-		setSpriteNumber(Integer.parseInt(info[0]));
+		setSpriteNumber(sprite);
 		setName(info[1]);
 		setCurHP(Integer.parseInt(info[5]));
 		setGender(Integer.parseInt(info[3]));
