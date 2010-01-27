@@ -70,10 +70,10 @@ public class Trade implements Runnable{
 									player2.getParty()[i].getLevel() + "," +
 									player2.getParty()[i].getAbilityName() + "," +
 									player2.getParty()[i].getNature().getName() + "," +
-							(player2.getParty()[i].getMoves()[0] != null ? player1.getParty()[i].getMoves()[0].getName() : "") + "," +
-							(player2.getParty()[i].getMoves()[1] != null ? player1.getParty()[i].getMoves()[1].getName() : "") + "," +
-							(player2.getParty()[i].getMoves()[2] != null ? player1.getParty()[i].getMoves()[2].getName() : "") + "," +
-							(player2.getParty()[i].getMoves()[3] != null ? player1.getParty()[i].getMoves()[3].getName() : ""));
+							(player2.getParty()[i].getMoves()[0] != null ? player2.getParty()[i].getMoves()[0].getName() : "") + "," +
+							(player2.getParty()[i].getMoves()[1] != null ? player2.getParty()[i].getMoves()[1].getName() : "") + "," +
+							(player2.getParty()[i].getMoves()[2] != null ? player2.getParty()[i].getMoves()[2].getName() : "") + "," +
+							(player2.getParty()[i].getMoves()[3] != null ? player2.getParty()[i].getMoves()[3].getName() : ""));
 				}
 			}
 		}
