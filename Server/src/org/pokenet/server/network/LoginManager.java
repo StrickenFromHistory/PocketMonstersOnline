@@ -120,6 +120,7 @@ public class LoginManager implements Runnable {
 						p.setLanguage(Language.values()[Integer.parseInt(String.valueOf(l))]);
 						m_database.query("UPDATE pn_members SET lastLoginServer='" + MySqlManager.parseSQL(GameServer.getServerName()) + "', lastLoginTime='" + time + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 						m_database.query("UPDATE pn_members SET lastLoginIP='" + getIp(session) + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
+						m_database.query("UPDATE pn_members SET lastLanguageUsed='" + l + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 						session.setAttribute("player", p);
 						this.initialiseClient(p, session);
 					} else {
@@ -329,6 +330,7 @@ public class LoginManager implements Runnable {
 		 */
 		m_database.query("UPDATE pn_members SET lastLoginServer='" + MySqlManager.parseSQL(GameServer.getServerName()) + "', lastLoginTime='" + time + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 		m_database.query("UPDATE pn_members SET lastLoginIP='" + getIp(session) + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
+		m_database.query("UPDATE pn_members SET lastLanguageUsed='" + language + "' WHERE username='" + MySqlManager.parseSQL(username) + "'");
 		session.setAttribute("player", p);
 		/*
 		 * Send success packet to player, set their map and add them to a movement service
