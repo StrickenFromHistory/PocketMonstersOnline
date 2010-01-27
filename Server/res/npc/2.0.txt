@@ -7,6 +7,24 @@
 -50
 0
 [/warp]
+[warp]
+7
+1
+8
+10
+-48
+-33
+0
+[/warp]
+[warp]
+8
+1
+9
+10
+-48
+-33
+0
+[/warp]
 [npc]
 Fisher Scott
 down
@@ -96,7 +114,7 @@ NULL
 down
 0
 8
-2
+3
 NULL
 0
 -1
