@@ -68,7 +68,7 @@ public class UpdateCreator {
 				String file = it.next();
 				String checksum = m_files.get(file);
 				file = file.substring(2).replace('\\', '/');
-				p.println(checksum + " " + file);
+				p.println(checksum + " " + file.replace(" ","%20"));
 			}
 			p.flush();
 			p.close();
