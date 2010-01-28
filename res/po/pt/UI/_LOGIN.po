@@ -101,7 +101,7 @@ msgstr "As senhao nao coincidem."
 msgid "Username must have at least 4 characters and no more than 12."
 msgstr "O usuario nao deve ter mais que 12 dijitos e menos que 4."
 
-msgid "VeryLongToSScreenGoesHere"
+msgid "1. No swearing./n2. No spamming./n3. One account per person./n4. No scamming./n5. Do not talk in all capitals./n6. No botting./n7. No hacking./n/nBreaking any of these rules may/nresult in a ban. We would also like/nour members to note that thisis a/nbeta release, your account may be/ndeleted at anytime to facilitate improvements. Any bugs or issues should be reported to developers."
 msgstr "1. E proibido insultar./n2. E proibido spam, flood e fazer propaganda de outros sites./n3. So e permitido uma conta por pessoa./n4. E proibido fraudar o jogo./n5. Nao converse com todas as letras maiusculas./n6. E proibido usar bots./n7. E proibido hackear ou usar cheats/n/nQuebrar qualquer dessas regras pode resultar em suspensao da conta./nNos tambem gostariamos que os membros notassem que esta e uma versao beta, e sua conta pode ser deletada a qualquer momento para facilitar melhorias. Qualquer bug ou erro deve ser reportado para os desenvolvedores"
 
 msgid "About Pokenet"
@@ -119,7 +119,7 @@ msgstr "Pokemon e uma marca registrada da Nintendo (1995 - Present)./n/n"
 msgid "Contributors:"
 msgstr "Contribuidores:"
 
-msgid "Fshy, ZombieBear, Ryan, Pivot/nIlentcape, Sienide, TMKCodes, Drawing,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, Kiwii"
+msgid "Fshy, ZombieBear, Ryan, Pivot,/nIlentcape, Sienide, TMKCodes, Drawig,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, PokeRemixStudio"
 msgstr "Fshy, ZombieBear, Ryan, Pivot/nIlentcape, Sienide, TMKCodes, Drawing,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, Kiwii, XFX"
 
 msgid "You have been disconnected from the game server."

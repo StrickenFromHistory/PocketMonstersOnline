@@ -12,35 +12,41 @@ import java.util.List;
 
 import org.pokenet.translation.utils.FileListing;
 
-public class TextToPo {
+public class PoToText {
 
 	public static void main(String[] args){
 		try {
-			List<File> files = FileListing.getFiles("res/txt/");
+			List<File> files = FileListing.getFiles("res/po/");
 			HashMap<String,ArrayList<Translation>> fileGroup = new HashMap<String,ArrayList<Translation>>();
 			for(File file : files ){
-				if(file.isFile()&&!file.getAbsolutePath().contains(".svn")){
+				if(file.isFile()){
 					String lang = "";
-					if(file.getAbsolutePath().contains("res/txt/english"))
+					if(file.getAbsolutePath().contains("res/po/en"))
 						lang = "en-US";
-					else if (file.getAbsolutePath().contains("res/txt/spanish"))
+					else if (file.getAbsolutePath().contains("res/txt/es"))
 						lang = "es";
-					else if (file.getAbsolutePath().contains("res/txt/portuguese"))
+					else if (file.getAbsolutePath().contains("res/txt/pt"))
 						lang = "pt";
-					else if (file.getAbsolutePath().contains("res/txt/french"))
+					else if (file.getAbsolutePath().contains("res/txt/fr"))
 						lang = "fr";
-					else if (file.getAbsolutePath().contains("res/txt/italian"))
+					else if (file.getAbsolutePath().contains("res/txt/it"))
 						lang = "it";
-					else if (file.getAbsolutePath().contains("res/txt/dutch"))
+					else if (file.getAbsolutePath().contains("res/txt/nl"))
 						lang = "nl";
-					else if (file.getAbsolutePath().contains("res/txt/finnish"))
+					else if (file.getAbsolutePath().contains("res/txt/fi"))
 						lang = "fi";
-					else if (file.getAbsolutePath().contains("res/txt/german"))
+					else if (file.getAbsolutePath().contains("res/txt/de"))
 						lang = "de";
 					Translation trans = new Translation(lang);
 					BufferedReader input =  new BufferedReader(new FileReader(file));
 					try {
 						String line = null; //not declared within while loop
+						/*
+						 * readLine is a bit quirky :
+						 * it returns the content of a line MINUS the newline.
+						 * it returns null only for the END of the stream.
+						 * it returns an empty String if two newlines appear in a row.
+						 */
 						while (( line = input.readLine()) != null){
 							trans.addLine(line);
 						}
@@ -79,9 +85,7 @@ public class TextToPo {
 					if(!folder.exists())
 						folder.mkdir();
 					File f;
-					if(filename.contains("_MAPNAMES")||filename.contains("_MUSICKEYS"))
-						f = new File("res/po/"+translations.get(i).getLanguage()+"/"+filename.replace(".txt",".po"));
-					else if(filename.contains("_BATTLE")||filename.contains("_GUI")||filename.contains("_LOGIN")||filename.contains("_MAP"))
+					if(filename.contains("_BATTLE")||filename.contains("_GUI")||filename.contains("_LOGIN")||filename.contains("_MAP"))
 						f = new File("res/po/"+translations.get(i).getLanguage()+"/UI/"+filename.replace(".txt",".po"));
 					else
 						f = new File("res/po/"+translations.get(i).getLanguage()+"/NPC/"+filename.replace(".txt",".po"));
@@ -94,8 +98,7 @@ public class TextToPo {
 					pw.println("# ");
 					for(int j=0;j<translations.get(i).getLines().size();j++){
 						try{
-							pw.println("msgid \""+translations.get(0).getLines().get(j)+"\""); // get(0) Because there's no Dutch translations. 
-																							   // Change If adding "Arabic" or another language that alphabetically goes before English, or Dutch gets translations.  
+							pw.println("msgid \""+translations.get(0).getLines().get(j)+"\"");
 							pw.println("msgstr \""+translations.get(i).getLines().get(j)+"\"");
 							pw.println("");
 						}catch(Exception e){}

@@ -5,3 +5,6 @@
 msgid "Hi there, I usually manage teams. Unfortunately you'll have to come back later."
 msgstr "Hi there, I usually manage teams. Unfortunately you'll have to come back later."
 
+msgid "Please choose your sprite!"
+msgstr "Please choose your sprite!"
+

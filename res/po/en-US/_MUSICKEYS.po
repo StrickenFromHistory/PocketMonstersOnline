@@ -2,3 +2,87 @@
 # Copyright (C) 2010 PokeDev Developer Group, Inc
 # Nushio <nushio@pokedev.org>, 2010.
 # 
+msgid "New Bark Town:newbark"
+msgstr "New Bark Town:newbark"
+
+msgid "Cherrygrove City:cherrygrove"
+msgstr "Cherrygrove City:cherrygrove"
+
+msgid "Violet City:violet"
+msgstr "Violet City:violet"
+
+msgid "National Park:nationalpark"
+msgstr "National Park:nationalpark"
+
+msgid "Azalea Town:azalea"
+msgstr "Azalea Town:azalea"
+
+msgid "Goldenrod City:goldenrod"
+msgstr "Goldenrod City:goldenrod"
+
+msgid "Ecruteak City:ecruteak"
+msgstr "Ecruteak City:ecruteak"
+
+msgid "Dark Cave:darkcave"
+msgstr "Dark Cave:darkcave"
+
+msgid "Sprout Tower:sprouttower"
+msgstr "Sprout Tower:sprouttower"
+
+msgid "Olivine City:violet"
+msgstr "Olivine City:violet"
+
+msgid "Cianwood City:ecruteak"
+msgstr "Cianwood City:ecruteak"
+
+msgid "Mahogany Town:cherrywood"
+msgstr "Mahogany Town:cherrywood"
+
+msgid "Blackthorn City:azalea"
+msgstr "Blackthorn City:azalea"
+
+msgid "Burned Tower:burnedtower"
+msgstr "Burned Tower:burnedtower"
+
+msgid "Tin Tower:tintower"
+msgstr "Tin Tower:tintower"
+
+msgid "Olivine Lighthouse:lighthouse"
+msgstr "Olivine Lighthouse:lighthouse"
+
+msgid "Dragons Den:dragonsden"
+msgstr "Dragons Den:dragonsden"
+
+msgid "Pokemon Center:pokecenter"
+msgstr "Pokemon Center:pokecenter"
+
+msgid "Gym:introandgym"
+msgstr "Gym:introandgym"
+
+msgid "RoA:ruinsofalph"
+msgstr "RoA:ruinsofalph"
+
+msgid "Route:route"
+msgstr "Route:route"
+
+msgid "Pallet Town:pallet"
+msgstr "Pallet Town:pallet"
+
+msgid "Pewter City:pewter"
+msgstr "Pewter City:pewter"
+
+msgid "Viridian City:pewter"
+msgstr "Viridian City:pewter"
+
+msgid "Saffron City:pewter"
+msgstr "Saffron City:pewter"
+
+msgid "Vermillion City:vermillion"
+msgstr "Vermillion City:vermillion"
+
+msgid "Cerulean City:vermillion"
+msgstr "Cerulean City:vermillion"
+
+msgid "Lavender Town:lavender"
+msgstr "Lavender Town:lavender"
+

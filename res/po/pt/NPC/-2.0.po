@@ -5,3 +5,15 @@
 msgid "Cherrygrove City - The city of cute, fragrant flowers"
 msgstr "Cidade de Cherrygrove - A cidade das bonitas flores, perfumadas"
 
+msgid "Why hello there strapping young lad"
+msgstr "Ora, ol�, meu saudavel jovem"
+
+msgid "Circles next to items in stores show how much of that item is in stock"
+msgstr "Circulos proximos aos itens em lojas mostram o quanto tem deste item em estoque"
+
+msgid "If the circle is white, they are out of that item"
+msgstr "Se o circulo for branco, eles estao sem esse item"
+
+msgid "Stores restock their items at different times you rough rouser "
+msgstr "Lojas reabastecem seus itens em diferentes momentos, novato"
+

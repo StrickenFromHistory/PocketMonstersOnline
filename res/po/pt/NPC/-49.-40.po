@@ -11,3 +11,9 @@ msgstr "Ela usa os nomes de suas coisas favoritas para comer."
 msgid "For the nicknames she gives to her Pokemon, I mean."
 msgstr "Quer dizer, para os apelidos de seus Pokemons."
 
+msgid "A Pokemon you get in trade grows quickly. "
+msgstr "Um Pokemon obtido por meio de uma troca se desenvolve rapidamente. "
+
+msgid "But if you don't have the right gym badge, they may disobey you."
+msgstr "Mas, se voce nao tiver a insignia adequada, pode ser que ele nao obedeca."
+

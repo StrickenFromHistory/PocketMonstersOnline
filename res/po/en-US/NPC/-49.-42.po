@@ -5,12 +5,45 @@
 msgid "I'm Falkner, The Violet Pokemon Gym leader!"
 msgstr "I'm Falkner, The Violet Pokemon Gym leader!"
 
-msgid "People say you can clip flying-type Pokemon's wings /n with a jolt of electricity..."
+msgid "People say you can clip flying-type Pokemon's wings "
 msgstr "People say you can clip flying-type Pokemon's wings "
 
-msgid "I won't allow such insults to bird Pokemon!"
+msgid "with a jolt of electricity..."
 msgstr "with a jolt of electricity..."
 
-msgid "I'll show you the real power of the magnificent /n bird Pokemon!"
+msgid "I won't allow such insults to bird-Pokemon!"
 msgstr "I won't allow such insults to bird-Pokemon!"
+
+msgid "I'll show you the real power of the magnificent "
+msgstr "I'll show you the real power of the magnificent "
+
+msgid "bird-Pokemon!"
+msgstr "bird-Pokemon!"
+
+msgid "Let me see if you are good enough to face Falkner!"
+msgstr "Let me see if you are good enough to face Falkner!"
+
+msgid "The keyword is guts! "
+msgstr "The keyword is guts! "
+
+msgid "Those here are training night and day to become bird Pokemon masters. "
+msgstr "Those here are training night and day to become bird Pokemon masters. "
+
+msgid "Come on!"
+msgstr "Come on!"
+
+msgid "Hey! I'm no trainer but I can give some advice! "
+msgstr "Hey! I'm no trainer but I can give some advice! "
+
+msgid "Believe me! If you believe a championship dream can come true. "
+msgstr "Believe me! If you believe a championship dream can come true. "
+
+msgid "You believe? Then listen. "
+msgstr "You believe? Then listen. "
+
+msgid "The grass-type is weak against the flying-type. Keep this in mind."
+msgstr "The grass-type is weak against the flying-type. Keep this in mind."
+
+msgid "It's a list of winning trainers."
+msgstr "It's a list of winning trainers."
 

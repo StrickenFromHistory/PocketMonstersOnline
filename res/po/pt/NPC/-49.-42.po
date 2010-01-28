@@ -5,12 +5,45 @@
 msgid "I'm Falkner, The Violet Pokemon Gym leader!"
 msgstr "Me chamo Falkner, o lider do ginasio Pokemon de Violeta!"
 
-msgid "People say you can clip flying-type Pokemon's wings /n with a jolt of electricity..."
+msgid "People say you can clip flying-type Pokemon's wings "
 msgstr "Dizem que um choque de eletricidade pode aparar as asas "
 
-msgid "I won't allow such insults to bird Pokemon!"
+msgid "with a jolt of electricity..."
 msgstr "de um Pokemon de tipo voador..."
 
-msgid "I'll show you the real power of the magnificent /n bird Pokemon!"
+msgid "I won't allow such insults to bird-Pokemon!"
 msgstr "Nao permitirei tais insultos aos Pokemon passaros !"
+
+msgid "I'll show you the real power of the magnificent "
+msgstr "Vou mostrar a voce o verdadeiro poder dos magnificos "
+
+msgid "bird-Pokemon!"
+msgstr "passaros Pokemon!"
+
+msgid "Let me see if you are good enough to face Falkner!"
+msgstr "Vamos ver se voce e bom o bastante para encarar o Falkner!"
+
+msgid "The keyword is guts! "
+msgstr "A palavra-chave e fibra! "
+
+msgid "Those here are training night and day to become bird Pokemon masters. "
+msgstr "Todos aqui tem treinado noite e dia para se tornarem mestres dos passaros Pokemon. "
+
+msgid "Come on!"
+msgstr "Pode vir!"
+
+msgid "Hey! I'm no trainer but I can give some advice! "
+msgstr "Ei! Nao sou um treinador, mas posso lhe dar alguns conselhos! "
+
+msgid "Believe me! If you believe a championship dream can come true. "
+msgstr "Acredite em mim! Se acreditar, um sonho de gloria pode se tornar realidade. "
+
+msgid "You believe? Then listen. "
+msgstr "Voce acredita? Entao escute. "
+
+msgid "The grass-type is weak against the flying-type. Keep this in mind."
+msgstr "O tipo grama e fraco contra o tipo voador. Tenha isso em mente."
+
+msgid "It's a list of winning trainers."
+msgstr "E uma lista de treinadores que venceram neste ginasio."
 
