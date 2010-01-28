@@ -1,23 +1,23 @@
 ﻿introandgym:20-Title&Gym.ogg
-newbark:1-New Bark.ogg
-cherrygrove:2-Cherrygrove Town.ogg
-violet:3-Violet Town.ogg
-azalea:4-Azalea Town.ogg
+newbark:1-New_Bark.ogg
+cherrygrove:2-Cherrygrove_Town.ogg
+violet:3-Violet_Town.ogg
+azalea:4-Azalea_Town.ogg
 goldenrod:5-GoldenrodCity.ogg
-ecruteak:6-Ecruteak Town.ogg
-darkcave:7-Dark Cave.ogg
-sprouttower:8-Sprout Tower.ogg
-ruinsofalph:9-Ruins of Alph.ogg
-nationalpark:10-National Park.ogg
-burnedtower:11-Burned Tower.ogg
-tintower:12-Tin Tower.ogg
+ecruteak:6-Ecruteak_Town.ogg
+darkcave:7-Dark_Cave.ogg
+sprouttower:8-Sprout_Tower.ogg
+ruinsofalph:9-Ruins_of_Alph.ogg
+nationalpark:10-National_Park.ogg
+burnedtower:11-Burned_Tower.ogg
+tintower:12-Tin_Tower.ogg
 lighthouse:13-Lighthouse.ogg
-dragonsden:14-Dragon Den.ogg
+dragonsden:14-Dragon_Den.ogg
 pokecenter:15-PokeCenter.ogg
-pvnpc:18-GSBattle PvNPC.ogg
+pvnpc:18-GSBattle_PvNPC.ogg
 pvgymleader:19-PvGymLeader.ogg
 route:21-Route.ogg
-pallet:22-Pallet Town.ogg
-pewter:23-Pewter City.ogg
-vermillion:24-Vermillion City.ogg
-lavender:25-Lavendar Town.ogg
+pallet:22-Pallet_Town.ogg
+pewter:23-Pewter_City.ogg
+vermillion:24-Vermillion_City.ogg
+lavender:25-Lavendar_Town.ogg
