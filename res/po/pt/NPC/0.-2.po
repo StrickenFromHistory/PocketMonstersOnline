@@ -1,0 +1,37 @@
+# Pokenet 0.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "The Dragon's Den has been opened to the public."
+msgstr "A Toca do Dragao foi aberta ao publico."
+
+msgid "You may enter."
+msgstr "Voce pode entrar."
+
+msgid "Blackthorn City "
+msgstr "Cidade de Blackthorn"
+
+msgid "A quiet mountain retreat"
+msgstr "Um tranquilo refugio na montanha"
+
+msgid "Move Deleter's House"
+msgstr "Casa do Deletador de Movimentos"
+
+msgid "Trainer Tips "
+msgstr "Dicas de treinador"
+
+msgid "There are no Dratinis in Dragon's Den"
+msgstr "Nao tem Dratinis na Toca do Dragao"
+
+msgid "Blackthorn City Pokemon gym "
+msgstr "Ginasio Pokemon da cidade de Blackthorn"
+
+msgid "Leader: Clair "
+msgstr "Lider: Clair"
+
+msgid "The blessed user of dragon Pokemon"
+msgstr "O abencoado jogador de Pokemon dragao"
+
+msgid "Dragon's Den ahead"
+msgstr "Toca do Dragao em frente"
+

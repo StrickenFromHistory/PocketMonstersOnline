@@ -1,0 +1,13 @@
+# Pokenet -49.-23.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+
+msgid "We're currently out of stock. Please come back later."
+msgstr "We're currently out of stock. Please come back later."
+
+msgid "These bikes are cool, but they're way expensive!"
+msgstr "These bikes are cool, but they're way expensive!"
+

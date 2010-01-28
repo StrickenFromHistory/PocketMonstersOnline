@@ -1,0 +1,7 @@
+# Pokenet 7.0.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Diglett's Cave"
+msgstr "Diglett's Cave"
+

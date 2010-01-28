@@ -1,0 +1,31 @@
+# Pokenet -45.-13.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I draw illustrations of Pokemon when I'm home."
+msgstr "I draw illustrations of Pokemon when I'm home."
+
+msgid "I don't often come here, but I will battle you."
+msgstr "I don't often come here, but I will battle you."
+
+msgid "Um... Do you know about Pokemon cosplay?"
+msgstr "Um... Do you know about Pokemon cosplay?"
+
+msgid "My Pokemon techniques will leave you crying!"
+msgstr "My Pokemon techniques will leave you crying!"
+
+msgid "Hit me with your best shot!"
+msgstr "Hit me with your best shot!"
+
+msgid "Do you know how you can avoid getting lost in the mountains?"
+msgstr "Do you know how you can avoid getting lost in the mountains?"
+
+msgid "You can bend twigs as trail markers."
+msgstr "You can bend twigs as trail markers."
+
+msgid "Hahaha! Can you beat my power?"
+msgstr "Hahaha! Can you beat my power?"
+
+msgid "You have a Pokedex? I want one, too."
+msgstr "You have a Pokedex? I want one, too."
+

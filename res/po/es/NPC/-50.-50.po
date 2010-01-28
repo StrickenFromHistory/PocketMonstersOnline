@@ -1,0 +1,52 @@
+# Pokenet -50.-50.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Yo challenger! "
+msgstr "Yo challenger! "
+
+msgid "Bugsy's young, but his knowledge of bug Pokemon is for real. "
+msgstr "Bugsy's young, but his knowledge of bug Pokemon is for real. "
+
+msgid "It's going to be tough without my advice. "
+msgstr "It's going to be tough without my advice. "
+
+msgid "Let's see... Bug Pokemon don't like fire. "
+msgstr "Let's see... Bug Pokemon don't like fire. "
+
+msgid "Flying-type moves are super-effective too."
+msgstr "Flying-type moves are super-effective too."
+
+msgid "You want to see the leader? We come first!"
+msgstr "You want to see the leader? We come first!"
+
+msgid "Hi! Are you challenging the leader? No way!"
+msgstr "Hi! Are you challenging the leader? No way!"
+
+msgid "Bug Pokemon are cool and tough! "
+msgstr "Bug Pokemon are cool and tough! "
+
+msgid "I'll prove it to you!"
+msgstr "I'll prove it to you!"
+
+msgid "Bug Pokemon evolve young. So they get stronger that much faster."
+msgstr "Bug Pokemon evolve young. So they get stronger that much faster."
+
+msgid "You already beat some other trainers? Whew, you're mighty! "
+msgstr "You already beat some other trainers? Whew, you're mighty! "
+
+msgid "But my grown-up Pokemon are pretty tough too!"
+msgstr "But my grown-up Pokemon are pretty tough too!"
+
+msgid "I'm Bugsy! I never lose when it comes to bug Pokemon. "
+msgstr "I'm Bugsy! I never lose when it comes to bug Pokemon. "
+
+msgid "My research is going to make me the authority on bug Pokemon! "
+msgstr "My research is going to make me the authority on bug Pokemon! "
+
+msgid "Let me demonstrate what I've learned from my studies."
+msgstr "Let me demonstrate what I've learned from my studies."
+
+msgid "It's a list of winning trainers."
+msgstr "It's a list of winning trainers."
+

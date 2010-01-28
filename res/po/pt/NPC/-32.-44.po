@@ -1,0 +1,19 @@
+# Pokenet -32.-44.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "4F: Production"
+msgstr "4F: Producao"
+
+msgid "4F: Sutdio 2"
+msgstr "4F: Estudio 2"
+
+msgid "I listened to the radio while I was at the Ruins. "
+msgstr "Eu escutei a radio enquanto eu estava nas ruinas. "
+
+msgid "I heard a strange broadcast there."
+msgstr "Eu ouvi um programa de radio estranho la."
+
+msgid "I'm sorry, but I am working. I can't talk to you."
+msgstr "Me desculpe, mas estou trabalhando. Eu nao posso falar com voce."
+

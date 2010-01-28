@@ -1,0 +1,40 @@
+# Pokenet 4.-3.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Excuse me! You looked at me, didn't you?"
+msgstr "Excuse me! You looked at me, didn't you?"
+
+msgid "Hey! I saw you in Viridian Forest!"
+msgstr "Hey! I saw you in Viridian Forest!"
+
+msgid "Hi! I like shorts!"
+msgstr "Hi! I like shorts!"
+
+msgid "They're delightfully comfy and easy to wear!"
+msgstr "They're delightfully comfy and easy to wear!"
+
+msgid "Are you a trainer?"
+msgstr "Are you a trainer?"
+
+msgid "Let's get with it right away!"
+msgstr "Let's get with it right away!"
+
+msgid "Hey! You're not wearing shorts!"
+msgstr "Hey! You're not wearing shorts!"
+
+msgid "What's wrong with you?"
+msgstr "What's wrong with you?"
+
+msgid "That look you gave me... It's so intriguing!"
+msgstr "That look you gave me... It's so intriguing!"
+
+msgid "I'll battle you with the Pokemon I just caught."
+msgstr "I'll battle you with the Pokemon I just caught."
+
+msgid "Eek! Did you touch me?"
+msgstr "Eek! Did you touch me?"
+
+msgid "Route 3 - Mt. Moon ahead"
+msgstr "Route 3 - Mt. Moon ahead"
+

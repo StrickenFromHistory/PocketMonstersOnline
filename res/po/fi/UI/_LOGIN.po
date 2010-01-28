@@ -1,0 +1,127 @@
+# Pokenet _LOGIN.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Pokenet Server Select"
+msgstr "Pokenet Server Select"
+
+msgid "Note: Your account will work on all servers"
+msgstr "Note: Your account will work on all servers"
+
+msgid "Private Server"
+msgstr "Private Server"
+
+msgid "About"
+msgstr "About"
+
+msgid "ToS"
+msgstr "ToS"
+
+msgid "Username:"
+msgstr "Username:"
+
+msgid "Password:"
+msgstr "Password:"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Pokenet Registration"
+msgstr "Pokenet Registration"
+
+msgid "Confirm Password:"
+msgstr "Confirm Password:"
+
+msgid "D.O.B. (dd/mm/yyyy):"
+msgstr "D.O.B. (dd/mm/yyyy):"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Confirm Email:"
+msgstr "Confirm Email:"
+
+msgid "Starter Pokemon:"
+msgstr "Starter Pokemon:"
+
+msgid "Gender:"
+msgstr "Gender:"
+
+msgid "Male"
+msgstr "Male"
+
+msgid "Female"
+msgstr "Female"
+
+msgid "Terms of Service"
+msgstr "Terms of Service"
+
+msgid "I agree to the ToS"
+msgstr "I agree to the ToS"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "User or password are incorrect /nVerify you typed user and password correctly."
+msgstr "User or password are incorrect /nVerify you typed user and password correctly."
+
+msgid "The account server is currently offline. /nPlease try again later."
+msgstr "The account server is currently offline. /nPlease try again later."
+
+msgid "Successful registration. You may now login on any server."
+msgstr "Successful registration. You may now login on any server."
+
+msgid "The account server is currently offline./nPlease try again later."
+msgstr "The account server is currently offline./nPlease try again later."
+
+msgid "Username already taken."
+msgstr "Username already taken."
+
+msgid "Unknown error occurred. Please try again later."
+msgstr "Unknown error occurred. Please try again later."
+
+msgid "Invalid data."
+msgstr "Invalid data."
+
+msgid "You must accept Terms of Service (ToS) before registering."
+msgstr "You must accept Terms of Service (ToS) before registering."
+
+msgid "Date of birth invalid."
+msgstr "Date of birth invalid."
+
+msgid "Not a valid email."
+msgstr "Not a valid email."
+
+msgid "Passwords do not match."
+msgstr "Passwords do not match."
+
+msgid "Username must have at least 4 characters and no more than 12."
+msgstr "Username must have at least 4 characters and no more than 12."
+
+msgid "1. No swearing./n2. No spamming./n3. One account per person./n4. No scamming./n5. Do not talk in all capitals./n6. No botting./n7. No hacking./n/nBreaking any of these rules may/nresult in a ban. We would also like/nour members to note that thisis a/nbeta release, your account may be/ndeleted at anytime to facilitate improvements. Any bugs or issues should be reported to developers."
+msgstr "VeryLongToSScreenGoesHere"
+
+msgid "About Pokenet"
+msgstr "About Pokenet"
+
+msgid "Pokenet is a free, non-profit, open-source Pokemon MMORPG. "
+msgstr "Pokenet is a free, non-profit, open-source Pokemon MMORPG. "
+
+msgid "Pokenet is in no way affiliated with or officially supported by Nintendo."
+msgstr "Pokenet is in no way affiliated with or officially supported by Nintendo."
+
+msgid "Pokemon is a registered trademark of Nintendo (1995 - Present)./n/n"
+msgstr "Pokemon is a registered trademark of Nintendo (1995 - Present)./n/n"
+
+msgid "Contributors:"
+msgstr "Contributors:"
+
+msgid "Fshy, ZombieBear, Ryan, Pivot,/nIlentcape, Sienide, TMKCodes, Drawig,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, PokeRemixStudio"
+msgstr "Fshy, ZombieBear, Ryan, Pivot/nIlentcape, Sienide, TMKCodes, Drawing,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, Kiwii"
+
+msgid "You have been disconnected from the game server."
+msgstr "You have been disconnected from the game server."
+

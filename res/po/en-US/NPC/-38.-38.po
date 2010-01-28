@@ -1,0 +1,43 @@
+# Pokenet -38.-38.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a list of winning trainers."
+msgstr "It's a list of winning trainers."
+
+msgid "My Pokemon and I are bound together by friendship. "
+msgstr "My Pokemon and I are bound together by friendship. "
+
+msgid "Our bond will never be broken!"
+msgstr "Our bond will never be broken!"
+
+msgid "We martial artists fear nothing!"
+msgstr "We martial artists fear nothing!"
+
+msgid "Words are useless. Let your fists do the talking!"
+msgstr "Words are useless. Let your fists do the talking!"
+
+msgid "My raging fists will shatter your Pokemon!"
+msgstr "My raging fists will shatter your Pokemon!"
+
+msgid "Wahahah! "
+msgstr "Wahahah! "
+
+msgid "So you've come this far! "
+msgstr "So you've come this far! "
+
+msgid "Let me tell you, I'm tough! "
+msgstr "Let me tell you, I'm tough! "
+
+msgid "My Pokemon will crush stones and shatter bones! "
+msgstr "My Pokemon will crush stones and shatter bones! "
+
+msgid "Scared now, are you? "
+msgstr "Scared now, are you? "
+
+msgid "What? It has nothing to do with Pokemon battles? That's true! "
+msgstr "What? It has nothing to do with Pokemon battles? That's true! "
+
+msgid "Come on. We shall do battle!"
+msgstr "Come on. We shall do battle!"
+

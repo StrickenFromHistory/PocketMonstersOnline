@@ -1,0 +1,16 @@
+# Pokenet -48.-47.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Customize your Pokemon "
+msgstr "Customize your Pokemon "
+
+msgid "5F: TM corner"
+msgstr "5F: TM corner"
+
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+
+msgid "Welcome to the PokeMart."
+msgstr "Welcome to the PokeMart."
+

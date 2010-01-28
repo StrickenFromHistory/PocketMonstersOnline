@@ -1,0 +1,37 @@
+# Pokenet 2.0.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I'm feeling great today!"
+msgstr "Eu estou me sentindo incrivel hoje!"
+
+msgid "I feel like I could boot even the Elite Four!"
+msgstr "Eu sinto como se pudesse bater ate a Elite dos Quatros!"
+
+msgid "Wow, look at all those Pokemon! I'm impressed."
+msgstr "Uauu, olha para todos aqueles Pokemon! Estou impressionado."
+
+msgid "But you're not statisfied by just collecting them, right?"
+msgstr "Mas voce nao esta satisfeito por apenas colecionalos, certo?"
+
+msgid "Since you are walking around here, you must be good."
+msgstr "Por estar caminhando aqui, voce deve ser bom."
+
+msgid "I'm going to give this battle everything I've got!"
+msgstr "Eu vou dar tudo que tenho, nesta batalha!"
+
+msgid "By experiencing tough battles, you gain power."
+msgstr "Enfrentando batalhas dificeis, voce fica forte."
+
+msgid "I'm making my final preparations for the PokeNet League."
+msgstr "Estou fazendo os preprarativos finais para a Liga PokeNet."
+
+msgid "I lost to trainers before you, so I don't mind."
+msgstr "Ja perdi para outros treinadores antes de voce, entao nao me importo."
+
+msgid "Route 26"
+msgstr "Rota 26"
+
+msgid "Route 22 and PokeNet Kanto/Johto League reception gate ahead."
+msgstr "Rota 22 e Portao de Entrada Liga Pokenet kanto/Johto em frente"
+

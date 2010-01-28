@@ -1,0 +1,13 @@
+# Pokenet -49.-40.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I call my Pidgey Strawberry!"
+msgstr "I call my Pidgey Strawberry!"
+
+msgid "She uses the names of her favorite things to eat."
+msgstr "She uses the names of her favorite things to eat."
+
+msgid "For the nicknames she gives to her Pokemon, I mean."
+msgstr "For the nicknames she gives to her Pokemon, I mean."
+

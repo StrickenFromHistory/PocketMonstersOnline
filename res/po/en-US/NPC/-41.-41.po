@@ -1,0 +1,13 @@
+# Pokenet -41.-41.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Pokemon change?"
+msgstr "Pokemon change?"
+
+msgid "I would be shocked if one did that!"
+msgstr "I would be shocked if one did that!"
+
+msgid "Pokemon gain experience in battle and change their form."
+msgstr "Pokemon gain experience in battle and change their form."
+

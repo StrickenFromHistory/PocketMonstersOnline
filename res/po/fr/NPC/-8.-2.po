@@ -1,0 +1,34 @@
+# Pokenet -8.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Cianwood City Photo Studio"
+msgstr "Cianwood City Photo Studio"
+
+msgid "Take a snapshot as a keepsake!"
+msgstr "Take a snapshot as a keepsake!"
+
+msgid "Cianwood City"
+msgstr "Cianwood City"
+
+msgid "A port surrounded by rough seas"
+msgstr "A port surrounded by rough seas"
+
+msgid "Cianwood City Pokemon gym"
+msgstr "Cianwood City Pokemon gym"
+
+msgid "Leader: Chuck"
+msgstr "Leader: Chuck"
+
+msgid "His roaring fists do the talking"
+msgstr "His roaring fists do the talking"
+
+msgid "500 years of tradition"
+msgstr "500 years of tradition"
+
+msgid "Cianwood City Pharmacy"
+msgstr "Cianwood City Pharmacy"
+
+msgid "We await your medical queries"
+msgstr "We await your medical queries"
+

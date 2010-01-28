@@ -1,0 +1,31 @@
+# Pokenet -2.-4.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Mahogany Town "
+msgstr "Mahogany Town "
+
+msgid "Welcome to the home of the ninja"
+msgstr "Welcome to the home of the ninja"
+
+msgid "Once a ninja hideout, then a Team Rocket hideout. "
+msgstr "Once a ninja hideout, then a Team Rocket hideout. "
+
+msgid "Today, the Mahogany Pokemon Mart"
+msgstr "Today, the Mahogany Pokemon Mart"
+
+msgid "Mahogany Town Pokemon gym "
+msgstr "Mahogany Town Pokemon gym "
+
+msgid "Leader: Pryce "
+msgstr "Leader: Pryce "
+
+msgid "The teacher of winter's harshness"
+msgstr "The teacher of winter's harshness"
+
+msgid "Route 43 "
+msgstr "Route 43 "
+
+msgid "Lake of Rage - Mahogany Town"
+msgstr "Lake of Rage - Mahogany Town"
+

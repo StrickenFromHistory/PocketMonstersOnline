@@ -1,0 +1,25 @@
+# Pokenet -32.-39.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "You came from Olivine? "
+msgstr "Voce veio da cidade de olivia? "
+
+msgid "Do you remember the four islands along the way? "
+msgstr "Voce se Leambra das quatro ilhas pelo caminho? "
+
+msgid "I heard that a mythical sea creature is hiding in them."
+msgstr "Ouvi dizer que existe uma criatura misteriosa escondida la."
+
+msgid "I am too scared to enter Whirl Islands. "
+msgstr "Eu estou com muito medo de ir para ilhas dos redemoinhos. "
+
+msgid "But my brother, who has seven gym badges, can enter without worries."
+msgstr "Mas o meu irmao,que tem sete insignias, pode ir sem se preucupar."
+
+msgid "The mythical Pokemon only shows itself to very few selected persons. "
+msgstr "O Pokemon mitico aparece apenas para poucas pessoas. "
+
+msgid "Don't even think of catching it!"
+msgstr "Nem pense em captura-lo!"
+

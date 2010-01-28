@@ -1,0 +1,31 @@
+# Pokenet -49.-50.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Hello young trainer. You remind me of my son."
+msgstr "Hola joven entrenador. Me recuerdas a mi hijo."
+
+msgid "He was as old as you when he left for his Pokemon journey"
+msgstr "Tenia tu edad cuando salio en su viaje Pokemon de aqui del Pueblo New Bark."
+
+msgid "here in New Bark Town. He became the Johto champion"
+msgstr "Se convirtio en el campeon de Johto y de Kanto,  "
+
+msgid "and later the Kanto champion as well, beating the old Kanto champion"
+msgstr "derrotando al viejo campeon de Kanto del Pueblo Pallet. "
+
+msgid "from Pallet Town. He is still the Johto and Kanto champion"
+msgstr "Aun es el campeon de ambas zonas, y entrena regularmente sus Pokemon. "
+
+msgid "to this day. He usually trains somewhere with his Pokemon."
+msgstr "Quizas lo encuentres y lo derrotes algun dia, "
+
+msgid "Maybe you can find him and beat him someday."
+msgstr "pero hasta que ese dia llegue debes empezar tu viaje"
+
+msgid "But until that day you have to start your Pokemon journey"
+msgstr "y entrenar a tus Pokemon. "
+
+msgid "and train hard with your Pokemon. I wish you good luck!"
+msgstr "Suerte!"
+

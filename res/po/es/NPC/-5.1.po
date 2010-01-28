@@ -1,0 +1,34 @@
+# Pokenet -5.1.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Day-Care; Let us raise your Pokemon for you!"
+msgstr "Day-Care; Let us raise your Pokemon for you!"
+
+msgid "Route 34 "
+msgstr "Route 34 "
+
+msgid "Goldenrod City - Azalea Town "
+msgstr "Goldenrod City - Azalea Town "
+
+msgid "Ilex Forest somewhere between"
+msgstr "Ilex Forest somewhere between"
+
+msgid "I caught many Pokemon here! Let's battle!"
+msgstr "I caught many Pokemon here! Let's battle!"
+
+msgid "Isn't my Pokemon cute? Let me show you!"
+msgstr "Isn't my Pokemon cute? Let me show you!"
+
+msgid "I am relaxing here, please go away!"
+msgstr "I am relaxing here, please go away!"
+
+msgid "I don't have as many Pokemon as my brother. But I have stronger ones!"
+msgstr "I don't have as many Pokemon as my brother. But I have stronger ones!"
+
+msgid "Wait! Who's there? Go Growlithe!"
+msgstr "Wait! Who's there? Go Growlithe!"
+
+msgid "This is the way to Goldenrod City. Let's battle before we go there."
+msgstr "This is the way to Goldenrod City. Let's battle before we go there."
+

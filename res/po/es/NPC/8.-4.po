@@ -1,0 +1,22 @@
+# Pokenet 8.-4.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Rock Tunnel - Detour to Lavender Town"
+msgstr "Rock Tunnel - Detour to Lavender Town"
+
+msgid "I've been out at a Pokemon gym a few times."
+msgstr "I've been out at a Pokemon gym a few times."
+
+msgid "...But I always lose."
+msgstr "...But I always lose."
+
+msgid "Power Plant"
+msgstr "Power Plant"
+
+msgid "Wow, you came all the way here? Maybe you're a Pokemaniac, too?"
+msgstr "Wow, you came all the way here? Maybe you're a Pokemaniac, too?"
+
+msgid "Want to see my collection?"
+msgstr "Want to see my collection?"
+

@@ -1,0 +1,10 @@
+# Pokenet -3.2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I will travel across this land..."
+msgstr "I will travel across this land..."
+
+msgid "Route 33"
+msgstr "Route 33"
+

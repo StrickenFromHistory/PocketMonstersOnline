@@ -1,0 +1,7 @@
+# Pokenet -33.-46.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Hey, if you like fishing, you can buy a rod here."
+msgstr "Hey, if you like fishing, you can buy a rod here."
+

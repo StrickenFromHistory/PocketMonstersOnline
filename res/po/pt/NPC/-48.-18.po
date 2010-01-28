@@ -1,0 +1,13 @@
+# Pokenet -48.-18.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Give...me...blood..."
+msgstr "Give...me...blood..."
+
+msgid "Ke...ke...ke...ke...ke...ke!"
+msgstr "Ke...ke...ke...ke...ke...ke!"
+
+msgid "Urff...Kwaah!"
+msgstr "Urff...Kwaah!"
+

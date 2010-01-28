@@ -1,0 +1,49 @@
+# Pokenet -7.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "The water's warm here. I'm loose and limber. "
+msgstr "The water's warm here. I'm loose and limber. "
+
+msgid "Sure, I'll take you on!"
+msgstr "Sure, I'll take you on!"
+
+msgid "I'm a bit tired. If I win, lend me your Pokemon."
+msgstr "I'm a bit tired. If I win, lend me your Pokemon."
+
+msgid "If you need to rest, just tread water. "
+msgstr "If you need to rest, just tread water. "
+
+msgid "You'll get your wind back, so you can keep on going strong."
+msgstr "You'll get your wind back, so you can keep on going strong."
+
+msgid "Are you seeking the secrets of Whirl Islands?"
+msgstr "Are you seeking the secrets of Whirl Islands?"
+
+msgid "The weather is so beautiful, I'm in a daze!"
+msgstr "The weather is so beautiful, I'm in a daze!"
+
+msgid "The waves are wild here. "
+msgstr "The waves are wild here. "
+
+msgid "They tire you out while you swim."
+msgstr "They tire you out while you swim."
+
+msgid "See those islands that are blocked by rocks? "
+msgstr "See those islands that are blocked by rocks? "
+
+msgid "There just has to be a secret!"
+msgstr "There just has to be a secret!"
+
+msgid "You look so elegant, riding your Pokemon."
+msgstr "You look so elegant, riding your Pokemon."
+
+msgid "I'm on my way to Whirl Islands. "
+msgstr "I'm on my way to Whirl Islands. "
+
+msgid "I'm going exploring with friends."
+msgstr "I'm going exploring with friends."
+
+msgid "At night, Staryu gather near the water's surface."
+msgstr "At night, Staryu gather near the water's surface."
+

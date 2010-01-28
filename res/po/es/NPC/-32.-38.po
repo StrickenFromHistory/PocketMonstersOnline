@@ -1,0 +1,10 @@
+# Pokenet -32.-38.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Hey, you have nice Pokemon there! I once owned a Shuckle. "
+msgstr "Hey, you have nice Pokemon there! I once owned a Shuckle. "
+
+msgid "I caught it in a distant land across the sea."
+msgstr "I caught it in a distant land across the sea."
+

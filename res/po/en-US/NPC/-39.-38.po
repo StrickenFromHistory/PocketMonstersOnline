@@ -1,0 +1,16 @@
+# Pokenet -39.-38.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "In the past, Pokemon used to light the sea around Olivine at night. "
+msgstr "In the past, Pokemon used to light the sea around Olivine at night. "
+
+msgid "The lighthouse was made in honor of those Pokemon."
+msgstr "The lighthouse was made in honor of those Pokemon."
+
+msgid "People train at this lighthouse. "
+msgstr "People train at this lighthouse. "
+
+msgid "It's not easy to climb because of all the trainers."
+msgstr "It's not easy to climb because of all the trainers."
+

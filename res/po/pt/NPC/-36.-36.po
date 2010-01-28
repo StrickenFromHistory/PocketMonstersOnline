@@ -1,0 +1,52 @@
+# Pokenet -36.-36.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "The Kimono Girls are so beautiful..."
+msgstr "As Meninas de Kimono sao tao bonitas ..."
+
+msgid "But they have to go through rigorous training. "
+msgstr "Mas elas tem de passar por um rigoroso treinamento.	"
+
+msgid "And they have to learn to follow customs before appearing in public. "
+msgstr "E elas tem que aprender a seguir padroes antes de aparecerem em publico. "
+
+msgid "But if you love something, anything is possible."
+msgstr "Mas se voce ama alguma coisa, qualquer coisa e possivel."
+
+msgid "Not only are the Kimono Girls great dancers, they're also skilled at "
+msgstr "AS meninas de Kimono nao sao grandes dan�arinas, elas tambem sao qualificadas em"
+
+msgid "Pokemon. "
+msgstr "Pokemon."
+
+msgid "I always challenged them, but I've never even left a scratch..."
+msgstr "Eu sempre as desafio, mas eu nunca deixei sequer um arranhao..."
+
+msgid "That man's always with his Rhydon. "
+msgstr "Esse homem esta sempre com o seu Rhydon. "
+
+msgid "Says he wants a Pokemon that can surf and dance. "
+msgstr "Diz ele que quer um Pokemon que possa surfar e danca.	"
+
+msgid "Is he trying to make a synchronized swimming Pokemon?"
+msgstr "Ele esta tentando fazer um nado sincronizado Pokemon?"
+
+msgid "You have lovely Pokemon. May I see them in battle?"
+msgstr "Voce tem adoraveis Pokemons. Posso ve-los em batalha?"
+
+msgid "I always dance with my Pokemon. "
+msgstr "Eu sempre danco com meus Pokemons. "
+
+msgid "Of course, I also train them."
+msgstr "Claro, eu tambem os treino."
+
+msgid "Isn't my barrette pretty? Oh. A Pokemon Battle?"
+msgstr "Nao e bonita minha presilha? Ah. Uma batalha Pokemon?"
+
+msgid "Oh, you're a cute trainer. Would you like to battle?"
+msgstr "Ah, voce e uma gracinha de treinador. Voce gostaria de batalha?"
+
+msgid "Do you like my dancing? I'm good at Pokemon too."
+msgstr "Voce gosta da minha danca? Eu tambem sou boa em Pokemon."
+

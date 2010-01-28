@@ -1,0 +1,31 @@
+# Pokenet -2.-1.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Trainer Tips! Don't eat yellow snow!"
+msgstr "Trainer Tips! Don't eat yellow snow!"
+
+msgid "Mr. Pokemon's house"
+msgstr "Mr. Pokemon's house"
+
+msgid "Mr. Pokemon's house ahead."
+msgstr "Mr. Pokemon's house ahead."
+
+msgid "Route 30: Violet City - Cherrygrove City"
+msgstr "Route 30: Violet City - Cherrygrove City"
+
+msgid "Wait! You're a trainer, right?"
+msgstr "Wait! You're a trainer, right?"
+
+msgid "Let's battle!"
+msgstr "Let's battle!"
+
+msgid "You seem like a worthy opponent!"
+msgstr "You seem like a worthy opponent!"
+
+msgid "Do you want to go to Violet City?"
+msgstr "Do you want to go to Violet City?"
+
+msgid "Battle me first!"
+msgstr "Battle me first!"
+

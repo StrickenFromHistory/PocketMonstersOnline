@@ -1,0 +1,13 @@
+# Pokenet -48.-12.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a posted notice..."
+msgstr "It's a posted notice..."
+
+msgid "If you're confused, ask for help!"
+msgstr "If you're confused, ask for help!"
+
+msgid "Click on the button with the "?"-symbol!"
+msgstr "Click on the button with the "?"-symbol!"
+

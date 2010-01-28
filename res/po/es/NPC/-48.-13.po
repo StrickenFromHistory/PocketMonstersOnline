@@ -1,0 +1,19 @@
+# Pokenet -48.-13.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Hello young trainer. Are you looking for my son, Red?"
+msgstr "Hello young trainer. Are you looking for my son, Red?"
+
+msgid "Red is a famous Pokemon trainer here in Kanto."
+msgstr "Red is a famous Pokemon trainer here in Kanto."
+
+msgid "He was league champion once. "
+msgstr "He was league champion once. "
+
+msgid "I bet he is training his Pokemon somewhere right now."
+msgstr "I bet he is training his Pokemon somewhere right now."
+
+msgid "Maybe you'll meet him one day."
+msgstr "Maybe you'll meet him one day."
+

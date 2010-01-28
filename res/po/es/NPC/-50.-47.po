@@ -1,0 +1,10 @@
+# Pokenet -50.-47.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Welcome to the PokeMart."
+msgstr "Bienvenido al PokeMart. "
+
+msgid "Please report this bug!"
+msgstr "Toma tu tiempo y escoje lo que quieras comprar. "
+

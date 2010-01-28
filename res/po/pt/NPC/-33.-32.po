@@ -1,0 +1,16 @@
+# Pokenet -33.-32.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Prof. Elm was the first one to see a Pokemon hatching! "
+msgstr "Prof. Elm foi o primeiro a ver uma incubacao de Pokemon! "
+
+msgid "He found out the breeding rules and discovered baby Pokemon. "
+msgstr "Ele descobriu as regras de procriacao e descobriu bebes pokemon. "
+
+msgid "...sigh... "
+msgstr "...suspiro... "
+
+msgid "I wish I was a researcher like him..."
+msgstr "Quem me dera ser um pesquisador como ele..."
+

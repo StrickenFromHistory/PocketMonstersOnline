@@ -1,0 +1,10 @@
+# Pokenet 5.-4.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Route 4: Mt. Moon - Cerulean City"
+msgstr "Route 4: Mt. Moon - Cerulean City"
+
+msgid "I came to Mt. Moon in search of mushroom Pokemon."
+msgstr "I came to Mt. Moon in search of mushroom Pokemon."
+

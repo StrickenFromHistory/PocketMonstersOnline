@@ -1,0 +1,76 @@
+# Pokenet _BATTLE.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "pokeName fainted!"
+msgstr "pokeName se ha desmallado!"
+
+msgid "pokeName used moveName"
+msgstr "pokeName ha usado moveName"
+
+msgid "Awaiting your move..."
+msgstr "Esperando tu decision..."
+
+msgid "pokeName gained expNum EXP and needs expRemaining EXP to level up..."
+msgstr "pokeName ha obtenido expNum EXP"
+
+msgid "pokeName returned to normal."
+msgstr "pokeName ha regresado a la normalidad."
+
+msgid "trainerName sent out pokeName"
+msgstr "trainerName ha enviado a pokeName"
+
+msgid "Select a new Pokemon!"
+msgstr "Escoje un nuevo Pokemon!"
+
+msgid "pokeName took damageNum damage"
+msgstr "pokeName ha recibido damageNum danios"
+
+msgid "It has hpNum life remaining"
+msgstr "Le quedan hpNum HP."
+
+msgid "pokeName recovered damageNum HP"
+msgstr "pokeName ha recuperado damageNum HP"
+
+msgid "trainerName won the battle!"
+msgstr "trainerName es el ganador!"
+
+msgid "trainerName was defeated!"
+msgstr "trainerName fue derrotado!"
+
+msgid "You got away safely!"
+msgstr "Saliste corriendo asalvo!"
+
+msgid "You couldn't run away!"
+msgstr "No pudiste escapar!"
+
+msgid "pokeName was poisoned!"
+msgstr "pokeName ha sido envenenado!"
+
+msgid "pokeName is frozen solid!"
+msgstr "pokeName ha sido congelado!"
+
+msgid "pokeName was burnt!"
+msgstr "pokeName ha sido quemado!"
+
+msgid "pokeName is paralyzed! It might be unable to move"
+msgstr "pokeName ha sido paralizado! Puede que no pueda moverse. "
+
+msgid "pokeName fell asleep!"
+msgstr "pokeName se ha dormido!"
+
+msgid "You got $earningsNum for winning!"
+msgstr "Obtuviste $earningsNum por la victoria!"
+
+msgid "pokeName reached level levelNum!"
+msgstr "pokeName ha crecido al nivel levelNum!"
+
+msgid "moveName has no PP. Please select a new move."
+msgstr "moveName no tiene PP. Escoje otro ataque. "
+
+msgid "The wild pokeName dropped a rewardItem!"
+msgstr "pokeName ha tirado un rewardItem!"
+
+msgid "You got a rewardItem for winning!"
+msgstr "Has obtenido un rewardItem por la victoria!"
+

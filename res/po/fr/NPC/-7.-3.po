@@ -1,0 +1,43 @@
+# Pokenet -7.-3.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Route 40 "
+msgstr "Route 40 "
+
+msgid "Cianwood City - Olivine City"
+msgstr "Cianwood City - Olivine City"
+
+msgid "Although you can't see it from here, Cianwood is across the sea."
+msgstr "Although you can't see it from here, Cianwood is across the sea."
+
+msgid "I came to Olivine by ship to see the sights and soak up the atmosphere. "
+msgstr "I came to Olivine by ship to see the sights and soak up the atmosphere. "
+
+msgid "Being a port, it feels so different from a big city."
+msgstr "Being a port, it feels so different from a big city."
+
+msgid "You have to warm up before going into the water. "
+msgstr "You have to warm up before going into the water. "
+
+msgid "That's basic."
+msgstr "That's basic."
+
+msgid "Are you going to Cianwood? "
+msgstr "Are you going to Cianwood? "
+
+msgid "How about a quick battle first?"
+msgstr "How about a quick battle first?"
+
+msgid "No inner tube for me. "
+msgstr "No inner tube for me. "
+
+msgid "I'm hanging on to a sea Pokemon!"
+msgstr "I'm hanging on to a sea Pokemon!"
+
+msgid "Hey, you're young and fit! "
+msgstr "Hey, you're young and fit! "
+
+msgid "Don't ride your Pokemon! Swim!"
+msgstr "Don't ride your Pokemon! Swim!"
+

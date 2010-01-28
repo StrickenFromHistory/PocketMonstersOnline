@@ -1,0 +1,7 @@
+# Pokenet -47.-33.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "The department store in Celadon has a great selection."
+msgstr "The department store in Celadon has a great selection."
+

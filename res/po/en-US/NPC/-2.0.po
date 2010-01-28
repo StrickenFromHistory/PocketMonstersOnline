@@ -1,0 +1,19 @@
+# Pokenet -2.0.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Cherrygrove City - The city of cute, fragrant flowers"
+msgstr "Cherrygrove City - The city of cute, fragrant flowers"
+
+msgid "Why hello there strapping young lad"
+msgstr "Why hello there strapping young lad"
+
+msgid "Circles next to items in stores show how much of that item is in stock"
+msgstr "Circles next to items in stores show how much of that item is in stock"
+
+msgid "If the circle is white, they are out of that item"
+msgstr "If the circle is white, they are out of that item"
+
+msgid "Stores restock their items at different times you rough rouser "
+msgstr "Stores restock their items at different times you rough rouser "
+

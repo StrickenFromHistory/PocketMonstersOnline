@@ -1,0 +1,28 @@
+# Pokenet -31.-37.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I got booted out of the game corner. "
+msgstr "I got booted out of the game corner. "
+
+msgid "I was trying to cheat using my Pokemon..."
+msgstr "I was trying to cheat using my Pokemon..."
+
+msgid "My Pokemon just got a haircut! I'll show you how strong it is!"
+msgstr "My Pokemon just got a haircut! I'll show you how strong it is!"
+
+msgid "Do you consider type alignments in battle? "
+msgstr "Do you consider type alignments in battle? "
+
+msgid "If you know your type advantages, you'll do better in battle."
+msgstr "If you know your type advantages, you'll do better in battle."
+
+msgid "I think you have some rare Pokemon. Let me see them!"
+msgstr "I think you have some rare Pokemon. Let me see them!"
+
+msgid "No entry beyond this point"
+msgstr "No entry beyond this point"
+
+msgid "It's locked..."
+msgstr "It's locked..."
+

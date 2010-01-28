@@ -1,0 +1,55 @@
+# Pokenet -47.-25.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a list of winning trainers."
+msgstr "It's a list of winning trainers."
+
+msgid "Hiya! Do you want to dream big?"
+msgstr "Hiya! Do you want to dream big?"
+
+msgid "Do you dare to dream of becoming the Pokemon champ?"
+msgstr "Do you dare to dream of becoming the Pokemon champ?"
+
+msgid "I'm no trainer, but I can advise you on how to win."
+msgstr "I'm no trainer, but I can advise you on how to win."
+
+msgid "All right! Let's get happening!"
+msgstr "All right! Let's get happening!"
+
+msgid "The gym leader's Pokemon are very strong, beware!"
+msgstr "The gym leader's Pokemon are very strong, beware!"
+
+msgid "His lowest Pokemon are level 80!"
+msgstr "His lowest Pokemon are level 80!"
+
+msgid "So bring high leveled earth-, water-, grass- or fighting-types!"
+msgstr "So bring high leveled earth-, water-, grass- or fighting-types!"
+
+msgid "Stop right there, kid!"
+msgstr "Stop right there, kid!"
+
+msgid "You're ten thousand light-years from facing Brock!"
+msgstr "You're ten thousand light-years from facing Brock!"
+
+msgid "So, you're here. I'm Brock. I'm Pewter's gym leader."
+msgstr "So, you're here. I'm Brock. I'm Pewter's gym leader."
+
+msgid "My rock-hard willpower is evident even in my Pokemon."
+msgstr "My rock-hard willpower is evident even in my Pokemon."
+
+msgid "My Pokemon are all rock hard, and have true-grit determination."
+msgstr "My Pokemon are all rock hard, and have true-grit determination."
+
+msgid "That's right - my Pokemon are all the rock type!"
+msgstr "That's right - my Pokemon are all the rock type!"
+
+msgid "Fuhaha! You're going to challenge me knowing that you'll lose?"
+msgstr "Fuhaha! You're going to challenge me knowing that you'll lose?"
+
+msgid "That's the trainer's honor that compels you to challenge me."
+msgstr "That's the trainer's honor that compels you to challenge me."
+
+msgid "Fine, then! Show me your best!"
+msgstr "Fine, then! Show me your best!"
+

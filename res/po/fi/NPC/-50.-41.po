@@ -1,0 +1,19 @@
+# Pokenet -50.-41.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "If the Pokemon I liked were there, I'd go anywhere. "
+msgstr "If the Pokemon I liked were there, I'd go anywhere. "
+
+msgid "That's what a real trainer does."
+msgstr "That's what a real trainer does."
+
+msgid "I'm in training. Care for a round?"
+msgstr "I'm in training. Care for a round?"
+
+msgid "There are two kinds of people. Those who have style, and those who don't."
+msgstr "There are two kinds of people. Those who have style, and those who don't."
+
+msgid "What kind of person are you?"
+msgstr "What kind of person are you?"
+

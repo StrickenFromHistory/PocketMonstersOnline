@@ -1,0 +1,16 @@
+# Pokenet 2.-3.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Indigo Plateau"
+msgstr "Indigo Plateau"
+
+msgid "The highest Pokemon authority in Kanto and Johto!"
+msgstr "The highest Pokemon authority in Kanto and Johto!"
+
+msgid "PokeNet League Kanto/Johto HQ"
+msgstr "PokeNet League Kanto/Johto HQ"
+
+msgid "The ultimate goal of trainers in Kanto and Johto!"
+msgstr "The ultimate goal of trainers in Kanto and Johto!"
+

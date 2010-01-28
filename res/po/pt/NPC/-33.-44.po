@@ -1,0 +1,7 @@
+# Pokenet -33.-44.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Yo! Markus!"
+msgstr "hey! Markus!"
+

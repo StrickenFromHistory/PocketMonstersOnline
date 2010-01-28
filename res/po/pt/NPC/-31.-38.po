@@ -1,0 +1,10 @@
+# Pokenet -31.-38.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I was challenged to a battle downstairs. "
+msgstr "Fui desafiado para uma batalha no subsolo. "
+
+msgid "It's rough down there. You'd better be careful."
+msgstr "E dureza la embaixo. E melhor voce ter cuidado."
+

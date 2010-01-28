@@ -1,0 +1,49 @@
+# Pokenet -7.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "The water's warm here. I'm loose and limber. "
+msgstr "A agua e morna aqui. Me sinto relaxado e aquecido."
+
+msgid "Sure, I'll take you on!"
+msgstr "Claro, eu aceito o seu desafio!"
+
+msgid "I'm a bit tired. If I win, lend me your Pokemon."
+msgstr "Estou meio cansado. Se eu vencer me empreste seus pokemon"
+
+msgid "If you need to rest, just tread water. "
+msgstr "Se precisar descansar um pouco, pare e boie. "
+
+msgid "You'll get your wind back, so you can keep on going strong."
+msgstr "Assim voce recupera o folego e se fortalece."
+
+msgid "Are you seeking the secrets of Whirl Islands?"
+msgstr "Esta investigando os segredos das Ilhas dos Redemoinhos?"
+
+msgid "The weather is so beautiful, I'm in a daze!"
+msgstr "O tempo que faz aqui e tao belo... Estou encantada! "
+
+msgid "The waves are wild here. "
+msgstr "As ondas daqui sao bravas. "
+
+msgid "They tire you out while you swim."
+msgstr "Nadar por elas vai cansar voce."
+
+msgid "See those islands that are blocked by rocks? "
+msgstr "Esta vendo aquelas ilhas bloqueadas por rochas? "
+
+msgid "There just has to be a secret!"
+msgstr "Tem que haver um segredo ali!"
+
+msgid "You look so elegant, riding your Pokemon."
+msgstr "Voce parece tao elegante, em cima do seu Pokemon..."
+
+msgid "I'm on my way to Whirl Islands. "
+msgstr "Estou a caminho das Ilhas dos Redemoinhos."
+
+msgid "I'm going exploring with friends."
+msgstr "Vou para la explorar com alguns amigos."
+
+msgid "At night, Staryu gather near the water's surface."
+msgstr "Ao anoitecer, os Staryu se reunem junto da superficie da agua."
+

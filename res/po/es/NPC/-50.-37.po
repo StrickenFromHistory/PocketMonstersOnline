@@ -1,0 +1,46 @@
+# Pokenet -50.-37.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+
+msgid "Welcome to the Kanto Power Plant."
+msgstr "Welcome to the Kanto Power Plant."
+
+msgid "The eastern part is opened for trainers."
+msgstr "The eastern part is opened for trainers."
+
+msgid "I came here to catch some electric-type Pokemon."
+msgstr "I came here to catch some electric-type Pokemon."
+
+msgid "Sorry, this area is for staff only."
+msgstr "Sorry, this area is for staff only."
+
+msgid "We have restored the western part of the Power Plant."
+msgstr "We have restored the western part of the Power Plant."
+
+msgid "The eastern part is still a habitat for wild Pokemon."
+msgstr "The eastern part is still a habitat for wild Pokemon."
+
+msgid "We wanted to fully restore the Power Plant."
+msgstr "We wanted to fully restore the Power Plant."
+
+msgid "But since the Power Plant was inhabited by wild Pokemon by then,"
+msgstr "But since the Power Plant was inhabited by wild Pokemon by then,"
+
+msgid "we couldn't drive them all out. Some of them are protected species."
+msgstr "we couldn't drive them all out. Some of them are protected species."
+
+msgid "Sometimes the wild Pokemon in the eastern part of the Power Plant drain"
+msgstr "Sometimes the wild Pokemon in the eastern part of the Power Plant drain"
+
+msgid "energy. This can become a problem, if they drain too much."
+msgstr "energy. This can become a problem, if they drain too much."
+
+msgid "This is the Power Plant control room. We watch over the machinery here."
+msgstr "This is the Power Plant control room. We watch over the machinery here."
+
+msgid "Please leave me alone until today's tests are finished."
+msgstr "Please leave me alone until today's tests are finished."
+

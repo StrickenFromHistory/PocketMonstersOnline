@@ -1,0 +1,10 @@
+# Pokenet -50.-23.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Welcome to the general store."
+msgstr "Welcome to the general store."
+
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+

@@ -1,0 +1,25 @@
+# Pokenet 6.-1.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Underground Path: Cerulean City - Vermillion City"
+msgstr "Underground Path: Cerulean City - Vermillion City"
+
+msgid "There aren't many bugs out here."
+msgstr "There aren't many bugs out here."
+
+msgid "Who's there? Quit listening in on us!"
+msgstr "Who's there? Quit listening in on us!"
+
+msgid "Excuse me! This is a private conversation!"
+msgstr "Excuse me! This is a private conversation!"
+
+msgid "I've never seen you around. Are you good?"
+msgstr "I've never seen you around. Are you good?"
+
+msgid "Me? Well, okay. I'll play!"
+msgstr "Me? Well, okay. I'll play!"
+
+msgid "Huh? You want to talk to me?"
+msgstr "Huh? You want to talk to me?"
+

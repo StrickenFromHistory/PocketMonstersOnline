@@ -1,0 +1,151 @@
+# Pokenet _GUI.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Pokemon Team"
+msgstr "Equipe Pokemon"
+
+msgid "Level:"
+msgstr "Level:"
+
+msgid "Name:"
+msgstr "Nome:"
+
+msgid "HP:"
+msgstr "HP:"
+
+msgid "Attack:"
+msgstr "Attack:"
+
+msgid "Defense:"
+msgstr "Defensa:"
+
+msgid "Sp. Attack:"
+msgstr "Sp. Attack:"
+
+msgid "Sp. Defense: "
+msgstr "Sp. Defensa:"
+
+msgid "Speed:"
+msgstr "Velocidade:"
+
+msgid "Ability:"
+msgstr "Abilidade:"
+
+msgid "Exp:"
+msgstr "Exp:"
+
+msgid "Nature:"
+msgstr "Nature:"
+
+msgid "Type one:"
+msgstr "Tipo one:"
+
+msgid "Type two:"
+msgstr "Tipo two:"
+
+msgid "Gender:"
+msgstr "Genero:"
+
+msgid "Options"
+msgstr "Opcoens"
+
+msgid "Full Screen view"
+msgstr "Tela Cheia"
+
+msgid "Mute"
+msgstr "Mudo"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Changes may not take effect until you restart."
+msgstr "As mudancas terao efeito se voce reniciar."
+
+msgid "Pokenet Help"
+msgstr "Pokenet: Ajuda online"
+
+msgid "Arrow keys or WASD keys/nMovement/n/n"
+msgstr "Os botoens de movimento sao as Setas e/ou WASD."
+
+msgid "Spacebar/nTalk/n/n"
+msgstr "A telca C abre o chat /n"
+
+msgid "Right-click/nInteract with other players/n/n"
+msgstr "Use Espaco para conversar com a NPC(OU/nPersonagem nao jogador)./n"
+
+msgid "Use the whisper option to start a private chat. "
+msgstr "Use o /w USERNAME TEXT/ncommando para chamar outros/njogadores."
+
+msgid "Type the /playercount command into local chat to see how many players are online./n"
+msgstr "Use o /playercount commando to/npara ver quantos jogadores estao online."
+
+msgid "For more information, go to www.pokedev.org"
+msgstr "Se voce tiver insiguias use/nshift para surfar."
+
+msgid "Chat: Local"
+msgstr "Chat: Local"
+
+msgid "You must accept Terms of Service (ToS) before registering."
+msgstr "Voce deve aceitar os termos do servico para se registar."
+
+msgid "Male"
+msgstr "Homem"
+
+msgid "Female"
+msgstr "Mulher"
+
+msgid "None"
+msgstr "Duvidoso"
+
+msgid "Lv. "
+msgstr "Lv."
+
+msgid "PvP Battles/Trades"
+msgstr "PvP Batalhas/Trocas"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Accept"
+msgstr "Aceitar"
+
+msgid "Decline"
+msgstr "Recusar"
+
+msgid "Send Offer"
+msgstr "Enviar Oferta:"
+
+msgid "Your Offer:"
+msgstr "Sua Oferta:"
+
+msgid "Their Offer:"
+msgstr "Oferta dele:"
+
+msgid "test"
+msgstr "teste"
+
+msgid "Waiting..."
+msgstr "Aguarde..."
+
+msgid "Send a Request"
+msgstr "Enviando Pedido"
+
+msgid "Requests Received"
+msgstr "Pedido Recebido"
+
+msgid "Trade: "
+msgstr "Troca:"
+
+msgid "Money only"
+msgstr "Dinheiro apenas"
+
+msgid "Battle"
+msgstr "Batalha"
+
+msgid "Trade"
+msgstr "Troca"
+
+msgid "Disable Surrounding Maps"
+msgstr "Desactivar Circundantes Mapas"
+

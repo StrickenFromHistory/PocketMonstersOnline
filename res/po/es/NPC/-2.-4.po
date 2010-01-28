@@ -1,0 +1,31 @@
+# Pokenet -2.-4.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Mahogany Town "
+msgstr "Pueblo Caoba "
+
+msgid "Welcome to the home of the ninja"
+msgstr "Bienvenido al hogar de los ninja!"
+
+msgid "Once a ninja hideout, then a Team Rocket hideout. "
+msgstr "Antes era un escondite de ninjas, despues del Equipo Rocket. "
+
+msgid "Today, the Mahogany Pokemon Mart"
+msgstr "Hoy, es el Mercado Caoba"
+
+msgid "Mahogany Town Pokemon gym "
+msgstr "Gimasio Pokemon Pueblo Caoba "
+
+msgid "Leader: Pryce "
+msgstr "Lider: Pryce "
+
+msgid "The teacher of winter's harshness"
+msgstr "El maestro del duro invierno"
+
+msgid "Route 43 "
+msgstr "Ruta 43 "
+
+msgid "Lake of Rage - Mahogany Town"
+msgstr "Lago Ira - Pueblo Caoba"
+

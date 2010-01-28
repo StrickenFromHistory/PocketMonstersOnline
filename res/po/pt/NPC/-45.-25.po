@@ -1,0 +1,7 @@
+# Pokenet -45.-25.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I went inside Rock Tunnel, but it's pitch-black and scary in there."
+msgstr "I went inside Rock Tunnel, but it's pitch-black and scary in there."
+

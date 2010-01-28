@@ -1,0 +1,10 @@
+# Pokenet -44.-17.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I wonder if you are good enough for me?"
+msgstr "I wonder if you are good enough for me?"
+
+msgid "I can see you're good. Let me see exactly how good!"
+msgstr "I can see you're good. Let me see exactly how good!"
+

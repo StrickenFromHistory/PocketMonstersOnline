@@ -1,0 +1,25 @@
+# Pokenet -32.-39.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "You came from Olivine? "
+msgstr "You came from Olivine? "
+
+msgid "Do you remember the four islands along the way? "
+msgstr "Do you remember the four islands along the way? "
+
+msgid "I heard that a mythical sea creature is hiding in them."
+msgstr "I heard that a mythical sea creature is hiding in them."
+
+msgid "I am too scared to enter Whirl Islands. "
+msgstr "I am too scared to enter Whirl Islands. "
+
+msgid "But my brother, who has seven gym badges, can enter without worries."
+msgstr "But my brother, who has seven gym badges, can enter without worries."
+
+msgid "The mythical Pokemon only shows itself to very few selected persons. "
+msgstr "The mythical Pokemon only shows itself to very few selected persons. "
+
+msgid "Don't even think of catching it!"
+msgstr "Don't even think of catching it!"
+

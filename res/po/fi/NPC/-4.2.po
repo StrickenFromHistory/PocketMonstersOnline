@@ -1,0 +1,37 @@
+# Pokenet -4.2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Ilex Forest ahead."
+msgstr "Ilex Forest ahead."
+
+msgid "Kurt's house"
+msgstr "Kurt's house"
+
+msgid "Azalea Town Pokemon Gym "
+msgstr "Azalea Town Pokemon Gym "
+
+msgid "Leader: Bugsy "
+msgstr "Leader: Bugsy "
+
+msgid "The walking bug Pokemon encyclopedia"
+msgstr "The walking bug Pokemon encyclopedia"
+
+msgid "Charcoal Kiln"
+msgstr "Charcoal Kiln"
+
+msgid "Azalea Town - Where people and Pokemon live in happy harmony"
+msgstr "Azalea Town - Where people and Pokemon live in happy harmony"
+
+msgid "Slowpoke Well "
+msgstr "Slowpoke Well "
+
+msgid "Also known as the Rainmaker Well. "
+msgstr "Also known as the Rainmaker Well. "
+
+msgid "Locals believe that a Slowpoke's yawn summons rain. "
+msgstr "Locals believe that a Slowpoke's yawn summons rain. "
+
+msgid "Records show that a Slowpoke's yawn ended a drought 400 years ago."
+msgstr "Records show that a Slowpoke's yawn ended a drought 400 years ago."
+

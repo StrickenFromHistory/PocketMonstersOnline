@@ -1,0 +1,13 @@
+# Pokenet -44.-44.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "A clan of trainers who can freely command dragons "
+msgstr "A clan of trainers who can freely command dragons "
+
+msgid "live right here in Blackthorn."
+msgstr "live right here in Blackthorn."
+
+msgid "As a result, there are many legends about dragons in this town."
+msgstr "As a result, there are many legends about dragons in this town."
+

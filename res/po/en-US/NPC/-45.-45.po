@@ -1,0 +1,13 @@
+# Pokenet -45.-45.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I can't allow a nameless trainer past me! "
+msgstr "I can't allow a nameless trainer past me! "
+
+msgid "Clair would be livid if I did!"
+msgstr "Clair would be livid if I did!"
+
+msgid "It's not as if we all use dragon-type Pokemon."
+msgstr "It's not as if we all use dragon-type Pokemon."
+

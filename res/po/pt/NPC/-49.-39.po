@@ -1,0 +1,61 @@
+# Pokenet -49.-39.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "The blackboard describes Pokemon status changes in battle. "
+msgstr "O quadro-negro descreve as mudancas de status que podem ocorrer numa batalha. "
+
+msgid "Sleep: If asleep, your Pokemon can't make a move. "
+msgstr "Sono: Adormecido, um Pokemon nao se move. "
+
+msgid "A sleeping Pokemon doesn't wake up after battle. "
+msgstr "Um Pokemon adormecido nao acorda depois da batalha. "
+
+msgid "Wake it up with an Awakening."
+msgstr "Resolva com um spray Despertador."
+
+msgid "Burn: A burn steadily consumes HP. It also reduces attack power. "
+msgstr "Queimadura: Uma queimadura constantentemente consome PV. A potencia dos ataques tambem e reduzida. "
+
+msgid "A burn lingers after battle."
+msgstr "Esses efeitos persistem apos a batalha."
+
+msgid "Use a Burn Heal as the cure."
+msgstr "Cure-a com um Antiqueimadura."
+
+msgid "Poison: If poisoned, a Pokemon steadily loses HP. "
+msgstr "Veneno: Envenenado, um Pokemon perde quantias constantes de PV. "
+
+msgid "Poison lingers after the battle, and HP is lost as you walk. "
+msgstr "O envenenamento persiste apos a batalha e cada passo dado pelo treinador provoca perda de PV. "
+
+msgid "To cure it, use an Antidote."
+msgstr "Para cura-lo, use um Antidoto."
+
+msgid "Paralysis: Paralysis reduces speed and may prevent the Pokemon from moving. "
+msgstr "Paralisia: Reduz a velocidade e pode impedir o Pokemon de agir. "
+
+msgid "Paralysis remains after battles. Use Paralyze Heal for treatment."
+msgstr "A paralisia persiste apos a batalha. Trate com um Desparalisante."
+
+msgid "I traded my best Pokemon to the guy beside me."
+msgstr "Troquei meu melhor Pokemon com esse garoto aqui ao lado."
+
+msgid "Huh? The Pokemon I just got is holding something!"
+msgstr "Ahn? O Pokemon que consegui esta carregando algo!"
+
+msgid "A Pokemon holding a berry will heal itself in battle. "
+msgstr "Pokemons carregando uma fruta vao se curar sozinhos em uma batalha. "
+
+msgid "Many other items can be held by Pokemon... "
+msgstr "Muitos outros itens podem ser carregados por Pokemons... "
+
+msgid "It sure is tough taking notes..."
+msgstr "Isso e dificil de anotar..."
+
+msgid "I'm taking notes of the teacher's lecture. "
+msgstr "Estou concentrado na explicacao da professora. "
+
+msgid "I'd better copy the stuff on the blackboard too."
+msgstr "Melhor copiar o que esta no quadro-negro tambem."
+

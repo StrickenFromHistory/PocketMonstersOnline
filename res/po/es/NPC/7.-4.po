@@ -1,0 +1,34 @@
+# Pokenet 7.-4.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "You have Pokemon with you! You're mine!"
+msgstr "You have Pokemon with you! You're mine!"
+
+msgid "Bwahaha! Great! I was bored, eh!"
+msgstr "Bwahaha! Great! I was bored, eh!"
+
+msgid "Who's that walking there with those good-looking Pokemon?"
+msgstr "Who's that walking there with those good-looking Pokemon?"
+
+msgid "I got up early every day to raise my Pokemon from cocoons!"
+msgstr "I got up early every day to raise my Pokemon from cocoons!"
+
+msgid "Hahahaha! Bring it on!"
+msgstr "Hahahaha! Bring it on!"
+
+msgid "Go, my super bug Pokemon!"
+msgstr "Go, my super bug Pokemon!"
+
+msgid "I'm taking the Rock Tunnel to go to Lavender..."
+msgstr "I'm taking the Rock Tunnel to go to Lavender..."
+
+msgid "Hahaha! Aren't you a little toughie!"
+msgstr "Hahaha! Aren't you a little toughie!"
+
+msgid "Dont' you dare patronize me!"
+msgstr "Dont' you dare patronize me!"
+
+msgid "Route 9: Cerulean City - Rock Tunnel"
+msgstr "Route 9: Cerulean City - Rock Tunnel"
+

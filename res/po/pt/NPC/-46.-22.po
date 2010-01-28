@@ -1,0 +1,55 @@
+# Pokenet -46.-22.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a list of winning trainers."
+msgstr "It's a list of winning trainers."
+
+msgid "Yo! Champ in the making!"
+msgstr "Yo! Champ in the making!"
+
+msgid "Lt. Surge has a nickname."
+msgstr "Lt. Surge has a nickname."
+
+msgid "People refer to him as the Lightning American!"
+msgstr "People refer to him as the Lightning American!"
+
+msgid "He's an expert on electric Pokemon."
+msgstr "He's an expert on electric Pokemon."
+
+msgid "Bird/water-type Pokemon match poorly against the electric type."
+msgstr "Bird/water-type Pokemon match poorly against the electric type."
+
+msgid "Beware of paralysis, too."
+msgstr "Beware of paralysis, too."
+
+msgid "This is no place for kids! Not even if you're good!"
+msgstr "This is no place for kids! Not even if you're good!"
+
+msgid "I'm a lightweight, but I'm good with electricity!"
+msgstr "I'm a lightweight, but I'm good with electricity!"
+
+msgid "That's why I joined this gym."
+msgstr "That's why I joined this gym."
+
+msgid "When I was in the Army, Lt. Surge was my strict Co."
+msgstr "When I was in the Army, Lt. Surge was my strict Co."
+
+msgid "He was a hard taskmaster."
+msgstr "He was a hard taskmaster."
+
+msgid "Hey, kid! What do you think you're doing here?"
+msgstr "Hey, kid! What do you think you're doing here?"
+
+msgid "You won't live long in combat! Not with your puny power!"
+msgstr "You won't live long in combat! Not with your puny power!"
+
+msgid "I tell you, kid, electric Pokemon saved me during the war!"
+msgstr "I tell you, kid, electric Pokemon saved me during the war!"
+
+msgid "They zapped my enemies into paralysis."
+msgstr "They zapped my enemies into paralysis."
+
+msgid "The same as I'll do to you!"
+msgstr "The same as I'll do to you!"
+

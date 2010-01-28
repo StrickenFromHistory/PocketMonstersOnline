@@ -1,0 +1,13 @@
+# Pokenet -32.-42.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Do you know what shiny Pokemon are? "
+msgstr "Voce quer saber o que sao Pokemons shiny? "
+
+msgid "They have a different color than normal Pokemon. "
+msgstr "Eles tem uma cor diferente dos pokemons normais. "
+
+msgid "Encountering one is very hard."
+msgstr "Eles sao muito dificeis de encontrar."
+

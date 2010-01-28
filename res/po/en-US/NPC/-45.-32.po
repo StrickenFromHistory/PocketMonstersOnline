@@ -1,0 +1,7 @@
+# Pokenet -45.-32.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I am the Kanto Name Rater. None of your Pokemon has a nickname."
+msgstr "I am the Kanto Name Rater. None of your Pokemon has a nickname."
+

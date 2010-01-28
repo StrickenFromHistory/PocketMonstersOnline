@@ -1,0 +1,19 @@
+# Pokenet -39.-39.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I am trying to become a gym leader! "
+msgstr "Quiero ser un lider de gimnasio! "
+
+msgid "But my Pokemon are still too weak. "
+msgstr "Pero mis Pokemon siguen debiles. "
+
+msgid "I have to make them tougher by battling!"
+msgstr "Tengo que hacerlos mas fuertes al combatir!"
+
+msgid "You're trying to see how good you are as a Pokemon trainer? "
+msgstr "Quieres ver que tan buen entrenador Pokemon eres?"
+
+msgid "You better visit the Pokemon gyms all over Johto and collect badges."
+msgstr "Deberas visitar todos los Gimnasios Pokemon de Johto y obtener medallas."
+

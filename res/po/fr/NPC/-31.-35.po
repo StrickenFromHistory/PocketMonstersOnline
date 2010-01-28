@@ -1,0 +1,46 @@
+# Pokenet -31.-35.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a list of winning trainers."
+msgstr "It's a list of winning trainers."
+
+msgid "Yo! Champ in making! "
+msgstr "Yo! Champ in making! "
+
+msgid "This gym is home to normal-type Pokemon trainers. "
+msgstr "This gym is home to normal-type Pokemon trainers. "
+
+msgid "I recommend you use fighting-type Pokemon."
+msgstr "I recommend you use fighting-type Pokemon."
+
+msgid "Give it your best shot, or I'll take you down!"
+msgstr "Give it your best shot, or I'll take you down!"
+
+msgid "Oh, you are a cute little trainer! "
+msgstr "Oh, you are a cute little trainer! "
+
+msgid "I like you, but I won't hold back!"
+msgstr "I like you, but I won't hold back!"
+
+msgid "Don't let my Pokemon's cute looks fool you. They can whip you!"
+msgstr "Don't let my Pokemon's cute looks fool you. They can whip you!"
+
+msgid "I like cute Pokemon better than strong Pokemon. "
+msgstr "I like cute Pokemon better than strong Pokemon. "
+
+msgid "But I have strong and cute Pokemon!"
+msgstr "But I have strong and cute Pokemon!"
+
+msgid "Hi! I'm Whitney! "
+msgstr "Hi! I'm Whitney! "
+
+msgid "Everyone was into Pokemon, so I got into it too! "
+msgstr "Everyone was into Pokemon, so I got into it too! "
+
+msgid "Pokemon are super-cute! You want to battle? "
+msgstr "Pokemon are super-cute! You want to battle? "
+
+msgid "I'm warning you--I'm good!"
+msgstr "I'm warning you--I'm good!"
+

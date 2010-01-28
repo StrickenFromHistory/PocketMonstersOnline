@@ -1,0 +1,22 @@
+# Pokenet -45.-44.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "On the sea, the only thing you can count on is your own good self! "
+msgstr "On the sea, the only thing you can count on is your own good self! "
+
+msgid "I'm so proud of my buff bod!"
+msgstr "I'm so proud of my buff bod!"
+
+msgid "Whenever I roll into this town, I always visit the Olivine Cafe. "
+msgstr "Whenever I roll into this town, I always visit the Olivine Cafe. "
+
+msgid "Everything on the menu makes me feel stronger. I can't stop eating!"
+msgstr "Everything on the menu makes me feel stronger. I can't stop eating!"
+
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+
+msgid "Olivine Cafe's menu is chock full of hearty fare for beefy sailors!"
+msgstr "Olivine Cafe's menu is chock full of hearty fare for beefy sailors!"
+

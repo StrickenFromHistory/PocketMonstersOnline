@@ -1,0 +1,22 @@
+# Pokenet -44.-15.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I heard rumors of child prodigy."
+msgstr "I heard rumors of child prodigy."
+
+msgid "Trainers live to seek stronger opponents."
+msgstr "Trainers live to seek stronger opponents."
+
+msgid "I am destined for greatness!"
+msgstr "I am destined for greatness!"
+
+msgid "I am trying to become champion."
+msgstr "I am trying to become champion."
+
+msgid "I'll show you just how good you are. Not!"
+msgstr "I'll show you just how good you are. Not!"
+
+msgid "Only the chosen can pass here!"
+msgstr "Only the chosen can pass here!"
+

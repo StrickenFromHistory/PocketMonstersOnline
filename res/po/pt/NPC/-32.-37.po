@@ -1,0 +1,19 @@
+# Pokenet -32.-37.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I see all. I know all... "
+msgstr "Eu vejo tudo. Eu sei de tudo... "
+
+msgid "Certrainly, I know of you and your Pokemon! "
+msgstr "Certamente, eu sei sobre voce e seu pokemon! "
+
+msgid "Hm... I see you started with nothing but your first Pokemon. "
+msgstr "Hm... Eu vejo que voce come�ou com nada alem do seu primeiro pokemon. "
+
+msgid "You and your Pokemon indeed have become stronger, even winning badges. "
+msgstr "Voce e seu pokemon ficaram mais fortes e ganharam insignias."
+
+msgid "Keep going and you will become a great trainer!"
+msgstr "Continue assim e voce vai se tornar um grande treinador!"
+

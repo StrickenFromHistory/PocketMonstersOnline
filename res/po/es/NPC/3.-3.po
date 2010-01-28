@@ -1,0 +1,16 @@
+# Pokenet 3.-3.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Trainer Tips"
+msgstr "Trainer Tips"
+
+msgid "Fishing rods can be bought at the Fishing Gurus in every region."
+msgstr "Fishing rods can be bought at the Fishing Gurus in every region."
+
+msgid "Pewter City - A stone gray city"
+msgstr "Pewter City - A stone gray city"
+
+msgid "Pewter Museum of Science"
+msgstr "Pewter Museum of Science"
+

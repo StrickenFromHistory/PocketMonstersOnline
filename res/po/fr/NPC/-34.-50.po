@@ -1,0 +1,7 @@
+# Pokenet -34.-50.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Let me give your Pokemon some food ... There! They're strong again!"
+msgstr "Let me give your Pokemon some food ... There! They're strong again!"
+

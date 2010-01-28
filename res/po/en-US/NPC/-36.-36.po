@@ -1,0 +1,52 @@
+# Pokenet -36.-36.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "The Kimono Girls are so beautiful..."
+msgstr "The Kimono Girls are so beautiful..."
+
+msgid "But they have to go through rigorous training. "
+msgstr "But they have to go through rigorous training. "
+
+msgid "And they have to learn to follow customs before appearing in public. "
+msgstr "And they have to learn to follow customs before appearing in public. "
+
+msgid "But if you love something, anything is possible."
+msgstr "But if you love something, anything is possible."
+
+msgid "Not only are the Kimono Girls great dancers, they're also skilled at "
+msgstr "Not only are the Kimono Girls great dancers, they're also skilled at "
+
+msgid "Pokemon. "
+msgstr "Pokemon. "
+
+msgid "I always challenged them, but I've never even left a scratch..."
+msgstr "I always challenged them, but I've never even left a scratch..."
+
+msgid "That man's always with his Rhydon. "
+msgstr "That man's always with his Rhydon. "
+
+msgid "Says he wants a Pokemon that can surf and dance. "
+msgstr "Says he wants a Pokemon that can surf and dance. "
+
+msgid "Is he trying to make a synchronized swimming Pokemon?"
+msgstr "Is he trying to make a synchronized swimming Pokemon?"
+
+msgid "You have lovely Pokemon. May I see them in battle?"
+msgstr "You have lovely Pokemon. May I see them in battle?"
+
+msgid "I always dance with my Pokemon. "
+msgstr "I always dance with my Pokemon. "
+
+msgid "Of course, I also train them."
+msgstr "Of course, I also train them."
+
+msgid "Isn't my barrette pretty? Oh. A Pokemon Battle?"
+msgstr "Isn't my barrette pretty? Oh. A Pokemon Battle?"
+
+msgid "Oh, you're a cute trainer. Would you like to battle?"
+msgstr "Oh, you're a cute trainer. Would you like to battle?"
+
+msgid "Do you like my dancing? I'm good at Pokemon too."
+msgstr "Do you like my dancing? I'm good at Pokemon too."
+

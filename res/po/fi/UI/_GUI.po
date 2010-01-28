@@ -1,0 +1,151 @@
+# Pokenet _GUI.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Pokemon Team"
+msgstr "Pokemon Team"
+
+msgid "Level:"
+msgstr "Level:"
+
+msgid "Name:"
+msgstr "Name:"
+
+msgid "HP:"
+msgstr "HP:"
+
+msgid "Attack:"
+msgstr "Attack:"
+
+msgid "Defense:"
+msgstr "Defense:"
+
+msgid "Sp. Attack:"
+msgstr "Sp. Attack:"
+
+msgid "Sp. Defense: "
+msgstr "Sp. Defense: "
+
+msgid "Speed:"
+msgstr "Speed:"
+
+msgid "Ability:"
+msgstr "Ability:"
+
+msgid "Exp:"
+msgstr "Exp:"
+
+msgid "Nature:"
+msgstr "Nature:"
+
+msgid "Type one:"
+msgstr "Type one:"
+
+msgid "Type two:"
+msgstr "Type two:"
+
+msgid "Gender:"
+msgstr "Gender:"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "Full Screen view"
+msgstr "Full Screen view"
+
+msgid "Mute"
+msgstr "Mute"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Changes may not take effect until you restart."
+msgstr "Changes may not take effect until you restart."
+
+msgid "Pokenet Help"
+msgstr "Pokenet Help"
+
+msgid "Arrow keys or WASD keys/nMovement/n/n"
+msgstr "Arrow keys or WASD keys/nMovement/n/n"
+
+msgid "Spacebar/nTalk/n/n"
+msgstr "Spacebar/nTalk/n/n"
+
+msgid "Right-click/nInteract with other players/n/n"
+msgstr "Right-click/nInteract with other players/n/n"
+
+msgid "Use the whisper option to start a private chat. "
+msgstr "Use the whisper option to start a private chat. "
+
+msgid "Type the /playercount command into local chat to see how many players are online./n"
+msgstr "Type the /playercount command into local chat to see how many players are online./n"
+
+msgid "For more information, go to www.pokedev.org"
+msgstr "For more information, go to www.pokedev.org"
+
+msgid "Chat: Local"
+msgstr "Chat: Local"
+
+msgid "You must accept Terms of Service (ToS) before registering."
+msgstr "You must accept Terms of Service (ToS) before registering."
+
+msgid "Male"
+msgstr "Male"
+
+msgid "Female"
+msgstr "Female"
+
+msgid "None"
+msgstr "None"
+
+msgid "Lv. "
+msgstr "Lv. "
+
+msgid "PvP Battles/Trades"
+msgstr "PvP Battles/Trades"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Accept"
+msgstr "Accept"
+
+msgid "Decline"
+msgstr "Decline"
+
+msgid "Send Offer"
+msgstr "Send Offer"
+
+msgid "Your Offer:"
+msgstr "Your Offer:"
+
+msgid "Their Offer:"
+msgstr "Their Offer:"
+
+msgid "test"
+msgstr "test"
+
+msgid "Waiting..."
+msgstr "Waiting..."
+
+msgid "Send a Request"
+msgstr "Send a Request"
+
+msgid "Requests Received"
+msgstr "Requests Received"
+
+msgid "Trade: "
+msgstr "Trade: "
+
+msgid "Money only"
+msgstr "Money only"
+
+msgid "Battle"
+msgstr "Battle"
+
+msgid "Trade"
+msgstr "Trade"
+
+msgid "Disable Surrounding Maps"
+msgstr "Disable Surrounding Maps"
+

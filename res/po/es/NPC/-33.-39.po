@@ -1,0 +1,10 @@
+# Pokenet -33.-39.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I'm sorry, but only people recognized by the legendary Pokemon may "
+msgstr "I'm sorry, but only people recognized by the legendary Pokemon may "
+
+msgid "enter the upper floors."
+msgstr "enter the upper floors."
+

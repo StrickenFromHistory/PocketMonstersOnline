@@ -1,0 +1,37 @@
+# Pokenet 0.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "The Dragon's Den has been opened to the public."
+msgstr "The Dragon's Den has been opened to the public."
+
+msgid "You may enter."
+msgstr "You may enter."
+
+msgid "Blackthorn City "
+msgstr "Blackthorn City "
+
+msgid "A quiet mountain retreat"
+msgstr "A quiet mountain retreat"
+
+msgid "Move Deleter's House"
+msgstr "Move Deleter's House"
+
+msgid "Trainer Tips "
+msgstr "Trainer Tips "
+
+msgid "There are no Dratinis in Dragon's Den"
+msgstr "There are no Dratinis in Dragon's Den"
+
+msgid "Blackthorn City Pokemon gym "
+msgstr "Blackthorn City Pokemon gym "
+
+msgid "Leader: Clair "
+msgstr "Leader: Clair "
+
+msgid "The blessed user of dragon Pokemon"
+msgstr "The blessed user of dragon Pokemon"
+
+msgid "Dragon's Den ahead"
+msgstr "Dragon's Den ahead"
+

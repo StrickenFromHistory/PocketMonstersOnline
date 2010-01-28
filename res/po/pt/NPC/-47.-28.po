@@ -1,0 +1,19 @@
+# Pokenet -47.-28.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Pokemon learn new techniques as they grow."
+msgstr "Pokemon learn new techniques as they grow."
+
+msgid "But some moves must be taught to them by people."
+msgstr "But some moves must be taught to them by people."
+
+msgid "A Pokemon becomes easier to catch if it has a status problem."
+msgstr "A Pokemon becomes easier to catch if it has a status problem."
+
+msgid "Sleep, poison, burn or paralysis... Those are all effective."
+msgstr "Sleep, poison, burn or paralysis... Those are all effective."
+
+msgid "But catching Pokemon is never a sure thing!"
+msgstr "But catching Pokemon is never a sure thing!"
+

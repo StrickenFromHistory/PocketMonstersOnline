@@ -1,0 +1,49 @@
+# Pokenet -6.-4.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Let me see what your Pokemon are capable of."
+msgstr "Let me see what your Pokemon are capable of."
+
+msgid "Such darling Pokemon. "
+msgstr "Such darling Pokemon. "
+
+msgid "Let's show our Pokemon together at the same time."
+msgstr "Let's show our Pokemon together at the same time."
+
+msgid "This is a good time to brag about my Pikachu!"
+msgstr "This is a good time to brag about my Pikachu!"
+
+msgid "You came at just the right time. "
+msgstr "You came at just the right time. "
+
+msgid "Let's battle."
+msgstr "Let's battle."
+
+msgid "I just got back to Olivine. "
+msgstr "I just got back to Olivine. "
+
+msgid "So how about a Pokemon battle?"
+msgstr "So how about a Pokemon battle?"
+
+msgid "Route 39 "
+msgstr "Route 39 "
+
+msgid "Olivine City - Ecruteak City"
+msgstr "Olivine City - Ecruteak City"
+
+msgid "Moomoo Farm "
+msgstr "Moomoo Farm "
+
+msgid "Enjoy our fresh and tasty milk"
+msgstr "Enjoy our fresh and tasty milk"
+
+msgid "Trainer Tips "
+msgstr "Trainer Tips "
+
+msgid "Use the forums to report rule breakers. "
+msgstr "Use the forums to report rule breakers. "
+
+msgid "Make sure to take a screenshot."
+msgstr "Make sure to take a screenshot."
+

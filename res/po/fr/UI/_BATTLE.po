@@ -1,0 +1,46 @@
+# Pokenet _BATTLE.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "pokeName fainted!"
+msgstr "Please select a new Pokemon"
+
+msgid "pokeName used moveName"
+msgstr "pokeName used moveName"
+
+msgid "Awaiting your move..."
+msgstr "Awaiting your move..."
+
+msgid "pokeName gained expNum EXP and needs expRemaining EXP to level up..."
+msgstr "pokeName gained expNum EXP"
+
+msgid "pokeName returned to normal."
+msgstr "pokeName returned to normal."
+
+msgid "trainerName sent out pokeName"
+msgstr "trainerName sent out pokeName"
+
+msgid "Select a new Pokemon!"
+msgstr "Select a new Pokemon!"
+
+msgid "pokeName took damageNum damage"
+msgstr "pokeName took damageNum damage"
+
+msgid "It has hpNum life remaining"
+msgstr "It has hpNum life remaining"
+
+msgid "pokeName recovered damageNum HP"
+msgstr "pokeName recovered damageNum HP"
+
+msgid "trainerName won the battle!"
+msgstr "trainerName won the battle!"
+
+msgid "trainerName was defeated!"
+msgstr "trainerName was defeated!"
+
+msgid "You got away safely!"
+msgstr "You got away safely!"
+
+msgid "You couldn't run away!"
+msgstr "You couldn't run away!"
+

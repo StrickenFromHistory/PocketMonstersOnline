@@ -1,0 +1,16 @@
+# Pokenet -32.-31.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "When my dad is old, I'm going to become his successor! "
+msgstr "Cuando mi papa sea viejo, sere su sucesor!"
+
+msgid "I am going to be as great as him!"
+msgstr "Voy a ser tan grande como el!"
+
+msgid "Hi there! My husband is always so busy--I hope he's OK. "
+msgstr "Hola! Mi esposo siempre esta ocupado, espero este bien. "
+
+msgid "When he's caught up in his Pokemon research, he even forgets to eat."
+msgstr "A veces esta tan ocupado en su laboratorio que olvida alimentarse."
+

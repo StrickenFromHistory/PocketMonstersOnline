@@ -1,0 +1,14 @@
+Please select a new Pokemon
+pokeName used moveName
+Awaiting your move...
+pokeName gained expNum EXP
+pokeName returned to normal.
+trainerName sent out pokeName
+Select a new Pokemon!
+pokeName took damageNum damage
+It has hpNum life remaining
+pokeName recovered damageNum HP
+trainerName won the battle!
+trainerName was defeated!
+You got away safely!
+You couldn't run away!

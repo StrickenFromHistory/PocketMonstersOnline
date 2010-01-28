@@ -1,0 +1,10 @@
+# Pokenet -50.-43.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I want a Wobbuffet so badly. I've heard that a few live in this cave."
+msgstr "Eu quero tanto um Wobbuffet. Ouvi dizer que alguns vivem nesta caverna.	"
+
+msgid "Out of my way! I'm going to catch one!"
+msgstr "Fora do meu caminho! Eu vou capturar um!"
+

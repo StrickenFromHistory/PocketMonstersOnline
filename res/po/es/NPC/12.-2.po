@@ -1,0 +1,31 @@
+# Pokenet 12.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Celadon mansion"
+msgstr "Celadon mansion"
+
+msgid "Find what you need at the Celadon dept. store!"
+msgstr "Find what you need at the Celadon dept. store!"
+
+msgid "Celadon City - the city of rainbow dreams"
+msgstr "Celadon City - the city of rainbow dreams"
+
+msgid "Game Corner - the playground for grown-ups!"
+msgstr "Game Corner - the playground for grown-ups!"
+
+msgid "Coins exchanged for prizes! - prize exchange"
+msgstr "Coins exchanged for prizes! - prize exchange"
+
+msgid "Trainer Tips"
+msgstr "Trainer Tips"
+
+msgid "The dept. store sells more items than the normal PokeMart."
+msgstr "The dept. store sells more items than the normal PokeMart."
+
+msgid "Celadon City Pokemon gym"
+msgstr "Celadon City Pokemon gym"
+
+msgid "Leader: Erika - the nature-loving princess!"
+msgstr "Leader: Erika - the nature-loving princess!"
+

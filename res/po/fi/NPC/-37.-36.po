@@ -1,0 +1,13 @@
+# Pokenet -37.-36.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Why are you here? Are you just going to gawk? I suggest that you leave!"
+msgstr "Why are you here? Are you just going to gawk? I suggest that you leave!"
+
+msgid "I travel the world to train my Pokemon. I wish to battle with you."
+msgstr "I travel the world to train my Pokemon. I wish to battle with you."
+
+msgid "Sailors are both kind and strong. How about you?"
+msgstr "Sailors are both kind and strong. How about you?"
+

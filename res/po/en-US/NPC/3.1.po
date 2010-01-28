@@ -1,0 +1,22 @@
+# Pokenet 3.1.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Red's House"
+msgstr "Red's House"
+
+msgid "Blue's House"
+msgstr "Blue's House"
+
+msgid "Pallet Town - Shades of your journey await!"
+msgstr "Pallet Town - Shades of your journey await!"
+
+msgid "Trainer Tips"
+msgstr "Trainer Tips"
+
+msgid "You need a certain trainer skill level to be able to surf."
+msgstr "You need a certain trainer skill level to be able to surf."
+
+msgid "Oak Pokemon research lab"
+msgstr "Oak Pokemon research lab"
+

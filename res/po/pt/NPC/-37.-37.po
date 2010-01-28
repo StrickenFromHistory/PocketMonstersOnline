@@ -1,0 +1,7 @@
+# Pokenet -37.-37.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Welcome to the Cianwood City pharmacy."
+msgstr "Bem-vindo a farmacia da Cidade de Cianwood."
+

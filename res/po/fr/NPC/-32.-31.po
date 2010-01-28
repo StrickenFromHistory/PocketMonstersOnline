@@ -1,0 +1,16 @@
+# Pokenet -32.-31.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "When my dad is old, I'm going to become his successor! "
+msgstr "When my dad is old, I'm going to become his successor! "
+
+msgid "I am going to be as great as him!"
+msgstr "I am going to be as great as him!"
+
+msgid "Hi there! My husband is always so busy--I hope he's OK. "
+msgstr "Hi there! My husband is always so busy--I hope he's OK. "
+
+msgid "When he's caught up in his Pokemon research, he even forgets to eat."
+msgstr "When he's caught up in his Pokemon research, he even forgets to eat."
+

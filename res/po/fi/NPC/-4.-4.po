@@ -1,0 +1,34 @@
+# Pokenet -4.-4.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Ecruteak City Pokemon Gym "
+msgstr "Ecruteak City Pokemon Gym "
+
+msgid "Leader: Morty "
+msgstr "Leader: Morty "
+
+msgid "The mystic seer of the future"
+msgstr "The mystic seer of the future"
+
+msgid "Ecruteak City - A historical city where the past meets the present"
+msgstr "Ecruteak City - A historical city where the past meets the present"
+
+msgid "Ecruteak Dance Theater"
+msgstr "Ecruteak Dance Theater"
+
+msgid "Burned Tower "
+msgstr "Burned Tower "
+
+msgid "It was destroyed by a mysterious fire. "
+msgstr "It was destroyed by a mysterious fire. "
+
+msgid "Please stay away, as it is unsafe."
+msgstr "Please stay away, as it is unsafe."
+
+msgid "Tin Tower "
+msgstr "Tin Tower "
+
+msgid "A legendary Pokemon is said to roost here."
+msgstr "A legendary Pokemon is said to roost here."
+

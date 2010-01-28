@@ -1,0 +1,16 @@
+# Pokenet -31.-46.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Two towers... Two Pokemon... "
+msgstr "Duas torres... Dois Pokemons"
+
+msgid "But when one burned down, both Pokemon flew away, never to return."
+msgstr "Mas quando uma foi incendiada , ambos os Pokemons voaram, pra nao retornarem. "
+
+msgid "The Tin Tower ahead is a nine tier tower of divine beauty. "
+msgstr "A Torre dos Sinos, � uma torre com nove niveis, uma beleza divina."
+
+msgid "It soothes the soul of all who see it."
+msgstr "Acalma a alma de todos que a veem."
+

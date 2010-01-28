@@ -1,0 +1,73 @@
+# Pokenet -44.-14.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Hey! You have Pokemon! Come on!"
+msgstr "Hey! You have Pokemon! Come on!"
+
+msgid "Let's battle 'em!"
+msgstr "Let's battle 'em!"
+
+msgid "Yo!"
+msgstr "Yo!"
+
+msgid "You can't jam out if you're a Pokemon trainer!"
+msgstr "You can't jam out if you're a Pokemon trainer!"
+
+msgid "I might be little, but I won't like it if you go easy on me!"
+msgstr "I might be little, but I won't like it if you go easy on me!"
+
+msgid "Did you know that Pokemon evolve?"
+msgstr "Did you know that Pokemon evolve?"
+
+msgid "Hey! Wait up!"
+msgstr "Hey! Wait up!"
+
+msgid "What's the hurry? Why the rush?"
+msgstr "What's the hurry? Why the rush?"
+
+msgid "I came here with some friends to catch us some bug Pokemon!"
+msgstr "I came here with some friends to catch us some bug Pokemon!"
+
+msgid "They're all itching to get into some Pokemon battles!"
+msgstr "They're all itching to get into some Pokemon battles!"
+
+msgid "I was throwing PokeBalls to catch Pokemon, and I ran out."
+msgstr "I was throwing PokeBalls to catch Pokemon, and I ran out."
+
+msgid "That's why you can never have too many PokeBalls."
+msgstr "That's why you can never have too many PokeBalls."
+
+msgid "Trainer Tips"
+msgstr "Trainer Tips"
+
+msgid "You can cut down little trees with a certain trainer skill level."
+msgstr "You can cut down little trees with a certain trainer skill level."
+
+msgid "If your Pokemon are weak and you want to avoid battles,"
+msgstr "If your Pokemon are weak and you want to avoid battles,"
+
+msgid "stay away from enemy trainers and grassy areas!"
+msgstr "stay away from enemy trainers and grassy areas!"
+
+msgid "For poison, use Antidotes! Get it at PokeMarts!"
+msgstr "For poison, use Antidotes! Get it at PokeMarts!"
+
+msgid "Talk to every NPC you see! "
+msgstr "Talk to every NPC you see! "
+
+msgid "Some of them might give you special items or even Pokemon!"
+msgstr "Some of them might give you special items or even Pokemon!"
+
+msgid "Some of the major caves have extended areas."
+msgstr "Some of the major caves have extended areas."
+
+msgid "Go check them out!"
+msgstr "Go check them out!"
+
+msgid "Leaving Viridian Forest"
+msgstr "Leaving Viridian Forest"
+
+msgid "Pewter City ahead"
+msgstr "Pewter City ahead"
+

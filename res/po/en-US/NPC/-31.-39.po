@@ -1,0 +1,7 @@
+# Pokenet -31.-39.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I'm sorry, but you need a ticket for the train."
+msgstr "I'm sorry, but you need a ticket for the train."
+

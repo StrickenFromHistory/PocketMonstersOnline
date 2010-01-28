@@ -1,0 +1,19 @@
+# Pokenet -46.-20.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Coming up with nicknames is fun, but it's not so easy to do."
+msgstr "Coming up with nicknames is fun, but it's not so easy to do."
+
+msgid "Clever names are nice, but simple names are easier to remember."
+msgstr "Clever names are nice, but simple names are easier to remember."
+
+msgid "My daddy loves Pokemon, too."
+msgstr "My daddy loves Pokemon, too."
+
+msgid "Spearow"
+msgstr "Spearow"
+
+msgid "Name: Speary"
+msgstr "Name: Speary"
+

@@ -1,0 +1,13 @@
+# Pokenet 8.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Lavender Volunteer Pokemon House"
+msgstr "Lavender Volunteer Pokemon House"
+
+msgid "Lavender Town - the noble purple town"
+msgstr "Lavender Town - the noble purple town"
+
+msgid "Pokemon Tower - becalm the spirits of Pokemon"
+msgstr "Pokemon Tower - becalm the spirits of Pokemon"
+

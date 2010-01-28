@@ -1,0 +1,37 @@
+# Pokenet 2.0.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I'm feeling great today!"
+msgstr "I'm feeling great today!"
+
+msgid "I feel like I could boot even the Elite Four!"
+msgstr "I feel like I could boot even the Elite Four!"
+
+msgid "Wow, look at all those Pokemon! I'm impressed."
+msgstr "Wow, look at all those Pokemon! I'm impressed."
+
+msgid "But you're not statisfied by just collecting them, right?"
+msgstr "But you're not statisfied by just collecting them, right?"
+
+msgid "Since you are walking around here, you must be good."
+msgstr "Since you are walking around here, you must be good."
+
+msgid "I'm going to give this battle everything I've got!"
+msgstr "I'm going to give this battle everything I've got!"
+
+msgid "By experiencing tough battles, you gain power."
+msgstr "By experiencing tough battles, you gain power."
+
+msgid "I'm making my final preparations for the PokeNet League."
+msgstr "I'm making my final preparations for the PokeNet League."
+
+msgid "I lost to trainers before you, so I don't mind."
+msgstr "I lost to trainers before you, so I don't mind."
+
+msgid "Route 26"
+msgstr "Route 26"
+
+msgid "Route 22 and PokeNet Kanto/Johto League reception gate ahead."
+msgstr "Route 22 and PokeNet Kanto/Johto League reception gate ahead."
+

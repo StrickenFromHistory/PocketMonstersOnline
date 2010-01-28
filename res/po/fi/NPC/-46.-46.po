@@ -1,0 +1,55 @@
+# Pokenet -46.-46.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a list of winning trainers."
+msgstr "It's a list of winning trainers."
+
+msgid "Yo! Champ in making! "
+msgstr "Yo! Champ in making! "
+
+msgid "Clair uses the mythical and sacred dragon-type Pokemon. "
+msgstr "Clair uses the mythical and sacred dragon-type Pokemon. "
+
+msgid "You can't damage them very easily. "
+msgstr "You can't damage them very easily. "
+
+msgid "But you know, they're supposed to be weak against ice-type moves."
+msgstr "But you know, they're supposed to be weak against ice-type moves."
+
+msgid "Your first battle against dragons? "
+msgstr "Your first battle against dragons? "
+
+msgid "I'll show you how tough they are!"
+msgstr "I'll show you how tough they are!"
+
+msgid "My chance of losing? Not even one percent!"
+msgstr "My chance of losing? Not even one percent!"
+
+msgid "Dragons are sacred Pokemon. "
+msgstr "Dragons are sacred Pokemon. "
+
+msgid "They are full of life energy. "
+msgstr "They are full of life energy. "
+
+msgid "If you're not serious, you won't be able to beat them."
+msgstr "If you're not serious, you won't be able to beat them."
+
+msgid "I am Clair. "
+msgstr "I am Clair. "
+
+msgid "The world's best dragon master. "
+msgstr "The world's best dragon master. "
+
+msgid "I can hold my own against even the Pokemon league's Elite Four. "
+msgstr "I can hold my own against even the Pokemon league's Elite Four. "
+
+msgid "Do you still want to take me on? "
+msgstr "Do you still want to take me on? "
+
+msgid "...Fine. Let's do it! "
+msgstr "...Fine. Let's do it! "
+
+msgid "As a gym leader, I will use my full power against any opponent!"
+msgstr "As a gym leader, I will use my full power against any opponent!"
+

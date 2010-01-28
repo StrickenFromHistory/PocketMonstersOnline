@@ -1,0 +1,16 @@
+# Pokenet -47.-40.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Do you know about the move Sandstorm?"
+msgstr "Do you know about the move Sandstorm?"
+
+msgid "It's a move that inflicts damage on both battlers."
+msgstr "It's a move that inflicts damage on both battlers."
+
+msgid "It's for advanced trainers only."
+msgstr "It's for advanced trainers only."
+
+msgid "Use it if you dare. Good luck!"
+msgstr "Use it if you dare. Good luck!"
+

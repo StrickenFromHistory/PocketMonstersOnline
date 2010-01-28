@@ -1,0 +1,55 @@
+# Pokenet -46.-46.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a list of winning trainers."
+msgstr "E uma lista de treinadores que venceram neste ginasio."
+
+msgid "Yo! Champ in making! "
+msgstr "Ola, futuro campeao! "
+
+msgid "Clair uses the mythical and sacred dragon-type Pokemon. "
+msgstr "A Clair usa Pokemons do sagrado e mitologico tipo dragao. "
+
+msgid "You can't damage them very easily. "
+msgstr "Derruba-los nao e uma tarefa facil. "
+
+msgid "But you know, they're supposed to be weak against ice-type moves."
+msgstr "Mas saiba que eles sao supostamente fracos contra golpes do tipo gelo."
+
+msgid "Your first battle against dragons? "
+msgstr "Sua primeira batalha contra dragoes? "
+
+msgid "I'll show you how tough they are!"
+msgstr "Vou te mostrar como eles sao fortes!"
+
+msgid "My chance of losing? Not even one percent!"
+msgstr "Que chance eu tenho de perder?! Nem um por cento!"
+
+msgid "Dragons are sacred Pokemon. "
+msgstr "Os dragoes sao Pokemons sagrados. "
+
+msgid "They are full of life energy. "
+msgstr "Estao repletos de energia vital. "
+
+msgid "If you're not serious, you won't be able to beat them."
+msgstr "Se voce nao levar isso a serio, nao vai conseguir derrota-los."
+
+msgid "I am Clair. "
+msgstr "Me chamo Clair. "
+
+msgid "The world's best dragon master. "
+msgstr "A maior mestra em dragoes do mundo. "
+
+msgid "I can hold my own against even the Pokemon league's Elite Four. "
+msgstr "Eu me saio bem mesmo contra a Elite dos Quatro, da liga Pokemon. "
+
+msgid "Do you still want to take me on? "
+msgstr "Voce ainda assim deseja me enfrentar? "
+
+msgid "...Fine. Let's do it! "
+msgstr "...Esta bem. Vamos la! "
+
+msgid "As a gym leader, I will use my full power against any opponent!"
+msgstr "Como lider de ginasio, atacarei meu oponente com forca total!"
+

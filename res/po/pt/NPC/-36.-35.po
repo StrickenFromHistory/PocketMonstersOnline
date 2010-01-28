@@ -1,0 +1,16 @@
+# Pokenet -36.-35.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Jasmine is this city's gym leader. "
+msgstr "Jasmine e a lider do ginasio desta cidade."
+
+msgid "I'm going to defeat her! "
+msgstr "Estou indo derrota-la! "
+
+msgid "Nobody had better get in my way!"
+msgstr "Ninguem vai ficar no meu caminho!"
+
+msgid "Do you care for your Pokemon?"
+msgstr "Voce cuida de seu pokemon?"
+

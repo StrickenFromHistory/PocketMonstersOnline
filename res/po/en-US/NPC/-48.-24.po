@@ -1,0 +1,7 @@
+# Pokenet -48.-24.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "There are only ghost Pokemon in the tower. Not real ghosts."
+msgstr "There are only ghost Pokemon in the tower. Not real ghosts."
+

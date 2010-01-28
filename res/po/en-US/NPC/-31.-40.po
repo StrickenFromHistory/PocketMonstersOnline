@@ -1,0 +1,13 @@
+# Pokenet -31.-40.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Hey there trainer, I am the Name Rater of Goldenrod! "
+msgstr "Hey there trainer, I am the Name Rater of Goldenrod! "
+
+msgid "I can rate the name of your Pokemon! "
+msgstr "I can rate the name of your Pokemon! "
+
+msgid "However, I am busy right now, so please come back later."
+msgstr "However, I am busy right now, so please come back later."
+

@@ -1,0 +1,13 @@
+# Pokenet -44.-43.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Along the way to Cianwood, there are four deserted islands. "
+msgstr "Along the way to Cianwood, there are four deserted islands. "
+
+msgid "Bad kids are taken to the islands as punishment!"
+msgstr "Bad kids are taken to the islands as punishment!"
+
+msgid "Whenever I get in trouble, Daddy always scares me."
+msgstr "Whenever I get in trouble, Daddy always scares me."
+

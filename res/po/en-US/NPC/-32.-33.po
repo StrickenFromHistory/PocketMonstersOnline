@@ -1,0 +1,13 @@
+# Pokenet -32.-33.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Let me heal your Pokemon for you... Now you're all set for your journey!"
+msgstr "Let me heal your Pokemon for you... Now you're all set for your journey!"
+
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+
+msgid "Welcome to the Pokemon storage system."
+msgstr "Welcome to the Pokemon storage system."
+

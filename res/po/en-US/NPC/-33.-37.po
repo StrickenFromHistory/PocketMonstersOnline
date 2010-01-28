@@ -1,0 +1,13 @@
+# Pokenet -33.-37.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Um... Oh, yes, I'm the Move Deleter. "
+msgstr "Um... Oh, yes, I'm the Move Deleter. "
+
+msgid "I can make Pokemon forget moves. "
+msgstr "I can make Pokemon forget moves. "
+
+msgid "Let me finish something else first, OK?"
+msgstr "Let me finish something else first, OK?"
+

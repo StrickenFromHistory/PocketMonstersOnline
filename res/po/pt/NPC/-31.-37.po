@@ -1,0 +1,28 @@
+# Pokenet -31.-37.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I got booted out of the game corner. "
+msgstr "Fui expulso do cassino. "
+
+msgid "I was trying to cheat using my Pokemon..."
+msgstr "Eu estava usando o meu Pokemon para trapacear..."
+
+msgid "My Pokemon just got a haircut! I'll show you how strong it is!"
+msgstr "Meu Pokemon acabou de ganhar um novo corte! Vou mostrar como ele ficou forte!"
+
+msgid "Do you consider type alignments in battle? "
+msgstr "Voce considera alinhamento de tipos em batalha ? "
+
+msgid "If you know your type advantages, you'll do better in battle."
+msgstr "Se voce conhecer suas vantagens de tipos, vai se sair melhor em batalha."
+
+msgid "I think you have some rare Pokemon. Let me see them!"
+msgstr "Eu acho que voce tem Pokemons raros. Me deixe ve-los!"
+
+msgid "No entry beyond this point"
+msgstr "Passagem proibida a partir deste ponto"
+
+msgid "It's locked..."
+msgstr "Esta trancada..."
+

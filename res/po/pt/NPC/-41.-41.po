@@ -1,0 +1,13 @@
+# Pokenet -41.-41.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Pokemon change?"
+msgstr "Os Pokemons se transformam?"
+
+msgid "I would be shocked if one did that!"
+msgstr "Eu ficaria chocado se visse eles fazerem isso!"
+
+msgid "Pokemon gain experience in battle and change their form."
+msgstr "Pokemons ganham experiencia nas batahlhas e mudam de forma."
+

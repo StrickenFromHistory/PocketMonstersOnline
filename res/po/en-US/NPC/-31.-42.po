@@ -1,0 +1,28 @@
+# Pokenet -31.-42.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Anywhere, anytime - Pokemon radio"
+msgstr "Anywhere, anytime - Pokemon radio"
+
+msgid "Prof. Oak's Pokemon talk "
+msgstr "Prof. Oak's Pokemon talk "
+
+msgid "The hottest show on the air!"
+msgstr "The hottest show on the air!"
+
+msgid "2F: Sales"
+msgstr "2F: Sales"
+
+msgid "Lullabies on the radio may make Pokemon sleep."
+msgstr "Lullabies on the radio may make Pokemon sleep."
+
+msgid "Tune in to Password every night from six to midnight! "
+msgstr "Tune in to Password every night from six to midnight! "
+
+msgid "Tune in, then drop in for a visit!"
+msgstr "Tune in, then drop in for a visit!"
+
+msgid "You can listen to the radio anywhere. Tune in!"
+msgstr "You can listen to the radio anywhere. Tune in!"
+

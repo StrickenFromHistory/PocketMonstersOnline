@@ -1,0 +1,25 @@
+# Pokenet -32.-45.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "5F: Director's office"
+msgstr "5F: Director's office"
+
+msgid "5F Studio 1"
+msgstr "5F Studio 1"
+
+msgid "Do you listen to our music?"
+msgstr "Do you listen to our music?"
+
+msgid "Hello! "
+msgstr "Hello! "
+
+msgid "You know, I love Pokemon. "
+msgstr "You know, I love Pokemon. "
+
+msgid "I built this Radio Tower so I could express my love of Pokemon. "
+msgstr "I built this Radio Tower so I could express my love of Pokemon. "
+
+msgid "It would be nice if people enjoyed our programs."
+msgstr "It would be nice if people enjoyed our programs."
+

@@ -1,0 +1,43 @@
+# Pokenet -49.-24.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a list of winning trainers."
+msgstr "It's a list of winning trainers."
+
+msgid "Yo! Champ in the making!"
+msgstr "Yo! Champ in the making!"
+
+msgid "Let me give you some advice!"
+msgstr "Let me give you some advice!"
+
+msgid "The leader, Misty, is a pro who uses water-type Pokemon."
+msgstr "The leader, Misty, is a pro who uses water-type Pokemon."
+
+msgid "You can drain all their water with grass-type Pokemon."
+msgstr "You can drain all their water with grass-type Pokemon."
+
+msgid "Or, you might use electric-type Pokemon and zap them!"
+msgstr "Or, you might use electric-type Pokemon and zap them!"
+
+msgid "Splash! I'm first up! Let's do it!"
+msgstr "Splash! I'm first up! Let's do it!"
+
+msgid "What? You? I'm more than good enough for you!"
+msgstr "What? You? I'm more than good enough for you!"
+
+msgid "Misty won't have to be bothered."
+msgstr "Misty won't have to be bothered."
+
+msgid "Hi, you're a new face!"
+msgstr "Hi, you're a new face!"
+
+msgid "Only those trainers who have a policy about Pokemon can turn pro."
+msgstr "Only those trainers who have a policy about Pokemon can turn pro."
+
+msgid "What is your approach when you catch and train Pokemon?"
+msgstr "What is your approach when you catch and train Pokemon?"
+
+msgid "My policy is an all-out offensive with water-type Pokemon!"
+msgstr "My policy is an all-out offensive with water-type Pokemon!"
+

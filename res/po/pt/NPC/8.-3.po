@@ -1,0 +1,19 @@
+# Pokenet 8.-3.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Rock Tunnel"
+msgstr "Rock Tunnel"
+
+msgid "I'm feeling a bit faint. I haven't hiked in some time."
+msgstr "I'm feeling a bit faint. I haven't hiked in some time."
+
+msgid "Ha-hahah-ah-ha!"
+msgstr "Ha-hahah-ah-ha!"
+
+msgid "Ah! This mountain air is delicious!"
+msgstr "Ah! This mountain air is delicious!"
+
+msgid "Hi, dude! Want to see my Pokemon?"
+msgstr "Hi, dude! Want to see my Pokemon?"
+

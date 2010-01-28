@@ -1,0 +1,52 @@
+# Pokenet -31.-41.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Welcome to the Pokemon storage system."
+msgstr "Bem-vindo ao sistema de armazenamento Pokemon."
+
+msgid "1F: Reception "
+msgstr "1F: Recepcao "
+
+msgid "2F: Sales "
+msgstr "2F: Vendas "
+
+msgid "3F: Personnel "
+msgstr "3F: Pessoal "
+
+msgid "4F: Production "
+msgstr "4F: Producao "
+
+msgid "5F: Director's Office"
+msgstr "5F: Escritorio do Diretor"
+
+msgid "Lucky Channel! "
+msgstr "Canal da Sorte! "
+
+msgid "Win with Pokemon ID numbers! "
+msgstr "Ganhe com os numeros de ID Pokemon! "
+
+msgid "Trade your Pokemon to collect different ID numbers!"
+msgstr "Troque Pokemons para colecionar varios numeros de ID!"
+
+msgid "Welcome!"
+msgstr "Bem-vindo!"
+
+msgid "Please tune in to our radio shows."
+msgstr "Por favor, sintonize os nossos programas de radio."
+
+msgid "Please report this bug!"
+msgstr "Por favor, comunique este erro!"
+
+msgid "I love Mary, from Pokemon Talk. "
+msgstr "Eu amo a Mary, do Bate-papo Pokemon. "
+
+msgid "I only know what she sounds like, though."
+msgstr "Mas eu so conheco a voz dela."
+
+msgid "Ben is a fabulous DJ. "
+msgstr "Ben e um DJ fabuloso. "
+
+msgid "His sweet voice makes me melt!"
+msgstr "Sua voz doce me derrete toda!"
+

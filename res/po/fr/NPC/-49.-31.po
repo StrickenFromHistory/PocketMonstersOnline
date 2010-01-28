@@ -1,0 +1,22 @@
+# Pokenet -49.-31.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "3F: Personnel"
+msgstr "3F: Personnel"
+
+msgid "Pokemon music with host DJ Ben"
+msgstr "Pokemon music with host DJ Ben"
+
+msgid "We run 24 hours a day to broadcast entertaining programs. "
+msgstr "We run 24 hours a day to broadcast entertaining programs. "
+
+msgid "I'll do my best to run around the clock too!"
+msgstr "I'll do my best to run around the clock too!"
+
+msgid "We have recordings of the cries of all Pokemon that have been found. "
+msgstr "We have recordings of the cries of all Pokemon that have been found. "
+
+msgid "We must have more than 400 kinds."
+msgstr "We must have more than 400 kinds."
+

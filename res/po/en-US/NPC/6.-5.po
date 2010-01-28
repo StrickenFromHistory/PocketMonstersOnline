@@ -1,0 +1,25 @@
+# Pokenet 6.-5.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "People call this the Nugget Bridge!"
+msgstr "People call this the Nugget Bridge!"
+
+msgid "Many trainers gather here to battle."
+msgstr "Many trainers gather here to battle."
+
+msgid "Let's get serious!"
+msgstr "Let's get serious!"
+
+msgid "I won't go easy on you!"
+msgstr "I won't go easy on you!"
+
+msgid "You can't pass this bridge without battling trainers."
+msgstr "You can't pass this bridge without battling trainers."
+
+msgid "I'll stomp you!"
+msgstr "I'll stomp you!"
+
+msgid "I saw you fighting from the grass!"
+msgstr "I saw you fighting from the grass!"
+

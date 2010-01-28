@@ -1,0 +1,34 @@
+# Pokenet -3.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Violet City - The city of nostalgic scents"
+msgstr "Violet City - The city of nostalgic scents"
+
+msgid "Violet City Gym "
+msgstr "Violet City Gym "
+
+msgid "Leader: Falkner "
+msgstr "Leader: Falkner "
+
+msgid "The elegant master of flying-Pokemon."
+msgstr "The elegant master of flying-Pokemon."
+
+msgid "Earl's Pokemon Academy"
+msgstr "Earl's Pokemon Academy"
+
+msgid "Sprout Tower: "
+msgstr "Sprout Tower: "
+
+msgid "Experience the way of Pokemon."
+msgstr "Experience the way of Pokemon."
+
+msgid "The circle next to items in marts show how much of that item is in stock"
+msgstr "The circle next to items in marts show how much of that item is in stock"
+
+msgid "If the circle is white, it means they are out of stock"
+msgstr "If the circle is white, it means they are out of stock"
+
+msgid "Some stores take longer to refill their stock"
+msgstr "Some stores take longer to refill their stock"
+

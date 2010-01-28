@@ -1,0 +1,10 @@
+Violet City - The city of nostalgic scents
+Violet City Gym 
+Leader: Falkner 
+The elegant master of flying-Pokemon.
+Earl's Pokemon Academy
+Sprout Tower: 
+Experience the way of Pokemon.
+The circle next to items in marts show how much of that item is in stock
+If the circle is white, it means they are out of stock
+Some stores take longer to refill their stock

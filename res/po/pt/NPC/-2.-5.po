@@ -1,0 +1,49 @@
+# Pokenet -2.-5.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I can do so much with my Pokemon-- it's super-fun!"
+msgstr "I can do so much with my Pokemon-- it's super-fun!"
+
+msgid "Are you going to Lake of Rage too? "
+msgstr "Are you going to Lake of Rage too? "
+
+msgid "Let's play for a little while!"
+msgstr "Let's play for a little while!"
+
+msgid "Hey! Do you have any rare Pokemon?"
+msgstr "Hey! Do you have any rare Pokemon?"
+
+msgid "I love Pokemon! "
+msgstr "I love Pokemon! "
+
+msgid "That's why I started-- and why I'll keep on collecting Pokemon!"
+msgstr "That's why I started-- and why I'll keep on collecting Pokemon!"
+
+msgid "Some guy said that my Pokemon is useless! "
+msgstr "Some guy said that my Pokemon is useless! "
+
+msgid "My Pokemon's a good companion!"
+msgstr "My Pokemon's a good companion!"
+
+msgid "I'm in a slump. "
+msgstr "I'm in a slump. "
+
+msgid "Maybe it's the gear I'm using. "
+msgstr "Maybe it's the gear I'm using. "
+
+msgid "Let's battle for a change of pace!"
+msgstr "Let's battle for a change of pace!"
+
+msgid "Trainer Tips: "
+msgstr "Trainer Tips: "
+
+msgid "One day in the game world are six hours in the real world."
+msgstr "One day in the game world are six hours in the real world."
+
+msgid "Route 43 "
+msgstr "Route 43 "
+
+msgid "Lake of Rage - Mahogany Town"
+msgstr "Lake of Rage - Mahogany Town"
+

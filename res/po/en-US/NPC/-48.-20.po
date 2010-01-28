@@ -1,0 +1,13 @@
+# Pokenet -48.-20.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Be cursed with me! Kwaaah!"
+msgstr "Be cursed with me! Kwaaah!"
+
+msgid "Huhuhu... Beat me not!"
+msgstr "Huhuhu... Beat me not!"
+
+msgid "Ghost! No! Kwaaah!"
+msgstr "Ghost! No! Kwaaah!"
+

@@ -1,0 +1,13 @@
+# Pokenet -50.-20.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Welcome to the drugstore."
+msgstr "Welcome to the drugstore."
+
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+
+msgid "This area is under construction."
+msgstr "This area is under construction."
+

@@ -1,0 +1,28 @@
+# Pokenet -48.-23.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Pokemon Tower was errected in the memory of Pokemon that died."
+msgstr "Pokemon Tower was errected in the memory of Pokemon that died."
+
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+
+msgid "I came to pray for my dearly departed Clefairy."
+msgstr "I came to pray for my dearly departed Clefairy."
+
+msgid "Sniff! I'm awash in tears..."
+msgstr "Sniff! I'm awash in tears..."
+
+msgid "Did you come to pay respects? Bless your loving heart, my dear."
+msgstr "Did you come to pay respects? Bless your loving heart, my dear."
+
+msgid "My Growlithe... Why did you die?"
+msgstr "My Growlithe... Why did you die?"
+
+msgid "I am a channeler. There are ghost Pokemon high in the tower."
+msgstr "I am a channeler. There are ghost Pokemon high in the tower."
+
+msgid ""
+msgstr ""
+

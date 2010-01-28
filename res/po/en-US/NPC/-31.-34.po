@@ -1,0 +1,10 @@
+# Pokenet -31.-34.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I can make special Pokeballs out of Apricorns."
+msgstr "I can make special Pokeballs out of Apricorns."
+
+msgid "I visit my Grandpa to help him making Pokeballs."
+msgstr "I visit my Grandpa to help him making Pokeballs."
+

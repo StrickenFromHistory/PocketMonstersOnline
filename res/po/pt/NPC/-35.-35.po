@@ -1,0 +1,58 @@
+# Pokenet -35.-35.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Can you inflict any damage on our Pokemon?"
+msgstr "Voce pode causar algum dano no meu Pokemon?"
+
+msgid "Stumped by our invisible floor?"
+msgstr "Ficou impressionado com nosso chao invisivel?"
+
+msgid "I spent the spring with my Pokemon. "
+msgstr "Passei a primavera com o meu Pokemon. "
+
+msgid "Then summer, fall and winter... "
+msgstr "Entao, verao, outono e inverno ... 	"
+
+msgid "Then spring came again. We have lived together for a long time."
+msgstr "Entao primavera chegou novamente. Temos vivido juntos durante muito tempo."
+
+msgid "I shall win!"
+msgstr "Eu ganharei!"
+
+msgid "Good of you to have come."
+msgstr "Bom de voce ter vindo."
+
+msgid "Here in Ecruteak, Pokemon have been revered. "
+msgstr "Aqui em Ecruteak, Pokemons tem sido respeitados."
+
+msgid "It's said that a rainbow-colored Pokemon will come down "
+msgstr "Dizem que um Pokemon da cor do arco-iris vai descer "
+
+msgid "to appear before a truly powerful trainer. "
+msgstr "e vai aparecer para um treinador verdadeiramente poderoso.	"
+
+msgid "I believe that tale, so I have secretly trained here all my life. "
+msgstr "Acredito no que falo, por isso eu tenho treinado secretamente aqui toda a minha vida.	"
+
+msgid "As a result, I can now see what others cannot. "
+msgstr "Como resultado, eu posso ver agora o que os outros nao podem. "
+
+msgid "Just a bit more... "
+msgstr "Basta um pouco mais ...	"
+
+msgid "With a little more, I could see a future in which I meet the Pokemon of rainbow colors. "
+msgstr "Com um pouco mais, eu poderei ver um futuro no qual conhecerei o Pokemon da cor do arco-iris."
+
+msgid "You're going to help me reach that level!"
+msgstr "Voce vai me ajudar a alcancar esse nivel!"
+
+msgid "The trainers here have secret motives. "
+msgstr "Os treinadores aqui tem motivacoes secretas. "
+
+msgid "If you win, they may tell you some deep secrets about Ecruteak."
+msgstr "Se ganhar, eles podem lhe contar alguns segredos sobre Ecruteak."
+
+msgid "It's a list of winning trainers."
+msgstr "E uma lista de treinadores vencedores."
+

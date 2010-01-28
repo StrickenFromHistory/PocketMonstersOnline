@@ -1,0 +1,22 @@
+# Pokenet -50.-40.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "What do you know! A visitor!"
+msgstr "O que voce sabe! Um visitante!"
+
+msgid "It's been a while since I last saw another person. "
+msgstr "Ja passou algum tempo desde que eu vi outra pessoa. "
+
+msgid "Don't be shy. Let's battle!"
+msgstr "Nao seja timido. Vamos lutar!"
+
+msgid "Who's there? Leave me and my Pokemon alone!"
+msgstr "Quem esta ai? Me deixe sozinho com meu Pokemon!"
+
+msgid "I came all the way here to conduct my Pokemon research. "
+msgstr "Vim ate aqui para realizar minha pesquisa pokemon. "
+
+msgid "Let me demonstrate my findings in a real battle!"
+msgstr "Permita-me demonstrar meus resultados em uma verdadeira batalha!"
+

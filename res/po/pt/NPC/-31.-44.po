@@ -1,0 +1,16 @@
+# Pokenet -31.-44.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "When I use an item on my Pokemon, it acts really glad!"
+msgstr "Quando eu utilizo um item no meu Pokemon, ele fica feliz."
+
+msgid "If you treat your Pokemon nicely, they will love you in return."
+msgstr "Se voce tratar seu Pokemon bem, eles iram te amar em troca ."
+
+msgid "I keep losing in battles, and my Pokemon end up fainting... "
+msgstr "Eu sempre perco as batalhas, e meu Pokemon acaba desmaiando"
+
+msgid "Maybe that's why my Pokemon don't like me much..."
+msgstr "Talvez seja por isso que meu Pokemon nao gosta muito de mim...."
+

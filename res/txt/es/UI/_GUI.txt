@@ -1,0 +1,49 @@
+Equipo Pokemon
+Nivel:
+Nombre:
+HP:
+Ataque:
+Defensa:
+Ataque Sp:
+Defensa Sp:
+Velocidad:
+Habilidad:
+Exp:
+Naturaleza:
+Tipo uno:
+Tipo dos:
+Genero:
+Opciones
+Pantalla Completa
+Mudo
+Guardar
+Los cambios se aplican al reiniciar esta aplicacion.
+Pokenet: Ayuda
+Teclas Flecha o WASD/nMovimiento/n/n
+Barra Espaciadora/nHablar/n/n
+Click-derecho/nInteractua con otros jugadores/n/n
+Usa la opcion 'privado' para comenzar un chat privado.
+Usa el comando /playercount para contar los jugadores en linea./n
+Para mas informacion, ingresa a www.pokedev.org
+Chat: Local
+Debes aceptar los Terminos (TdS) antes de registrarte. 
+Macho
+Hembra
+Ninguno
+Nv. 
+Peleas/Cambios
+Cancelar
+Aceptar
+Negar
+Enviar Oferta
+Tu Oferta:
+Su Oferta:
+prueba
+Esperando...
+Enviar Peticion
+Peticiones Recibidas
+Cambio: 
+Solo dinero
+Pelea
+Cambio
+Deshabilitar Entorno Mapas

@@ -1,0 +1,13 @@
+# Pokenet -31.-43.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "My big brother Bill made the PC Pokemon storage system."
+msgstr "Meu grande irmao Bill, fez o sistema de armazenamento PC Pokemon."
+
+msgid "My husband was once known as a pokemaniac. "
+msgstr "Meu marido era conhecido como um pokemaniaco. "
+
+msgid "Bill must have taken after his father."
+msgstr "Bill deve ter ido atras do pai dele."
+

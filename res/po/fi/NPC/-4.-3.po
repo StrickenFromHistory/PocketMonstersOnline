@@ -1,0 +1,10 @@
+# Pokenet -4.-3.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "You seem like a worthy opponent!"
+msgstr "You seem like a worthy opponent!"
+
+msgid "Route 37"
+msgstr "Route 37"
+

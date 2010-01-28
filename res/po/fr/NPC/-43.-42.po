@@ -1,0 +1,10 @@
+# Pokenet -43.-42.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Hi, I am looking for a Krabby. But I have no luck finding one. "
+msgstr "Hi, I am looking for a Krabby. But I have no luck finding one. "
+
+msgid "I always catch Magikarps."
+msgstr "I always catch Magikarps."
+

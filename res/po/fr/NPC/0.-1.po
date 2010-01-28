@@ -1,0 +1,55 @@
+# Pokenet 0.-1.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Route 45 "
+msgstr "Route 45 "
+
+msgid "Mountain RD. ahead"
+msgstr "Mountain RD. ahead"
+
+msgid "Be prepared for anything! "
+msgstr "Be prepared for anything! "
+
+msgid "Let me see if your Pokemon have been raised properly!"
+msgstr "Let me see if your Pokemon have been raised properly!"
+
+msgid "What are your thoughts on raising Pokemon?"
+msgstr "What are your thoughts on raising Pokemon?"
+
+msgid "My Pokemon are power packed!"
+msgstr "My Pokemon are power packed!"
+
+msgid "What is your battle strategy? "
+msgstr "What is your battle strategy? "
+
+msgid "It is foolish to use strong moves indiscriminately."
+msgstr "It is foolish to use strong moves indiscriminately."
+
+msgid "I was training here alone. "
+msgstr "I was training here alone. "
+
+msgid "Behold the fruits of my labor!"
+msgstr "Behold the fruits of my labor!"
+
+msgid "Why do I climb mountains? "
+msgstr "Why do I climb mountains? "
+
+msgid "Because they're there. "
+msgstr "Because they're there. "
+
+msgid "Why do I train Pokemon? "
+msgstr "Why do I train Pokemon? "
+
+msgid "Because they're there!"
+msgstr "Because they're there!"
+
+msgid "Yo! You're spunky! But you know what? "
+msgstr "Yo! You're spunky! But you know what? "
+
+msgid "When it comes to sheer spunkiness, I'm the man!"
+msgstr "When it comes to sheer spunkiness, I'm the man!"
+
+msgid "I'm really, really tough!"
+msgstr "I'm really, really tough!"
+

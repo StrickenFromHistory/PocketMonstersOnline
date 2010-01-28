@@ -1,0 +1,31 @@
+# Pokenet -36.-49.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Mystery Stone Panel Chamber"
+msgstr "Painel Misterioso da camera de pedra"
+
+msgid "Ruins of Alph Research Center "
+msgstr "Centro de pesquisa das Ruinas de Alf"
+
+msgid "The authority on the Ruins of Alph"
+msgstr "A autoridade sobre as Ruinas de Alph"
+
+msgid "Ruins of Alph - Visitors welcome"
+msgstr "Ruinas de Alf - Visitantes, sejam bem-vindos	"
+
+msgid "The ruins hide a huge secret! "
+msgstr "As ruinas escondem um enorme segredo! 	"
+
+msgid "...I think..."
+msgstr "... Eu acho ..."
+
+msgid "There are ancient artifacts in there. "
+msgstr "Existem artefatos antigos ai.	"
+
+msgid "I don't want you to break anything."
+msgstr "Eu nao quero que voce quebre nada."
+
+msgid "Hmmm... This is a strange place."
+msgstr "Hummm ... Este e um lugar estranho."
+

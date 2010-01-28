@@ -1,0 +1,16 @@
+# Pokenet -49.-36.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Shellder are easy to catch here. "
+msgstr "E facil pegar os Shellder por aqui. "
+
+msgid "They're kind of rare elsewhere."
+msgstr "Eles sao meio raros em outras partes."
+
+msgid "Do you have a fishing rod? "
+msgstr "Voce ja tem uma vara de pesca? "
+
+msgid "Some Pokemon can only be cought with a fishing rod."
+msgstr "Alguns Pokemons so podem ser capturados com uma vara de pesca."
+

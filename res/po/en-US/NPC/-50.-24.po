@@ -1,0 +1,31 @@
+# Pokenet -50.-24.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Hello! Welcome to the Celadon dept. store."
+msgstr "Hello! Welcome to the Celadon dept. store."
+
+msgid "Let me describe the store layout."
+msgstr "Let me describe the store layout."
+
+msgid "1F: service counter"
+msgstr "1F: service counter"
+
+msgid "2F: general store"
+msgstr "2F: general store"
+
+msgid "3F: TM store"
+msgstr "3F: TM store"
+
+msgid "4F: evolutionary stones"
+msgstr "4F: evolutionary stones"
+
+msgid "5F: drugstore"
+msgstr "5F: drugstore"
+
+msgid "6F: under construction"
+msgstr "6F: under construction"
+
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+

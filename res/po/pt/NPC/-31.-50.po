@@ -1,0 +1,25 @@
+# Pokenet -31.-50.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "This happened when I was young. "
+msgstr "Isso aconteceu quando eu ainda era jovem."
+
+msgid "The sky suddenly turned black. "
+msgstr "O c�u de repente ficou escuro."
+
+msgid "A giant flying-Pokemon was blocking out the sun. "
+msgstr "Um grande Pokemon voador bloqueou a luz do sol."
+
+msgid "I wonder what that Pokemon was? "
+msgstr "Me pergunto que Pok�mon era aquele?"
+
+msgid "It was like a bird and a dragon."
+msgstr "Parecia um drag�o ou um passaro."
+
+msgid "Is there really a Pokemon that big? "
+msgstr "Sera que existe realmente um Pok�mon tao grande?"
+
+msgid "If it exists, it must be powerful."
+msgstr "Se existir, ele deve ser poderoso."
+

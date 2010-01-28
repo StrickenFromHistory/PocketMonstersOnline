@@ -1,0 +1,5 @@
+Cidade de Cherrygrove - A cidade das bonitas flores, perfumadas
+Ora, olá, meu saudavel jovem
+Circulos proximos aos itens em lojas mostram o quanto tem deste item em estoque
+Se o circulo for branco, eles estao sem esse item
+Lojas reabastecem seus itens em diferentes momentos, novato

@@ -1,0 +1,10 @@
+# Pokenet -50.-21.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Welcome! You can buy evolutionary stones here."
+msgstr "Welcome! You can buy evolutionary stones here."
+
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+

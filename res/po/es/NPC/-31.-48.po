@@ -1,0 +1,22 @@
+# Pokenet -31.-48.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Suicune, Raikou and Entei were sleeping in the Burned Tower."
+msgstr "Suicune, Raikou and Entei were sleeping in the Burned Tower."
+
+msgid "They have arisen some years ago."
+msgstr "They have arisen some years ago."
+
+msgid "Watch out when training at Burned Tower. "
+msgstr "Watch out when training at Burned Tower. "
+
+msgid "The whole structure is unstable due to fire damage."
+msgstr "The whole structure is unstable due to fire damage."
+
+msgid "Only people who have a strong relationship with Pokemon may enter. "
+msgstr "Only people who have a strong relationship with Pokemon may enter. "
+
+msgid "You can prove that relationship by showing me at least four gym badges."
+msgstr "You can prove that relationship by showing me at least four gym badges."
+

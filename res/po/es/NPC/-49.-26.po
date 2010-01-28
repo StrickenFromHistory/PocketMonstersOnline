@@ -1,0 +1,7 @@
+# Pokenet -49.-26.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Hehehe! The Game Corner is making me rich!"
+msgstr "Hehehe! The Game Corner is making me rich!"
+

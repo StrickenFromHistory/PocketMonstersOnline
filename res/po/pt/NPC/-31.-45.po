@@ -1,0 +1,16 @@
+# Pokenet -31.-45.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Sometimes, a healthy Pokemon may be unable to use it's moves. "
+msgstr "As vezes, um Pokemon saud�vel nao pode usar seus golpes."
+
+msgid "If that happens, heal it at a Pokemon Center or use an item."
+msgstr "Se isto acontecer, va ate um Centro Pokemon para cura-lo, ou utilize algum item."
+
+msgid "Once while I was battling, my Pokemon couldn't make any moves. "
+msgstr "Quando eu estava batalhando, meu Pokemon nao podia usar nenhum golpe. "
+
+msgid "The Power Points, or PP, of it's moves were all gone."
+msgstr "Os Pontos de Poder, PP, dos meus golpes, tinham acabados"
+

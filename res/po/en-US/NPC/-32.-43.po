@@ -1,0 +1,55 @@
+# Pokenet -32.-43.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a list of winning trainers."
+msgstr "It's a list of winning trainers."
+
+msgid "Pryce is a veteran who has trained Pokemon for some 50 years. "
+msgstr "Pryce is a veteran who has trained Pokemon for some 50 years. "
+
+msgid "He's said to be good at freezing opponents with ice-type moves. "
+msgstr "He's said to be good at freezing opponents with ice-type moves. "
+
+msgid "That means you should melt him with your burning ambition!"
+msgstr "That means you should melt him with your burning ambition!"
+
+msgid "Check out my parallel turn!"
+msgstr "Check out my parallel turn!"
+
+msgid "I'll freeze your Pokemon, so you can't do a thing!"
+msgstr "I'll freeze your Pokemon, so you can't do a thing!"
+
+msgid "I know Pryce's secret."
+msgstr "I know Pryce's secret."
+
+msgid "This gym has a slippery floor. "
+msgstr "This gym has a slippery floor. "
+
+msgid "It's fun, isn't it? "
+msgstr "It's fun, isn't it? "
+
+msgid "But hey--we're not playing games here!"
+msgstr "But hey--we're not playing games here!"
+
+msgid "To get to Pryce, our gym leader, you need to think before you skate."
+msgstr "To get to Pryce, our gym leader, you need to think before you skate."
+
+msgid "Pokemon have many experiences in their lives, just like we do. "
+msgstr "Pokemon have many experiences in their lives, just like we do. "
+
+msgid "I, too, have seen and suffered much in my life. "
+msgstr "I, too, have seen and suffered much in my life. "
+
+msgid "Since I am your elder, let me show you what I mean. "
+msgstr "Since I am your elder, let me show you what I mean. "
+
+msgid "I have been with Pokemon since before you were born. "
+msgstr "I have been with Pokemon since before you were born. "
+
+msgid "I do not lose easily. "
+msgstr "I do not lose easily. "
+
+msgid "I, Pryce--the winter trainer--shall demonstrate my power!"
+msgstr "I, Pryce--the winter trainer--shall demonstrate my power!"
+

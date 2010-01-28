@@ -1,0 +1,10 @@
+# Pokenet -45.-26.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Well, isn't this a surprise! Diglett dug this long tunnel!"
+msgstr "Well, isn't this a surprise! Diglett dug this long tunnel!"
+
+msgid "It goes right to Pewter City, they tell me."
+msgstr "It goes right to Pewter City, they tell me."
+

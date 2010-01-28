@@ -1,0 +1,46 @@
+# Pokenet 7.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "What's a cute, round, and fluffy Pokemon?"
+msgstr "What's a cute, round, and fluffy Pokemon?"
+
+msgid "I'm a rambling, gaming dude!"
+msgstr "I'm a rambling, gaming dude!"
+
+msgid "You should be informed. You need strategy to win at this!"
+msgstr "You should be informed. You need strategy to win at this!"
+
+msgid "I will shock you with my power!"
+msgstr "I will shock you with my power!"
+
+msgid "My power is fantastic. Did you know?"
+msgstr "My power is fantastic. Did you know?"
+
+msgid "I like Nidoran, so I collect them!"
+msgstr "I like Nidoran, so I collect them!"
+
+msgid "School is fun, but so are Pokemon."
+msgstr "School is fun, but so are Pokemon."
+
+msgid "Meowth is so cute, meow, meow, meow!"
+msgstr "Meowth is so cute, meow, meow, meow!"
+
+msgid "We must look silly standing here like this."
+msgstr "We must look silly standing here like this."
+
+msgid "Got a problem, dude?"
+msgstr "Got a problem, dude?"
+
+msgid "My bike's motor stopped."
+msgstr "My bike's motor stopped."
+
+msgid "All right! Let's play a game!"
+msgstr "All right! Let's play a game!"
+
+msgid "You look good at Pokemon, but how is your chemistry grade?"
+msgstr "You look good at Pokemon, but how is your chemistry grade?"
+
+msgid "Underground path: Celadon City - Lavender Town"
+msgstr "Underground path: Celadon City - Lavender Town"
+

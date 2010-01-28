@@ -1,0 +1,10 @@
+# Pokenet -50.-35.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I'm talking to people on my friend's list."
+msgstr "I'm talking to people on my friend's list."
+
+msgid "I'm getting my Pidgey to fly a letter to Saffron in the north."
+msgstr "I'm getting my Pidgey to fly a letter to Saffron in the north."
+

@@ -1,0 +1,31 @@
+# Pokenet -2.-1.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Trainer Tips! Don't eat yellow snow!"
+msgstr "Tip de Entrenador! No comas nieve amarilla!"
+
+msgid "Mr. Pokemon's house"
+msgstr "Casa de Sr. Pokemon"
+
+msgid "Mr. Pokemon's house ahead."
+msgstr "La casa de Sr. Pokemon esta adelante. "
+
+msgid "Route 30: Violet City - Cherrygrove City"
+msgstr "Ruta 30: Ciudad Violeta - Ciudad Cerezo"
+
+msgid "Wait! You're a trainer, right?"
+msgstr "Espera! Eres un entrenador, verdad?"
+
+msgid "Let's battle!"
+msgstr "Combatamos!"
+
+msgid "You seem like a worthy opponent!"
+msgstr "Pareces un digno oponente!"
+
+msgid "Do you want to go to Violet City?"
+msgstr "Quieres ir a Ciudad Violeta?"
+
+msgid "Battle me first!"
+msgstr "Pelea conmigo primero!"
+

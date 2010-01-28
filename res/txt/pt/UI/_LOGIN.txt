@@ -1,0 +1,41 @@
+Pokenet Selecione o Servidor
+Note: Sua Conta deve Funcionar em Todos os Servidores
+Servidor Privado
+Sobre
+ToS
+Usuario:
+Senha:
+Login
+Registro:
+Pokenet Registro
+Comfime Sua senha:
+nascimento (dd/mm/yyyy):
+Email:
+Confirme Email:
+Pokemon Inicial:
+Genero:
+Macho
+Femea
+Termos do Servico
+Eu aceito os Termos
+Cancelar
+Usoario ou senha incoreta /nVerifique se voce digitou coretamente.
+O servidor de contas esta offline. /nPor favor tente novamente.
+Registro conluido com suceso. Agora voce ja pode logar.
+O servidor de contas esta offline./nPor favor tente novamente.
+Usuario invalido.
+Um erro ocoreu. Por favor tente novamente.
+Arquivos invalidos.
+Voce deve aceitar os temos do servico para se registrar.
+Data de nacimento invalida.
+Email nao valido.
+As senhao nao coincidem.
+O usuario nao deve ter mais que 12 dijitos e menos que 4.
+1. E proibido insultar./n2. E proibido spam, flood e fazer propaganda de outros sites./n3. So e permitido uma conta por pessoa./n4. E proibido fraudar o jogo./n5. Nao converse com todas as letras maiusculas./n6. E proibido usar bots./n7. E proibido hackear ou usar cheats/n/nQuebrar qualquer dessas regras pode resultar em suspensao da conta./nNos tambem gostariamos que os membros notassem que esta e uma versao beta, e sua conta pode ser deletada a qualquer momento para facilitar melhorias. Qualquer bug ou erro deve ser reportado para os desenvolvedores
+Sobre Pokenet
+Pokenet e gratis, non-profit, um Pokemon MMORPG de codigo aberto.
+Pokenet de modo algum � afiliado ou oficialmente apoiado pela Nintendo.
+Pokemon e uma marca registrada da Nintendo (1995 - Present)./n/n
+Contribuidores:
+Fshy, ZombieBear, Ryan, Pivot/nIlentcape, Sienide, TMKCodes, Drawing,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, Kiwii, XFX
+Voce foi disconectado do servidor.

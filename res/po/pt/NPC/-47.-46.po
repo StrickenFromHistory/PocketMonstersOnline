@@ -1,0 +1,22 @@
+# Pokenet -47.-46.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Take a break from shopping! "
+msgstr "De um tempo nas compras! "
+
+msgid "6F: Tranquil square"
+msgstr "6F: Praca Tranquila"
+
+msgid "A vending machine! "
+msgstr "Uma maquina de bebidas! "
+
+msgid "It's empty..."
+msgstr "Esta vazia..."
+
+msgid "If you're tired, try the vending machine's drinks. "
+msgstr "Se estiver cansado, experimente algo da m�quina de bebidas. "
+
+msgid "Your Pokemon will love them too."
+msgstr "Seus Pokemons tambem vao adorar."
+

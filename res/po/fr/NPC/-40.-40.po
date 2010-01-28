@@ -1,0 +1,13 @@
+# Pokenet -40.-40.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "When I was a wee lad, I was a hotshot trainer! "
+msgstr "When I was a wee lad, I was a hotshot trainer! "
+
+msgid "Here is a word of advice: Catch lots of Pokemon! "
+msgstr "Here is a word of advice: Catch lots of Pokemon! "
+
+msgid "Treat them all with kindness!"
+msgstr "Treat them all with kindness!"
+

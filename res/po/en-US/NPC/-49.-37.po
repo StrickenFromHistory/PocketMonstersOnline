@@ -1,0 +1,28 @@
+# Pokenet -49.-37.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a list of winning trainers."
+msgstr "It's a list of winning trainers."
+
+msgid "Jasmine uses the steel-type. "
+msgstr "Jasmine uses the steel-type. "
+
+msgid "You should know how to fight it."
+msgstr "You should know how to fight it."
+
+msgid "Please allow me to introduce myself. I am Jasmine, a gym leader. "
+msgstr "Please allow me to introduce myself. I am Jasmine, a gym leader. "
+
+msgid "I use the steel-type. "
+msgstr "I use the steel-type. "
+
+msgid "...Do you know about the steel-type? "
+msgstr "...Do you know about the steel-type? "
+
+msgid "It has been discovered with the dark type after the other 15 types. "
+msgstr "It has been discovered with the dark type after the other 15 types. "
+
+msgid "...Um... May I begin?"
+msgstr "...Um... May I begin?"
+

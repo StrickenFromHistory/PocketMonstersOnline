@@ -1,0 +1,13 @@
+# Pokenet 2.-1.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "PokeNet Kanto/Johto League - Front gate"
+msgstr "PokeNet Kanto/Johto League - Front gate"
+
+msgid "A sleeping Pokemon is blocking the way."
+msgstr "A sleeping Pokemon is blocking the way."
+
+msgid "I can't wake it up and it's too heavy to move..."
+msgstr "I can't wake it up and it's too heavy to move..."
+

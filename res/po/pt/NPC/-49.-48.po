@@ -1,0 +1,16 @@
+# Pokenet -49.-48.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Let us pump up your Pokemon! "
+msgstr "Deixe-nos revigorar os seus Pokemons! "
+
+msgid "4F: Medicine box"
+msgstr "4F: Caixa de medicamentos"
+
+msgid "Please report this bug!"
+msgstr "Por favor, comunique este erro!"
+
+msgid "Welcome to the PokeMart."
+msgstr "Bem-vindo a PokeLoja."
+

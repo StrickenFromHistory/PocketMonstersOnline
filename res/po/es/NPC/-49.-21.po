@@ -1,0 +1,10 @@
+# Pokenet -49.-21.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I like Poliwhirls."
+msgstr "I like Poliwhirls."
+
+msgid "My husband is a Pokemon collector."
+msgstr "My husband is a Pokemon collector."
+

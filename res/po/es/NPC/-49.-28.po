@@ -1,0 +1,58 @@
+# Pokenet -49.-28.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a list of winning trainers."
+msgstr "It's a list of winning trainers."
+
+msgid "I should tell you about this gym. "
+msgstr "I should tell you about this gym. "
+
+msgid "Only real ladies are allowed in here!"
+msgstr "Only real ladies are allowed in here!"
+
+msgid "Oh, welcome. I was getting bored."
+msgstr "Oh, welcome. I was getting bored."
+
+msgid "Look, look! See my Pokemon!"
+msgstr "Look, look! See my Pokemon!"
+
+msgid "I like the grass type. I like how they're easy to raise."
+msgstr "I like the grass type. I like how they're easy to raise."
+
+msgid "...Weren't you peeking in here earlier?"
+msgstr "...Weren't you peeking in here earlier?"
+
+msgid "Welcome to Celadon gym! "
+msgstr "Welcome to Celadon gym! "
+
+msgid "You'd better not underestimate the nice ladies here."
+msgstr "You'd better not underestimate the nice ladies here."
+
+msgid "Oh, hey! We don't like bug- or fire-type Pokemon in here!"
+msgstr "Oh, hey! We don't like bug- or fire-type Pokemon in here!"
+
+msgid "Pleased to meet you. My hobby is Pokemon training."
+msgstr "Pleased to meet you. My hobby is Pokemon training."
+
+msgid "Hello... Lovely weather, isn't it? It's so pleasant..."
+msgstr "Hello... Lovely weather, isn't it? It's so pleasant..."
+
+msgid "...Oh, dear... I must have dozed off. Welcome."
+msgstr "...Oh, dear... I must have dozed off. Welcome."
+
+msgid "My name is Erika. I am the leader of Celadon gym."
+msgstr "My name is Erika. I am the leader of Celadon gym."
+
+msgid "I am a student of the art of flower arranging."
+msgstr "I am a student of the art of flower arranging."
+
+msgid "My Pokemon are solely of the grass type."
+msgstr "My Pokemon are solely of the grass type."
+
+msgid "...Oh, I'm sorry, I had no idea that you wished to challenge me."
+msgstr "...Oh, I'm sorry, I had no idea that you wished to challenge me."
+
+msgid "Very well, but I shall not lose."
+msgstr "Very well, but I shall not lose."
+

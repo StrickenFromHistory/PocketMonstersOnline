@@ -1,0 +1,10 @@
+# Pokenet -42.-41.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Hey, did you catch any water-Pokemon? "
+msgstr "Hey, did you catch any water-Pokemon? "
+
+msgid "There are many of them in the sea."
+msgstr "There are many of them in the sea."
+

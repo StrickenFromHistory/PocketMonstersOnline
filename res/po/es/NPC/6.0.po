@@ -1,0 +1,25 @@
+# Pokenet 6.0.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Vermillion City - The port of exquisite sunsets"
+msgstr "Vermillion City - The port of exquisite sunsets"
+
+msgid "Pokemon fanclub - All Pokemon fans welcome!"
+msgstr "Pokemon fanclub - All Pokemon fans welcome!"
+
+msgid "Vermillion City Pokemon gym"
+msgstr "Vermillion City Pokemon gym"
+
+msgid "Leader: Lt. Surge - The lightning American!"
+msgstr "Leader: Lt. Surge - The lightning American!"
+
+msgid "Vermillion harbor"
+msgstr "Vermillion harbor"
+
+msgid "Notice!"
+msgstr "Notice!"
+
+msgid "Use Diglett's Cave to get back to Pewter City in no time!"
+msgstr "Use Diglett's Cave to get back to Pewter City in no time!"
+

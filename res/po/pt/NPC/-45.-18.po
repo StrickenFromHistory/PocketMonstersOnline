@@ -1,0 +1,34 @@
+# Pokenet -45.-18.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "What? I'm waiting for my friends to find me here."
+msgstr "What? I'm waiting for my friends to find me here."
+
+msgid "I want to battle. What about you?"
+msgstr "I want to battle. What about you?"
+
+msgid "What! Don't sneak up on me!"
+msgstr "What! Don't sneak up on me!"
+
+msgid "You need to go through this cave to get to "
+msgstr "You need to go through this cave to get to "
+
+msgid "Cerulean City."
+msgstr "Cerulean City."
+
+msgid "Wow! It's way bigger in here than I thought!"
+msgstr "Wow! It's way bigger in here than I thought!"
+
+msgid "Did you come to explore the cave, too?"
+msgstr "Did you come to explore the cave, too?"
+
+msgid "Whoa! You shocked me! "
+msgstr "Whoa! You shocked me! "
+
+msgid "...Oh, you're just a trainer!"
+msgstr "...Oh, you're just a trainer!"
+
+msgid "Beware! Zubat is a bloodsucker!"
+msgstr "Beware! Zubat is a bloodsucker!"
+

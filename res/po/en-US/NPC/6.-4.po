@@ -1,0 +1,31 @@
+# Pokenet 6.-4.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Grass and caves handled easily!"
+msgstr "Grass and caves handled easily!"
+
+msgid "Bike Shop"
+msgstr "Bike Shop"
+
+msgid "Cerulean City - A mysterious, blue aura surrounds it"
+msgstr "Cerulean City - A mysterious, blue aura surrounds it"
+
+msgid "Cerulean City Pokemon gym"
+msgstr "Cerulean City Pokemon gym"
+
+msgid "Leader: Misty"
+msgstr "Leader: Misty"
+
+msgid "The tomboyish mermaid!"
+msgstr "The tomboyish mermaid!"
+
+msgid "Trainer Tips"
+msgstr "Trainer Tips"
+
+msgid "You can catch rare Pokemon through fishing."
+msgstr "You can catch rare Pokemon through fishing."
+
+msgid "You need a high fishing skill for them."
+msgstr "You need a high fishing skill for them."
+

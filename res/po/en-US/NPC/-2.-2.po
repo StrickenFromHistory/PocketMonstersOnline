@@ -1,0 +1,13 @@
+# Pokenet -2.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Let's test my newly caught bug-Pokemon!"
+msgstr "Let's test my newly caught bug-Pokemon!"
+
+msgid "Route 31: Violet City - Cherrygrove City"
+msgstr "Route 31: Violet City - Cherrygrove City"
+
+msgid "Dark Cave"
+msgstr "Dark Cave"
+

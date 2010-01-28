@@ -1,0 +1,52 @@
+# Pokenet -50.-50.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Yo challenger! "
+msgstr "ol� desafiante!"
+
+msgid "Bugsy's young, but his knowledge of bug Pokemon is for real. "
+msgstr "Jovem Bugsy, mas seus conhecimentos sobre Pokemon inseto sao verdadeiros."
+
+msgid "It's going to be tough without my advice. "
+msgstr "Vai ser dificil sem o meu conselho.	"
+
+msgid "Let's see... Bug Pokemon don't like fire. "
+msgstr "Vamos ver ... Pokemon tipo inseto nao gostm de fogo.	"
+
+msgid "Flying-type moves are super-effective too."
+msgstr "Tipo voador tem movimentos super eficazes tambem.	"
+
+msgid "You want to see the leader? We come first!"
+msgstr "Voce quer ver o lider? Chegamos primeiro!"
+
+msgid "Hi! Are you challenging the leader? No way!"
+msgstr "Ola! Voce vai desafiar o lider? De forma alguma!"
+
+msgid "Bug Pokemon are cool and tough! "
+msgstr "Pokemon tipo insetos sao corajosos e fortes! 	"
+
+msgid "I'll prove it to you!"
+msgstr "Eu vou provar para voce!"
+
+msgid "Bug Pokemon evolve young. So they get stronger that much faster."
+msgstr "Pokemon Tipo inseto evoluem rapido. Entao eles ficam mais fortes muito mais rapido."
+
+msgid "You already beat some other trainers? Whew, you're mighty! "
+msgstr "Voce ja venceu alguns outros treinadores? Uau voce e poderoso!"
+
+msgid "But my grown-up Pokemon are pretty tough too!"
+msgstr "Mas meus Pokemons crescidos sao muito fortes tambem!"
+
+msgid "I'm Bugsy! I never lose when it comes to bug Pokemon. "
+msgstr "Estou inconformado! Quando se trata de Pokemon inseto, eu nunca perdi."
+
+msgid "My research is going to make me the authority on bug Pokemon! "
+msgstr "Minha pesquisa vai me tornar uma autoridade em Pokemons insetos!"
+
+msgid "Let me demonstrate what I've learned from my studies."
+msgstr "Permitam-me demonstrar o que eu aprendi com os meus estudos."
+
+msgid "It's a list of winning trainers."
+msgstr "E uma lista de treinadores vencedores. "
+

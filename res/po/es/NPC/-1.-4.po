@@ -1,0 +1,49 @@
+# Pokenet -1.-4.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Route 44 "
+msgstr "Ruta 44 "
+
+msgid "Mahogany Town - Blackthorn City"
+msgstr "Pueblo Caoba - Ciudad Endrino"
+
+msgid "Ice Path ahead"
+msgstr "Ruta Helada adelante"
+
+msgid "I'm gonna win, for sure!"
+msgstr "Voy a ganar! Estoy seguro!"
+
+msgid "I fish until I can't anymore. "
+msgstr "Yo pesco hasta no poder mas.  "
+
+msgid "I also battle until I drop. "
+msgstr "Tambien peleo hasta que caigo. "
+
+msgid "That's my relationship with my Pokemon."
+msgstr "Esa es mi relacion con mis Pokemon."
+
+msgid "You look strong. "
+msgstr "Pareces un oponente fuerte. "
+
+msgid "Good trainers seek tough opponents instinctively."
+msgstr "Los buenos entrenadores buscan oponentes fuertes."
+
+msgid "I can tell you're a good trainer by looking at you. "
+msgstr "Puedo ver que eres buen entrenador con solo verte. "
+
+msgid "I'm good at Pokemon, and I can see that you are too."
+msgstr "Soy bueno con Pokemon, y veo que tu tambien lo eres."
+
+msgid "I'll do anything to get my hands on rare Pokemon!"
+msgstr "Hare lo que sea por obtener Pokemon raros!"
+
+msgid "Aack! You made me lose a Poliwag! "
+msgstr "Aack! Me hiciste perder mi Poliwag! "
+
+msgid "What are you going to do about it?"
+msgstr "Que haras al respecto?"
+
+msgid "Do you know about the legendary bird Pokemon?"
+msgstr "Conoces al Pokemon legendario tipo ave?"
+

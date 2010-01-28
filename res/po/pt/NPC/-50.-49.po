@@ -1,0 +1,16 @@
+# Pokenet -50.-49.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "For victory seekers "
+msgstr "Para os que procuram vitorias "
+
+msgid "3F: Battle collection"
+msgstr "3F: Colecao de Batalhas	"
+
+msgid "Please report this bug!"
+msgstr "Informe esse erro!	"
+
+msgid "Welcome to the PokeMart."
+msgstr "Bem-vindo ao PokeMart."
+

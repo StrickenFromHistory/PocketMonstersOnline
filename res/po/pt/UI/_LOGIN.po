@@ -1,0 +1,127 @@
+# Pokenet _LOGIN.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Pokenet Server Select"
+msgstr "Pokenet Selecione o Servidor"
+
+msgid "Note: Your account will work on all servers"
+msgstr "Note: Sua Conta deve Funcionar em Todos os Servidores"
+
+msgid "Private Server"
+msgstr "Servidor Privado"
+
+msgid "About"
+msgstr "Sobre"
+
+msgid "ToS"
+msgstr "ToS"
+
+msgid "Username:"
+msgstr "Usuario:"
+
+msgid "Password:"
+msgstr "Senha:"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Register"
+msgstr "Registro:"
+
+msgid "Pokenet Registration"
+msgstr "Pokenet Registro"
+
+msgid "Confirm Password:"
+msgstr "Comfime Sua senha:"
+
+msgid "D.O.B. (dd/mm/yyyy):"
+msgstr "nascimento (dd/mm/yyyy):"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Confirm Email:"
+msgstr "Confirme Email:"
+
+msgid "Starter Pokemon:"
+msgstr "Pokemon Inicial:"
+
+msgid "Gender:"
+msgstr "Genero:"
+
+msgid "Male"
+msgstr "Macho"
+
+msgid "Female"
+msgstr "Femea"
+
+msgid "Terms of Service"
+msgstr "Termos do Servico"
+
+msgid "I agree to the ToS"
+msgstr "Eu aceito os Termos"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "User or password are incorrect /nVerify you typed user and password correctly."
+msgstr "Usoario ou senha incoreta /nVerifique se voce digitou coretamente."
+
+msgid "The account server is currently offline. /nPlease try again later."
+msgstr "O servidor de contas esta offline. /nPor favor tente novamente."
+
+msgid "Successful registration. You may now login on any server."
+msgstr "Registro conluido com suceso. Agora voce ja pode logar."
+
+msgid "The account server is currently offline./nPlease try again later."
+msgstr "O servidor de contas esta offline./nPor favor tente novamente."
+
+msgid "Username already taken."
+msgstr "Usuario invalido."
+
+msgid "Unknown error occurred. Please try again later."
+msgstr "Um erro ocoreu. Por favor tente novamente."
+
+msgid "Invalid data."
+msgstr "Arquivos invalidos."
+
+msgid "You must accept Terms of Service (ToS) before registering."
+msgstr "Voce deve aceitar os temos do servico para se registrar."
+
+msgid "Date of birth invalid."
+msgstr "Data de nacimento invalida."
+
+msgid "Not a valid email."
+msgstr "Email nao valido."
+
+msgid "Passwords do not match."
+msgstr "As senhao nao coincidem."
+
+msgid "Username must have at least 4 characters and no more than 12."
+msgstr "O usuario nao deve ter mais que 12 dijitos e menos que 4."
+
+msgid "1. No swearing./n2. No spamming./n3. One account per person./n4. No scamming./n5. Do not talk in all capitals./n6. No botting./n7. No hacking./n/nBreaking any of these rules may/nresult in a ban. We would also like/nour members to note that thisis a/nbeta release, your account may be/ndeleted at anytime to facilitate improvements. Any bugs or issues should be reported to developers."
+msgstr "1. E proibido insultar./n2. E proibido spam, flood e fazer propaganda de outros sites./n3. So e permitido uma conta por pessoa./n4. E proibido fraudar o jogo./n5. Nao converse com todas as letras maiusculas./n6. E proibido usar bots./n7. E proibido hackear ou usar cheats/n/nQuebrar qualquer dessas regras pode resultar em suspensao da conta./nNos tambem gostariamos que os membros notassem que esta e uma versao beta, e sua conta pode ser deletada a qualquer momento para facilitar melhorias. Qualquer bug ou erro deve ser reportado para os desenvolvedores"
+
+msgid "About Pokenet"
+msgstr "Sobre Pokenet"
+
+msgid "Pokenet is a free, non-profit, open-source Pokemon MMORPG. "
+msgstr "Pokenet e gratis, non-profit, um Pokemon MMORPG de codigo aberto."
+
+msgid "Pokenet is in no way affiliated with or officially supported by Nintendo."
+msgstr "Pokenet de modo algum � afiliado ou oficialmente apoiado pela Nintendo."
+
+msgid "Pokemon is a registered trademark of Nintendo (1995 - Present)./n/n"
+msgstr "Pokemon e uma marca registrada da Nintendo (1995 - Present)./n/n"
+
+msgid "Contributors:"
+msgstr "Contribuidores:"
+
+msgid "Fshy, ZombieBear, Ryan, Pivot,/nIlentcape, Sienide, TMKCodes, Drawig,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, PokeRemixStudio"
+msgstr "Fshy, ZombieBear, Ryan, Pivot/nIlentcape, Sienide, TMKCodes, Drawing,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, Kiwii, XFX"
+
+msgid "You have been disconnected from the game server."
+msgstr "Voce foi disconectado do servidor."
+

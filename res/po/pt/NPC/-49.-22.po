@@ -1,0 +1,10 @@
+# Pokenet -49.-22.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Sigh... Too much time, too little to do..."
+msgstr "Sigh... Too much time, too little to do..."
+
+msgid "Is nothing entertaining happening anywhere?"
+msgstr "Is nothing entertaining happening anywhere?"
+

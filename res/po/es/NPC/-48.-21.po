@@ -1,0 +1,13 @@
+# Pokenet -48.-21.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Kekeke... Kwaaah!"
+msgstr "Kekeke... Kwaaah!"
+
+msgid "Be gone! Malevolent spirit!"
+msgstr "Be gone! Malevolent spirit!"
+
+msgid "Urrg... Awaa... Huhu... Graa..."
+msgstr "Urrg... Awaa... Huhu... Graa..."
+

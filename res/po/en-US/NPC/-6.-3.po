@@ -1,0 +1,22 @@
+# Pokenet -6.-3.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Olivine City - The port closest to foreign lands"
+msgstr "Olivine City - The port closest to foreign lands"
+
+msgid "Olivine City Pokemon Gym "
+msgstr "Olivine City Pokemon Gym "
+
+msgid "Leader: Jasmine "
+msgstr "Leader: Jasmine "
+
+msgid "The steel-glad defense girl"
+msgstr "The steel-glad defense girl"
+
+msgid "Olivine port - fast ship pier"
+msgstr "Olivine port - fast ship pier"
+
+msgid "Olivine Cafe"
+msgstr "Olivine Cafe"
+

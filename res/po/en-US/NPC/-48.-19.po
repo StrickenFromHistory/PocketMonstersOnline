@@ -1,0 +1,19 @@
+# Pokenet -48.-19.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "You...shall...join...us..."
+msgstr "You...shall...join...us..."
+
+msgid "Give...me...your...all..."
+msgstr "Give...me...your...all..."
+
+msgid "Zombies!"
+msgstr "Zombies!"
+
+msgid "Urgah... Urff..."
+msgstr "Urgah... Urff..."
+
+msgid "Let me channel my energies and heal your Pokemon..."
+msgstr "Let me channel my energies and heal your Pokemon..."
+

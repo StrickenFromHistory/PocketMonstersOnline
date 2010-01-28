@@ -1,0 +1,28 @@
+# Pokenet -50.-46.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Let me see how much you trust your Pokemon."
+msgstr "Deixe-me ver o quanto voce confia no seu Pokemon."
+
+msgid "I train to find enlightenment in Pokemon!"
+msgstr "Eu treino para achar o alinhamento nos Pokemons!"
+
+msgid "The elder's HM lights even pitchblack darkness."
+msgstr "O anciao da Hm das luzes pode ver na escuridao."
+
+msgid "So good of you to come here! "
+msgstr "Que bom que voce veio aqui!"
+
+msgid "Sprout Tower is a place of training. "
+msgstr "A Torre Brotinho e um lugar de treinamento."
+
+msgid "People and Pokemon test their bonds to build a bright future together. "
+msgstr "Pessoas e Pokemon testam suas amizades para construir juntos um futuro brilhante."
+
+msgid "I am the final test. "
+msgstr "Eu sou o teste final."
+
+msgid "Allow me to check the ties between your Pokemon and you!"
+msgstr "Permitam-me verificar os lacos entre o voce e o seu Pokemon!"
+

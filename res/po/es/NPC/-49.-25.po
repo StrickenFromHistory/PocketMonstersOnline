@@ -1,0 +1,19 @@
+# Pokenet -49.-25.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I've lost all my money at the slot machine."
+msgstr "I've lost all my money at the slot machine."
+
+msgid "Psst! There is a secret in Johto's Dragon's Den, I hear."
+msgstr "Psst! There is a secret in Johto's Dragon's Den, I hear."
+
+msgid "Munch... The man at that table lost it all at the slots."
+msgstr "Munch... The man at that table lost it all at the slots."
+
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+
+msgid "Hi! Sorry, but we're taking a break right now."
+msgstr "Hi! Sorry, but we're taking a break right now."
+

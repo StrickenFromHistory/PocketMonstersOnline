@@ -1,0 +1,13 @@
+# Pokenet -33.-45.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "... "
+msgstr "... "
+
+msgid "This guy seems to be meditating. "
+msgstr "This guy seems to be meditating. "
+
+msgid "I better don't disturb him."
+msgstr "I better don't disturb him."
+

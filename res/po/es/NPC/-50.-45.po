@@ -1,0 +1,10 @@
+# Pokenet -50.-45.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "However hard we battle, the tower will stand strong."
+msgstr "However hard we battle, the tower will stand strong."
+
+msgid "...Sway like leaves in the wind..."
+msgstr "...Sway like leaves in the wind..."
+

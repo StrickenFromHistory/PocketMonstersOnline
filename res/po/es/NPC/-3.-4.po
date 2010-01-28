@@ -1,0 +1,34 @@
+# Pokenet -3.-4.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Route 42 "
+msgstr "Route 42 "
+
+msgid "Ecruteak City - Mahogany Town"
+msgstr "Ecruteak City - Mahogany Town"
+
+msgid "Mt. Mortar "
+msgstr "Mt. Mortar "
+
+msgid "Waterfall Cave inside"
+msgstr "Waterfall Cave inside"
+
+msgid "Trainer Tips: "
+msgstr "Trainer Tips: "
+
+msgid "Your character can be played on any of the official servers."
+msgstr "Your character can be played on any of the official servers."
+
+msgid "Hey! "
+msgstr "Hey! "
+
+msgid "This is my secret place! Get lost, you outsider!"
+msgstr "This is my secret place! Get lost, you outsider!"
+
+msgid "Let me demonstrate the power of the Pokemon I caught!"
+msgstr "Let me demonstrate the power of the Pokemon I caught!"
+
+msgid "Ah, It's good to be outside! I feel so free!"
+msgstr "Ah, It's good to be outside! I feel so free!"
+

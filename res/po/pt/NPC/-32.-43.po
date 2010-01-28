@@ -1,0 +1,55 @@
+# Pokenet -32.-43.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "It's a list of winning trainers."
+msgstr "E uma lista dos treinadores vencedores."
+
+msgid "Pryce is a veteran who has trained Pokemon for some 50 years. "
+msgstr "Pryce e um veterano que vem treinado Pokemon a mais de 50 anos. "
+
+msgid "He's said to be good at freezing opponents with ice-type moves. "
+msgstr "Ele disse para ser bom em congelar adversarios com movimentos tipo gelo. "
+
+msgid "That means you should melt him with your burning ambition!"
+msgstr "Isso significa que voce deveria derrete-lo com sua ambicao flamejante!"
+
+msgid "Check out my parallel turn!"
+msgstr "atencao ao turno paralelo!"
+
+msgid "I'll freeze your Pokemon, so you can't do a thing!"
+msgstr "Eu vou congelar seu Pokemon, entao voce nao podera fazer nada!"
+
+msgid "I know Pryce's secret."
+msgstr "Eu sei o segredo de Pryce."
+
+msgid "This gym has a slippery floor. "
+msgstr "Este gin�sio tem um chao escorregadio. "
+
+msgid "It's fun, isn't it? "
+msgstr "E divertido, nao e?  "
+
+msgid "But hey--we're not playing games here!"
+msgstr "Mas ei--Nao estamos jogando aqui!"
+
+msgid "To get to Pryce, our gym leader, you need to think before you skate."
+msgstr "Para chegar ate o Pryce, o lider do ginasio, voce precisa pensar antes de patinar."
+
+msgid "Pokemon have many experiences in their lives, just like we do. "
+msgstr "Pokemon tem muitas experiencias em suas vidas, tal como nos fazemos.  "
+
+msgid "I, too, have seen and suffered much in my life. "
+msgstr "Eu Tambem vi e sofri muito na vida. "
+
+msgid "Since I am your elder, let me show you what I mean. "
+msgstr "Considerando que sou seu anciao, deixe me lhe mostrar o que eu quero dizer. "
+
+msgid "I have been with Pokemon since before you were born. "
+msgstr "Eu estive com Pokemons desde antes de voce nascer. "
+
+msgid "I do not lose easily. "
+msgstr "Eu nao perco facilmente. "
+
+msgid "I, Pryce--the winter trainer--shall demonstrate my power!"
+msgstr "Eu, Pryce--O treinador do inverno--demostrarei meu poder!"
+

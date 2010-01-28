@@ -1,0 +1,28 @@
+# Pokenet -50.-44.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Only if you reach the top will you be able to battle the headmonk."
+msgstr "Somente se voce chegar ao topo vai ser capaz de batalhar com o monge."
+
+msgid "Sprout Tower was built long ago as a place for Pokemon training."
+msgstr "A Torre Brotinho foi construida ha muito tempo como um lugar para treinar Pokemon."
+
+msgid "See the pillar shaking? "
+msgstr "Viu o pilar tremendo?"
+
+msgid "People are training upstairs."
+msgstr "As pessoas estao treinando la em cima."
+
+msgid "A Bellsprout over 100 feet tall... "
+msgstr "Um Bellsprout com mais de 100 pes de altura ..."
+
+msgid "People say that it became the center pillar here."
+msgstr "As pessoas dizem que se formou o pilar central aqui."
+
+msgid "We stand guard in this tower. "
+msgstr "Somos guarda desta torre.	"
+
+msgid "Here, we express our gratitude to honor all Pokemon."
+msgstr "Aqui, expressamos nossa gratidao para honrar todos os Pokemon."
+

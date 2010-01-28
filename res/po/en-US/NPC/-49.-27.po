@@ -1,0 +1,22 @@
+# Pokenet -49.-27.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+
+msgid "Pokemon? No, this is a hotel for people. We're full up, unfortunately."
+msgstr "Pokemon? No, this is a hotel for people. We're full up, unfortunately."
+
+msgid "Yippee! I'm on vacation! My sis brought me along! Awesome!"
+msgstr "Yippee! I'm on vacation! My sis brought me along! Awesome!"
+
+msgid "I'm on vacation with my brother and boyfriend."
+msgstr "I'm on vacation with my brother and boyfriend."
+
+msgid "Celadon is such a pretty city!"
+msgstr "Celadon is such a pretty city!"
+
+msgid "Why? Why did she bring her brother?"
+msgstr "Why? Why did she bring her brother?"
+

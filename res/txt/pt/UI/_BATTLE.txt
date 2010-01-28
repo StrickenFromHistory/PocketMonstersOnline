@@ -1,0 +1,14 @@
+Selecione um novo Pokemon
+pokeName usou moveName
+Aguardando seu movimento...
+pokeName ganhou expNum EXP
+pokeName retornou ao normal.
+trainerName enviou pokeName
+Selecione um novo Pokemon!
+pokeName recebeu damageNum damage
+Posui hpNum Vida restante
+pokeName recuperou damageNum HP
+trainerName venceu a batalha!
+trainerName foi derotado!
+Fugiu a distancia segura!
+Voce nao pode fugir!

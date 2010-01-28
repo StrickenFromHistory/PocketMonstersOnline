@@ -1,0 +1,24 @@
+pokeName fainted!
+pokeName used moveName
+Awaiting your move...
+pokeName gained expNum EXP and needs expRemaining EXP to level up...
+pokeName returned to normal.
+trainerName sent out pokeName
+Select a new Pokemon!
+pokeName took damageNum damage
+It has hpNum life remaining
+pokeName recovered damageNum HP
+trainerName won the battle!
+trainerName was defeated!
+You got away safely!
+You couldn't run away!
+pokeName was poisoned!
+pokeName is frozen solid!
+pokeName was burnt!
+pokeName is paralyzed! It might be unable to move
+pokeName fell asleep!
+You got $earningsNum for winning!
+pokeName reached level levelNum!
+moveName has no PP. Please select a new move.
+The wild pokeName dropped a rewardItem!
+You got a rewardItem for winning!

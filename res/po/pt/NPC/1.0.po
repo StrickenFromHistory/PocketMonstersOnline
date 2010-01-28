@@ -1,0 +1,49 @@
+# Pokenet 1.0.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Do you know what you just did?"
+msgstr "Sabe o que voce fez?"
+
+msgid "You've taken your first step into Kanto."
+msgstr "Voce deu seu primeiro passo em Kanto."
+
+msgid "Check your map and see."
+msgstr "Confira seu mapa e veja."
+
+msgid "Tohjo Falls"
+msgstr "Cachoeira Tohjo"
+
+msgid "The link between Kanto and Johto"
+msgstr "A ligacao entre Kanto e Johto."
+
+msgid "It's rare to see anyone come here."
+msgstr "E raro ver alguem vir aqui."
+
+msgid "Are you training on your own?"
+msgstr "Voce esta treinando por conta propria?"
+
+msgid "You look pretty strong. Let me battle you!"
+msgstr "Voce parece bem forte. Me deixe batalhar com voce!"
+
+msgid "Hm? You're good, aren't you?"
+msgstr "Hum? Voce e bom, nao e ?"
+
+msgid "Don't say a thing!"
+msgstr "Nao diga nada! "
+
+msgid "Let me guess what you're thinking."
+msgstr "Deixe-me adivinhar o que voce esta pensando."
+
+msgid "Mmmmmmm..."
+msgstr "Hummmmmmmm..."
+
+msgid "I got it! You're on the way to Kanto!"
+msgstr "Eu consegui! Voce esta a caminho de Kanto!"
+
+msgid "You shouldn't underestimate the wild Pokemon in these parts."
+msgstr "Voce n�o deve subestimar os Pokemon selvagem desta regiao. "
+
+msgid "Tweet! Tweet! Tetweet!"
+msgstr "Tweet! Tweet! Tetweet! "
+

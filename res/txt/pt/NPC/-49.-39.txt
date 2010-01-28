@@ -1,0 +1,19 @@
+O quadro-negro descreve as mudancas de status que podem ocorrer numa batalha. 
+Sono: Adormecido, um Pokemon nao se move. 
+Um Pokemon adormecido nao acorda depois da batalha. 
+Resolva com um spray Despertador.
+Queimadura: Uma queimadura constantentemente consome PV. A potencia dos ataques tambem e reduzida. 
+Esses efeitos persistem apos a batalha.
+Cure-a com um Antiqueimadura.
+Veneno: Envenenado, um Pokemon perde quantias constantes de PV. 
+O envenenamento persiste apos a batalha e cada passo dado pelo treinador provoca perda de PV. 
+Para cura-lo, use um Antidoto.
+Paralisia: Reduz a velocidade e pode impedir o Pokemon de agir. 
+A paralisia persiste apos a batalha. Trate com um Desparalisante.
+Troquei meu melhor Pokemon com esse garoto aqui ao lado.
+Ahn? O Pokemon que consegui esta carregando algo!
+Pokemons carregando uma fruta vao se curar sozinhos em uma batalha. 
+Muitos outros itens podem ser carregados por Pokemons... 
+Isso e dificil de anotar...
+Estou concentrado na explicacao da professora. 
+Melhor copiar o que esta no quadro-negro tambem.

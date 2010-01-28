@@ -1,0 +1,13 @@
+# Pokenet -3.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Violet City - The city of nostalgic scents"
+msgstr "Ciudad Violet: La Ciudad de Aromas Nostalgicos"
+
+msgid "Violet City Gym "
+msgstr "Faulker se especializa en Pokemon Voladores. "
+
+msgid "Leader: Falkner "
+msgstr "Sugerir�a usar Pokemon de tipo Roca. "
+

@@ -1,0 +1,22 @@
+# Pokenet -33.-35.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Hey! What are you doing here? This is for strong trainers only!"
+msgstr "Ei! O que voce esta fazendo aqui? Isto � apenas para treinadores fortes!"
+
+msgid "You shouldn't be in here!"
+msgstr "Voce nao deveria estar aqui!"
+
+msgid "It's a stranger I don't know"
+msgstr "E um estranho Eu nao conheco"
+
+msgid "Who are you?"
+msgstr "Quem e voce?"
+
+msgid "Dragon Shrine "
+msgstr "Santuario do dragao "
+
+msgid "A shrine honoring the dragon Pokemon said to have lived in Dragon's Den."
+msgstr "Um santuario que honra o Pokemon dragao. Dizem ter vivido na toca do dragao."
+

@@ -1,0 +1,43 @@
+# Pokenet -5.0.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Underground entrance"
+msgstr "Underground entrance"
+
+msgid "Your playground! Goldenrod City Game Corner"
+msgstr "Your playground! Goldenrod City Game Corner"
+
+msgid "Goldenrod City - The festive city of opulent charm"
+msgstr "Goldenrod City - The festive city of opulent charm"
+
+msgid "The world is a cycle path! Bike Shop"
+msgstr "The world is a cycle path! Bike Shop"
+
+msgid "Goldenrod City station"
+msgstr "Goldenrod City station"
+
+msgid "Goldenrod City radio tower"
+msgstr "Goldenrod City radio tower"
+
+msgid "Blooming beautiful "
+msgstr "Blooming beautiful "
+
+msgid "Flower Shop"
+msgstr "Flower Shop"
+
+msgid "Goldenrod City Pokemon Gym "
+msgstr "Goldenrod City Pokemon Gym "
+
+msgid "Leader: Whitney "
+msgstr "Leader: Whitney "
+
+msgid "The incredibly pretty girl!"
+msgstr "The incredibly pretty girl!"
+
+msgid "Name rater "
+msgstr "Name rater "
+
+msgid "Get your Pokemon nicknames rated"
+msgstr "Get your Pokemon nicknames rated"
+

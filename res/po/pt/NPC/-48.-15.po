@@ -1,0 +1,10 @@
+# Pokenet -48.-15.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Daisy: Just like people, Pokemon are living things."
+msgstr "Daisy: Just like people, Pokemon are living things."
+
+msgid "When they get tired, please give them a rest."
+msgstr "When they get tired, please give them a rest."
+

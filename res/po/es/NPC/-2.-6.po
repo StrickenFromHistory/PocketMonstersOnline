@@ -1,0 +1,25 @@
+# Pokenet -2.-6.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "No matter what I do, all I catch are the same Pokemon..."
+msgstr "No importa lo que haga, todos los Pokemon que atrapo son iguales..."
+
+msgid "Let me battle with the Pokemon I just caught!"
+msgstr "Vamos a pelear con los Pokemon que acabo de atrapar!"
+
+msgid "Hey, I'm bored. Let's battle!"
+msgstr "Estoy aburrido, a pelear!"
+
+msgid "If a trainer spots another trainer, he has to make a challenge. "
+msgstr "Si un entrenador ve a otro, debe retarlo.  "
+
+msgid "I guess I have to accept."
+msgstr "Creo que debo aceptar el reto. "
+
+msgid "Fishing Guru's house"
+msgstr "Casa del Guru de Pesca"
+
+msgid "Lake of Rage, also known as Gyarados Lake."
+msgstr "Lago Ira, tambien conocido como Lago Gyrados."
+

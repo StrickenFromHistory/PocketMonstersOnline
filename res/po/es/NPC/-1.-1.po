@@ -1,0 +1,13 @@
+# Pokenet -1.-1.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Route 46 "
+msgstr "Ruta 46 "
+
+msgid "Mountain RD. ahead"
+msgstr "Ruta Montania adelante"
+
+msgid "Awright! I'll show you the power of mountain Pokemon!"
+msgstr "Esta bien! Te mostrare el poder de los Pokemon de la montania!"
+

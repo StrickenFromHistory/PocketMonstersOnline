@@ -1,0 +1,37 @@
+# Pokenet -31.-49.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Ah. You're on an adventure with your Pokemon? "
+msgstr "Ah. You're on an adventure with your Pokemon? "
+
+msgid "It is always good to travel everywhere and to look around everywhere."
+msgstr "It is always good to travel everywhere and to look around everywhere."
+
+msgid "History of Ecruteak "
+msgstr "History of Ecruteak "
+
+msgid "In Ecruteak, there were two towers. "
+msgstr "In Ecruteak, there were two towers. "
+
+msgid "Each tower was the roost of powerful flying-Pokemon. "
+msgstr "Each tower was the roost of powerful flying-Pokemon. "
+
+msgid "But one of the towers burned to the ground. "
+msgstr "But one of the towers burned to the ground. "
+
+msgid "The two Pokemon haven't been seen since... "
+msgstr "The two Pokemon haven't been seen since... "
+
+msgid "Ecruteak was also home to three Pokemon that raced around the town. "
+msgstr "Ecruteak was also home to three Pokemon that raced around the town. "
+
+msgid "They were said to have been born of water, lightning and fire. "
+msgstr "They were said to have been born of water, lightning and fire. "
+
+msgid "But they could not contain their excessive power. "
+msgstr "But they could not contain their excessive power. "
+
+msgid "So they say the three ran like the wind off into the grassland."
+msgstr "So they say the three ran like the wind off into the grassland."
+

@@ -1,0 +1,16 @@
+# Pokenet -49.-42.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "I'm Falkner, The Violet Pokemon Gym leader!"
+msgstr "Soy Falkner, El Lider del Gimnasio Violet!"
+
+msgid "People say you can clip flying-type Pokemon's wings "
+msgstr "Algunos dicen que puedes detener a los Pokemon voladores con /n un toque de eletricidad.."
+
+msgid "with a jolt of electricity..."
+msgstr "No permitire esos insultos a los Pokemon voladores!"
+
+msgid "I won't allow such insults to bird-Pokemon!"
+msgstr "Permiteme mostrarte el verdadero poder de los Pokemon voladores!"
+

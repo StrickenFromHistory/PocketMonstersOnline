@@ -1,0 +1,10 @@
+# Pokenet 0.0.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Professor Elm's Lab"
+msgstr "Laboratorio do Professor Elm's "
+
+msgid "New Bark Town - Where the winds of new beginnings blow!"
+msgstr "Cidade de New Bark - Onde os ventos de novos comecos sopram!"
+

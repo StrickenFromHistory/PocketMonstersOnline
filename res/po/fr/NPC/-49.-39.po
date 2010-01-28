@@ -1,0 +1,61 @@
+# Pokenet -49.-39.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "The blackboard describes Pokemon status changes in battle. "
+msgstr "The blackboard describes Pokemon status changes in battle. "
+
+msgid "Sleep: If asleep, your Pokemon can't make a move. "
+msgstr "Sleep: If asleep, your Pokemon can't make a move. "
+
+msgid "A sleeping Pokemon doesn't wake up after battle. "
+msgstr "A sleeping Pokemon doesn't wake up after battle. "
+
+msgid "Wake it up with an Awakening."
+msgstr "Wake it up with an Awakening."
+
+msgid "Burn: A burn steadily consumes HP. It also reduces attack power. "
+msgstr "Burn: A burn steadily consumes HP. It also reduces attack power. "
+
+msgid "A burn lingers after battle."
+msgstr "A burn lingers after battle."
+
+msgid "Use a Burn Heal as the cure."
+msgstr "Use a Burn Heal as the cure."
+
+msgid "Poison: If poisoned, a Pokemon steadily loses HP. "
+msgstr "Poison: If poisoned, a Pokemon steadily loses HP. "
+
+msgid "Poison lingers after the battle, and HP is lost as you walk. "
+msgstr "Poison lingers after the battle, and HP is lost as you walk. "
+
+msgid "To cure it, use an Antidote."
+msgstr "To cure it, use an Antidote."
+
+msgid "Paralysis: Paralysis reduces speed and may prevent the Pokemon from moving. "
+msgstr "Paralysis: Paralysis reduces speed and may prevent the Pokemon from moving. "
+
+msgid "Paralysis remains after battles. Use Paralyze Heal for treatment."
+msgstr "Paralysis remains after battles. Use Paralyze Heal for treatment."
+
+msgid "I traded my best Pokemon to the guy beside me."
+msgstr "I traded my best Pokemon to the guy beside me."
+
+msgid "Huh? The Pokemon I just got is holding something!"
+msgstr "Huh? The Pokemon I just got is holding something!"
+
+msgid "A Pokemon holding a berry will heal itself in battle. "
+msgstr "A Pokemon holding a berry will heal itself in battle. "
+
+msgid "Many other items can be held by Pokemon... "
+msgstr "Many other items can be held by Pokemon... "
+
+msgid "It sure is tough taking notes..."
+msgstr "It sure is tough taking notes..."
+
+msgid "I'm taking notes of the teacher's lecture. "
+msgstr "I'm taking notes of the teacher's lecture. "
+
+msgid "I'd better copy the stuff on the blackboard too."
+msgstr "I'd better copy the stuff on the blackboard too."
+

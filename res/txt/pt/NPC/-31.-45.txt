@@ -1,0 +1,4 @@
+As vezes, um Pokemon saudável nao pode usar seus golpes.
+Se isto acontecer, va ate um Centro Pokemon para cura-lo, ou utilize algum item.
+Quando eu estava batalhando, meu Pokemon nao podia usar nenhum golpe. 
+Os Pontos de Poder, PP, dos meus golpes, tinham acabados

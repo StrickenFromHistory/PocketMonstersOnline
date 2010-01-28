@@ -1,0 +1,16 @@
+# Pokenet -47.-50.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Your travel companion "
+msgstr "Your travel companion "
+
+msgid "2F: Trainer's market"
+msgstr "2F: Trainer's market"
+
+msgid "Please report this bug!"
+msgstr "Please report this bug!"
+
+msgid "Welcome to the PokeMart."
+msgstr "Welcome to the PokeMart."
+

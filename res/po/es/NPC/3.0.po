@@ -1,0 +1,7 @@
+# Pokenet 3.0.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Route 1: Pallet Town - Viridian City"
+msgstr "Route 1: Pallet Town - Viridian City"
+
