@@ -101,7 +101,7 @@ msgstr "Las claves no coinciden. "
 msgid "Username must have at least 4 characters and no more than 12."
 msgstr "El Nombre de Usuario debe tener por lo menos 4 letras, y no mas de 12. "
 
-msgid "1. No swearing./n2. No spamming./n3. One account per person./n4. No scamming./n5. Do not talk in all capitals./n6. No botting./n7. No hacking./n/nBreaking any of these rules may/nresult in a ban. We would also like/nour members to note that thisis a/nbeta release, your account may be/ndeleted at anytime to facilitate improvements. Any bugs or issues should be reported to developers."
+msgid "VeryLongToSScreenGoesHere"
 msgstr "1. No maldecir./n2. No spam./n3. Una cuenta por persona (Revisamos)./n4. No estafar./n5. No hables en mayusculas./n6. No uses bots./n7. No intentes hackear./n/nRomper cualquiera de estas/nreglas puede causar un ban. Recuerda que esto es/nun beta, tu cuenta puede sufir cambios o /nperdida de informacion. Cualquier problema, reportalo en el chat de Pokenet: www.pokeglobal.org/chat.php"
 
 msgid "About Pokenet"
@@ -119,12 +119,9 @@ msgstr "Pokemon es una marca registrada de Nintendo (1995 - Presente). /n/n"
 msgid "Contributors:"
 msgstr "Contribuidores:"
 
-msgid "Fshy, ZombieBear, Ryan, Pivot,/nIlentcape, Sienide, TMKCodes, Drawig,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, PokeRemixStudio"
+msgid "Fshy, ZombieBear, Ryan, Pivot/nIlentcape, Sienide, TMKCodes, Drawing,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, Kiwii"
 msgstr "Fshy, ZombieBear, Ryan, Pivot,/nIlentcape, Sienide, TMKCodes, Drawig,/nLordAdmiral, Psycho, Dragina,/nOblivion, Lastplacer, Firefly17, Gama,/nJacobe, Latias, Callagan, xkendrickx,/nMewtwo, PheonixClaw, JayJay, May, Nushio, PokeRemixStudio"
 
 msgid "You have been disconnected from the game server."
 msgstr "Haz sido desconectado del servidor. "
-
-msgid "The e-mail address you have entered is already in use."
-msgstr "El correo que introdujiste ya esta en uso."
 

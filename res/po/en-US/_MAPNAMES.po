@@ -1,0 +1,4 @@
+# Pokenet _MAPNAMES.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 

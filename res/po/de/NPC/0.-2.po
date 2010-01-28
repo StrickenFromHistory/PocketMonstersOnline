@@ -1,0 +1,37 @@
+# Pokenet 0.-2.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "The Dragon's Den has been opened to the public."
+msgstr "Die Drachenh�hle wurde f�r die �ffentlichkeit ge�ffnet."
+
+msgid "You may enter."
+msgstr "Du kannst eintreten."
+
+msgid "Blackthorn City "
+msgstr "Ebenholz City"
+
+msgid "A quiet mountain retreat"
+msgstr "Ein ruhiger Ort in den Bergen!"
+
+msgid "Move Deleter's House"
+msgstr "Haus des Attackenverlerners"
+
+msgid "Trainer Tips "
+msgstr "Trainer Tipps"
+
+msgid "There are no Dratinis in Dragon's Den"
+msgstr "Es gibt keine Dratinis in der Drachenh�hle"
+
+msgid "Blackthorn City Pokemon gym "
+msgstr "Ebenholz City Pokemon-Arena"
+
+msgid "Leader: Clair "
+msgstr "Arenaleiterin: Sandra "
+
+msgid "The blessed user of dragon Pokemon"
+msgstr "Die gesegnete Drachen-Pokemon-Trainerin!"
+
+msgid "Dragon's Den ahead"
+msgstr "Drachenh�hle voraus"
+

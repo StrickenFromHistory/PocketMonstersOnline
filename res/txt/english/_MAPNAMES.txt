@@ -1,0 +1,130 @@
+12,-2,Celadon City
+8,0,Route 12
+8,-2,Lavender Town
+8,-3,Route 10
+8,-4,Route 10
+7,0,Route 11
+7,-2,Route 8
+7,-4,Route 9
+7,-5,Route 25
+6,0,Vermillion City
+6,-1,Route 6
+6,-2,Saffron City
+6,-3,Route 5
+6,-4,Cerulean City
+6,-5,Route 24
+5,-2,Route 7
+5,-4,Route 4
+4,-3,Route 3
+3,2,Route 21
+3,1,Pallet Town
+3,0,Route 1
+3,-1,Viridian City
+3,-2,Route 2
+3,-3,Pewter City
+2,0,Route 26
+2,-1,Route 22
+2,-2,Route 23
+2,-3,Indigo Plateau
+1,0,Route 27
+0,0,New Bark Town
+0,-1,Route 45
+0,-2,Blackthorn City
+-1,0,Route 29
+-1,-1,Route 46
+-1,-4,Route 44
+-2,0,Cherrygrove City
+-2,-1,Route 30
+-2,-2,Route 31
+-2,-4,Mahogany Town
+-2,-5,Route 43
+-2,-6,Lake of Rage
+-3,2,Route 33
+-3,-1,Route 32
+-3,-2,Violet City
+-3,-4,Route 42
+-4,2,Azalea Town
+-4,-1,Ruins of Alph
+-4,-2,Route 36
+-4,-3,Route 37
+-4,-4,Ecruteak City
+-5,2,Ilex Forest
+-5,1,Route 34
+-5,0,Goldenrod City
+-5,-1,Route 35
+-5,-2,National Park
+-5,-4,Route 38
+-6,-3,Olivine City
+-6,-4,Route 39
+-7,-2,Route 41
+-7,-3,Route 40
+-8,-2,Cianwood City
+-50,-42,Dark Cave
+-50,-43,Dark Cave
+-50,-44,Sprout Tower
+-50,-45,Sprout Tower
+-50,-46,Sprout Tower
+-34,-33,Olivine Lighthouse
+-35,-34,Olivine Lighthouse
+-36,-35,Olivine Lighthouse
+-37,-36,Olivine Lighthouse
+-38,-37,Olivine Lighthouse
+-39,-38,Olivine Lighthouse
+-33,-35,Dragons Den
+-33,-39,Tin Tower
+-42,-42,Burned Tower
+-43,-43,Burned Tower
+-32,-33,Pokemon Center
+-32,-34,Pokemon Center
+-32,-40,Pokemon Center
+-33,-34,Pokemon Center
+-33,-38,Pokemon Center
+-45,-31,Pokemon Center
+-46,-30,Pokemon Center
+-46,-31,Pokemon Center
+-47,-31,Pokemon Center
+-48,-30,Pokemon Center
+-48,-31,Pokemon Center
+-49,-29,Pokemon Center
+-49,-35,Pokemon Center
+-49,-38,Pokemon Center
+-49,-41,Pokemon Center
+-49,-44,Pokemon Center
+-49,-46,Pokemon Center
+-50,-29,Pokemon Center
+-31,-35,Gym
+-32,-43,Gym
+-35,-35,Gym
+-38,-38,Gym
+-45,-45,Gym
+-46,-46,Gym
+-47,-25,Gym
+-48,-22,Gym
+-49,-24,Gym
+-49,-28,Gym
+-49,-37,Gym
+-49,-42,Gym
+-50,-50,Gym
+-36,-49,RoA
+-44,-14,Viridian Forest
+-44,-17,Victory Road
+-44,-16,Victory Road
+-44,-15,Victory Road
+-45,-13,Rock Tunnel
+-45,-14,Rock Tunnel
+-45,-15,Power Plant
+-45,-16,Mt. Moon
+-45,-17,Mt. Moon
+-45,-18,Mt. Moon
+-45,-24,Diglett's Cave
+-45,-25,Diglett's Cave
+-45,-26,Diglett's Cave
+-48,-17,Pokemon Tower
+-48,-18,Pokemon Tower
+-48,-19,Pokemon Tower
+-48,-20,Pokemon Tower
+-48,-21,Pokemon Tower
+-48,-22,Pokemon Tower
+-48,-23,Pokemon Tower
+-50,-31,Mt. Moon
+-50,-37,Power Plant

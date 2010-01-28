@@ -2,12 +2,12 @@
 # Copyright (C) 2010 PokeDev Developer Group, Inc
 # Nushio <nushio@pokedev.org>, 2010.
 # 
-msgid "Violet City - The city of nostalgic scents"
+msgid "Violet City: The City of Nostalgic Scents"
 msgstr "Ciudad Violet: La Ciudad de Aromas Nostalgicos"
 
-msgid "Violet City Gym "
+msgid "Faulker specialises in Flying-type Pokemon."
 msgstr "Faulker se especializa en Pokemon Voladores. "
 
-msgid "Leader: Falkner "
+msgid "It'd be best to use a Rock-type Pokemon."
 msgstr "Sugerir�a usar Pokemon de tipo Roca. "
 

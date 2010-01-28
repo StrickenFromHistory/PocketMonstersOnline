@@ -5,6 +5,6 @@
 msgid "Welcome to the PokeMart."
 msgstr "Bem-vindo a PokeLoja."
 
-msgid "Please report this bug!"
+msgid "Please take your time to choose your goods."
 msgstr "Por favor, informe este erro!"
 

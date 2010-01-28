@@ -19,34 +19,28 @@ public class TextToPo {
 			List<File> files = FileListing.getFiles("res/txt/");
 			HashMap<String,ArrayList<Translation>> fileGroup = new HashMap<String,ArrayList<Translation>>();
 			for(File file : files ){
-				if(file.isFile()){
+				if(file.isFile()&&!file.getAbsolutePath().contains(".svn")){
 					String lang = "";
-					if(file.getAbsolutePath().contains("res/txt/en"))
+					if(file.getAbsolutePath().contains("res/txt/english"))
 						lang = "en-US";
-					else if (file.getAbsolutePath().contains("res/txt/es"))
+					else if (file.getAbsolutePath().contains("res/txt/spanish"))
 						lang = "es";
-					else if (file.getAbsolutePath().contains("res/txt/pt"))
+					else if (file.getAbsolutePath().contains("res/txt/portuguese"))
 						lang = "pt";
-					else if (file.getAbsolutePath().contains("res/txt/fr"))
+					else if (file.getAbsolutePath().contains("res/txt/french"))
 						lang = "fr";
-					else if (file.getAbsolutePath().contains("res/txt/it"))
+					else if (file.getAbsolutePath().contains("res/txt/italian"))
 						lang = "it";
-					else if (file.getAbsolutePath().contains("res/txt/nl"))
+					else if (file.getAbsolutePath().contains("res/txt/dutch"))
 						lang = "nl";
-					else if (file.getAbsolutePath().contains("res/txt/fi"))
+					else if (file.getAbsolutePath().contains("res/txt/finnish"))
 						lang = "fi";
-					else if (file.getAbsolutePath().contains("res/txt/de"))
+					else if (file.getAbsolutePath().contains("res/txt/german"))
 						lang = "de";
 					Translation trans = new Translation(lang);
 					BufferedReader input =  new BufferedReader(new FileReader(file));
 					try {
 						String line = null; //not declared within while loop
-						/*
-						 * readLine is a bit quirky :
-						 * it returns the content of a line MINUS the newline.
-						 * it returns null only for the END of the stream.
-						 * it returns an empty String if two newlines appear in a row.
-						 */
 						while (( line = input.readLine()) != null){
 							trans.addLine(line);
 						}
@@ -85,7 +79,9 @@ public class TextToPo {
 					if(!folder.exists())
 						folder.mkdir();
 					File f;
-					if(filename.contains("_BATTLE")||filename.contains("_GUI")||filename.contains("_LOGIN")||filename.contains("_MAP"))
+					if(filename.contains("_MAPNAMES")||filename.contains("_MUSICKEYS"))
+						f = new File("res/po/"+translations.get(i).getLanguage()+"/"+filename.replace(".txt",".po"));
+					else if(filename.contains("_BATTLE")||filename.contains("_GUI")||filename.contains("_LOGIN")||filename.contains("_MAP"))
 						f = new File("res/po/"+translations.get(i).getLanguage()+"/UI/"+filename.replace(".txt",".po"));
 					else
 						f = new File("res/po/"+translations.get(i).getLanguage()+"/NPC/"+filename.replace(".txt",".po"));
@@ -98,7 +94,8 @@ public class TextToPo {
 					pw.println("# ");
 					for(int j=0;j<translations.get(i).getLines().size();j++){
 						try{
-							pw.println("msgid \""+translations.get(0).getLines().get(j)+"\"");
+							pw.println("msgid \""+translations.get(1).getLines().get(j)+"\""); // get(1) Because Dutch is before English, alphabetically. 
+																							   // Change If adding "Arabic" or another language that alphabetically goes before English  
 							pw.println("msgstr \""+translations.get(i).getLines().get(j)+"\"");
 							pw.println("");
 						}catch(Exception e){}

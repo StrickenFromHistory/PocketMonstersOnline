@@ -11,9 +11,3 @@ msgstr "She uses the names of her favorite things to eat."
 msgid "For the nicknames she gives to her Pokemon, I mean."
 msgstr "For the nicknames she gives to her Pokemon, I mean."
 
-msgid "A Pokemon you get in trade grows quickly. "
-msgstr "A Pokemon you get in trade grows quickly. "
-
-msgid "But if you don't have the right gym badge, they may disobey you."
-msgstr "But if you don't have the right gym badge, they may disobey you."
-

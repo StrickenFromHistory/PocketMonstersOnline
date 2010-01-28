@@ -5,276 +5,276 @@
 msgid "*Name, width, height, x (multiples of 8), y (multiples of 8)"
 msgstr "*Name, width, height, x (multiples of 8), y (multiples of 8)"
 
-msgid "*Johto and Kanto Routes"
+msgid "*Johto and Kanto Rutas"
 msgstr "*Johto and Kanto Rutas"
 
-msgid "Route 1,8,64,42,13"
+msgid "Ruta 1,8,64,42,13"
 msgstr "Ruta 1,8,64,42,13"
 
-msgid "Route 2,8,24,42,9"
+msgid "Ruta 2,8,24,42,9"
 msgstr "Ruta 2,8,24,42,9"
 
-msgid "Route 3,40,8,43,8"
+msgid "Ruta 3,40,8,43,8"
 msgstr "Ruta 3,40,8,43,8"
 
-msgid "Route 4,72,8,47,7"
+msgid "Ruta 4,72,8,47,7"
 msgstr "Ruta 4,72,8,47,7"
 
-msgid "Route 5,8,48,56,8"
+msgid "Ruta 5,8,48,56,8"
 msgstr "Ruta 5,8,48,56,8"
 
-msgid "Route 6,8,16,55,16"
+msgid "Ruta 6,8,16,55,16"
 msgstr "Ruta 6,8,16,55,16"
 
-msgid "Route 7,16,8,53,14"
+msgid "Ruta 7,16,8,53,14"
 msgstr "Ruta 7,16,8,53,14"
 
-msgid "Route 8,40,8,57,14"
+msgid "Ruta 8,40,8,57,14"
 msgstr "Ruta 8,40,8,57,14"
 
-msgid "Route 9,40,8,57,7"
+msgid "Ruta 9,40,8,57,7"
 msgstr "Ruta 9,40,8,57,7"
 
-msgid "Route 10,8,56,62,7"
+msgid "Ruta 10,8,56,62,7"
 msgstr "Ruta 10,8,56,62,7"
 
-msgid "Route 11,48,8,56,18"
+msgid "Ruta 11,48,8,56,18"
 msgstr "Ruta 11,48,8,56,18"
 
-msgid "Route 12,8,72,62,15"
+msgid "Ruta 12,8,72,62,15"
 msgstr "Ruta 12,8,72,62,15"
 
-msgid "Route 13,32,8,58,23"
+msgid "Ruta 13,32,8,58,23"
 msgstr "Ruta 13,32,8,58,23"
 
-msgid "Route 14,8,24,57,23"
+msgid "Ruta 14,8,24,57,23"
 msgstr "Ruta 14,8,24,57,23"
 
-msgid "Route 15,24,8,54,25"
+msgid "Ruta 15,24,8,54,25"
 msgstr "Ruta 15,24,8,54,25"
 
-msgid "Route 16,32,8,47,14"
+msgid "Ruta 16,32,8,47,14"
 msgstr "Ruta 16,32,8,47,14"
 
-msgid "Route 17,8,80,47,15"
+msgid "Ruta 17,8,80,47,15"
 msgstr "Ruta 17,8,80,47,15"
 
-msgid "Route 18,48,8,47,25"
+msgid "Ruta 18,48,8,47,25"
 msgstr "Ruta 18,48,8,47,25"
 
-msgid "Route 19,8,24,53,26"
+msgid "Ruta 19,8,24,53,26"
 msgstr "Ruta 19,8,24,53,26"
 
-msgid "Route 20,80,8,43,28"
+msgid "Ruta 20,80,8,43,28"
 msgstr "Ruta 20,80,8,43,28"
 
-msgid "Route 21,8,48,42,22"
+msgid "Ruta 21,8,48,42,22"
 msgstr "Ruta 21,8,48,42,22"
 
-msgid "Route 22,32,8,38,12"
+msgid "Ruta 22,32,8,38,12"
 msgstr "Ruta 22,32,8,38,12"
 
-msgid "Route 23,8,32,38,8"
+msgid "Ruta 23,8,32,38,8"
 msgstr "Ruta 23,8,32,38,8"
 
-msgid "Route 24,8,24,56,4"
+msgid "Ruta 24,8,24,56,4"
 msgstr "Ruta 24,8,24,56,4"
 
-msgid "Route 25,32,8,57,4"
+msgid "Ruta 25,32,8,57,4"
 msgstr "Ruta 25,32,8,57,4"
 
-msgid "Route 26,8,72,38,13"
+msgid "Ruta 26,8,72,38,13"
 msgstr "Ruta 26,8,72,38,13"
 
-msgid "Route 27,56,8,31,21"
+msgid "Ruta 27,56,8,31,21"
 msgstr "Ruta 27,56,8,31,21"
 
-msgid "Route 28,40,8,33,12"
+msgid "Ruta 28,40,8,33,12"
 msgstr "Ruta 28,40,8,33,12"
 
-msgid "Route 29,64,8,23,21"
+msgid "Ruta 29,64,8,23,21"
 msgstr "Ruta 29,64,8,23,21"
 
-msgid "Route 30,8,72,22,12"
+msgid "Ruta 30,8,72,22,12"
 msgstr "Ruta 30,8,72,22,12"
 
-msgid "Route 31,24,8,20,11"
+msgid "Ruta 31,24,8,20,11"
 msgstr "Ruta 31,24,8,20,11"
 
-msgid "Route 32,8,104,19,12"
+msgid "Ruta 32,8,104,19,12"
 msgstr "Ruta 32,8,104,19,12"
 
-msgid "Route 33,16,8,17,25"
+msgid "Ruta 33,16,8,17,25"
 msgstr "Ruta 33,16,8,17,25"
 
-msgid "Route 34,8,56,13,17"
+msgid "Ruta 34,8,56,13,17"
 msgstr "Ruta 34,8,56,13,17"
 
-msgid "Route 35,8,24,13,12"
+msgid "Ruta 35,8,24,13,12"
 msgstr "Ruta 35,8,24,13,12"
 
-msgid "Route 36,40,8,14,11"
+msgid "Ruta 36,40,8,14,11"
 msgstr "Ruta 36,40,8,14,11"
 
-msgid "Route 37,8,40,15,6"
+msgid "Ruta 37,8,40,15,6"
 msgstr "Ruta 37,8,40,15,6"
 
-msgid "Route 38,32,8,11,5"
+msgid "Ruta 38,32,8,11,5"
 msgstr "Ruta 38,32,8,11,5"
 
-msgid "Route 39,8,40,10,5"
+msgid "Ruta 39,8,40,10,5"
 msgstr "Ruta 39,8,40,10,5"
 
-msgid "Route 40,8,40,8,11"
+msgid "Ruta 40,8,40,8,11"
 msgstr "Ruta 40,8,40,8,11"
 
-msgid "Route 41,8,32,8,17"
+msgid "Ruta 41,8,32,8,17"
 msgstr "Ruta 41,8,32,8,17"
 
-msgid "Route 42,56,8,16,5"
+msgid "Ruta 42,56,8,16,5"
 msgstr "Ruta 42,56,8,16,5"
 
-msgid "Route 43,8,24,23,2"
+msgid "Ruta 43,8,24,23,2"
 msgstr "Ruta 43,8,24,23,2"
 
-msgid "Route 44,24,8,24,5"
+msgid "Ruta 44,24,8,24,5"
 msgstr "Ruta 44,24,8,24,5"
 
-msgid "Route 45,8,72,27,6"
+msgid "Ruta 45,8,72,27,6"
 msgstr "Ruta 45,8,72,27,6"
 
-msgid "Route 46,8,56,26,14"
+msgid "Ruta 46,8,56,26,14"
 msgstr "Ruta 46,8,56,26,14"
 
 msgid "*Johto and Kanto Places of Interest"
 msgstr "*Johto and Kanto Places of Interest"
 
-msgid "Whirl Islands,8,8,8,16"
+msgid "Islas Remolino,8,8,8,16"
 msgstr "Islas Remolino,8,8,8,16"
 
-msgid "Lake of Rage,16,16,23,1"
+msgid "Lago Ira,16,16,23,1"
 msgstr "Lago Ira,16,16,23,1"
 
-msgid "Ice Path,8,8,26,5"
+msgid "Ruta Helada,8,8,26,5"
 msgstr "Ruta Helada,8,8,26,5"
 
-msgid "Union Cave,8,8,19,25"
+msgid "Cueva Union,8,8,19,25"
 msgstr "Cueva Union,8,8,19,25"
 
-msgid "Ruins of Alph,8,8,18,14"
+msgid "Ruinas Alfa,8,8,18,14"
 msgstr "Ruinas Alfa,8,8,18,14"
 
-msgid "Mt. Mortar,8,8,19,5"
+msgid "Monte Mortar,8,8,19,5"
 msgstr "Monte Mortar,8,8,19,5"
 
-msgid "Illex Forest,8,8,13,24"
+msgid "Bosque Illex,8,8,13,24"
 msgstr "Bosque Illex,8,8,13,24"
 
-msgid "Dark Cave,8,8,24,8"
+msgid "Cueva Oscura,8,8,24,8"
 msgstr "Cueva Oscura,8,8,24,8"
 
-msgid "Dragon's Den,8,8,27,4"
+msgid "Guarida Dragon,8,8,27,4"
 msgstr "Guarida Dragon,8,8,27,4"
 
-msgid "National Park,8,8,13,11"
+msgid "Parque Nacional,8,8,13,11"
 msgstr "Parque Nacional,8,8,13,11"
 
-msgid "Tohjo Falls,8,8,35,21"
+msgid "Cascadas Tohjo,8,8,35,21"
 msgstr "Cascadas Tohjo,8,8,35,21"
 
-msgid "Mt. Silver,8,8,33,12"
+msgid "Monte Plata,8,8,33,12"
 msgstr "Monte Plata,8,8,33,12"
 
-msgid "Viridan Forest,8,8,42,10"
+msgid "Bosque Verde,8,8,42,10"
 msgstr "Bosque Verde,8,8,42,10"
 
-msgid "Diglett's Cave,8,8,43,10"
+msgid "Cueva Diglett,8,8,43,10"
 msgstr "Cueva Diglett,8,8,43,10"
 
-msgid "Mt. Moon,8,8,47,7"
+msgid "Monte Luna,8,8,47,7"
 msgstr "Monte Luna,8,8,47,7"
 
-msgid "Rock Tunnel,8,8,62,7"
+msgid "Tunel Roca,8,8,62,7"
 msgstr "Tunel Roca,8,8,62,7"
 
-msgid "Power Plant,8,8,63,12"
+msgid "Planta Electrica,8,8,63,12"
 msgstr "Planta Electrica,8,8,63,12"
 
-msgid "Diglett's Cave,8,8,56,18"
+msgid "Cueva Diglett,8,8,56,18"
 msgstr "Cueva Diglett,8,8,56,18"
 
-msgid "Safari Zone,8,8,53,24"
+msgid "Zona Safari,8,8,53,24"
 msgstr "Zona Safari,8,8,53,24"
 
-msgid "Seafoam Islands,8,8,48,28"
+msgid "Islas Espuma,8,8,48,28"
 msgstr "Islas Espuma,8,8,48,28"
 
-msgid "Victory Road,8,8,38,8"
+msgid "Calle Victoria,8,8,38,8"
 msgstr "Calle Victoria,8,8,38,8"
 
 msgid "*Johto and Kanto Cities"
 msgstr "*Johto and Kanto Cities"
 
-msgid "New Bark Town,8,8,31,21"
+msgid "Pueblo Primaveria,8,8,31,21"
 msgstr "Pueblo Primaveria,8,8,31,21"
 
-msgid "Cherrygrove City,8,8,22,21"
+msgid "Ciudad Cerezo,8,8,22,21"
 msgstr "Ciudad Cerezo,8,8,22,21"
 
-msgid "Violet City,8,8,19,11"
+msgid "Ciudad Malva,8,8,19,11"
 msgstr "Ciudad Malva,8,8,19,11"
 
-msgid "Azalea Town,8,8,16,25"
+msgid "Pueblo Azalea,8,8,16,25"
 msgstr "Pueblo Azalea,8,8,16,25"
 
-msgid "Goldenrod City,8,16,13,15"
+msgid "Ciudad Trigo,8,16,13,15"
 msgstr "Ciudad Trigo,8,16,13,15"
 
-msgid "Ecruteak City,8,8,15,5"
+msgid "Ciudad Iris,8,8,15,5"
 msgstr "Ciudad Iris,8,8,15,5"
 
-msgid "Olivine City,8,8,10,10"
+msgid "Ciudad Olivo,8,8,10,10"
 msgstr "Ciudad Olivo,8,8,10,10"
 
-msgid "Cianwood City,8,8,5,19"
+msgid "Ciudad Orquidea,8,8,5,19"
 msgstr "Ciudad Orquidea,8,8,5,19"
 
-msgid "Mahogany Town,8,8,23,5"
+msgid "Pueblo Caoba,8,8,23,5"
 msgstr "Pueblo Caoba,8,8,23,5"
 
-msgid "Blackthorn City,8,8,27,5"
+msgid "Ciudad Endrino,8,8,27,5"
 msgstr "Ciudad Endrino,8,8,27,5"
 
-msgid "Pallet Town,8,8,42,21"
+msgid "Pueblo Paleta,8,8,42,21"
 msgstr "Pueblo Paleta,8,8,42,21"
 
-msgid "Viridian City,8,8,42,12"
+msgid "Ciudad Verde,8,8,42,12"
 msgstr "Ciudad Verde,8,8,42,12"
 
-msgid "Pewter City,8,8,42,8"
+msgid "Ciudad Plateada,8,8,42,8"
 msgstr "Ciudad Plateada,8,8,42,8"
 
-msgid "Cerulean City,8,8,56,7"
+msgid "Ciudad Celeste,8,8,56,7"
 msgstr "Ciudad Celeste,8,8,56,7"
 
-msgid "Vermilion City,8,16,55,18"
+msgid "Ciudad Carmin,8,16,55,18"
 msgstr "Ciudad Carmin,8,16,55,18"
 
-msgid "Lavender Town,8,8,62,14"
+msgid "Pueblo Lavanda,8,8,62,14"
 msgstr "Pueblo Lavanda,8,8,62,14"
 
-msgid "Celadon City,16,8,51,14"
+msgid "Ciudad Azulona,16,8,51,14"
 msgstr "Ciudad Azulona,16,8,51,14"
 
-msgid "Saffron City,16,16,55,14"
+msgid "Ciudad Azafran,16,16,55,14"
 msgstr "Ciudad Azafran,16,16,55,14"
 
-msgid "Fuchsia City,8,8,53,25"
+msgid "Ciudad Fucsia,8,8,53,25"
 msgstr "Ciudad Fucsia,8,8,53,25"
 
-msgid "Cinnabar Island,8,8,42,28"
+msgid "Isla Canela,8,8,42,28"
 msgstr "Isla Canela,8,8,42,28"
 
-msgid "Indigo Plateau,8,8,38,7"
+msgid "Meseta Anil,8,8,38,7"
 msgstr "Meseta Anil,8,8,38,7"
 

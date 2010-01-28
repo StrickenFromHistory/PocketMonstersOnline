@@ -1,0 +1,28 @@
+New Bark Town:newbark
+Cherrygrove City:cherrygrove
+Violet City:violet
+National Park:nationalpark
+Azalea Town:azalea
+Goldenrod City:goldenrod
+Ecruteak City:ecruteak
+Dark Cave:darkcave
+Sprout Tower:sprouttower
+Olivine City:violet
+Cianwood City:ecruteak
+Mahogany Town:cherrywood
+Blackthorn City:azalea
+Burned Tower:burnedtower
+Tin Tower:tintower
+Olivine Lighthouse:lighthouse
+Dragons Den:dragonsden
+Pokemon Center:pokecenter
+Gym:introandgym
+RoA:ruinsofalph
+Route:route
+Pallet Town:pallet
+Pewter City:pewter
+Viridian City:pewter
+Saffron City:pewter
+Vermillion City:vermillion
+Cerulean City:vermillion
+Lavender Town:lavender

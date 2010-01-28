@@ -2,7 +2,7 @@
 # Copyright (C) 2010 PokeDev Developer Group, Inc
 # Nushio <nushio@pokedev.org>, 2010.
 # 
-msgid "pokeName fainted!"
+msgid "Please select a new Pokemon"
 msgstr "pokeName se ha desmallado!"
 
 msgid "pokeName used moveName"
@@ -11,7 +11,7 @@ msgstr "pokeName ha usado moveName"
 msgid "Awaiting your move..."
 msgstr "Esperando tu decision..."
 
-msgid "pokeName gained expNum EXP and needs expRemaining EXP to level up..."
+msgid "pokeName gained expNum EXP"
 msgstr "pokeName ha obtenido expNum EXP"
 
 msgid "pokeName returned to normal."
@@ -43,34 +43,4 @@ msgstr "Saliste corriendo asalvo!"
 
 msgid "You couldn't run away!"
 msgstr "No pudiste escapar!"
-
-msgid "pokeName was poisoned!"
-msgstr "pokeName ha sido envenenado!"
-
-msgid "pokeName is frozen solid!"
-msgstr "pokeName ha sido congelado!"
-
-msgid "pokeName was burnt!"
-msgstr "pokeName ha sido quemado!"
-
-msgid "pokeName is paralyzed! It might be unable to move"
-msgstr "pokeName ha sido paralizado! Puede que no pueda moverse. "
-
-msgid "pokeName fell asleep!"
-msgstr "pokeName se ha dormido!"
-
-msgid "You got $earningsNum for winning!"
-msgstr "Obtuviste $earningsNum por la victoria!"
-
-msgid "pokeName reached level levelNum!"
-msgstr "pokeName ha crecido al nivel levelNum!"
-
-msgid "moveName has no PP. Please select a new move."
-msgstr "moveName no tiene PP. Escoje otro ataque. "
-
-msgid "The wild pokeName dropped a rewardItem!"
-msgstr "pokeName ha tirado un rewardItem!"
-
-msgid "You got a rewardItem for winning!"
-msgstr "Has obtenido un rewardItem por la victoria!"
 

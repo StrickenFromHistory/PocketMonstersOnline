@@ -2,7 +2,7 @@
 # Copyright (C) 2010 PokeDev Developer Group, Inc
 # Nushio <nushio@pokedev.org>, 2010.
 # 
-msgid "pokeName fainted!"
+msgid "Please select a new Pokemon"
 msgstr "Please select a new Pokemon"
 
 msgid "pokeName used moveName"
@@ -11,7 +11,7 @@ msgstr "pokeName used moveName"
 msgid "Awaiting your move..."
 msgstr "Awaiting your move..."
 
-msgid "pokeName gained expNum EXP and needs expRemaining EXP to level up..."
+msgid "pokeName gained expNum EXP"
 msgstr "pokeName gained expNum EXP"
 
 msgid "pokeName returned to normal."

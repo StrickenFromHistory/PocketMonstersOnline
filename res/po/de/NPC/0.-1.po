@@ -1,0 +1,55 @@
+# Pokenet 0.-1.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "Route 45 "
+msgstr "Route 45 "
+
+msgid "Mountain RD. ahead"
+msgstr "Gebirgspass voraus"
+
+msgid "Be prepared for anything! "
+msgstr "Sei f�r alles bereit!"
+
+msgid "Let me see if your Pokemon have been raised properly!"
+msgstr "Lass mich sehen, ob deine Pokemon richtig erzogen wurden!"
+
+msgid "What are your thoughts on raising Pokemon?"
+msgstr "Was denkst du �ber die Erziehung von Pokemon?"
+
+msgid "My Pokemon are power packed!"
+msgstr "Meine Pokemon sind voller Energie!"
+
+msgid "What is your battle strategy? "
+msgstr "Was ist deine Kampfstrategie?"
+
+msgid "It is foolish to use strong moves indiscriminately."
+msgstr "Es ist t�richt starke Angriffe unbedacht zu nutzen!"
+
+msgid "I was training here alone. "
+msgstr "Ich habe hier alleine trainiert. "
+
+msgid "Behold the fruits of my labor!"
+msgstr "Bestaune die Fr�chte meiner Arbeit!"
+
+msgid "Why do I climb mountains? "
+msgstr "Warum steige ich auf Berge?"
+
+msgid "Because they're there. "
+msgstr "Weil es sie gibt."
+
+msgid "Why do I train Pokemon? "
+msgstr "Warum trainiere ich Pokemon?"
+
+msgid "Because they're there!"
+msgstr "Weil es sie gibt!"
+
+msgid "Yo! You're spunky! But you know what? "
+msgstr "Hey! Du bist couragiert! Aber weisst du was? "
+
+msgid "When it comes to sheer spunkiness, I'm the man!"
+msgstr "Wenn es um Courage geht, dann bin ich dein Mann!"
+
+msgid "I'm really, really tough!"
+msgstr "Ich bin sehr, sehr stark!"
+
