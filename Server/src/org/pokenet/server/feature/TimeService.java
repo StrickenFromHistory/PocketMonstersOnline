@@ -39,10 +39,7 @@ public class TimeService implements Runnable {
 		/*
 		 * Generate random weather
 		 */
-		
-		int weather = m_forcedWeather;
-		if(weather == 9)
-			weather = new Random().nextInt(4);
+		int weather = new Random().nextInt(4);
 		switch(weather) {
 		case 0:
 			m_weather = Weather.NORMAL;

@@ -57,12 +57,12 @@ public class OurPokemon extends Pokemon {
 	 * Sets back sprite
 	 */
 	private void setBackSprite() {
+		LoadingList.setDeferredLoading(true);
 		try {
 			String respath = System.getProperty("res.path");
 			if(respath==null)
 				respath="";
 			InputStream f;
-			LoadingList.setDeferredLoading(true);
 			String path = new String();
 			String index, isShiny = new String();
 
@@ -103,10 +103,10 @@ public class OurPokemon extends Pokemon {
 				m_backSprite = new Image(path.toString(), false);
 				e.printStackTrace();
 			}
-			LoadingList.setDeferredLoading(false);
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
+		LoadingList.setDeferredLoading(false);
 	}
 
 	/**
