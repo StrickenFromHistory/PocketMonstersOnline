@@ -340,6 +340,19 @@ public class DataService {
                     	int level = Integer.parseInt(stringMoves[j]);
                     	String move = stringMoves[j + 1].charAt(0) + 
                     		stringMoves[j + 1].substring(1).toLowerCase();
+                    	if(move.contains(" ")) {
+                    		//Capitalise words correctly
+                    		String tmp = "";
+                    		for(int i = 1; i <= move.length(); i++) {
+                    			if(i < move.length() && move.substring(i - 1, i).compareTo(" ") == 0) {
+                    				tmp = tmp + " " + move.substring(i, i + 1).toUpperCase();
+                    				i++;
+                    			} else {
+                    				tmp = tmp + move.charAt(i - 1);
+                    			}
+                    		}
+                    		move = tmp;
+                    	}
                     	if(level < 2) {
                     		if(sp <= 3) {
 	                    		startMoves[sp] = move;
