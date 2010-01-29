@@ -57,11 +57,14 @@ public class LoginScreen extends Window {
 			 * NOTE: Months start at 0, not 1
 			 */
 			Calendar cal = Calendar.getInstance();
-			if(cal.get(Calendar.MONTH) == 1 
-					&& cal.get(Calendar.DAY_OF_MONTH) >= 7
-					&& cal.get(Calendar.DAY_OF_MONTH) <= 14) {
-				/* Valentines day! */
-				f = new FileInputStream(respath+"res/pokenet_valentines.png");
+			if(cal.get(Calendar.MONTH) == 1) {
+					if(cal.get(Calendar.DAY_OF_MONTH) >= 7
+							&& cal.get(Calendar.DAY_OF_MONTH) <= 14) {
+						/* Valentines day! */
+						f = new FileInputStream(respath+"res/pokenet_valentines.png");
+					} else {
+						f = new FileInputStream(respath+"res/pokenet_venonat.png");
+					}
 			} else if(cal.get(Calendar.MONTH) == 2 
 					&& cal.get(Calendar.DAY_OF_MONTH) > 14) {
 				/* If second half of March, show Easter login */
@@ -82,7 +85,7 @@ public class LoginScreen extends Window {
 			} else if(cal.get(Calendar.MONTH) >= 5 
 					&& cal.get(Calendar.MONTH) <= 7) {
 				/* Summer login */
-				f = new FileInputStream(respath+"res/pokenet_venonat.png");
+				f = new FileInputStream(respath+"res/pokenet_summer.png");
 			} else {
 				/* Show normal login screen */
 				f = new FileInputStream(respath+"res/pokenet_normal.png");
