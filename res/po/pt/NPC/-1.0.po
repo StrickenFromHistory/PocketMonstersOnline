@@ -4,4 +4,3 @@
 # 
 msgid "Route 29: Cherrygrove city - New Bark town"
 msgstr "Rota 29: Cidade de Cherrygrove - Cidade de New Bark"
-

@@ -15,16 +15,16 @@ msgid "HP:"
 msgstr "HP:"
 
 msgid "Attack:"
-msgstr "Attack:"
+msgstr "Ataque:"
 
 msgid "Defense:"
-msgstr "Defensa:"
+msgstr "Defesa:"
 
 msgid "Sp. Attack:"
-msgstr "Sp. Attack:"
+msgstr "Sp. Ataque:"
 
 msgid "Sp. Defense: "
-msgstr "Sp. Defensa:"
+msgstr "Sp. Defesa:"
 
 msgid "Speed:"
 msgstr "Velocidade:"
@@ -39,16 +39,16 @@ msgid "Nature:"
 msgstr "Nature:"
 
 msgid "Type one:"
-msgstr "Tipo one:"
+msgstr "Tipo um:"
 
 msgid "Type two:"
-msgstr "Tipo two:"
+msgstr "Tipo dois:"
 
 msgid "Gender:"
 msgstr "Genero:"
 
 msgid "Options"
-msgstr "Opcoens"
+msgstr "Opcoes"
 
 msgid "Full Screen view"
 msgstr "Tela Cheia"
@@ -60,16 +60,16 @@ msgid "Save"
 msgstr "Salvar"
 
 msgid "Changes may not take effect until you restart."
-msgstr "As mudancas terao efeito se voce reniciar."
+msgstr "As mudancas terao efeito quando voce reniciar."
 
 msgid "Pokenet Help"
 msgstr "Pokenet: Ajuda online"
 
 msgid "Arrow keys or WASD keys/nMovement/n/n"
-msgstr "Os botoens de movimento sao as Setas e/ou WASD."
+msgstr "Os botoes de movimento sao as WASD e/ou Setas /nMovement/n/n"
 
 msgid "Spacebar/nTalk/n/n"
-msgstr "A telca C abre o chat /n"
+msgstr "Espaco /nTalk/n/n"
 
 msgid "Right-click/nInteract with other players/n/n"
 msgstr "Use Espaco para conversar com a NPC(OU/nPersonagem nao jogador)./n"
@@ -77,14 +77,17 @@ msgstr "Use Espaco para conversar com a NPC(OU/nPersonagem nao jogador)./n"
 msgid "Use the whisper option to start a private chat. "
 msgstr "Use o /w USERNAME TEXT/ncommando para chamar outros/njogadores."
 
-msgid "Type the /playercount command into local chat to see how many players are online./n"
-msgstr "Use o /playercount commando to/npara ver quantos jogadores estao online."
+msgid ""
+"Type the /playercount command into local chat to see how many players are "
+"online./n"
+msgstr ""
+"Use o /playercount commando to/npara ver quantos jogadores estao online."
 
 msgid "For more information, go to www.pokedev.org"
 msgstr "Se voce tiver insiguias use/nshift para surfar."
 
 msgid "Chat: Local"
-msgstr "Chat: Local"
+msgstr ""
 
 msgid "You must accept Terms of Service (ToS) before registering."
 msgstr "Voce deve aceitar os termos do servico para se registar."
@@ -148,4 +151,3 @@ msgstr "Troca"
 
 msgid "Disable Surrounding Maps"
 msgstr "Desactivar Circundantes Mapas"
-

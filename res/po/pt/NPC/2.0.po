@@ -34,4 +34,3 @@ msgstr "Rota 26"
 
 msgid "Route 22 and PokeNet Kanto/Johto League reception gate ahead."
 msgstr "Rota 22 e Portao de Entrada Liga Pokenet kanto/Johto em frente"
-

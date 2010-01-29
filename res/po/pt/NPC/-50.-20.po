@@ -3,11 +3,11 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Welcome to the drugstore."
-msgstr "Welcome to the drugstore."
+msgstr "Bem vindo à farmácia."
 
 msgid "Please report this bug!"
-msgstr "Please report this bug!"
+msgstr "Por favor reporte esse bug!"
 
 msgid "This area is under construction."
-msgstr "This area is under construction."
+msgstr "Esta área está em construção."
 

@@ -10,4 +10,3 @@ msgstr "Clair estaria palido se eu fizesse!"
 
 msgid "It's not as if we all use dragon-type Pokemon."
 msgstr "Nao e como se todos nos usassemos Pokemons tipo fogo."
-

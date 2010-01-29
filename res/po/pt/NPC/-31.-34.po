@@ -7,4 +7,3 @@ msgstr "Eu posso fazer Pokebolas especiais a partir de bolotas de carvalho."
 
 msgid "I visit my Grandpa to help him making Pokeballs."
 msgstr "Visito o meu avo para ajuda-lo a fazer as Pokebolas."
-

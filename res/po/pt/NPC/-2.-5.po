@@ -3,47 +3,47 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I can do so much with my Pokemon-- it's super-fun!"
-msgstr "I can do so much with my Pokemon-- it's super-fun!"
+msgstr "Eu posso fazer tantas coisas com meus Pokemons-- É super divertido!"
 
 msgid "Are you going to Lake of Rage too? "
-msgstr "Are you going to Lake of Rage too? "
+msgstr "Você também vai para o Lago da Fúria? "
 
 msgid "Let's play for a little while!"
-msgstr "Let's play for a little while!"
+msgstr "Vamos brincar um pouco!"
 
 msgid "Hey! Do you have any rare Pokemon?"
-msgstr "Hey! Do you have any rare Pokemon?"
+msgstr "Ei! Você tem algum Pokemon raro?"
 
 msgid "I love Pokemon! "
-msgstr "I love Pokemon! "
+msgstr "Eu amo os Pokemons! "
 
 msgid "That's why I started-- and why I'll keep on collecting Pokemon!"
-msgstr "That's why I started-- and why I'll keep on collecting Pokemon!"
+msgstr "É por isso que eu comecei-- e por isso continuo colecionando Pokemons!"
 
 msgid "Some guy said that my Pokemon is useless! "
-msgstr "Some guy said that my Pokemon is useless! "
+msgstr "Outro treinador disse que meus Pokemons são inúteis! "
 
 msgid "My Pokemon's a good companion!"
-msgstr "My Pokemon's a good companion!"
+msgstr "Meus pokemons são bons companheiros!"
 
 msgid "I'm in a slump. "
-msgstr "I'm in a slump. "
+msgstr "Estou de mal humor. "
 
 msgid "Maybe it's the gear I'm using. "
-msgstr "Maybe it's the gear I'm using. "
+msgstr "Talvez seja o material que estou usando. "
 
 msgid "Let's battle for a change of pace!"
-msgstr "Let's battle for a change of pace!"
+msgstr "Vamos batalhar para mudar o ritmo!"
 
 msgid "Trainer Tips: "
-msgstr "Trainer Tips: "
+msgstr "Dicas de Treinador: "
 
 msgid "One day in the game world are six hours in the real world."
-msgstr "One day in the game world are six hours in the real world."
+msgstr "Um dia no jogo são seis horas no mundo real."
 
 msgid "Route 43 "
-msgstr "Route 43 "
+msgstr "Rota 43 "
 
 msgid "Lake of Rage - Mahogany Town"
-msgstr "Lake of Rage - Mahogany Town"
+msgstr "Lago da Fúria - Cidade de Mahogany"
 

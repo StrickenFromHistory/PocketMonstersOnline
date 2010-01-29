@@ -3,11 +3,10 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Let me heal your Pokemon for you ... Good luck on your journey!"
-msgstr "Let me heal your Pokemon for you ... Good luck on your journey!"
+msgstr ""
 
 msgid "The menu is always visible outside of battle."
-msgstr "The menu is always visible outside of battle."
+msgstr ""
 
 msgid "All Pokemon types have strong and weak points against others."
-msgstr "All Pokemon types have strong and weak points against others."
-
+msgstr ""

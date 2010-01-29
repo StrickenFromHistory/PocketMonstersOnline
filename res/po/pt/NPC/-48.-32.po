@@ -2,9 +2,9 @@
 # Copyright (C) 2010 PokeDev Developer Group, Inc
 # Nushio <nushio@pokedev.org>, 2010.
 # 
-msgid "My son always makes our Pokemon faint when he plays with it in the field."
-msgstr "My son always makes our Pokemon faint when he plays with it in the field."
+msgid ""
+"My son always makes our Pokemon faint when he plays with it in the field."
+msgstr ""
 
 msgid "As a result, it is often unhappy and often disobeys us."
-msgstr "As a result, it is often unhappy and often disobeys us."
-
+msgstr ""

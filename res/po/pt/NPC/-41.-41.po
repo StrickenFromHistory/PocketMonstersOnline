@@ -10,4 +10,3 @@ msgstr "Eu ficaria chocado se visse eles fazerem isso!"
 
 msgid "Pokemon gain experience in battle and change their form."
 msgstr "Pokemons ganham experiencia nas batahlhas e mudam de forma."
-

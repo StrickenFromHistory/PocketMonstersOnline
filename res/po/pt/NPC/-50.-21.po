@@ -3,8 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Welcome! You can buy evolutionary stones here."
-msgstr "Welcome! You can buy evolutionary stones here."
+msgstr ""
 
 msgid "Please report this bug!"
-msgstr "Please report this bug!"
-
+msgstr "Por favor reporte esse bug!"

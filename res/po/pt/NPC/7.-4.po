@@ -3,32 +3,32 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "You have Pokemon with you! You're mine!"
-msgstr "You have Pokemon with you! You're mine!"
+msgstr ""
 
 msgid "Bwahaha! Great! I was bored, eh!"
-msgstr "Bwahaha! Great! I was bored, eh!"
+msgstr ""
 
 msgid "Who's that walking there with those good-looking Pokemon?"
-msgstr "Who's that walking there with those good-looking Pokemon?"
+msgstr ""
 
 msgid "I got up early every day to raise my Pokemon from cocoons!"
-msgstr "I got up early every day to raise my Pokemon from cocoons!"
+msgstr "Eu acordo cedo todos os dias para treinar meus Pokemons dos casulos!"
 
 msgid "Hahahaha! Bring it on!"
-msgstr "Hahahaha! Bring it on!"
+msgstr ""
 
 msgid "Go, my super bug Pokemon!"
-msgstr "Go, my super bug Pokemon!"
+msgstr "Vá, meu super Pokemon inseto!"
 
 msgid "I'm taking the Rock Tunnel to go to Lavender..."
-msgstr "I'm taking the Rock Tunnel to go to Lavender..."
+msgstr ""
 
 msgid "Hahaha! Aren't you a little toughie!"
-msgstr "Hahaha! Aren't you a little toughie!"
+msgstr ""
 
 msgid "Dont' you dare patronize me!"
-msgstr "Dont' you dare patronize me!"
+msgstr ""
 
 msgid "Route 9: Cerulean City - Rock Tunnel"
-msgstr "Route 9: Cerulean City - Rock Tunnel"
+msgstr ""
 

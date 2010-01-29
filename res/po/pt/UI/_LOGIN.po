@@ -15,7 +15,7 @@ msgid "About"
 msgstr "Sobre"
 
 msgid "ToS"
-msgstr "ToS"
+msgstr ""
 
 msgid "Username:"
 msgstr "Usuario:"
@@ -24,7 +24,7 @@ msgid "Password:"
 msgstr "Senha:"
 
 msgid "Login"
-msgstr "Login"
+msgstr ""
 
 msgid "Register"
 msgstr "Registro:"
@@ -39,7 +39,7 @@ msgid "D.O.B. (dd/mm/yyyy):"
 msgstr "nascimento (dd/mm/yyyy):"
 
 msgid "Email:"
-msgstr "Email:"
+msgstr ""
 
 msgid "Confirm Email:"
 msgstr "Confirme Email:"
@@ -51,10 +51,10 @@ msgid "Gender:"
 msgstr "Genero:"
 
 msgid "Male"
-msgstr "Macho"
+msgstr "Homem"
 
 msgid "Female"
-msgstr "Femea"
+msgstr "Mulher"
 
 msgid "Terms of Service"
 msgstr "Termos do Servico"
@@ -87,7 +87,7 @@ msgid "Invalid data."
 msgstr "Arquivos invalidos."
 
 msgid "You must accept Terms of Service (ToS) before registering."
-msgstr "Voce deve aceitar os temos do servico para se registrar."
+msgstr "Voce deve aceitar os termos do servico para se registar."
 
 msgid "Date of birth invalid."
 msgstr "Data de nacimento invalida."
@@ -124,4 +124,7 @@ msgstr "Fshy, ZombieBear, Ryan, Pivot/nIlentcape, Sienide, TMKCodes, Drawing,/nL
 
 msgid "You have been disconnected from the game server."
 msgstr "Voce foi disconectado do servidor."
+
+msgid "The e-mail address you have entered is already in use."
+msgstr ""
 

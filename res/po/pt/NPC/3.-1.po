@@ -3,23 +3,22 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Trainer Tips"
-msgstr "Trainer Tips"
+msgstr "Trainer Dicas"
 
 msgid "Some wild Pokemon drop rare items like TMs."
-msgstr "Some wild Pokemon drop rare items like TMs."
+msgstr ""
 
 msgid "Viridian City Pokemon gym"
-msgstr "Viridian City Pokemon gym"
+msgstr ""
 
 msgid "Viridian City - The eternally green paradise"
-msgstr "Viridian City - The eternally green paradise"
+msgstr ""
 
 msgid "Winning against other trainers only gains you money."
-msgstr "Winning against other trainers only gains you money."
+msgstr ""
 
 msgid "The gym is closed, because the gym leader went on a training trip."
-msgstr "The gym is closed, because the gym leader went on a training trip."
+msgstr ""
 
 msgid "You have to come back later to challenge the gym."
-msgstr "You have to come back later to challenge the gym."
-
+msgstr ""

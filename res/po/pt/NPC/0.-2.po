@@ -34,4 +34,3 @@ msgstr "O abencoado jogador de Pokemon dragao"
 
 msgid "Dragon's Den ahead"
 msgstr "Toca do Dragao em frente"
-

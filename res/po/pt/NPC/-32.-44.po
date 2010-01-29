@@ -16,4 +16,3 @@ msgstr "Eu ouvi um programa de radio estranho la."
 
 msgid "I'm sorry, but I am working. I can't talk to you."
 msgstr "Me desculpe, mas estou trabalhando. Eu nao posso falar com voce."
-

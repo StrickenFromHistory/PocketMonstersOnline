@@ -3,29 +3,29 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Mahogany Town "
-msgstr "Mahogany Town "
+msgstr "Cidade de Mogno "
 
 msgid "Welcome to the home of the ninja"
-msgstr "Welcome to the home of the ninja"
+msgstr "Seja bem-vindo à casa dos ninjas"
 
 msgid "Once a ninja hideout, then a Team Rocket hideout. "
-msgstr "Once a ninja hideout, then a Team Rocket hideout. "
+msgstr "Antes, era um esconderijo de ninjas, depois, da Equipe Rocket. "
 
 msgid "Today, the Mahogany Pokemon Mart"
-msgstr "Today, the Mahogany Pokemon Mart"
+msgstr "Hoje, é o Mercado Pokemon de Mahogany"
 
 msgid "Mahogany Town Pokemon gym "
-msgstr "Mahogany Town Pokemon gym "
+msgstr "Ginásio Pokemon de Mahogany "
 
 msgid "Leader: Pryce "
-msgstr "Leader: Pryce "
+msgstr "Líder: Pryce "
 
 msgid "The teacher of winter's harshness"
-msgstr "The teacher of winter's harshness"
+msgstr "O professor da dureza do inverno"
 
 msgid "Route 43 "
-msgstr "Route 43 "
+msgstr "Rota 43 "
 
 msgid "Lake of Rage - Mahogany Town"
-msgstr "Lake of Rage - Mahogany Town"
+msgstr "Lago da Fúria - Cidade de Mahogany"
 

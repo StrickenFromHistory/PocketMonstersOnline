@@ -44,3 +44,33 @@ msgstr "Fugiu a distancia segura!"
 msgid "You couldn't run away!"
 msgstr "Voce nao pode fugir!"
 
+msgid "pokeName was poisoned!"
+msgstr "pokeName foi envenenado!"
+
+msgid "pokeName is frozen solid!"
+msgstr "pokeName está congelado!"
+
+msgid "pokeName was burnt!"
+msgstr "pokeName foi queimado!"
+
+msgid "pokeName is paralyzed! It might be unable to move"
+msgstr "pokeName está paralisado! Pode estar incapaz de se mover"
+
+msgid "pokeName fell asleep!"
+msgstr "pokeName adormeceu!"
+
+msgid "You got $earningsNum for winning!"
+msgstr "Você tem $earningsNum para ganhar!"
+
+msgid "pokeName reached level levelNum!"
+msgstr "pokeName alcançou o level levelNum!"
+
+msgid "moveName has no PP. Please select a new move."
+msgstr "moveName não tem  PP. Por favor selecione um novo movimento."
+
+msgid "The wild pokeName dropped a rewardItem!"
+msgstr "O pokeName selvagem deixou cair uma rewardItem!"
+
+msgid "You got a rewardItem for winning!"
+msgstr "Você tem uma rewardItem para ganhar!"
+

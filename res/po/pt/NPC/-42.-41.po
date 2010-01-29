@@ -7,4 +7,3 @@ msgstr "Ei, Voce capturou algum Pokemon aquatico? "
 
 msgid "There are many of them in the sea."
 msgstr "Ha muito deles no mar."
-

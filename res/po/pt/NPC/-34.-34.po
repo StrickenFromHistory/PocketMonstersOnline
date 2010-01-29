@@ -2,8 +2,10 @@
 # Copyright (C) 2010 PokeDev Developer Group, Inc
 # Nushio <nushio@pokedev.org>, 2010.
 # 
-msgid "Years ago there was a Pokemon named Sudowoodo here, blocking the path to "
-msgstr "Anos atras houve um Pokemon chamado Sudowoodo aqui, bloqueando o caminho para"
+msgid ""
+"Years ago there was a Pokemon named Sudowoodo here, blocking the path to "
+msgstr ""
+"Anos atras houve um Pokemon chamado Sudowoodo aqui, bloqueando o caminho para"
 
 msgid "Ecruteak City. "
 msgstr "a cidade de Ecruteak."
@@ -18,8 +20,7 @@ msgid "I think some of the trees you see along the road "
 msgstr "Penso que algumas das arvores que voce ve ao longo da estrada"
 
 msgid "are actually this Pokemon."
-msgstr "sao, na realidade este Pokemon.	"
+msgstr "sao, na realidade este Pokemon.\t"
 
 msgid "Whitney is the gym leader here. She is cool and strong!"
 msgstr "Whitney e lider desse ginasio. Ela e fria e forte!"
-

@@ -3,29 +3,29 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Whoa! What a surprise! I didn't expect to see anyone here!"
-msgstr "Whoa! What a surprise! I didn't expect to see anyone here!"
+msgstr "Whoa! Que surpresa! Não esperava ver ninguém por aqui!"
 
 msgid "You're headed to Azalea, are you? Let my Pokemon see "
-msgstr "You're headed to Azalea, are you? Let my Pokemon see "
+msgstr "Você está indo para Azalea, não é? Deixe meus Pokemons verem "
 
 msgid "if you are good enough to battle."
-msgstr "if you are good enough to battle."
+msgstr "se você é bom o bastante para batalha."
 
 msgid "Zubat's Supersonic keeps confusing my Pokemon. "
-msgstr "Zubat's Supersonic keeps confusing my Pokemon. "
+msgstr ""
 
 msgid "I'm seriously upset about that!"
-msgstr "I'm seriously upset about that!"
+msgstr ""
 
 msgid "I roam far and wide in search of Pokemon. "
-msgstr "I roam far and wide in search of Pokemon. "
+msgstr ""
 
 msgid "Are you looking for Pokemon too? Then you're my collecting rival!"
-msgstr "Are you looking for Pokemon too? Then you're my collecting rival!"
+msgstr ""
 
 msgid "If it's light, a cave isn't scary. "
-msgstr "If it's light, a cave isn't scary. "
+msgstr ""
 
 msgid "If you're strong, Pokemon aren't scary."
-msgstr "If you're strong, Pokemon aren't scary."
+msgstr ""
 

@@ -3,7 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "It's a list of winning trainers."
-msgstr "E uma lista de treinadores ganhadores."
+msgstr "E uma lista dos treinadores vencedores."
 
 msgid "My Pokemon and I are bound together by friendship. "
 msgstr "Eu e meu Pokemon estamos ligados pela amizade."
@@ -40,4 +40,3 @@ msgstr "Voce esta assustado? estah ?"
 
 msgid "Come on. We shall do battle!"
 msgstr "O que? Nao tem nada a ver com batalhas Pokemons? Isso e verdade!"
-

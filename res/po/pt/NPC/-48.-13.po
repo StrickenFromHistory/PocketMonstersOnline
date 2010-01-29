@@ -3,17 +3,17 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Hello young trainer. Are you looking for my son, Red?"
-msgstr "Hello young trainer. Are you looking for my son, Red?"
+msgstr "Olá jovem treinador.Você está procurando meu filho,Red?"
 
 msgid "Red is a famous Pokemon trainer here in Kanto."
-msgstr "Red is a famous Pokemon trainer here in Kanto."
+msgstr "Red é um famoso treinador pokemon aqui em kanto."
 
 msgid "He was league champion once. "
-msgstr "He was league champion once. "
+msgstr "Ele foi campeão da liga uma vez."
 
 msgid "I bet he is training his Pokemon somewhere right now."
-msgstr "I bet he is training his Pokemon somewhere right now."
+msgstr "Eu aposto que ele está treinando os Pokemons em algum lugar agora."
 
 msgid "Maybe you'll meet him one day."
-msgstr "Maybe you'll meet him one day."
+msgstr "Talvez você encontre ele um dia."
 

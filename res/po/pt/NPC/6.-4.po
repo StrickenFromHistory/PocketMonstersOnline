@@ -3,29 +3,28 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Grass and caves handled easily!"
-msgstr "Grass and caves handled easily!"
+msgstr ""
 
 msgid "Bike Shop"
-msgstr "Bike Shop"
+msgstr ""
 
 msgid "Cerulean City - A mysterious, blue aura surrounds it"
-msgstr "Cerulean City - A mysterious, blue aura surrounds it"
+msgstr ""
 
 msgid "Cerulean City Pokemon gym"
-msgstr "Cerulean City Pokemon gym"
+msgstr ""
 
 msgid "Leader: Misty"
-msgstr "Leader: Misty"
+msgstr ""
 
 msgid "The tomboyish mermaid!"
-msgstr "The tomboyish mermaid!"
+msgstr ""
 
 msgid "Trainer Tips"
-msgstr "Trainer Tips"
+msgstr "Trainer Dicas"
 
 msgid "You can catch rare Pokemon through fishing."
-msgstr "You can catch rare Pokemon through fishing."
+msgstr ""
 
 msgid "You need a high fishing skill for them."
-msgstr "You need a high fishing skill for them."
-
+msgstr ""

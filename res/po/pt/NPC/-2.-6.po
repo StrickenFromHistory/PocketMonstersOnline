@@ -3,23 +3,23 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "No matter what I do, all I catch are the same Pokemon..."
-msgstr "No matter what I do, all I catch are the same Pokemon..."
+msgstr "Não importa o que eu faça, os Pokemons que eu capturo são sempre iguais..."
 
 msgid "Let me battle with the Pokemon I just caught!"
-msgstr "Let me battle with the Pokemon I just caught!"
+msgstr "Vou batalhar com os Pokemons que acabei de capturar!"
 
 msgid "Hey, I'm bored. Let's battle!"
-msgstr "Hey, I'm bored. Let's battle!"
+msgstr "Ei, estou entediado. Vamos batalhar!"
 
 msgid "If a trainer spots another trainer, he has to make a challenge. "
-msgstr "If a trainer spots another trainer, he has to make a challenge. "
+msgstr "Se um treinador vê outro treinador, ele tem que desafiá-lo. "
 
 msgid "I guess I have to accept."
-msgstr "I guess I have to accept."
+msgstr "Acho que tenho que aceitar."
 
 msgid "Fishing Guru's house"
-msgstr "Fishing Guru's house"
+msgstr "Casa do Guru da Pesca"
 
 msgid "Lake of Rage, also known as Gyarados Lake."
-msgstr "Lake of Rage, also known as Gyarados Lake."
+msgstr "Lake of Rage, também conhecido como Lago dos Gyarados."
 

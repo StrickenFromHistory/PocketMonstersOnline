@@ -28,4 +28,3 @@ msgstr "Voce quer ir para a cidade Violeta?"
 
 msgid "Battle me first!"
 msgstr "Batalhe comigo primeiro!"
-

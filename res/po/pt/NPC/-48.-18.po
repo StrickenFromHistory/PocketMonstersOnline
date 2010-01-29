@@ -3,11 +3,10 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Give...me...blood..."
-msgstr "Give...me...blood..."
+msgstr "Eu...quero...sangue..."
 
 msgid "Ke...ke...ke...ke...ke...ke!"
-msgstr "Ke...ke...ke...ke...ke...ke!"
+msgstr ""
 
 msgid "Urff...Kwaah!"
-msgstr "Urff...Kwaah!"
-
+msgstr ""

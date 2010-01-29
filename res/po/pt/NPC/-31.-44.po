@@ -13,4 +13,3 @@ msgstr "Eu sempre perco as batalhas, e meu Pokemon acaba desmaiando"
 
 msgid "Maybe that's why my Pokemon don't like me much..."
 msgstr "Talvez seja por isso que meu Pokemon nao gosta muito de mim...."
-

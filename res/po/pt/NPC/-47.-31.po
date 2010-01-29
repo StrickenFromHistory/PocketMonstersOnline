@@ -3,11 +3,10 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Welcome to the PokeCenter. Let me heal your Pokemon for you..."
-msgstr "Welcome to the PokeCenter. Let me heal your Pokemon for you..."
+msgstr "Bem-vindo ao Centro Pokemon. Deixe-me curar seus Pokemons..."
 
 msgid "Please report this bug!"
-msgstr "Please report this bug!"
+msgstr "Por favor reporte esse bug!"
 
 msgid "Welcome to the Pokemon storage system."
-msgstr "Welcome to the Pokemon storage system."
-
+msgstr "Bem vindo ao sistema de armazenamento Pokemon."

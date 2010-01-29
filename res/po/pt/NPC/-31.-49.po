@@ -6,7 +6,8 @@ msgid "Ah. You're on an adventure with your Pokemon? "
 msgstr "Ha. Voce esta em uma aventura com seu Pokemon? "
 
 msgid "It is always good to travel everywhere and to look around everywhere."
-msgstr "E sempre bom viajar por toda parte, e dar uma olhada em todos os lugares."
+msgstr ""
+"E sempre bom viajar por toda parte, e dar uma olhada em todos os lugares."
 
 msgid "History of Ecruteak "
 msgstr "Historia de Ecruteak. "
@@ -34,4 +35,3 @@ msgstr "Mas eles nao conseguiram conter seus poderes excessivos."
 
 msgid "So they say the three ran like the wind off into the grassland."
 msgstr "Dizsem que os tres se correram como o vento e se foram pela grama."
-

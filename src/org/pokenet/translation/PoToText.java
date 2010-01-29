@@ -19,36 +19,31 @@ public class PoToText {
 			List<File> files = FileListing.getFiles("res/po/");
 			HashMap<String,ArrayList<Translation>> fileGroup = new HashMap<String,ArrayList<Translation>>();
 			for(File file : files ){
-				if(file.isFile()){
+				if(file.isFile()&&!file.getAbsolutePath().contains(".svn")){
 					String lang = "";
-					if(file.getAbsolutePath().contains("res/po/en"))
-						lang = "en-US";
-					else if (file.getAbsolutePath().contains("res/txt/es"))
-						lang = "es";
-					else if (file.getAbsolutePath().contains("res/txt/pt"))
-						lang = "pt";
-					else if (file.getAbsolutePath().contains("res/txt/fr"))
-						lang = "fr";
-					else if (file.getAbsolutePath().contains("res/txt/it"))
-						lang = "it";
-					else if (file.getAbsolutePath().contains("res/txt/nl"))
-						lang = "nl";
-					else if (file.getAbsolutePath().contains("res/txt/fi"))
-						lang = "fi";
-					else if (file.getAbsolutePath().contains("res/txt/de"))
-						lang = "de";
+					if(file.getAbsolutePath().contains("res/po/en-US"))
+						lang = "english";
+					else if (file.getAbsolutePath().contains("res/po/es"))
+						lang = "spanish";
+					else if (file.getAbsolutePath().contains("res/po/pt"))
+						lang = "portuguese";
+					else if (file.getAbsolutePath().contains("res/po/fr"))
+						lang = "french";
+					else if (file.getAbsolutePath().contains("res/po/it"))
+						lang = "italian";
+					else if (file.getAbsolutePath().contains("res/po/nl"))
+						lang = "dutch";
+					else if (file.getAbsolutePath().contains("res/po/fi"))
+						lang = "finnish";
+					else if (file.getAbsolutePath().contains("res/po/de"))
+						lang = "german";
 					Translation trans = new Translation(lang);
 					BufferedReader input =  new BufferedReader(new FileReader(file));
 					try {
 						String line = null; //not declared within while loop
-						/*
-						 * readLine is a bit quirky :
-						 * it returns the content of a line MINUS the newline.
-						 * it returns null only for the END of the stream.
-						 * it returns an empty String if two newlines appear in a row.
-						 */
 						while (( line = input.readLine()) != null){
-							trans.addLine(line);
+							if(!line.startsWith("#"))
+								trans.addLine(line);
 						}
 					}finally {
 						input.close();
@@ -75,32 +70,29 @@ public class PoToText {
 				System.out.println("File: "+filename);
 				ArrayList<Translation> translations = fileGroup.get(filename);
 				for(int i = 0;i<translations.size();i++){
-					File folder = new File("res/po/"+translations.get(i).getLanguage());
+					File folder = new File("res/txt/"+translations.get(i).getLanguage());
 					if(!folder.exists())
 						folder.mkdir();
-					folder = new File("res/po/"+translations.get(i).getLanguage()+"/UI");
+					folder = new File("res/txt/"+translations.get(i).getLanguage()+"/UI");
 					if(!folder.exists())
 						folder.mkdir();
-					folder = new File("res/po/"+translations.get(i).getLanguage()+"/NPC");
+					folder = new File("res/txt/"+translations.get(i).getLanguage()+"/NPC");
 					if(!folder.exists())
 						folder.mkdir();
 					File f;
-					if(filename.contains("_BATTLE")||filename.contains("_GUI")||filename.contains("_LOGIN")||filename.contains("_MAP"))
-						f = new File("res/po/"+translations.get(i).getLanguage()+"/UI/"+filename.replace(".txt",".po"));
+					if(filename.contains("_MAPNAMES")||filename.contains("_MUSICKEYS"))
+						f = new File("res/txt/"+translations.get(i).getLanguage()+"/"+filename.replace(".po",".txt"));
+					else if(filename.contains("_BATTLE")||filename.contains("_GUI")||filename.contains("_LOGIN")||filename.contains("_MAP"))
+						f = new File("res/txt/"+translations.get(i).getLanguage()+"/UI/"+filename.replace(".po",".txt"));
 					else
-						f = new File("res/po/"+translations.get(i).getLanguage()+"/NPC/"+filename.replace(".txt",".po"));
+						f = new File("res/txt/"+translations.get(i).getLanguage()+"/NPC/"+filename.replace(".po",".txt"));
 					if(f.exists())
 						f.delete();
 					PrintWriter pw = new PrintWriter(f);
-					pw.println("# Pokenet "+filename);
-					pw.println("# Copyright (C) 2010 PokeDev Developer Group, Inc");
-					pw.println("# Nushio <nushio@pokedev.org>, 2010.");
-					pw.println("# ");
 					for(int j=0;j<translations.get(i).getLines().size();j++){
 						try{
-							pw.println("msgid \""+translations.get(0).getLines().get(j)+"\"");
-							pw.println("msgstr \""+translations.get(i).getLines().get(j)+"\"");
-							pw.println("");
+							if(translations.get(i).getLines().get(j).startsWith("msgstr \""))
+								pw.println(""+translations.get(i).getLines().get(j).replace("msgstr \"","").replace("\"",""));
 						}catch(Exception e){}
 					}
 					pw.flush();

@@ -13,4 +13,3 @@ msgstr "E apenas para treinadores experientes."
 
 msgid "Use it if you dare. Good luck!"
 msgstr "Use-o se tiver coragem. Boa sorte!"
-

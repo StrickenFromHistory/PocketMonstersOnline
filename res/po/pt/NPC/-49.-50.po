@@ -6,7 +6,8 @@ msgid "Hello young trainer. You remind me of my son."
 msgstr "Ola jovem treinador. Voce me faz lembrar o meu filho."
 
 msgid "He was as old as you when he left for his Pokemon journey"
-msgstr "Ele tinha a mesma idade que voce quando partiu para a sua jornada Pokemon"
+msgstr ""
+"Ele tinha a mesma idade que voce quando partiu para a sua jornada Pokemon"
 
 msgid "here in New Bark Town. He became the Johto champion"
 msgstr "aqui na cidade de New Bark. Ele se tornou o campeao Johto"
@@ -18,14 +19,15 @@ msgid "from Pallet Town. He is still the Johto and Kanto champion"
 msgstr "que era da cidade de Pallet. Ele continua sendo o campeao Johto e Kanto"
 
 msgid "to this day. He usually trains somewhere with his Pokemon."
-msgstr "ate hoje. Geralmente treina com seus Pokemons em alguns locais especificos."
+msgstr ""
+"ate hoje. Geralmente treina com seus Pokemons em alguns locais especificos."
 
 msgid "Maybe you can find him and beat him someday."
 msgstr "Talvez um dia voce o encontre e o derrote."
 
 msgid "But until that day you have to start your Pokemon journey"
-msgstr "Mas, ate esse dia chegar, voce ainda precisa comecar a sua jornada Pokemon"
+msgstr ""
+"Mas, ate esse dia chegar, voce ainda precisa comecar a sua jornada Pokemon"
 
 msgid "and train hard with your Pokemon. I wish you good luck!"
 msgstr "e treinar firme com os seus Pokemons. Eu lhe desejo boa sorte!"
-

@@ -3,23 +3,22 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "This is really Mr. Fuji's house. He's really kind."
-msgstr "This is really Mr. Fuji's house. He's really kind."
+msgstr ""
 
 msgid "He looks after abandoned and orphaned Pokemon."
-msgstr "He looks after abandoned and orphaned Pokemon."
+msgstr ""
 
 msgid "It's so warm! Pokemon are nice to hug."
-msgstr "It's so warm! Pokemon are nice to hug."
+msgstr ""
 
 msgid "Mr. Fuji once worked as a scientist in cloning a unique Pokemon."
-msgstr "Mr. Fuji once worked as a scientist in cloning a unique Pokemon."
+msgstr ""
 
 msgid "He regrets it."
-msgstr "He regrets it."
+msgstr ""
 
 msgid "It's a postcard from Blaine to Mr. Fuji."
-msgstr "It's a postcard from Blaine to Mr. Fuji."
+msgstr ""
 
 msgid "Always be kind to all living beings around you."
-msgstr "Always be kind to all living beings around you."
-
+msgstr ""

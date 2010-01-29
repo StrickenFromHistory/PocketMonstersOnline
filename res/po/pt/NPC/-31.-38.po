@@ -7,4 +7,3 @@ msgstr "Fui desafiado para uma batalha no subsolo. "
 
 msgid "It's rough down there. You'd better be careful."
 msgstr "E dureza la embaixo. E melhor voce ter cuidado."
-

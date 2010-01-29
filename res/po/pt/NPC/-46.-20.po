@@ -3,17 +3,16 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Coming up with nicknames is fun, but it's not so easy to do."
-msgstr "Coming up with nicknames is fun, but it's not so easy to do."
+msgstr ""
 
 msgid "Clever names are nice, but simple names are easier to remember."
-msgstr "Clever names are nice, but simple names are easier to remember."
+msgstr ""
 
 msgid "My daddy loves Pokemon, too."
-msgstr "My daddy loves Pokemon, too."
+msgstr ""
 
 msgid "Spearow"
-msgstr "Spearow"
+msgstr ""
 
 msgid "Name: Speary"
-msgstr "Name: Speary"
-
+msgstr ""

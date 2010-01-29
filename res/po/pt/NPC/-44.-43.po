@@ -10,4 +10,3 @@ msgstr "Criancas malcriadas sao levadas para ilhas como castigo!"
 
 msgid "Whenever I get in trouble, Daddy always scares me."
 msgstr "Sempre que estou metido em confusao,papai sempre me assusta."
-

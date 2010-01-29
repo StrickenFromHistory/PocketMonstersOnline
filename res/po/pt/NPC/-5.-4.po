@@ -3,11 +3,10 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "You seem like a worthy opponent!"
-msgstr "You seem like a worthy opponent!"
+msgstr "Voce me parece um oponente digno!"
 
 msgid "Route 38 "
-msgstr "Route 38 "
+msgstr "Rota 38 "
 
 msgid "Olivine City - Ecruteak City"
-msgstr "Olivine City - Ecruteak City"
-
+msgstr "Cidade de Olivia - Cidade de Ecruteak"

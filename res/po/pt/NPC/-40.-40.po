@@ -10,4 +10,3 @@ msgstr "Aqui vai um conselho: Capture o maximo de Pokemons! "
 
 msgid "Treat them all with kindness!"
 msgstr "Trate-os com muito carinho!"
-

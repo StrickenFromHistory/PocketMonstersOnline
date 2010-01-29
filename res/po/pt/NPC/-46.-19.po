@@ -3,92 +3,92 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Okay!"
-msgstr "Okay!"
+msgstr "Tudo bem!"
 
 msgid "Be sure to read what's on the blackboard carefully!"
-msgstr "Be sure to read what's on the blackboard carefully!"
+msgstr "Certifique-se de ler o que esta no quadro-negro com cuidado!"
 
 msgid "Whew! I'm trying to memorize all my notes."
-msgstr "Whew! I'm trying to memorize all my notes."
+msgstr "Ufa! Estou tentando memorizar todas as minhas notas."
 
 msgid "Let's check out the notebook."
-msgstr "Let's check out the notebook."
+msgstr "Vamos verificar o notebook."
 
 msgid "Pokeballs are used to catch Pokemon."
-msgstr "Pokeballs are used to catch Pokemon."
+msgstr "Pokebolas sao utilizadas para capturar Pokemon."
 
 msgid "Up to six Pokemon can be carried in your party."
-msgstr "Up to six Pokemon can be carried in your party."
+msgstr "Ate seis Pokemons podem ser transportados com você."
 
 msgid "People who raise and battle with Pokemon are called Trainers."
-msgstr "People who raise and battle with Pokemon are called Trainers."
+msgstr "Pessoas que capturam e batalham com Pokemons, sao chamadas de treinadores."
 
 msgid "A healthy Pokemon may be hard to catch, so weaken it first."
-msgstr "A healthy Pokemon may be hard to catch, so weaken it first."
+msgstr "Um pokemon saudavel pode ser difícil de capturar,de enfraquece-lo primeiro."
 
 msgid "Poison, burn, or cause another status problem to weaken it."
-msgstr "Poison, burn, or cause another status problem to weaken it."
+msgstr "Envenena-lo,queima-lo,ou causar outro problema de status para enfraquece-lo."
 
 msgid "Pokemon trainers seek others to engage in Pokemon battles."
-msgstr "Pokemon trainers seek others to engage in Pokemon battles."
+msgstr "Treinadores pokemons procuram outros para batalharem."
 
 msgid "To trainers, the taste of victory is sweet, indeed."
-msgstr "To trainers, the taste of victory is sweet, indeed."
+msgstr "Para os treinadores, o sabor da vitoria é doce, de fato."
 
 msgid "Battles are constantly waged everywhere."
-msgstr "Battles are constantly waged everywhere."
+msgstr "Acontecem batalhas em toda parte."
 
 msgid "The ultimate goal for all Pokemon trainers is simple."
-msgstr "The ultimate goal for all Pokemon trainers is simple."
+msgstr "O objetivo final para todo treinador pokemon é simples."
 
 msgid "It is to defeat all gym leaders."
-msgstr "It is to defeat all gym leaders."
+msgstr "É derrotar todos os líderes de ginásios."
 
 msgid "Do so to earn the right to face..."
-msgstr "Do so to earn the right to face..."
+msgstr "Faca isso para ganhar o direito de enfrentar..."
 
 msgid "The top trainers around the world in exciting tournaments!"
-msgstr "The top trainers around the world in exciting tournaments!"
+msgstr "Os melhores treinadores ao redor do mundo em torneio emocionante!"
 
 msgid "Girl: Hey! Don't look at my notes!"
-msgstr "Girl: Hey! Don't look at my notes!"
+msgstr "Garota:Hey!Não olhe minhas notas !"
 
 msgid "The blackboard lists Pokemon status problems during battles."
-msgstr "The blackboard lists Pokemon status problems during battles."
+msgstr "O quadro negro lista os problemas de status do Pokemon durante as batalhas."
 
 msgid "Sleep: A Pokemon can't attack if it's asleep."
-msgstr "Sleep: A Pokemon can't attack if it's asleep."
+msgstr "Sleep: Um Pokemon nao pode atacar, se ele esta dormindo."
 
 msgid "Pokemon will stay asleep even after battles."
-msgstr "Pokemon will stay asleep even after battles."
+msgstr "Pokemon ficara dormindo, mesmo depois das batalhas."
 
 msgid "Use Awakening to awaken one from sleep."
-msgstr "Use Awakening to awaken one from sleep."
+msgstr "Use Awakening para despertar de um sleep."
 
 msgid "Burn: A burn reduces attack power. It also causes ongoing HP loss."
-msgstr "Burn: A burn reduces attack power. It also causes ongoing HP loss."
+msgstr "Burn: A queimadura reduz o poder de ataque. Ela também causa perda de HP enquanto estiver andando."
 
 msgid "A burn remains after a battle. Use Burn Heal to cure a burn."
-msgstr "A burn remains after a battle. Use Burn Heal to cure a burn."
+msgstr "Burn continua depois de uma batalha. Use Burn Heal para curar uma queimadura."
 
 msgid "Poison: When poisoned, a Pokemon's health steadily drops."
-msgstr "Poison: When poisoned, a Pokemon's health steadily drops."
+msgstr "Poison: Quando envenenado, a saude do Pokemon diminue aos poucos."
 
 msgid "Poison lingers after battles. Use an Antidote to cure poison!"
-msgstr "Poison lingers after battles. Use an Antidote to cure poison!"
+msgstr "Poison continua apos as batalhas. Use um Antidote para curar o envenenamento!"
 
 msgid "Freeze: A frozen Pokemon becomes helplessly immobile."
-msgstr "Freeze: A frozen Pokemon becomes helplessly immobile."
+msgstr "Freeze: Um Pokemon frozen se torna impotente, imóvel."
 
 msgid "It stays frozen even after the battle ends."
-msgstr "It stays frozen even after the battle ends."
+msgstr "Ele permanece congelado, mesmo apos o fim da batalha."
 
 msgid "Use Ice Heal to thaw out the suffering Pokemon."
-msgstr "Use Ice Heal to thaw out the suffering Pokemon."
+msgstr "Use Ice Heal thaw para fora o sofrimento Pokemon."
 
 msgid "Paralysis: Paralysis reduces speed and may prevent the Pokemon from moving."
-msgstr "Paralysis: Paralysis reduces speed and may prevent the Pokemon from moving."
+msgstr "Paralysis: Paralisa reduz a velocidade e pode impedir o Pokemon de se mover."
 
 msgid "Paralysis remains after battles. Use Parlyz Heal for treatment."
-msgstr "Paralysis remains after battles. Use Parlyz Heal for treatment."
+msgstr "A Paralysis permanece após as batalhas. Use Parlyz Heal para o tratamento."
 

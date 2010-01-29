@@ -19,4 +19,3 @@ msgstr "Temos registros das vozes de cada Pokemon que ja encontramos. "
 
 msgid "We must have more than 400 kinds."
 msgstr "Devemos ter mais de 400 tipos delas."
-

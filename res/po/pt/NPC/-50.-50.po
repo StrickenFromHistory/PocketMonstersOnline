@@ -48,5 +48,5 @@ msgid "Let me demonstrate what I've learned from my studies."
 msgstr "Permitam-me demonstrar o que eu aprendi com os meus estudos."
 
 msgid "It's a list of winning trainers."
-msgstr "E uma lista de treinadores vencedores. "
+msgstr "E uma lista dos treinadores vencedores."
 

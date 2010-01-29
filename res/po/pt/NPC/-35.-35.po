@@ -12,10 +12,11 @@ msgid "I spent the spring with my Pokemon. "
 msgstr "Passei a primavera com o meu Pokemon. "
 
 msgid "Then summer, fall and winter... "
-msgstr "Entao, verao, outono e inverno ... 	"
+msgstr "Entao, verao, outono e inverno ... \t"
 
 msgid "Then spring came again. We have lived together for a long time."
-msgstr "Entao primavera chegou novamente. Temos vivido juntos durante muito tempo."
+msgstr ""
+"Entao primavera chegou novamente. Temos vivido juntos durante muito tempo."
 
 msgid "I shall win!"
 msgstr "Eu ganharei!"
@@ -30,19 +31,25 @@ msgid "It's said that a rainbow-colored Pokemon will come down "
 msgstr "Dizem que um Pokemon da cor do arco-iris vai descer "
 
 msgid "to appear before a truly powerful trainer. "
-msgstr "e vai aparecer para um treinador verdadeiramente poderoso.	"
+msgstr "e vai aparecer para um treinador verdadeiramente poderoso.\t"
 
 msgid "I believe that tale, so I have secretly trained here all my life. "
-msgstr "Acredito no que falo, por isso eu tenho treinado secretamente aqui toda a minha vida.	"
+msgstr ""
+"Acredito no que falo, por isso eu tenho treinado secretamente aqui toda a "
+"minha vida.\t"
 
 msgid "As a result, I can now see what others cannot. "
 msgstr "Como resultado, eu posso ver agora o que os outros nao podem. "
 
 msgid "Just a bit more... "
-msgstr "Basta um pouco mais ...	"
+msgstr "Basta um pouco mais ...\t"
 
-msgid "With a little more, I could see a future in which I meet the Pokemon of rainbow colors. "
-msgstr "Com um pouco mais, eu poderei ver um futuro no qual conhecerei o Pokemon da cor do arco-iris."
+msgid ""
+"With a little more, I could see a future in which I meet the Pokemon of "
+"rainbow colors. "
+msgstr ""
+"Com um pouco mais, eu poderei ver um futuro no qual conhecerei o Pokemon da "
+"cor do arco-iris."
 
 msgid "You're going to help me reach that level!"
 msgstr "Voce vai me ajudar a alcancar esse nivel!"
@@ -54,5 +61,4 @@ msgid "If you win, they may tell you some deep secrets about Ecruteak."
 msgstr "Se ganhar, eles podem lhe contar alguns segredos sobre Ecruteak."
 
 msgid "It's a list of winning trainers."
-msgstr "E uma lista de treinadores vencedores."
-
+msgstr "E uma lista dos treinadores vencedores."

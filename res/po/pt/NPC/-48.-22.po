@@ -3,8 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Even we couldn't drive those ghost Pokemon out."
-msgstr "Even we couldn't drive those ghost Pokemon out."
+msgstr ""
 
 msgid "But you are able to catch them."
-msgstr "But you are able to catch them."
-
+msgstr ""

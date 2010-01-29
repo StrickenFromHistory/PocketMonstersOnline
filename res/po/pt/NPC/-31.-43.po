@@ -10,4 +10,3 @@ msgstr "Meu marido era conhecido como um pokemaniaco. "
 
 msgid "Bill must have taken after his father."
 msgstr "Bill deve ter ido atras do pai dele."
-

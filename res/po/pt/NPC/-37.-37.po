@@ -4,4 +4,3 @@
 # 
 msgid "Welcome to the Cianwood City pharmacy."
 msgstr "Bem-vindo a farmacia da Cidade de Cianwood."
-

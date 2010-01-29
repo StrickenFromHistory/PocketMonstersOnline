@@ -3,8 +3,8 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Daisy: Just like people, Pokemon are living things."
-msgstr "Daisy: Just like people, Pokemon are living things."
+msgstr ""
 
 msgid "When they get tired, please give them a rest."
-msgstr "When they get tired, please give them a rest."
+msgstr "Quando estiverem cansados, por favor dê a eles um descanso."
 

@@ -3,5 +3,5 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Let me give your Pokemon some food ... There! They're strong again!"
-msgstr "Me deixe dar comida para o seu Pokemon..ae! Eles estao fortes novamente!"
-
+msgstr ""
+"Me deixe dar comida para o seu Pokemon..ae! Eles estao fortes novamente!"

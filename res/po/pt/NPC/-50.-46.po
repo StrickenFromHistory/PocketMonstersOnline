@@ -18,11 +18,12 @@ msgid "Sprout Tower is a place of training. "
 msgstr "A Torre Brotinho e um lugar de treinamento."
 
 msgid "People and Pokemon test their bonds to build a bright future together. "
-msgstr "Pessoas e Pokemon testam suas amizades para construir juntos um futuro brilhante."
+msgstr ""
+"Pessoas e Pokemon testam suas amizades para construir juntos um futuro "
+"brilhante."
 
 msgid "I am the final test. "
 msgstr "Eu sou o teste final."
 
 msgid "Allow me to check the ties between your Pokemon and you!"
 msgstr "Permitam-me verificar os lacos entre o voce e o seu Pokemon!"
-

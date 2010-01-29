@@ -3,20 +3,21 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Please report this bug!"
-msgstr "Please report this bug!"
+msgstr "Por favor reporte esse bug!"
 
 msgid "Pokemon? No, this is a hotel for people. We're full up, unfortunately."
-msgstr "Pokemon? No, this is a hotel for people. We're full up, unfortunately."
+msgstr ""
+"Pokemon? Nao, este e um hotel para pessoas. Nos estamos completamente "
+"lotados, infelizmente."
 
 msgid "Yippee! I'm on vacation! My sis brought me along! Awesome!"
-msgstr "Yippee! I'm on vacation! My sis brought me along! Awesome!"
+msgstr "Oba! Estou de ferias! Minha irma me trouxe junto! Massa!"
 
 msgid "I'm on vacation with my brother and boyfriend."
-msgstr "I'm on vacation with my brother and boyfriend."
+msgstr "Estou de ferias com meu irmao e namorado."
 
 msgid "Celadon is such a pretty city!"
-msgstr "Celadon is such a pretty city!"
+msgstr "Celadon e uma cidade tao bonita!"
 
 msgid "Why? Why did she bring her brother?"
-msgstr "Why? Why did she bring her brother?"
-
+msgstr "Por que? Por que ela trouxe o irmao?"

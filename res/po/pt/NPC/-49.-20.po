@@ -3,11 +3,10 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I concoct a variety of medicine from berry powder."
-msgstr "I concoct a variety of medicine from berry powder."
+msgstr ""
 
 msgid "Using good berry powder, I can make any kind of medicine."
-msgstr "Using good berry powder, I can make any kind of medicine."
+msgstr ""
 
 msgid "Unfortunately you have no berry powder with you."
-msgstr "Unfortunately you have no berry powder with you."
-
+msgstr ""

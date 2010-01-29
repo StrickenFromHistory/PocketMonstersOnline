@@ -7,4 +7,3 @@ msgstr "Estamos muito alto aqui em cima. O meu Pokemon passaro esta em forma."
 
 msgid "How about a battle?"
 msgstr "Que tal uma batalha?"
-

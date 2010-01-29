@@ -10,4 +10,3 @@ msgstr "Eu posso fazer os pokemons esquecerem dos movimentos. "
 
 msgid "Let me finish something else first, OK?"
 msgstr "Deixe me terminar outra coisa primeiro, OK?"
-

@@ -3,11 +3,10 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Be cursed with me! Kwaaah!"
-msgstr "Be cursed with me! Kwaaah!"
+msgstr ""
 
 msgid "Huhuhu... Beat me not!"
-msgstr "Huhuhu... Beat me not!"
+msgstr ""
 
 msgid "Ghost! No! Kwaaah!"
-msgstr "Ghost! No! Kwaaah!"
-
+msgstr ""

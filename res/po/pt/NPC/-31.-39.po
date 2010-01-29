@@ -4,4 +4,3 @@
 # 
 msgid "I'm sorry, but you need a ticket for the train."
 msgstr "Me desculpe, mas voce precisa de um bilhete para pegar o trem."
-

@@ -13,4 +13,3 @@ msgstr "Ninguem vai ficar no meu caminho!"
 
 msgid "Do you care for your Pokemon?"
 msgstr "Voce cuida de seu pokemon?"
-

@@ -19,4 +19,3 @@ msgstr "Vim ate aqui para realizar minha pesquisa pokemon. "
 
 msgid "Let me demonstrate my findings in a real battle!"
 msgstr "Permita-me demonstrar meus resultados em uma verdadeira batalha!"
-

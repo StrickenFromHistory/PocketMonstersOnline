@@ -3,8 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Welcome to the PokeMart."
-msgstr "Bem-vindo a PokeLoja."
+msgstr "Bem vindo a PokeLoja."
 
 msgid "Please report this bug!"
-msgstr "Por favor, comunique este erro!"
-
+msgstr "Por favor reporte esse bug!"

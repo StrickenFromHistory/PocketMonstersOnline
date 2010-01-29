@@ -3,20 +3,20 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Red's House"
-msgstr "Red's House"
+msgstr "Casa de Red"
 
 msgid "Blue's House"
-msgstr "Blue's House"
+msgstr "Casa de Blue"
 
 msgid "Pallet Town - Shades of your journey await!"
-msgstr "Pallet Town - Shades of your journey await!"
+msgstr ""
 
 msgid "Trainer Tips"
-msgstr "Trainer Tips"
+msgstr "Trainer Dicas"
 
 msgid "You need a certain trainer skill level to be able to surf."
-msgstr "You need a certain trainer skill level to be able to surf."
+msgstr ""
 
 msgid "Oak Pokemon research lab"
-msgstr "Oak Pokemon research lab"
+msgstr "Laboratório de pesquisas Pokémon Carvalho"
 

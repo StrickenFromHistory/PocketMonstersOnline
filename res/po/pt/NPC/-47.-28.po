@@ -3,17 +3,17 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Pokemon learn new techniques as they grow."
-msgstr "Pokemon learn new techniques as they grow."
+msgstr "Pokemons aprendem novas tecnicas quando eles crescem."
 
 msgid "But some moves must be taught to them by people."
-msgstr "But some moves must be taught to them by people."
+msgstr "Mas alguns movimentos devem ser ensinados a eles por pessoas."
 
 msgid "A Pokemon becomes easier to catch if it has a status problem."
-msgstr "A Pokemon becomes easier to catch if it has a status problem."
+msgstr "Um pokemon fica mais fácil de capturar se tem algum problema de status."
 
 msgid "Sleep, poison, burn or paralysis... Those are all effective."
-msgstr "Sleep, poison, burn or paralysis... Those are all effective."
+msgstr "Dormindo,envenenado,queimado ou paralisado...Estes são todos os efeitos. "
 
 msgid "But catching Pokemon is never a sure thing!"
-msgstr "But catching Pokemon is never a sure thing!"
+msgstr "Mas capturar Pokemons nunca é certeza!"
 

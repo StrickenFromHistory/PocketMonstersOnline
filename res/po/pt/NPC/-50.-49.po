@@ -6,11 +6,10 @@ msgid "For victory seekers "
 msgstr "Para os que procuram vitorias "
 
 msgid "3F: Battle collection"
-msgstr "3F: Colecao de Batalhas	"
+msgstr "3F: Colecao de Batalhas\t"
 
 msgid "Please report this bug!"
-msgstr "Informe esse erro!	"
+msgstr "Por favor reporte esse bug!"
 
 msgid "Welcome to the PokeMart."
-msgstr "Bem-vindo ao PokeMart."
-
+msgstr "Bem vindo a PokeLoja."

@@ -3,11 +3,32 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Violet City - The city of nostalgic scents"
-msgstr "Violet City: The City of Nostalgic Scents"
+msgstr "Cidade Violeta: A Cidade dos Aromas Nostálgicos"
 
 msgid "Violet City Gym "
-msgstr "Faulker specialises in Flying-type Pokemon."
+msgstr "Ginásio da Cidade Violeta "
 
 msgid "Leader: Falkner "
-msgstr "It'd be best to use a Rock-type Pokemon."
+msgstr "Líder: Falkner "
+
+msgid "The elegant master of flying-Pokemon."
+msgstr "O elegante mestre dos Pokemons voadores."
+
+msgid "Earl's Pokemon Academy"
+msgstr "Academia de Pokemons do Earl"
+
+msgid "Sprout Tower: "
+msgstr "Torre Bellsprout: "
+
+msgid "Experience the way of Pokemon."
+msgstr "Experimente o jeito Pokemon."
+
+msgid "The circle next to items in marts show how much of that item is in stock"
+msgstr "O círculo ao lado dos itens nas lojas indica quantos itens há no estoque"
+
+msgid "If the circle is white, it means they are out of stock"
+msgstr "Se o círculo estiver branco, significa que o item está esgotado"
+
+msgid "Some stores take longer to refill their stock"
+msgstr "Algumas lojas demoram mais para repor o estoque"
 

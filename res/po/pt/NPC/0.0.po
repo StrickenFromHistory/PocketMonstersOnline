@@ -7,4 +7,3 @@ msgstr "Laboratorio do Professor Elm's "
 
 msgid "New Bark Town - Where the winds of new beginnings blow!"
 msgstr "Cidade de New Bark - Onde os ventos de novos comecos sopram!"
-

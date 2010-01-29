@@ -10,4 +10,3 @@ msgstr "Um Pokemon adormecido esta bloqueando o caminho"
 
 msgid "I can't wake it up and it's too heavy to move..."
 msgstr "Eu nao posso acorda-lo, ele e pesado demais para move-lo"
-

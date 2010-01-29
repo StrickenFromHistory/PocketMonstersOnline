@@ -3,5 +3,4 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Underground Path : Celadon City - Lavender Town"
-msgstr "Underground Path : Celadon City - Lavender Town"
-
+msgstr ""

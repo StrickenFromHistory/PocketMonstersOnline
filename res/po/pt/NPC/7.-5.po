@@ -3,32 +3,31 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I just got down from Mt.Moon, but I've still got gas in the tank!"
-msgstr "I just got down from Mt.Moon, but I've still got gas in the tank!"
+msgstr ""
 
 msgid "You're going to see Bill? First, we battle!"
-msgstr "You're going to see Bill? First, we battle!"
+msgstr ""
 
 msgid "Local trainers come here to practice."
-msgstr "Local trainers come here to practice."
+msgstr ""
 
 msgid "Dad took me to a great party on the S.S. Anne at Vermillion City."
-msgstr "Dad took me to a great party on the S.S. Anne at Vermillion City."
+msgstr ""
 
 msgid "Hi! My boyfriend is cool!"
-msgstr "Hi! My boyfriend is cool!"
+msgstr ""
 
 msgid "I'm off to see a Pokemaniac's collection at the cape."
-msgstr "I'm off to see a Pokemaniac's collection at the cape."
+msgstr ""
 
 msgid "I'm a cool guy. I've got a girlfriend!"
-msgstr "I'm a cool guy. I've got a girlfriend!"
+msgstr ""
 
 msgid "I had this feeling... I knew I had to battle you!"
-msgstr "I had this feeling... I knew I had to battle you!"
+msgstr ""
 
 msgid "My friend has many cute Pokemon. I'm so jealous!"
-msgstr "My friend has many cute Pokemon. I'm so jealous!"
+msgstr ""
 
 msgid "Sea cottage - Bill lives here!"
-msgstr "Sea cottage - Bill lives here!"
-
+msgstr ""

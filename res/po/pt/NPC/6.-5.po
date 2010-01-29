@@ -3,23 +3,23 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "People call this the Nugget Bridge!"
-msgstr "People call this the Nugget Bridge!"
+msgstr "Pessoas chamam isso de Ponte Nugget!"
 
 msgid "Many trainers gather here to battle."
-msgstr "Many trainers gather here to battle."
+msgstr "Muitos treinadores se juntam aqui para batalhar."
 
 msgid "Let's get serious!"
-msgstr "Let's get serious!"
+msgstr ""
 
 msgid "I won't go easy on you!"
-msgstr "I won't go easy on you!"
+msgstr "Não vou pegar leve com você!"
 
 msgid "You can't pass this bridge without battling trainers."
-msgstr "You can't pass this bridge without battling trainers."
+msgstr "Você não pode passar por esta ponte sem batalhar com os treinadores."
 
 msgid "I'll stomp you!"
-msgstr "I'll stomp you!"
+msgstr "Eu vou te esmagar!"
 
 msgid "I saw you fighting from the grass!"
-msgstr "I saw you fighting from the grass!"
+msgstr ""
 

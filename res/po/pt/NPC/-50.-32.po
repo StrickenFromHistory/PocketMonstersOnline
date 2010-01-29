@@ -3,11 +3,10 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Some Rocket grunt broke through our wall some years ago."
-msgstr "Some Rocket grunt broke through our wall some years ago."
+msgstr ""
 
 msgid "Since then we have this hole there."
-msgstr "Since then we have this hole there."
+msgstr ""
 
 msgid "We can use this hole in our wall as a shortcut to Route 9."
-msgstr "We can use this hole in our wall as a shortcut to Route 9."
-
+msgstr ""

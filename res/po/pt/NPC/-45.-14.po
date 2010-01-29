@@ -3,26 +3,25 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Pokemon fight! Ready, go!"
-msgstr "Pokemon fight! Ready, go!"
+msgstr ""
 
 msgid "This tunnel goes a long way!"
-msgstr "This tunnel goes a long way!"
+msgstr ""
 
 msgid "Hmm. Maybe I'm lost in here..."
-msgstr "Hmm. Maybe I'm lost in here..."
+msgstr ""
 
 msgid "Outsiders like you need to show me some respect!"
-msgstr "Outsiders like you need to show me some respect!"
+msgstr ""
 
 msgid "Eek! Don't try anything funny in the dark!"
-msgstr "Eek! Don't try anything funny in the dark!"
+msgstr ""
 
 msgid "You have Pokemon! Let's start!"
-msgstr "You have Pokemon! Let's start!"
+msgstr ""
 
 msgid "I came this far looking for wild Pokemon."
-msgstr "I came this far looking for wild Pokemon."
+msgstr "Eu vim de longe em busca de Pokemons selvagems."
 
 msgid "Rock Tunnel: Cerulean City - Lavender Town"
-msgstr "Rock Tunnel: Cerulean City - Lavender Town"
-
+msgstr ""

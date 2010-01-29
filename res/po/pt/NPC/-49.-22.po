@@ -3,8 +3,8 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Sigh... Too much time, too little to do..."
-msgstr "Sigh... Too much time, too little to do..."
+msgstr "Ah... Tanto tempo, tão pouco a se faser..."
 
 msgid "Is nothing entertaining happening anywhere?"
-msgstr "Is nothing entertaining happening anywhere?"
+msgstr "Não há nada de interessante acontecendo em algum lugar?"
 

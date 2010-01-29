@@ -3,41 +3,40 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Underground entrance"
-msgstr "Underground entrance"
+msgstr ""
 
 msgid "Your playground! Goldenrod City Game Corner"
-msgstr "Your playground! Goldenrod City Game Corner"
+msgstr ""
 
 msgid "Goldenrod City - The festive city of opulent charm"
-msgstr "Goldenrod City - The festive city of opulent charm"
+msgstr ""
 
 msgid "The world is a cycle path! Bike Shop"
-msgstr "The world is a cycle path! Bike Shop"
+msgstr ""
 
 msgid "Goldenrod City station"
-msgstr "Goldenrod City station"
+msgstr ""
 
 msgid "Goldenrod City radio tower"
-msgstr "Goldenrod City radio tower"
+msgstr ""
 
 msgid "Blooming beautiful "
-msgstr "Blooming beautiful "
+msgstr ""
 
 msgid "Flower Shop"
-msgstr "Flower Shop"
+msgstr ""
 
 msgid "Goldenrod City Pokemon Gym "
-msgstr "Goldenrod City Pokemon Gym "
+msgstr ""
 
 msgid "Leader: Whitney "
-msgstr "Leader: Whitney "
+msgstr ""
 
 msgid "The incredibly pretty girl!"
-msgstr "The incredibly pretty girl!"
+msgstr ""
 
 msgid "Name rater "
-msgstr "Name rater "
+msgstr ""
 
 msgid "Get your Pokemon nicknames rated"
-msgstr "Get your Pokemon nicknames rated"
-
+msgstr ""

@@ -7,4 +7,3 @@ msgstr "Deixe-me curar seus Pokemons... "
 
 msgid "Now good luck for your journey!"
 msgstr "Agora voce pode continuar com sua jornada! "
-

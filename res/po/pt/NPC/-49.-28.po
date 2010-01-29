@@ -3,56 +3,55 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "It's a list of winning trainers."
-msgstr "It's a list of winning trainers."
+msgstr "E uma lista dos treinadores vencedores."
 
 msgid "I should tell you about this gym. "
-msgstr "I should tell you about this gym. "
+msgstr ""
 
 msgid "Only real ladies are allowed in here!"
-msgstr "Only real ladies are allowed in here!"
+msgstr ""
 
 msgid "Oh, welcome. I was getting bored."
-msgstr "Oh, welcome. I was getting bored."
+msgstr ""
 
 msgid "Look, look! See my Pokemon!"
-msgstr "Look, look! See my Pokemon!"
+msgstr ""
 
 msgid "I like the grass type. I like how they're easy to raise."
-msgstr "I like the grass type. I like how they're easy to raise."
+msgstr ""
 
 msgid "...Weren't you peeking in here earlier?"
-msgstr "...Weren't you peeking in here earlier?"
+msgstr ""
 
 msgid "Welcome to Celadon gym! "
-msgstr "Welcome to Celadon gym! "
+msgstr ""
 
 msgid "You'd better not underestimate the nice ladies here."
-msgstr "You'd better not underestimate the nice ladies here."
+msgstr ""
 
 msgid "Oh, hey! We don't like bug- or fire-type Pokemon in here!"
-msgstr "Oh, hey! We don't like bug- or fire-type Pokemon in here!"
+msgstr ""
 
 msgid "Pleased to meet you. My hobby is Pokemon training."
-msgstr "Pleased to meet you. My hobby is Pokemon training."
+msgstr ""
 
 msgid "Hello... Lovely weather, isn't it? It's so pleasant..."
-msgstr "Hello... Lovely weather, isn't it? It's so pleasant..."
+msgstr ""
 
 msgid "...Oh, dear... I must have dozed off. Welcome."
-msgstr "...Oh, dear... I must have dozed off. Welcome."
+msgstr ""
 
 msgid "My name is Erika. I am the leader of Celadon gym."
-msgstr "My name is Erika. I am the leader of Celadon gym."
+msgstr ""
 
 msgid "I am a student of the art of flower arranging."
-msgstr "I am a student of the art of flower arranging."
+msgstr ""
 
 msgid "My Pokemon are solely of the grass type."
-msgstr "My Pokemon are solely of the grass type."
+msgstr ""
 
 msgid "...Oh, I'm sorry, I had no idea that you wished to challenge me."
-msgstr "...Oh, I'm sorry, I had no idea that you wished to challenge me."
+msgstr ""
 
 msgid "Very well, but I shall not lose."
-msgstr "Very well, but I shall not lose."
-
+msgstr ""

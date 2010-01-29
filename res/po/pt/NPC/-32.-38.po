@@ -7,4 +7,3 @@ msgstr "Ei, voce tem um belo Pokemon! eu ja tive um Shuckle. "
 
 msgid "I caught it in a distant land across the sea."
 msgstr "Capturei ele em uma terra alem-mar ."
-

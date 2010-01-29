@@ -3,23 +3,23 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I just adore my Seel! It's so lovable!"
-msgstr "I just adore my Seel! It's so lovable!"
+msgstr "Eu simplesmente adoro meu Seel! É tão amável!"
 
-msgid "It squeals, "Kyuuuh," when I hug it!"
-msgstr "It squeals, "Kyuuuh," when I hug it!"
+msgid "It squeals, \"Kyuuuh,\" when I hug it!"
+msgstr "Ele grita, \"Kyuuuh,\" quando eu o abraço!"
 
 msgid "Humph! My Pikachu is twice as cute as that one!"
-msgstr "Humph! My Pikachu is twice as cute as that one!"
+msgstr "Hum! Meu Pikachu é duas vezes mais bonito que esse!"
 
 msgid "Our chairman is very vocal about Pokemon."
-msgstr "Our chairman is very vocal about Pokemon."
+msgstr "Nosso presidente é fala muito sobre Pokemon."
 
 msgid "I chair the Pokemon Fan Club!"
-msgstr "I chair the Pokemon Fan Club!"
+msgstr "Sou o presidente do Fã-Clube Pokemon!"
 
 msgid "I raise more than a hundred Pokemon!"
-msgstr "I raise more than a hundred Pokemon!"
+msgstr "Eu cuido de mais de cem Pokemons!"
 
 msgid "I'm very fussy when it comes to Pokemon! I surely am!"
-msgstr "I'm very fussy when it comes to Pokemon! I surely am!"
+msgstr "Eu estou muito exigente quando se trata de pokemons!Eu certamente estou!"
 

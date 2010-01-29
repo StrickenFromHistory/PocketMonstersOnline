@@ -3,53 +3,53 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "It's a list of winning trainers."
-msgstr "It's a list of winning trainers."
+msgstr "E uma lista dos treinadores vencedores."
 
 msgid "Yo! Champ in the making!"
-msgstr "Yo! Champ in the making!"
+msgstr ""
 
 msgid "Lt. Surge has a nickname."
-msgstr "Lt. Surge has a nickname."
+msgstr "Lt.surge tem um apelido."
 
 msgid "People refer to him as the Lightning American!"
-msgstr "People refer to him as the Lightning American!"
+msgstr ""
 
 msgid "He's an expert on electric Pokemon."
-msgstr "He's an expert on electric Pokemon."
+msgstr "Ele é especialista em pokémons elétricos."
 
 msgid "Bird/water-type Pokemon match poorly against the electric type."
-msgstr "Bird/water-type Pokemon match poorly against the electric type."
+msgstr "Voador/agua tipo são fracos contra o tipo elétrico."
 
 msgid "Beware of paralysis, too."
-msgstr "Beware of paralysis, too."
+msgstr ""
 
 msgid "This is no place for kids! Not even if you're good!"
-msgstr "This is no place for kids! Not even if you're good!"
+msgstr "Isto não é lugar para crianças!Nem mesmo se você é bom!"
 
 msgid "I'm a lightweight, but I'm good with electricity!"
-msgstr "I'm a lightweight, but I'm good with electricity!"
+msgstr "Eu sou peso leve, mas sou bom com eletricidade!"
 
 msgid "That's why I joined this gym."
-msgstr "That's why I joined this gym."
+msgstr "Por isso me juntei a esse ginásio."
 
 msgid "When I was in the Army, Lt. Surge was my strict Co."
-msgstr "When I was in the Army, Lt. Surge was my strict Co."
+msgstr ""
 
 msgid "He was a hard taskmaster."
-msgstr "He was a hard taskmaster."
+msgstr ""
 
 msgid "Hey, kid! What do you think you're doing here?"
-msgstr "Hey, kid! What do you think you're doing here?"
+msgstr ""
 
 msgid "You won't live long in combat! Not with your puny power!"
-msgstr "You won't live long in combat! Not with your puny power!"
+msgstr "Você não dura muito num combate! Não com esse pequeno poder!"
 
 msgid "I tell you, kid, electric Pokemon saved me during the war!"
-msgstr "I tell you, kid, electric Pokemon saved me during the war!"
+msgstr "Te digo uma coisa criança, Pokemons elétricos me salvaram durante a guerra!"
 
 msgid "They zapped my enemies into paralysis."
-msgstr "They zapped my enemies into paralysis."
+msgstr ""
 
 msgid "The same as I'll do to you!"
-msgstr "The same as I'll do to you!"
+msgstr "O mesmo que irei fazer com você!"
 

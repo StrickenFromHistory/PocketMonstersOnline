@@ -3,23 +3,23 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Underground Path: Cerulean City - Vermillion City"
-msgstr "Underground Path: Cerulean City - Vermillion City"
+msgstr ""
 
 msgid "There aren't many bugs out here."
-msgstr "There aren't many bugs out here."
+msgstr "Não existem muitos insetos por ái."
 
 msgid "Who's there? Quit listening in on us!"
-msgstr "Who's there? Quit listening in on us!"
+msgstr "Quem está aí? Pare de ficar nos ouvindo!"
 
 msgid "Excuse me! This is a private conversation!"
-msgstr "Excuse me! This is a private conversation!"
+msgstr "Com licença! Isso é uma conversa privada!"
 
 msgid "I've never seen you around. Are you good?"
-msgstr "I've never seen you around. Are you good?"
+msgstr "Eu nunca te vi por aqui, Você é bom?"
 
 msgid "Me? Well, okay. I'll play!"
-msgstr "Me? Well, okay. I'll play!"
+msgstr ""
 
 msgid "Huh? You want to talk to me?"
-msgstr "Huh? You want to talk to me?"
+msgstr "Huh? Você deseja falar comigo?"
 

@@ -3,10 +3,10 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Route 44 "
-msgstr "Rota 44"
+msgstr "Route 44"
 
 msgid "Mahogany Town - Blackthorn City"
-msgstr "Cidade de Mahogany - Cidade de Blackthorn"
+msgstr "Mahagonia City - Ebenholz City"
 
 msgid "Ice Path ahead"
 msgstr "Caminho de gelo em frente"
@@ -46,4 +46,3 @@ msgstr "O que voce vai fazer agora?"
 
 msgid "Do you know about the legendary bird Pokemon?"
 msgstr "Voce sabe sobre o lendario Pokemon passaro?"
-

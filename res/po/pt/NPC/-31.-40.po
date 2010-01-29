@@ -10,4 +10,3 @@ msgstr "Posso avaliar o nome dos seus Pokemons! "
 
 msgid "However, I am busy right now, so please come back later."
 msgstr "Mas estou ocupado agora, entao por favor, volte mais tarde."
-

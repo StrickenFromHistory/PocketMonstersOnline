@@ -3,14 +3,14 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Trainer Tips"
-msgstr "Trainer Tips"
+msgstr "Trainer Dicas"
 
 msgid "Fishing rods can be bought at the Fishing Gurus in every region."
-msgstr "Fishing rods can be bought at the Fishing Gurus in every region."
+msgstr "Varas de pescar podem ser compradas nos Fishing Gurus em todas regiões."
 
 msgid "Pewter City - A stone gray city"
-msgstr "Pewter City - A stone gray city"
+msgstr "Pewter City - A cidade da pedra cinzenta"
 
 msgid "Pewter Museum of Science"
-msgstr "Pewter Museum of Science"
+msgstr "Múseu de Ciência de Pewter"
 

@@ -22,4 +22,3 @@ msgstr "O Pokemon mitico aparece apenas para poucas pessoas. "
 
 msgid "Don't even think of catching it!"
 msgstr "Nem pense em captura-lo!"
-

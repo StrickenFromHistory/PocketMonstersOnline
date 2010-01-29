@@ -3,31 +3,31 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Welcome to the game corner. "
-msgstr "Bem Vindo ao canto de jogo. "
+msgstr "Bienvenue au casino. "
 
 msgid "Do you need game coins? "
-msgstr "Voce precisa de moedas de jogo? "
+msgstr "Você precisa de moedas de jogo?"
 
 msgid "Oh, you don't have a coin case for your coins."
-msgstr "Ah, voce nao tem um porta moedas para suas moedas."
+msgstr "Ah, você não tem um porta moedas para suas moedas."
 
 msgid "Welcome! "
 msgstr "Bem Vindo! "
 
 msgid "We exchange your game coins for fabulous prizes! "
-msgstr "Nos trocamos suas moedas de jogo por premios fabulosos! "
+msgstr "Nós trocamos suas moedas de jogo por premios fabulosos!"
 
 msgid "Oh? You don't have a coin case."
-msgstr "Ah? Voce nao tem um porta moeda."
+msgstr "Ah? Você não tem um porta moeda."
 
 msgid "Please report this bug!"
-msgstr "Por favor informe esse erro!"
+msgstr "Por favor reporte esse erro!"
 
 msgid "I couldn't win at the slots, and I blew it on card flipping... "
-msgstr "Eu n�o pude vencer nos caca niqueis, e eu trapaceei numa virada de carta... "
+msgstr "Eu nao pude vencer nos caca niqueis, e eu trapaceei numa virada de carta... "
 
 msgid "I got so furious, I tossed out my coin case."
-msgstr "Eu fiquei tao furioso que joguei fora meu porta moeda."
+msgstr "Eu fiquei tão furioso que joguei fora meu porta moeda."
 
 msgid "I taught Blizzard to my Pokemon. "
 msgstr "Eu ensinei Blizzard para meu Pokemon. "

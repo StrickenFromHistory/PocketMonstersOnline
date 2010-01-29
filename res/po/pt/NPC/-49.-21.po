@@ -3,8 +3,8 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I like Poliwhirls."
-msgstr "I like Poliwhirls."
+msgstr "Eu gosto de Poliwhirls."
 
 msgid "My husband is a Pokemon collector."
-msgstr "My husband is a Pokemon collector."
+msgstr "Meu marido é um colecionador de Pokemons."
 

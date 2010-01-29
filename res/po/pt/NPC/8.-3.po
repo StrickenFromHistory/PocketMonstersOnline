@@ -6,14 +6,14 @@ msgid "Rock Tunnel"
 msgstr "Rock Tunnel"
 
 msgid "I'm feeling a bit faint. I haven't hiked in some time."
-msgstr "I'm feeling a bit faint. I haven't hiked in some time."
+msgstr "Estou me sentindo um pouco fraco. Eu não subia a algum tempo."
 
 msgid "Ha-hahah-ah-ha!"
 msgstr "Ha-hahah-ah-ha!"
 
 msgid "Ah! This mountain air is delicious!"
-msgstr "Ah! This mountain air is delicious!"
+msgstr "Ah! Este ar da montanha é delicioso!"
 
 msgid "Hi, dude! Want to see my Pokemon?"
-msgstr "Hi, dude! Want to see my Pokemon?"
+msgstr "Oi, cara! Quer ver meu Pokemon?"
 

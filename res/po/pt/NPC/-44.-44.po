@@ -10,4 +10,3 @@ msgstr "Vive aqui mesmo em Blackthorn."
 
 msgid "As a result, there are many legends about dragons in this town."
 msgstr "Por isso, tem muitas lendas sobre dragoes nesta cidade."
-

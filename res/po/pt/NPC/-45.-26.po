@@ -3,8 +3,8 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Well, isn't this a surprise! Diglett dug this long tunnel!"
-msgstr "Well, isn't this a surprise! Diglett dug this long tunnel!"
+msgstr "Bem, isto não é uma surpresa! Diglett cavarao o túnel por muito tempo!"
 
 msgid "It goes right to Pewter City, they tell me."
-msgstr "It goes right to Pewter City, they tell me."
+msgstr "Ele vai direto para Pewter City, eles me disseram."
 

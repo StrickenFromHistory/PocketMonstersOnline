@@ -3,53 +3,53 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "It's a list of winning trainers."
-msgstr "It's a list of winning trainers."
+msgstr "E uma lista dos treinadores vencedores."
 
 msgid "Hiya! Do you want to dream big?"
-msgstr "Hiya! Do you want to dream big?"
+msgstr "Hiya! Você quer sonhar grande?"
 
 msgid "Do you dare to dream of becoming the Pokemon champ?"
-msgstr "Do you dare to dream of becoming the Pokemon champ?"
+msgstr "Você ousa sonhar em ser um Campeão Pokemon?"
 
 msgid "I'm no trainer, but I can advise you on how to win."
-msgstr "I'm no trainer, but I can advise you on how to win."
+msgstr "Não sou treinador, mas posso te dar um conselho de como vencer."
 
 msgid "All right! Let's get happening!"
-msgstr "All right! Let's get happening!"
+msgstr "Tudo certo! Vamos fazer acontecer!"
 
 msgid "The gym leader's Pokemon are very strong, beware!"
-msgstr "The gym leader's Pokemon are very strong, beware!"
+msgstr "Os Pokemons dos líderes de ginásio são bem fortes, cuidado!"
 
 msgid "His lowest Pokemon are level 80!"
-msgstr "His lowest Pokemon are level 80!"
+msgstr "Os mais fracos são level 80!"
 
 msgid "So bring high leveled earth-, water-, grass- or fighting-types!"
-msgstr "So bring high leveled earth-, water-, grass- or fighting-types!"
+msgstr ""
 
 msgid "Stop right there, kid!"
-msgstr "Stop right there, kid!"
+msgstr ""
 
 msgid "You're ten thousand light-years from facing Brock!"
-msgstr "You're ten thousand light-years from facing Brock!"
+msgstr ""
 
 msgid "So, you're here. I'm Brock. I'm Pewter's gym leader."
-msgstr "So, you're here. I'm Brock. I'm Pewter's gym leader."
+msgstr "Então, Você está aqui. Eu sou Brock. Sou o líder do ginásio de Pewter."
 
 msgid "My rock-hard willpower is evident even in my Pokemon."
-msgstr "My rock-hard willpower is evident even in my Pokemon."
+msgstr "Minha força de vontade dura como pedra é evidente até em meus Pokemons."
 
 msgid "My Pokemon are all rock hard, and have true-grit determination."
-msgstr "My Pokemon are all rock hard, and have true-grit determination."
+msgstr ""
 
 msgid "That's right - my Pokemon are all the rock type!"
-msgstr "That's right - my Pokemon are all the rock type!"
+msgstr "Está certo, meus Pokemons são todos do tipo Pedra!"
 
 msgid "Fuhaha! You're going to challenge me knowing that you'll lose?"
-msgstr "Fuhaha! You're going to challenge me knowing that you'll lose?"
+msgstr "Fuhaha! Você irá me desafiar mesmo sabendo que irá perder?"
 
 msgid "That's the trainer's honor that compels you to challenge me."
-msgstr "That's the trainer's honor that compels you to challenge me."
+msgstr ""
 
 msgid "Fine, then! Show me your best!"
-msgstr "Fine, then! Show me your best!"
+msgstr "Ótimo então! Me mostre o seu melhor!"
 

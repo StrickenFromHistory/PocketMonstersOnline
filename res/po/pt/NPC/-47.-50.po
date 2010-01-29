@@ -9,8 +9,7 @@ msgid "2F: Trainer's market"
 msgstr "2F: Mercado dos treinadores"
 
 msgid "Please report this bug!"
-msgstr "Por favor, comunique este erro!"
+msgstr "Por favor reporte esse bug!"
 
 msgid "Welcome to the PokeMart."
-msgstr "Bem-vindo a PokeLoja."
-
+msgstr "Bem vindo a PokeLoja."

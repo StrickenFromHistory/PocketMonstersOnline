@@ -29,3 +29,6 @@ msgstr "Farmacia de Cianwood"
 msgid "Cianwood City Pharmacy"
 msgstr " Aguardamos os seus pedidos"
 
+msgid "We await your medical queries"
+msgstr "Aguardamos suas consultas médicas"
+

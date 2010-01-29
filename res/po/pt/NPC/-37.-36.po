@@ -3,11 +3,10 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Why are you here? Are you just going to gawk? I suggest that you leave!"
-msgstr "Por que voce esta aqui? Vai ficar de boca aberta? Sugiro que saia!	"
+msgstr "Por que voce esta aqui? Vai ficar de boca aberta? Sugiro que saia!\t"
 
 msgid "I travel the world to train my Pokemon. I wish to battle with you."
 msgstr "Eu viajo o mundo para treinar o meu Pokemon. Quero batalhar com voce."
 
 msgid "Sailors are both kind and strong. How about you?"
 msgstr "Marinheiros sao gentis e fortes. e voce ?"
-

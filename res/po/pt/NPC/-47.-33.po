@@ -3,5 +3,4 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "The department store in Celadon has a great selection."
-msgstr "The department store in Celadon has a great selection."
-
+msgstr ""

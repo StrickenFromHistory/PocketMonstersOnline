@@ -3,7 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "It's a list of winning trainers."
-msgstr "E uma lista de treinadores que venceram neste ginasio."
+msgstr "E uma lista dos treinadores vencedores."
 
 msgid "Yo! Champ in making! "
 msgstr "Ola, futuro campeao! "
@@ -52,4 +52,3 @@ msgstr "...Esta bem. Vamos la! "
 
 msgid "As a gym leader, I will use my full power against any opponent!"
 msgstr "Como lider de ginasio, atacarei meu oponente com forca total!"
-

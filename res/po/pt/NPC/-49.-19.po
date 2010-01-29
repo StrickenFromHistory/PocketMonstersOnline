@@ -3,8 +3,8 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Only skilled trainers can collect Pokemon badges."
-msgstr "Only skilled trainers can collect Pokemon badges."
+msgstr "Apenas treinadores abilidosos podem colecionar insígneas Pokemon."
 
 msgid "You need them in order to enter official Pokemon tournaments."
-msgstr "You need them in order to enter official Pokemon tournaments."
+msgstr "Você precisa delas para entrar em campeonatos oficiais Pokemon."
 

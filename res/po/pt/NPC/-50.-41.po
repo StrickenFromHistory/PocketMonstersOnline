@@ -11,9 +11,10 @@ msgstr "Isso e o que faz um verdadeiro treinador."
 msgid "I'm in training. Care for a round?"
 msgstr "Eu estou em treinamento. se importaria em ir passear ?"
 
-msgid "There are two kinds of people. Those who have style, and those who don't."
-msgstr "Existem dois tipos de pessoas. Aqueles que tem estilo, e aqueles que nao tem."
+msgid ""
+"There are two kinds of people. Those who have style, and those who don't."
+msgstr ""
+"Existem dois tipos de pessoas. Aqueles que tem estilo, e aqueles que nao tem."
 
 msgid "What kind of person are you?"
 msgstr "Que tipo de pessoa voce e?"
-

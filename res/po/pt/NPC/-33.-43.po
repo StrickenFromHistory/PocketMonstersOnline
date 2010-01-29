@@ -7,4 +7,3 @@ msgstr "Eu nao vou perder desta vez!"
 
 msgid "Hey! HUGH!"
 msgstr "Ei! HUGH!"
-

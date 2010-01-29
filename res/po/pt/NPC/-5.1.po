@@ -3,32 +3,32 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Day-Care; Let us raise your Pokemon for you!"
-msgstr "Day-Care; Let us raise your Pokemon for you!"
+msgstr "Day-Care; Deixe nos criar seu Pokemon pra você!"
 
 msgid "Route 34 "
-msgstr "Route 34 "
+msgstr "Rota 34"
 
 msgid "Goldenrod City - Azalea Town "
-msgstr "Goldenrod City - Azalea Town "
+msgstr "Cidade de Goldenrod - Cidade de Azalea"
 
 msgid "Ilex Forest somewhere between"
-msgstr "Ilex Forest somewhere between"
+msgstr "Ilex Forest entre em qualquer lugar"
 
 msgid "I caught many Pokemon here! Let's battle!"
-msgstr "I caught many Pokemon here! Let's battle!"
+msgstr "Eu peguei muitos Pokemon aqui! Vamos batalhar!"
 
 msgid "Isn't my Pokemon cute? Let me show you!"
-msgstr "Isn't my Pokemon cute? Let me show you!"
+msgstr "Meu Pokemon nao e atraente? Deixe eu mostrar para voce!"
 
 msgid "I am relaxing here, please go away!"
-msgstr "I am relaxing here, please go away!"
+msgstr "Estou relaxando aqui, por favor, vá embora!"
 
 msgid "I don't have as many Pokemon as my brother. But I have stronger ones!"
-msgstr "I don't have as many Pokemon as my brother. But I have stronger ones!"
+msgstr "Eu nao tenho muitos Pokemons como meu irmao. Mas tenho os mais fortes!"
 
 msgid "Wait! Who's there? Go Growlithe!"
-msgstr "Wait! Who's there? Go Growlithe!"
+msgstr "Aguarde! Quem está aí? Vai Growlithe!"
 
 msgid "This is the way to Goldenrod City. Let's battle before we go there."
-msgstr "This is the way to Goldenrod City. Let's battle before we go there."
+msgstr "Este é o caminho para a Cidade de Goldenrod. Vamos batalha antes de ir para lá."
 

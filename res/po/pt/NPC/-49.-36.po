@@ -13,4 +13,3 @@ msgstr "Voce ja tem uma vara de pesca? "
 
 msgid "Some Pokemon can only be cought with a fishing rod."
 msgstr "Alguns Pokemons so podem ser capturados com uma vara de pesca."
-

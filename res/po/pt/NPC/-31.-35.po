@@ -3,7 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "It's a list of winning trainers."
-msgstr "E uma lista dos treinadores que venceram neste ginasio."
+msgstr "E uma lista dos treinadores vencedores."
 
 msgid "Yo! Champ in making! "
 msgstr "Ola, futuro campeao! "
@@ -24,7 +24,9 @@ msgid "I like you, but I won't hold back!"
 msgstr "Gostei de voce, mas nao vou pegar leve!"
 
 msgid "Don't let my Pokemon's cute looks fool you. They can whip you!"
-msgstr "Nao deixe a aparencia fofa dos meus Pokemon enganar voce. Eles podem ser o seu fim!"
+msgstr ""
+"Nao deixe a aparencia fofa dos meus Pokemon enganar voce. Eles podem ser o "
+"seu fim!"
 
 msgid "I like cute Pokemon better than strong Pokemon. "
 msgstr "Gosto mais de Pokemons belos do que fortes. "
@@ -43,4 +45,3 @@ msgstr "Pokemons sao superfofos! Voce quer uma batalha? "
 
 msgid "I'm warning you--I'm good!"
 msgstr "Estou avisando: eu sou boa!"
-

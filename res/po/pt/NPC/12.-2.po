@@ -3,29 +3,28 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Celadon mansion"
-msgstr "Celadon mansion"
+msgstr ""
 
 msgid "Find what you need at the Celadon dept. store!"
-msgstr "Find what you need at the Celadon dept. store!"
+msgstr ""
 
 msgid "Celadon City - the city of rainbow dreams"
-msgstr "Celadon City - the city of rainbow dreams"
+msgstr ""
 
 msgid "Game Corner - the playground for grown-ups!"
-msgstr "Game Corner - the playground for grown-ups!"
+msgstr ""
 
 msgid "Coins exchanged for prizes! - prize exchange"
-msgstr "Coins exchanged for prizes! - prize exchange"
+msgstr ""
 
 msgid "Trainer Tips"
-msgstr "Trainer Tips"
+msgstr "Trainer Dicas"
 
 msgid "The dept. store sells more items than the normal PokeMart."
-msgstr "The dept. store sells more items than the normal PokeMart."
+msgstr ""
 
 msgid "Celadon City Pokemon gym"
-msgstr "Celadon City Pokemon gym"
+msgstr ""
 
 msgid "Leader: Erika - the nature-loving princess!"
-msgstr "Leader: Erika - the nature-loving princess!"
-
+msgstr ""

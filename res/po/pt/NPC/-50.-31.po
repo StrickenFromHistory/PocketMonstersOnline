@@ -3,5 +3,5 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Mt. Moon - tunnel entrance"
-msgstr "Mt. Moon - tunnel entrance"
+msgstr "Mt. Moon - Entrada do túnel"
 

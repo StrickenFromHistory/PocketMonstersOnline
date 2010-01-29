@@ -3,23 +3,24 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Vermillion City - The port of exquisite sunsets"
-msgstr "Vermillion City - The port of exquisite sunsets"
+msgstr "Cidade de Vermilion - O portal do por-do-sol"
 
 msgid "Pokemon fanclub - All Pokemon fans welcome!"
-msgstr "Pokemon fanclub - All Pokemon fans welcome!"
+msgstr "Pokemon Fanclub - Todos os fas de Pokemon sao bem-vindos!"
 
 msgid "Vermillion City Pokemon gym"
-msgstr "Vermillion City Pokemon gym"
+msgstr "Vermillion City - Ginasio Pokemon"
 
 msgid "Leader: Lt. Surge - The lightning American!"
-msgstr "Leader: Lt. Surge - The lightning American!"
+msgstr "Lider: Lt. Surge - O raio-americano!"
 
 msgid "Vermillion harbor"
-msgstr "Vermillion harbor"
+msgstr "Porto de Vermillion"
 
 msgid "Notice!"
-msgstr "Notice!"
+msgstr "Noticias!"
 
 msgid "Use Diglett's Cave to get back to Pewter City in no time!"
-msgstr "Use Diglett's Cave to get back to Pewter City in no time!"
-
+msgstr ""
+"Nao use a caverna de Diglett's  para voltar para Cidade de Pewter , em nenhum "
+"momento!"

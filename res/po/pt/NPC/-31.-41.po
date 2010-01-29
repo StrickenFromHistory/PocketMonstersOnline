@@ -3,7 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Welcome to the Pokemon storage system."
-msgstr "Bem-vindo ao sistema de armazenamento Pokemon."
+msgstr "Bem vindo ao sistema de armazenamento Pokemon."
 
 msgid "1F: Reception "
 msgstr "1F: Recepcao "
@@ -36,7 +36,7 @@ msgid "Please tune in to our radio shows."
 msgstr "Por favor, sintonize os nossos programas de radio."
 
 msgid "Please report this bug!"
-msgstr "Por favor, comunique este erro!"
+msgstr "Por favor reporte esse bug!"
 
 msgid "I love Mary, from Pokemon Talk. "
 msgstr "Eu amo a Mary, do Bate-papo Pokemon. "
@@ -49,4 +49,3 @@ msgstr "Ben e um DJ fabuloso. "
 
 msgid "His sweet voice makes me melt!"
 msgstr "Sua voz doce me derrete toda!"
-

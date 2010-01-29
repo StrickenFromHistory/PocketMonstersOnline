@@ -3,5 +3,4 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I went inside Rock Tunnel, but it's pitch-black and scary in there."
-msgstr "I went inside Rock Tunnel, but it's pitch-black and scary in there."
-
+msgstr "Entrei no Rock Tunnel, mas e muito escuro e assustador la."

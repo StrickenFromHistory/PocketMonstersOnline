@@ -3,5 +3,4 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I heard a sleepy Pokemon appeared out near Celadon City, too."
-msgstr "I heard a sleepy Pokemon appeared out near Celadon City, too."
-
+msgstr ""

@@ -1,0 +1,87 @@
+# Pokenet _MUSICKEYS.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "New Bark Town:newbark"
+msgstr ""
+
+msgid "Cherrygrove City:cherrygrove"
+msgstr ""
+
+msgid "Violet City:violet"
+msgstr ""
+
+msgid "National Park:nationalpark"
+msgstr ""
+
+msgid "Azalea Town:azalea"
+msgstr ""
+
+msgid "Goldenrod City:goldenrod"
+msgstr ""
+
+msgid "Ecruteak City:ecruteak"
+msgstr ""
+
+msgid "Dark Cave:darkcave"
+msgstr ""
+
+msgid "Sprout Tower:sprouttower"
+msgstr ""
+
+msgid "Olivine City:violet"
+msgstr ""
+
+msgid "Cianwood City:ecruteak"
+msgstr ""
+
+msgid "Mahogany Town:cherrywood"
+msgstr ""
+
+msgid "Blackthorn City:azalea"
+msgstr ""
+
+msgid "Burned Tower:burnedtower"
+msgstr ""
+
+msgid "Tin Tower:tintower"
+msgstr ""
+
+msgid "Olivine Lighthouse:lighthouse"
+msgstr ""
+
+msgid "Dragons Den:dragonsden"
+msgstr ""
+
+msgid "Pokemon Center:pokecenter"
+msgstr ""
+
+msgid "Gym:introandgym"
+msgstr ""
+
+msgid "RoA:ruinsofalph"
+msgstr ""
+
+msgid "Route:route"
+msgstr ""
+
+msgid "Pallet Town:pallet"
+msgstr ""
+
+msgid "Pewter City:pewter"
+msgstr ""
+
+msgid "Viridian City:pewter"
+msgstr ""
+
+msgid "Saffron City:pewter"
+msgstr ""
+
+msgid "Vermillion City:vermillion"
+msgstr ""
+
+msgid "Cerulean City:vermillion"
+msgstr ""
+
+msgid "Lavender Town:lavender"
+msgstr ""

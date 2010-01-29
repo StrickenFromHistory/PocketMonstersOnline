@@ -3,44 +3,43 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "What's a cute, round, and fluffy Pokemon?"
-msgstr "What's a cute, round, and fluffy Pokemon?"
+msgstr ""
 
 msgid "I'm a rambling, gaming dude!"
-msgstr "I'm a rambling, gaming dude!"
+msgstr ""
 
 msgid "You should be informed. You need strategy to win at this!"
-msgstr "You should be informed. You need strategy to win at this!"
+msgstr ""
 
 msgid "I will shock you with my power!"
-msgstr "I will shock you with my power!"
+msgstr ""
 
 msgid "My power is fantastic. Did you know?"
-msgstr "My power is fantastic. Did you know?"
+msgstr ""
 
 msgid "I like Nidoran, so I collect them!"
-msgstr "I like Nidoran, so I collect them!"
+msgstr ""
 
 msgid "School is fun, but so are Pokemon."
-msgstr "School is fun, but so are Pokemon."
+msgstr ""
 
 msgid "Meowth is so cute, meow, meow, meow!"
-msgstr "Meowth is so cute, meow, meow, meow!"
+msgstr ""
 
 msgid "We must look silly standing here like this."
-msgstr "We must look silly standing here like this."
+msgstr ""
 
 msgid "Got a problem, dude?"
-msgstr "Got a problem, dude?"
+msgstr ""
 
 msgid "My bike's motor stopped."
-msgstr "My bike's motor stopped."
+msgstr ""
 
 msgid "All right! Let's play a game!"
-msgstr "All right! Let's play a game!"
+msgstr ""
 
 msgid "You look good at Pokemon, but how is your chemistry grade?"
-msgstr "You look good at Pokemon, but how is your chemistry grade?"
+msgstr ""
 
 msgid "Underground path: Celadon City - Lavender Town"
-msgstr "Underground path: Celadon City - Lavender Town"
-
+msgstr ""

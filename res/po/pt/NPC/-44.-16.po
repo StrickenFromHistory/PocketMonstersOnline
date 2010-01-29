@@ -3,17 +3,16 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "This here is Victory Road. It's the final test for trainers!"
-msgstr "This here is Victory Road. It's the final test for trainers!"
+msgstr ""
 
 msgid "Ah, so you wish to compete in the league?"
-msgstr "Ah, so you wish to compete in the league?"
+msgstr ""
 
 msgid "Come on! I'll whip you!"
-msgstr "Come on! I'll whip you!"
+msgstr ""
 
 msgid "Is Victory Road too tough?"
-msgstr "Is Victory Road too tough?"
+msgstr ""
 
 msgid "If you can get through here, you can compete in the tournament."
-msgstr "If you can get through here, you can compete in the tournament."
-
+msgstr ""

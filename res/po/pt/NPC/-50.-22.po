@@ -3,8 +3,8 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Welcome to the TM store."
-msgstr "Welcome to the TM store."
+msgstr "Bem vindo à loja de TM."
 
 msgid "Please report this bug!"
-msgstr "Please report this bug!"
+msgstr "Por favor reporte esse bug!"
 

@@ -3,5 +3,5 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "People often lose things in the darkness of the underground path."
-msgstr "People often lose things in the darkness of the underground path."
+msgstr "Pessoas frequentemente perdem coisas na escuridão do caminha subterrâneo."
 

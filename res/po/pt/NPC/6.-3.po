@@ -3,5 +3,4 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Underground Path: Cerulean City - Vermillion City"
-msgstr "Underground Path: Cerulean City - Vermillion City"
-
+msgstr ""

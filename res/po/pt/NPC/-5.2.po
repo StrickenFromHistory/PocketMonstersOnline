@@ -3,8 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I lost that Caterpie and it's your fault!"
-msgstr "I lost that Caterpie and it's your fault!"
+msgstr ""
 
 msgid "Ilex Forest shrine... It's in honor of the forest's protector..."
-msgstr "Ilex Forest shrine... It's in honor of the forest's protector..."
-
+msgstr ""

@@ -3,32 +3,31 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Ecruteak City Pokemon Gym "
-msgstr "Ecruteak City Pokemon Gym "
+msgstr ""
 
 msgid "Leader: Morty "
-msgstr "Leader: Morty "
+msgstr ""
 
 msgid "The mystic seer of the future"
-msgstr "The mystic seer of the future"
+msgstr ""
 
 msgid "Ecruteak City - A historical city where the past meets the present"
-msgstr "Ecruteak City - A historical city where the past meets the present"
+msgstr ""
 
 msgid "Ecruteak Dance Theater"
-msgstr "Ecruteak Dance Theater"
+msgstr ""
 
 msgid "Burned Tower "
-msgstr "Burned Tower "
+msgstr ""
 
 msgid "It was destroyed by a mysterious fire. "
-msgstr "It was destroyed by a mysterious fire. "
+msgstr ""
 
 msgid "Please stay away, as it is unsafe."
-msgstr "Please stay away, as it is unsafe."
+msgstr ""
 
 msgid "Tin Tower "
-msgstr "Tin Tower "
+msgstr ""
 
 msgid "A legendary Pokemon is said to roost here."
-msgstr "A legendary Pokemon is said to roost here."
-
+msgstr ""

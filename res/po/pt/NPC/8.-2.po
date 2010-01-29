@@ -3,11 +3,10 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Lavender Volunteer Pokemon House"
-msgstr "Lavender Volunteer Pokemon House"
+msgstr ""
 
 msgid "Lavender Town - the noble purple town"
-msgstr "Lavender Town - the noble purple town"
+msgstr ""
 
 msgid "Pokemon Tower - becalm the spirits of Pokemon"
-msgstr "Pokemon Tower - becalm the spirits of Pokemon"
-
+msgstr ""

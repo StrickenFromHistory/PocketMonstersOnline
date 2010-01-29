@@ -10,4 +10,3 @@ msgstr "Rota 31: Cidade Violeta - Cidade Cherrygrove"
 
 msgid "Dark Cave"
 msgstr "Caverna Escura"
-

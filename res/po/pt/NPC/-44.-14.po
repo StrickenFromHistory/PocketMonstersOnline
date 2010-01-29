@@ -3,71 +3,71 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Hey! You have Pokemon! Come on!"
-msgstr "Hey! You have Pokemon! Come on!"
+msgstr "Ei! Voce tem Pokemons! Aproxime-se!"
 
 msgid "Let's battle 'em!"
-msgstr "Let's battle 'em!"
+msgstr "Vamos batalhar!"
 
 msgid "Yo!"
-msgstr "Yo!"
+msgstr "Nossa!"
 
 msgid "You can't jam out if you're a Pokemon trainer!"
-msgstr "You can't jam out if you're a Pokemon trainer!"
+msgstr "você nao pode dar bobeira se for um treinador Pokemon!"
 
 msgid "I might be little, but I won't like it if you go easy on me!"
-msgstr "I might be little, but I won't like it if you go easy on me!"
+msgstr "Eu poderia ser pouco, mas eu não vou gostar se você vai facil pra mim!"
 
 msgid "Did you know that Pokemon evolve?"
-msgstr "Did you know that Pokemon evolve?"
+msgstr "Você sabia que o Pokemon pode evoluir?"
 
 msgid "Hey! Wait up!"
-msgstr "Hey! Wait up!"
+msgstr "Ei! Espere!"
 
 msgid "What's the hurry? Why the rush?"
-msgstr "What's the hurry? Why the rush?"
+msgstr "Qual e a pressa? Por que a pressa?"
 
 msgid "I came here with some friends to catch us some bug Pokemon!"
-msgstr "I came here with some friends to catch us some bug Pokemon!"
+msgstr "Eu vim aqui com alguns amigos para nos pegar algum Inseto Pokemon!"
 
 msgid "They're all itching to get into some Pokemon battles!"
-msgstr "They're all itching to get into some Pokemon battles!"
+msgstr "Estão todos ansiosos para entrar em algumas batalhas Pokemon!"
 
 msgid "I was throwing PokeBalls to catch Pokemon, and I ran out."
-msgstr "I was throwing PokeBalls to catch Pokemon, and I ran out."
+msgstr "Eu estava jogando Pokebolas para capturar Pokemon, e eu corri para fora."
 
 msgid "That's why you can never have too many PokeBalls."
-msgstr "That's why you can never have too many PokeBalls."
+msgstr "Isso e porque você nunca pode ter Pokebolas demais."
 
 msgid "Trainer Tips"
-msgstr "Trainer Tips"
+msgstr "Trainer Dicas"
 
 msgid "You can cut down little trees with a certain trainer skill level."
-msgstr "You can cut down little trees with a certain trainer skill level."
+msgstr "Voce pode cortar as arvores aos poucos, com um certo nivel de habilidade de treinador."
 
 msgid "If your Pokemon are weak and you want to avoid battles,"
-msgstr "If your Pokemon are weak and you want to avoid battles,"
+msgstr "Se o seus Pokemon sao fracos e voce quiser evitar batalhas,"
 
 msgid "stay away from enemy trainers and grassy areas!"
-msgstr "stay away from enemy trainers and grassy areas!"
+msgstr "fique longe dos treinadores inimigos e das areas gramadas!"
 
 msgid "For poison, use Antidotes! Get it at PokeMarts!"
 msgstr "For poison, use Antidotes! Get it at PokeMarts!"
 
 msgid "Talk to every NPC you see! "
-msgstr "Talk to every NPC you see! "
+msgstr "Converse com todos os NPC`s que voce ve!"
 
 msgid "Some of them might give you special items or even Pokemon!"
-msgstr "Some of them might give you special items or even Pokemon!"
+msgstr "Alguns deles podem lhe dar itens especiais ou o mesmo Pokemon!"
 
 msgid "Some of the major caves have extended areas."
-msgstr "Some of the major caves have extended areas."
+msgstr "Algumas das grandes cavernas tem areas mais extensas."
 
 msgid "Go check them out!"
-msgstr "Go check them out!"
+msgstr "Vai verificar la fora!"
 
 msgid "Leaving Viridian Forest"
-msgstr "Leaving Viridian Forest"
+msgstr "Deixando a floresta de Veridian"
 
 msgid "Pewter City ahead"
-msgstr "Pewter City ahead"
+msgstr "Cidade de Pewter em frente"
 

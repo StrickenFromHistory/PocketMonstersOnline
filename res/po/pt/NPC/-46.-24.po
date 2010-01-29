@@ -3,5 +3,5 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Hey, if you like fishing, you can buy a rod here."
-msgstr "Hey, if you like fishing, you can buy a rod here."
+msgstr "Ei, se você gosta de pescar, pode comprar uma vara aqui."
 

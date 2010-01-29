@@ -46,4 +46,3 @@ msgstr "Vou para la explorar com alguns amigos."
 
 msgid "At night, Staryu gather near the water's surface."
 msgstr "Ao anoitecer, os Staryu se reunem junto da superficie da agua."
-

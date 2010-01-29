@@ -3,38 +3,37 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Excuse me! You looked at me, didn't you?"
-msgstr "Excuse me! You looked at me, didn't you?"
+msgstr ""
 
 msgid "Hey! I saw you in Viridian Forest!"
-msgstr "Hey! I saw you in Viridian Forest!"
+msgstr ""
 
 msgid "Hi! I like shorts!"
-msgstr "Hi! I like shorts!"
+msgstr ""
 
 msgid "They're delightfully comfy and easy to wear!"
-msgstr "They're delightfully comfy and easy to wear!"
+msgstr ""
 
 msgid "Are you a trainer?"
-msgstr "Are you a trainer?"
+msgstr ""
 
 msgid "Let's get with it right away!"
-msgstr "Let's get with it right away!"
+msgstr ""
 
 msgid "Hey! You're not wearing shorts!"
-msgstr "Hey! You're not wearing shorts!"
+msgstr ""
 
 msgid "What's wrong with you?"
-msgstr "What's wrong with you?"
+msgstr ""
 
 msgid "That look you gave me... It's so intriguing!"
-msgstr "That look you gave me... It's so intriguing!"
+msgstr ""
 
 msgid "I'll battle you with the Pokemon I just caught."
-msgstr "I'll battle you with the Pokemon I just caught."
+msgstr ""
 
 msgid "Eek! Did you touch me?"
-msgstr "Eek! Did you touch me?"
+msgstr ""
 
 msgid "Route 3 - Mt. Moon ahead"
-msgstr "Route 3 - Mt. Moon ahead"
-
+msgstr ""

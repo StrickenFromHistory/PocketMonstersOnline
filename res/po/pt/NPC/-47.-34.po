@@ -3,17 +3,17 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "This path leads to Mt. Silver."
-msgstr "This path leads to Mt. Silver."
+msgstr ""
 
 msgid "However, the area is closed right now because of rockfall."
-msgstr "However, the area is closed right now because of rockfall."
+msgstr ""
 
 msgid "It will reopen once the soil is stabilized again."
-msgstr "It will reopen once the soil is stabilized again."
+msgstr ""
 
 msgid "This way leads to Route 23 which leads to Indigo Plateau."
-msgstr "This way leads to Route 23 which leads to Indigo Plateau."
+msgstr ""
 
-msgid "You will face strong trainers and strong wild Pokemon here so be cautious."
-msgstr "You will face strong trainers and strong wild Pokemon here so be cautious."
-
+msgid ""
+"You will face strong trainers and strong wild Pokemon here so be cautious."
+msgstr ""

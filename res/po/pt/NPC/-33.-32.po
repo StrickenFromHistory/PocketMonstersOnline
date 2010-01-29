@@ -13,4 +13,3 @@ msgstr "...suspiro... "
 
 msgid "I wish I was a researcher like him..."
 msgstr "Quem me dera ser um pesquisador como ele..."
-

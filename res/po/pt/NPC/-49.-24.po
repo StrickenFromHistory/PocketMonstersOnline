@@ -3,41 +3,41 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "It's a list of winning trainers."
-msgstr "It's a list of winning trainers."
+msgstr "E uma lista dos treinadores vencedores."
 
 msgid "Yo! Champ in the making!"
-msgstr "Yo! Champ in the making!"
+msgstr ""
 
 msgid "Let me give you some advice!"
-msgstr "Let me give you some advice!"
+msgstr "Deixe me te dar algums avisos!"
 
 msgid "The leader, Misty, is a pro who uses water-type Pokemon."
-msgstr "The leader, Misty, is a pro who uses water-type Pokemon."
+msgstr "A líder, Misty, é uma profissional que usa Pokemons do tip água."
 
 msgid "You can drain all their water with grass-type Pokemon."
-msgstr "You can drain all their water with grass-type Pokemon."
+msgstr "Você pode drenar toda sua água com um Pokemon do tipo Planta."
 
 msgid "Or, you might use electric-type Pokemon and zap them!"
-msgstr "Or, you might use electric-type Pokemon and zap them!"
+msgstr "Ou, você pode usar um Pokemon tipo elétrico e acerta los!"
 
 msgid "Splash! I'm first up! Let's do it!"
-msgstr "Splash! I'm first up! Let's do it!"
+msgstr ""
 
 msgid "What? You? I'm more than good enough for you!"
-msgstr "What? You? I'm more than good enough for you!"
+msgstr ""
 
 msgid "Misty won't have to be bothered."
-msgstr "Misty won't have to be bothered."
+msgstr "Misty não precisa ser incomodada."
 
 msgid "Hi, you're a new face!"
-msgstr "Hi, you're a new face!"
+msgstr "Oi, você é novo no pedaço!"
 
 msgid "Only those trainers who have a policy about Pokemon can turn pro."
-msgstr "Only those trainers who have a policy about Pokemon can turn pro."
+msgstr ""
 
 msgid "What is your approach when you catch and train Pokemon?"
-msgstr "What is your approach when you catch and train Pokemon?"
+msgstr ""
 
 msgid "My policy is an all-out offensive with water-type Pokemon!"
-msgstr "My policy is an all-out offensive with water-type Pokemon!"
+msgstr ""
 

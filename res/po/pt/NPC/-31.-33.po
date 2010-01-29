@@ -6,5 +6,4 @@ msgid "Welcome to Goldenrod department store."
 msgstr "Bem-vindo a loja de departamentos de Quinhao Dourado."
 
 msgid "Please report this bug!"
-msgstr "Por favor, comunique este erro!"
-
+msgstr "Por favor reporte esse bug!"

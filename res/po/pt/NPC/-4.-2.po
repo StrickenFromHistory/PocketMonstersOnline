@@ -3,5 +3,4 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "You seem like a worthy opponent!"
-msgstr "You seem like a worthy opponent!"
-
+msgstr "Voce me parece um oponente digno!"

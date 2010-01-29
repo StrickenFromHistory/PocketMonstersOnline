@@ -3,11 +3,10 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "... "
-msgstr "... 	"
+msgstr "... \t"
 
 msgid "This guy seems to be meditating. "
 msgstr "Este cara parece estar meditando."
 
 msgid "I better don't disturb him."
 msgstr "E melhor eu nao perturbar ele."
-

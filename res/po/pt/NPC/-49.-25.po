@@ -3,17 +3,17 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I've lost all my money at the slot machine."
-msgstr "I've lost all my money at the slot machine."
+msgstr "Perdi todo o meu dinheiro na maquina caça-níqueis ."
 
 msgid "Psst! There is a secret in Johto's Dragon's Den, I hear."
-msgstr "Psst! There is a secret in Johto's Dragon's Den, I hear."
+msgstr "Psst!Há um segredo em dragon's den em johto,eu ouço."
 
 msgid "Munch... The man at that table lost it all at the slots."
-msgstr "Munch... The man at that table lost it all at the slots."
+msgstr ""
 
 msgid "Please report this bug!"
-msgstr "Please report this bug!"
+msgstr "Por favor reporte esse bug!"
 
 msgid "Hi! Sorry, but we're taking a break right now."
-msgstr "Hi! Sorry, but we're taking a break right now."
+msgstr "Oi! Desculpe, mas nós estamos dando um tempo agora."
 

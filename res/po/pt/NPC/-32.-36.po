@@ -6,5 +6,6 @@ msgid "Hello. Oh? You want a snapshot of you and a Pokemon? "
 msgstr "Ola? Voce quer tirar uma foto sua com um Pokemon?"
 
 msgid "I am sorry, but my equipment is being repaired. Please come back later."
-msgstr "Lamento, mas meu equipamento esta sendo consertado. Por favor volte mais tarde."
-
+msgstr ""
+"Lamento, mas meu equipamento esta sendo consertado. Por favor volte mais "
+"tarde."

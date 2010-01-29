@@ -3,7 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "It's a list of winning trainers."
-msgstr "E uma lista de treinadores que venceram neste ginasio."
+msgstr "E uma lista dos treinadores vencedores."
 
 msgid "Jasmine uses the steel-type. "
 msgstr "Jasmine usa o tipo metalico. "
@@ -21,8 +21,8 @@ msgid "...Do you know about the steel-type? "
 msgstr "...Voce conhece o tipo metalico? "
 
 msgid "It has been discovered with the dark type after the other 15 types. "
-msgstr "Ele foi descoberto com o tipo noturno depois dos outros 15 ja existentes. "
+msgstr ""
+"Ele foi descoberto com o tipo noturno depois dos outros 15 ja existentes. "
 
 msgid "...Um... May I begin?"
 msgstr "...Hum... Posso comecar?"
-

@@ -3,5 +3,5 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "There are only ghost Pokemon in the tower. Not real ghosts."
-msgstr "There are only ghost Pokemon in the tower. Not real ghosts."
-
+msgstr ""
+"Existem apenas Pokemons fantasmas na torre. Nada de fantasmas de verdade."

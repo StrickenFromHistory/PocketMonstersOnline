@@ -3,32 +3,32 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "What? I'm waiting for my friends to find me here."
-msgstr "What? I'm waiting for my friends to find me here."
+msgstr ""
 
 msgid "I want to battle. What about you?"
-msgstr "I want to battle. What about you?"
+msgstr ""
 
 msgid "What! Don't sneak up on me!"
-msgstr "What! Don't sneak up on me!"
+msgstr ""
 
 msgid "You need to go through this cave to get to "
-msgstr "You need to go through this cave to get to "
+msgstr ""
 
 msgid "Cerulean City."
-msgstr "Cerulean City."
+msgstr ""
 
 msgid "Wow! It's way bigger in here than I thought!"
-msgstr "Wow! It's way bigger in here than I thought!"
+msgstr ""
 
 msgid "Did you come to explore the cave, too?"
-msgstr "Did you come to explore the cave, too?"
+msgstr "Você veio explorar a caverna também?"
 
 msgid "Whoa! You shocked me! "
-msgstr "Whoa! You shocked me! "
+msgstr "Whoa! Você me assustou! "
 
 msgid "...Oh, you're just a trainer!"
-msgstr "...Oh, you're just a trainer!"
+msgstr "...Oh, você é só um treinador!"
 
 msgid "Beware! Zubat is a bloodsucker!"
-msgstr "Beware! Zubat is a bloodsucker!"
+msgstr "Cuidado! Zubat é um sugador de sangue!"
 

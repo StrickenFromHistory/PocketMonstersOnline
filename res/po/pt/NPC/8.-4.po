@@ -3,20 +3,20 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Rock Tunnel - Detour to Lavender Town"
-msgstr "Rock Tunnel - Detour to Lavender Town"
+msgstr "Rock Tunnel - Desvio para Lavender Town"
 
 msgid "I've been out at a Pokemon gym a few times."
-msgstr "I've been out at a Pokemon gym a few times."
+msgstr "Estive fora em um Ginásio Pokemon algumas vezes."
 
 msgid "...But I always lose."
-msgstr "...But I always lose."
+msgstr ""
 
 msgid "Power Plant"
-msgstr "Power Plant"
+msgstr ""
 
 msgid "Wow, you came all the way here? Maybe you're a Pokemaniac, too?"
-msgstr "Wow, you came all the way here? Maybe you're a Pokemaniac, too?"
+msgstr "Nossa, você veio todo esse caminho até aqui? Talvez você seja um Pokemaníaco também?"
 
 msgid "Want to see my collection?"
-msgstr "Want to see my collection?"
+msgstr "Gostaria de ver minha coleçao?"
 

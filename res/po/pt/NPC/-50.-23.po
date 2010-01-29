@@ -3,8 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Welcome to the general store."
-msgstr "Welcome to the general store."
+msgstr ""
 
 msgid "Please report this bug!"
-msgstr "Please report this bug!"
-
+msgstr "Por favor reporte esse bug!"

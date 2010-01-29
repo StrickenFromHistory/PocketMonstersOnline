@@ -3,20 +3,20 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I heard rumors of child prodigy."
-msgstr "I heard rumors of child prodigy."
+msgstr "Eu ouvi rumores de criança prodígio."
 
 msgid "Trainers live to seek stronger opponents."
-msgstr "Trainers live to seek stronger opponents."
+msgstr "Treinadores vivem a procura de oponentes mais fortes."
 
 msgid "I am destined for greatness!"
-msgstr "I am destined for greatness!"
+msgstr "Estou destinado a ser grande!"
 
 msgid "I am trying to become champion."
-msgstr "I am trying to become champion."
+msgstr "Eu estou tentando virar campeao."
 
 msgid "I'll show you just how good you are. Not!"
-msgstr "I'll show you just how good you are. Not!"
+msgstr "Vou lhe mostrar o quao bom voce e. Ate parece!"
 
 msgid "Only the chosen can pass here!"
-msgstr "Only the chosen can pass here!"
+msgstr "Somente os escolhidos podem passar aqui!"
 

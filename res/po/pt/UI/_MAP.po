@@ -1,0 +1,279 @@
+# Pokenet _MAP.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "*Name, width, height, x (multiples of 8), y (multiples of 8)"
+msgstr ""
+
+msgid "*Johto and Kanto Routes"
+msgstr ""
+
+msgid "Route 1,8,64,42,13"
+msgstr ""
+
+msgid "Route 2,8,24,42,9"
+msgstr ""
+
+msgid "Route 3,40,8,43,8"
+msgstr ""
+
+msgid "Route 4,72,8,47,7"
+msgstr ""
+
+msgid "Route 5,8,48,56,8"
+msgstr ""
+
+msgid "Route 6,8,16,55,16"
+msgstr ""
+
+msgid "Route 7,16,8,53,14"
+msgstr ""
+
+msgid "Route 8,40,8,57,14"
+msgstr ""
+
+msgid "Route 9,40,8,57,7"
+msgstr ""
+
+msgid "Route 10,8,56,62,7"
+msgstr ""
+
+msgid "Route 11,48,8,56,18"
+msgstr ""
+
+msgid "Route 12,8,72,62,15"
+msgstr ""
+
+msgid "Route 13,32,8,58,23"
+msgstr ""
+
+msgid "Route 14,8,24,57,23"
+msgstr ""
+
+msgid "Route 15,24,8,54,25"
+msgstr ""
+
+msgid "Route 16,32,8,47,14"
+msgstr ""
+
+msgid "Route 17,8,80,47,15"
+msgstr ""
+
+msgid "Route 18,48,8,47,25"
+msgstr ""
+
+msgid "Route 19,8,24,53,26"
+msgstr ""
+
+msgid "Route 20,80,8,43,28"
+msgstr ""
+
+msgid "Route 21,8,48,42,22"
+msgstr ""
+
+msgid "Route 22,32,8,38,12"
+msgstr ""
+
+msgid "Route 23,8,32,38,8"
+msgstr ""
+
+msgid "Route 24,8,24,56,4"
+msgstr ""
+
+msgid "Route 25,32,8,57,4"
+msgstr ""
+
+msgid "Route 26,8,72,38,13"
+msgstr ""
+
+msgid "Route 27,56,8,31,21"
+msgstr ""
+
+msgid "Route 28,40,8,33,12"
+msgstr ""
+
+msgid "Route 29,64,8,23,21"
+msgstr ""
+
+msgid "Route 30,8,72,22,12"
+msgstr ""
+
+msgid "Route 31,24,8,20,11"
+msgstr ""
+
+msgid "Route 32,8,104,19,12"
+msgstr ""
+
+msgid "Route 33,16,8,17,25"
+msgstr ""
+
+msgid "Route 34,8,56,13,17"
+msgstr ""
+
+msgid "Route 35,8,24,13,12"
+msgstr ""
+
+msgid "Route 36,40,8,14,11"
+msgstr ""
+
+msgid "Route 37,8,40,15,6"
+msgstr ""
+
+msgid "Route 38,32,8,11,5"
+msgstr ""
+
+msgid "Route 39,8,40,10,5"
+msgstr ""
+
+msgid "Route 40,8,40,8,11"
+msgstr ""
+
+msgid "Route 41,8,32,8,17"
+msgstr ""
+
+msgid "Route 42,56,8,16,5"
+msgstr ""
+
+msgid "Route 43,8,24,23,2"
+msgstr ""
+
+msgid "Route 44,24,8,24,5"
+msgstr ""
+
+msgid "Route 45,8,72,27,6"
+msgstr ""
+
+msgid "Route 46,8,56,26,14"
+msgstr ""
+
+msgid "*Johto and Kanto Places of Interest"
+msgstr ""
+
+msgid "Whirl Islands,8,8,8,16"
+msgstr ""
+
+msgid "Lake of Rage,16,16,23,1"
+msgstr ""
+
+msgid "Ice Path,8,8,26,5"
+msgstr ""
+
+msgid "Union Cave,8,8,19,25"
+msgstr ""
+
+msgid "Ruins of Alph,8,8,18,14"
+msgstr ""
+
+msgid "Mt. Mortar,8,8,19,5"
+msgstr ""
+
+msgid "Illex Forest,8,8,13,24"
+msgstr ""
+
+msgid "Dark Cave,8,8,24,8"
+msgstr ""
+
+msgid "Dragon's Den,8,8,27,4"
+msgstr ""
+
+msgid "National Park,8,8,13,11"
+msgstr ""
+
+msgid "Tohjo Falls,8,8,35,21"
+msgstr ""
+
+msgid "Mt. Silver,8,8,33,12"
+msgstr ""
+
+msgid "Viridan Forest,8,8,42,10"
+msgstr ""
+
+msgid "Diglett's Cave,8,8,43,10"
+msgstr ""
+
+msgid "Mt. Moon,8,8,47,7"
+msgstr ""
+
+msgid "Rock Tunnel,8,8,62,7"
+msgstr ""
+
+msgid "Power Plant,8,8,63,12"
+msgstr ""
+
+msgid "Diglett's Cave,8,8,56,18"
+msgstr ""
+
+msgid "Safari Zone,8,8,53,24"
+msgstr ""
+
+msgid "Seafoam Islands,8,8,48,28"
+msgstr ""
+
+msgid "Victory Road,8,8,38,8"
+msgstr ""
+
+msgid "*Johto and Kanto Cities"
+msgstr ""
+
+msgid "New Bark Town,8,8,31,21"
+msgstr ""
+
+msgid "Cherrygrove City,8,8,22,21"
+msgstr ""
+
+msgid "Violet City,8,8,19,11"
+msgstr ""
+
+msgid "Azalea Town,8,8,16,25"
+msgstr ""
+
+msgid "Goldenrod City,8,16,13,15"
+msgstr ""
+
+msgid "Ecruteak City,8,8,15,5"
+msgstr ""
+
+msgid "Olivine City,8,8,10,10"
+msgstr ""
+
+msgid "Cianwood City,8,8,5,19"
+msgstr ""
+
+msgid "Mahogany Town,8,8,23,5"
+msgstr ""
+
+msgid "Blackthorn City,8,8,27,5"
+msgstr ""
+
+msgid "Pallet Town,8,8,42,21"
+msgstr ""
+
+msgid "Viridian City,8,8,42,12"
+msgstr ""
+
+msgid "Pewter City,8,8,42,8"
+msgstr ""
+
+msgid "Cerulean City,8,8,56,7"
+msgstr ""
+
+msgid "Vermilion City,8,16,55,18"
+msgstr ""
+
+msgid "Lavender Town,8,8,62,14"
+msgstr ""
+
+msgid "Celadon City,16,8,51,14"
+msgstr ""
+
+msgid "Saffron City,16,16,55,14"
+msgstr ""
+
+msgid "Fuchsia City,8,8,53,25"
+msgstr ""
+
+msgid "Cinnabar Island,8,8,42,28"
+msgstr ""
+
+msgid "Indigo Plateau,8,8,38,7"
+msgstr ""

@@ -3,8 +3,8 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Hi, I am looking for a Krabby. But I have no luck finding one. "
-msgstr "Ola, Eu estou procurando um Krabby. Mas eu nao tenho sorte pra achar um. "
+msgstr ""
+"Ola, Eu estou procurando um Krabby. Mas eu nao tenho sorte pra achar um. "
 
 msgid "I always catch Magikarps."
 msgstr "Eu sempre pego Magikarps."
-

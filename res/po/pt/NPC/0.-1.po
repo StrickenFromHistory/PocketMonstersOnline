@@ -6,7 +6,7 @@ msgid "Route 45 "
 msgstr "Rota 45"
 
 msgid "Mountain RD. ahead"
-msgstr "Montanha RD. em frente  "
+msgstr "Montanha RD. em frente"
 
 msgid "Be prepared for anything! "
 msgstr "Esteja preparado para tudo!"
@@ -52,4 +52,3 @@ msgstr "Quando se trata de mera coragem, eu sou o cara!"
 
 msgid "I'm really, really tough!"
 msgstr "Eu sou durao, muito durao!"
-

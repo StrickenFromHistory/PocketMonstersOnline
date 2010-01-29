@@ -1,0 +1,393 @@
+# Pokenet _MAPNAMES.txt
+# Copyright (C) 2010 PokeDev Developer Group, Inc
+# Nushio <nushio@pokedev.org>, 2010.
+# 
+msgid "12,-2,Celadon City"
+msgstr ""
+
+msgid "8,0,Route 12"
+msgstr ""
+
+msgid "8,-2,Lavender Town"
+msgstr ""
+
+msgid "8,-3,Route 10"
+msgstr ""
+
+msgid "8,-4,Route 10"
+msgstr ""
+
+msgid "7,0,Route 11"
+msgstr ""
+
+msgid "7,-2,Route 8"
+msgstr ""
+
+msgid "7,-4,Route 9"
+msgstr ""
+
+msgid "7,-5,Route 25"
+msgstr ""
+
+msgid "6,0,Vermillion City"
+msgstr ""
+
+msgid "6,-1,Route 6"
+msgstr ""
+
+msgid "6,-2,Saffron City"
+msgstr ""
+
+msgid "6,-3,Route 5"
+msgstr ""
+
+msgid "6,-4,Cerulean City"
+msgstr ""
+
+msgid "6,-5,Route 24"
+msgstr ""
+
+msgid "5,-2,Route 7"
+msgstr ""
+
+msgid "5,-4,Route 4"
+msgstr ""
+
+msgid "4,-3,Route 3"
+msgstr ""
+
+msgid "3,2,Route 21"
+msgstr ""
+
+msgid "3,1,Pallet Town"
+msgstr ""
+
+msgid "3,0,Route 1"
+msgstr ""
+
+msgid "3,-1,Viridian City"
+msgstr ""
+
+msgid "3,-2,Route 2"
+msgstr ""
+
+msgid "3,-3,Pewter City"
+msgstr ""
+
+msgid "2,0,Route 26"
+msgstr ""
+
+msgid "2,-1,Route 22"
+msgstr ""
+
+msgid "2,-2,Route 23"
+msgstr ""
+
+msgid "2,-3,Indigo Plateau"
+msgstr ""
+
+msgid "1,0,Route 27"
+msgstr ""
+
+msgid "0,0,New Bark Town"
+msgstr ""
+
+msgid "0,-1,Route 45"
+msgstr ""
+
+msgid "0,-2,Blackthorn City"
+msgstr ""
+
+msgid "-1,0,Route 29"
+msgstr ""
+
+msgid "-1,-1,Route 46"
+msgstr ""
+
+msgid "-1,-4,Route 44"
+msgstr ""
+
+msgid "-2,0,Cherrygrove City"
+msgstr ""
+
+msgid "-2,-1,Route 30"
+msgstr ""
+
+msgid "-2,-2,Route 31"
+msgstr ""
+
+msgid "-2,-4,Mahogany Town"
+msgstr ""
+
+msgid "-2,-5,Route 43"
+msgstr ""
+
+msgid "-2,-6,Lake of Rage"
+msgstr ""
+
+msgid "-3,2,Route 33"
+msgstr ""
+
+msgid "-3,-1,Route 32"
+msgstr ""
+
+msgid "-3,-2,Violet City"
+msgstr ""
+
+msgid "-3,-4,Route 42"
+msgstr ""
+
+msgid "-4,2,Azalea Town"
+msgstr ""
+
+msgid "-4,-1,Ruins of Alph"
+msgstr ""
+
+msgid "-4,-2,Route 36"
+msgstr ""
+
+msgid "-4,-3,Route 37"
+msgstr ""
+
+msgid "-4,-4,Ecruteak City"
+msgstr ""
+
+msgid "-5,2,Ilex Forest"
+msgstr ""
+
+msgid "-5,1,Route 34"
+msgstr ""
+
+msgid "-5,0,Goldenrod City"
+msgstr ""
+
+msgid "-5,-1,Route 35"
+msgstr ""
+
+msgid "-5,-2,National Park"
+msgstr ""
+
+msgid "-5,-4,Route 38"
+msgstr ""
+
+msgid "-6,-3,Olivine City"
+msgstr ""
+
+msgid "-6,-4,Route 39"
+msgstr ""
+
+msgid "-7,-2,Route 41"
+msgstr ""
+
+msgid "-7,-3,Route 40"
+msgstr ""
+
+msgid "-8,-2,Cianwood City"
+msgstr ""
+
+msgid "-50,-42,Dark Cave"
+msgstr ""
+
+msgid "-50,-43,Dark Cave"
+msgstr ""
+
+msgid "-50,-44,Sprout Tower"
+msgstr ""
+
+msgid "-50,-45,Sprout Tower"
+msgstr ""
+
+msgid "-50,-46,Sprout Tower"
+msgstr ""
+
+msgid "-34,-33,Olivine Lighthouse"
+msgstr ""
+
+msgid "-35,-34,Olivine Lighthouse"
+msgstr ""
+
+msgid "-36,-35,Olivine Lighthouse"
+msgstr ""
+
+msgid "-37,-36,Olivine Lighthouse"
+msgstr ""
+
+msgid "-38,-37,Olivine Lighthouse"
+msgstr ""
+
+msgid "-39,-38,Olivine Lighthouse"
+msgstr ""
+
+msgid "-33,-35,Dragons Den"
+msgstr ""
+
+msgid "-33,-39,Tin Tower"
+msgstr ""
+
+msgid "-42,-42,Burned Tower"
+msgstr ""
+
+msgid "-43,-43,Burned Tower"
+msgstr ""
+
+msgid "-32,-33,Pokemon Center"
+msgstr ""
+
+msgid "-32,-34,Pokemon Center"
+msgstr ""
+
+msgid "-32,-40,Pokemon Center"
+msgstr ""
+
+msgid "-33,-34,Pokemon Center"
+msgstr ""
+
+msgid "-33,-38,Pokemon Center"
+msgstr ""
+
+msgid "-45,-31,Pokemon Center"
+msgstr ""
+
+msgid "-46,-30,Pokemon Center"
+msgstr ""
+
+msgid "-46,-31,Pokemon Center"
+msgstr ""
+
+msgid "-47,-31,Pokemon Center"
+msgstr ""
+
+msgid "-48,-30,Pokemon Center"
+msgstr ""
+
+msgid "-48,-31,Pokemon Center"
+msgstr ""
+
+msgid "-49,-29,Pokemon Center"
+msgstr ""
+
+msgid "-49,-35,Pokemon Center"
+msgstr ""
+
+msgid "-49,-38,Pokemon Center"
+msgstr ""
+
+msgid "-49,-41,Pokemon Center"
+msgstr ""
+
+msgid "-49,-44,Pokemon Center"
+msgstr ""
+
+msgid "-49,-46,Pokemon Center"
+msgstr ""
+
+msgid "-50,-29,Pokemon Center"
+msgstr ""
+
+msgid "-31,-35,Gym"
+msgstr ""
+
+msgid "-32,-43,Gym"
+msgstr ""
+
+msgid "-35,-35,Gym"
+msgstr ""
+
+msgid "-38,-38,Gym"
+msgstr ""
+
+msgid "-45,-45,Gym"
+msgstr ""
+
+msgid "-46,-46,Gym"
+msgstr ""
+
+msgid "-47,-25,Gym"
+msgstr ""
+
+msgid "-48,-22,Gym"
+msgstr ""
+
+msgid "-49,-24,Gym"
+msgstr ""
+
+msgid "-49,-28,Gym"
+msgstr ""
+
+msgid "-49,-37,Gym"
+msgstr ""
+
+msgid "-49,-42,Gym"
+msgstr ""
+
+msgid "-50,-50,Gym"
+msgstr ""
+
+msgid "-36,-49,RoA"
+msgstr ""
+
+msgid "-44,-14,Viridian Forest"
+msgstr ""
+
+msgid "-44,-17,Victory Road"
+msgstr ""
+
+msgid "-44,-16,Victory Road"
+msgstr ""
+
+msgid "-44,-15,Victory Road"
+msgstr ""
+
+msgid "-45,-13,Rock Tunnel"
+msgstr ""
+
+msgid "-45,-14,Rock Tunnel"
+msgstr ""
+
+msgid "-45,-15,Power Plant"
+msgstr ""
+
+msgid "-45,-16,Mt. Moon"
+msgstr ""
+
+msgid "-45,-17,Mt. Moon"
+msgstr ""
+
+msgid "-45,-18,Mt. Moon"
+msgstr ""
+
+msgid "-45,-24,Diglett's Cave"
+msgstr ""
+
+msgid "-45,-25,Diglett's Cave"
+msgstr ""
+
+msgid "-45,-26,Diglett's Cave"
+msgstr ""
+
+msgid "-48,-17,Pokemon Tower"
+msgstr ""
+
+msgid "-48,-18,Pokemon Tower"
+msgstr ""
+
+msgid "-48,-19,Pokemon Tower"
+msgstr ""
+
+msgid "-48,-20,Pokemon Tower"
+msgstr ""
+
+msgid "-48,-21,Pokemon Tower"
+msgstr ""
+
+msgid "-48,-22,Pokemon Tower"
+msgstr ""
+
+msgid "-48,-23,Pokemon Tower"
+msgstr ""
+
+msgid "-50,-31,Mt. Moon"
+msgstr ""
+
+msgid "-50,-37,Power Plant"
+msgstr ""

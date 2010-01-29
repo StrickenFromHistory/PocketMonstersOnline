@@ -3,8 +3,8 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Hey! I make charcoal with help from my Farfetch'd. "
-msgstr "Hey! I make charcoal with help from my Farfetch'd. "
+msgstr "Ei! Vou fazer carvao com a ajuda da minha Farfetch'd. "
 
 msgid "Charcoal is a held-item which enhances the power of fire-type moves."
-msgstr "Charcoal is a held-item which enhances the power of fire-type moves."
+msgstr "O Charcoal é um held-item que aumenta o poder de movimentos do tipo fogo."
 

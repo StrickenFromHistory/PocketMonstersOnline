@@ -10,4 +10,3 @@ msgstr "Eles tem uma cor diferente dos pokemons normais. "
 
 msgid "Encountering one is very hard."
 msgstr "Eles sao muito dificeis de encontrar."
-

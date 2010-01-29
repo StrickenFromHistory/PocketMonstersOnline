@@ -3,25 +3,25 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Pokemon Tower was errected in the memory of Pokemon that died."
-msgstr "Pokemon Tower was errected in the memory of Pokemon that died."
+msgstr "A torre Pokemon foi erguida em memória de Pokemons que morreram."
 
 msgid "Please report this bug!"
-msgstr "Please report this bug!"
+msgstr "Por favor reporte esse bug!"
 
 msgid "I came to pray for my dearly departed Clefairy."
-msgstr "I came to pray for my dearly departed Clefairy."
+msgstr "Eu vim para rezar pelo meu querido Clefairy que partiu."
 
 msgid "Sniff! I'm awash in tears..."
-msgstr "Sniff! I'm awash in tears..."
+msgstr "Sniff! Estou inundado de lágrimas..."
 
 msgid "Did you come to pay respects? Bless your loving heart, my dear."
-msgstr "Did you come to pay respects? Bless your loving heart, my dear."
+msgstr ""
 
 msgid "My Growlithe... Why did you die?"
-msgstr "My Growlithe... Why did you die?"
+msgstr ""
 
 msgid "I am a channeler. There are ghost Pokemon high in the tower."
-msgstr "I am a channeler. There are ghost Pokemon high in the tower."
+msgstr ""
 
 msgid ""
 msgstr ""

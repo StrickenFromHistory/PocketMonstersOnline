@@ -6,14 +6,13 @@ msgid "Indigo Plateau"
 msgstr "Indigo Plateau"
 
 msgid "The highest Pokemon authority in Kanto and Johto!"
-msgstr "The highest Pokemon authority in Kanto and Johto!"
+msgstr "A maior autoridade Pokemon em Kanto e Johto!"
 
 msgid "PokeNet League Kanto/Johto HQ"
-msgstr "PokeNet League Kanto/Johto HQ"
+msgstr ""
 
 msgid "The ultimate goal of trainers in Kanto and Johto!"
-msgstr "The ultimate goal of trainers in Kanto and Johto!"
+msgstr "O objetivo final dos treinadores em Kanto e Johto!"
 
 msgid "Kanto Victory Road gate - PokeNet League"
-msgstr "Kanto Victory Road gate - PokeNet League"
-
+msgstr ""

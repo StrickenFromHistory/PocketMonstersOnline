@@ -3,29 +3,29 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I draw illustrations of Pokemon when I'm home."
-msgstr "I draw illustrations of Pokemon when I'm home."
+msgstr "Eu fasso ilustrações de Pokemon quando estou em casa."
 
 msgid "I don't often come here, but I will battle you."
-msgstr "I don't often come here, but I will battle you."
+msgstr "Eu não venho com frequência aqui, mas vou batalhar com você."
 
 msgid "Um... Do you know about Pokemon cosplay?"
-msgstr "Um... Do you know about Pokemon cosplay?"
+msgstr "Hum... Você sabe sobre os cosplay Pokemon?"
 
 msgid "My Pokemon techniques will leave you crying!"
-msgstr "My Pokemon techniques will leave you crying!"
+msgstr ""
 
 msgid "Hit me with your best shot!"
-msgstr "Hit me with your best shot!"
+msgstr ""
 
 msgid "Do you know how you can avoid getting lost in the mountains?"
-msgstr "Do you know how you can avoid getting lost in the mountains?"
+msgstr "Você sabe como evitar se perder nas montanhas?"
 
 msgid "You can bend twigs as trail markers."
-msgstr "You can bend twigs as trail markers."
+msgstr "Você pode dobrar galhos como marcadores de trilha."
 
 msgid "Hahaha! Can you beat my power?"
-msgstr "Hahaha! Can you beat my power?"
+msgstr "Hahaha! Você pode vencer meu poder?"
 
 msgid "You have a Pokedex? I want one, too."
-msgstr "You have a Pokedex? I want one, too."
+msgstr "Você tem uma Pokedex? Eu quero uma também."
 

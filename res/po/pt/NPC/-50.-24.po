@@ -3,29 +3,29 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Hello! Welcome to the Celadon dept. store."
-msgstr "Hello! Welcome to the Celadon dept. store."
+msgstr "Olá! Bem vindo ao dept. de loja de Celadon."
 
 msgid "Let me describe the store layout."
-msgstr "Let me describe the store layout."
+msgstr "Permitam-me descrever o layout da loja."
 
 msgid "1F: service counter"
-msgstr "1F: service counter"
+msgstr "1F: balcão de serviço"
 
 msgid "2F: general store"
-msgstr "2F: general store"
+msgstr "2F: armazém geral"
 
 msgid "3F: TM store"
-msgstr "3F: TM store"
+msgstr "3F: Loja de TM"
 
 msgid "4F: evolutionary stones"
-msgstr "4F: evolutionary stones"
+msgstr "4F: Pedras de evoluçoes"
 
 msgid "5F: drugstore"
-msgstr "5F: drugstore"
+msgstr "5F: Farmácia"
 
 msgid "6F: under construction"
-msgstr "6F: under construction"
+msgstr "6F: em construção"
 
 msgid "Please report this bug!"
-msgstr "Please report this bug!"
+msgstr "Por favor reporte esse bug!"
 

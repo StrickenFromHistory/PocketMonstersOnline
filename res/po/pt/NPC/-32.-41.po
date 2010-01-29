@@ -4,4 +4,3 @@
 # 
 msgid "Welcome to the PokeMart."
 msgstr "Bem vindo a PokeLoja."
-

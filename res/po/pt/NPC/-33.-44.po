@@ -4,4 +4,3 @@
 # 
 msgid "Yo! Markus!"
 msgstr "hey! Markus!"
-

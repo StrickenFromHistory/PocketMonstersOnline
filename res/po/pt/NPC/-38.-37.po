@@ -7,4 +7,3 @@ msgstr "Hm? Aqui nao e lugar para brincar."
 
 msgid "Men of the sea are always spoiling for a good fight!"
 msgstr "Os homens do mar estao sempre estragando uma boa luta!"
-

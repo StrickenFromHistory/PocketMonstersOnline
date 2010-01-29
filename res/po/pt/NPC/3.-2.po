@@ -3,8 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Route 2: Viridian City - Pewter City"
-msgstr "Route 2: Viridian City - Pewter City"
+msgstr "Rota 2: Viridian City - Pewter City"
 
 msgid "Diglett's Cave"
 msgstr "Diglett's Cave"
-

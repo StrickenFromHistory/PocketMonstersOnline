@@ -3,11 +3,11 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Please report this bug!"
-msgstr "Please report this bug!"
+msgstr "Por favor reporte esse bug!"
 
 msgid "We're currently out of stock. Please come back later."
-msgstr "We're currently out of stock. Please come back later."
+msgstr "No momento estamos sem estoque. Por favor volte mais tarde."
 
 msgid "These bikes are cool, but they're way expensive!"
-msgstr "These bikes are cool, but they're way expensive!"
+msgstr "Essas bicicletas são legais, mas são muito caras!"
 

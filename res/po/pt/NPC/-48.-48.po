@@ -3,8 +3,7 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Please report this bug!"
-msgstr "Por favor, comunique este erro!"
+msgstr "Por favor reporte esse bug!"
 
 msgid "My bicycles are first-rate! You can ride them anywhere."
 msgstr "Minhas bicicletas sao de primeira ! Voce pode leva-la a qualquer lugar."
-

@@ -15,5 +15,5 @@ msgid "A Pokemon you get in trade grows quickly. "
 msgstr "Um Pokemon obtido por meio de uma troca se desenvolve rapidamente. "
 
 msgid "But if you don't have the right gym badge, they may disobey you."
-msgstr "Mas, se voce nao tiver a insignia adequada, pode ser que ele nao obedeca."
-
+msgstr ""
+"Mas, se voce nao tiver a insignia adequada, pode ser que ele nao obedeca."

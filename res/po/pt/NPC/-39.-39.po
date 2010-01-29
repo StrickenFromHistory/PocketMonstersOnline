@@ -16,4 +16,3 @@ msgstr "Voce esta tentando ver o quanto bom voce e como treinador? "
 
 msgid "You better visit the Pokemon gyms all over Johto and collect badges."
 msgstr "E melhor voce visitar os ginasios em johto e pegar as insignias."
-

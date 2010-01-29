@@ -12,20 +12,19 @@ msgid "The authority on the Ruins of Alph"
 msgstr "A autoridade sobre as Ruinas de Alph"
 
 msgid "Ruins of Alph - Visitors welcome"
-msgstr "Ruinas de Alf - Visitantes, sejam bem-vindos	"
+msgstr "Ruinas de Alf - Visitantes, sejam bem-vindos\t"
 
 msgid "The ruins hide a huge secret! "
-msgstr "As ruinas escondem um enorme segredo! 	"
+msgstr "As ruinas escondem um enorme segredo! \t"
 
 msgid "...I think..."
 msgstr "... Eu acho ..."
 
 msgid "There are ancient artifacts in there. "
-msgstr "Existem artefatos antigos ai.	"
+msgstr "Existem artefatos antigos ai.\t"
 
 msgid "I don't want you to break anything."
 msgstr "Eu nao quero que voce quebre nada."
 
 msgid "Hmmm... This is a strange place."
 msgstr "Hummm ... Este e um lugar estranho."
-

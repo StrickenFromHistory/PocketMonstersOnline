@@ -3,44 +3,44 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "Please report this bug!"
-msgstr "Please report this bug!"
+msgstr "Por favor reporte esse bug!"
 
 msgid "Welcome to the Kanto Power Plant."
-msgstr "Welcome to the Kanto Power Plant."
+msgstr "Bem vindo a kanto power plant."
 
 msgid "The eastern part is opened for trainers."
-msgstr "The eastern part is opened for trainers."
+msgstr "A parte leste está aberta aos treinadores."
 
 msgid "I came here to catch some electric-type Pokemon."
-msgstr "I came here to catch some electric-type Pokemon."
+msgstr "Eu vim aqui para pegar algums Pokemons elétricos."
 
 msgid "Sorry, this area is for staff only."
-msgstr "Sorry, this area is for staff only."
+msgstr "Desculpe, essa área é para membros apenas."
 
 msgid "We have restored the western part of the Power Plant."
-msgstr "We have restored the western part of the Power Plant."
+msgstr "Nós tivemos de restaurar a parte ocidental de power plant."
 
 msgid "The eastern part is still a habitat for wild Pokemon."
-msgstr "The eastern part is still a habitat for wild Pokemon."
+msgstr "A parte oriental ainda é habitada por pokemons selvagens."
 
 msgid "We wanted to fully restore the Power Plant."
-msgstr "We wanted to fully restore the Power Plant."
+msgstr "Nós queriamos restaurar toda power plant."
 
 msgid "But since the Power Plant was inhabited by wild Pokemon by then,"
-msgstr "But since the Power Plant was inhabited by wild Pokemon by then,"
+msgstr ""
 
 msgid "we couldn't drive them all out. Some of them are protected species."
-msgstr "we couldn't drive them all out. Some of them are protected species."
+msgstr "Nós não poderíamos nos livrar de todos,alguns são espécies protegidas."
 
 msgid "Sometimes the wild Pokemon in the eastern part of the Power Plant drain"
-msgstr "Sometimes the wild Pokemon in the eastern part of the Power Plant drain"
+msgstr ""
 
 msgid "energy. This can become a problem, if they drain too much."
-msgstr "energy. This can become a problem, if they drain too much."
+msgstr "Energia. Isso pode se tornar um problema, se eles drenarem muito."
 
 msgid "This is the Power Plant control room. We watch over the machinery here."
-msgstr "This is the Power Plant control room. We watch over the machinery here."
+msgstr "Esta é a sala de controle da power plant."
 
 msgid "Please leave me alone until today's tests are finished."
-msgstr "Please leave me alone until today's tests are finished."
+msgstr "Por favor, me deixe só até que os testes estejam terminados."
 

@@ -3,8 +3,8 @@
 # Nushio <nushio@pokedev.org>, 2010.
 # 
 msgid "I'm sorry, but only people recognized by the legendary Pokemon may "
-msgstr "Me desculpe mas apenas pessoas reconhecidas pelo pokemon lendario podem "
+msgstr ""
+"Me desculpe mas apenas pessoas reconhecidas pelo pokemon lendario podem "
 
 msgid "enter the upper floors."
 msgstr "Entrar nos andares superiores."
-
