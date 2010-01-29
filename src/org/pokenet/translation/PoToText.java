@@ -91,8 +91,42 @@ public class PoToText {
 					PrintWriter pw = new PrintWriter(f);
 					for(int j=0;j<translations.get(i).getLines().size();j++){
 						try{
-							if(translations.get(i).getLines().get(j).startsWith("msgstr \""))
-								pw.println(""+translations.get(i).getLines().get(j).replace("msgstr \"","").replace("\"",""));
+							if(translations.get(i).getLines().get(j).startsWith("msgstr \"")){
+								String line = translations.get(i).getLines().get(j);
+								line = line.replace("msgstr \"","");
+								line = line.replaceAll("\"","");
+								
+								line = line.replaceAll("À","A");
+								line = line.replaceAll("Ã","A");
+								line = line.replaceAll("á","a");
+								line = line.replaceAll("â","a");
+								line = line.replaceAll("à","a");
+								line = line.replaceAll("ã","a");
+								
+								line = line.replaceAll("Ê","E");
+								line = line.replaceAll("É","E");
+								line = line.replaceAll("é","e");
+								line = line.replaceAll("ê","e");
+								
+								line = line.replaceAll("í","i");
+								line = line.replaceAll("î","i");
+								
+								line = line.replaceAll("Õ","O");
+								line = line.replaceAll("ó","o");
+								line = line.replaceAll("ô","o");
+								line = line.replaceAll("õ","o");
+								
+								line = line.replaceAll("ú","u");
+								line = line.replaceAll("û","u");
+																
+								line = line.replaceAll("Ñ","Ni");
+								line = line.replaceAll("ñ","ni");
+								
+								line = line.replaceAll("Ç","C");
+								line = line.replaceAll("ç","c");
+								
+								pw.println(""+line);
+							}
 						}catch(Exception e){}
 					}
 					pw.flush();
