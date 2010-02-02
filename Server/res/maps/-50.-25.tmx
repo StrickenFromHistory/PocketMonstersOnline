@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="18" height="20" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonChances" value=""/>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="fishPokemonChances" value=""/>
+  <property name="fishPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="normal3.tsx"/>
+ <tileset firstgid="1025" source="normal7.tsx"/>
+ <tileset firstgid="2049" source="normal8.tsx"/>
+ <layer name="Walkable" width="18" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgYGDgY8SNYYCeaviB7HnsEBqGZTkgNKlqiLGLXmqI9Tu9zEEOO2Q8UOFDTTXIfkHmD2Y3k+ovZIxPjhS7iMHEpENkd9HLHFzpGVv6pkf4UAMAAKbXmfagBQAA
+  </data>
+ </layer>
+ <layer name="Collisions" width="18" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAONlYGDwZ8SNgQiM8anhZYDgfEbcGGYOPjUwc+ayM2AFchwIc/CpgZmzF6hmH5o6W6C8HZI5+NTAzMEHYObgAzBziAlnYswhJpwNmLCbARKntr+oZU42MwNDDhDnMkPEkfmDzV+weCPGHHR/IQNYvFHqL2IAtc3Bl54JhQ+yv/ClZximp79wxQUxANlf1MAAlEzbtKAFAAA=
+  </data>
+ </layer>
+ <layer name="random" width="18" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgQIBORgR9l52B4R47A1YAU4euphbIrgPilVB5EP0XyP+HRQ1MHgTQ1QxX4MnEwODFhKD7gP7vZyTdnEyg3iwmBL0OaMZ6MszpBOrtYkLQgwVsYMLPJwS6mRkYeoC4lxk7f6AAqf5AB4PFH+iA3HSMDshNx8MZAADMY/WboAUAAA==
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="18" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWDCQgwkSY+WIAPM37+cPEXOhiq/iIXDGZ/UeK2weovAGaa+76gBQAA
+  </data>
+ </layer>
+</map>
