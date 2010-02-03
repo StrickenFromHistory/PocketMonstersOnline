@@ -30,7 +30,7 @@ false
 Supernerd Glenn
 right
 169
-78
+79
 9
 Grimer,22,Muk,22,Grimer,22
 3
