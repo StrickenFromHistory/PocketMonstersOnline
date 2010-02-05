@@ -1,0 +1,23 @@
+[npc]
+Fishing Guru's Brother
+down
+47
+4
+4
+NULL
+0
+-1
+0,1
+false
+false
+false
+[/npc]
+[warp]
+4
+8
+28
+66
+15
+16
+0
+[/warp]
