@@ -22,12 +22,12 @@
  <tileset firstgid="5121" source="normal4.tsx"/>
  <layer name="random9001" width="38" height="100">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3YQQ7CIBgF4SauPZb3v4CHcUVqCFieGhnsTMLCFV/avy1x24za/bovUrqyKK5nx9HSNZaurF+7WvsR5mtF18x0ZRFmaUUXLV1ZdBftnEN39X7PStdnzZ6r1Vx1urJ0tfftzbmutmu2o05XVs8127eKi5KuLPr5nuY68tLSlaUr60yu22Vf73am6/WNdGXpyqK7qOccmqtOVxbVZfZPUZ8zXVnU/yWorl40T0lXlq4smov+fqC5Srpe70/7/lBdvahOqqtO15iDdh+prhLNU9KVRXPR553qojXqegCy3nadYDsAAA==
+   H4sIAAAAAAAAAO3YQQqDMBgFYaHrHqv3v0AP01WwhKTm2dJMcAaycJUP/dHgthm1531fpHRlUVzvjqOlayxdWf92tfYjzNeKrpnpyiLM0oouWrqy6C7aOYfu6l3PStd3zZ6r1Vx1urJ0tfftzbmutmu2o05XVs8127eKi5KuLPr5nuY68tLSlaUr60qux21fZ7vS/fpFurJ0ZdFd1HMOzVWnK2vW+Z6WrixdWbqy6C7afwmqqxfNU9KVpSuL5qK/H2iukq7P+9O+P1RXL6qT6qrTNeagPUeqq0TzlHRl0Vz0eae6aI26XlVUMUxgOwAA
   </data>
  </layer>
  <layer name="random22" width="38" height="100">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3ZIQ6AQBAEQZJz/Iv/fwmBJeFacYGqZH2bUbttAPA9Y3+74J6uRlejq9HV6Gp0NboaXcCTVfeoq9HV6Gp0NbqaVbuA/zrGdQAAAAAAADBj1b+3rma26wQ5aojoYDsAAA==
+   H4sIAAAAAAAAAO3XMQqDAAxAUUG6eK/e/0qluAr66WCo70H2vwSSZQGA/7Nudxcc09XoanQ1uhpdja5GV6MLODN1H3U1uhpdja5GVzO1C3iu97oPANB97/vXwBtfV6OrmfrX6mp0AQAA8Iup/5uu5mrXB62ck6xgOwAA
   </data>
  </layer>
  <layer name="Walkable" width="38" height="100">
