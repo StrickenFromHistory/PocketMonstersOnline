@@ -141,7 +141,6 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			//Party swapping. Received as s0,5. Pokemons in party at 0 and 5 were swapped around
 			m_game.getOurPlayer().swapPokemon(Integer.parseInt(message.substring(1, message.indexOf(','))),
 					Integer.parseInt(message.substring(message.indexOf(',') + 1)) );
-			GameClient.getInstance().getUi().refreshParty();
 			break;
 		case 'S':
 			//Shop

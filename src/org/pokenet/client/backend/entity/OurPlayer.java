@@ -302,6 +302,7 @@ public class OurPlayer extends Player {
 		OurPokemon temp1 = m_pokemon[Poke1];
 		m_pokemon[Poke1] = m_pokemon[Poke2];
 		m_pokemon[Poke2] = temp1;
+		GameClient.getInstance().getUi().refreshParty();
 	}
 	
 	/**
