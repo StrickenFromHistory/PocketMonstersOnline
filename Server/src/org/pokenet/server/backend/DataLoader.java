@@ -138,8 +138,8 @@ public class DataLoader implements Runnable {
 						t.setFacing(Direction.Down);
 					}
 					t.setSprite(Integer.parseInt(reader.nextLine()));
-					t.setX(Integer.parseInt(reader.nextLine()));
-					t.setY(Integer.parseInt(reader.nextLine()));
+					t.setX(Integer.parseInt(reader.nextLine())* 32);
+					t.setY((Integer.parseInt(reader.nextLine())* 32)-8);
 					t.setRequestedPokemon(reader.nextLine(), 
 							Integer.parseInt(reader.nextLine()), reader.nextLine());
 					t.setOfferedSpecies(reader.nextLine(), Integer.parseInt(reader.nextLine()));

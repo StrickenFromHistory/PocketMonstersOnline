@@ -19,7 +19,7 @@
  <tileset firstgid="2049" source="normal3.tsx"/>
  <tileset firstgid="3073" source="normal6.tsx"/>
  <tileset firstgid="4097" source="normal13.tsx"/>
- <layer name="Walkable" width="48" height="40" visible="0">
+ <layer name="Walkable" width="48" height="40">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO2XUW7CMAyG0xUmnvewdwY7CHAS2EmgcBN2lB1lz7vCkgcL17UT13UrpmHpF1Kb/v6aOE6pQwj1Qw/9cz05a+w81Leq4nUH1VXb93shv4s1J82RtIzX3qLeo7ZGraNWyHsfdYj6EPg3Djkof7pnjSXxPkadohqB3yOHhX8TtUXaFbwlUS/wseToww/zCmoG8B8ZH0sOyj9jBCHds/B75cD83LNYUt+YEW+vnpbLYeHP9Y1d1fYc0s+s/UfihnXV1scS+UljcM3kgnr25cd1OQY/7Te072j551X3rEs5TnM7f24M8NN+Q/tOyZOr6TXzPkP32mXB8+f2W47fuk+1gv2c/Pbh9j2h6WeaOeFqDupOWycaUX58ve884R53EIRz5ALG/Mz68cPcD50Xul+uBn5gp78S/yXI695XtOa5NS7xa94Be3sKIsfvXf+fge+VFkn8nmsMOjvOjfS9N8Ya53pDqjPKwgXlpwEe0jnoqYbMI7yDlp8bW/rm9BRmwfOvfabEP2ZwLOzZH27n6F/kp2edJ79n/Vh7j5ZJ4qch5aJj7oX/9aXry11LWj23c2uek7y8+o/0fyknbi+OMf8atnOwnVtT8NMz7Bp03y2lcc1E/KVeNnTc1PywHjB/X3VX3Lh74adKvCF0+aeUNTA/hIVfWsOxw5Of8+gbv8D3o8YAHgAA
   </data>
