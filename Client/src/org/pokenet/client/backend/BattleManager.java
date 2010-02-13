@@ -29,6 +29,7 @@ public class BattleManager {
 	private boolean m_isWild;
 	private Map<Integer, String> m_ourStatuses = new HashMap<Integer, String>();
 	private static BattleManager m_instance;
+	private static boolean m_isBattling = false;
 	
 	/**
 	 * Default Constructor
@@ -103,6 +104,7 @@ public class BattleManager {
 	 */
 	public void startBattle(char isWild,
 			int pokeAmount) {
+		m_isBattling = true;
 		GameClient.getInstance().getUi().hideHUD(true);
 		if (isWild == '0'){
 			setWild(false);
@@ -128,6 +130,7 @@ public class BattleManager {
 		GameClient.getInstance().getUi().hideHUD(false);
 		m_timeLine.endBattle();
 		m_battle.setVisible(false);
+		m_isBattling = false;
 		if (GameClient.getInstance().getDisplay().containsChild(m_battle.m_bag))
 			GameClient.getInstance().getDisplay().remove(m_battle.m_bag);
 		GameClient.getInstance().getDisplay().remove(m_battle);
@@ -325,5 +328,13 @@ public class BattleManager {
 	 */
 	public Map<Integer, String> getOurStatuses(){
 		return m_ourStatuses;
+	}
+	
+	/**
+	 * Returns true if a battle is in progress
+	 * @return true if a battle is in progress
+	 */
+	public static boolean isBattling(){
+		return m_isBattling;
 	}
 }

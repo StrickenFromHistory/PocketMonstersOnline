@@ -385,7 +385,7 @@ public class GameClient extends BasicGame {
 			}
 		}
 		if(m_ui.getNPCSpeech() == null && !m_ui.getChat().isActive() && !m_login.isVisible()
-				&& !getDisplay().containsChild(m_playerDialog)){
+				&& !getDisplay().containsChild(m_playerDialog) && !BattleManager.isBattling()){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
 					&& m_ourPlayer.canMove()) {
@@ -450,7 +450,7 @@ public class GameClient extends BasicGame {
 					.getBattleWindow()) ){
 				m_packetGen.writeTcpMessage("Ct");
 			}
-			if (getDisplay().containsChild(BattleManager.getInstance().getBattleWindow()) && 
+			if (BattleManager.isBattling() && 
 					getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
 					&& !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
 				BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
@@ -574,7 +574,7 @@ public class GameClient extends BasicGame {
 						.getBattleWindow()) ){
 					m_packetGen.writeTcpMessage("Ct");
 				}
-				if (getDisplay().containsChild(BattleManager.getInstance().getBattleWindow()) && 
+				if (BattleManager.isBattling() && 
 						getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
 						&& !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
 					BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
