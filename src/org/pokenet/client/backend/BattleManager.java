@@ -105,6 +105,15 @@ public class BattleManager {
 	public void startBattle(char isWild,
 			int pokeAmount) {
 		m_isBattling = true;
+		for (int i = 0; i < 6; i++){
+			if(GameClient.getInstance().getOurPlayer().getPokemon()
+					[i].getCurHP() > 0){
+				m_curPokeIndex = i;
+				m_curPoke = GameClient.getInstance().getOurPlayer()
+					.getPokemon()[i];
+				break;
+			}
+		}
 		GameClient.getInstance().getUi().hideHUD(true);
 		if (isWild == '0'){
 			setWild(false);
