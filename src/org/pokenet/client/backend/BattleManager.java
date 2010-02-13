@@ -191,6 +191,7 @@ public class BattleManager {
 			m_curPoke = GameClient.getInstance().getOurPlayer().getPokemon()[pokeIndex];
 			m_curPokeIndex = pokeIndex;
 			updateMoves();
+			updatePokePane();
 			m_timeLine.getBattleCanvas().drawOurPoke();
 			m_timeLine.getBattleCanvas().drawOurInfo();
 		} else {
@@ -217,7 +218,7 @@ public class BattleManager {
 					m_battle.m_pokeButtons.get(i).setEnabled(false);
 				else
 					m_battle.m_pokeButtons.get(i).setEnabled(true);
-			} catch (Exception e) {}
+			} catch (Exception e) {m_battle.m_pokeButtons.get(i).setEnabled(false);}
 		}
 	}
 
