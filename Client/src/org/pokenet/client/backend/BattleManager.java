@@ -56,8 +56,13 @@ public class BattleManager {
 	private void getPlayerData() {
 		m_player = GameClient.getInstance().getOurPlayer();
 		m_ourPokes = m_player.getPokemon();
-		m_curPoke = m_ourPokes[0];
-		m_curPokeIndex = 0;
+		for (int i = 0; i < 6; i++){
+			if(m_ourPokes[i].getCurHP() > 0){
+				m_curPokeIndex = i;
+				m_curPoke = m_ourPokes[i];
+				break;
+			}
+		}
 	}
 
 	/**
@@ -105,15 +110,7 @@ public class BattleManager {
 	public void startBattle(char isWild,
 			int pokeAmount) {
 		m_isBattling = true;
-		for (int i = 0; i < 6; i++){
-			if(GameClient.getInstance().getOurPlayer().getPokemon()
-					[i].getCurHP() > 0){
-				m_curPokeIndex = i;
-				m_curPoke = GameClient.getInstance().getOurPlayer()
-					.getPokemon()[i];
-				break;
-			}
-		}
+
 		GameClient.getInstance().getUi().hideHUD(true);
 		if (isWild == '0'){
 			setWild(false);
