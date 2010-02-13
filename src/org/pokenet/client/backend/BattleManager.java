@@ -223,7 +223,7 @@ public class BattleManager {
 				} else {
 					m_battle.m_pokeStatus.get(i).setImage(null);
 				}
-				if (m_ourPokes[i].getCurHP() <= 0)
+				if (m_ourPokes[i].getCurHP() <= 0 || m_curPokeIndex == i)
 					m_battle.m_pokeButtons.get(i).setEnabled(false);
 				else
 					m_battle.m_pokeButtons.get(i).setEnabled(true);
