@@ -215,16 +215,18 @@ public class BattleManager {
 				m_battle.m_pokeButtons.get(i).setText(m_ourPokes[i].getName());
 				m_battle.m_pokeInfo.get(i).setText("Lv: " + m_ourPokes[i].getLevel() + " HP:"
 						+ m_ourPokes[i].getCurHP() + "/" + m_ourPokes[i].getMaxHP());
-				if (m_ourStatuses.containsKey(i) && m_battle.m_statusIcons.containsKey(m_ourStatuses.get(i))){
-					m_battle.m_pokeStatus.get(i).setImage(m_battle.m_statusIcons.get(m_ourStatuses.get(i)));
-				} else {
-					m_battle.m_pokeStatus.get(i).setImage(null);
-				}
+				try{
+					if (m_ourStatuses.containsKey(i) && m_battle.m_statusIcons.containsKey(m_ourStatuses.get(i))){
+						m_battle.m_pokeStatus.get(i).setImage(m_battle.m_statusIcons.get(m_ourStatuses.get(i)));
+					} else {
+						m_battle.m_pokeStatus.get(i).setImage(null);
+					}
+				} catch (Exception e2){}
 				if (m_ourPokes[i].getCurHP() <= 0 || m_curPokeIndex == i)
 					m_battle.m_pokeButtons.get(i).setEnabled(false);
 				else
 					m_battle.m_pokeButtons.get(i).setEnabled(true);
-			} catch (Exception e) {m_battle.m_pokeButtons.get(i).setEnabled(false);}
+			} catch (Exception e) {}
 		}
 	}
 
