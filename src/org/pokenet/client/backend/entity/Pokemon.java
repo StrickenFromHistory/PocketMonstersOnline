@@ -397,8 +397,16 @@ public class Pokemon {
          */
         public void setSpriteNumber(int x) {
         	m_spriteNum = x;
-        	setSprite();
-        	setIcon();
+        	try{
+        		setSprite();
+        	} catch (Exception e){
+        		setSprite();
+        	}
+        	try{
+        		setIcon();
+        	} catch (Exception e){
+        		setIcon();
+        	}
         }
         
         /**
