@@ -170,6 +170,15 @@ false
 -29
 0
 [/warp]
+[warp]
+9
+32
+8
+21
+-48
+-25
+0
+[/warp]
 [hmobject]
 CUT_TREE
 24
