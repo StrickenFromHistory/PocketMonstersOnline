@@ -23,7 +23,7 @@ import org.pokenet.client.ui.base.ConfirmationDialog;
  */
 @SuppressWarnings("deprecation")
 public class FriendListDialog extends Frame {
-	List<String> m_friends;
+	List<String> m_friends, m_online;
 	Label[] m_shownFriends = new Label[10];
 	Button m_up, m_down;
 	int m_index;
@@ -35,6 +35,7 @@ public class FriendListDialog extends Frame {
 	 */
 	public FriendListDialog() {
 		m_friends = new ArrayList<String>();
+		m_online = new ArrayList<String>();
 		m_index = 0;
 		initGUI();
 	}
@@ -106,7 +107,10 @@ public class FriendListDialog extends Frame {
 			}
 			m_shownFriends[i].pack();
 			m_shownFriends[i].setFont(GameClient.getFontSmall());
-			m_shownFriends[i].setForeground(Color.white);
+			if (m_online.contains(m_shownFriends[i]))
+				m_shownFriends[i].setForeground(Color.white);
+			else
+				m_shownFriends[i].setForeground(Color.gray);
 			m_shownFriends[i].addMouseListener(new MouseAdapter(){
 				@Override
 				public void mouseEntered(MouseEvent e) {
@@ -117,7 +121,10 @@ public class FriendListDialog extends Frame {
 				@Override
 				public void mouseExited(MouseEvent e) {
 					super.mouseExited(e);
-					m_shownFriends[j].setForeground(new Color(255, 255, 255));
+					if (m_online.contains(m_shownFriends[j]))
+						m_shownFriends[j].setForeground(Color.white);
+					else
+						m_shownFriends[j].setForeground(Color.gray);
 				}
 				
 				@Override
@@ -125,7 +132,7 @@ public class FriendListDialog extends Frame {
 					if (e.getButton() == 1){
 						if (GameClient.getInstance().getDisplay().containsChild(m_popup))
 							GameClient.getInstance().getDisplay().remove(m_popup);
-						m_popup = new PopUp(m_shownFriends[j].getText());
+						m_popup = new PopUp(m_shownFriends[j].getText(), m_online.contains(m_shownFriends[j].getText()));
 						m_popup.setLocation(e.getAbsoluteX(),e.getAbsoluteY() - 10);
 						GameClient.getInstance().getDisplay().add(m_popup);
 					}
@@ -154,6 +161,20 @@ public class FriendListDialog extends Frame {
 		m_friends.add(friend);
 		scroll(0);
 	}
+	
+	/**
+	 * Sets the online/offline status for 
+	 * @param isOnline
+	 */
+	public void setFriendOnline(String friend, boolean isOnline){
+		if (isOnline){
+			if (!m_online.contains(friend))
+				m_online.add(friend);
+		} else if (m_online.contains(friend))
+			m_online.remove(friend);
+		
+		scroll(0);
+	}
 }
 
 /**
@@ -170,7 +191,7 @@ class PopUp extends Frame{
 	 * Default Constructor
 	 * @param friend
 	 */
-	public PopUp(String friend){
+	public PopUp(String friend, boolean online){
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		m_name = new Label(friend);
@@ -186,6 +207,7 @@ class PopUp extends Frame{
 		m_whisper = new Button("Whisper");
 		m_whisper.setSize(100,25);
 		m_whisper.setLocation(0, m_remove.getY() + m_remove.getHeight());
+		m_whisper.setEnabled(online);
 		getContentPane().add(m_whisper);
 		m_cancel = new Button("Cancel");
 		m_cancel.setSize(100,25);
