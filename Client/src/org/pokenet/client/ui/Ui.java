@@ -38,6 +38,7 @@ import org.pokenet.client.ui.frames.TradeDialog;
  *
  */
 public class Ui extends Frame {
+	private static Ui m_instance;
 	private FriendListDialog m_friendsList;
 	private ChatDialog m_chat;
 	private ImageButton [] m_buttons;
@@ -65,6 +66,7 @@ public class Ui extends Frame {
 	 * Default constructor
 	 */
 	public Ui(Display display) {
+		m_instance = this;
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		this.setSize(800, 66);
@@ -117,6 +119,14 @@ public class Ui extends Frame {
 		return m_map;
 	}
 
+	/**
+	 * Returns the instance
+	 * @return the instance
+	 */
+	public static Ui getInstance(){
+		return m_instance;
+	}
+	
 	/**
 	 * Starts the HUD buttons
 	 */
