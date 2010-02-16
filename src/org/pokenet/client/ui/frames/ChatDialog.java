@@ -22,7 +22,7 @@ import org.pokenet.client.ui.base.ComboBox;
  * 
  */
 public class ChatDialog extends Frame {
-	private ArrayList<ArrayList<String>> m_chatList;
+	private ArrayList<ArrayList<String>> m_chatList = new ArrayList<ArrayList<String>>();
 	private HashMap<String, ArrayList<String>> m_availableChats = new HashMap<String, ArrayList<String>>();
 	private Color m_backColor = new Color(0, 0, 0, 85);
 
