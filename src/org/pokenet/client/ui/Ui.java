@@ -219,7 +219,8 @@ public class Ui extends Frame {
 			}
 			talkToNPC(result);
 			break;
-		case 'l':
+		//TODO: erase if no longer necessary
+		/*case 'l':
 			//Local Chat
 			//Local Chat
 			if(m.substring(1).toLowerCase().contains(GameClient.getInstance().getOurPlayer().getUsername().toLowerCase())&&!m.substring(1).contains("<"+GameClient.getInstance().getOurPlayer().getUsername()+">"))
@@ -235,7 +236,7 @@ public class Ui extends Frame {
 		case 's':
 			//Server Announcement
 			m_chat.addSystemMessage(m.substring(1));
-			break;
+			break;*/
 		}
 	}
 	

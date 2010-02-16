@@ -22,6 +22,7 @@ import org.pokenet.client.ui.base.ComboBox;
  * 
  */
 public class ChatDialog extends Frame {
+	private ArrayList<ArrayList<String>> m_chatList;
 	private HashMap<String, ArrayList<String>> m_availableChats = new HashMap<String, ArrayList<String>>();
 	private Color m_backColor = new Color(0, 0, 0, 85);
 
@@ -33,8 +34,7 @@ public class ChatDialog extends Frame {
 
 	public ChatDialog() {
 		initGUI();
-		m_possibleChats.addElement("Local");
-		m_availableChats.put("Local", new ArrayList<String>());
+		addChat("Local", false);
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class ChatDialog extends Frame {
 					GameClient.getInstance().getPacketGenerator().writeTcpMessage(
 							"Cp" + m_possibleChats.getSelected() + ","
 							+ m_inputBox.getText());
-					addChatLine(m_possibleChats.getSelected(), "<" + 
+					addWhisperLine(m_possibleChats.getSelected(), "<" + 
 							GameClient.getInstance().getOurPlayer().getUsername() + "> " 
 							+ m_inputBox.getText());
 				}
@@ -142,19 +142,33 @@ public class ChatDialog extends Frame {
 	}
 
 	/**
-	 * Adds a line to a chat, creates the private chat if it doesn't exist
+	 * Adds a line to a private chat,
+	 * creates the private chat if it doesn't exist
 	 * @param chat
 	 * @param line
 	 */
-	public void addChatLine(String chat, String line) {
+	public void addWhisperLine(String chat, String line) {
 		if (m_availableChats.containsKey(chat)) {
 			m_availableChats.get(chat).add(line);
 			m_chatWidget.addLine();
 		} else {
-			addChat(chat);
+			addChat(chat, true);
 			m_availableChats.get(chat).add(line);
 			m_chatWidget.addLine();
 		}
+	}
+	
+	/**
+	 * Adds a line to a chat channel,
+	 * creates the channel if it doesn't exist
+	 * @param chat
+	 * @param line
+	 */
+	public void addChatLine(int chat, String line) {
+		try{
+			m_chatList.get(chat).add(line);
+			m_chatWidget.addLine();
+		} catch (Exception e){}
 	}
 	
 	/**
@@ -181,11 +195,13 @@ public class ChatDialog extends Frame {
 	 * Creates a new private chat channel
 	 * @param chat
 	 */
-	public void addChat(String chat) {
+	public void addChat(String chat, boolean isWhisper) {
 		if (!m_availableChats.containsKey(chat)){
 			m_availableChats.put(chat, new ArrayList<String>());
 			m_possibleChats.addElement(chat);
 			m_possibleChats.setSelected(chat);
+			if (!isWhisper)
+				m_chatList.add(m_availableChats.get(chat));
 		} else {
 			m_possibleChats.setSelected(chat);
 		}
