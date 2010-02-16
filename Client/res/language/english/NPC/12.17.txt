@@ -12,3 +12,5 @@ A maternal Pokemon that raises its young in a pouch on its belly.
 Name: Chansey - Catching one is all up to chance.
 Name: Voltorb - The very image of a Pokeball.
 Name: Slowpoke - Friendly and very slow moving.
+This Safari Zone season is over. 
+The Safari Zone is closed until the next season starts.

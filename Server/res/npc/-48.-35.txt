@@ -1,0 +1,23 @@
+[npc]
+Move Relearner
+right
+141
+5
+4
+NULL
+0
+-1
+0,1
+false
+false
+false
+[/npc]
+[warp]
+5
+8
+19
+32
+12
+17
+0
+[/warp]
