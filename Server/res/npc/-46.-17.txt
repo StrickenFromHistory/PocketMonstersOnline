@@ -1,0 +1,23 @@
+[npc]
+Fly teacher
+down
+127
+5
+2
+NULL
+0
+-1
+0
+false
+false
+false
+[/npc]
+[warp]
+4
+8
+11
+6
+11
+-2
+0
+[/warp]
