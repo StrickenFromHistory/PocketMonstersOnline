@@ -4,7 +4,6 @@ import java.io.File;
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 import java.util.ConcurrentModificationException;
-import java.util.HashMap;
 
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Display;
@@ -29,13 +28,13 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.TrueTypeFont;
-import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.backend.Animator;
 import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.ClientMap;
 import org.pokenet.client.backend.ClientMapMatrix;
 import org.pokenet.client.backend.ItemDatabase;
 import org.pokenet.client.backend.MoveLearningManager;
+import org.pokenet.client.backend.PreferencesManager;
 import org.pokenet.client.backend.SoundManager;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
@@ -72,7 +71,6 @@ public class GameClient extends BasicGame {
 	private int m_mapX, m_mapY, m_playerId;
 	private PacketGenerator m_packetGen;
 	private Animator m_animator;
-	private static HashMap<String, String> options;
 	//Static variables
 	private static String m_filepath="";
 	private static Font m_fontLarge, m_fontSmall, m_trueTypeFont;
@@ -96,6 +94,8 @@ public class GameClient extends BasicGame {
 	private static SoundManager m_soundPlayer;
 	private static boolean m_disableMaps = false;
 	public static String UDPCODE = "";
+	
+	private static PreferencesManager prefs = PreferencesManager.getPreferencesManager();
 
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
@@ -111,19 +111,13 @@ public class GameClient extends BasicGame {
 			}catch(Exception e){
 				m_filepath="";
 			}
-			options = new FileMuffin().loadFile("options.dat");
-			if (options == null) {
-				options = new HashMap<String,String>();
-				options.put("soundMuted", String.valueOf(true));
-				options.put("disableMaps", String.valueOf(false));
-				options.put("disableWeather", String.valueOf(false));
-			}
+
 			m_instance = new GameClient("Pokenet: Valiant Venonat");
 			m_soundPlayer = new SoundManager();
-			m_soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
+			m_soundPlayer.mute(prefs.getBoolForKey("soundMuted"));
 			m_soundPlayer.start();
 			m_soundPlayer.setTrack("introandgym");
-			m_disableMaps = Boolean.parseBoolean(options.get("disableMaps"));
+			m_disableMaps = prefs.getBoolForKey(prefs.DISABLE_MAPS_KEY_NAME);
 		} catch (Exception e) { 
 			e.printStackTrace();
 			m_instance = new GameClient("Pokenet: Valiant Venonat");
@@ -172,8 +166,7 @@ public class GameClient extends BasicGame {
 		 */
 		m_time = new TimeService();
 		m_weather = new WeatherService();
-		if(options != null)
-			m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
+		m_weather.setEnabled(!prefs.getBoolForKey(prefs.DISABLE_WEATHER_KEY_NAME));
 
 		/*
 		 * Add the ui components
@@ -723,7 +716,8 @@ public class GameClient extends BasicGame {
 	public static void main(String [] args) {
 		boolean fullscreen = false;
 		try {
-			fullscreen = Boolean.parseBoolean(options.get("fullScreen"));
+			// TODO: Do we need this try / catch?
+			fullscreen =  prefs.getBoolForKey(prefs.FULLSCREEN_KEY_NAME);
 		} catch (Exception e) {
 			fullscreen = false;
 		}
@@ -924,23 +918,18 @@ public class GameClient extends BasicGame {
 	}
 
 	/**
-	 * Returns the options
-	 */
-	public static HashMap<String, String> getOptions() {
-		return options;
-	}
-
-	/**
 	 * Reloads options
 	 */
 	public static void reloadOptions() {
-		try {
-			options = new FileMuffin().loadFile("options.dat");
-			if (options == null) options = new HashMap<String,String>();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.exit(32);
-		}
+//		try {
+//			options = new FileMuffin().loadFile("options.dat");
+//			if (options == null) options = new HashMap<String,String>();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			System.exit(32);
+//		}
+// TODO: do we need all this try / catch stuff?
+		prefs.reload();
 	}
 
 	/**

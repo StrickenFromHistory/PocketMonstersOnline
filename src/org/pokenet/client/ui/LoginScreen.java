@@ -101,6 +101,9 @@ public class LoginScreen extends Window {
 			 */
 			m_select = new ServerDialog();
 			this.add(m_select);
+			
+			
+			
 			/*
 			 * Create the language selector container
 			 */

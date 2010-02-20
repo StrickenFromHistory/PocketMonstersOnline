@@ -149,6 +149,32 @@ public class ServerDialog extends Frame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		// private server dialog
+		// this needs to be gernercized...
+		// magic numbers are evil
+		// need a way to get the display size
+		// also, the other private server button should be labeled
+		// connect to or something a bit more desscriptive.
+		final PrivateServerDialog psDialog = new PrivateServerDialog();
+		this.add(psDialog);
+		psDialog.setVisible(false);
+		Button privateServers = new Button("Private Servers");
+		privateServers.setSize(114, 24);
+		privateServers.setLocation(168, 230);
+		privateServers.setVisible(true);
+		privateServers.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				if(psDialog.isVisible()) psDialog.setVisible(false);
+				else psDialog.setVisible(true);
+				
+			}
+		});
+		this.add(privateServers);
+		// end privateServer Dialog 
+		
 		privateIP = new TextField();
 		privateIP.setLocation(16, 204);
 		privateIP.setSize(128, 24);
@@ -161,9 +187,12 @@ public class ServerDialog extends Frame {
 		privateServer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				GameClient.setHost(getPrivateServer());
+				psDialog.addServer(getPrivateServer());
 			}
 		});
 		this.add(privateServer);
+		
+		
 		
 		this.setVisible(false);
 	}

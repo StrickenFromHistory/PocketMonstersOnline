@@ -123,6 +123,7 @@ public class PacketGenerator {
 		m_tcpSession.write("l" + language + username + "," + (getPasswordHash(username, password)));
 	}
 	
+	
 	/**
 	 * Sends a registration packet
 	 * @param username
