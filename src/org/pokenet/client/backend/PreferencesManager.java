@@ -60,7 +60,7 @@ public class PreferencesManager {
 	private PreferencesManager(){
 		// initialize
 //		readInPreferencesFromFile();
-		load();
+		readInPreferencesFromFile();
 	}
 	
 	/**
@@ -98,7 +98,7 @@ public class PreferencesManager {
 			ObjectInputStream ois = new ObjectInputStream(fin);
 		    this.prefs = (HashMap<String, Object>) ois.readObject();
 		    ois.close();
-		}catch (FileNotFoundException fnfe) {
+		}catch (Exception fnfe) {
 			System.out.println("Creating Preferences File at: " + this.prefsPath + FILE_NAME);
 			
 			File f = new File(this.prefsPath + FILE_NAME);
@@ -115,10 +115,10 @@ public class PreferencesManager {
 		    
 		    writeDefaults();
 		   
-		    
-		} catch (Exception e) { 
-			e.printStackTrace(); 
 		}
+//		} catch (Exception e) { 
+//			e.printStackTrace(); 
+//		}
 		
 	}
 	
@@ -145,6 +145,8 @@ public class PreferencesManager {
 	}
 	
 	private void writeDefaults() {
+		
+		System.out.println("Writing defaults");
 		//initialize saved things
 	    setObjectForKey(false, SOUND_MUTED_KEY_NAME);
 	    setObjectForKey(false, DISABLE_MAPS_KEY_NAME);

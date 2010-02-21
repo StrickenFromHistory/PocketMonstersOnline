@@ -114,7 +114,7 @@ public class GameClient extends BasicGame {
 
 			m_instance = new GameClient("Pokenet: Valiant Venonat");
 			m_soundPlayer = new SoundManager();
-			m_soundPlayer.mute(prefs.getBoolForKey("soundMuted"));
+			m_soundPlayer.mute(prefs.getBoolForKey(prefs.SOUND_MUTED_KEY_NAME));
 			m_soundPlayer.start();
 			m_soundPlayer.setTrack("introandgym");
 			m_disableMaps = prefs.getBoolForKey(prefs.DISABLE_MAPS_KEY_NAME);
