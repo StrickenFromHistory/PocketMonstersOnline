@@ -98,7 +98,7 @@ public class PreferencesManager {
 			ObjectInputStream ois = new ObjectInputStream(fin);
 		    this.prefs = (HashMap<String, Object>) ois.readObject();
 		    ois.close();
-		}catch (Exception fnfe) {
+		}catch (FileNotFoundException fnfe) {
 			System.out.println("Creating Preferences File at: " + this.prefsPath + FILE_NAME);
 			
 			File f = new File(this.prefsPath + FILE_NAME);
@@ -115,10 +115,9 @@ public class PreferencesManager {
 		    
 		    writeDefaults();
 		   
+		} catch (Exception e) { 
+			e.printStackTrace(); 
 		}
-//		} catch (Exception e) { 
-//			e.printStackTrace(); 
-//		}
 		
 	}
 	
@@ -146,6 +145,7 @@ public class PreferencesManager {
 	
 	private void writeDefaults() {
 		
+		prefs = new HashMap<String, Object>();
 		System.out.println("Writing defaults");
 		//initialize saved things
 	    setObjectForKey(false, SOUND_MUTED_KEY_NAME);
@@ -190,7 +190,7 @@ public class PreferencesManager {
 
 	public void setObjectForKey(Object value, String key) {
 		this.prefs.put(key, value);
-//		savePreferences();
+		savePreferences();
 		save();
 	}
 
