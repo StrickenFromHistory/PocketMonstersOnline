@@ -519,7 +519,7 @@ public class IntrinsicAbility extends StatusEffect implements Comparable<Object>
         new IntrinsicAbility("Truant") {
             private boolean m_inactive = true;
             public boolean immobilises(Pokemon p) {
-                if (m_inactive = !m_inactive) {
+                if (m_inactive == !m_inactive) {
                     p.getField().showMessage(p.getName() + " is loafing around!");
                     return true;
                 }
