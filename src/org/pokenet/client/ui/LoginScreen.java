@@ -99,7 +99,7 @@ public class LoginScreen extends Window {
 //				/* Show normal login screen */
 //				f = new FileInputStream(respath+"res/pokenet_normal.png");
 //			}
-			BigImage img = new BigImage(respath + "res/pokenet_hd_test.png", 0, 32);
+			BigImage img = new BigImage(respath + "res/pokenet_hd_test.png", BigImage.FILTER_LINEAR	);
 			img = (BigImage) img.getScaledCopy( (float)GameClient.getInstance().getWidth() / (float)img.getWidth());
 
 
