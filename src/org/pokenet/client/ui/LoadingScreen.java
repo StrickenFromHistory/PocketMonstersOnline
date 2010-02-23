@@ -5,6 +5,7 @@ import mdes.slick.sui.Label;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
+import org.pokenet.client.GameClient;
 
 /**
  * The loading screen
@@ -24,7 +25,7 @@ public class LoadingScreen extends Frame {
 		if(respath==null)
 			respath="";
 		try {
-			this.setSize(800, 632);
+			this.setSize(GameClient.getInstance().getWidth(), GameClient.getInstance().getHeight() + 32);
 			this.setBackground(new Color(255, 255, 255, 70));
 			this.setLocation(0, -32);
 			this.setResizable(false);
@@ -32,7 +33,8 @@ public class LoadingScreen extends Frame {
 			
 			m_bg = new Label(new Image(respath+"res/ui/loading.png", false));
 			m_bg.pack();
-			m_bg.setLocation(400 - (m_bg.getWidth() / 2), 300 - (m_bg.getHeight() /2));
+			m_bg.setLocation((GameClient.getInstance().getWidth() / 2) - (m_bg.getWidth() / 2), 
+					(GameClient.getInstance().getHeight() / 2) - (m_bg.getHeight() /2));
 			m_bg.setVisible(true);
 			this.add(m_bg);
 			

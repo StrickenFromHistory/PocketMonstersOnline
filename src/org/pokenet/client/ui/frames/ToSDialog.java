@@ -17,6 +17,8 @@ import org.pokenet.client.backend.Translator;
 public class ToSDialog extends Frame {
 	private TextArea m_info;
 	private Color m_bg, m_white;
+	
+	private GameClient gameClient = GameClient.getInstance();
 
 	/**
 	 * Default constructor
@@ -28,7 +30,7 @@ public class ToSDialog extends Frame {
 		m_white = new Color(255, 255, 255);
 		List<String> translated = Translator.translate("_LOGIN");
 		this.setTitle(translated.get(18));
-		this.setLocation(128, 256);
+		setCenter();
 		this.setBackground(m_bg);
 		this.setResizable(false);
 		
@@ -45,6 +47,17 @@ public class ToSDialog extends Frame {
 		this.setSize(288, 320);
 		
 		this.setVisible(false);
+	}
+	
+	/**
+	 * Centers the frame
+	 */
+	public void setCenter() {
+		int height = (int) GameClient.getInstance().getDisplay().getHeight();
+		int width = (int) GameClient.getInstance().getDisplay().getWidth();
+		int x = (width / 2) - ((int)getWidth()/2);
+		int y = (height / 2) - ((int)getHeight()/2);
+		this.setLocation(x, y);
 	}
 	
 	public void reloadStrings(){

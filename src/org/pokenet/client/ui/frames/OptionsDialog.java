@@ -21,6 +21,9 @@ public class OptionsDialog extends Frame {
 	private Muffin m_muffin = new FileMuffin();
 
 	private Button m_save;
+	private Button m_resolutions;
+	ResolutionChangerDialog m_resolutions_frame = new ResolutionChangerDialog();
+
 
 	private CheckBox m_fullScreen;
 	private CheckBox m_muteSound;
@@ -87,9 +90,22 @@ public class OptionsDialog extends Frame {
 			getContentPane().add(m_disableWeather);
 		}
 		{
+			m_resolutions = new Button("Change Game Resolution");
+			m_resolutions.setSize(170, 25);
+			m_resolutions.setLocation(10, 108);
+			getContentPane().add(m_resolutions);
+			m_resolutions.addActionListener(new ActionListener() {
+
+				public void actionPerformed(ActionEvent arg0) {
+					m_resolutions_frame.setVisible(true);
+				}
+				
+			});
+		}
+		{
 			m_save = new Button(translated.get(18));
 			m_save.setSize(50, 25);
-			m_save.setLocation(88, 108);
+			m_save.setLocation(88, 138);
 			getContentPane().add(m_save);
 
 			m_save.addActionListener(new ActionListener() {
@@ -137,7 +153,7 @@ public class OptionsDialog extends Frame {
 			});
 		}
 		setTitle(translated.get(15));
-		setSize(400, 160);
+		setSize(400, 190);
 		setResizable(false);
 		this.getTitleBar().getCloseButton().setVisible(false);
 	}

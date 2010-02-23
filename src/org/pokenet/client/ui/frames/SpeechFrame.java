@@ -38,6 +38,8 @@ public class SpeechFrame extends Frame {
     boolean isGoingDown = true;
     protected String stringToPrint;
     
+    GameClient gameClient = GameClient.getInstance();
+    
     /**
      * Default constructor
      * @param speech
@@ -118,8 +120,8 @@ public class SpeechFrame extends Frame {
     	
     	this.setWidth(400);
     	this.setHeight(100);
-    	this.setX((GameClient.getInstance().getDisplay().getWidth() / 2) - getWidth() / 2);
-    	this.setY((GameClient.getInstance().getDisplay().getHeight() / 2) + getWidth() / 2);
+    	this.setX((gameClient.getWidth() / 2) - getWidth() / 2);
+    	this.setY((gameClient.getHeight() / 2) + 120);
     	this.getTitleBar().setVisible(false);
     	this.setResizable(false);
     	

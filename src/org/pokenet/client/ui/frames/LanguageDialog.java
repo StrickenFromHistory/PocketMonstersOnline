@@ -18,6 +18,8 @@ public class LanguageDialog extends Frame {
 	private Button[] m_languages;
 	private Label m_info;
 	private Color m_black;
+	
+	private GameClient gameClient = GameClient.getInstance();
 	/**
 	 * Default constructor
 	 */
@@ -27,7 +29,7 @@ public class LanguageDialog extends Frame {
 		m_black = new Color(0, 0, 0);
 		
 		this.setSize(350, 320);
-		this.setLocation(400 - 170, 250);
+		this.setLocation((gameClient.getWidth() / 2) - 170, 250);
 		this.setTitle("Pokenet Language Selection");
 		this.setBackground(new Color(0, 0, 0, 140));
 		this.getTitleBar().setForeground(m_black);

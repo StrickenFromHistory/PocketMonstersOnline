@@ -1,5 +1,6 @@
 package org.pokenet.client.ui;
 
+import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -39,6 +40,8 @@ public class LoginScreen extends Window {
 	private AboutDialog m_about;
 	private ToSDialog m_terms;
 	private Button m_openAbout, m_openToS;
+	
+	private GameClient gameClient = GameClient.getInstance();
 
 	/**
 	 * Default constructor
@@ -55,42 +58,51 @@ public class LoginScreen extends Window {
 			/*
 			 * Load the background image
 			 * NOTE: Months start at 0, not 1
+			 * 
+			 * TODO: All of the pictures need to be redone, if we are sticking with the HD thing
 			 */
-			Calendar cal = Calendar.getInstance();
-			if(cal.get(Calendar.MONTH) == 1) {
-					if(cal.get(Calendar.DAY_OF_MONTH) >= 7
-							&& cal.get(Calendar.DAY_OF_MONTH) <= 14) {
-						/* Valentines day! */
-						f = new FileInputStream(respath+"res/pokenet_valentines.png");
-					} else {
-						f = new FileInputStream(respath+"res/pokenet_venonat.png");
-					}
-			} else if(cal.get(Calendar.MONTH) == 2 
-					&& cal.get(Calendar.DAY_OF_MONTH) > 14) {
-				/* If second half of March, show Easter login */
-				f = new FileInputStream(respath+"res/pokenet_easter.png");
-			} else if(cal.get(Calendar.MONTH) == 3 
-					&& cal.get(Calendar.DAY_OF_MONTH) < 26) {
-				/* If before April 26, show Easter login */
-				f = new FileInputStream(respath+"res/pokenet_easter.png");
-			} else if(cal.get(Calendar.MONTH) == 9) {
-				/* Halloween */
-				f = new FileInputStream(respath+"res/pokenet_halloween.png");
-			} else if(cal.get(Calendar.MONTH) == 11) {
-				/* Christmas! */
-				f = new FileInputStream(respath+"res/pokenet_xmas.png");
-			} else if(cal.get(Calendar.MONTH) == 0) {
-				/* January - Venonat Time! */
-				f = new FileInputStream(respath+"res/pokenet_venonat.png");
-			} else if(cal.get(Calendar.MONTH) >= 5 
-					&& cal.get(Calendar.MONTH) <= 7) {
-				/* Summer login */
-				f = new FileInputStream(respath+"res/pokenet_summer.png");
-			} else {
-				/* Show normal login screen */
-				f = new FileInputStream(respath+"res/pokenet_normal.png");
-			}
-			m_bg = new Label(new Image(f, "bg", false));
+			f = new FileInputStream(respath + "res/pokenet_hd_test.png");
+			// TODO: for memory's sake, we should probably make a few different sizes for each picture, rather than scaling 
+			// TODO: consider using SUN's JPEG decoder
+//			Calendar cal = Calendar.getInstance();
+//			if(cal.get(Calendar.MONTH) == 1) {
+//					if(cal.get(Calendar.DAY_OF_MONTH) >= 7
+//							&& cal.get(Calendar.DAY_OF_MONTH) <= 14) {
+//						/* Valentines day! */
+//						f = new FileInputStream(respath+"res/pokenet_valentines.png");
+//					} else {
+//						f = new FileInputStream(respath+"res/pokenet_venonat.png");
+//					}
+//			} else if(cal.get(Calendar.MONTH) == 2 
+//					&& cal.get(Calendar.DAY_OF_MONTH) > 14) {
+//				/* If second half of March, show Easter login */
+//				f = new FileInputStream(respath+"res/pokenet_easter.png");
+//			} else if(cal.get(Calendar.MONTH) == 3 
+//					&& cal.get(Calendar.DAY_OF_MONTH) < 26) {
+//				/* If before April 26, show Easter login */
+//				f = new FileInputStream(respath+"res/pokenet_easter.png");
+//			} else if(cal.get(Calendar.MONTH) == 9) {
+//				/* Halloween */
+//				f = new FileInputStream(respath+"res/pokenet_halloween.png");
+//			} else if(cal.get(Calendar.MONTH) == 11) {
+//				/* Christmas! */
+//				f = new FileInputStream(respath+"res/pokenet_xmas.png");
+//			} else if(cal.get(Calendar.MONTH) == 0) {
+//				/* January - Venonat Time! */
+//				f = new FileInputStream(respath+"res/pokenet_venonat.png");
+//			} else if(cal.get(Calendar.MONTH) >= 5 
+//					&& cal.get(Calendar.MONTH) <= 7) {
+//				/* Summer login */
+//				f = new FileInputStream(respath+"res/pokenet_summer.png");
+//			} else {
+//				/* Show normal login screen */
+//				f = new FileInputStream(respath+"res/pokenet_normal.png");
+//			}
+			Image img = new Image(f, "bg", false);
+			AffineTransform at = new AffineTransform();
+			at.scale(GameClient.getInstance().getWidth(), GameClient.getInstance().getHeight());
+			
+			m_bg = new Label(img);
 			m_bg.pack();
 			m_bg.setLocation(0, 0);
 			m_bg.setVisible(true);
@@ -125,7 +137,7 @@ public class LoginScreen extends Window {
 			
 			m_openAbout = new Button(translated.get(3));
 			m_openAbout.setSize(64, 32);
-			m_openAbout.setLocation(800 - 64 - 8, 8);
+			m_openAbout.setLocation(gameClient.getWidth() - 64 - 8, 8);
 			m_openAbout.setVisible(false);
 			m_openAbout.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -136,7 +148,7 @@ public class LoginScreen extends Window {
 			
 			m_openToS = new Button(translated.get(4));
 			m_openToS.setSize(64, 32);
-			m_openToS.setLocation(800 - 64 - 8, 40);
+			m_openToS.setLocation(gameClient.getWidth() - 64 - 8, 40);
 			m_openToS.setVisible(false);
 			m_openToS.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -157,7 +169,7 @@ public class LoginScreen extends Window {
 			this.add(m_serverRev);
 
 			this.setLocation(0, 0);
-			this.setSize(800, 600);
+			this.setSize(gameClient.getWidth(), gameClient.getHeight());
 			this.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -192,14 +204,14 @@ public class LoginScreen extends Window {
 				m_clientRev.setFont(GameClient.getFontSmall());
 				m_clientRev.setForeground(new Color(255, 255, 255));
 				m_clientRev.pack();
-				m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
+				m_clientRev.setLocation(4, gameClient.getHeight() - m_clientRev.getHeight() - 8);
 				this.add(m_clientRev);
 			} catch (Exception e) {
 				m_clientRev = new Label("Client Version: ?");
 				m_clientRev.setFont(GameClient.getFontSmall());
 				m_clientRev.setForeground(new Color(255, 255, 255));
 				m_clientRev.pack();
-				m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
+				m_clientRev.setLocation(4, gameClient.getHeight() - m_clientRev.getHeight() - 8);
 				this.add(m_clientRev);
 			}
 		} else {
@@ -207,7 +219,7 @@ public class LoginScreen extends Window {
 			m_clientRev.setFont(GameClient.getFontSmall());
 			m_clientRev.setForeground(new Color(255, 255, 255));
 			m_clientRev.pack();
-			m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
+			m_clientRev.setLocation(4, gameClient.getHeight() - m_clientRev.getHeight() - 8);
 			this.add(m_clientRev);
 		}
 	}
