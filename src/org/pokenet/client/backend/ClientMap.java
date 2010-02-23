@@ -69,11 +69,12 @@ public class ClientMap extends TiledMap {
 	public boolean isRendering() {
 		int drawWidth = getXOffset() + getWidth() * 32;
 		int drawHeight = getYOffset() + getHeight() * 32;
-
-		if (!(drawWidth < -32 && getXOffset() < -32 || drawWidth > 832
-				&& getXOffset() > 832)
-				&& !(drawHeight < -32 && getYOffset() < -32 || drawHeight > 632
-						&& getYOffset() > 632)) {
+		GameClient gameClient = GameClient.getInstance();
+		
+		if (!(drawWidth < -32 && getXOffset() < -32 || drawWidth > gameClient.getWidth() + 32
+				&& getXOffset() > gameClient.getWidth() + 32)//832)
+				&& !(drawHeight < -32 && getYOffset() < -32 || drawHeight > gameClient.getHeight() + 32//632
+						&& getYOffset() > gameClient.getHeight() + 32)){//632)) {
 			return true;
 		}
 		return false;
