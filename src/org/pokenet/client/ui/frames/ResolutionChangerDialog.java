@@ -3,12 +3,16 @@ package org.pokenet.client.ui.frames;
 import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.geom.Line;
+import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.GameClient;
+import org.pokenet.client.backend.Translator;
 
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Frame;
@@ -25,6 +29,8 @@ import mdes.slick.sui.event.ActionListener;
 public class ResolutionChangerDialog extends Frame{
 	private int currentResolutionWidth = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 	private int currentResolutionHeight = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+	private int currentGameWidth = GameClient.getInstance().getWidth();
+	private int currentGameHeight = GameClient.getInstance().getHeight();
 	private int buttonWidth = 100;
 	private int margin = 8;
 	private int buttonHeight = 32;
@@ -122,6 +128,8 @@ public class ResolutionChangerDialog extends Frame{
 					buttons[j][i].setSize(buttonWidth, buttonHeight);
 					buttons[j][i].setLocation(x, i * buttonHeight + yOffset + margin);
 					buttons[j][i].setVisible(true);
+					if (tempWidths[i] == currentGameWidth && tempHeights[i] == currentGameHeight) 
+						buttons[j][i].setEnabled(false);
 					this.add(buttons[j][i]);
 				}
 			}
@@ -258,8 +266,24 @@ public class ResolutionChangerDialog extends Frame{
 
 
 	protected void setNewGameDimensions(int width, int height) {
-		GameClient.getInstance().getDisplay().setWidth(width);
-		GameClient.getInstance().getDisplay().setHeight(height);
+//		TODO: Used for dynamic changing of resolution: currently doesn't work
+//		GameClient.getInstance().getDisplay().setWidth(width);
+//		GameClient.getInstance().getDisplay().setHeight(height);
+		this.setVisible(false);
+
+		GameClient.messageDialog(Translator.translate("_GUI").get(19), getDisplay());
+		
+		
+		GameClient.getInstance().getOptions().put("width", width + "");
+		GameClient.getInstance().getOptions().put("height", height + "");
+		FileMuffin fm = new FileMuffin();
+		try {
+			fm.saveFile(GameClient.getInstance().getOptions(), "options.dat");
+		}
+		catch (IOException exception) {
+			// TODO Auto-generated catch-block stub.
+			exception.printStackTrace();
+		}		
 	}
 
 

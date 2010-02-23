@@ -98,6 +98,7 @@ public class OptionsDialog extends Frame {
 
 				public void actionPerformed(ActionEvent arg0) {
 					m_resolutions_frame.setVisible(true);
+					OptionsDialog.this.setVisible(false);
 				}
 				
 			});

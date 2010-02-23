@@ -101,8 +101,8 @@ public class GameClient extends BasicGame {
 	
 	// later to be set by preferences 
 	// need to be able to detect supported resolutions
-	private static int width = 1440;
-	private static int height = 900;
+	private static int width = 800;
+	private static int height = 600;
 	
 	
 	/**
@@ -734,6 +734,15 @@ public class GameClient extends BasicGame {
 		} catch (Exception e) {
 			fullscreen = false;
 		}
+		
+		// get the width and height and set it
+		String temp;
+		temp = getOptions().get("width");
+		width = Integer.parseInt(temp == null ? width + "" : temp);
+		System.out.println("WDITH L " + temp);
+		temp = getOptions().get("height");
+		height = Integer.parseInt(temp == null ? height + "" : temp);
+		
 		try {
 			// need to pull in size from preferences
 			gc = new AppGameContainer(new GameClient("Pokenet: Valiant Venonat"),

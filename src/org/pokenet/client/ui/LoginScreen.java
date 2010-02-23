@@ -99,9 +99,9 @@ public class LoginScreen extends Window {
 //				f = new FileInputStream(respath+"res/pokenet_normal.png");
 //			}
 			Image img = new Image(f, "bg", false);
-			AffineTransform at = new AffineTransform();
-			at.scale(GameClient.getInstance().getWidth(), GameClient.getInstance().getHeight());
 			
+
+
 			m_bg = new Label(img);
 			m_bg.pack();
 			m_bg.setLocation(0, 0);
