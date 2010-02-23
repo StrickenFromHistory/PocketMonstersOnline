@@ -739,7 +739,6 @@ public class GameClient extends BasicGame {
 		String temp;
 		temp = getOptions().get("width");
 		width = Integer.parseInt(temp == null ? width + "" : temp);
-		System.out.println("WDITH L " + temp);
 		temp = getOptions().get("height");
 		height = Integer.parseInt(temp == null ? height + "" : temp);
 		

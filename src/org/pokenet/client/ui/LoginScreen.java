@@ -15,6 +15,7 @@ import mdes.slick.sui.Window;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
+import org.newdawn.slick.BigImage;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.pokenet.client.GameClient;
@@ -61,7 +62,7 @@ public class LoginScreen extends Window {
 			 * 
 			 * TODO: All of the pictures need to be redone, if we are sticking with the HD thing
 			 */
-			f = new FileInputStream(respath + "res/pokenet_hd_test.png");
+//			f = new FileInputStream(respath + "res/pokenet_hd_test.png");
 			// TODO: for memory's sake, we should probably make a few different sizes for each picture, rather than scaling 
 			// TODO: consider using SUN's JPEG decoder
 //			Calendar cal = Calendar.getInstance();
@@ -98,8 +99,8 @@ public class LoginScreen extends Window {
 //				/* Show normal login screen */
 //				f = new FileInputStream(respath+"res/pokenet_normal.png");
 //			}
-			Image img = new Image(f, "bg", false);
-			
+			BigImage img = new BigImage(respath + "res/pokenet_hd_test.png", 0, 32);
+			img = (BigImage) img.getScaledCopy( (float)GameClient.getInstance().getWidth() / (float)img.getWidth());
 
 
 			m_bg = new Label(img);
