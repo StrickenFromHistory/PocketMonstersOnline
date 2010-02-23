@@ -622,8 +622,8 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 			p.setServerX(p.getX());
 			p.setServerY(p.getY());
 			/* Reposition screen above player */
-			m_game.getMapMatrix().getCurrentMap().setXOffset(400 - p.getX(), false);
-			m_game.getMapMatrix().getCurrentMap().setYOffset(300 - p.getY(), false);
+			m_game.getMapMatrix().getCurrentMap().setXOffset((GameClient.getInstance().getWidth() / 2) - p.getX(), false);
+			m_game.getMapMatrix().getCurrentMap().setYOffset((GameClient.getInstance().getHeight() / 2) - p.getY(), false);
 			m_game.getMapMatrix().recalibrate();
 			break;
 		case 'M':
