@@ -8,6 +8,8 @@ import java.util.HashMap;
 
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Display;
+import mdes.slick.sui.Frame;
+import mdes.slick.sui.Label;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
@@ -159,6 +161,7 @@ public class GameClient extends BasicGame {
 		 */
 		m_fontLarge = new AngelCodeFont(m_filepath+"res/fonts/dp.fnt",m_filepath+"res/fonts/dp.png");
 		m_fontSmall = new AngelCodeFont(m_filepath+"res/fonts/dp-small.fnt", m_filepath+"res/fonts/dp-small.png");
+		
 		Player.loadSpriteFactory();
 		try {
 			/*DOES NOT WORK YET!!!
@@ -175,6 +178,7 @@ public class GameClient extends BasicGame {
 		if(options != null)
 			m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
 
+		
 		/*
 		 * Add the ui components
 		 */
