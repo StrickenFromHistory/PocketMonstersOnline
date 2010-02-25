@@ -37,8 +37,8 @@ public class TradeDialog extends Frame {
 	private ActionListener m_offerListener;
 	private ConfirmationDialog m_confirm;
 	private int m_offerNum = 6;
-	private boolean	madeOffer = false;
-	private boolean	receivedOffer = false;
+	private boolean	m_madeOffer = false;
+	private boolean	m_receivedOffer = false;
 
 	
 	/**
@@ -72,8 +72,8 @@ public class TradeDialog extends Frame {
 			m_ourPokes[i].setGlassPane(true);
 		}
 		
-		madeOffer = true;
-		if(receivedOffer) m_tradeBtn.setEnabled(true);
+		m_madeOffer = true;
+		if(m_receivedOffer) m_tradeBtn.setEnabled(true);
 	}
 	
 	/**
@@ -155,8 +155,8 @@ public class TradeDialog extends Frame {
 			m_theirPokes[index].setBorderRendered(true);
 		}
 		m_theirMoneyOffer.setText("$" + cash);
-		receivedOffer  = true;
-		if(madeOffer) m_tradeBtn.setEnabled(true);
+		m_receivedOffer  = true;
+		if(m_madeOffer) m_tradeBtn.setEnabled(true);
 	}
 	
 	/**
