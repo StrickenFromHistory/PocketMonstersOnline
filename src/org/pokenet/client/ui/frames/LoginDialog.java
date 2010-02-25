@@ -130,7 +130,7 @@ public class LoginDialog extends Frame {
 		this.add(m_register);
 		
 		// for remembering the username and password
-		remember = new CheckBox("Remember me?");
+		remember = new CheckBox();
 		remember.setSize(120, 15); 
 		remember.pack();
 		remember.setLocation(m_login.getX(), m_login.getY() + m_login.getHeight() + 8);
@@ -139,6 +139,15 @@ public class LoginDialog extends Frame {
 		remember.setVisible(true);
 		remember.setSelected(isRemembered);
 		this.add(remember);
+		
+		// add the text for the above check box
+		Label rememberLabel = new Label("Remember Me?");
+		rememberLabel.pack();
+		rememberLabel.setLocation(remember.getX() + remember.getWidth() + 8, remember.getY() + 4);
+		rememberLabel.setVisible(true);
+		rememberLabel.setFont(GameClient.getFontSmall());
+		rememberLabel.setForeground(m_white);
+		this.add(rememberLabel);
 		
 		
 		this.setVisible(false);
