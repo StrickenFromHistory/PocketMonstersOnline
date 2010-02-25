@@ -26,11 +26,11 @@ public class LoginDialog extends Frame {
 	private Label m_userLabel, m_passLabel;
 	private Button m_login, m_register;
 	private Color m_white;
-	private CheckBox remember;
-	boolean isRemembered = false;
+	private CheckBox m_remember;
+	boolean m_isRemembered = false;
 	private static final String DUMMY_PASS_TEXT = "********";
 	
-	private PreferencesManager prefs = PreferencesManager.getPreferencesManager();
+	private PreferencesManager m_prefs = PreferencesManager.getPreferencesManager();
 
 
 	
@@ -87,11 +87,11 @@ public class LoginDialog extends Frame {
 		
 	
 		// insert text into fields
-		try{ isRemembered = prefs.getBoolForKey(prefs.REMEMBER_ME_KEY_NAME);
-		} catch (NullPointerException e){ isRemembered = false;}
-		if(isRemembered)
+		try{ m_isRemembered = m_prefs.getBoolForKey(m_prefs.REMEMBER_ME_KEY_NAME);
+		} catch (NullPointerException e){ m_isRemembered = false;}
+		if(m_isRemembered)
 		{
-			m_username.setText(prefs.getStringForKey(prefs.USER_KEY_NAME));
+			m_username.setText(m_prefs.getStringForKey(m_prefs.USER_KEY_NAME));
 			m_password.setText(DUMMY_PASS_TEXT);
 		}
 		
@@ -107,12 +107,12 @@ public class LoginDialog extends Frame {
 					login();
 				}
 				
-				if(remember.isSelected()) {
-					prefs.setObjectForKey(m_username.getText(), prefs.USER_KEY_NAME);
-					prefs.setObjectForKey(encryptPassword(), prefs.PASS_KEY_NAME);
+				if(m_remember.isSelected()) {
+					m_prefs.setObjectForKey(m_username.getText(), m_prefs.USER_KEY_NAME);
+					m_prefs.setObjectForKey(encryptPassword(), m_prefs.PASS_KEY_NAME);
 				}
 				
-				prefs.setObjectForKey(remember.isSelected(), prefs.REMEMBER_ME_KEY_NAME);
+				m_prefs.setObjectForKey(m_remember.isSelected(), m_prefs.REMEMBER_ME_KEY_NAME);
 			}
 
 		});
@@ -130,20 +130,20 @@ public class LoginDialog extends Frame {
 		this.add(m_register);
 		
 		// for remembering the username and password
-		remember = new CheckBox();
-		remember.setSize(120, 15); 
-		remember.pack();
-		remember.setLocation(m_login.getX(), m_login.getY() + m_login.getHeight() + 8);
-		remember.setFont(GameClient.getFontSmall());
-		remember.setForeground(m_white);
-		remember.setVisible(true);
-		remember.setSelected(isRemembered);
-		this.add(remember);
+		m_remember = new CheckBox();
+		m_remember.setSize(120, 15); 
+		m_remember.pack();
+		m_remember.setLocation(m_login.getX(), m_login.getY() + m_login.getHeight() + 8);
+		m_remember.setFont(GameClient.getFontSmall());
+		m_remember.setForeground(m_white);
+		m_remember.setVisible(true);
+		m_remember.setSelected(m_isRemembered);
+		this.add(m_remember);
 		
 		// add the text for the above check box
 		Label rememberLabel = new Label("Remember Me?");
 		rememberLabel.pack();
-		rememberLabel.setLocation(remember.getX() + remember.getWidth() + 8, remember.getY() + 4);
+		rememberLabel.setLocation(m_remember.getX() + m_remember.getWidth() + 8, m_remember.getY() + 4);
 		rememberLabel.setVisible(true);
 		rememberLabel.setFont(GameClient.getFontSmall());
 		rememberLabel.setForeground(m_white);
@@ -183,7 +183,7 @@ public class LoginDialog extends Frame {
 	 */
 	private String decryptPassword() {
 		String result = "";
-		ArrayList<Integer> pass = prefs.getIntegerArrayListForKey(prefs.PASS_KEY_NAME);
+		ArrayList<Integer> pass = m_prefs.getIntegerArrayListForKey(m_prefs.PASS_KEY_NAME);
 		
 		for (int i = 0; i < pass.size(); i++) {
 			System.out.println(pass.get(i));

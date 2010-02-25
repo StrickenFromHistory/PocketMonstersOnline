@@ -23,11 +23,11 @@ public class PrivateServerDialog extends Frame{
 	private static final char BUTTON_HEIGHT = 24;
 	private static final char SPACE_BETWEEN_BUTTONS = 8;
 	private static final char MARGIN = 16;
-	PreferencesManager prefs = PreferencesManager.getPreferencesManager();
+	PreferencesManager m_prefs = PreferencesManager.getPreferencesManager();
 
 	
-	private String[] privateServers;
-	private Button[] privateServerButtons;
+	private String[] m_privateServers;
+	private Button[] m_privateServerButtons;
 	private Color m_black;
 	
 	/**
@@ -50,13 +50,13 @@ public class PrivateServerDialog extends Frame{
 		this.setResizable(false);
 		this.getTitleBar().getCloseButton().setVisible(true);
 		
-		privateServers = new String[MAX_PRIVATE_SERVERS];
-		privateServerButtons = new Button[MAX_PRIVATE_SERVERS];
+		m_privateServers = new String[MAX_PRIVATE_SERVERS];
+		m_privateServerButtons = new Button[MAX_PRIVATE_SERVERS];
 		
-		privateServers = prefs.getStringArrayForKey(prefs.PRIVATE_SERVERS_KEY_NAME);
+		m_privateServers = m_prefs.getStringArrayForKey(m_prefs.PRIVATE_SERVERS_KEY_NAME);
 		
-		if(null == this.privateServers){
-			this.privateServers = new String[MAX_PRIVATE_SERVERS];
+		if(null == this.m_privateServers){
+			this.m_privateServers = new String[MAX_PRIVATE_SERVERS];
 		}
 		
 		setUpServerButtons();
@@ -67,21 +67,21 @@ public class PrivateServerDialog extends Frame{
 		char numberOfServers = 0;
 
 		for (int i = 0; i < MAX_PRIVATE_SERVERS; i++){
-			if (null != privateServers[i]) numberOfServers++;
+			if (null != m_privateServers[i]) numberOfServers++;
 		}
 		
 		
 		// make buttons for all these servers
 		for(char curButton = 0; curButton < numberOfServers; curButton++){
-			privateServerButtons[curButton] = new Button(privateServers[curButton]);
-			privateServerButtons[curButton].setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
-			privateServerButtons[curButton].setLocation(MARGIN, 
+			m_privateServerButtons[curButton] = new Button(m_privateServers[curButton]);
+			m_privateServerButtons[curButton].setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+			m_privateServerButtons[curButton].setLocation(MARGIN, 
 					(BUTTON_HEIGHT + SPACE_BETWEEN_BUTTONS) * curButton + MARGIN);
-			privateServerButtons[curButton].setVisible(true);
-			this.add(privateServerButtons[curButton]);
+			m_privateServerButtons[curButton].setVisible(true);
+			this.add(m_privateServerButtons[curButton]);
 		}
 		
-		if (null != this.privateServers) addActionListenersToButtons();
+		if (null != this.m_privateServers) addActionListenersToButtons();
 	}
 
 	/**
@@ -98,13 +98,13 @@ public class PrivateServerDialog extends Frame{
 		ArrayList<String> servers = new ArrayList<String>();
 		
 		// read in the current list of servers
-		this.privateServers = prefs.getStringArrayForKey(prefs.PRIVATE_SERVERS_KEY_NAME);
+		this.m_privateServers = m_prefs.getStringArrayForKey(m_prefs.PRIVATE_SERVERS_KEY_NAME);
 	
-		if(null == this.privateServers){
-			this.privateServers = new String[MAX_PRIVATE_SERVERS];
+		if(null == this.m_privateServers){
+			this.m_privateServers = new String[MAX_PRIVATE_SERVERS];
 		}
 		
-		for (String server : this.privateServers) {
+		for (String server : this.m_privateServers) {
 			servers.add(server);
 		}
 		
@@ -124,14 +124,14 @@ public class PrivateServerDialog extends Frame{
 		}
 		
 		for (int i = 0; i < MAX_PRIVATE_SERVERS; i++) {
-			this.privateServers[i] = servers.get(i);
+			this.m_privateServers[i] = servers.get(i);
 		}
 		
 		//update the GUI incase we need to reshow the frame
 		setUpServerButtons();
 		
 		// finally, write list to preferences
-		prefs.setObjectForKey(this.privateServers, prefs.PRIVATE_SERVERS_KEY_NAME);
+		m_prefs.setObjectForKey(this.m_privateServers, m_prefs.PRIVATE_SERVERS_KEY_NAME);
 	}
 	
 
@@ -143,42 +143,42 @@ public class PrivateServerDialog extends Frame{
 	 */
 	private void addActionListenersToButtons() {
 		
-		if(null != privateServers[0]){
-			privateServerButtons[0].addActionListener(new ActionListener(){
+		if(null != m_privateServers[0]){
+			m_privateServerButtons[0].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0) {
-					GameClient.setHost(privateServers[0]);
+					GameClient.setHost(m_privateServers[0]);
 				}
 			});
 		}
 		
-		if(null != privateServers[1]){
-			privateServerButtons[1].addActionListener(new ActionListener(){
+		if(null != m_privateServers[1]){
+			m_privateServerButtons[1].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0) {
-					GameClient.setHost(privateServers[1]);
+					GameClient.setHost(m_privateServers[1]);
 				}
 			});
 		}
 		
-		if(null != privateServers[2]){
-			privateServerButtons[2].addActionListener(new ActionListener(){
+		if(null != m_privateServers[2]){
+			m_privateServerButtons[2].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0) {
-					GameClient.setHost(privateServers[2]);
+					GameClient.setHost(m_privateServers[2]);
 				}
 			});
 		}
 		
-		if(null != privateServers[3]){
-			privateServerButtons[3].addActionListener(new ActionListener(){
+		if(null != m_privateServers[3]){
+			m_privateServerButtons[3].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0) {
-					GameClient.setHost(privateServers[3]);
+					GameClient.setHost(m_privateServers[3]);
 				}
 			});
 		}
 		
-		if(null != privateServers[4]){
-			privateServerButtons[4].addActionListener(new ActionListener(){
+		if(null != m_privateServers[4]){
+			m_privateServerButtons[4].addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0) {
-					GameClient.setHost(privateServers[4]);
+					GameClient.setHost(m_privateServers[4]);
 				}
 			});
 		}

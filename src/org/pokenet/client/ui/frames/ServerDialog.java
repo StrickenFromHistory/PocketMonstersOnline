@@ -28,8 +28,10 @@ public class ServerDialog extends Frame {
 	private String [] m_host;
 	private Label m_info;
 	private Color m_black;
-	private Button privateServer;
-	private TextField privateIP;
+	private Button m_privateServer;
+	private TextField m_privateIP;
+	private PrivateServerDialog m_psDialog;
+	
 	/**
 	 * Default constructor
 	 */
@@ -157,9 +159,9 @@ public class ServerDialog extends Frame {
 		// need a way to get the display size
 		// also, the other private server button should be labeled
 		// connect to or something a bit more desscriptive.
-		final PrivateServerDialog psDialog = new PrivateServerDialog();
-		this.add(psDialog);
-		psDialog.setVisible(false);
+		m_psDialog = new PrivateServerDialog();
+		this.add(m_psDialog);
+		m_psDialog.setVisible(false);
 		Button privateServers = new Button("Private Servers");
 		privateServers.setSize(114, 24);
 		privateServers.setLocation(168, 230);
@@ -167,30 +169,30 @@ public class ServerDialog extends Frame {
 		privateServers.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
-				if(psDialog.isVisible()) psDialog.setVisible(false);
-				else psDialog.setVisible(true);
+				if(m_psDialog.isVisible()) m_psDialog.setVisible(false);
+				else m_psDialog.setVisible(true);
 				
 			}
 		});
 		this.add(privateServers);
 		// end privateServer Dialog 
 		
-		privateIP = new TextField();
-		privateIP.setLocation(16, 204);
-		privateIP.setSize(128, 24);
-		this.add(privateIP);
+		m_privateIP = new TextField();
+		m_privateIP.setLocation(16, 204);
+		m_privateIP.setSize(128, 24);
+		this.add(m_privateIP);
 		
-		privateServer = new Button();
-		privateServer.setText(translate.get(2));
-		privateServer.setSize(128, 24);
-		privateServer.setLocation(168, 204);
-		privateServer.addActionListener(new ActionListener() {
+		m_privateServer = new Button();
+		m_privateServer.setText(translate.get(2));
+		m_privateServer.setSize(128, 24);
+		m_privateServer.setLocation(168, 204);
+		m_privateServer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				GameClient.setHost(getPrivateServer());
-				psDialog.addServer(getPrivateServer());
+				m_psDialog.addServer(getPrivateServer());
 			}
 		});
-		this.add(privateServer);
+		this.add(m_privateServer);
 		
 		
 		
@@ -198,19 +200,19 @@ public class ServerDialog extends Frame {
 	}
 	
 	public String getPrivateServer() {
-		if(privateIP.getText().length() > 0)
-			return privateIP.getText();
+		if(m_privateIP.getText().length() > 0)
+			return m_privateIP.getText();
 		else
 			return "localhost";
 	}
 	public void goServer(){
-		 if(privateIP.getText().length() > 0)
+		 if(m_privateIP.getText().length() > 0)
 			GameClient.setHost(getPrivateServer());
 	}
 	public void reloadStrings(){
 		List<String> translate = Translator.translate("_LOGIN");
 		this.setTitle(translate.get(0));
 		m_info.setText(translate.get(1));
-		privateServer.setText(translate.get(2));
+		m_privateServer.setText(translate.get(2));
 	}
 }

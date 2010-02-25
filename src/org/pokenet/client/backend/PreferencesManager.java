@@ -49,7 +49,7 @@ public class PreferencesManager {
 	public final String REMEMBER_ME_KEY_NAME = "saveLogin";
 
 	
-	private String prefsPath = getPathForOS();
+	private String m_prefsPath = getPathForOS();
 	
 	
 	private Muffin m_muffin = new FileMuffin();
@@ -92,16 +92,16 @@ public class PreferencesManager {
 	@SuppressWarnings("unchecked")
 	private void readInPreferencesFromFile() {
 		try {
-			FileInputStream fin = new FileInputStream(this.prefsPath + FILE_NAME);
-		    System.out.println("Opening: " + this.prefsPath + FILE_NAME);
+			FileInputStream fin = new FileInputStream(this.m_prefsPath + FILE_NAME);
+		    System.out.println("Opening: " + this.m_prefsPath + FILE_NAME);
 		    
 			ObjectInputStream ois = new ObjectInputStream(fin);
 		    this.prefs = (HashMap<String, Object>) ois.readObject();
 		    ois.close();
 		}catch (FileNotFoundException fnfe) {
-			System.out.println("Creating Preferences File at: " + this.prefsPath + FILE_NAME);
+			System.out.println("Creating Preferences File at: " + this.m_prefsPath + FILE_NAME);
 			
-			File f = new File(this.prefsPath + FILE_NAME);
+			File f = new File(this.m_prefsPath + FILE_NAME);
 			
 		    if(!f.exists()){
 				 
@@ -162,8 +162,8 @@ public class PreferencesManager {
 	public void savePreferences() {
 		
 		try {
-		      FileOutputStream fout = new FileOutputStream(this.prefsPath + FILE_NAME);
-		      System.out.println("Saving: " + this.prefsPath + FILE_NAME);
+		      FileOutputStream fout = new FileOutputStream(this.m_prefsPath + FILE_NAME);
+		      System.out.println("Saving: " + this.m_prefsPath + FILE_NAME);
 		      ObjectOutputStream oos = new ObjectOutputStream(fout);
 		      oos.writeObject(prefs);
 		      oos.close();

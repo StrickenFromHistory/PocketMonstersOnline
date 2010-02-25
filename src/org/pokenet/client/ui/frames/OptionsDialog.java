@@ -14,7 +14,7 @@ import org.pokenet.client.backend.PreferencesManager;
 import org.pokenet.client.backend.Translator;
 
 public class OptionsDialog extends Frame {
-	PreferencesManager prefs;
+	PreferencesManager m_prefs;
 
 	private Button m_save;
 
@@ -26,7 +26,7 @@ public class OptionsDialog extends Frame {
 	// private SimpleColorPicker learnColor;
 
 	public OptionsDialog() {
-		prefs = PreferencesManager.getPreferencesManager();
+		m_prefs = PreferencesManager.getPreferencesManager();
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
 		initGUI();
@@ -54,7 +54,7 @@ public class OptionsDialog extends Frame {
 			m_fullScreen.pack();
 			m_fullScreen.setLocation(10, 10);
 
-			m_fullScreen.setSelected(prefs.getBoolForKey(prefs.FULLSCREEN_KEY_NAME));
+			m_fullScreen.setSelected(m_prefs.getBoolForKey(m_prefs.FULLSCREEN_KEY_NAME));
 			getContentPane().add(m_fullScreen);
 		}
 		{
@@ -62,21 +62,21 @@ public class OptionsDialog extends Frame {
 			m_muteSound.pack();
 			m_muteSound.setLocation(150, 10);
 
-			m_muteSound.setSelected(prefs.getBoolForKey(prefs.SOUND_MUTED_KEY_NAME));
+			m_muteSound.setSelected(m_prefs.getBoolForKey(m_prefs.SOUND_MUTED_KEY_NAME));
 			getContentPane().add(m_muteSound);
 		}
 		{
 			m_disableMaps = new CheckBox(translated.get(48));
 			m_disableMaps.pack();
 			m_disableMaps.setLocation(10, 45);
-			m_disableMaps.setSelected(prefs.getBoolForKey(prefs.DISABLE_MAPS_KEY_NAME));
+			m_disableMaps.setSelected(m_prefs.getBoolForKey(m_prefs.DISABLE_MAPS_KEY_NAME));
 			getContentPane().add(m_disableMaps);
 		}
 		{
 			m_disableWeather = new CheckBox("Disable Weather");
 			m_disableWeather.pack();
 			m_disableWeather.setLocation(10, 78);
-			m_disableWeather.setSelected(prefs.getBoolForKey(prefs.DISABLE_WEATHER_KEY_NAME));
+			m_disableWeather.setSelected(m_prefs.getBoolForKey(m_prefs.DISABLE_WEATHER_KEY_NAME));
 			getContentPane().add(m_disableWeather);
 		}
 		{
@@ -94,14 +94,14 @@ public class OptionsDialog extends Frame {
 					 * learnColor.getColorHexLabel(). getText());
 					 */
 					// hashMaps don't allow duplicate values, so there is no need to remove
-					prefs.setObjectForKey(m_fullScreen.isSelected(), prefs.FULLSCREEN_KEY_NAME);
+					m_prefs.setObjectForKey(m_fullScreen.isSelected(), m_prefs.FULLSCREEN_KEY_NAME);
 					
-					prefs.setObjectForKey(m_muteSound.isSelected(), prefs.SOUND_MUTED_KEY_NAME);
+					m_prefs.setObjectForKey(m_muteSound.isSelected(), m_prefs.SOUND_MUTED_KEY_NAME);
 					
-					prefs.setObjectForKey(m_disableMaps.isSelected(), prefs.DISABLE_MAPS_KEY_NAME);
+					m_prefs.setObjectForKey(m_disableMaps.isSelected(), m_prefs.DISABLE_MAPS_KEY_NAME);
 					GameClient.setDisableMaps(m_disableMaps.isSelected());
 					
-					prefs.setObjectForKey(m_disableWeather.isSelected(), prefs.DISABLE_WEATHER_KEY_NAME);
+					m_prefs.setObjectForKey(m_disableWeather.isSelected(), m_prefs.DISABLE_WEATHER_KEY_NAME);
 					
 					if (m_muteSound.isSelected())
 						GameClient.getSoundPlayer().mute(true); 

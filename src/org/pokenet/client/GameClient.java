@@ -95,7 +95,7 @@ public class GameClient extends BasicGame {
 	private static boolean m_disableMaps = false;
 	public static String UDPCODE = "";
 	
-	private static PreferencesManager prefs = PreferencesManager.getPreferencesManager();
+	private static PreferencesManager m_prefs = PreferencesManager.getPreferencesManager();
 
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
@@ -114,10 +114,10 @@ public class GameClient extends BasicGame {
 
 			m_instance = new GameClient("Pokenet: Valiant Venonat");
 			m_soundPlayer = new SoundManager();
-			m_soundPlayer.mute(prefs.getBoolForKey(prefs.SOUND_MUTED_KEY_NAME));
+			m_soundPlayer.mute(m_prefs.getBoolForKey(m_prefs.SOUND_MUTED_KEY_NAME));
 			m_soundPlayer.start();
 			m_soundPlayer.setTrack("introandgym");
-			m_disableMaps = prefs.getBoolForKey(prefs.DISABLE_MAPS_KEY_NAME);
+			m_disableMaps = m_prefs.getBoolForKey(m_prefs.DISABLE_MAPS_KEY_NAME);
 		} catch (Exception e) { 
 			e.printStackTrace();
 			m_instance = new GameClient("Pokenet: Valiant Venonat");
@@ -166,7 +166,7 @@ public class GameClient extends BasicGame {
 		 */
 		m_time = new TimeService();
 		m_weather = new WeatherService();
-		m_weather.setEnabled(!prefs.getBoolForKey(prefs.DISABLE_WEATHER_KEY_NAME));
+		m_weather.setEnabled(!m_prefs.getBoolForKey(m_prefs.DISABLE_WEATHER_KEY_NAME));
 
 		/*
 		 * Add the ui components
@@ -717,7 +717,7 @@ public class GameClient extends BasicGame {
 		boolean fullscreen = false;
 		try {
 			// TODO: Do we need this try / catch?
-			fullscreen =  prefs.getBoolForKey(prefs.FULLSCREEN_KEY_NAME);
+			fullscreen =  m_prefs.getBoolForKey(m_prefs.FULLSCREEN_KEY_NAME);
 		} catch (Exception e) {
 			fullscreen = false;
 		}
@@ -929,7 +929,7 @@ public class GameClient extends BasicGame {
 //			System.exit(32);
 //		}
 // TODO: do we need all this try / catch stuff?
-		prefs.reload();
+		m_prefs.reload();
 	}
 
 	/**
