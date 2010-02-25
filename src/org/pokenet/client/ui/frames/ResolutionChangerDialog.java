@@ -27,33 +27,33 @@ import mdes.slick.sui.event.ActionListener;
  *         Created Feb 22, 2010.
  */
 public class ResolutionChangerDialog extends Frame{
-	private int currentResolutionWidth = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-	private int currentResolutionHeight = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-	private int currentGameWidth = GameClient.getInstance().getWidth();
-	private int currentGameHeight = GameClient.getInstance().getHeight();
-	private int buttonWidth = 100;
-	private int margin = 8;
-	private int buttonHeight = 32;
-	private int gutter = margin * 4;
+	private int m_currentResolutionWidth = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+	private int m_currentResolutionHeight = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+	private int m_currentGameWidth = GameClient.getInstance().getWidth();
+	private int m_currentGameHeight = GameClient.getInstance().getHeight();
+	private int m_buttonWidth = 100;
+	private int m_margin = 8;
+	private int m_buttonHeight = 32;
+	private int m_gutter = m_margin * 4;
 	private Color m_white = new Color(255, 255, 255);
 
 	
 	private static final int[] widths_4x3 = {800, 1024, 1280, 1400, 1600, 2048}; 
 	private static final int[] heights_4x3 = {600, 768,  960, 1050, 1200, 1536};
-	private static Button[] buttons_4x3 = new Button[widths_4x3.length];
+	private static Button[] m_buttons_4x3 = new Button[widths_4x3.length];
 	
 	private static final int[] widths_16x10 = {1280, 1440, 1680, 1920, 2560};
 	private static final int[] heights_16x10 = {800,  900, 1050, 1200, 1600};
-	private static Button[] buttons_16x10 = new Button[widths_16x10.length];
+	private static Button[] m_buttons_16x10 = new Button[widths_16x10.length];
 	
 	private static final int[] widths_16x9 = {854, 1280, 1366, 1920};
 	private static final int[] heights_16x9 = {480, 720, 768, 1080};
-	private static Button[] buttons_16x9 = new Button[widths_16x9.length];
+	private static Button[] m_buttons_16x9 = new Button[widths_16x9.length];
 	
 	private static final int [][] widths = {widths_4x3, widths_16x10, widths_16x9};
 	private static final int [][] heights = {heights_4x3, heights_16x10, heights_16x9};
 	
-	private Button[][] buttons = {buttons_4x3, buttons_16x10, buttons_16x9};
+	private Button[][] m_buttons = {m_buttons_4x3, m_buttons_16x10, m_buttons_16x9};
 	/**
 	 * Default constructor
 	 */
@@ -67,24 +67,24 @@ public class ResolutionChangerDialog extends Frame{
 		this.setTitle("Change Game Resolution");
 		GameClient.getInstance().getDisplay().add(this);
 
-		this.setSize((buttonWidth * 2) + 2 * margin + gutter, 
-				(widths_4x3.length + widths_16x10.length - 2) * (buttonHeight + margin) + margin);
+		this.setSize((m_buttonWidth * 2) + 2 * m_margin + m_gutter, 
+				(widths_4x3.length + widths_16x10.length - 2) * (m_buttonHeight + m_margin) + m_margin);
 		setCenter();
 		
 		// add the labels, telling them what ratio is which
 		Label four_three = new Label("4x3");
 		four_three.pack();
-		four_three.setLocation(margin + buttonWidth / 2 - four_three.getWidth() / 2, margin);
+		four_three.setLocation(m_margin + m_buttonWidth / 2 - four_three.getWidth() / 2, m_margin);
 		four_three.setVisible(true);
 		four_three.setFont(GameClient.getFontSmall());
 		four_three.setForeground(m_white);
 		this.add(four_three);
 		
-		float header = margin + four_three.getHeight();
+		float header = m_margin + four_three.getHeight();
 
 		Label sixteen_ten = new Label("16x10");
 		sixteen_ten.pack();
-		sixteen_ten.setLocation(margin + buttonWidth / 2 + buttonWidth + gutter - sixteen_ten.getWidth() / 2, margin);
+		sixteen_ten.setLocation(m_margin + m_buttonWidth / 2 + m_buttonWidth + m_gutter - sixteen_ten.getWidth() / 2, m_margin);
 		sixteen_ten.setVisible(true);
 		sixteen_ten.setFont(GameClient.getFontSmall());
 		sixteen_ten.setForeground(m_white);
@@ -92,15 +92,15 @@ public class ResolutionChangerDialog extends Frame{
 		
 		Label sixteen_nine = new Label("16x9");
 		sixteen_nine.pack();
-		sixteen_nine.setLocation(margin + buttonWidth / 2 + buttonWidth + gutter - sixteen_nine.getWidth() / 2, 
-				 margin + (widths_16x9.length * buttonHeight + header));
+		sixteen_nine.setLocation(m_margin + m_buttonWidth / 2 + m_buttonWidth + m_gutter - sixteen_nine.getWidth() / 2, 
+				 m_margin + (widths_16x9.length * m_buttonHeight + header));
 		sixteen_nine.setVisible(true);
 		sixteen_nine.setFont(GameClient.getFontSmall());
 		sixteen_nine.setForeground(m_white);
 		this.add(sixteen_nine);
 		
-		Line divider = new Line(margin + buttonWidth + gutter / 2, margin,
-				this.getHeight() - margin, margin + buttonWidth + gutter / 2);
+		Line divider = new Line(m_margin + m_buttonWidth + m_gutter / 2, m_margin,
+				this.getHeight() - m_margin, m_margin + m_buttonWidth + m_gutter / 2);
 //		this.add(divider.get);
 		
 		// add the resolutions
@@ -108,29 +108,29 @@ public class ResolutionChangerDialog extends Frame{
 		int[] tempWidths;
 		int[] tempHeights;
 		float yOffset = header;
-		int x = margin;// + (int)four_three.getHeight() + margin;
+		int x = m_margin;// + (int)four_three.getHeight() + margin;
 		
 		for (int j = 0; j < widths.length; j++){
 			
 			tempWidths = widths[j];
 			tempHeights = heights[j];
-			tempButtons = buttons[j];
+			tempButtons = m_buttons[j];
 			
 			if(j == 1) {
-				x = x + buttonWidth + gutter;
+				x = x + m_buttonWidth + m_gutter;
 				yOffset = header;
 			}
-			if(j == 2) yOffset = buttonHeight * (heights_4x3.length - 1) + margin;
+			if(j == 2) yOffset = m_buttonHeight * (heights_4x3.length - 1) + m_margin;
 			
 			for (int i = 0; i < tempWidths.length; i++) {
-				if (tempWidths[i] <= currentResolutionWidth && tempHeights[i] <= currentResolutionHeight) {
-					buttons[j][i] = new Button(tempWidths[i] + "x" + tempHeights[i]);
-					buttons[j][i].setSize(buttonWidth, buttonHeight);
-					buttons[j][i].setLocation(x, i * buttonHeight + yOffset + margin);
-					buttons[j][i].setVisible(true);
-					if (tempWidths[i] == currentGameWidth && tempHeights[i] == currentGameHeight) 
-						buttons[j][i].setEnabled(false);
-					this.add(buttons[j][i]);
+				if (tempWidths[i] <= m_currentResolutionWidth && tempHeights[i] <= m_currentResolutionHeight) {
+					m_buttons[j][i] = new Button(tempWidths[i] + "x" + tempHeights[i]);
+					m_buttons[j][i].setSize(m_buttonWidth, m_buttonHeight);
+					m_buttons[j][i].setLocation(x, i * m_buttonHeight + yOffset + m_margin);
+					m_buttons[j][i].setVisible(true);
+					if (tempWidths[i] == m_currentGameWidth && tempHeights[i] == m_currentGameHeight) 
+						m_buttons[j][i].setEnabled(false);
+					this.add(m_buttons[j][i]);
 				}
 			}
 		}
@@ -150,42 +150,42 @@ public class ResolutionChangerDialog extends Frame{
 		 ***********************************/
 		
 		//800x600
-		if(null != buttons_4x3[0]) buttons_4x3[0].addActionListener(new ActionListener() {
+		if(null != m_buttons_4x3[0]) m_buttons_4x3[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(800, 600);
 			}
 		});
 
 		//1024x768
-		if(null != buttons_4x3[1]) buttons_4x3[1].addActionListener(new ActionListener() {
+		if(null != m_buttons_4x3[1]) m_buttons_4x3[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(1024, 768);
 			}
 		});
 		
 		//1280x960
-		if(null != buttons_4x3[2]) buttons_4x3[2].addActionListener(new ActionListener() {
+		if(null != m_buttons_4x3[2]) m_buttons_4x3[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(1280, 960);
 			}
 		});
 		
 		//1400x1050
-		if(null != buttons_4x3[3]) buttons_4x3[3].addActionListener(new ActionListener() {
+		if(null != m_buttons_4x3[3]) m_buttons_4x3[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(1400, 1050);
 			}
 		});
 		
 		//1600x1200
-		if(null != buttons_4x3[4]) buttons_4x3[4].addActionListener(new ActionListener() {
+		if(null != m_buttons_4x3[4]) m_buttons_4x3[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(1600, 1200);
 			}
 		});
 		
 		//2048x1536
-		if(null != buttons_4x3[5]) buttons_4x3[5].addActionListener(new ActionListener() {
+		if(null != m_buttons_4x3[5]) m_buttons_4x3[5].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(2048, 1536);
 			}
@@ -196,35 +196,35 @@ public class ResolutionChangerDialog extends Frame{
 		 ***********************************/
 		
 		//1280x800
-		if(null != buttons_16x10[0]) buttons_16x10[0].addActionListener(new ActionListener() {
+		if(null != m_buttons_16x10[0]) m_buttons_16x10[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(1280, 800);
 			}
 		});
 
 		//1440x900
-		if(null != buttons_16x10[1]) buttons_16x10[1].addActionListener(new ActionListener() {
+		if(null != m_buttons_16x10[1]) m_buttons_16x10[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(1440, 900);
 			}
 		});
 		
 		//1680x1050
-		if(null != buttons_16x10[2]) buttons_16x10[2].addActionListener(new ActionListener() {
+		if(null != m_buttons_16x10[2]) m_buttons_16x10[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(1680, 1050);
 			}
 		});
 		
 		//1920x1200
-		if(null != buttons_16x10[3]) buttons_16x10[3].addActionListener(new ActionListener() {
+		if(null != m_buttons_16x10[3]) m_buttons_16x10[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(1920, 1200);
 			}
 		});
 		
 		//2560x1600
-		if(null != buttons_16x10[4]) buttons_16x10[4].addActionListener(new ActionListener() {
+		if(null != m_buttons_16x10[4]) m_buttons_16x10[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(2560, 1600);
 			}
@@ -235,28 +235,28 @@ public class ResolutionChangerDialog extends Frame{
 		 ***********************************/
 		
 		//854x480
-		if(null != buttons_16x9[0]) buttons_16x9[0].addActionListener(new ActionListener() {
+		if(null != m_buttons_16x9[0]) m_buttons_16x9[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(854, 480);
 			}
 		});
 
 		//1280x720
-		if(null != buttons_16x9[1])buttons_16x9[1].addActionListener(new ActionListener() {
+		if(null != m_buttons_16x9[1])m_buttons_16x9[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(1280, 720);
 			}
 		});
 		
 		//1366x768
-		if(null != buttons_16x9[2]) buttons_16x9[2].addActionListener(new ActionListener() {
+		if(null != m_buttons_16x9[2]) m_buttons_16x9[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(1366, 768);
 			}
 		});
 		
 		//1920x1080
-		if(null != buttons_16x9[3]) buttons_16x9[3].addActionListener(new ActionListener() {
+		if(null != m_buttons_16x9[3]) m_buttons_16x9[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setNewGameDimensions(1920, 1080);
 			}

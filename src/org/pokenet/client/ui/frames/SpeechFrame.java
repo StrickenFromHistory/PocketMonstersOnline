@@ -38,7 +38,7 @@ public class SpeechFrame extends Frame {
     boolean isGoingDown = true;
     protected String stringToPrint;
     
-    GameClient gameClient = GameClient.getInstance();
+    GameClient m_gameClient = GameClient.getInstance();
     
     /**
      * Default constructor
@@ -120,8 +120,10 @@ public class SpeechFrame extends Frame {
     	
     	this.setWidth(400);
     	this.setHeight(100);
-    	this.setX((gameClient.getWidth() / 2) - getWidth() / 2);
-    	this.setY((gameClient.getHeight() / 2) + 120);
+    	this.setX((m_gameClient.getWidth() / 2) - getWidth() / 2);
+    	this.setY((m_gameClient.getHeight() / 2) + 120);
+    	// this should stick to the bottom of the battle frame
+    	
     	this.getTitleBar().setVisible(false);
     	this.setResizable(false);
     	

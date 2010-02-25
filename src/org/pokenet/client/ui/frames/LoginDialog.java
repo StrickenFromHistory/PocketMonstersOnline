@@ -24,7 +24,7 @@ public class LoginDialog extends Frame {
 	private Button m_login, m_register;
 	private Color m_white;
 	
-	private GameClient gameClient = GameClient.getInstance();
+	private GameClient m_gameClient = GameClient.getInstance();
 	
 	/**
 	 * Default constructor
@@ -36,7 +36,7 @@ public class LoginDialog extends Frame {
 		this.setBorderRendered(false);
 		this.getTitleBar().setVisible(false);
 		this.setSize(320, 160);
-		this.setLocation((gameClient.getWidth() / 2) - (this.getWidth() / 2), 424);
+		this.setLocation((m_gameClient.getWidth() / 2) - (this.getWidth() / 2), 424);
 		this.setBackground(new Color(0, 0, 0, 140));
 		this.setDraggable(false);
 		this.setResizable(false);

@@ -42,7 +42,7 @@ public class LoginScreen extends Window {
 	private ToSDialog m_terms;
 	private Button m_openAbout, m_openToS;
 	
-	private GameClient gameClient = GameClient.getInstance();
+	private GameClient m_gameClient = GameClient.getInstance();
 
 	/**
 	 * Default constructor
@@ -138,7 +138,7 @@ public class LoginScreen extends Window {
 			
 			m_openAbout = new Button(translated.get(3));
 			m_openAbout.setSize(64, 32);
-			m_openAbout.setLocation(gameClient.getWidth() - 64 - 8, 8);
+			m_openAbout.setLocation(m_gameClient.getWidth() - 64 - 8, 8);
 			m_openAbout.setVisible(false);
 			m_openAbout.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -149,7 +149,7 @@ public class LoginScreen extends Window {
 			
 			m_openToS = new Button(translated.get(4));
 			m_openToS.setSize(64, 32);
-			m_openToS.setLocation(gameClient.getWidth() - 64 - 8, 40);
+			m_openToS.setLocation(m_gameClient.getWidth() - 64 - 8, 40);
 			m_openToS.setVisible(false);
 			m_openToS.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -170,7 +170,7 @@ public class LoginScreen extends Window {
 			this.add(m_serverRev);
 
 			this.setLocation(0, 0);
-			this.setSize(gameClient.getWidth(), gameClient.getHeight());
+			this.setSize(m_gameClient.getWidth(), m_gameClient.getHeight());
 			this.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -205,14 +205,14 @@ public class LoginScreen extends Window {
 				m_clientRev.setFont(GameClient.getFontSmall());
 				m_clientRev.setForeground(new Color(255, 255, 255));
 				m_clientRev.pack();
-				m_clientRev.setLocation(4, gameClient.getHeight() - m_clientRev.getHeight() - 8);
+				m_clientRev.setLocation(4, m_gameClient.getHeight() - m_clientRev.getHeight() - 8);
 				this.add(m_clientRev);
 			} catch (Exception e) {
 				m_clientRev = new Label("Client Version: ?");
 				m_clientRev.setFont(GameClient.getFontSmall());
 				m_clientRev.setForeground(new Color(255, 255, 255));
 				m_clientRev.pack();
-				m_clientRev.setLocation(4, gameClient.getHeight() - m_clientRev.getHeight() - 8);
+				m_clientRev.setLocation(4, m_gameClient.getHeight() - m_clientRev.getHeight() - 8);
 				this.add(m_clientRev);
 			}
 		} else {
@@ -220,7 +220,7 @@ public class LoginScreen extends Window {
 			m_clientRev.setFont(GameClient.getFontSmall());
 			m_clientRev.setForeground(new Color(255, 255, 255));
 			m_clientRev.pack();
-			m_clientRev.setLocation(4, gameClient.getHeight() - m_clientRev.getHeight() - 8);
+			m_clientRev.setLocation(4, m_gameClient.getHeight() - m_clientRev.getHeight() - 8);
 			this.add(m_clientRev);
 		}
 	}

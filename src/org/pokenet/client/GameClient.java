@@ -101,8 +101,8 @@ public class GameClient extends BasicGame {
 	
 	// later to be set by preferences 
 	// need to be able to detect supported resolutions
-	private static int width = 800;
-	private static int height = 600;
+	private static int m_width = 800;
+	private static int m_height = 600;
 	
 	
 	/**
@@ -157,7 +157,7 @@ public class GameClient extends BasicGame {
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		m_instance = this;
-		gc.getGraphics().setWorldClip(-32, -32, width + 32, width + 32);
+		gc.getGraphics().setWorldClip(-32, -32, m_width + 32, m_width + 32);
 		gc.setShowFPS(false);
 		m_display = new Display(gc);
 
@@ -252,8 +252,8 @@ public class GameClient extends BasicGame {
 			m_mapMatrix.loadMaps(m_mapX, m_mapY, gc.getGraphics());
 			while(m_ourPlayer == null);
 			m_mapMatrix.getCurrentMap().setName(m_mapMatrix.getMapName(m_mapX, m_mapY));
-			m_mapMatrix.getCurrentMap().setXOffset((width / 2) - m_ourPlayer.getX(), false);
-			m_mapMatrix.getCurrentMap().setYOffset((height / 2) - m_ourPlayer.getY(), false);
+			m_mapMatrix.getCurrentMap().setXOffset((m_width / 2) - m_ourPlayer.getX(), false);
+			m_mapMatrix.getCurrentMap().setYOffset((m_height / 2) - m_ourPlayer.getY(), false);
 			m_mapMatrix.recalibrate();
 			m_ui.getMap().setPlayerLocation();
 			m_isNewMap = false;
@@ -291,7 +291,7 @@ public class GameClient extends BasicGame {
 	 */
 	public void render(GameContainer gc, Graphics g) throws SlickException {
 		/* Clip the screen, no need to render what we're not seeing */
-		g.setWorldClip(-32, -32, width + 64, height + 64);
+		g.setWorldClip(-32, -32, m_width + 64, m_height + 64);
 		/*
 		 * If the player is playing, run this rendering algorithm for maps.
 		 * The uniqueness here is:
@@ -336,7 +336,7 @@ public class GameClient extends BasicGame {
 						(m_weather.getWeather() != Weather.NORMAL && 
 								m_weather.getWeather() != Weather.SANDSTORM)) {
 					g.setColor(m_daylight);
-					g.fillRect(0, 0, width, height);
+					g.fillRect(0, 0, m_width, m_height);
 				}
 			}
 		}
@@ -738,14 +738,14 @@ public class GameClient extends BasicGame {
 		// get the width and height and set it
 		String temp;
 		temp = getOptions().get("width");
-		width = Integer.parseInt(temp == null ? width + "" : temp);
+		m_width = Integer.parseInt(temp == null ? m_width + "" : temp);
 		temp = getOptions().get("height");
-		height = Integer.parseInt(temp == null ? height + "" : temp);
+		m_height = Integer.parseInt(temp == null ? m_height + "" : temp);
 		
 		try {
 			// need to pull in size from preferences
 			gc = new AppGameContainer(new GameClient("Pokenet: Valiant Venonat"),
-					width, height, fullscreen);
+					m_width, m_height, fullscreen);
 			gc.setTargetFrameRate(50);
 			gc.start();
 		} catch (Exception e) {
@@ -1028,7 +1028,7 @@ public class GameClient extends BasicGame {
 	 * @param width The width to set.
 	 */
 	public void setWidth(int width) {
-		this.width = width;
+		this.m_width = width;
 	}
 
 	/**
@@ -1044,7 +1044,7 @@ public class GameClient extends BasicGame {
 	 * @param height The height to set.
 	 */
 	public void setHeight(int height) {
-		this.height = height;
+		this.m_height = height;
 	}
 
 	/**

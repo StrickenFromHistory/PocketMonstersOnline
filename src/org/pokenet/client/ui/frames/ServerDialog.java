@@ -31,7 +31,7 @@ public class ServerDialog extends Frame {
 	private Button privateServer;
 	private TextField privateIP;
 	
-	private GameClient gameClient = GameClient.getInstance();
+	private GameClient m_gameClient = GameClient.getInstance();
 	/**
 	 * Default constructor
 	 */
@@ -42,7 +42,7 @@ public class ServerDialog extends Frame {
 		List<String> translate = Translator.translate("_LOGIN");
 		
 		this.setSize(316, 280);
-		this.setLocation((gameClient.getWidth() / 2) - 160, 280);
+		this.setLocation((m_gameClient.getWidth() / 2) - 160, 280);
 		this.setTitle(translate.get(0));
 		this.setBackground(new Color(0, 0, 0, 140));
 		this.getTitleBar().setForeground(m_black);

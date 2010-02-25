@@ -62,7 +62,7 @@ public class Ui extends Frame {
     private BigBagDialog m_bag;
     private PlayerInfoDialog m_stats;
     
-    private GameClient gameClient = GameClient.getInstance();
+    private GameClient m_gameClient = GameClient.getInstance();
 	
 	/**
 	 * Default constructor
@@ -71,7 +71,7 @@ public class Ui extends Frame {
 		m_instance = this;
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
-		this.setSize(gameClient.getWidth(), 66);
+		this.setSize(m_gameClient.getWidth(), 66);
 		this.setLocation(0, -getTitleBar().getHeight());
 		this.setBackground(new Color(0, 0, 0, 75));
 		this.setResizable(false);
@@ -105,7 +105,7 @@ public class Ui extends Frame {
 		this.add(m_moneyLabel);
 		
 		this.add(GameClient.getInstance().getTimeService());
-		GameClient.getInstance().getTimeService().setX(gameClient.getWidth() - 55);
+		GameClient.getInstance().getTimeService().setX(m_gameClient.getWidth() - 55);
 		this.getTitleBar().setVisible(false);
 
 		m_chat.setLocation(0, GameClient.getInstance().getDisplay().getHeight() - m_chat.getHeight());

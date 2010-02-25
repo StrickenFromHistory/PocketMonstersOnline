@@ -18,8 +18,6 @@ public class ToSDialog extends Frame {
 	private TextArea m_info;
 	private Color m_bg, m_white;
 	
-	private GameClient gameClient = GameClient.getInstance();
-
 	/**
 	 * Default constructor
 	 */
