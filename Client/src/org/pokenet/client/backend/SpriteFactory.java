@@ -2,8 +2,12 @@ package org.pokenet.client.backend;
 
 import java.util.HashMap;
 
+import mdes.slick.sui.Label;
+
+import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SpriteSheet;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.entity.Player.Direction;
 
 /**
@@ -68,6 +72,7 @@ public class SpriteFactory {
 	 * Initialises the database of sprites
 	 */
 	public SpriteFactory() {
+		
 		spriteSheets = new HashMap<Integer, SpriteSheet>();	
 		try {
 			String location;

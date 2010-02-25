@@ -75,6 +75,7 @@ public class Ui extends Frame {
 		this.setResizable(false);
 		this.setDraggable(false);
 		
+		
 		m_battleManager = new BattleManager();
 		
 		m_display = display;

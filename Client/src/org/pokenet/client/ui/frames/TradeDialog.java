@@ -10,6 +10,7 @@ import mdes.slick.sui.event.ActionListener;
 import mdes.slick.sui.event.MouseAdapter;
 import mdes.slick.sui.event.MouseEvent;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.loading.LoadingList;
@@ -36,6 +37,9 @@ public class TradeDialog extends Frame {
 	private ActionListener m_offerListener;
 	private ConfirmationDialog m_confirm;
 	private int m_offerNum = 6;
+	private boolean	madeOffer = false;
+	private boolean	receivedOffer = false;
+
 	
 	/**
 	 * Default constructor
@@ -54,6 +58,8 @@ public class TradeDialog extends Frame {
 	 * Sends the offer to the server
 	 */
 	private void makeOffer(){
+		if(m_ourMoneyOffer.getText().equals("")) m_ourMoneyOffer.setText("0");
+		
 		if (!m_ourMoneyOffer.getText().equals("")){
 			GameClient.getInstance().getPacketGenerator().writeTcpMessage("To" + m_offerNum + "," + 
 					m_ourMoneyOffer.getText());
@@ -65,6 +71,9 @@ public class TradeDialog extends Frame {
 		for (int i = 0; i < 6; i++){
 			m_ourPokes[i].setGlassPane(true);
 		}
+		
+		madeOffer = true;
+		if(receivedOffer) m_tradeBtn.setEnabled(true);
 	}
 	
 	/**
@@ -83,10 +92,15 @@ public class TradeDialog extends Frame {
 	 * Allows only one pokemon to be toggled
 	 * @param btnIndex
 	 */
-	private void untoggleOthers(int btnIndex){
+	private void untoggleOthers(int btnIndex){		
 		for (int i = 0; i < 6; i++){
-			if (i != btnIndex)
+			if (i != btnIndex){
 				m_ourPokes[i].setSelected(false);
+				m_ourPokes[i].setBorderRendered(false);
+			} else {
+				m_ourPokes[btnIndex].setBorderRendered(true);
+				m_ourPokes[btnIndex].setSelected(true);
+			}
 		}
 	}
 	
@@ -132,11 +146,17 @@ public class TradeDialog extends Frame {
 	public void getOffer(int index, int cash){
 		for (int i = 0; i < 6; i++){
 			m_theirPokes[i].setSelected(false);
+			m_theirPokes[index].setBorderRendered(false);
+
 		}
 		if (index < 6)
+		{
 			m_theirPokes[index].setSelected(true);
+			m_theirPokes[index].setBorderRendered(true);
+		}
 		m_theirMoneyOffer.setText("$" + cash);
-		m_tradeBtn.setEnabled(true);
+		receivedOffer  = true;
+		if(madeOffer) m_tradeBtn.setEnabled(true);
 	}
 	
 	/**
@@ -165,10 +185,15 @@ public class TradeDialog extends Frame {
 		//Action Listener for the offer button
 		m_offerListener = new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				if (m_makeOfferBtn.getText().equalsIgnoreCase("Make Offer"))
+				if (m_makeOfferBtn.getText().equalsIgnoreCase("Make Offer")){
+					if(m_ourMoneyOffer.getText().equals("") || m_ourMoneyOffer.getText() == null){
+						m_ourMoneyOffer.setText("0");
+					}
 					makeOffer();
-				else 
+				}
+				else {
 					cancelOffer();
+				}
 			}
 		};
 		
@@ -213,78 +238,78 @@ public class TradeDialog extends Frame {
 			public void actionPerformed(ActionEvent evt) {
 				if (m_offerNum == 0){
 					m_offerNum = 6;
-					m_ourPokes[0].setSelected(false);
 					untoggleOthers(6);
 				} else {
 					m_offerNum = 0;
-					m_ourPokes[0].setSelected(true);
 					untoggleOthers(0);
 				}
+				m_makeOfferBtn.setEnabled(true);
+
 			};
 		});
 		m_ourPokes[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (m_offerNum == 1){
 					m_offerNum = 6;
-					m_ourPokes[1].setSelected(false);
 					untoggleOthers(6);
 				} else {
 					m_offerNum = 1;
-					m_ourPokes[1].setSelected(true);
 					untoggleOthers(1);
 				}
+				m_makeOfferBtn.setEnabled(true);
+
 			};
 		});
 		m_ourPokes[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (m_offerNum == 2){
 					m_offerNum = 6;
-					m_ourPokes[2].setSelected(false);
 					untoggleOthers(6);
 				} else {
 					m_offerNum = 2;
-					m_ourPokes[2].setSelected(true);
 					untoggleOthers(2);
 				}
+				m_makeOfferBtn.setEnabled(true);
+
 			};
 		});
 		m_ourPokes[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (m_offerNum == 3){
 					m_offerNum = 6;
-					m_ourPokes[3].setSelected(false);
 					untoggleOthers(6);
 				} else {
 					m_offerNum = 3;
-					m_ourPokes[3].setSelected(true);
 					untoggleOthers(3);
 				}
+				m_makeOfferBtn.setEnabled(true);
+
 			};
 		});
 		m_ourPokes[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (m_offerNum == 4){
 					m_offerNum = 6;
-					m_ourPokes[4].setSelected(false);
 					untoggleOthers(6);
 				} else {
 					m_offerNum = 4;
-					m_ourPokes[4].setSelected(true);
 					untoggleOthers(4);
 				}
+				
+				m_makeOfferBtn.setEnabled(true);
 			};
 		});
 		m_ourPokes[5].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (m_offerNum == 5){
 					m_offerNum = 6;
-					m_ourPokes[5].setSelected(false);
 					untoggleOthers(6);
 				} else {
 					m_offerNum = 5;
-					m_ourPokes[5].setSelected(true);
 					untoggleOthers(5);
 				}
+				
+				m_makeOfferBtn.setEnabled(true);
 			};
 		});
 		
@@ -292,6 +317,7 @@ public class TradeDialog extends Frame {
 		m_makeOfferBtn.setText("Make Offer");
 		m_makeOfferBtn.setSize(90, 30);
 		m_makeOfferBtn.setLocation(90, 10);
+		m_makeOfferBtn.setEnabled(false);
 		m_makeOfferBtn.addActionListener(m_offerListener);
 		getContentPane().add(m_makeOfferBtn);
 		
