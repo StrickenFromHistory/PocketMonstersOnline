@@ -31,8 +31,8 @@ import org.newdawn.slick.muffin.Muffin;
  *
  */
 public class PreferencesManager {
-	private static PreferencesManager instance = null;
-	private HashMap<String, Object> prefs = new HashMap<String, Object>();
+	private static PreferencesManager m_instance = null;
+	private HashMap<String, Object> m_prefs = new HashMap<String, Object>();
 	private static final String FILE_NAME = "org.pokedev.pokePrefs";
 	private static final String MAC_NAME = "Mac OS X";
 	private static final String WIN_NAME = "Windows";
@@ -68,11 +68,11 @@ public class PreferencesManager {
 	 * @return
 	 */
 	public static PreferencesManager getPreferencesManager(){
-		if (null == instance){
-			instance = new PreferencesManager();
+		if (null == m_instance){
+			m_instance = new PreferencesManager();
 		}
 		
-		return instance;
+		return m_instance;
 	}
 	
 	private String getPathForOS(){
@@ -96,7 +96,7 @@ public class PreferencesManager {
 		    System.out.println("Opening: " + this.m_prefsPath + FILE_NAME);
 		    
 			ObjectInputStream ois = new ObjectInputStream(fin);
-		    this.prefs = (HashMap<String, Object>) ois.readObject();
+		    this.m_prefs = (HashMap<String, Object>) ois.readObject();
 		    ois.close();
 		}catch (FileNotFoundException fnfe) {
 			System.out.println("Creating Preferences File at: " + this.m_prefsPath + FILE_NAME);
@@ -126,7 +126,7 @@ public class PreferencesManager {
 	public void load() {
 //		readInPreferencesFromFile();
 		try {
-			prefs = m_muffin.loadFile(FILE_NAME);
+			m_prefs = m_muffin.loadFile(FILE_NAME);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -136,7 +136,7 @@ public class PreferencesManager {
 	public void save() {
 //		savePreferences();
 		try {
-			m_muffin.saveFile(prefs, FILE_NAME);
+			m_muffin.saveFile(m_prefs, FILE_NAME);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -145,7 +145,7 @@ public class PreferencesManager {
 	
 	private void writeDefaults() {
 		
-		prefs = new HashMap<String, Object>();
+		m_prefs = new HashMap<String, Object>();
 		System.out.println("Writing defaults");
 		//initialize saved things
 	    setObjectForKey(false, SOUND_MUTED_KEY_NAME);
@@ -165,7 +165,7 @@ public class PreferencesManager {
 		      FileOutputStream fout = new FileOutputStream(this.m_prefsPath + FILE_NAME);
 		      System.out.println("Saving: " + this.m_prefsPath + FILE_NAME);
 		      ObjectOutputStream oos = new ObjectOutputStream(fout);
-		      oos.writeObject(prefs);
+		      oos.writeObject(m_prefs);
 		      oos.close();
 		} catch (Exception e) { 
 			e.printStackTrace(); 
@@ -173,43 +173,43 @@ public class PreferencesManager {
 	}
 	
 	public Object getObjectForKey(String key) {
-		return prefs.get(key);
+		return m_prefs.get(key);
 	}
 	
 	public String getStringForKey(String key) {
-		return (String)prefs.get(key);
+		return (String)m_prefs.get(key);
 	}
 	
 	public int getIntForKey(String key) {
-		return ((Integer)prefs.get(key)).intValue();
+		return ((Integer)m_prefs.get(key)).intValue();
 	}
 	
 	public boolean getBoolForKey(String key) {
-		return ((Boolean)prefs.get(key)).booleanValue();
+		return ((Boolean)m_prefs.get(key)).booleanValue();
 	}
 
 	public void setObjectForKey(Object value, String key) {
-		this.prefs.put(key, value);
+		this.m_prefs.put(key, value);
 		savePreferences();
 		save();
 	}
 
 	@SuppressWarnings("unchecked")
 	public ArrayList<String> getStringArrayListForKey(String key) {
-		return (ArrayList<String>)this.prefs.get(key);
+		return (ArrayList<String>)this.m_prefs.get(key);
 	}
 
 	@SuppressWarnings("unchecked")
 	public ArrayList<Integer> getIntegerArrayListForKey(String key) {
-		return (ArrayList<Integer>)this.prefs.get(key);
+		return (ArrayList<Integer>)this.m_prefs.get(key);
 	}
 
 	public String[] getStringArrayForKey(String key) {
-		return (String[])this.prefs.get(key);
+		return (String[])this.m_prefs.get(key);
 	}
 
 	public void reload() {
-		this.prefs = null;
+		this.m_prefs = null;
 		readInPreferencesFromFile();
 	}
 	
