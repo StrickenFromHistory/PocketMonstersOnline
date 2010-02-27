@@ -209,7 +209,7 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						if(indexes[i] == null || indexes[i].compareTo("") == 0)
 							pokes[i] = -1;
 						else
-							pokes[i] = (Integer.parseInt(indexes[i]) - 1);
+							pokes[i] = (Integer.parseInt(indexes[i]) - 1); // TODO: why are we minusing one here?
 					else
 						pokes[i] = -1;
 				}
