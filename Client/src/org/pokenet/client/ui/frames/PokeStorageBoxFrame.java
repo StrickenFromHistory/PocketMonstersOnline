@@ -70,10 +70,13 @@ public class PokeStorageBoxFrame extends Frame {
 			m_buttons[i].setImage(null);
 			try {
 				if(m_pokeNums[i] >= 0) {
+					// TODO: 
+					// +2 is temporary fix for box sprites being wrong.
+					// odds are we have two off by one errors somewhere...
 					f = FileLoader.loadFile(Pokemon
-							.getIconPathByIndex(m_pokeNums[i] + 1));
+							.getIconPathByIndex(m_pokeNums[i] + 2)); 
 					m_buttons[i].setImage(new Image(f, "boxPoke" + i + " " + Pokemon
-							.getIconPathByIndex(m_pokeNums[i] + 1), false));
+							.getIconPathByIndex(m_pokeNums[i] + 2), false));
 				}
 			} catch (SlickException e) {
 				e.printStackTrace();
