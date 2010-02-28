@@ -69,6 +69,8 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 	 */
 	private void processMovement(int player, char direction) {
 		Player p = m_game.getMapMatrix().getPlayer(player);
+		if(p == null)
+			return;
 		switch(direction) {
 		case 'D':
 			p.queueMovement(Direction.Down);
