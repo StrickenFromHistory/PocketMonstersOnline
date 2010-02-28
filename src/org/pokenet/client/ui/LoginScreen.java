@@ -39,6 +39,7 @@ public class LoginScreen extends Window {
 	private AboutDialog m_about;
 	private ToSDialog m_terms;
 	private Button m_openAbout, m_openToS;
+	private Button m_disconnect;
 
 	/**
 	 * Default constructor
@@ -155,6 +156,22 @@ public class LoginScreen extends Window {
 					m_clientRev.getY());
 			m_serverRev.setVisible(true);
 			this.add(m_serverRev);
+			
+			
+			m_disconnect = new Button("Disconnect");
+			m_disconnect.setSize(100, 32);
+			m_disconnect.setLocation(
+					GameClient.getInstance().getDisplay().getWidth() - m_disconnect.getWidth() - 8,
+					GameClient.getInstance().getDisplay().getHeight() - m_disconnect.getHeight() - 8);
+			m_disconnect.setVisible(false);
+			m_disconnect.setZIndex(1000000); // ensures button is over login frame
+			m_disconnect.addActionListener(new ActionListener() {
+				
+				public void actionPerformed(ActionEvent arg0) {
+					GameClient.getInstance().reset();
+				}
+			});
+			this.add(m_disconnect);
 
 			this.setLocation(0, 0);
 			this.setSize(800, 600);
@@ -224,6 +241,7 @@ public class LoginScreen extends Window {
 		m_openToS.setVisible(true);
 		m_login.getLoginButton().setEnabled(true);
 		m_lang.setVisible(false);
+		m_disconnect.setVisible(true);
 	}
 	
 	/**
@@ -238,6 +256,7 @@ public class LoginScreen extends Window {
 		m_register.reloadStrings();
 		m_register.setVisible(true);
 		m_register.grabFocus();
+		m_disconnect.setVisible(false);
 	}
 	
 	/**
@@ -251,6 +270,7 @@ public class LoginScreen extends Window {
 		m_openAbout.setVisible(false);
 		m_openToS.setVisible(false);
 		m_lang.setVisible(false);
+		m_disconnect.setVisible(false);
 	}
 	
 	/**
@@ -263,6 +283,7 @@ public class LoginScreen extends Window {
 		m_lang.setVisible(true);
 		m_openAbout.setVisible(false);
 		m_openToS.setVisible(false);
+		m_disconnect.setVisible(false);
 	}
 	
 	/**

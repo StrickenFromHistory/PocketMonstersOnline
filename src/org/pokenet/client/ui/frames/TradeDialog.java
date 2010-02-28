@@ -145,9 +145,8 @@ public class TradeDialog extends Frame {
 	 */
 	public void getOffer(int index, int cash){
 		for (int i = 0; i < 6; i++){
+			m_theirPokes[i].setBorderRendered(false);
 			m_theirPokes[i].setSelected(false);
-			m_theirPokes[index].setBorderRendered(false);
-
 		}
 		if (index < 6)
 		{

@@ -1012,6 +1012,17 @@ public class GameClient extends BasicGame {
 	}
 
 	/**
+	 * 
+	 * Resets the client, and destroying threads if needed
+	 *
+	 */
+	public void diconnect() {
+				
+		reset();
+	}
+
+
+	/**
 	 * Slick Native library finder.
 	 */
 	/*static {

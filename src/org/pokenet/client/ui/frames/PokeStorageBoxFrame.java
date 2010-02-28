@@ -71,7 +71,7 @@ public class PokeStorageBoxFrame extends Frame {
 			try {
 				if(m_pokeNums[i] >= 0) {
 					f = FileLoader.loadFile(Pokemon
-							.getIconPathByIndex(m_pokeNums[i] + 1));
+							.getIconPathByIndex(m_pokeNums[i] + 1)); 
 					m_buttons[i].setImage(new Image(f, "boxPoke" + i + " " + Pokemon
 							.getIconPathByIndex(m_pokeNums[i] + 1), false));
 				}

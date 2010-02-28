@@ -68,6 +68,9 @@ public class BattleWindow extends Frame {
 	private String m_path = "res/battle/";
 	InputStream f;
 	
+	private Label m_bg = new Label();
+
+	
 	/**
 	 * Default constructor
 	 * 
@@ -168,21 +171,20 @@ public class BattleWindow extends Frame {
 	private void initComponents() {
 		LoadingList.setDeferredLoading(true);
 		this.setBackground(new Color(0, 0, 0, 0));
-		Label bg = new Label();
 		String respath = System.getProperty("res.path");
 		if(respath==null)
 			respath="";
 		try {
 			f = FileLoader.loadFile(respath+"res/ui/bg.png");
-			bg = new Label(new Image(f, respath+"res/ui/bg.png", false));
+			m_bg = new Label(new Image(f, respath+"res/ui/bg.png", false));
 		} catch (SlickException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		bg.setSize(256, 203);
-		bg.setLocation(0, 142);
-		getContentPane().add(bg);
+		m_bg.setSize(256, 203);
+		m_bg.setLocation(0, 142);
+		getContentPane().add(m_bg);
 
 		attackPane = new Container();
 		attackPane.setBackground(new Color(0, 0, 0, 0));
@@ -486,6 +488,7 @@ public class BattleWindow extends Frame {
 		pokesContainer.setVisible(false);
 		m_bag = new BattleBag();
 		m_bag.setAlwaysOnTop(true);
+		m_bag.setZIndex(10000000); // Ridiculous z-index ensures that the bag is on top.
 		GameClient.getInstance().getDisplay().add(m_bag);
 	}
 

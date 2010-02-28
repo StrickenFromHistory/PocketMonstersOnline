@@ -2,6 +2,7 @@ package org.pokenet.client.ui;
 
 import java.util.HashMap;
 
+import mdes.slick.sui.Button;
 import mdes.slick.sui.Display;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
@@ -13,6 +14,7 @@ import org.newdawn.slick.SlickException;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.entity.PlayerItem;
+import org.pokenet.client.backend.time.TimeService;
 import org.pokenet.client.ui.base.ConfirmationDialog;
 import org.pokenet.client.ui.base.HUDButtonFactory;
 import org.pokenet.client.ui.base.ImageButton;
@@ -61,6 +63,7 @@ public class Ui extends Frame {
     private ConfirmationDialog m_evolveDialog;
     private BigBagDialog m_bag;
     private PlayerInfoDialog m_stats;
+    private Button m_logout;
 	
 	/**
 	 * Default constructor
@@ -103,8 +106,20 @@ public class Ui extends Frame {
 		m_moneyLabel.setForeground(new Color(255, 255, 255));
 		this.add(m_moneyLabel);
 		
-		this.add(GameClient.getInstance().getTimeService());
-		GameClient.getInstance().getTimeService().setX(745);
+		m_logout = new Button("Logout");
+		m_logout.setSize(70, 32);
+		m_logout.setLocation(this.getWidth() - m_logout.getWidth() - 7, 7);
+		m_logout.setVisible(true);
+		m_logout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				GameClient.getInstance().diconnect();
+			}
+		});
+		this.add(m_logout);
+		
+		TimeService timeServiceLabel = GameClient.getInstance().getTimeService();
+		this.add(timeServiceLabel);
+		timeServiceLabel.setX(m_logout.getX() - 14 - timeServiceLabel.getWidth());
 		this.getTitleBar().setVisible(false);
 
 		m_chat.setLocation(0, GameClient.getInstance().getDisplay().getHeight() - m_chat.getHeight());
