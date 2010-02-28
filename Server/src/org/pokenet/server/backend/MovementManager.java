@@ -44,7 +44,7 @@ public class MovementManager implements Runnable {
 	public void addPlayer(Char player) {
 		synchronized(m_waiting) {
 			m_pLoad++;
-			m_waiting.add(player);
+			m_waiting.offer(player);
 		}
 	}
 	
@@ -113,7 +113,7 @@ public class MovementManager implements Runnable {
 				tmp.move();
 				/* Place him in moved array */
 				synchronized(m_moved) {
-					m_moved.add(tmp);
+					m_moved.offer(tmp);
 				}
 			}
 			/* If waiting array is empty, swap arrays */
