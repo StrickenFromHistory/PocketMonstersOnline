@@ -338,6 +338,8 @@ public abstract class BattleField {
 	  * Synchronise FieldEffects.
 	  */
 	 public void synchroniseFieldEffects() {
+		 if(m_effects == null)
+			 return;
 		 Iterator<FieldEffect> i = m_effects.iterator();
 		 while (i.hasNext()) {
 			 StatusEffect eff = (StatusEffect)i.next();
