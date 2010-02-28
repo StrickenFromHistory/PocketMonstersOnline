@@ -17,6 +17,7 @@ public class Char implements Positionable {
 	private boolean m_isVisible, m_isSurfing;
 	protected String m_name;
 	protected ServerMap m_map;
+	private boolean m_boostPriority = false;
 	/*
 	 * Stores a queue of movements for processing
 	 */
@@ -27,7 +28,18 @@ public class Char implements Positionable {
 	 * @return
 	 */
 	public int getPriority() {
+		if(m_boostPriority) {
+			m_boostPriority = false;
+			return m_movementQueue.size() + 100;
+		}
 		return m_movementQueue.size();
+	}
+	
+	/**
+	 * Boost the char's movement priority
+	 */
+	public void boostPriority() {
+		m_boostPriority = true;
 	}
 	
 	/**
