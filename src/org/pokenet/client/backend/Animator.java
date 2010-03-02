@@ -1,16 +1,20 @@
 package org.pokenet.client.backend;
 
+import org.lwjgl.util.Timer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
 
 public class Animator {
 	private ClientMapMatrix m_mapMatrix;
+	private Timer m_timer;
+
 
 	private static final int ANIMATION_INCREMENT = 4;
 
 	// Sets up calls
 	public Animator(ClientMapMatrix maps) {
 		m_mapMatrix = maps;
+		m_timer = new Timer();
 	}
 
 	// Prepares for animation
@@ -19,7 +23,11 @@ public class Animator {
 			ClientMap map = m_mapMatrix.getCurrentMap();
 			if(map != null) {
 				for(int i = 0; i < m_mapMatrix.getPlayers().size(); i++) {
-					animatePlayer(m_mapMatrix.getPlayers().get(i));
+					if (m_timer.getTime() >= 20){
+						animatePlayer(m_mapMatrix.getPlayers().get(i));
+						m_timer.reset();
+					}
+					
 				}
 			}
 		} catch (Exception e) {}
@@ -138,6 +146,14 @@ public class Animator {
 				/* If the player is still behind the server, make sure the stopped animation is shown */
 				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), false, p.m_leftOrRight, p.getSprite()));
 			}
+		}
+		
+		try {
+			this.wait(250);
+		}
+		catch (InterruptedException exception) {
+			// TODO Auto-generated catch-block stub.
+			exception.printStackTrace();
 		}
 		/*
 		 * The player is now in sync with the server, stop moving/animating them
