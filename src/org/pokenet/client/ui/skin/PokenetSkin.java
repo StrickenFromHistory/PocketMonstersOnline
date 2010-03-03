@@ -51,9 +51,14 @@ public class PokenetSkin implements Skin {
     private Cursor resizeCursor;
     
     // for the frame
-     Image topLeft, topMiddle, topRight;
-     Image leftMiddle, center, rightMiddle;
-     Image bottomLeft, bottomMiddle, bottomRight;
+    Image tL_frame, tM_frame, tR_frame;
+    Image lM_frame, c_frame,  rM_frame;
+    Image bL_frame, bM_frame, bR_frame;
+    
+    // for the buttons
+    Image tL_button, tM_button, tR_button;
+    Image lM_button, c_button,  rM_button;
+    Image bL_button, bM_button, bR_button;
     
     private boolean selectCursorFailed = false;
     private boolean resizeCursorFailed = false;
@@ -127,14 +132,25 @@ public class PokenetSkin implements Skin {
 
         
         //frame images
-        if(topLeft == null)		topLeft 	= tryImage(skinImageLocations + "topLeftFrame.png");
-        if(topMiddle == null)	topMiddle 	= tryImage(skinImageLocations + "topMiddleFrame.png");
-        if(topRight == null)	topRight 	= tryImage(skinImageLocations + "topRightFrame.png");
-        if(leftMiddle == null) 	leftMiddle 	= tryImage(skinImageLocations + "leftMiddleFrame.png");
-        if(rightMiddle == null) rightMiddle = tryImage(skinImageLocations + "rightMiddleFrame.png");
-        if(bottomLeft == null)	bottomLeft 	= tryImage(skinImageLocations + "bottomLeftFrame.png");
-        if(bottomMiddle == null)bottomMiddle = tryImage(skinImageLocations + "bottomMiddleFrame.png");
-        if(bottomRight == null) bottomRight = tryImage(skinImageLocations + "bottomRightFrame.png");
+        if(tL_frame == null) tL_frame = tryImage(skinImageLocations + "topLeftFrame.png");
+        if(tM_frame == null) tM_frame = tryImage(skinImageLocations + "topMiddleFrame.png");
+        if(tR_frame == null) tR_frame = tryImage(skinImageLocations + "topRightFrame.png");
+        if(lM_frame == null) lM_frame = tryImage(skinImageLocations + "leftMiddleFrame.png");
+        if(rM_frame == null) rM_frame = tryImage(skinImageLocations + "rightMiddleFrame.png");
+        if(bL_frame == null) bL_frame = tryImage(skinImageLocations + "bottomLeftFrame.png");
+        if(bM_frame == null) bM_frame = tryImage(skinImageLocations + "bottomMiddleFrame.png");
+        if(bR_frame == null) bR_frame = tryImage(skinImageLocations + "bottomRightFrame.png");
+        
+        //button images
+        if(tL_button == null) tL_button = tryImage(skinImageLocations + "topLeftButton.png");
+        if(tM_button == null) tM_button = tryImage(skinImageLocations + "topMiddleButton.png");
+        if(tR_button == null) tR_button = tryImage(skinImageLocations + "topRightButton.png");
+        if(lM_button == null) lM_button = tryImage(skinImageLocations + "leftMiddleButton.png");
+        if(c_button == null)  c_button  = tryImage(skinImageLocations + "centerButton.png");
+        if(rM_button == null) rM_button = tryImage(skinImageLocations + "rightMiddleButton.png");
+        if(bL_button == null) bL_button = tryImage(skinImageLocations + "bottomLeftButton.png");
+        if(bM_button == null) bM_button = tryImage(skinImageLocations + "bottomMiddleButton.png");
+        if(bR_button == null) bR_button = tryImage(skinImageLocations + "bottomRightButton.png");
         	
 	}
 

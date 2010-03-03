@@ -70,22 +70,22 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 //            grad.setStart(-mid, 0);
 //            grad.setEnd(mid, 0);
 //            g.draw(rect, grad);
-            g.drawImage(s.leftMiddle, 
+            g.drawImage(s.lM_frame, 
             		win.getAbsoluteX(), 
             		win.getAbsoluteY() + win.getTitleBar().getHeight(),
-            		win.getAbsoluteX() + s.leftMiddle.getWidth(),
+            		win.getAbsoluteX() + s.lM_frame.getWidth(),
             		win.getAbsoluteY() + win.getHeight(),
             		0,0,
-            		s.leftMiddle.getWidth(),
-            		s.leftMiddle.getHeight());
-            g.drawImage(s.rightMiddle, 
-            		win.getAbsoluteX() + win.getWidth() - s.rightMiddle.getWidth(),
+            		s.lM_frame.getWidth(),
+            		s.lM_frame.getHeight());
+            g.drawImage(s.rM_frame, 
+            		win.getAbsoluteX() + win.getWidth() - s.rM_frame.getWidth(),
             		win.getAbsoluteY() + win.getTitleBar().getHeight(),
             		win.getAbsoluteX() + win.getWidth(),
             		win.getAbsoluteY() + win.getHeight(),
             		0,0,
-            		s.rightMiddle.getWidth(),
-            		s.rightMiddle.getHeight());
+            		s.rM_frame.getWidth(),
+            		s.rM_frame.getHeight());
         }
     }
 
@@ -214,17 +214,17 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 //            g.fill(rect, grad);
             
             // draw the top title bar thing.
-            g.drawImage(s.topLeft, frameTopLeftX, 
+            g.drawImage(s.tL_frame, frameTopLeftX, 
             		frameTopLeftY);
             
-            g.drawImage(s.topRight, frameTopLeftX + t.getWidth() - s.topRight.getWidth(), 
+            g.drawImage(s.tR_frame, frameTopLeftX + t.getWidth() - s.tR_frame.getWidth(), 
             		frameTopLeftY);
             
-            g.drawImage(s.topMiddle, 
-            		frameTopLeftX + s.topLeft.getWidth(), 
+            g.drawImage(s.tM_frame, 
+            		frameTopLeftX + s.tL_frame.getWidth(), 
             		frameTopLeftY, 
-            		frameTopLeftX + width - s.topLeft.getWidth(),
-            		frameTopLeftY + s.topMiddle.getHeight(),
+            		frameTopLeftX + width - s.tL_frame.getWidth(),
+            		frameTopLeftY + s.tM_frame.getHeight(),
             		0,0,1, 52);
           
             
