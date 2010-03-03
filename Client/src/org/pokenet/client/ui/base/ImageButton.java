@@ -21,6 +21,7 @@ public class ImageButton extends Button {
 		setImage(normal);
 		setRolloverImage(hover);
 		setDownImage(down);
+		setDisabledImage(down); //Temporarily used the button pressed image as disabled image
 		setPadding(0);
 		setOpaque(false);
 	}
