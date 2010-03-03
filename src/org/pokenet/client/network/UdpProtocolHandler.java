@@ -10,6 +10,7 @@ import org.pokenet.client.GameClient;
  *
  */
 public class UdpProtocolHandler extends IoHandlerAdapter {
+	@SuppressWarnings("unused")
 	private GameClient m_game;
 
 	/**
