@@ -1,20 +1,11 @@
 package org.pokenet.client.ui.skin;
 
-import java.util.List;
-
-import org.lwjgl.input.Cursor;
-import org.lwjgl.input.Mouse;
-import org.newdawn.slick.Font;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.opengl.CursorLoader;
-import org.newdawn.slick.util.Log;
-
 import mdes.slick.sui.Button;
 import mdes.slick.sui.CheckBox;
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
+import mdes.slick.sui.List;
 import mdes.slick.sui.ScrollBar;
 import mdes.slick.sui.ScrollPane;
 import mdes.slick.sui.Skin;
@@ -34,6 +25,14 @@ import mdes.slick.sui.skin.ImageUIResource;
 import mdes.slick.sui.skin.ScrollBarAppearance;
 import mdes.slick.sui.skin.ScrollPaneAppearance;
 import mdes.slick.sui.skin.SliderAppearance;
+
+import org.lwjgl.input.Cursor;
+import org.lwjgl.input.Mouse;
+import org.newdawn.slick.Font;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.opengl.CursorLoader;
+import org.newdawn.slick.util.Log;
 
 /**
  * TODO Put here a description of what this class does.
