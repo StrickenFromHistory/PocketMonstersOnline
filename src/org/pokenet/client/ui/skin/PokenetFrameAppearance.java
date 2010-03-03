@@ -10,12 +10,15 @@ import mdes.slick.sui.Theme;
 import mdes.slick.sui.skin.ComponentAppearance;
 import mdes.slick.sui.skin.FrameAppearance;
 import mdes.slick.sui.skin.SkinUtil;
+import mdes.slick.sui.skin.ImageUIResource;
+
 
 
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.fills.GradientFill;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.RoundedRectangle;
@@ -34,7 +37,25 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
     private static Color topInnerColor = new Color(96, 144, 191);
     private static Color bottomInnterColor = new Color(206, 231, 250);
     
+    private Image leftMiddle, center, rightMiddle;
+    private Image bottomLet, bottomMiddle, bottomRight;
+    
     private ComponentAppearance resizerAppearance = new ResizerAppearance();
+    
+    public PokenetFrameAppearance(){
+    	//set the frame images
+        try {
+        	leftMiddle = new ImageUIResource("res/ui/skin/leftMiddleFrame.png");
+        	rightMiddle = new ImageUIResource("res/ui/skin/rightMiddleFrame.png");
+            leftMiddle.setAlpha(1);
+            rightMiddle.setAlpha(1);
+            System.out.println("constructed");
+		}
+		catch (SlickException exception) {
+			// if this file isn'tn found.. sad face
+			System.err.println("Required GUI files not found...");
+		}
+    }
     
     public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
         Color old = g.getColor();
@@ -42,8 +63,8 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
         //borders
         if (comp.isBorderRendered()) {
             Frame win = (Frame)comp;
-            Color light = theme.getSecondaryBorder1();
-            Color dark = theme.getSecondaryBorder1();
+//            Color light = theme.getSecondaryBorder1();
+//            Color dark = theme.getSecondaryBorder1();
 
             Rectangle rect = win.getAbsoluteBounds();
             //TODO: this is a hack, fix it
@@ -54,13 +75,17 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
                 rect.setHeight(rect.getHeight()-h+1);
             }
 
-            float mid = rect.getWidth()/2f;
-
-            grad.setStartColor(topInnerColor);
-            grad.setEndColor(bottomInnterColor);
-            grad.setStart(-mid, 0);
-            grad.setEnd(mid, 0);
-            g.draw(rect, grad);
+//            float mid = rect.getWidth()/2f;
+//
+//            grad.setStartColor(topInnerColor);
+//            grad.setEndColor(bottomInnterColor);
+//            grad.setStart(-mid, 0);
+//            grad.setEnd(mid, 0);
+//            g.draw(rect, grad);
+      
+            g.drawImage(leftMiddle, win.getX(), win.getY() + win.getTitleBar().getHeight());
+            g.drawImage(rightMiddle, win.getX() + win.getWidth() - rightMiddle.getWidth(),
+            		win.getY() + win.getTitleBar().getHeight());
         }
     }
 
@@ -89,7 +114,8 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
         public void install(Component comp, Skin skin, Theme theme) {
             super.install(comp, skin, theme);
             Button btn = (Button)comp;
-            
+            Label l = new Label("X");
+            btn.add(l);
             if (skin instanceof PokenetSkin) {
                 Image img = ((PokenetSkin)skin).getCloseButtonImage();
                 if (SkinUtil.installImage(btn, img)) {
@@ -145,12 +171,32 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
     
     protected class TitleBarAppearance extends PokenetLabelAppearance {
 
-        private GradientFill grad = new GradientFill(0f,0f,Color.white,0f,0f,Color.white);
-
         private Frame.TitleBar bar;
+        
+        // images
+        private Image topLeft, topMiddle, topRight;
+
         
         public TitleBarAppearance(Frame.TitleBar bar) {
             this.bar = bar;
+            
+            //set the frame images
+            try {
+				topLeft = new ImageUIResource("res/ui/skin/topLeftFrame.png");
+				topMiddle = new ImageUIResource("res/ui/skin/topMiddleFrame.png");
+				topRight = new ImageUIResource("res/ui/skin/topRightFrame.png");
+				topLeft.setAlpha(1);
+				topMiddle.setAlpha(1);
+				topRight.setAlpha(1);
+			}
+			catch (SlickException exception) {
+				// if this file isn'tn found.. sad face
+				System.err.println("Required GUI files not found...");
+			}
+            
+			try{
+				bar.setHeight(topLeft.getHeight());
+			}catch(Exception e){}
         }
         
         public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
@@ -159,42 +205,58 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
             Color old = g.getColor();
             Frame.TitleBar t = (Frame.TitleBar)comp;
             
-            float x1=t.getAbsoluteX(), y1=t.getAbsoluteY();
+            float frameTopLeftX = t.getAbsoluteX();
+            float frameTopLeftY = t.getAbsoluteY();
             float width=t.getWidth(), height=t.getHeight();
 
             //TODO: fix rectangle + 1
 
-            float mid = width/2.0f;
+//            float mid = width/2.0f;
 
-            Color start, end;
+//            Color start, end;
 
-            boolean active = ((Frame)t.getParent()).isActive();
+//            boolean active = ((Frame)t.getParent()).isActive();
 
-            if (active) {
-                start = theme.getActiveTitleBar1();
-                end = theme.getActiveTitleBar2();
-            } else {
-                start = theme.getTitleBar1();
-                end = theme.getTitleBar2();
-            }
+//            if (active) {
+//                start = theme.getActiveTitleBar1();
+//                end = theme.getActiveTitleBar2();
+//            } else {
+//                start = theme.getTitleBar1();
+//                end = theme.getTitleBar2();
+//            }
+//
+//            grad.setStartColor(start);
+//            grad.setEndColor(end);
+//            grad.setStart(-mid, 0);
+//            grad.setEnd(mid, 0);
+//            g.fill(rect, grad);
+            
+            // draw the top title bar thing.
+            g.drawImage(topLeft, frameTopLeftX, 
+            		frameTopLeftY);
+            
+            g.drawImage(topRight, frameTopLeftX + t.getWidth() - topRight.getWidth(), 
+            		frameTopLeftY);
+            
+            g.drawImage(topMiddle, frameTopLeftX + topLeft.getWidth(), 
+            		frameTopLeftY, 
+            		frameTopLeftX + width - topLeft.getWidth(),
+            		frameTopLeftY + topMiddle.getHeight(),
+            		0,0,topMiddle.getWidth(), topMiddle.getHeight());
+            
+           
 
-            grad.setStartColor(start);
-            grad.setEndColor(end);
-            grad.setStart(-mid, 0);
-            grad.setEnd(mid, 0);
-            g.fill(rect, grad);
-
-            if (t.isBorderRendered()) {
-                //borders
-                Color light = theme.getSecondaryBorder1();
-                Color dark = theme.getSecondaryBorder1();
-
-                grad.setStartColor(light);
-                grad.setEndColor(dark);
-                grad.setStart(-mid, 0);
-                grad.setEnd(mid, 0);
-                g.draw(rect, grad);
-            }
+//            if (t.isBorderRendered()) {
+//                //borders
+//                Color light = theme.getSecondaryBorder1();
+//                Color dark = theme.getSecondaryBorder1();
+//
+//                grad.setStartColor(light);
+//                grad.setEndColor(dark);
+//                grad.setStart(-mid, 0);
+//                grad.setEnd(mid, 0);
+//                g.draw(rect, grad);
+//            }
             
             //g.setColor(old);
             

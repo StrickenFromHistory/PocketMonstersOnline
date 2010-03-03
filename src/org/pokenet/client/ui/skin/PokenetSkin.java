@@ -215,9 +215,7 @@ public class PokenetSkin implements Skin {
         return containerAppearance;
     }
     
-    public ComponentAppearance getListAppearance(List comp) {
-        return containerAppearance;
-    }
+
     
     private class CursorListener extends MouseAdapter {
         
@@ -261,4 +259,10 @@ public class PokenetSkin implements Skin {
             catch (Exception e) { }
         }
     }
+
+	@Override
+	public ComponentAppearance getListAppearance(mdes.slick.sui.List arg0) {
+		// TODO Auto-generated method stub.
+		return null;
+	}
 }
