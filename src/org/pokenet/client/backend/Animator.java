@@ -6,8 +6,10 @@ import org.pokenet.client.backend.entity.Player.Direction;
 
 public class Animator {
 	private ClientMapMatrix m_mapMatrix;
-	private Timer m_timer;
 
+
+	private Timer m_timer;
+	private boolean m_firstRender = true;
 
 	private static final int ANIMATION_INCREMENT = 4;
 
@@ -19,16 +21,16 @@ public class Animator {
 
 	// Prepares for animation
 	public void animate() {
+		m_timer.tick();
+
 		try {
 			ClientMap map = m_mapMatrix.getCurrentMap();
-			if(map != null) {
+			if((map != null && m_timer.getTime() >= 0.017) || m_firstRender) {
 				for(int i = 0; i < m_mapMatrix.getPlayers().size(); i++) {
-					if (m_timer.getTime() >= 20){
 						animatePlayer(m_mapMatrix.getPlayers().get(i));
-						m_timer.reset();
-					}
-					
 				}
+				m_firstRender = false;
+				m_timer.reset();
 			}
 		} catch (Exception e) {}
 	}
@@ -146,14 +148,6 @@ public class Animator {
 				/* If the player is still behind the server, make sure the stopped animation is shown */
 				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), false, p.m_leftOrRight, p.getSprite()));
 			}
-		}
-		
-		try {
-			this.wait(250);
-		}
-		catch (InterruptedException exception) {
-			// TODO Auto-generated catch-block stub.
-			exception.printStackTrace();
 		}
 		/*
 		 * The player is now in sync with the server, stop moving/animating them
