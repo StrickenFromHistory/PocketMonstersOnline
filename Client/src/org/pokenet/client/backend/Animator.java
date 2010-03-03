@@ -21,14 +21,18 @@ public class Animator {
 	// Prepares for animation
 	public void animate() {
 		try {
+			while (m_timer.getTime() <= 0.025)
+				Timer.tick();
 			ClientMap map = m_mapMatrix.getCurrentMap();
 			if (map != null) {
 				for(int i = 0; i < m_mapMatrix.getPlayers().size(); i++) {
 						animatePlayer(m_mapMatrix.getPlayers().get(i));
-						m_timer.reset();
 				}
 			}
-		} catch (Exception e) {}
+			m_timer.reset();
+		} catch (Exception e) {
+			m_timer.reset();
+		}
 	}
 
 	/**
@@ -100,11 +104,6 @@ public class Animator {
 		/*
 		 * Move the player on screen
 		 */
-		//TODO: Replace the hard-coded value with constants defined by whether the player is walking, running, or on a bike.
-		if (p.isOurPlayer()){
-			while (m_timer.getTime() <= 0.025)
-			Timer.tick();
-		}
 		if (p.getX() > p.getServerX()) {
 			// Choose the sprite according to the player's position
 			if(p.getX() % 32 == 0) {
