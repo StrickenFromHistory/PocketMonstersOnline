@@ -2,28 +2,28 @@ Equipe Pokemon
 Level:
 Nome:
 HP:
-Attack:
-Defensa:
-Sp. Attack:
-Sp. Defensa:
+Ataque:
+Defesa:
+Sp. Ataque:
+Sp. Defesa:
 Velocidade:
-Abilidade:
+Habilidade:
 Exp:
 Nature:
-Tipo one:
-Tipo two:
+Tipo um:
+Tipo dois:
 Genero:
-Opcoens
+Opcoes
 Tela Cheia
 Mudo
 Salvar
-As mudancas terao efeito se voce reniciar.
+As mudancas terao efeito quando voce reniciar.
 Pokenet: Ajuda online
-Os botoens de movimento sao as Setas e/ou WASD.
-A telca C abre o chat /n
+Os botoes de movimento sao as WASD e/ou Setas /nMovement/n/n
+Espaco /nTalk/n/n
 Use Espaco para conversar com a NPC(OU/nPersonagem nao jogador)./n
 Use o /w USERNAME TEXT/ncommando para chamar outros/njogadores.
-Use o /playercount commando to/npara ver quantos jogadores estao online.
+Digite o comando / playercount em local de bate-papo para ver quantos jogadores estao online. / N
 Se voce tiver insiguias use/nshift para surfar.
 Chat: Local
 Voce deve aceitar os termos do servico para se registar.
@@ -46,4 +46,4 @@ Troca:
 Dinheiro apenas
 Batalha
 Troca
-Desactivar Circundantes Mapas
+Desativar Circundantes Mapas

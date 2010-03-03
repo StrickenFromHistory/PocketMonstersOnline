@@ -1,5 +1,4 @@
 Para os que procuram vitorias 
-3F: Colecao de Batalhas	
-Informe esse erro!	
-Bem-vindo ao PokeMart.
-
+3F: Colecao de Batalhas\t
+Por favor reporte esse bug!
+Bem vindo a PokeLoja.

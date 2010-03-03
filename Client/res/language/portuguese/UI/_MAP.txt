@@ -1,0 +1,92 @@
+*Nome, largura, altura, x (multiplos de 8), y (multiplos de 8)
+*Rotas de Johto e Kanto
+Rota 1,8,64,42,13
+Rota 2,8,24,42,9
+Rota 3,40,8,43,8
+Rota 4,72,8,47,7
+Rota 5,8,48,56,8
+Rota 6,8,16,55,16
+Rota 7,16,8,53,14
+Rota 8,40,8,57,14
+Rota 9,40,8,57,7
+Rota 10,8,56,62,7
+Rota 11,48,8,56,18
+Rota 12,8,72,62,15
+Rota 13,32,8,58,23
+Rota 14,8,24,57,23
+Rota 15,24,8,54,25
+Rota 16,32,8,47,14
+Rota 17,8,80,47,15
+Rota 18,48,8,47,25
+Rota 16,8,24,53,26
+Rota 20,80,8,43,28
+Rota 21,8,48,42,22
+Rota 22,32,8,38,12
+Rota 23,8,32,38,8
+Rota 24,8,24,56,4
+Rota 25,32,8,57,4
+Rota 26,8,72,38,13
+Rota 27,56,8,31,21
+Rota 28,40,8,33,12
+Rota 29,64,8,23,21
+Rota 30,8,72,22,12
+Rota 31,24,8,20,11
+Rota 32,8,104,19,12
+Rota 33,16,8,17,25
+Rota 34,8,56,13,17
+Rota 35,8,24,13,12
+Rota 36,40,8,14,11
+Rota 37,8,40,15,6
+Rota 38,32,8,11,5
+Rota 39,8,40,10,5
+Rota 40,8,40,8,11
+Rota 41,8,32,8,17
+Rota 42,56,8,16,5
+Rota 43,8,24,23,2
+Rota 44,24,8,24,5
+Rota 45,8,72,27,6
+Rota 46,8,56,26,14
+*Locais de interesse Johto e Kanto
+Ilhas Turbilhao,8,8,8,16
+Lago da Furia,16,16,23,1
+Caminho de Gelo,8,8,26,5
+Caverna Uniao,8,8,19,25
+Ruinas de Alph,8,8,18,14
+Mt. Mortar,8,8,19,5
+Floresta Illex,8,8,13,24
+Caverna Sombria,8,8,24,8
+Covil do Dragao,8,8,27,4
+Parque Nacional,8,8,13,11
+Cascata Tohjo,8,8,35,21
+Mt. Silver,8,8,33,12
+Floresta de Viridian,8,8,42,10
+Caverna do Diglett,8,8,43,10
+Mt. Lua,8,8,47,7
+Tunel de Rocha,8,8,62,7
+Usina de Forca,8,8,63,12
+Caverna do Diglett,8,8,56,18
+Zona Safari,8,8,53,24
+Ilhas Seafoam,8,8,48,28
+Caminho da Vitoria,8,8,38,8
+*Cidades de Johto e Kanto
+Cidade New Bark,8,8,31,21
+Cidade de Cherrygrove,8,8,22,21
+Cidade de Violet,8,8,19,11
+Cidade de Azalea,8,8,16,25
+Goldenrod City,8,16,13,15
+Ecruteak City,8,8,15,5
+Olivine City,8,8,10,10
+Cianwood City,8,8,5,19
+Mahogany Town,8,8,23,5
+Blackthorn City,8,8,27,5
+Cidade de Pallet,8,8,42,21
+Cidade de Viridian,8,8,42,12
+Cidade de Pewter,8,8,42,8
+Cidade de Cerulean,8,8,56,7
+Cidade de Vermilion,8,16,55,18
+Lavender Town,8,8,62,14
+Cidade de Celadon,16,8,51,14
+Cidade de Saffron,16,16,55,14
+Fuchsia City,8,8,53,25
+Ilhas Cinnabar,8,8,42,28
+Planalto Indigo,8,8,38,7

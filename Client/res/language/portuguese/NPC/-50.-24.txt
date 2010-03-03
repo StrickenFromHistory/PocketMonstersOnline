@@ -1,0 +1,9 @@
+Ola! Bem vindo ao dept. de loja de Celadon.
+Permitam-me descrever o layout da loja.
+1F: balcao de servico
+2F: armazem geral
+3F: Loja de TM
+4F: Pedras de evolucoes
+5F: Farmacia
+6F: em construcao
+Por favor reporte esse bug!

@@ -1,0 +1,30 @@
+Tudo bem!
+Certifique-se de ler o que esta no quadro-negro com cuidado!
+Ufa! Estou tentando memorizar todas as minhas notas.
+Vamos verificar o notebook.
+Pokebolas sao utilizadas para capturar Pokemon.
+Voce so pode levar ate seis Pokemon consigo.
+Pessoas quem criam e batalham com Pokemon sao chamadas Treinadores.
+Um Pokemon saudavel pode ser dificil de capturar, deve enfraquece-lo primeiro.
+Envenena-lo,queima-lo,ou causar outro problema de status para enfraquece-lo.
+Treinadores pokemons procuram outros para batalharem.
+Para os treinadores, o sabor da vitoria e doce, de fato.
+Acontecem batalhas em toda parte.
+O objetivo final para todo treinador pokemon e simples.
+E derrotar todos os lideres de ginasios.
+Faca isso para ganhar o direito de enfrentar...
+Os melhores treinadores ao redor do mundo em emocionantes torneios!
+Garota: Ei! Nao olhe para as minhas notas! 
+O quadro negro lista os problemas de status do Pokemon durante as batalhas.
+Sleep: Um Pokemon nao pode atacar, se ele esta dormindo.
+Pokemons ficam dormindo, mesmo apos as batalhas.
+Use Awakening para despertar de um sleep.
+Burn: A queimadura reduz o poder de ataque. Ela tambem causa perda continua de HP.
+Una quemadura permanece tras la batalla. Usa Curar Quemadura para curarla.
+Poison: Quando envenenado, a saude do Pokemon diminue aos poucos.
+Poison continua apos as batalhas. Use um Antidote para curar o envenenamento!
+Freeze: Um Pokemon congelado se torna impotente, imovel.
+Ele permanece congelado, mesmo apos o fim da batalha.
+Use Ice Heal para descongelar o Pokemon.
+Paralysis: Paralysis reduz a velocidade e pode impedir o Pokemon de se mover.
+A Paralysis permanece apos as batalhas. Use Parlyz Heal para o tratamento.

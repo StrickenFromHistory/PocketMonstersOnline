@@ -1,2 +1,2 @@
 Bem-vindo a loja de departamentos de Quinhao Dourado.
-Por favor, comunique este erro!
+Por favor reporte esse bug!

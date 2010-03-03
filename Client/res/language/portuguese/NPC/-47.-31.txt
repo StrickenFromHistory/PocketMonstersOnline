@@ -1,0 +1,3 @@
+Bem-vindo ao Centro Pokemon. Deixe-me curar seus Pokemons...
+Por favor reporte esse bug!
+Bem vindo ao sistema de armazenamento Pokemon.
