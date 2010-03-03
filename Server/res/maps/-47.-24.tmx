@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="15" height="11" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonChances" value=""/>
+  <property name="dayPokemonLevels" value=""/>
+  <property name="fishPokemonChances" value=""/>
+  <property name="fishPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="wildProbability" value="0"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="normal2.tsx"/>
+ <tileset firstgid="1025" source="normal3.tsx"/>
+ <tileset firstgid="2049" source="normal1.tsx"/>
+ <tileset firstgid="3073" source="normal4.tsx"/>
+ <layer name="Walkable" width="15" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGJqAn5V4HMcHoZH18hGJYWaQoxeGR6pecgEAbByYFJQCAAA=
+  </data>
+ </layer>
+ <layer name="random" width="15" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGN7gAxv5egXYCauR40ew5flxq6O23oEAnkwMDF5A7M1Eut5MoJ4sIM4mQi8ArP1QpZQCAAA=
+  </data>
+ </layer>
+ <layer name="Collisions" width="15" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAABPhYSALiPBAsB8r6RimN4+VdAzTiw98YMUUi+cjTi86SADqcyCgdx0bA8N6NtxmwPRic9c5oL7zOPR+INK/5NiLD1DLXnSMTw4ZAwCziqUtlAIAAA==
+  </data>
+ </layer>
+ <layer name="random2" width="15" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoAz0sCHYfkC2PxBPYGVg8IWKg9i4wBqgGm8g9gHiPCDOB+INQPW5QPoCK4QNA3Z8DAz2fAj+GaCabCDOAeI+IO6H2tfLxjAKhjgAAOJ9mjOUAgAA
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="15" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWkgAustFU/2OwdCAAAB1EMYJQCAAA=
+  </data>
+ </layer>
+</map>
