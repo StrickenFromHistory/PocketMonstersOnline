@@ -7,6 +7,7 @@ import mdes.slick.sui.Label;
 import mdes.slick.sui.Skin;
 import mdes.slick.sui.Sui;
 import mdes.slick.sui.Theme;
+import mdes.slick.sui.Frame.CloseButton;
 import mdes.slick.sui.skin.ComponentAppearance;
 import mdes.slick.sui.skin.FrameAppearance;
 import mdes.slick.sui.skin.SkinUtil;
@@ -37,6 +38,7 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
     private static Color topInnerColor = new Color(96, 144, 191);
     private static Color bottomInnterColor = new Color(206, 231, 250);
     
+    private Image topLeft, topMiddle, topRight;
     private Image leftMiddle, center, rightMiddle;
     private Image bottomLet, bottomMiddle, bottomRight;
     
@@ -63,17 +65,18 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
         //borders
         if (comp.isBorderRendered()) {
             Frame win = (Frame)comp;
+            win.setPadding(4);
 //            Color light = theme.getSecondaryBorder1();
 //            Color dark = theme.getSecondaryBorder1();
-
+//            win.
             Rectangle rect = win.getAbsoluteBounds();
             //TODO: this is a hack, fix it
             //HACK: fix window title bar (removed) hack
-            if (!win.getTitleBar().isVisible() || !win.containsChild(win.getTitleBar())) {
-                float h = win.getTitleBar().getHeight();
-                rect.setY(rect.getY()+h-1);
-                rect.setHeight(rect.getHeight()-h+1);
-            }
+//            if (!win.getTitleBar().isVisible() || !win.containsChild(win.getTitleBar())) {
+//                float h = win.getTitleBar().getHeight();
+//                rect.setY(rect.getY()+h-1);
+//                rect.setHeight(rect.getHeight()-h+1);
+//            }
 
 //            float mid = rect.getWidth()/2f;
 //
@@ -83,9 +86,9 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 //            grad.setEnd(mid, 0);
 //            g.draw(rect, grad);
       
-            g.drawImage(leftMiddle, win.getX(), win.getY() + win.getTitleBar().getHeight());
-            g.drawImage(rightMiddle, win.getX() + win.getWidth() - rightMiddle.getWidth(),
-            		win.getY() + win.getTitleBar().getHeight());
+            g.drawImage(leftMiddle, win.getAbsoluteX(), win.getAbsoluteY() + win.getTitleBar().getHeight());
+            g.drawImage(rightMiddle, win.getAbsoluteX() + win.getWidth() - rightMiddle.getWidth(),
+            		win.getAbsoluteY() + win.getTitleBar().getHeight());
         }
     }
 
@@ -107,15 +110,15 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
             super(button);
         }
         
-        protected RoundedRectangle createRoundedBounds() {
+        @Override
+		protected RoundedRectangle createRoundedBounds() {
             return new RoundedRectangle(0f,0f,0f,0f,3f,50);
         }
 
         public void install(Component comp, Skin skin, Theme theme) {
             super.install(comp, skin, theme);
             Button btn = (Button)comp;
-            Label l = new Label("X");
-            btn.add(l);
+            
             if (skin instanceof PokenetSkin) {
                 Image img = ((PokenetSkin)skin).getCloseButtonImage();
                 if (SkinUtil.installImage(btn, img)) {
@@ -174,29 +177,33 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
         private Frame.TitleBar bar;
         
         // images
-        private Image topLeft, topMiddle, topRight;
+        private Image m_topLeft, m_topMiddle, m_topRight;
 
         
         public TitleBarAppearance(Frame.TitleBar bar) {
-            this.bar = bar;
             
             //set the frame images
             try {
-				topLeft = new ImageUIResource("res/ui/skin/topLeftFrame.png");
-				topMiddle = new ImageUIResource("res/ui/skin/topMiddleFrame.png");
-				topRight = new ImageUIResource("res/ui/skin/topRightFrame.png");
-				topLeft.setAlpha(1);
-				topMiddle.setAlpha(1);
-				topRight.setAlpha(1);
+            	PokenetFrameAppearance.this.topLeft = new ImageUIResource("res/ui/skin/topLeftFrame.png");
+            	PokenetFrameAppearance.this.topMiddle = new ImageUIResource("res/ui/skin/topMiddleFrame.png");
+            	PokenetFrameAppearance.this.topRight = new ImageUIResource("res/ui/skin/topRightFrame.png");
+				m_topLeft = PokenetFrameAppearance.this.topLeft;
+				m_topMiddle = PokenetFrameAppearance.this.topMiddle;
+				m_topRight = PokenetFrameAppearance.this.topRight;
+            	
+            	m_topLeft.setAlpha(1);
+				m_topMiddle.setAlpha(1);
+				m_topRight.setAlpha(1);
 			}
 			catch (SlickException exception) {
 				// if this file isn'tn found.. sad face
 				System.err.println("Required GUI files not found...");
 			}
-            
-			try{
-				bar.setHeight(topLeft.getHeight());
-			}catch(Exception e){}
+			
+			bar.setHeight(m_topLeft.getHeight());
+
+            this.bar = bar;
+
         }
         
         public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
@@ -232,17 +239,17 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 //            g.fill(rect, grad);
             
             // draw the top title bar thing.
-            g.drawImage(topLeft, frameTopLeftX, 
+            g.drawImage(m_topLeft, frameTopLeftX, 
             		frameTopLeftY);
             
-            g.drawImage(topRight, frameTopLeftX + t.getWidth() - topRight.getWidth(), 
+            g.drawImage(m_topRight, frameTopLeftX + t.getWidth() - m_topRight.getWidth(), 
             		frameTopLeftY);
             
-            g.drawImage(topMiddle, frameTopLeftX + topLeft.getWidth(), 
+            g.drawImage(m_topMiddle, frameTopLeftX + m_topLeft.getWidth(), 
             		frameTopLeftY, 
-            		frameTopLeftX + width - topLeft.getWidth(),
-            		frameTopLeftY + topMiddle.getHeight(),
-            		0,0,topMiddle.getWidth(), topMiddle.getHeight());
+            		frameTopLeftX + width - m_topLeft.getWidth(),
+            		frameTopLeftY + m_topMiddle.getHeight(),
+            		0,0,m_topMiddle.getWidth(), m_topMiddle.getHeight());
             
            
 
