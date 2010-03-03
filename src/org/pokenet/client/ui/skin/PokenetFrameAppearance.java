@@ -38,29 +38,14 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
     private static Color topInnerColor = new Color(96, 144, 191);
     private static Color bottomInnterColor = new Color(206, 231, 250);
     
-    private Image topLeft, topMiddle, topRight;
-    private Image leftMiddle, center, rightMiddle;
-    private Image bottomLet, bottomMiddle, bottomRight;
+
     
     private ComponentAppearance resizerAppearance = new ResizerAppearance();
-    
-    public PokenetFrameAppearance(){
-    	//set the frame images
-        try {
-        	leftMiddle = new ImageUIResource("res/ui/skin/leftMiddleFrame.png");
-        	rightMiddle = new ImageUIResource("res/ui/skin/rightMiddleFrame.png");
-            leftMiddle.setAlpha(1);
-            rightMiddle.setAlpha(1);
-            System.out.println("constructed");
-		}
-		catch (SlickException exception) {
-			// if this file isn'tn found.. sad face
-			System.err.println("Required GUI files not found...");
-		}
-    }
+
     
     public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
         Color old = g.getColor();
+        PokenetSkin s = (PokenetSkin) skin;
         
         //borders
         if (comp.isBorderRendered()) {
@@ -72,11 +57,11 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
             Rectangle rect = win.getAbsoluteBounds();
             //TODO: this is a hack, fix it
             //HACK: fix window title bar (removed) hack
-//            if (!win.getTitleBar().isVisible() || !win.containsChild(win.getTitleBar())) {
-//                float h = win.getTitleBar().getHeight();
-//                rect.setY(rect.getY()+h-1);
-//                rect.setHeight(rect.getHeight()-h+1);
-//            }
+            if (!win.getTitleBar().isVisible() || !win.containsChild(win.getTitleBar())) {
+                float h = win.getTitleBar().getHeight();
+                rect.setY(rect.getY()+h-1);
+                rect.setHeight(rect.getHeight()-h+1);
+            }
 
 //            float mid = rect.getWidth()/2f;
 //
@@ -85,10 +70,22 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 //            grad.setStart(-mid, 0);
 //            grad.setEnd(mid, 0);
 //            g.draw(rect, grad);
-      
-            g.drawImage(leftMiddle, win.getAbsoluteX(), win.getAbsoluteY() + win.getTitleBar().getHeight());
-            g.drawImage(rightMiddle, win.getAbsoluteX() + win.getWidth() - rightMiddle.getWidth(),
-            		win.getAbsoluteY() + win.getTitleBar().getHeight());
+            g.drawImage(s.leftMiddle, 
+            		win.getAbsoluteX(), 
+            		win.getAbsoluteY() + win.getTitleBar().getHeight(),
+            		win.getAbsoluteX() + s.leftMiddle.getWidth(),
+            		win.getAbsoluteY() + win.getHeight(),
+            		0,0,
+            		s.leftMiddle.getWidth(),
+            		s.leftMiddle.getHeight());
+            g.drawImage(s.rightMiddle, 
+            		win.getAbsoluteX() + win.getWidth() - s.rightMiddle.getWidth(),
+            		win.getAbsoluteY() + win.getTitleBar().getHeight(),
+            		win.getAbsoluteX() + win.getWidth(),
+            		win.getAbsoluteY() + win.getHeight(),
+            		0,0,
+            		s.rightMiddle.getWidth(),
+            		s.rightMiddle.getHeight());
         }
     }
 
@@ -176,31 +173,8 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 
         private Frame.TitleBar bar;
         
-        // images
-        private Image m_topLeft, m_topMiddle, m_topRight;
-
-        
         public TitleBarAppearance(Frame.TitleBar bar) {
-            
-            //set the frame images
-            try {
-            	PokenetFrameAppearance.this.topLeft = new ImageUIResource("res/ui/skin/topLeftFrame.png");
-            	PokenetFrameAppearance.this.topMiddle = new ImageUIResource("res/ui/skin/topMiddleFrame.png");
-            	PokenetFrameAppearance.this.topRight = new ImageUIResource("res/ui/skin/topRightFrame.png");
-				m_topLeft = PokenetFrameAppearance.this.topLeft;
-				m_topMiddle = PokenetFrameAppearance.this.topMiddle;
-				m_topRight = PokenetFrameAppearance.this.topRight;
-            	
-            	m_topLeft.setAlpha(1);
-				m_topMiddle.setAlpha(1);
-				m_topRight.setAlpha(1);
-			}
-			catch (SlickException exception) {
-				// if this file isn'tn found.. sad face
-				System.err.println("Required GUI files not found...");
-			}
-			
-			bar.setHeight(m_topLeft.getHeight());
+//			bar.setHeight(m_topLeft.getHeight());
 
             this.bar = bar;
 
@@ -208,6 +182,7 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
         
         public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
             Rectangle rect = comp.getAbsoluteBounds();
+            PokenetSkin s = (PokenetSkin)skin;
 
             Color old = g.getColor();
             Frame.TitleBar t = (Frame.TitleBar)comp;
@@ -239,17 +214,19 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 //            g.fill(rect, grad);
             
             // draw the top title bar thing.
-            g.drawImage(m_topLeft, frameTopLeftX, 
+            g.drawImage(s.topLeft, frameTopLeftX, 
             		frameTopLeftY);
             
-            g.drawImage(m_topRight, frameTopLeftX + t.getWidth() - m_topRight.getWidth(), 
+            g.drawImage(s.topRight, frameTopLeftX + t.getWidth() - s.topRight.getWidth(), 
             		frameTopLeftY);
             
-            g.drawImage(m_topMiddle, frameTopLeftX + m_topLeft.getWidth(), 
+            g.drawImage(s.topMiddle, 
+            		frameTopLeftX + s.topLeft.getWidth(), 
             		frameTopLeftY, 
-            		frameTopLeftX + width - m_topLeft.getWidth(),
-            		frameTopLeftY + m_topMiddle.getHeight(),
-            		0,0,m_topMiddle.getWidth(), m_topMiddle.getHeight());
+            		frameTopLeftX + width - s.topLeft.getWidth(),
+            		frameTopLeftY + s.topMiddle.getHeight(),
+            		0,0,1, 52);
+          
             
            
 

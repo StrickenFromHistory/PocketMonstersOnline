@@ -41,6 +41,7 @@ import org.newdawn.slick.util.Log;
  *         Created Mar 2, 2010.
  */
 public class PokenetSkin implements Skin {
+	private static final String skinImageLocations = "res/ui/skin/";
     
     private Image checkBoxImage;
     private Image closeButtonImage;
@@ -48,6 +49,11 @@ public class PokenetSkin implements Skin {
     private Font font;
     private Cursor selectCursor;
     private Cursor resizeCursor;
+    
+    // for the frame
+     Image topLeft, topMiddle, topRight;
+     Image leftMiddle, center, rightMiddle;
+     Image bottomLeft, bottomMiddle, bottomRight;
     
     private boolean selectCursorFailed = false;
     private boolean resizeCursorFailed = false;
@@ -91,17 +97,8 @@ public class PokenetSkin implements Skin {
         
         //try loading
         //ResourceLoader will spit out a log message if there are problems
-        
-        //images
-        if (checkBoxImage==null)
-            checkBoxImage = tryImage("res/skin/Pokenet/checkbox.png");
-        if (closeButtonImage==null)
-            closeButtonImage = tryImage("res/skin/Pokenet/closewindow.png");
-        if (selectCursor==null) 
-            selectCursor = tryCursor("res/skin/shared/cursor_select.png", 4, 8);
-            //selectCursor = tryCursor("res/skin/shared/cursor_hand.png", 6, 0);
-        //if (resizeCursor==null)
-        //    resizeCursor = tryCursor("res/skin/shared/cursor_resize.png", 4, 4);
+        loadImages();
+
         
         if (selectCursorListener==null && selectCursor!=null)
             selectCursorListener = new CursorListener(selectCursor);
@@ -113,7 +110,35 @@ public class PokenetSkin implements Skin {
             font = tryFont("res/skin/shared/verdana.fnt", "res/skin/shared/verdana.png");
     }
     
-    private Cursor tryCursor(String ref, int x, int y) {
+    /**
+	 * TODO Put here a description of what this method does.
+	 *
+	 */
+	private void loadImages() {
+		if (checkBoxImage==null)
+            checkBoxImage = tryImage("res/skin/Pokenet/checkbox.png");
+        if (closeButtonImage==null)
+            closeButtonImage = tryImage("res/skin/Pokenet/closewindow.png");
+        if (selectCursor==null) 
+            selectCursor = tryCursor("res/skin/shared/cursor_select.png", 4, 8);
+            //selectCursor = tryCursor("res/skin/shared/cursor_hand.png", 6, 0);
+        //if (resizeCursor==null)
+        //    resizeCursor = tryCursor("res/skin/shared/cursor_resize.png", 4, 4);
+
+        
+        //frame images
+        if(topLeft == null)		topLeft 	= tryImage(skinImageLocations + "topLeftFrame.png");
+        if(topMiddle == null)	topMiddle 	= tryImage(skinImageLocations + "topMiddleFrame.png");
+        if(topRight == null)	topRight 	= tryImage(skinImageLocations + "topRightFrame.png");
+        if(leftMiddle == null) 	leftMiddle 	= tryImage(skinImageLocations + "leftMiddleFrame.png");
+        if(rightMiddle == null) rightMiddle = tryImage(skinImageLocations + "rightMiddleFrame.png");
+        if(bottomLeft == null)	bottomLeft 	= tryImage(skinImageLocations + "bottomLeftFrame.png");
+        if(bottomMiddle == null)bottomMiddle = tryImage(skinImageLocations + "bottomMiddleFrame.png");
+        if(bottomRight == null) bottomRight = tryImage(skinImageLocations + "bottomRightFrame.png");
+        	
+	}
+
+	private Cursor tryCursor(String ref, int x, int y) {
         try {
             return CursorLoader.get().getCursor(ref, x, y);
         } catch (Exception e) {
