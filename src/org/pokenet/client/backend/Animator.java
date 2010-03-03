@@ -1,16 +1,21 @@
 package org.pokenet.client.backend;
 
+import org.lwjgl.util.Timer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
 
 public class Animator {
 	private ClientMapMatrix m_mapMatrix;
 
+
+	private Timer m_timer;
+
 	private static final int ANIMATION_INCREMENT = 4;
 
 	// Sets up calls
 	public Animator(ClientMapMatrix maps) {
 		m_mapMatrix = maps;
+		m_timer = new Timer();
 	}
 
 	// Prepares for animation
@@ -20,6 +25,7 @@ public class Animator {
 			if (map != null) {
 				for(int i = 0; i < m_mapMatrix.getPlayers().size(); i++) {
 						animatePlayer(m_mapMatrix.getPlayers().get(i));
+						m_timer.reset();
 				}
 			}
 		} catch (Exception e) {}
@@ -94,6 +100,11 @@ public class Animator {
 		/*
 		 * Move the player on screen
 		 */
+		//TODO: Replace the hard-coded value with constants defined by whether the player is walking, running, or on a bike.
+		if (p.isOurPlayer()){
+			while (m_timer.getTime() <= 0.025)
+			Timer.tick();
+		}
 		if (p.getX() > p.getServerX()) {
 			// Choose the sprite according to the player's position
 			if(p.getX() % 32 == 0) {
