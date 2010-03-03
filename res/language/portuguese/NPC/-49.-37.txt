@@ -1,8 +1,8 @@
-E uma lista de treinadores que venceram neste ginasio.
+E uma lista dos treinadores vencedores.
 Jasmine usa o tipo metalico. 
 Voce precisa descobrir como lutar contra esse tipo.
 Permita que eu me apresente. Sou Jasmine, uma lider de ginasio. 
 Eu uso o tipo metalico. 
 ...Voce conhece o tipo metalico? 
-Ele foi descoberto com o tipo noturno depois dos outros 15 ja existentes. 
+
 ...Hum... Posso comecar?

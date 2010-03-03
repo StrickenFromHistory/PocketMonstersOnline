@@ -12,3 +12,13 @@ trainerName venceu a batalha!
 trainerName foi derotado!
 Fugiu a distancia segura!
 Voce nao pode fugir!
+pokeName foi envenenado!
+pokeName esta congelado!
+pokeName foi queimado!
+pokeName esta paralisado! Pode estar incapaz de se mover
+pokeName adormeceu!
+Voce tem $earningsNum para ganhar!
+pokeName alcancou o level levelNum!
+moveName nao tem  PP. Por favor selecione um novo movimento.
+O pokeName selvagem deixou cair uma rewardItem!
+Voce tem uma rewardItem para ganhar!

@@ -1,4 +1,4 @@
 Personalize seus Pokemons 
 5F: Esquina dos TMs
-Por favor, comunique este erro!
-Bem-vindo a PokeLoja.
+Por favor reporte esse bug!
+Bem vindo a PokeLoja.
