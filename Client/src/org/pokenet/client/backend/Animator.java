@@ -9,7 +9,6 @@ public class Animator {
 
 
 	private Timer m_timer;
-	private boolean m_firstRender = true;
 
 	private static final int ANIMATION_INCREMENT = 4;
 
