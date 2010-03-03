@@ -21,16 +21,13 @@ public class Animator {
 
 	// Prepares for animation
 	public void animate() {
-		m_timer.tick();
-
 		try {
 			ClientMap map = m_mapMatrix.getCurrentMap();
-			if((map != null && m_timer.getTime() >= 0.017) || m_firstRender) {
+			if (map != null) {
 				for(int i = 0; i < m_mapMatrix.getPlayers().size(); i++) {
 						animatePlayer(m_mapMatrix.getPlayers().get(i));
+						m_timer.reset();
 				}
-				m_firstRender = false;
-				m_timer.reset();
 			}
 		} catch (Exception e) {}
 	}
@@ -104,12 +101,16 @@ public class Animator {
 		/*
 		 * Move the player on screen
 		 */
+		while (m_timer.getTime() <= 0.025)
+			Timer.tick();
 		if (p.getX() > p.getServerX()) {
+			// Choose the sprite according to the player's position
 			if(p.getX() % 32 == 0) {
 				p.setDirection(Direction.Left);
 				p.m_leftOrRight = !p.m_leftOrRight;
 				p.setCurrentImage(Player.getSpriteFactory().getSprite(p.getDirection(), true, p.m_leftOrRight, p.getSprite()));
 			}
+			
 			p.setX(p.getX() - ANIMATION_INCREMENT);
 			if(p.getX() > p.getServerX() && p.getX() % 32 == 0) {
 				/* If the player is still behind the server, make sure the stopped animation is shown */
