@@ -10,6 +10,7 @@ import mdes.slick.sui.Container;
 import mdes.slick.sui.Display;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
+import mdes.slick.sui.Sui;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
@@ -55,6 +56,7 @@ import org.pokenet.client.ui.Ui;
 import org.pokenet.client.ui.base.ConfirmationDialog;
 import org.pokenet.client.ui.base.MessageDialog;
 import org.pokenet.client.ui.frames.PlayerPopupDialog;
+import org.pokenet.client.ui.skin.PokenetSkin;
 
 /**
  * The game client
@@ -155,6 +157,11 @@ public class GameClient extends BasicGame {
 		gc.getGraphics().setWorldClip(-32, -32, 832, 832);
 		gc.setShowFPS(false);
 		m_display = new Display(gc);
+		
+		// change the interface to our custom one
+		PokenetSkin skin = new PokenetSkin();
+		Sui.setSkin(skin);
+		Sui.updateComponentTreeSkin(m_display); 
 
 		/*
 		 * Setup variables
