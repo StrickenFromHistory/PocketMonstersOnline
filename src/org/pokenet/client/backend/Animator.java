@@ -101,6 +101,7 @@ public class Animator {
 		/*
 		 * Move the player on screen
 		 */
+		//TODO: Replace the hard-coded value with constants defined by whether the player is walking, running, or on a bike.
 		while (m_timer.getTime() <= 0.025)
 			Timer.tick();
 		if (p.getX() > p.getServerX()) {
