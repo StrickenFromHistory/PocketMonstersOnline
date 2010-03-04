@@ -115,7 +115,7 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
         
         int state = btn.getState();
         float x = aRect.getX();//btn.getAbsoluteX();
-        float y = aRect.getY();//btn.getAbsoluteY();
+        float bottom, y = aRect.getY();//btn.getAbsoluteY();
         GradientFill top, midd, bot;
         
         Color lightTop, lightBot, borderLight, borderDark, base;
@@ -193,7 +193,6 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
         
         g.setAntiAlias(oldAA); 
         
-        
         //top 
         g.drawImage(s.tL_button, x, y);
         g.drawImage(s.tM_button, x + s.tL_button.getWidth(), y,
@@ -202,17 +201,23 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
         		0,0,s.tM_button.getWidth(),s.tM_button.getHeight());
         g.drawImage(s.tR_button, x + aRect.getWidth() - s.tR_button.getWidth(), y);
         
-        //middle - only draw if we need too
-        if(aRect.getHeight() > s.tM_button.getHeight() + s.bM_button.getHeight()){
+//        middle - only draw if we need too
+//        if(aRect.getHeight() > s.tM_button.getHeight() + s.bM_button.getHeight()){
         	y += s.tL_button.getHeight();
-        
-	        g.drawImage(s.lM_button, x, y);
+        	bottom = y + aRect.getHeight() - s.tL_button.getHeight() - s.bL_button.getHeight();
+	        g.drawImage(s.lM_button, x, y,
+	        		x + s.lM_button.getWidth(),
+	        		bottom,
+	        		0,1,s.lM_button.getWidth(), s.lM_button.getHeight() - 1);
 	        g.drawImage(s.c_button, x + s.lM_button.getWidth(), y,
-	        		1 + x + aRect.getWidth() - s.rM_button.getWidth(),
-	        		1 + y + s.c_button.getHeight(),
-	        		0,0,1,1);
-	        g.drawImage(s.rM_button, x + aRect.getWidth() - s.rM_button.getWidth(), y);
-        }
+	        		x + aRect.getWidth() - s.rM_button.getWidth(),
+	        		bottom,
+	        		0,0,1,1);//s.c_button.getWidth(),s.c_button.getHeight());
+	        g.drawImage(s.rM_button, x + aRect.getWidth() - s.rM_button.getWidth(), y,
+	        		x + aRect.getWidth(), 
+	        		bottom,
+	        		0,1,s.rM_button.getWidth(),s.rM_button.getHeight() - 1);
+//        }
         //bottom
         y = btn.getAbsoluteY() + aRect.getHeight() - s.bL_button.getHeight();
         g.drawImage(s.bL_button, x, y);

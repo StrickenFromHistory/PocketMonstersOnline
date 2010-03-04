@@ -1,7 +1,10 @@
 package org.pokenet.client.ui;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -184,32 +187,65 @@ public class LoginScreen extends Window {
 		if(path == null || path.equalsIgnoreCase("NULL")) {
 			path = "./";
 		}
-		File f = new File(path + "rev.txt");
-		if(f.exists()) {
+//		File f = new File(path + "rev.txt");
+//		if(f.exists()) {
 			try {
-				Scanner s = new Scanner(f);
-				m_clientRev = new Label("Client Version: r" + s.nextLine());
+//				Scanner s = new Scanner(f);
+				m_clientRev = new Label("Client Version: r" + getSVNRev());
 				m_clientRev.setFont(GameClient.getFontSmall());
 				m_clientRev.setForeground(new Color(255, 255, 255));
 				m_clientRev.pack();
 				m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
 				this.add(m_clientRev);
 			} catch (Exception e) {
-				m_clientRev = new Label("Client Version: ?");
+				m_clientRev = new Label("Client Version: VV");
 				m_clientRev.setFont(GameClient.getFontSmall());
 				m_clientRev.setForeground(new Color(255, 255, 255));
 				m_clientRev.pack();
 				m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
 				this.add(m_clientRev);
 			}
-		} else {
-			m_clientRev = new Label("Client Version: ?");
-			m_clientRev.setFont(GameClient.getFontSmall());
-			m_clientRev.setForeground(new Color(255, 255, 255));
-			m_clientRev.pack();
-			m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
-			this.add(m_clientRev);
-		}
+//		} else {
+//			m_clientRev = new Label("Client Version: ?");
+//			m_clientRev.setFont(GameClient.getFontSmall());
+//			m_clientRev.setForeground(new Color(255, 255, 255));
+//			m_clientRev.pack();
+//			m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
+//			this.add(m_clientRev);
+//		}
+	}
+	
+	/**
+	 * .Gets the SVN revision for the client
+	 *
+	 * @return the value on the third line of .svn/entries
+	 */
+	private static int getSVNRev() {
+		int rev = 0;
+		boolean foundRevision = false;
+		
+	    try {
+	    	BufferedReader input =  new BufferedReader(new FileReader(".svn/entries"));
+	    	try {
+	    		String line = null; 
+	     
+	    		while (( line = input.readLine()) != null && !foundRevision){
+	    			if(line.equals("dir")){
+	    				rev = Integer.parseInt(input.readLine()); // this hopefully is the revision number
+	    				foundRevision = true;
+	    			}
+	    		}
+	    	} finally {
+	    		input.close();
+	      	}	
+	    }
+	    catch (IOException ex){
+	    	ex.printStackTrace();
+	    	// probably no svn file... oh well.
+	    	rev = 1868; 
+	    }
+	    
+	    return rev;
 	}
 	
 	/**

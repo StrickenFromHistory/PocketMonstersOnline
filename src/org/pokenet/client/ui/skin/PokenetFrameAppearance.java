@@ -88,11 +88,11 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
                 g.drawImage(s.lM_frame, left, top,
                 		left + s.lM_frame.getWidth(),
                 		bottom,
-                		0, 0, s.lM_frame.getWidth(), s.lM_frame.getHeight());
+                		0, 1, s.lM_frame.getWidth(), s.lM_frame.getHeight() - 1);
                 g.drawImage(s.rM_frame, left + win.getWidth(), top,
                 		left + win.getWidth() + s.rM_frame.getWidth(),
                 		bottom,
-                		0, 0, s.rM_frame.getWidth(), s.rM_frame.getHeight());
+                		0, 1, s.rM_frame.getWidth(), s.rM_frame.getHeight() - 1);
                 
                 // draw the bottom
                 g.drawImage(s.bL_frame, left, bottom);
