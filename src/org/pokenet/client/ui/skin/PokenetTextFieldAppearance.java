@@ -85,28 +85,67 @@ public class PokenetTextFieldAppearance extends PokenetTextComponentAppearance {
         boolean hasFocus = field.hasFocus();
         
         SkinUtil.renderComponentBase(g, comp);
-        
-        Color start = theme.getPrimary1();
-        Color end = theme.getSecondary1();
-        Color oppositeBackground = new Color(
-                255 - theme.getPrimary1().getRed(),
-                255 - theme.getPrimary1().getGreen(),
-                255 - theme.getPrimary1().getBlue());
-        Color oppositeForeground = new Color(
-                255 - field.getForeground().getRed(),
-                255 - field.getForeground().getGreen(),
-                255 - field.getForeground().getBlue());
-                
         Rectangle bounds = field.getAbsoluteBounds();
         float x = bounds.getX();
         float y = bounds.getY();
         float mid = bounds.getHeight()/2f;
         
-        grad.setStart(0, -mid);
-        grad.setEnd(0, mid);
-        grad.setStartColor(start);
-        grad.setEndColor(end);
-        g.fill(bounds, grad);
+        
+        PokenetSkin s = (PokenetSkin)skin;
+
+        
+        
+        
+        Color start = s.c_textField.getColor(0,0);
+        Color end = theme.getSecondary1();
+        Color oppositeBackground = new Color(
+                255 - start.getRed(),
+                255 - start.getGreen(),
+                255 - start.getBlue());
+        Color oppositeForeground = new Color(
+                255 - field.getForeground().getRed(),
+                255 - field.getForeground().getGreen(),
+                255 - field.getForeground().getBlue());
+                
+
+
+        
+        //top 
+        g.drawImage(s.tL_textField, x, y);
+        g.drawImage(s.tM_textField, x + s.tL_textField.getWidth(), y,
+        		x + comp.getWidth() - s.tR_textField.getWidth(),
+        		y + s.tM_textField.getHeight(),
+        		0,0,s.tM_textField.getWidth(),s.tM_textField.getHeight());
+        g.drawImage(s.tR_textField, x + comp.getWidth() - s.tR_textField.getWidth(), y);
+        
+        //middle - only draw if we need too
+        if(comp.getHeight() > s.tM_textField.getHeight() + s.bM_textField.getHeight()){
+        	y += s.tL_textField.getHeight();
+        
+	        g.drawImage(s.lM_textField, x, y);
+	        g.drawImage(s.c_textField, x + s.lM_textField.getWidth(), y,
+	        		1 + x + comp.getWidth() - s.rM_textField.getWidth(),
+	        		1 + y + s.c_textField.getHeight(),
+	        		0,0,1,1);
+	        g.drawImage(s.rM_textField, x + comp.getWidth() - s.rM_textField.getWidth(), y);
+        }
+        //bottom
+        y = comp.getAbsoluteY() + comp.getHeight() - s.bL_textField.getHeight();
+        g.drawImage(s.bL_textField, x, y);
+        g.drawImage(s.bM_textField, x + s.bL_textField.getWidth(), y,
+        		x + comp.getWidth() - s.bR_textField.getWidth(),
+        		y + s.bM_textField.getHeight(),
+        		0,0,s.bM_textField.getWidth(),s.bM_textField.getHeight());
+        g.drawImage(s.bR_textField, x + comp.getWidth() - s.bR_textField.getWidth(), y);
+        
+        // reset x and  y for the text
+        x = bounds.getX();
+        y = bounds.getY();
+//        grad.setStart(0, -mid);
+//        grad.setEnd(0, mid);
+//        grad.setStartColor(start);
+//        grad.setEndColor(end);
+//        g.fill(bounds, grad);
         
         Rectangle oldClip = g.getClip();
         
@@ -186,9 +225,9 @@ public class PokenetTextFieldAppearance extends PokenetTextComponentAppearance {
         g.setFont(oldFont);
         g.setClip(oldClip);
         
-        if (field.isBorderRendered()) {
-            g.setColor( hasFocus ? theme.getPrimaryBorder2() : theme.getPrimaryBorder1());
-            g.draw(bounds);
-        }
+//        if (field.isBorderRendered()) {
+//            g.setColor( hasFocus ? theme.getPrimaryBorder2() : theme.getPrimaryBorder1());
+//            g.draw(bounds);
+//        }
     }
 }

@@ -61,6 +61,11 @@ public class PokenetSkin implements Skin {
     Image tL_button, tM_button, tR_button;
     Image lM_button, c_button,  rM_button;
     Image bL_button, bM_button, bR_button;
+
+    // for the buttons
+    Image tL_textField, tM_textField, tR_textField;
+    Image lM_textField, c_textField,  rM_textField;
+    Image bL_textField, bM_textField, bR_textField;
     
     // colors for gradients
     Color top;
@@ -165,6 +170,18 @@ public class PokenetSkin implements Skin {
         if(bL_button == null) bL_button = tryImage("button/bottomLeft.png");
         if(bM_button == null) bM_button = tryImage("button/bottomMiddle.png");
         if(bR_button == null) bR_button = tryImage("button/bottomRight.png");
+
+        //text field images
+        if(tL_textField == null) tL_textField = tryImage("textField/topLeft.png");
+        if(tM_textField == null) tM_textField = tryImage("textField/topMiddle.png");
+        if(tR_textField == null) tR_textField = tryImage("textField/topRight.png");
+        if(lM_textField == null) lM_textField = tryImage("textField/leftMiddle.png");
+        if(c_textField == null)  c_textField  = tryImage("textField/center.png");
+        if(rM_textField == null) rM_textField = tryImage("textField/rightMiddle.png");
+        if(bL_textField == null) bL_textField = tryImage("textField/bottomLeft.png");
+        if(bM_textField == null) bM_textField = tryImage("textField/bottomMiddle.png");
+        if(bR_textField == null) bR_textField = tryImage("textField/bottomRight.png");
+        
         
         //set up gradients 
         if(top == null){
