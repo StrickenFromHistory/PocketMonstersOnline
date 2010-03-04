@@ -106,7 +106,7 @@ public class PokenetCheckBoxAppearance extends PokenetButtonAppearance {
         }
         
         //renders the actual button state for the small box area, using rounded edges
-        PokenetButtonAppearance.renderButtonState(g, theme, check, btnRect, grad);
+        PokenetButtonAppearance.renderButtonState(g, theme, check, btnRect, grad, (PokenetSkin)skin);
         
         Image def = getDefaultImage();
         if (def!=null && check.isSelected()) {

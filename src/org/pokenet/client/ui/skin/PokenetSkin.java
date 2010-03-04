@@ -28,9 +28,11 @@ import mdes.slick.sui.skin.SliderAppearance;
 
 import org.lwjgl.input.Cursor;
 import org.lwjgl.input.Mouse;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.Font;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.fills.GradientFill;
 import org.newdawn.slick.opengl.CursorLoader;
 import org.newdawn.slick.util.Log;
 
@@ -59,6 +61,18 @@ public class PokenetSkin implements Skin {
     Image tL_button, tM_button, tR_button;
     Image lM_button, c_button,  rM_button;
     Image bL_button, bM_button, bR_button;
+    
+    // colors for gradients
+    Color top;
+	Color bottom;
+	Color midTop;
+	Color midBottom;
+	
+	Color topH;
+	Color bottomH;
+	Color midTopH;
+	Color midBottomH;
+    
     
     private boolean selectCursorFailed = false;
     private boolean resizeCursorFailed = false;
@@ -151,6 +165,28 @@ public class PokenetSkin implements Skin {
         if(bL_button == null) bL_button = tryImage(skinImageLocations + "bottomLeftButton.png");
         if(bM_button == null) bM_button = tryImage(skinImageLocations + "bottomMiddleButton.png");
         if(bR_button == null) bR_button = tryImage(skinImageLocations + "bottomRightButton.png");
+        
+        //set up gradients 
+        if(top == null){
+        	
+        	// we need to split the gradient into 3 parts because of how 
+        	// the images are split up
+        	top = tM_frame.getColor(0,0); // start
+        	bottom = bM_button.getColor(0, 10); // stop
+        	midTop = new Color(top.r - ((top.r - bottom.r) / 3 * 2),
+        			top.g - ((top.g - bottom.g) / 3 * 2 ), 
+        			top.b - ((top.b - bottom.b) / 3 * 2));
+        	midBottom = new Color(top.r - ((top.r - bottom.r) / 3),
+        			top.g - ((top.g - bottom.g) / 3), 
+        			top.b - ((top.b - bottom.b) / 3));
+        	
+        	// now we need to calculate the the down / hover colors
+        	topH = new Color(top.r - 50, top.g - 50, top.b - 50); // start
+        	bottomH = new Color(bottom.r - 50, bottom.g - 50, bottom.b - 50); // stop
+        	midTopH = new Color(midTop.r - 50, midTop.g - 50, midTop.b - 50);
+        	midBottomH = new Color(midBottom.r - 50, midBottom.g - 50, midTop.b - 50);
+        	
+        }
         	
 	}
 
@@ -305,5 +341,45 @@ public class PokenetSkin implements Skin {
 	public ComponentAppearance getListAppearance(mdes.slick.sui.List arg0) {
 		// TODO Auto-generated method stub.
 		return null;
+	}
+	
+	/**
+	 * 
+	 * Generates a gradient for the buttons
+	 * It's easier to generage these than to have to make new files for them every time
+	 *
+	 * @param startX
+	 * @param startY
+	 * @param endX
+	 * @param endY
+	 * @param pos either t for top, m for middle, or b for bottom
+	 * @param state h for hover, u for up, or d for down
+	 */
+	public GradientFill getButtonGradient(float startX, float startY, float endX, float endY, char pos, char state){
+		switch (state){
+			case 'h':
+				switch (pos){
+					case 't': return new GradientFill(startX, startY, topH, endX, endY, midTopH);
+					case 'm': return new GradientFill(startX, startY, midTopH, endX, endY, midBottomH);
+					case 'b': return new GradientFill(startX, startY, bottomH, endX, endY, midBottomH);
+					default: return null;
+					} 
+			case 'd':
+				switch (pos){
+					case 't': return new GradientFill(startX, startY, topH, endX, endY, midTopH);
+					case 'm': return new GradientFill(startX, startY, midTopH, endX, endY, midBottomH);
+					case 'b': return new GradientFill(startX, startY, bottomH, endX, endY, midBottomH);
+					default: return null;
+					} 
+			case 'u':
+				switch (pos){
+					case 't': return new GradientFill(startX, startY, top, endX, endY, midTop);
+					case 'm': return new GradientFill(startX, startY, midTop, endX, endY, midBottom);
+					case 'b': return new GradientFill(startX, startY, bottom, endX, endY, midBottom);
+					default: return null;
+					} 
+			default: return null;
+		}
+		
 	}
 }

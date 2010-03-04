@@ -75,6 +75,7 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
         SkinUtil.renderComponentBase(g, comp);
         
         Button btn = (Button)comp;
+       
         
         //renders button state
         Rectangle bounds = btn.getAbsoluteBounds();
@@ -86,7 +87,10 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
             rect = roundBounds;
         }
         
-        renderButtonState(g, theme, btn, rect, grad);
+      
+        
+        // for now we just want to get teh button rendered.
+        renderButtonState(g, theme, btn, rect, grad, (PokenetSkin)skin);
              
         //renders text/image
         SkinUtil.renderButtonBase(g, btn);
@@ -104,12 +108,15 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
      * @param aRect the rectangle we are drawing with, or null
      * @param grad the gradient fill instance to use
      */
-    static void renderButtonState(Graphics g, Theme theme, Button btn, Rectangle aRect, GradientFill grad) {
+    static void renderButtonState(Graphics g, Theme theme, Button btn, Rectangle aRect, GradientFill grad, PokenetSkin s) {
         Rectangle rect = aRect;
         if (rect==null)
             rect = btn.getAbsoluteBounds();
         
         int state = btn.getState();
+        float x = btn.getAbsoluteX();
+        float y = btn.getAbsoluteY();
+        GradientFill top, midd, bot;
         
         Color lightTop, lightBot, borderLight, borderDark, base;
         
@@ -127,16 +134,25 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
                     base = theme.getPrimary1();
                     lightTop = theme.getPrimary2();
                     lightBot = theme.getPrimary3();
+                    top = s.getButtonGradient(0,0,0,s.tM_button.getHeight(), 't', 'u');
+                    midd = s.getButtonGradient(0,0,0, s.c_button.getHeight(), 'm', 'u');
+                    bot = s.getButtonGradient(0,0,0,s.bM_button.getHeight(), 'b', 'u');
                     break;
                 case Button.DOWN:
                     base = theme.getSecondary1();
                     lightTop = theme.getSecondary1();
                     lightBot = theme.getSecondary1();
+                    top = s.getButtonGradient(0,0,0,s.tM_button.getHeight(), 't', 'd');
+                    midd = s.getButtonGradient(0,0,0, s.c_button.getHeight(), 'm', 'd');
+                    bot = s.getButtonGradient(0,0,0,s.bM_button.getHeight(), 'b', 'd');
                     break;
                 case Button.ROLLOVER:
                     base = theme.getSecondary1();
                     lightTop = theme.getSecondary2();
                     lightBot = theme.getSecondary3();
+                    top = s.getButtonGradient(0,0,0,s.tM_button.getHeight(), 't', 'h');
+                    midd = s.getButtonGradient(0,0,0, s.c_button.getHeight(), 'm', 'h');
+                    bot = s.getButtonGradient(0,0,0,s.bM_button.getHeight(), 'b', 'h');
                     break;
             }
             if (btn.isPressedOutside()) {
@@ -175,6 +191,34 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
             g.draw(rect, grad);
         }
         
-        g.setAntiAlias(oldAA);        
+        g.setAntiAlias(oldAA); 
+        
+        
+        //top 
+        g.drawImage(s.tL_button, x, y);
+        g.drawImage(s.tM_button, x + s.tL_button.getWidth(), y,
+        		x + btn.getWidth() - s.tR_button.getWidth(),
+        		y + s.tM_button.getHeight(),
+        		0,0,s.tM_button.getWidth(),s.tM_button.getHeight());
+        g.drawImage(s.tR_button, x + btn.getWidth() - s.tR_button.getWidth(), y);
+        
+        //middle
+        y += s.tL_button.getHeight();
+        g.drawImage(s.lM_button, x, y);
+        g.drawImage(s.c_button, x + s.lM_button.getWidth(), y,
+        		1 + x + btn.getWidth() - s.rM_button.getWidth(),
+        		1 + y + s.c_button.getHeight(),
+        		0,0,s.c_button.getWidth(),s.c_button.getHeight());
+        g.drawImage(s.rM_button, x + btn.getWidth() - s.rM_button.getWidth(), y);
+        
+        //bottom
+        y = btn.getAbsoluteY() + btn.getHeight() - s.bL_button.getHeight();
+        g.drawImage(s.bL_button, x, y);
+        g.drawImage(s.bM_button, x + s.bL_button.getWidth(), y,
+        		x + btn.getWidth() - s.bR_button.getWidth(),
+        		y + s.bM_button.getHeight(),
+        		0,0,s.bM_button.getWidth(),s.bM_button.getHeight());
+        g.drawImage(s.bR_button, x + btn.getWidth() - s.bR_button.getWidth(), y);
+        
     }
 }
