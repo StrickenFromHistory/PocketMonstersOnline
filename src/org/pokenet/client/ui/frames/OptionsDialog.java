@@ -130,6 +130,7 @@ public class OptionsDialog extends Frame {
 										translated.get(19),
 										getDisplay());
 						GameClient.reloadOptions();
+						OptionsDialog.this.getDisplay().remove(OptionsDialog.this);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}

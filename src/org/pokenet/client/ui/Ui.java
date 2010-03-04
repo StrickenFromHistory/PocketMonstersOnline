@@ -69,7 +69,7 @@ public class Ui extends Frame {
 		m_instance = this;
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
-		this.setSize(800, 66);
+		this.setSize(800, 75);
 		this.setLocation(0, -getTitleBar().getHeight());
 		this.setBackground(new Color(0, 0, 0, 75));
 		this.setResizable(false);
