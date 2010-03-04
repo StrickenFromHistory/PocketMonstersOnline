@@ -36,21 +36,24 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
         
     private static GradientFill grad = new GradientFill(0f,0f,Color.white,0f,0f,Color.white);
     private static Color topInnerColor = new Color(96, 144, 191);
-    private static Color bottomInnterColor = new Color(206, 231, 250);
-    
+    private static Color bottomInnterColor = new Color(206, 231, 250);    
 
     
     private ComponentAppearance resizerAppearance = new ResizerAppearance();
-
+    Frame f;
     
-    @Override
+    @SuppressWarnings("static-access")
+	@Override
 	public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
         Color old = g.getColor();
         PokenetSkin s = (PokenetSkin) skin;
+        float left, right, top, bottom;
+        
         
         //borders
         if (comp.isBorderRendered()) {
             Frame win = (Frame)comp;
+            f = win;
             win.setPadding(4);
 //            Color light = theme.getSecondaryBorder1();
 //            Color dark = theme.getSecondaryBorder1();
@@ -63,6 +66,7 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
                 rect.setY(rect.getY()+h-1);
                 rect.setHeight(rect.getHeight()-h+1);
             }
+            
 
 //            float mid = rect.getWidth()/2f;
 //
@@ -71,22 +75,40 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 //            grad.setStart(-mid, 0);
 //            grad.setEnd(mid, 0);
 //            g.draw(rect, grad);
-            g.drawImage(s.lM_frame, 
-            		win.getAbsoluteX(), 
-            		win.getAbsoluteY() + win.getTitleBar().getHeight(),
-            		win.getAbsoluteX() + s.lM_frame.getWidth(),
-            		win.getAbsoluteY() + win.getHeight(),
-            		0,0,
-            		s.lM_frame.getWidth(),
-            		1);//s.lM_frame.getHeight());
-            g.drawImage(s.rM_frame, 
-            		win.getAbsoluteX() + win.getWidth() - s.rM_frame.getWidth(),
-            		win.getAbsoluteY() + win.getTitleBar().getHeight(),
-            		win.getAbsoluteX() + win.getWidth(),
-            		win.getAbsoluteY() + win.getHeight(),
-            		0,0,
-            		s.rM_frame.getWidth(),
-            		1);//s.rM_frame.getHeight());
+            
+            // set some vars we'll need to make the following cleaner
+            left = win.getAbsoluteX() - s.lM_frame.getWidth() / 2;
+            right = left + win.getWidth();
+            bottom = win.getAbsoluteY() + win.getHeight() - s.bM_button.getHeight() / 2;
+            top = win.getAbsoluteY() + win.getTitleBar().getHeight() + 6; // hack
+            
+            
+            g.drawImage(s.lM_frame, left, top,
+            		left + s.lM_frame.getWidth(),
+            		bottom,
+            		0, 0, s.lM_frame.getWidth(), s.lM_frame.getHeight());
+            g.drawImage(s.rM_frame, left + win.getWidth(), top,
+            		left + win.getWidth() + s.rM_frame.getWidth(),
+            		bottom,
+            		0, 0, s.rM_frame.getWidth(), s.rM_frame.getHeight());
+            
+            // draw the bottom
+            g.drawImage(s.bL_frame, left, bottom);
+            g.drawImage(s.bR_frame, left + win.getWidth(), bottom);
+            g.drawImage(s.bM_frame,
+            		left + s.bL_frame.getWidth(),
+            		bottom,
+            		left + win.getWidth(),
+            		bottom + s.bM_frame.getHeight(),
+            		0,0,s.bM_button.getWidth(), s.bM_frame.getHeight());
+            
+            // draw the top
+            g.drawImage(s.tL_frame, left,  top - s.tL_frame.getHeight());
+            g.drawImage(s.tR_frame, right,  top - s.tL_frame.getHeight());
+            g.drawImage(s.tM_frame, 
+            		left + s.tL_frame.getWidth(), top - s.tL_frame.getHeight(), 
+            		right, top,
+            		0,0,s.tM_frame.getWidth(), s.tM_frame.getHeight());
         }
     }
 
@@ -181,26 +203,24 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
         public TitleBarAppearance(Frame.TitleBar bar) {
 
             this.bar = bar;
-            
+//            this.bar.setWidth(this.bar.getWidth() + PokenetSkin.tL_frame.getWidth());
             // readjust for the difference in the title bar height with
             // the image for the title bar
             // doesn't work
-            this.bar.setY(this.bar.getAbsoluteY() - Math.abs(PokenetSkin.tM_frame.getHeight() - this.bar.getHeight()));
+//            this.bar.setY(this.bar.getAbsoluteY() - Math.abs(PokenetSkin.this.tM_frame.getHeight() - this.bar.getHeight()));
 
             
         }
         
-        @Override
+        @SuppressWarnings("static-access")
+		@Override
 		public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
             Rectangle rect = comp.getAbsoluteBounds();
             PokenetSkin s = (PokenetSkin)skin;
-
+            float left, right, top, bottom;
             Color old = g.getColor();
             Frame.TitleBar t = (Frame.TitleBar)comp;
-            
-            float frameTopLeftX = t.getAbsoluteX();
-            float frameTopLeftY = t.getAbsoluteY();
-            float width=t.getWidth(), height=t.getHeight();
+           
 
             //TODO: fix rectangle + 1
 
@@ -216,36 +236,30 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 //            grad.setStart(-mid, 0);
 //            grad.setEnd(mid, 0);
 //            g.fill(rect, grad);
-            
-            // draw the top title bar thing.
-            g.drawImage(s.tL_frame, frameTopLeftX, 
-            		frameTopLeftY);
-            
-            g.drawImage(s.tR_frame, frameTopLeftX + t.getWidth() - s.tR_frame.getWidth(), 
-            		frameTopLeftY);
-            
-            g.drawImage(s.tM_frame, 
-            		frameTopLeftX + s.tL_frame.getWidth(), 
-            		frameTopLeftY, 
-            		frameTopLeftX + width - s.tL_frame.getWidth(),
-            		frameTopLeftY + s.tM_frame.getHeight(),
-            		0,0,1, s.tM_frame.getHeight());
-          
-            
-            if (active) {
-          } else {
-        	  // draw dark overlay
-        	  g.drawImage(s.tLi_frame, frameTopLeftX, frameTopLeftY);
-        	  g.drawImage(s.tRi_frame, frameTopLeftX + t.getWidth() - s.tRi_frame.getWidth(),
-        			  frameTopLeftY);
-        	  g.drawImage(s.tMi_frame,
-        			  frameTopLeftX + s.tL_frame.getWidth(),
-        			  frameTopLeftY,
-        			  frameTopLeftX + width - s.tLi_frame.getWidth(),
-        			  frameTopLeftY + s.tMi_frame.getHeight(),
-        			  0,0,1,s.tMi_frame.getHeight());
-          }
+//            if(f != null){
+//            	// some vars
+//                left = f.getAbsoluteX() - s.tL_frame.getWidth() / 2; // TODO hack, fix later
+//                right = left + f.getWidth() - s.tR_frame.getWidth() / 2;
+//                top = f.getAbsoluteY() - 2;//s.tM_frame.getHeight() - 2;
+//                bottom = top + s.tM_frame.getHeight();
 //
+//                // draw the top title bar thing.
+//                g.drawImage(s.tL_frame, left,  top);
+//                g.drawImage(s.tR_frame, right,  top);
+//                g.drawImage(s.tM_frame, 
+//                		left + s.tL_frame.getWidth(), top, 
+//                		right, bottom,
+//                		0,0,s.tM_frame.getWidth(), s.tM_frame.getHeight());
+//            }
+//            
+          
+//            
+//            if (active) {
+//          } else {
+//        	  // draw dark overlay
+//        	 
+//          }
+////
 
 //            if (t.isBorderRendered()) {
 //                //borders

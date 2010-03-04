@@ -53,7 +53,6 @@ public class PokenetSkin implements Skin {
     private Cursor resizeCursor;
     
     // for the frame
-    static Image tLi_frame, tMi_frame, tRi_frame;
     static Image tL_frame, tM_frame, tR_frame;
     static Image lM_frame, c_frame,  rM_frame;
     static Image bL_frame, bM_frame, bR_frame;
@@ -147,32 +146,25 @@ public class PokenetSkin implements Skin {
 
         
         //frame images
-        if(tLi_frame == null) tLi_frame = tryImage("frame/topLeftFrameInactive.png");
-        if(tMi_frame == null) tMi_frame = tryImage("frame/topMiddleFrameInactive.png");
-        if(tRi_frame == null) tRi_frame = tryImage("frame/topRightFrameInactive.png");
-        if(tL_frame == null) tL_frame = tryImage("frame/topLeftFrame.png");
-        if(tM_frame == null) tM_frame = tryImage("frame/topMiddleFrame.png");
-        if(tR_frame == null) tR_frame = tryImage("frame/topRightFrame.png");
-        if(lM_frame == null) lM_frame = tryImage("frame/leftMiddleFrame.png");
-        if(rM_frame == null) rM_frame = tryImage("frame/rightMiddleFrame.png");
-        if(bL_frame == null) bL_frame = tryImage("frame/bottomLeftFrame.png");
-        if(bM_frame == null) bM_frame = tryImage("frame/bottomMiddleFrame.png");
-        if(bR_frame == null) bR_frame = tryImage("frame/bottomRightFrame.png");
-        
-        tLi_frame.setAlpha(.5f);
-        tMi_frame.setAlpha(.5f);
-        tRi_frame.setAlpha(.5f);
+        if(tL_frame == null) tL_frame = tryImage("frame/topLeft.png");
+        if(tM_frame == null) tM_frame = tryImage("frame/topMiddle.png");
+        if(tR_frame == null) tR_frame = tryImage("frame/topRight.png");
+        if(lM_frame == null) lM_frame = tryImage("frame/leftMiddle.png");
+        if(rM_frame == null) rM_frame = tryImage("frame/rightMiddle.png");
+        if(bL_frame == null) bL_frame = tryImage("frame/bottomLeft.png");
+        if(bM_frame == null) bM_frame = tryImage("frame/bottomMiddle.png");
+        if(bR_frame == null) bR_frame = tryImage("frame/bottomRight.png");
         
         //button images
-        if(tL_button == null) tL_button = tryImage("button/topLeftButton.png");
-        if(tM_button == null) tM_button = tryImage("button/topMiddleButton.png");
-        if(tR_button == null) tR_button = tryImage("button/topRightButton.png");
-        if(lM_button == null) lM_button = tryImage("button/leftMiddleButton.png");
-        if(c_button == null)  c_button  = tryImage("button/centerButton.png");
-        if(rM_button == null) rM_button = tryImage("button/rightMiddleButton.png");
-        if(bL_button == null) bL_button = tryImage("button/bottomLeftButton.png");
-        if(bM_button == null) bM_button = tryImage("button/bottomMiddleButton.png");
-        if(bR_button == null) bR_button = tryImage("button/bottomRightButton.png");
+        if(tL_button == null) tL_button = tryImage("button/topLeft.png");
+        if(tM_button == null) tM_button = tryImage("button/topMiddle.png");
+        if(tR_button == null) tR_button = tryImage("button/topRight.png");
+        if(lM_button == null) lM_button = tryImage("button/leftMiddle.png");
+        if(c_button == null)  c_button  = tryImage("button/center.png");
+        if(rM_button == null) rM_button = tryImage("button/rightMiddle.png");
+        if(bL_button == null) bL_button = tryImage("button/bottomLeft.png");
+        if(bM_button == null) bM_button = tryImage("button/bottomMiddle.png");
+        if(bR_button == null) bR_button = tryImage("button/bottomRight.png");
         
         //set up gradients 
         if(top == null){

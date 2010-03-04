@@ -52,7 +52,7 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="PokenetClient-newSkin/lib/native"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="lib/sui.jar">
+	<classpathentry exported="true" kind="lib" path="lib/sui.jar" sourcepath="lib/sui.jar">
 		<attributes>
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="PokenetClient-newSkin/lib/native"/>
 		</attributes>
