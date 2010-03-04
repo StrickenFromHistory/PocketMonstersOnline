@@ -33,6 +33,7 @@ public class PokenetCheckBoxAppearance extends PokenetButtonAppearance {
     public PokenetCheckBoxAppearance(CheckBox checkBox) {
         super(checkBox);
         this.roundBoxBounds = createRoundedBoxBounds();
+        checkBox.setForeground(Color.white);
     }
     
     public void install(Component comp, Skin skin, Theme theme) {
@@ -58,6 +59,8 @@ public class PokenetCheckBoxAppearance extends PokenetButtonAppearance {
         CheckBox check = (CheckBox)comp;
         Rectangle cachedRect = null;
         boolean roundRectEnabled = PokenetSkin.isRoundRectanglesEnabled();
+        Rectangle r = new Rectangle(comp.getAbsoluteX(), comp.getAbsoluteY() + 2, 
+        		comp.getHeight() - 3, comp.getHeight() - 2);
         
         //make sure we are showing outline
         //also, the outline will only render if we aren't rendering a background
@@ -81,13 +84,15 @@ public class PokenetCheckBoxAppearance extends PokenetButtonAppearance {
             else //still
                 back = theme.getPrimary3();
 
-            g.setColor(back);
+            g.setColor(new Color(0,0,0,0));
             g.setAntiAlias(true);
             g.fill(bounds);
             
             g.setAntiAlias(oldAA);
             g.setColor(oldCol);
         }
+        
+
         
         //renders base
         SkinUtil.renderComponentBase(g, check);
@@ -105,13 +110,13 @@ public class PokenetCheckBoxAppearance extends PokenetButtonAppearance {
             btnRect = roundBoxBounds;
         }
         
-        //renders the actual button state for the small box area, using rounded edges
-        PokenetButtonAppearance.renderButtonState(g, theme, check, btnRect, grad, (PokenetSkin)skin);
+     	//renders the actual button state for the small box area, using rounded edges
+        PokenetButtonAppearance.renderButtonState(g, theme, check, r, grad, (PokenetSkin)skin);
         
         Image def = getDefaultImage();
         if (def!=null && check.isSelected()) {
-            float x = btnRect.getX() + (btnRect.getWidth()/2f - def.getWidth()/2f);
-            float y = btnRect.getY() + (btnRect.getHeight()/2f - def.getHeight()/2f);
+            float x = r.getX() + (r.getWidth()/2f - def.getWidth()/2f);
+            float y = r.getY() + (r.getHeight()/2f - def.getHeight()/2f);
             g.drawImage(def, (int)x, (int)y, check.getImageFilter());
         }
     }

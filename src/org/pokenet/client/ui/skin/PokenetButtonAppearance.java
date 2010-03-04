@@ -114,8 +114,8 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
             rect = btn.getAbsoluteBounds();
         
         int state = btn.getState();
-        float x = btn.getAbsoluteX();
-        float y = btn.getAbsoluteY();
+        float x = aRect.getX();//btn.getAbsoluteX();
+        float y = aRect.getY();//btn.getAbsoluteY();
         GradientFill top, midd, bot;
         
         Color lightTop, lightBot, borderLight, borderDark, base;
@@ -167,29 +167,29 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
                 
         g.setAntiAlias(false);
         
-        grad.setStartColor(lightTop);
-        grad.setEndColor(base);
-        grad.setStart(0, -mid/1.5f);
-        grad.setEnd(0, mid/4);
-        g.fill(rect, grad);
+//        grad.setStartColor(lightTop);
+//        grad.setEndColor(base);
+//        grad.setStart(0, -mid/1.5f);
+//        grad.setEnd(0, mid/4);
+//        g.fill(rect, grad);
         
         boolean enabled = btn.isEnabled();
         Color disabledColor = theme.getDisabledMask();
-        grad.setStartColor(enabled ? TRANSPARENT_COLOR : disabledColor);
-        grad.setEndColor(enabled ? lightBot : disabledColor);
-        grad.setStart(0, 0);
-        grad.setEnd(0, mid*2);
-        g.fill(rect, grad);
+//        grad.setStartColor(enabled ? TRANSPARENT_COLOR : disabledColor);
+//        grad.setEndColor(enabled ? lightBot : disabledColor);
+//        grad.setStart(0, 0);
+//        grad.setEnd(0, mid*2);
+//        g.fill(rect, grad);
         
-        if (btn.isBorderRendered()) {
+//        if (btn.isBorderRendered()) {
             if (aRect instanceof RoundedRectangle)
                 g.setAntiAlias(true);
-            grad.setStartColor(enabled ? borderLight : disabledColor);
-            grad.setEndColor(borderDark);
+            grad.setStartColor(enabled ? new Color(0,0,0,0) : new Color(0,0,0,0));
+            grad.setEndColor(new Color(0,0,0,0));
             grad.setStart(0, -mid);
             grad.setEnd(0, mid); 
             g.draw(rect, grad);
-        }
+//        }
         
         g.setAntiAlias(oldAA); 
         
@@ -197,28 +197,30 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
         //top 
         g.drawImage(s.tL_button, x, y);
         g.drawImage(s.tM_button, x + s.tL_button.getWidth(), y,
-        		x + btn.getWidth() - s.tR_button.getWidth(),
+        		x + aRect.getWidth() - s.tR_button.getWidth(),
         		y + s.tM_button.getHeight(),
         		0,0,s.tM_button.getWidth(),s.tM_button.getHeight());
-        g.drawImage(s.tR_button, x + btn.getWidth() - s.tR_button.getWidth(), y);
+        g.drawImage(s.tR_button, x + aRect.getWidth() - s.tR_button.getWidth(), y);
         
-        //middle
-        y += s.tL_button.getHeight();
-        g.drawImage(s.lM_button, x, y);
-        g.drawImage(s.c_button, x + s.lM_button.getWidth(), y,
-        		1 + x + btn.getWidth() - s.rM_button.getWidth(),
-        		1 + y + s.c_button.getHeight(),
-        		0,0,s.c_button.getWidth(),s.c_button.getHeight());
-        g.drawImage(s.rM_button, x + btn.getWidth() - s.rM_button.getWidth(), y);
+        //middle - only draw if we need too
+        if(aRect.getHeight() > s.tM_button.getHeight() + s.bM_button.getHeight()){
+        	y += s.tL_button.getHeight();
         
+	        g.drawImage(s.lM_button, x, y);
+	        g.drawImage(s.c_button, x + s.lM_button.getWidth(), y,
+	        		1 + x + aRect.getWidth() - s.rM_button.getWidth(),
+	        		1 + y + s.c_button.getHeight(),
+	        		0,0,1,1);
+	        g.drawImage(s.rM_button, x + aRect.getWidth() - s.rM_button.getWidth(), y);
+        }
         //bottom
-        y = btn.getAbsoluteY() + btn.getHeight() - s.bL_button.getHeight();
+        y = btn.getAbsoluteY() + aRect.getHeight() - s.bL_button.getHeight();
         g.drawImage(s.bL_button, x, y);
         g.drawImage(s.bM_button, x + s.bL_button.getWidth(), y,
-        		x + btn.getWidth() - s.bR_button.getWidth(),
+        		x + aRect.getWidth() - s.bR_button.getWidth(),
         		y + s.bM_button.getHeight(),
         		0,0,s.bM_button.getWidth(),s.bM_button.getHeight());
-        g.drawImage(s.bR_button, x + btn.getWidth() - s.bR_button.getWidth(), y);
+        g.drawImage(s.bR_button, x + aRect.getWidth() - s.bR_button.getWidth(), y);
         
     }
 }

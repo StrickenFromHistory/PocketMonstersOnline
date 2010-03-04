@@ -43,7 +43,8 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
     private ComponentAppearance resizerAppearance = new ResizerAppearance();
 
     
-    public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
+    @Override
+	public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
         Color old = g.getColor();
         PokenetSkin s = (PokenetSkin) skin;
         
@@ -77,7 +78,7 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
             		win.getAbsoluteY() + win.getHeight(),
             		0,0,
             		s.lM_frame.getWidth(),
-            		s.lM_frame.getHeight());
+            		1);//s.lM_frame.getHeight());
             g.drawImage(s.rM_frame, 
             		win.getAbsoluteX() + win.getWidth() - s.rM_frame.getWidth(),
             		win.getAbsoluteY() + win.getTitleBar().getHeight(),
@@ -85,7 +86,7 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
             		win.getAbsoluteY() + win.getHeight(),
             		0,0,
             		s.rM_frame.getWidth(),
-            		s.rM_frame.getHeight());
+            		1);//s.rM_frame.getHeight());
         }
     }
 
@@ -112,7 +113,8 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
             return new RoundedRectangle(0f,0f,0f,0f,3f,50);
         }
 
-        public void install(Component comp, Skin skin, Theme theme) {
+        @Override
+		public void install(Component comp, Skin skin, Theme theme) {
             super.install(comp, skin, theme);
             Button btn = (Button)comp;
             
@@ -127,21 +129,24 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
     
     protected class ResizerAppearance extends PokenetLabelAppearance {
             
-        public void install(Component comp, Skin skin, Theme theme) {
+        @Override
+		public void install(Component comp, Skin skin, Theme theme) {
             super.install(comp, skin, theme);
             if (skin instanceof PokenetSkin) {
                 comp.addMouseListener(((PokenetSkin)skin).getResizeCursorListener());
             }
         }
 
-        public void uninstall(Component comp, Skin skin, Theme theme) {
+        @Override
+		public void uninstall(Component comp, Skin skin, Theme theme) {
             super.uninstall(comp, skin, theme);
             if (skin instanceof PokenetSkin) {
                 comp.removeMouseListener(((PokenetSkin)skin).getResizeCursorListener());
             }
         }
         
-        public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
+        @Override
+		public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
             Frame win = ((Frame.Resizer)comp).getWindow();
             if (!win.isResizable())
                 return;
@@ -174,13 +179,19 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
         private Frame.TitleBar bar;
         
         public TitleBarAppearance(Frame.TitleBar bar) {
-//			bar.setHeight(m_topLeft.getHeight());
 
             this.bar = bar;
+            
+            // readjust for the difference in the title bar height with
+            // the image for the title bar
+            // doesn't work
+            this.bar.setY(this.bar.getAbsoluteY() - Math.abs(PokenetSkin.tM_frame.getHeight() - this.bar.getHeight()));
 
+            
         }
         
-        public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
+        @Override
+		public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
             Rectangle rect = comp.getAbsoluteBounds();
             PokenetSkin s = (PokenetSkin)skin;
 
@@ -197,16 +208,9 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 
 //            Color start, end;
 
-//            boolean active = ((Frame)t.getParent()).isActive();
+            boolean active = ((Frame)t.getParent()).isActive();
 
-//            if (active) {
-//                start = theme.getActiveTitleBar1();
-//                end = theme.getActiveTitleBar2();
-//            } else {
-//                start = theme.getTitleBar1();
-//                end = theme.getTitleBar2();
-//            }
-//
+
 //            grad.setStartColor(start);
 //            grad.setEndColor(end);
 //            grad.setStart(-mid, 0);
@@ -225,10 +229,23 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
             		frameTopLeftY, 
             		frameTopLeftX + width - s.tL_frame.getWidth(),
             		frameTopLeftY + s.tM_frame.getHeight(),
-            		0,0,1, 52);
+            		0,0,1, s.tM_frame.getHeight());
           
             
-           
+            if (active) {
+          } else {
+        	  // draw dark overlay
+        	  g.drawImage(s.tLi_frame, frameTopLeftX, frameTopLeftY);
+        	  g.drawImage(s.tRi_frame, frameTopLeftX + t.getWidth() - s.tRi_frame.getWidth(),
+        			  frameTopLeftY);
+        	  g.drawImage(s.tMi_frame,
+        			  frameTopLeftX + s.tL_frame.getWidth(),
+        			  frameTopLeftY,
+        			  frameTopLeftX + width - s.tLi_frame.getWidth(),
+        			  frameTopLeftY + s.tMi_frame.getHeight(),
+        			  0,0,1,s.tMi_frame.getHeight());
+          }
+//
 
 //            if (t.isBorderRendered()) {
 //                //borders

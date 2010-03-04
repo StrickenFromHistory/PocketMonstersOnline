@@ -1,6 +1,5 @@
 package org.pokenet.client.ui.skin;
 
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.gui.GUIContext;
 
 import mdes.slick.sui.Component;
@@ -21,11 +20,13 @@ public abstract class PokenetComponentAppearance extends AbstractComponentAppear
         //do nothing
     }
     
-    public void install(Component comp, Skin skin, Theme theme) {
+    @Override
+	public void install(Component comp, Skin skin, Theme theme) {
         SkinUtil.installFont(comp, ((PokenetSkin)skin).getFont());        
         SkinUtil.installColors(comp, theme.getBackground(), theme.getForeground());
     }
     
-    public void uninstall(Component comp, Skin skin, Theme theme) {   
+    @Override
+	public void uninstall(Component comp, Skin skin, Theme theme) {   
     }
 }
