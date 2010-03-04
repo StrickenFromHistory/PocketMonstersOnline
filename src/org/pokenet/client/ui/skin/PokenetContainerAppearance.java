@@ -17,5 +17,6 @@ import mdes.slick.sui.skin.SkinUtil;
 public class PokenetContainerAppearance extends PokenetComponentAppearance {
     public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
         SkinUtil.renderComponentBase(g, comp);
+ 
     }
 }

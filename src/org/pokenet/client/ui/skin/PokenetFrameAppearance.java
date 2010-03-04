@@ -41,6 +41,7 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
     
     private ComponentAppearance resizerAppearance = new ResizerAppearance();
     Frame f;
+   
     
     @SuppressWarnings("static-access")
 	@Override
@@ -82,7 +83,7 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
             bottom = win.getAbsoluteY() + win.getHeight() - s.bM_frame.getHeight() / 2;
             top = win.getAbsoluteY() + win.getTitleBar().getHeight() + 6; // hack
             
-            
+//            // draw sides
             g.drawImage(s.lM_frame, left, top,
             		left + s.lM_frame.getWidth(),
             		bottom,
@@ -201,7 +202,6 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
         private Frame.TitleBar bar;
         
         public TitleBarAppearance(Frame.TitleBar bar) {
-
             this.bar = bar;
 //            this.bar.setWidth(this.bar.getWidth() + PokenetSkin.tL_frame.getWidth());
             // readjust for the difference in the title bar height with
@@ -220,7 +220,8 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
             float left, right, top, bottom;
             Color old = g.getColor();
             Frame.TitleBar t = (Frame.TitleBar)comp;
-           
+            t.setForeground(Color.white);
+
 
             //TODO: fix rectangle + 1
 
