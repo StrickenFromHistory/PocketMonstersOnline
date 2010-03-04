@@ -41,7 +41,7 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
     
     private ComponentAppearance resizerAppearance = new ResizerAppearance();
     Frame f;
-   
+  
     
     @SuppressWarnings("static-access")
 	@Override
@@ -77,39 +77,45 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 //            grad.setEnd(mid, 0);
 //            g.draw(rect, grad);
             
-            // set some vars we'll need to make the following cleaner
-            left = win.getAbsoluteX() - s.lM_frame.getWidth() / 2;
-            right = left + win.getWidth();
-            bottom = win.getAbsoluteY() + win.getHeight() - s.bM_frame.getHeight() / 2;
-            top = win.getAbsoluteY() + win.getTitleBar().getHeight() + 6; // hack
-            
-//            // draw sides
-            g.drawImage(s.lM_frame, left, top,
-            		left + s.lM_frame.getWidth(),
-            		bottom,
-            		0, 0, s.lM_frame.getWidth(), s.lM_frame.getHeight());
-            g.drawImage(s.rM_frame, left + win.getWidth(), top,
-            		left + win.getWidth() + s.rM_frame.getWidth(),
-            		bottom,
-            		0, 0, s.rM_frame.getWidth(), s.rM_frame.getHeight());
-            
-            // draw the bottom
-            g.drawImage(s.bL_frame, left, bottom);
-            g.drawImage(s.bR_frame, left + win.getWidth(), bottom);
-            g.drawImage(s.bM_frame,
-            		left + s.bL_frame.getWidth(),
-            		bottom,
-            		left + win.getWidth(),
-            		bottom + s.bM_frame.getHeight(),
-            		0,0,s.bM_button.getWidth(), s.bM_frame.getHeight());
-            
-            // draw the top
-            g.drawImage(s.tL_frame, left,  top - s.tL_frame.getHeight());
-            g.drawImage(s.tR_frame, right,  top - s.tL_frame.getHeight());
-            g.drawImage(s.tM_frame, 
-            		left + s.tL_frame.getWidth(), top - s.tL_frame.getHeight(), 
-            		right, top,
-            		0,0,s.tM_frame.getWidth(), s.tM_frame.getHeight());
+            if(comp.isBorderRendered()){
+            	 // set some vars we'll need to make the following cleaner
+                left = win.getAbsoluteX() - s.lM_frame.getWidth() / 2;
+                right = left + win.getWidth();
+                bottom = win.getAbsoluteY() + win.getHeight() - s.bM_frame.getHeight() / 2;
+                top = win.getAbsoluteY() + win.getTitleBar().getHeight() + 6; // hack
+                
+                // draw sides
+                g.drawImage(s.lM_frame, left, top,
+                		left + s.lM_frame.getWidth(),
+                		bottom,
+                		0, 0, s.lM_frame.getWidth(), s.lM_frame.getHeight());
+                g.drawImage(s.rM_frame, left + win.getWidth(), top,
+                		left + win.getWidth() + s.rM_frame.getWidth(),
+                		bottom,
+                		0, 0, s.rM_frame.getWidth(), s.rM_frame.getHeight());
+                
+                // draw the bottom
+                g.drawImage(s.bL_frame, left, bottom);
+                g.drawImage(s.bR_frame, left + win.getWidth(), bottom);
+                g.drawImage(s.bM_frame,
+                		left + s.bL_frame.getWidth(),
+                		bottom,
+                		left + win.getWidth(),
+                		bottom + s.bM_frame.getHeight(),
+                		0,0,s.bM_button.getWidth(), s.bM_frame.getHeight());
+                
+                if(win.getTitleBar().isVisible()){
+                	// draw the top
+                    g.drawImage(s.tL_frame, left,  top - s.tL_frame.getHeight());
+                    g.drawImage(s.tR_frame, right,  top - s.tL_frame.getHeight());
+                    g.drawImage(s.tM_frame, 
+                    		left + s.tL_frame.getWidth(), top - s.tL_frame.getHeight(), 
+                    		right, top,
+                    		0,0,s.tM_frame.getWidth(), s.tM_frame.getHeight()); 	
+                }
+                
+            }
+           
         }
     }
 
@@ -211,7 +217,7 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
 
             
         }
-        
+       
         @SuppressWarnings("static-access")
 		@Override
 		public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {

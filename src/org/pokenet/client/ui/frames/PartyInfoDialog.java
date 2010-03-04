@@ -210,7 +210,7 @@ public class PartyInfoDialog extends Frame {
 		update(m_pokes);
 		this.getTitleBar().setGlassPane(true);
 		this.setResizable(false);
-		this.setSize(170, 270);
+		this.setSize(170, 280);
 		List<String> translated = Translator.translate("_GUI");
 		this.setTitle(translated.get(0));
 	}

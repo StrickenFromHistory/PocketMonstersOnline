@@ -137,7 +137,7 @@ public class OptionsDialog extends Frame {
 			});
 		}
 		setTitle(translated.get(15));
-		setSize(400, 160);
+		setSize(400, 175);
 		setResizable(false);
 		this.getTitleBar().getCloseButton().setVisible(false);
 	}

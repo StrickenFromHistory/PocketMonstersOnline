@@ -33,7 +33,7 @@ public class AboutDialog extends Frame {
 		this.setResizable(false);
 		
 		m_info = new TextArea();
-		m_info.setSize(280, 320);
+		m_info.setSize(280, 335);
 		m_info.setLocation(4, 4);
 		m_info.setWrapEnabled(true);
 		m_info.setText(translated.get(35)+"\n"+

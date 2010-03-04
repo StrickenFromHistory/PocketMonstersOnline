@@ -181,6 +181,7 @@ public class PlayerInfoDialog extends Frame {
 		
 		setBackground(new Color(0, 0, 0, 85));
 		setResizable(false);
+		getTitleBar().setVisible(false);
 		showBadges();
 	}
 

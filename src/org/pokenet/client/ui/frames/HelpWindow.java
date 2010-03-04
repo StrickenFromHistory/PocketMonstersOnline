@@ -40,7 +40,7 @@ public class HelpWindow extends Frame{
     	this.setResizable(false);
            
     	helptext = new TextArea();
-    	helptext.setSize(355, 455);
+    	helptext.setSize(355, 480);
     	//setText Mover stuff to help panel.
     	helptext.setText(translated.get(21) +
     			translated.get(22) +

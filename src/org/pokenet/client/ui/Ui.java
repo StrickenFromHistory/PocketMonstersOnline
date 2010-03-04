@@ -74,6 +74,7 @@ public class Ui extends Frame {
 		this.setBackground(new Color(0, 0, 0, 75));
 		this.setResizable(false);
 		this.setDraggable(false);
+		this.setBorderRendered(false);
 		
 		
 		m_battleManager = new BattleManager();
