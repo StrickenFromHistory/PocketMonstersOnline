@@ -84,6 +84,7 @@ public class BattleWindow extends Frame {
 		m_path=respath+m_path;
 		getContentPane().setX(getContentPane().getX() - 1);
 		getContentPane().setY(getContentPane().getY() + 1);
+		setBorderRendered(false);
 		setTitle(title);
 		loadStatusIcons();
 		initComponents();

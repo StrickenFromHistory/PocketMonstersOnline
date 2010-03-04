@@ -82,6 +82,7 @@ public class PartyInfoDialog extends Frame {
 		int y = -8;
 		this.getTitleBar().getCloseButton().setVisible(false);
 		this.setFont(GameClient.getFontSmall());
+		this.setBorderRendered(false);
 		this.setBackground(new Color(0, 0, 0, 85));
 		this.setForeground(new Color(255, 255, 255));
 		for (int i = 0; i < 6; i++) {

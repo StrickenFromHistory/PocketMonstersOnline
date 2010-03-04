@@ -54,7 +54,7 @@ public class HelpWindow extends Frame{
     	helptext.setBorderRendered(false);
     	helptext.setEditable(false);
     	helptext.setWrapEnabled(true);
-    	this.setSize(360, 460);
+    	this.setSize(360, 475);
     	this.add(helptext);
     	setDraggable(false);
     }

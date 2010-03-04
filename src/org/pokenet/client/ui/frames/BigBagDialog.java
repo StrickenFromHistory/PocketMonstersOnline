@@ -335,8 +335,8 @@ public class BigBagDialog extends Frame {
 
 		// Close Button
 		m_cancel = new Button("Close");
-		m_cancel.setSize(400, 32);
-		m_cancel.setLocation(0, 195);
+		m_cancel.setSize(390, 32);
+		m_cancel.setLocation(5, 180);
 		m_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				destroyPopup();
@@ -361,7 +361,7 @@ public class BigBagDialog extends Frame {
 					}
 				});
 
-		setBackground(new Color(0, 0, 0, 75));
+		setBackground(new Color(0, 0, 0, 100));
 		setTitle("Bag");
 		setResizable(false);
 		setHeight(250);
