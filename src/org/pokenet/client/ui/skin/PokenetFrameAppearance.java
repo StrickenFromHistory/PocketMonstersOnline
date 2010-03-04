@@ -79,7 +79,7 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
             // set some vars we'll need to make the following cleaner
             left = win.getAbsoluteX() - s.lM_frame.getWidth() / 2;
             right = left + win.getWidth();
-            bottom = win.getAbsoluteY() + win.getHeight() - s.bM_button.getHeight() / 2;
+            bottom = win.getAbsoluteY() + win.getHeight() - s.lM_frame.getHeight() / 2;
             top = win.getAbsoluteY() + win.getTitleBar().getHeight() + 6; // hack
             
             
