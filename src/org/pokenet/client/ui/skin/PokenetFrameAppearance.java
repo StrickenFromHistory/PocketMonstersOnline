@@ -139,18 +139,18 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
         
         @Override
 		protected RoundedRectangle createRoundedBounds() {
-            return new RoundedRectangle(0f,0f,0f,0f,3f,50);
+            return new RoundedRectangle(0f,0f,24f,24f,3f);
         }
 
         @Override
 		public void install(Component comp, Skin skin, Theme theme) {
             super.install(comp, skin, theme);
             Button btn = (Button)comp;
-            
+
             if (skin instanceof PokenetSkin) {
                 Image img = ((PokenetSkin)skin).getCloseButtonImage();
                 if (SkinUtil.installImage(btn, img)) {
-                    btn.pack();
+//                    btn.pack();
                 }
             }
         }

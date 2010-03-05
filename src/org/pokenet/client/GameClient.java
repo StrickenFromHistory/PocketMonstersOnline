@@ -96,7 +96,7 @@ public class GameClient extends BasicGame {
 	//The gui display layer
 	private Display m_display;
 
-	private WeatherService m_weather;
+	private WeatherService m_weather = new WeatherService();
 	private TimeService m_time;
 	private Ui m_ui;
 	private Color m_daylight;
@@ -113,7 +113,6 @@ public class GameClient extends BasicGame {
 	private boolean m_started;
 	
 	Color m_loadGreen = new Color(132,185,0);
-	Color m_loadGray = new Color(65, 65, 65);
 		
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
@@ -185,22 +184,14 @@ public class GameClient extends BasicGame {
 		m_fontLarge = new AngelCodeFont(m_filepath+"res/fonts/dp.fnt",m_filepath+"res/fonts/dp.png");
 		m_fontSmall = new AngelCodeFont(m_filepath+"res/fonts/dp-small.fnt", m_filepath+"res/fonts/dp-small.png");
 		
-		initComponents();
-		
-	}
-
-	/**
-	 * TODO Put here a description of what this method does.
-	 *
-	 */
-	private void initComponents() {
 //		try {
-//			/*DOES NOT WORK YET!!!
-//			 */
-//			m_trueTypeFont = new TrueTypeFont(java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, new File(m_filepath+"res/fonts/PokeFont.ttf"))
-//					.deriveFont(java.awt.Font.PLAIN, 10), false);
-//			//m_trueTypeFont = m_fontSmall;
+//		/*DOES NOT WORK YET!!!
+//		 */
+//		m_trueTypeFont = new TrueTypeFont(java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, new File(m_filepath+"res/fonts/PokeFont.ttf"))
+//				.deriveFont(java.awt.Font.PLAIN, 10), false);
+//		//m_trueTypeFont = m_fontSmall;
 //		} catch (Exception e) {e.printStackTrace(); m_trueTypeFont = m_fontSmall;}
+
 
 
 		/*
@@ -208,30 +199,31 @@ public class GameClient extends BasicGame {
 		 */
 		ItemDatabase m_itemdb = new ItemDatabase();
 		m_itemdb.reinitialise();
+		
+//		m_weather = new WeatherService(); moved to top of file
+		if(options != null)
+			m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
 
+		
 		/*
 		 * Move Leraning Manager
 		 */
 		m_moveLearningManager = new MoveLearningManager();
 		m_moveLearningManager.start();
-
+		
 		/*
 		 * The animator and map matrix
 		 */
 		m_mapMatrix = new ClientMapMatrix();
 		m_animator = new Animator(m_mapMatrix);
-
+		
 		gc.getInput().enableKeyRepeat(50, 300);
 		
 		/*
 		 * Time/Weather Services
 		 */
 		m_time = new TimeService();
-		m_weather = new WeatherService();
-		if(options != null)
-			m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
 
-		
 		/*
 		 * Add the ui components
 		 */
@@ -241,12 +233,20 @@ public class GameClient extends BasicGame {
 		m_login = new LoginScreen();
 		m_login.showLanguageSelect();
 		m_display.add(m_login);
+		
+		if(m_nextResource == null){
+			Player.loadSpriteFactory();
 
-		m_ui = new Ui(m_display);
-		m_ui.setAllVisible(false);
-		Player.loadSpriteFactory();
+			m_ui = new Ui(m_display);
+			m_ui.setAllVisible(false);
+		}
 
+		
+
+		
 	}
+
+
 
 	/**
 	 * Updates the game window
@@ -254,9 +254,9 @@ public class GameClient extends BasicGame {
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
 		if (m_nextResource != null) {
-			try {
+			try { 
 				m_nextResource.load();
-				try { Thread.sleep(250); } catch (Exception e) {}
+				try { Thread.sleep(20); } catch (Exception e) {}
 			} catch (IOException e) {
 				throw new SlickException("Failed to load: "+m_nextResource.getDescription(), e);
 			}
@@ -348,6 +348,7 @@ public class GameClient extends BasicGame {
 	public void render(GameContainer gc, Graphics g) throws SlickException {
 		
 		if (m_nextResource != null) {
+			g.setColor(Color.white);
 			g.drawString("Loading: "+m_nextResource.getDescription(), 10, 100);
 		}
 		
@@ -361,7 +362,7 @@ public class GameClient extends BasicGame {
 			g.setColor(m_loadGreen);
 			g.setAntiAlias(true);
 			g.fillRoundRect(15, 154, bar*(maxWidth - 10), 20, 10);
-			g.setColor(m_loadGray);
+			g.setColor(Color.gray);
 			g.drawRoundRect(10 ,150, maxWidth, 28, 15);	
 		
 		
