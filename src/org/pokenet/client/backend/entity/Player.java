@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import org.newdawn.slick.Image;
+import org.newdawn.slick.loading.LoadingList;
 import org.pokenet.client.GameClient;
 import org.pokenet.client.backend.BattleManager;
 import org.pokenet.client.backend.SpriteFactory;
@@ -14,7 +15,7 @@ import org.pokenet.client.backend.SpriteFactory;
  *
  */
 public class Player {
-	private static SpriteFactory m_spriteFactory;
+	public static SpriteFactory m_spriteFactory;
 	protected int m_x;
 	protected int m_y;
 	protected int m_svrX;
@@ -35,6 +36,7 @@ public class Player {
 	protected Queue<Direction> m_movementQueue = new LinkedList<Direction>();
 	
 	public static void loadSpriteFactory() {
+
 		m_spriteFactory = new SpriteFactory();
 	}
 	
