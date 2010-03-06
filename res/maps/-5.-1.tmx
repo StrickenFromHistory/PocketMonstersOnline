@@ -4,13 +4,13 @@
  <properties>
   <property name="dayPokemonChances" value="Nidoran-m,15;Nidoran-f,15;Pidgey,15;Snubbull,15;Growlithe,10;Drowzee,10;Abra,10;Jigglypuff,9;Yanma,1;"/>
   <property name="dayPokemonLevels" value="12-12;12-12;14-14;12-12;13-13;14-14;10-10;12-12;12-12;"/>
+  <property name="fishPokemonChances" value="Poliwag,70;Magikarp,20;Poliwhirl,10;"/>
+  <property name="fishPokemonLevels" value="10-40;10-40;40-40;"/>
   <property name="nightPokemonChances" value="Nidoran-m,15;Nidoran-f,15;Drowzee,15;Hoothoot,15;Psyduck,20;Abra,10;Jigglypuff,9;Yanma,1;"/>
   <property name="nightPokemonLevels" value="12-12;12-12;14-14;14-14;13-13;10-10;12-12;12-12;"/>
   <property name="waterPokemonChances" value="Psyduck,90;Golduck,10;"/>
   <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>
-  <property name="fishPokemonLevels" value="10-40;10-40;40-40;"/>
-  <property name="fishPokemonChances" value="Poliwag,70;Magikarp,20;Poliwhirl,10;"/>
   <property name="xOffsetModifier" value="-320"/>
   <property name="yOffsetModifier" value="-12"/>
  </properties>
@@ -18,6 +18,7 @@
  <tileset firstgid="1025" source="normal2.tsx"/>
  <tileset firstgid="2049" source="normal18.tsx"/>
  <tileset firstgid="3073" source="normal3.tsx"/>
+ <tileset firstgid="4097" source="normal15.tsx"/>
  <layer name="Walkable" width="56" height="42">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO2YYQ6DIAyFgXnYXXPzJM7t5+4wTDQhtVU6ChXCS974IXV+vhVlxvA0ec/MmhJyq1P1sMaMVuBEwkrlW7ie3m/vuUG+yTO9VrfEt9XVwPdv3d3Uwcdh3OZ/Bzw/eFxb3GsIr30ZMb7wuLZi83PAreUH+aj1BR7XFocPjjF84W9Vg5dznzHGo/7DGEtLOj+Yl3Y/cp8NcIzJT7Mfc/cfxqc1nik2v1bYKD6sTkO58sNqtNTzo+fH8Gkrd37/fp+ESq+ftT//Put/MdCj5d9LCUnnRznMtbRS87P+wyEeHN6XteVHmerL0kpho+qP1tXa8qPm9fzyq+e3n9fz6/mVUs9vPy8lv9J8Gvlp5Silq72fSavz1a1a+Kh9T2zdGd/R3iqHpbSdL9z33tz1+H4fX2nzwCQAAA==
@@ -50,7 +51,7 @@
  </layer>
  <layer name="WalkBehind" width="56" height="42">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3Y0QnAIAwFQPGnDu4q7tl2A4WYCr2Dh4FAPgOxFAAAAKJdT9oHLwBr7E8AYBd3H6c67a8ieg4Qr9e53ltnJtuoufmbG/jS557AJAAA
+   H4sIAAAAAAAAAO3YMQqDMBiA0eBix8xqL1L1dl6l9/Tv7JJCGlN4Dz6SEAi4CElKAAAA1DZGjxtGAL7j/wkA/Ip7H73q7a2i9jlAfcdQtveZt6zUlFOaoyV65uu61HtoW6lXfMMabdGer+t/cQKeFch9wCQAAA==
   </data>
  </layer>
 </map>
