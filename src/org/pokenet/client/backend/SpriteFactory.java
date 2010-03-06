@@ -3,6 +3,7 @@ package org.pokenet.client.backend;
 import java.util.HashMap;
 
 import mdes.slick.sui.Label;
+import mdes.slick.sui.skin.ImageUIResource;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
@@ -72,7 +73,7 @@ public class SpriteFactory {
 	/**
 	 * Initialises the database of sprites
 	 */
-	public SpriteFactory() {
+	public SpriteFactory() {		
 
 		spriteSheets = new HashMap<Integer, SpriteSheet>();	
 		try {
@@ -80,17 +81,31 @@ public class SpriteFactory {
 			String respath = System.getProperty("res.path");
 			if(respath==null)
 				respath="";
+			
+			Image[] imgArray = new Image[230];
+				// we have to do the loops seperately, because making a spritesheet messes
+				// up deferred loading
+				// but this way uses a lot more ram.... sad face
+				for (int i = 0; i < 224 + 5; i++){
+					
+						imgArray[i] = new Image("res/characters/" + i + ".png");
+					
+				}
+			
 			/*
 			 * WARNING: Change 224 to the amount of sprites we have in client
 			 */
-			for(int i = -5; i < 224; i++) {
-				try {
-					location = respath+"res/characters/" + String.valueOf(i) + ".png";
-					spriteSheets.put(i, new SpriteSheet(new Image(location), 41, 51));
-				} catch (Exception e) {}
-			}
+				for(int i = -5; i < 224; i++) {
+//						location = respath+"res/characters/" + String.valueOf(i) + ".png";
+					if(imgArray[i + 5] != null){
+						spriteSheets.put(i, new SpriteSheet(imgArray[i + 5], 41, 51));//new Image(location), 41, 51));
+					}
+	
+				}
 		} catch (Exception e) { 
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 	}
+	
+	
 }

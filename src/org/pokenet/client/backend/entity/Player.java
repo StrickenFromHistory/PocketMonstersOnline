@@ -213,6 +213,16 @@ public class Player {
 	}
 	
 	/**
+	 * 
+	 * sets the sprite factory
+	 *
+	 * @param sf
+	 */
+	public static void setSpriteFactory(SpriteFactory sf) {
+		m_spriteFactory = sf;
+	}
+	
+	/**
 	 * Returns true if this player is/should be animating
 	 * @return
 	 */

@@ -97,7 +97,7 @@ public class GameClient extends BasicGame {
 	private Display m_display;
 
 	private WeatherService m_weather = new WeatherService();
-	private TimeService m_time;
+	private TimeService m_time = new TimeService();
 	private Ui m_ui;
 	private Color m_daylight;
 	private static String m_language = "english";
@@ -171,7 +171,7 @@ public class GameClient extends BasicGame {
 		m_instance = this;
 		gc.getGraphics().setWorldClip(-32, -32, 832, 832);
 		gc.setShowFPS(false);
-		m_display = new Display(gc);//
+		m_display = new Display(gc);
 		
 		// change the interface to our custom one
 		PokenetSkin skin = new PokenetSkin();
@@ -183,7 +183,10 @@ public class GameClient extends BasicGame {
 		 */
 		m_fontLarge = new AngelCodeFont(m_filepath+"res/fonts/dp.fnt",m_filepath+"res/fonts/dp.png");
 		m_fontSmall = new AngelCodeFont(m_filepath+"res/fonts/dp-small.fnt", m_filepath+"res/fonts/dp-small.png");
-		
+
+		SpriteFactory sf = new SpriteFactory();
+		Player.setSpriteFactory(sf);
+
 //		try {
 //		/*DOES NOT WORK YET!!!
 //		 */
@@ -193,17 +196,35 @@ public class GameClient extends BasicGame {
 //		} catch (Exception e) {e.printStackTrace(); m_trueTypeFont = m_fontSmall;}
 
 
+		
+		/*
+		 * Time/Weather Services
+		 */
+//		m_time = new TimeService(); // moved to top of file
+//		m_weather = new WeatherService(); //moved to top of file
+		if(options != null)
+			m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
+
+
+		/*
+		 * Add the ui components
+		 */
+		m_loading = new LoadingScreen();
+		m_display.add(m_loading);
+
+		m_login = new LoginScreen();
+		m_login.showLanguageSelect();
+		m_display.add(m_login);
+		
+//		m_ui = new Ui(m_display); // moved to update
+//		m_ui.setAllVisible(false);
+		
 
 		/*
 		 * Item DB
 		 */
 		ItemDatabase m_itemdb = new ItemDatabase();
 		m_itemdb.reinitialise();
-		
-//		m_weather = new WeatherService(); moved to top of file
-		if(options != null)
-			m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
-
 		
 		/*
 		 * Move Leraning Manager
@@ -218,32 +239,9 @@ public class GameClient extends BasicGame {
 		m_animator = new Animator(m_mapMatrix);
 		
 		gc.getInput().enableKeyRepeat(50, 300);
-		
-		/*
-		 * Time/Weather Services
-		 */
-		m_time = new TimeService();
 
-		/*
-		 * Add the ui components
-		 */
-		m_loading = new LoadingScreen();
-		m_display.add(m_loading);
 
-		m_login = new LoginScreen();
-		m_login.showLanguageSelect();
-		m_display.add(m_login);
-		
-		if(m_nextResource == null){
-			Player.loadSpriteFactory();
 
-			m_ui = new Ui(m_display);
-			m_ui.setAllVisible(false);
-		}
-
-		
-
-		
 	}
 
 
@@ -256,7 +254,7 @@ public class GameClient extends BasicGame {
 		if (m_nextResource != null) {
 			try { 
 				m_nextResource.load();
-				try { Thread.sleep(20); } catch (Exception e) {}
+
 			} catch (IOException e) {
 				throw new SlickException("Failed to load: "+m_nextResource.getDescription(), e);
 			}
@@ -271,6 +269,11 @@ public class GameClient extends BasicGame {
 				m_started = true;
 //				music.loop();
 //				sound.play();
+				if(m_ui == null){
+					m_ui = new Ui(m_display); 
+					m_ui.setAllVisible(false);	
+				}
+				
 			}
 		}
 		
@@ -448,122 +451,125 @@ public class GameClient extends BasicGame {
 	 */
 	@Override
 	public void keyPressed(int key, char c) {
-		if (m_login.isVisible()){
-			if (key == (Input.KEY_ENTER) || key == (Input.KEY_NUMPADENTER))
-				m_login.enterKeyDefault();
-			if (key == (Input.KEY_TAB))
-				m_login.tabKeyDefault();
-		}
+		if(m_started){
+			if (m_login.isVisible()){
+				if (key == (Input.KEY_ENTER) || key == (Input.KEY_NUMPADENTER))
+					m_login.enterKeyDefault();
+				if (key == (Input.KEY_TAB))
+					m_login.tabKeyDefault();
+			}
 
-		if (key == (Input.KEY_ESCAPE)) {
-			if(m_confirm==null){
-				ActionListener yes = new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						try {
-							System.exit(0);
-						} catch (Exception e) {
-							e.printStackTrace();
+			if (key == (Input.KEY_ESCAPE)) {
+				if(m_confirm==null){
+					ActionListener yes = new ActionListener() {
+						public void actionPerformed(ActionEvent arg0) {
+							try {
+								System.exit(0);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+
 						}
-
-					}
-				};
-				ActionListener no = new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						m_confirm.setVisible(false);
-						getDisplay().remove(m_confirm);
-						m_confirm = null;
-					}
-				};
-				m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
-				getUi().getDisplay().add(m_confirm);
-			}else{
-				System.exit(0);
-			}
-		}
-		if(m_ui.getNPCSpeech() == null && !m_ui.getChat().isActive() && !m_login.isVisible()
-				&& !getDisplay().containsChild(m_playerDialog) && !BattleManager.isBattling()){
-			if(m_ourPlayer != null && !m_isNewMap
-					/*&& m_loading != null && !m_loading.isVisible()*/
-					&& m_ourPlayer.canMove()) {
-				if (key == (Input.KEY_DOWN) || key == (Input.KEY_S)) {
-					if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Down)) {
-						m_packetGen.move(Direction.Down);
-						m_ourPlayer.queueMovement(Direction.Down);
-					} else if(m_ourPlayer.getDirection() != Direction.Down) {
-						m_packetGen.move(Direction.Down);
-						m_ourPlayer.queueMovement(Direction.Down);
-					}
-				} else if (key == (Input.KEY_UP) || key == (Input.KEY_W)) {
-					if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Up)) {
-						m_packetGen.move(Direction.Up);
-						m_ourPlayer.queueMovement(Direction.Up);
-					} else if(m_ourPlayer.getDirection() != Direction.Up) {
-						m_packetGen.move(Direction.Up);
-						m_ourPlayer.queueMovement(Direction.Up);
-					}
-				} else if (key == (Input.KEY_LEFT) || key == (Input.KEY_A)) {
-					if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Left)) {
-						m_packetGen.move(Direction.Left);
-						m_ourPlayer.queueMovement(Direction.Left);
-					} else if(m_ourPlayer.getDirection() != Direction.Left) {
-						m_packetGen.move(Direction.Left);
-						m_ourPlayer.queueMovement(Direction.Left);
-					}
-				} else if (key == (Input.KEY_RIGHT) || key == (Input.KEY_D)) {
-					if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Right)) {
-						m_packetGen.move(Direction.Right);
-						m_ourPlayer.queueMovement(Direction.Right);
-					} else if(m_ourPlayer.getDirection() != Direction.Right) {
-						m_packetGen.move(Direction.Right);
-						m_ourPlayer.queueMovement(Direction.Right);
-					}
-				} else if (key == Input.KEY_C) {
-					m_ui.toggleChat();
-				} else if (key == (Input.KEY_1)) {
-					m_ui.toggleStats();
-				} else if (key == (Input.KEY_2)) {
-					m_ui.togglePokemon();
-				} else if (key == (Input.KEY_3)) {
-					m_ui.toggleBag();
-				} else if (key == (Input.KEY_4)) {
-					m_ui.toggleMap();
-				} else if (key == (Input.KEY_5)) {
-					m_ui.toggleFriends();
-				} else if (key == (Input.KEY_6)) {
-					m_ui.toggleRequests();
-				} else if (key == (Input.KEY_7)) {
-					m_ui.toggleOptions();
-				} else if (key == (Input.KEY_8)) {
-					m_ui.toggleHelp();
+					};
+					ActionListener no = new ActionListener() {
+						public void actionPerformed(ActionEvent arg0) {
+							m_confirm.setVisible(false);
+							getDisplay().remove(m_confirm);
+							m_confirm = null;
+						}
+					};
+					m_confirm = new ConfirmationDialog("Are you sure you want to exit?",yes,no);
+					getUi().getDisplay().add(m_confirm);
+				}else{
+					System.exit(0);
 				}
 			}
-		}
-		if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() &&
-				!m_ui.getChat().isActive() && !getDisplay().containsChild(MoveLearningManager.getInstance()
-						.getMoveLearning()) && !getDisplay().containsChild(getUi().getShop())) {
-			System.out.println("Space Bar hit!");
-			if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
-					.getBattleWindow()) ){
-				m_packetGen.writeTcpMessage("Ct");
-			}
-			if (BattleManager.isBattling() && 
-					getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
-					&& !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
-				BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
-			} else{
-				try {
-					m_ui.getNPCSpeech().advance();
-				} catch (Exception e) { 
-					m_ui.nullSpeechFrame();
-					//					m_packetGen.write("F"); 
+			if(m_ui.getNPCSpeech() == null && !m_ui.getChat().isActive() && !m_login.isVisible()
+					&& !getDisplay().containsChild(m_playerDialog) && !BattleManager.isBattling()){
+				if(m_ourPlayer != null && !m_isNewMap
+						/*&& m_loading != null && !m_loading.isVisible()*/
+						&& m_ourPlayer.canMove()) {
+					if (key == (Input.KEY_DOWN) || key == (Input.KEY_S)) {
+						if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Down)) {
+							m_packetGen.move(Direction.Down);
+							m_ourPlayer.queueMovement(Direction.Down);
+						} else if(m_ourPlayer.getDirection() != Direction.Down) {
+							m_packetGen.move(Direction.Down);
+							m_ourPlayer.queueMovement(Direction.Down);
+						}
+					} else if (key == (Input.KEY_UP) || key == (Input.KEY_W)) {
+						if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Up)) {
+							m_packetGen.move(Direction.Up);
+							m_ourPlayer.queueMovement(Direction.Up);
+						} else if(m_ourPlayer.getDirection() != Direction.Up) {
+							m_packetGen.move(Direction.Up);
+							m_ourPlayer.queueMovement(Direction.Up);
+						}
+					} else if (key == (Input.KEY_LEFT) || key == (Input.KEY_A)) {
+						if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Left)) {
+							m_packetGen.move(Direction.Left);
+							m_ourPlayer.queueMovement(Direction.Left);
+						} else if(m_ourPlayer.getDirection() != Direction.Left) {
+							m_packetGen.move(Direction.Left);
+							m_ourPlayer.queueMovement(Direction.Left);
+						}
+					} else if (key == (Input.KEY_RIGHT) || key == (Input.KEY_D)) {
+						if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Right)) {
+							m_packetGen.move(Direction.Right);
+							m_ourPlayer.queueMovement(Direction.Right);
+						} else if(m_ourPlayer.getDirection() != Direction.Right) {
+							m_packetGen.move(Direction.Right);
+							m_ourPlayer.queueMovement(Direction.Right);
+						}
+					} else if (key == Input.KEY_C) {
+						m_ui.toggleChat();
+					} else if (key == (Input.KEY_1)) {
+						m_ui.toggleStats();
+					} else if (key == (Input.KEY_2)) {
+						m_ui.togglePokemon();
+					} else if (key == (Input.KEY_3)) {
+						m_ui.toggleBag();
+					} else if (key == (Input.KEY_4)) {
+						m_ui.toggleMap();
+					} else if (key == (Input.KEY_5)) {
+						m_ui.toggleFriends();
+					} else if (key == (Input.KEY_6)) {
+						m_ui.toggleRequests();
+					} else if (key == (Input.KEY_7)) {
+						m_ui.toggleOptions();
+					} else if (key == (Input.KEY_8)) {
+						m_ui.toggleHelp();
+					}
 				}
 			}
+			if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() &&
+					!m_ui.getChat().isActive() && !getDisplay().containsChild(MoveLearningManager.getInstance()
+							.getMoveLearning()) && !getDisplay().containsChild(getUi().getShop())) {
+				System.out.println("Space Bar hit!");
+				if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
+						.getBattleWindow()) ){
+					m_packetGen.writeTcpMessage("Ct");
+				}
+				if (BattleManager.isBattling() && 
+						getDisplay().containsChild(BattleManager.getInstance().getTimeLine().getBattleSpeech())
+						&& !getDisplay().containsChild(MoveLearningManager.getInstance().getMoveLearning())) {
+					BattleManager.getInstance().getTimeLine().getBattleSpeech().advance();
+				} else{
+					try {
+						m_ui.getNPCSpeech().advance();
+					} catch (Exception e) { 
+						m_ui.nullSpeechFrame();
+						//					m_packetGen.write("F"); 
+					}
+				}
+			}	
 		}
+		
 	}
 
 	@Override
 	public void controllerDownPressed(int controller){
-		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
+		if(m_started && m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
 				&& !m_ui.getChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
@@ -579,7 +585,7 @@ public class GameClient extends BasicGame {
 
 	@Override
 	public void controllerUpPressed(int controller){
-		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
+		if(m_started && m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
 				&& !m_ui.getChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
@@ -595,7 +601,7 @@ public class GameClient extends BasicGame {
 
 	@Override
 	public void controllerLeftPressed(int controller){
-		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
+		if(m_started && m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
 				&& !m_ui.getChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
@@ -611,7 +617,7 @@ public class GameClient extends BasicGame {
 
 	@Override
 	public void controllerRightPressed(int controller){
-		if(m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
+		if(m_started && m_ui.getNPCSpeech() == null && m_ui.getChat().isActive()==false && !m_login.isVisible()
 				&& !m_ui.getChat().isActive() && !getDisplay().containsChild(m_playerDialog)){
 			if(m_ourPlayer != null && !m_isNewMap
 					/*&& m_loading != null && !m_loading.isVisible()*/
