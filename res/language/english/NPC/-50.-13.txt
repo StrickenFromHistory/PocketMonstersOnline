@@ -1,0 +1,6 @@
+Welcome to the Saffron City magnet train station.
+This is a station for the GS line.
+The GS line is a rapid transit line, which operates 
+fast magnet trains between Saffron City and Goldenrod City.
+Other lines might be added in the future.
+The GS line is closed due to maintenance works on the tracks.
