@@ -87,8 +87,8 @@ public class GameClient extends BasicGame {
 	//The gui display layer
 	private Display m_display;
 
-	private WeatherService m_weather = new WeatherService();
-	private TimeService m_time = new TimeService();
+	private WeatherService m_weather;// = new WeatherService();
+	private TimeService m_time;// = new TimeService();
 	private Ui m_ui;
 	private Color m_daylight;
 	private static String m_language = "english";
@@ -157,6 +157,7 @@ public class GameClient extends BasicGame {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void init(GameContainer gc) throws SlickException {
+	
 		LoadingList.setDeferredLoading(true);
 		
 		
@@ -184,8 +185,8 @@ public class GameClient extends BasicGame {
 		 */
 //		m_time = new TimeService();
 //		m_weather = new WeatherService();
-		if(options != null)
-			m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
+//		if(options != null)
+//			m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
 
 		
 		/*
@@ -246,6 +247,11 @@ public class GameClient extends BasicGame {
 //				music.loop();
 //				sound.play();
 				if(m_ui == null){
+					m_weather = new WeatherService();
+					m_time = new TimeService();
+					if(options != null)
+						m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
+					
 					m_ui = new Ui(m_display); 
 					m_ui.setAllVisible(false);	
 				}
