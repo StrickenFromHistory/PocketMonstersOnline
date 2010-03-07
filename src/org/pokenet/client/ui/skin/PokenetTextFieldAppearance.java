@@ -96,7 +96,7 @@ public class PokenetTextFieldAppearance extends PokenetTextComponentAppearance {
         
         
         
-        Color start = s.c_textField.getColor(0,0);
+        Color start =  s.c_textField.getColor(0,0);
         Color end = theme.getSecondary1();
         Color oppositeBackground = new Color(
                 255 - start.getRed(),
