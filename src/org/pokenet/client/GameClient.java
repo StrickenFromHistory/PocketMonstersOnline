@@ -1,6 +1,7 @@
 package org.pokenet.client;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 import java.util.ConcurrentModificationException;
@@ -29,6 +30,8 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.TrueTypeFont;
+import org.newdawn.slick.loading.DeferredResource;
+import org.newdawn.slick.loading.LoadingList;
 import org.newdawn.slick.muffin.FileMuffin;
 import org.pokenet.client.backend.Animator;
 import org.pokenet.client.backend.BattleManager;
@@ -84,8 +87,8 @@ public class GameClient extends BasicGame {
 	//The gui display layer
 	private Display m_display;
 
-	private WeatherService m_weather;
-	private TimeService m_time;
+	private WeatherService m_weather = new WeatherService();
+	private TimeService m_time = new TimeService();
 	private Ui m_ui;
 	private Color m_daylight;
 	private static String m_language = "english";
@@ -97,6 +100,11 @@ public class GameClient extends BasicGame {
 	private static boolean m_disableMaps = false;
 	public static String UDPCODE = "";
 
+	 public static DeferredResource m_nextResource;
+		private boolean m_started;
+		
+		Color m_loadGreen = new Color(132,185,0);
+	
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	/**
 	 * Load options
@@ -149,6 +157,9 @@ public class GameClient extends BasicGame {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void init(GameContainer gc) throws SlickException {
+		LoadingList.setDeferredLoading(true);
+		
+		
 		m_instance = this;
 		gc.getGraphics().setWorldClip(-32, -32, 832, 832);
 		gc.setShowFPS(false);
@@ -171,8 +182,8 @@ public class GameClient extends BasicGame {
 		/*
 		 * Time/Weather Services
 		 */
-		m_time = new TimeService();
-		m_weather = new WeatherService();
+//		m_time = new TimeService();
+//		m_weather = new WeatherService();
 		if(options != null)
 			m_weather.setEnabled(!Boolean.parseBoolean(options.get("disableWeather")));
 
@@ -187,8 +198,8 @@ public class GameClient extends BasicGame {
 		m_login.showLanguageSelect();
 		m_display.add(m_login);
 
-		m_ui = new Ui(m_display);
-		m_ui.setAllVisible(false);
+//		m_ui = new Ui(m_display);
+//		m_ui.setAllVisible(false);
 
 		/*
 		 * Item DB
@@ -216,135 +227,191 @@ public class GameClient extends BasicGame {
 	 */
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
-		/*
-		 * Update the gui layer
-		 */
-		try {
-			synchronized (m_display) {
-				try{
-					m_display.update(gc, delta);
-				} catch (Exception e) {}
+		if (m_nextResource != null) {
+			try { 
+				m_nextResource.load();
+
+			} catch (IOException e) {
+				throw new SlickException("Failed to load: "+m_nextResource.getDescription(), e);
 			}
-		} catch (Exception e) { e.printStackTrace(); }
-		/*
-		 * Check if language was chosen.
-		 */
-		if(m_language != null && !m_language.equalsIgnoreCase("") && m_languageChosen==true && ((HOST != null && HOST.equalsIgnoreCase("")) || m_packetGen == null)){
-			m_login.showServerSelect();
-		} else if(m_language == null || m_language.equalsIgnoreCase("")){
-			m_login.showLanguageSelect();
+			
+			m_nextResource = null;
 		}
-		/*
-		 * Check if we need to connect to a selected server
-		 */
-		if(HOST != null && !HOST.equalsIgnoreCase("") && m_packetGen == null) {
-			this.connect();
-		}
-		/*
-		 * Check if we need to loads maps
-		 */
-		if(m_isNewMap && m_loading.isVisible()) {
-			m_mapMatrix.loadMaps(m_mapX, m_mapY, gc.getGraphics());
-			while(m_ourPlayer == null);
-			m_mapMatrix.getCurrentMap().setName(m_mapMatrix.getMapName(m_mapX, m_mapY));
-			m_mapMatrix.getCurrentMap().setXOffset(400 - m_ourPlayer.getX(), false);
-			m_mapMatrix.getCurrentMap().setYOffset(300 - m_ourPlayer.getY(), false);
-			m_mapMatrix.recalibrate();
-			m_ui.getMap().setPlayerLocation();
-			m_isNewMap = false;
-			m_loading.setVisible(false);
-		}
-		/*
-		 * Animate the player
-		 */
-		if(m_ourPlayer != null) {
-			m_animator.animate();
-		}
-		/*
-		 * Update weather and daylight
-		 */
-		if(!m_isNewMap) {
-			int a = 0;
-			//Daylight
-			m_time.updateDaylight();
-			a = m_time.getDaylight();
-			//Weather
-			if(m_weather.isEnabled() && m_weather.getWeather() != Weather.NORMAL) {
-				try {
-					m_weather.getParticleSystem().update(delta);
-				} catch (Exception e) {
-					m_weather.setEnabled(false);
+		
+		if (LoadingList.get().getRemainingResources() > 0) {
+			m_nextResource = LoadingList.get().getNext();
+		} else {
+			if (!m_started) {
+				m_started = true;
+//				music.loop();
+//				sound.play();
+				if(m_ui == null){
+					m_ui = new Ui(m_display); 
+					m_ui.setAllVisible(false);	
 				}
-				a = a < 100 ? a + 60 : a;
+				
 			}
-			m_daylight = new Color(0, 0, 0, a);
 		}
+		
+		if(m_started){
+			/*
+			 * Update the gui layer
+			 */
+			try {
+				synchronized (m_display) {
+					try{
+						m_display.update(gc, delta);
+					} catch (Exception e) {}
+				}
+			} catch (Exception e) { e.printStackTrace(); }
+			/*
+			 * Check if language was chosen.
+			 */
+			if(m_language != null && !m_language.equalsIgnoreCase("") && m_languageChosen==true && ((HOST != null && HOST.equalsIgnoreCase("")) || m_packetGen == null)){
+				m_login.showServerSelect();
+			} else if(m_language == null || m_language.equalsIgnoreCase("")){
+				m_login.showLanguageSelect();
+			}
+			/*
+			 * Check if we need to connect to a selected server
+			 */
+			if(HOST != null && !HOST.equalsIgnoreCase("") && m_packetGen == null) {
+				this.connect();
+			}
+			/*
+			 * Check if we need to loads maps
+			 */
+			if(m_isNewMap && m_loading.isVisible()) {
+				m_mapMatrix.loadMaps(m_mapX, m_mapY, gc.getGraphics());
+				while(m_ourPlayer == null);
+				m_mapMatrix.getCurrentMap().setName(m_mapMatrix.getMapName(m_mapX, m_mapY));
+				m_mapMatrix.getCurrentMap().setXOffset(400 - m_ourPlayer.getX(), false);
+				m_mapMatrix.getCurrentMap().setYOffset(300 - m_ourPlayer.getY(), false);
+				m_mapMatrix.recalibrate();
+				m_ui.getMap().setPlayerLocation();
+				m_isNewMap = false;
+				m_loading.setVisible(false);
+			}
+			/*
+			 * Animate the player
+			 */
+			if(m_ourPlayer != null) {
+				m_animator.animate();
+			}
+			/*
+			 * Update weather and daylight
+			 */
+			if(!m_isNewMap) {
+				int a = 0;
+				//Daylight
+				m_time.updateDaylight();
+				a = m_time.getDaylight();
+				//Weather
+				if(m_weather.isEnabled() && m_weather.getWeather() != Weather.NORMAL) {
+					try {
+						m_weather.getParticleSystem().update(delta);
+					} catch (Exception e) {
+						m_weather.setEnabled(false);
+					}
+					a = a < 100 ? a + 60 : a;
+				}
+				m_daylight = new Color(0, 0, 0, a);
+			}
+		}
+		
 	}
 
 	/**
 	 * Renders to the game window
 	 */
 	public void render(GameContainer gc, Graphics g) throws SlickException {
-		/* Clip the screen, no need to render what we're not seeing */
-		g.setWorldClip(-32, -32, 864, 664);
-		/*
-		 * If the player is playing, run this rendering algorithm for maps.
-		 * The uniqueness here is:
-		 *  For the current map it only renders line by line for the layer that the player's are on, 
-		 *  other layers are rendered directly to the screen.
-		 *  All other maps are simply rendered directly to the screen.
-		 */
-		if(!m_isNewMap && m_ourPlayer != null) {
-			ClientMap thisMap;
-			g.setFont(m_fontLarge);
-			g.scale(2, 2);
-			for (int x = 0; x <= 2; x++) {
-				for (int y = 0; y <= 2; y++) {
-					thisMap = m_mapMatrix.getMap(x, y);
-					if (thisMap != null && thisMap.isRendering()) {
-						thisMap.render(thisMap.getXOffset() / 2,
-								thisMap.getYOffset() / 2, 0, 0,
-								(gc.getScreenWidth() - thisMap.getXOffset()) / 32,
-								(gc.getScreenHeight() - thisMap.getYOffset()) / 32,
-								false);
-					}
-				}
-			}
-			g.resetTransform();
-			try {
-				m_mapMatrix.getCurrentMap().renderTop(g);
-			}catch (ConcurrentModificationException e){
-				m_mapMatrix.getCurrentMap().renderTop(g);
-			}
-
-			if(m_mapX > -30) {
-				//Render the current weather
-				if(m_weather.isEnabled() && m_weather.getParticleSystem() != null) {
-					try {
-						m_weather.getParticleSystem().render();
-					} catch(Exception e) {
-						m_weather.setEnabled(false);
-					}
-				}
-				//Render the current daylight
-				if(m_time.getDaylight() > 0 || 
-						(m_weather.getWeather() != Weather.NORMAL && 
-								m_weather.getWeather() != Weather.SANDSTORM)) {
-					g.setColor(m_daylight);
-					g.fillRect(0, 0, 800, 600);
-				}
-			}
+		if (m_nextResource != null) {
+			g.setColor(Color.white);
+			g.drawString("Loading: "+m_nextResource.getDescription(), 10, 100);
 		}
-		/*
-		 * Render the UI layer
-		 */
-		try {
-			synchronized(m_display) {
-				try{
-					m_display.render(gc, g);
-				} catch (ConcurrentModificationException e){m_display.render(gc, g);}
+		
+		int total = LoadingList.get().getTotalResources();
+		int maxWidth = gc.getWidth() - 20;
+		int loaded = LoadingList.get().getTotalResources() - LoadingList.get().getRemainingResources();
+		if(!m_started){
+			float bar = loaded / (float) total;
+			
+			// non-imagy loading bar
+			g.setColor(m_loadGreen);
+			g.setAntiAlias(true);
+			g.fillRoundRect(15, 154, bar*(maxWidth - 10), 20, 10);
+			g.setColor(Color.gray);
+			g.drawRoundRect(10 ,150, maxWidth, 28, 15);	
+		
+		
+			
+	
+		}
+		
+		if (m_started){
+
+			/* Clip the screen, no need to render what we're not seeing */
+			g.setWorldClip(-32, -32, 864, 664);
+			/*
+			 * If the player is playing, run this rendering algorithm for maps.
+			 * The uniqueness here is:
+			 *  For the current map it only renders line by line for the layer that the player's are on, 
+			 *  other layers are rendered directly to the screen.
+			 *  All other maps are simply rendered directly to the screen.
+			 */
+			if(!m_isNewMap && m_ourPlayer != null) {
+				ClientMap thisMap;
+				g.setFont(m_fontLarge);
+				g.scale(2, 2);
+				for (int x = 0; x <= 2; x++) {
+					for (int y = 0; y <= 2; y++) {
+						thisMap = m_mapMatrix.getMap(x, y);
+						if (thisMap != null && thisMap.isRendering()) {
+							thisMap.render(thisMap.getXOffset() / 2,
+									thisMap.getYOffset() / 2, 0, 0,
+									(gc.getScreenWidth() - thisMap.getXOffset()) / 32,
+									(gc.getScreenHeight() - thisMap.getYOffset()) / 32,
+									false);
+						}
+					}
+				}
+				g.resetTransform();
+				try {
+					m_mapMatrix.getCurrentMap().renderTop(g);
+				}catch (ConcurrentModificationException e){
+					m_mapMatrix.getCurrentMap().renderTop(g);
+				}
+
+				if(m_mapX > -30) {
+					//Render the current weather
+					if(m_weather.isEnabled() && m_weather.getParticleSystem() != null) {
+						try {
+							m_weather.getParticleSystem().render();
+						} catch(Exception e) {
+							m_weather.setEnabled(false);
+						}
+					}
+					//Render the current daylight
+					if(m_time.getDaylight() > 0 || 
+							(m_weather.getWeather() != Weather.NORMAL && 
+									m_weather.getWeather() != Weather.SANDSTORM)) {
+						g.setColor(m_daylight);
+						g.fillRect(0, 0, 800, 600);
+					}
+				}
 			}
-		} catch (Exception e) { e.printStackTrace(); }
+			/*
+			 * Render the UI layer
+			 */
+			try {
+				synchronized(m_display) {
+					try{
+						m_display.render(gc, g);
+					} catch (ConcurrentModificationException e){m_display.render(gc, g);}
+				}
+			} catch (Exception e) { e.printStackTrace(); }	
+		}
+		
 	}
 
 	/**
