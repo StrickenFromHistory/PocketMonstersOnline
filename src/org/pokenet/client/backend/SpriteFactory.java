@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.loading.LoadingList;
+import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.svg.Loader;
 import org.pokenet.client.backend.entity.Player.Direction;
 
@@ -69,45 +70,33 @@ public class SpriteFactory {
 	/**
 	 * Initialises the database of sprites
 	 */
-	public SpriteFactory() {		
-
+public SpriteFactory() {
+		
 		spriteSheets = new HashMap<Integer, SpriteSheet>();	
 		try {
 			String location;
 			String respath = System.getProperty("res.path");
 			if(respath==null)
 				respath="";
-			
-			Image[] imgArray = new Image[231];
-				// we have to do the loops separately, because making a spritesheet messes
-				// up deferred loading
-				// but this way uses a lot more ram.... sad face
-			/*
-			 * try-catch throws off the deferred loading for some reason... 
-			 * don't know why... so.. we need to make sure all the images are in the characters folder...
-			 * otherwise the exception is caught outside of the forloop, and we die essentially 
-			 */
-				for (int i = 0; i < 225 + 5; i++){
-					try{
-//						LoadingList.setDeferredLoading(true);
-						imgArray[i] = new Image("res/characters/" + (i - 5) + ".png");	
-					} catch (Exception e){System.err.println(e.getMessage());}
-
-				}
-				
-				
-			
+			Image temp;
+			SpriteSheet ss = null;
 			/*
 			 * WARNING: Change 224 to the amount of sprites we have in client
+			 * the load bar only works when we don't make a new SpriteSheet
+			 * ie. ss = new SpriteSheet(temp, 41, 51); needs to be commented out
+			 * in order for the load bar to work.
 			 */
-				for(int i = -5; i < 225; i++) {
-					if(imgArray[i + 5] != null){
-						spriteSheets.put(i, new SpriteSheet(imgArray[i + 5], 41, 51));
-					}
-	
-				}
+			for(int i = -5; i < 224; i++) {
+				try {
+					location = respath+"res/characters/" + String.valueOf(i) + ".png";
+					temp = new Image(location);
+					ss = new SpriteSheet(temp, 41, 51);
+					spriteSheets.put(i, ss);
+				} catch (Exception e) {}
+			}
 		} catch (Exception e) { 
-			System.err.println(e.getMessage());
+			e.printStackTrace();
 		}
 	}
+
 }

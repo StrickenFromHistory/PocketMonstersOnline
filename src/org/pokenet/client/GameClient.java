@@ -221,6 +221,9 @@ public class GameClient extends BasicGame {
 		m_animator = new Animator(m_mapMatrix);
 
 		gc.getInput().enableKeyRepeat(50, 300);
+		
+//		LoadingList.setDeferredLoading(false);
+
 	}
 
 	/**
@@ -233,7 +236,7 @@ public class GameClient extends BasicGame {
 				m_nextResource.load();
 
 			} catch (IOException e) {
-				throw new SlickException("Failed to load: "+m_nextResource.getDescription(), e);
+				throw new SlickException("Failed to load: " + m_nextResource.getDescription(), e);
 			}
 			
 			m_nextResource = null;
@@ -247,6 +250,8 @@ public class GameClient extends BasicGame {
 //				music.loop();
 //				sound.play();
 				if(m_ui == null){
+					LoadingList.setDeferredLoading(false);
+
 					m_weather = new WeatherService();
 					m_time = new TimeService();
 					if(options != null)
