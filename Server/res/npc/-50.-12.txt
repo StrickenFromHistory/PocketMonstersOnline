@@ -1,0 +1,23 @@
+[npc]
+Mr. Psychic
+left
+141
+8
+5
+NULL
+0
+-1
+0,1
+false
+false
+false
+[/npc]
+[warp]
+5
+10
+43
+39
+6
+-2
+0
+[/warp]
