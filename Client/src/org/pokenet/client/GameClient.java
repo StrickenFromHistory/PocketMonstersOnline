@@ -274,7 +274,9 @@ public class GameClient extends BasicGame {
 				m_nextResource.load();
 
 			} catch (Exception e) {
-				throw new SlickException("Failed to load: " + m_nextResource.getDescription(), e);
+				//throw new SlickException("Failed to load: " + m_nextResource.getDescription(), e);
+				System.err.println("Failed to load: " + m_nextResource.getDescription() + "\n"
+						+ "... WARNING: the game may or may not work because of this");
 			}
 			
 			m_nextResource = null;
