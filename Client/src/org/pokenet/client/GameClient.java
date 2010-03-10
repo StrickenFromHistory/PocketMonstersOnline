@@ -83,7 +83,7 @@ public class GameClient extends BasicGame {
 	private static String m_filepath="";
 	private static Font m_fontLarge, m_fontSmall, m_trueTypeFont;
 	private static String HOST;
-	private static String CHATHOST = "";
+	private static String CHATHOST = "localhost";
 	//UI
 	private LoadingScreen m_loading;
 	private LoginScreen m_login;
@@ -307,6 +307,13 @@ public class GameClient extends BasicGame {
 		}
 		
 		if(m_started){
+			// make sure we can't move while chaging maps
+			if(m_loading.isVisible()){
+				gc.getInput().disableKeyRepeat();
+			}else{
+				gc.getInput().enableKeyRepeat(50, 300);
+
+			}
 			/*
 			 * Update the gui layer
 			 */
