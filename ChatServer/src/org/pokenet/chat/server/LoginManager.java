@@ -1,7 +1,6 @@
 package org.pokenet.chat.server;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -105,6 +104,8 @@ public class LoginManager implements Runnable {
 				} catch (Exception e) { user.setTeam(""); }
 				user.setSession(s);
 				/* TODO: Get friends list */
+				//Inform friends that the user is online
+				ChatProtocolHandler.alertLogon(user, true);
 				s.write("ls");
 				m_mysql.close();
 				return user;

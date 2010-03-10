@@ -145,6 +145,8 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 		if(session.getAttribute("user") != null) {
 			//Remove user from all chatrooms
 			User u = (User) session.getAttribute("user");
+			//Inform friends that the player has logged off
+			alertLogon(u, false);
 			Iterator<ChatRoom> it = m_chatrooms.values().iterator();
 			while(it.hasNext()) {
 				it.next().removeUser(u.getUsername());
@@ -195,6 +197,24 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 			}
 			//Add user
 			m_users.put(u.getUsername(), u);
+		}
+	}
+	
+	/**
+	 * Alerts a user's when the user logs on/off
+	 * @param u The user that logged on or off
+	 * @param connected True for log-on, False for log-off
+	 */
+	public static void alertLogon(User u, boolean connected){
+		//Check for online friends
+		for (String s : u.getFriends()){
+			if (m_users.containsKey(s)){
+				//Send online friends a packet so clients can update
+				if (connected)
+					m_users.get(s).getSession().write("Fn" + u.getUsername());
+				else
+					m_users.get(s).getSession().write("Ff" + u.getUsername());
+			}
 		}
 	}
 }

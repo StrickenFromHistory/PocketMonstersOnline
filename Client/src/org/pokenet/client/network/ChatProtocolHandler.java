@@ -2,6 +2,7 @@ package org.pokenet.client.network;
 
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IoSession;
+import org.pokenet.client.GameClient;
 import org.pokenet.client.ui.Ui;
 
 /**
@@ -38,6 +39,17 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 			details = message.substring(1).split(",");
 			for (String friend : details){
 				Ui.getInstance().getFriendsList().setFriendOnline(friend, true);
+			}
+			break;
+		case 'F':
+			// A friend logged on/off
+			switch(message.charAt(1)) {
+			case 'n': //Logged on
+				GameClient.getInstance().getUi().getFriendsList().setFriendOnline(message.substring(2), true);
+				break;
+			case 'f': //Logged off
+				GameClient.getInstance().getUi().getFriendsList().setFriendOnline(message.substring(2), false);
+				break;
 			}
 			break;
 		case 'a':
@@ -81,7 +93,6 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 			Ui.getInstance().getChat().addSystemMessage(
 					message.substring(1));
 			break;
-		//TODO: Add packets for single friend online/offline status change
 		}
 	}
 }
