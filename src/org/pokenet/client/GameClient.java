@@ -27,8 +27,10 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Font;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.loading.DeferredResource;
 import org.newdawn.slick.loading.LoadingList;
@@ -40,6 +42,7 @@ import org.pokenet.client.backend.ClientMapMatrix;
 import org.pokenet.client.backend.ItemDatabase;
 import org.pokenet.client.backend.MoveLearningManager;
 import org.pokenet.client.backend.SoundManager;
+import org.pokenet.client.backend.SpriteFactory;
 import org.pokenet.client.backend.entity.OurPlayer;
 import org.pokenet.client.backend.entity.Player;
 import org.pokenet.client.backend.entity.Player.Direction;
@@ -106,6 +109,7 @@ public class GameClient extends BasicGame {
 		Color m_loadGreen = new Color(132,185,0);
 	
 	private boolean m_close = false; //Used to tell the game to close or not. 
+	private Image[] m_spriteImageArray = new Image[240]; /* WARNING: Replace with actual number of sprites */
 	/**
 	 * Load options
 	 */
@@ -172,7 +176,11 @@ public class GameClient extends BasicGame {
 		m_fontLarge = new AngelCodeFont(m_filepath+"res/fonts/dp.fnt",m_filepath+"res/fonts/dp.png");
 		m_fontSmall = new AngelCodeFont(m_filepath+"res/fonts/dp-small.fnt", m_filepath+"res/fonts/dp-small.png");
 		
-		Player.loadSpriteFactory();
+//		Player.loadSpriteFactory();
+		
+		loadSprites();
+		
+		
 		try {
 			/*DOES NOT WORK YET!!!
 			 */
@@ -226,6 +234,36 @@ public class GameClient extends BasicGame {
 
 	}
 
+	private void loadSprites() {
+		try {
+			String location;
+			String respath = System.getProperty("res.path");
+			if(respath==null)
+				respath="";
+			/*
+			 * WARNING: Change 224 to the amount of sprites we have in client
+			 * the load bar only works when we don't make a new SpriteSheet
+			 * ie. ss = new SpriteSheet(temp, 41, 51); needs to be commented out
+			 * in order for the load bar to work.
+			 */
+			for(int i = -5; i < 224; i++) {
+				try {
+
+					location = respath+"res/characters/" + String.valueOf(i) + ".png";
+					m_spriteImageArray[i + 5] = new Image(location);
+					
+				} catch (Exception e) {}
+			}
+		} catch (Exception e) { 
+			e.printStackTrace();
+		}
+		
+	}
+	
+	void setPlayerSpriteFactory() {
+		Player.setSpriteFactory(new SpriteFactory(m_spriteImageArray));
+	}
+
 	/**
 	 * Updates the game window
 	 */
@@ -251,6 +289,8 @@ public class GameClient extends BasicGame {
 //				sound.play();
 				if(m_ui == null){
 					LoadingList.setDeferredLoading(false);
+					
+					setPlayerSpriteFactory();
 
 					m_weather = new WeatherService();
 					m_time = new TimeService();

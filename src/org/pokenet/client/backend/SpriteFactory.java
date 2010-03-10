@@ -79,6 +79,7 @@ public SpriteFactory() {
 			if(respath==null)
 				respath="";
 			Image temp;
+			Image[] imgArray = new Image[250];
 			SpriteSheet ss = null;
 			/*
 			 * WARNING: Change 224 to the amount of sprites we have in client
@@ -88,9 +89,13 @@ public SpriteFactory() {
 			 */
 			for(int i = -5; i < 224; i++) {
 				try {
+
 					location = respath+"res/characters/" + String.valueOf(i) + ".png";
 					temp = new Image(location);
+					imgArray[i + 5] = temp;
 					ss = new SpriteSheet(temp, 41, 51);
+					
+
 					spriteSheets.put(i, ss);
 				} catch (Exception e) {}
 			}
@@ -98,5 +103,13 @@ public SpriteFactory() {
 			e.printStackTrace();
 		}
 	}
+
+public SpriteFactory(Image[] imgArray) {
+	spriteSheets = new HashMap<Integer, SpriteSheet>();
+	
+	for (int i = -5; i < 224; i++) {
+		spriteSheets.put(i, new SpriteSheet(imgArray[i + 5], 41, 51));
+	}
+}
 
 }
