@@ -4,6 +4,9 @@ import java.util.HashMap;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.loading.LoadingList;
+import org.newdawn.slick.opengl.Texture;
+import org.newdawn.slick.svg.Loader;
 import org.pokenet.client.backend.entity.Player.Direction;
 
 /**
@@ -67,7 +70,7 @@ public class SpriteFactory {
 	/**
 	 * Initialises the database of sprites
 	 */
-	public SpriteFactory() {
+public SpriteFactory() {
 		
 		spriteSheets = new HashMap<Integer, SpriteSheet>();	
 		try {
@@ -75,17 +78,38 @@ public class SpriteFactory {
 			String respath = System.getProperty("res.path");
 			if(respath==null)
 				respath="";
+			Image temp;
+			Image[] imgArray = new Image[250];
+			SpriteSheet ss = null;
 			/*
 			 * WARNING: Change 224 to the amount of sprites we have in client
+			 * the load bar only works when we don't make a new SpriteSheet
+			 * ie. ss = new SpriteSheet(temp, 41, 51); needs to be commented out
+			 * in order for the load bar to work.
 			 */
 			for(int i = -5; i < 224; i++) {
 				try {
+
 					location = respath+"res/characters/" + String.valueOf(i) + ".png";
-					spriteSheets.put(i, new SpriteSheet(new Image(location), 41, 51));
+					temp = new Image(location);
+					imgArray[i + 5] = temp;
+					ss = new SpriteSheet(temp, 41, 51);
+					
+
+					spriteSheets.put(i, ss);
 				} catch (Exception e) {}
 			}
 		} catch (Exception e) { 
 			e.printStackTrace();
 		}
 	}
+
+public SpriteFactory(Image[] imgArray) {
+	spriteSheets = new HashMap<Integer, SpriteSheet>();
+	
+	for (int i = -5; i < 224; i++) {
+		spriteSheets.put(i, new SpriteSheet(imgArray[i + 5], 41, 51));
+	}
+}
+
 }

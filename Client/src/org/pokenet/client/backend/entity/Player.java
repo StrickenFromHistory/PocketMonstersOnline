@@ -310,4 +310,9 @@ public class Player {
 	public int getType() {
 		return 0;
 	}
+
+	public static void setSpriteFactory(SpriteFactory spriteFactory) {
+		m_spriteFactory = spriteFactory;
+		
+	}
 }
