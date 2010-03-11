@@ -10,7 +10,9 @@ import org.pokenet.server.GameServer;
 import org.pokenet.server.backend.entity.TradeOffer.TradeType;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.battle.PokemonEvolution;
 import org.pokenet.server.battle.PokemonSpecies;
+import org.pokenet.server.battle.PokemonEvolution.EvolutionTypes;
 import org.pokenet.server.network.MySqlManager;
 
 /**
@@ -298,7 +300,31 @@ public class Trade implements Runnable{
 					}
 				}
 				
-				/* TODO: Evolution checks */
+				/*  Evolution checks */
+				for (Pokemon curPokemon : temp) { // do both pokemon
+					PlayerChar p;
+					if(curPokemon == temp[0]){
+						p = (PlayerChar) player2;
+					} else {
+						p = (PlayerChar) player1;
+					}
+					
+					PokemonSpecies pokeData = PokemonSpecies.getDefaultData().getPokemonByName(
+							curPokemon.getSpeciesName());
+					
+					for (PokemonEvolution currentEvolution : pokeData.getEvolutions()) {
+						System.out.println(curPokemon.getName() + " can evolve via " + currentEvolution.getType());
+						
+						if (currentEvolution.getType().equals(EvolutionTypes.Trade)){
+							curPokemon.evolutionResponse(true, p);
+							break;
+						} else if (currentEvolution.getType() == EvolutionTypes.TradeItem){
+							// TODO: trade item evolving
+							// need to check to see if they have the right item
+							break;
+						}
+					}
+				}
 				
 				/* Update the money */
 				if(player1 instanceof PlayerChar) {
