@@ -367,10 +367,6 @@ public class DataService {
             species.setEggMoves(s.get("EggMoves").split(","));
             String[] stringEvolutions = s.get("Evolutions").split(",");
             
-            if(species.m_name.equals("Kadabra")){
-            	System.out.println("hlksdhf");
-            }
-            
            	PokemonEvolution [] evos = new PokemonEvolution[(int) Math.ceil(stringEvolutions.length / 3.0)];
            	int ep = 0;
             for (int j = 0; j < stringEvolutions.length; j = j + 3) {
