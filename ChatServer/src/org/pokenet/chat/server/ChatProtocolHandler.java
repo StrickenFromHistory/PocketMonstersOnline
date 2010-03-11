@@ -51,17 +51,22 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 	public void messageReceived(IoSession session, Object m) throws Exception {
 		String message = (String) m;
 		String [] details;
+		
+		System.out.println("ChatServ: " + m);
 		if(session.getAttribute("user") == null) {
 			/* Not logged in, only allow login */
+			System.out.println("User not logged in.");
 			switch(message.charAt(0)) {
 			case 'l':
-				//Login - lLANGUAGEUSERNAME,PASSWORD
+				//Login - lLANGUAGEIDUSERNAME,PASSWORD
+				System.out.println("ChatServ: Attempting to login...");
 				details = message.substring(2).split(",");
 				m_loginManager.queueLogin(session, details[0], details[1], message.charAt(1));
 				break;
 			}
 		} else {
 			User u = (User) session.getAttribute("user");
+			System.out.println("ChatServ: Responding...");
 			ChatRoom r = null;
 			/* Logged in */
 			switch(message.charAt(0)) {
@@ -116,6 +121,7 @@ public class ChatProtocolHandler extends IoHandlerAdapter {
 				//Normal Chat - cROOMID,MESSAGE
 				details = message.substring(1).split(",");
 				r = m_chatrooms.get(Integer.parseInt(details[0]));
+								
 				if(r != null) {
 					r.queueMessage(u, details[1]);
 				} else {

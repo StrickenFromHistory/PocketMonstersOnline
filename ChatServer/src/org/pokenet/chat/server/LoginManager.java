@@ -15,7 +15,7 @@ import org.pokenet.chat.server.User.Language;
  *
  */
 public class LoginManager implements Runnable {
-	private Queue<Object []> m_queue = new LinkedList<Object []>();
+	 Queue<Object []> m_queue = new LinkedList<Object []>();
 	private MySqlManager m_mysql = new MySqlManager();
 	private String m_dbServer, m_dbUser, m_dbPass, m_dbDatabase;
 	
@@ -25,11 +25,15 @@ public class LoginManager implements Runnable {
 	public LoginManager() {
 		/* Load mysql settings from settings.txt */
 		try {
-			Scanner s = new Scanner(new File("./settings.txt"));
-			m_dbServer = s.nextLine();
-			m_dbDatabase = s.nextLine();
-			m_dbUser = s.nextLine();
-			m_dbPass = s.nextLine();
+//			Scanner s = new Scanner(new File("./settings.txt"));
+//			m_dbServer = s.nextLine();
+//			m_dbDatabase = s.nextLine();
+//			m_dbUser = s.nextLine();
+//			m_dbPass = s.nextLine();
+			m_dbServer = "vvtesting.db.3599659.hostedresource.com";
+			m_dbDatabase = "vvtesting";
+			m_dbUser = "vvtesting";
+			m_dbPass = "VVtest0";
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -88,7 +92,7 @@ public class LoginManager implements Runnable {
 		password = MySqlManager.parseSQL(password);
 		if(m_mysql.connect(m_dbServer, m_dbUser, m_dbPass)) {
 			m_mysql.selectDatabase(m_dbDatabase);
-			ResultSet result = m_mysql.query("SELECT team, adminLevel" +
+			ResultSet result = m_mysql.query("SELECT party, adminLevel" +
 					" FROM pn_members WHERE username='" + username + "' AND password='" +
 					password + "'");
 			if(result != null) {
@@ -108,9 +112,12 @@ public class LoginManager implements Runnable {
 				ChatProtocolHandler.alertLogon(user, true);
 				s.write("ls");
 				m_mysql.close();
+				
+				System.out.println("ChatServ: Login Successful for User: " + username);
 				return user;
 			} else {
 				//Invalid username or password
+				System.out.println("ChatServ: login failed for User: " + username);
 				s.write("le");
 			}
 			m_mysql.close();
