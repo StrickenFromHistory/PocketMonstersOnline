@@ -366,7 +366,12 @@ public class DataService {
             species.setStarterMoves(startMoves);
             species.setEggMoves(s.get("EggMoves").split(","));
             String[] stringEvolutions = s.get("Evolutions").split(",");
-           	PokemonEvolution [] evos = new PokemonEvolution[stringEvolutions.length / 3];
+            
+            if(species.m_name.equals("Kadabra")){
+            	System.out.println("hlksdhf");
+            }
+            
+           	PokemonEvolution [] evos = new PokemonEvolution[(int) Math.ceil(stringEvolutions.length / 3.0)];
            	int ep = 0;
             for (int j = 0; j < stringEvolutions.length; j = j + 3) {
             	PokemonEvolution evo = new PokemonEvolution();
@@ -387,6 +392,7 @@ public class DataService {
             }
             species.setEvolutions(evos);
             species.setTMMoves(new String [92]);
+            
 		}
 	}
 	
