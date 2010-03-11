@@ -73,6 +73,7 @@ public class PacketGenerator {
 	 * @param message
 	 */
 	public void writeChatServerMessage(String message) {
+		System.out.println("WRITING " + message);
 		if(m_chatSession != null)
 			m_chatSession.write(message);
 	}
@@ -94,7 +95,7 @@ public class PacketGenerator {
 	}
 	
 	/**
-	 * Sends a login packet
+	 * Sends a login packet to server and chat server
 	 * @param username
 	 * @param password
 	 */
@@ -121,6 +122,9 @@ public class PacketGenerator {
 			language = '7';
 		}
 		m_tcpSession.write("l" + language + username + "," + (getPasswordHash(username, password)));
+		
+		if(GameClient.getInstance().getPacketGenerator().m_chatSession != null)
+			m_chatSession.write("l" + language + username + "," + (getPasswordHash(username, password)));
 	}
 	
 	/**
