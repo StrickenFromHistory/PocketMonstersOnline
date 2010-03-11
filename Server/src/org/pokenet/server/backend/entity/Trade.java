@@ -309,6 +309,8 @@ public class Trade implements Runnable{
 						p = (PlayerChar) player1;
 					}
 					
+					int index = p.getPokemonIndex(curPokemon);
+					
 					PokemonSpecies pokeData = PokemonSpecies.getDefaultData().getPokemonByName(
 							curPokemon.getSpeciesName());
 					
@@ -316,7 +318,8 @@ public class Trade implements Runnable{
 						System.out.println(curPokemon.getName() + " can evolve via " + currentEvolution.getType());
 						
 						if (currentEvolution.getType().equals(EvolutionTypes.Trade)){
-							curPokemon.evolutionResponse(true, p);
+							curPokemon.setEvolution(currentEvolution);
+							p.getTcpSession().write("PE" + index);
 							break;
 						} else if (currentEvolution.getType() == EvolutionTypes.TradeItem){
 							// TODO: trade item evolving
