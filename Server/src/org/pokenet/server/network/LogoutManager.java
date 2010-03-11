@@ -365,7 +365,7 @@ public class LogoutManager implements Runnable {
 					"currentTrainerName='" + currentTrainer +"', " +
 					"contestStats='" + p.getContestStatsAsString() +"' " +
 					"WHERE id='" + p.getDatabaseID() + "'");
-			m_database.query("UPDATE pn_pokemon SET move0='" + (p.getMove(0) == null ? "null" : MySqlManager.parseSQL(p.getMove(0).getName())) +
+try {			m_database.query("UPDATE pn_pokemon SET move0='" + (p.getMove(0) == null ? "null" : MySqlManager.parseSQL(p.getMove(0).getName())) +
 					"', move1='" + (p.getMove(1) == null ? "null" : MySqlManager.parseSQL(p.getMove(1).getName())) +
 					"', move2='" + (p.getMove(2) == null ? "null" : MySqlManager.parseSQL(p.getMove(2).getName())) +
 					"', move3='" + (p.getMove(3) == null ? "null" : MySqlManager.parseSQL(p.getMove(3).getName())) +
@@ -382,6 +382,27 @@ public class LogoutManager implements Runnable {
 					"', evSPATK='" + p.getEv(4) +
 					"', evSPDEF='" + p.getEv(5) +
 					"' WHERE id='" + p.getDatabaseID() + "'");
+}
+catch (NullPointerException e) {
+	e.printStackTrace();
+	System.out.println("Database is " + m_database);
+	System.out.println("Pokemon object is " + p);
+	System.out.println("Database ID is " + p.getDatabaseID());
+		System.out.println("Pokemon name is " + p.getName());
+	System.out.println("Pokemon moves are " + p.getMove(0).getName() + "|" + p.getMove(1).getName() + "|" + p.getMove(2).getName() + "|" + p.getMove(3).getName());
+	System.out.println("', hp='" + p.getHealth() +
+					"', atk='" + p.getStat(1) +
+					"', def='" + p.getStat(2) +
+					"', speed='" + p.getStat(3) +
+					"', spATK='" + p.getStat(4) +
+					"', spDEF='" + p.getStat(5) +
+					"', evHP='" + p.getEv(0) +
+					"', evATK='" + p.getEv(1) +
+					"', evDEF='" + p.getEv(2) +
+					"', evSPD='" + p.getEv(3) +
+					"', evSPATK='" + p.getEv(4) +
+					"', evSPDEF='" + p.getEv(5));
+}
 			m_database.query("UPDATE pn_pokemon SET ivHP='" + p.getIv(0) +
 					"', ivATK='" + p.getIv(1) +
 					"', ivDEF='" + p.getIv(2) +
