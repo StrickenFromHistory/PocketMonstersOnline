@@ -376,7 +376,7 @@ public class ClientMap extends TiledMap {
 	 * @param layer
 	 * @return
 	 */
-	private Layer getLayer(int layer) {
+	private Layer getLayer(int layer) { 
 		return (Layer) layers.get(layer);
 	}
 
@@ -388,7 +388,7 @@ public class ClientMap extends TiledMap {
 	 */
 	private Layer getLayer(String layer) {
 		int idx = this.getLayerIndex(layer);
-		return getLayer(idx);
+		return (idx < 0 ? null : getLayer(idx));
 	}
 
 	/**
