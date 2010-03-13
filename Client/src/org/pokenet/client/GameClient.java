@@ -250,7 +250,10 @@ public class GameClient extends BasicGame {
 					location = respath+"res/characters/" + String.valueOf(i) + ".png";
 					m_spriteImageArray[i + 5] = new Image(location);
 					
-				} catch (Exception e) {}
+				} catch (Exception e) {
+					location = respath+"res/characters/" + String.valueOf(i) + ".png";
+					m_spriteImageArray[i + 5] = new Image(location);
+				}
 			}
 		} catch (Exception e) { 
 			e.printStackTrace();
