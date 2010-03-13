@@ -227,27 +227,31 @@ public class ClientMap extends TiledMap {
 		}
 		
 		int collisionLayer = 0;
+		int ledgeLayer = 0;
 		for (int i = 0; i < getLayerCount(); i++){
+			//Test for collisions
 			if (getLayer(i).name.equals("Collisions") && collisionLayer == 0){
 				collisionLayer = getLayer(i).getTileID(newX / 32,
 						(newY + 8) / 32);
+			} else { //Test for ledges
+				if (p.getDirection() != Direction.Left
+					&& getLayer("LedgesLeft") != null){
+					ledgeLayer = getLayer("LedgesLeft").getTileID(newX / 32,
+							(newY + 8) / 32);
+				}
+				if (p.getDirection() != Direction.Right
+					&& getLayer("LedgesRight") != null
+					&& ledgeLayer == 0){
+					ledgeLayer = getLayer("LedgesRight").getTileID(newX / 32,
+							(newY + 8) / 32);
+				}
+				if (p.getDirection() != Direction.Down
+					&& getLayer("LedgesDown") != null
+					&& ledgeLayer == 0){
+					ledgeLayer = getLayer("LedgesDown").getTileID(newX / 32,
+							(newY + 8) / 32);
+				}
 			}
-		}
-		
-		int ledgeLayer = 0;
-		try {
-			if (p.getDirection() != Direction.Right) {
-				ledgeLayer = getLayer("LedgesRight").getTileID(newX / 32,
-						(newY + 8) / 32);
-			} else if (p.getDirection() != Direction.Left) {
-				ledgeLayer = getLayer("LedgesLeft").getTileID(newX / 32,
-						(newY + 8) / 32);
-			} else if (p.getDirection() != Direction.Down) {
-				ledgeLayer = getLayer("LedgesDown").getTileID(newX / 32,
-						(newY + 8) / 32);
-			}
-		} catch (Exception e) {
-			ledgeLayer = 0;
 		}
 		if (ledgeLayer + collisionLayer != 0)
 			return true;
