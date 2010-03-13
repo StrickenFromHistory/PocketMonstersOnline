@@ -225,8 +225,15 @@ public class ClientMap extends TiledMap {
 				return true;
 			}
 		}
-		int collisionLayer = getLayer("Collisions").getTileID(newX / 32,
-				(newY + 8) / 32);
+		
+		int collisionLayer = 0;
+		for (int i = 0; i < getLayerCount(); i++){
+			if (getLayer(i).name.equals("Collisions") && collisionLayer == 0){
+				collisionLayer = getLayer(i).getTileID(newX / 32,
+						(newY + 8) / 32);
+			}
+		}
+		
 		int ledgeLayer = 0;
 		try {
 			if (p.getDirection() != Direction.Right) {
