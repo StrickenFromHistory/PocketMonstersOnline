@@ -4,10 +4,10 @@
  <properties>
   <property name="dayPokemonChances" value=""/>
   <property name="dayPokemonLevels" value=""/>
-  <property name="nightPokemonChances" value=""/>
-  <property name="nightPokemonLevels" value=""/>
   <property name="fishPokemonChances" value=""/>
   <property name="fishPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value=""/>
+  <property name="nightPokemonLevels" value=""/>
   <property name="waterPokemonChances" value=""/>
   <property name="waterPokemonLevels" value=""/>
   <property name="wildProbability" value="0"/>
@@ -19,9 +19,14 @@
  <tileset firstgid="2049" source="normal3.tsx"/>
  <tileset firstgid="3073" source="normal4.tsx"/>
  <tileset firstgid="4097" source="normal13.tsx"/>
+ <layer name="rnd" width="106" height="55">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OQQkAAAgEsMP+KUxqA7+CbAmWAAAAAAAAAAAAm67rAQAAAAAAAAAAAAAAAAD8MFb6xQMYWwAA
+  </data>
+ </layer>
  <layer name="Walkable" width="106" height="55">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO2cTU7DMBBGo/CzQcAZgAXnSCtxBPaUk5BsuAFrwkkoFyMDjeJOnWTGcdy4/p70qahxjDpPae1OIMvm52wgmnN8cu55vhTx7cQGPO2Tj8SGy/WnBZ7iAJ7iAJ7iAJ508Hq9Wp4L8XvBMFSvlyabXeBpmVC93pqUu1QZPPnkrllU38+UEKTiqWjquZohb/DklUJQ1zLvT9XjqLakxXaM56fJWuA6JU+8rlLa8dzVp6Xuzzd2H+8X9ucreNqj6KkrMeasHfvFPH0LrhdcTzoKVtenq2FPj9fdz2ZN+Xsfzbl1TDsfPHUUE+tqc+Qr8NQx13oPnvwCT3EwxZMEfg6tLcuBVCfuybUfN7enWjjOHF/B0wFL9PQFTwe4eKK1ucZTeTE8hq/1XdflMTgLfT19Cz1tjbrb1v78mLnOP2VPOXscS+h1hCbkiWqvydKhmmtfE2WKJ8lnT2hPS0/u0ZMUeNJn5ZB1tu9pbG/DI/Ekhebj37uTp8LxtS01G4fQPQxm/6lW1l4yts514ftc856LU0jpELqHofXEexsSpJ6kc1HMHgl5Mu+5OIW4vl/2eZJGWn9puKdjf56EiGQNaPY1zHq5ePu47XcpnYPvnyR7i2PX2YenMcx1hLYHNda31cy1zQ97WZJ9boi/CfGJD08u6XPlo38ITx0++k/8OvTV403F07ngvNj7hLF5cmXKPneOaPuEqXlq97lEnR83mj5hap7adbiN0J40fcLUPA2tsYmHy//HPpcmYx6oLzh0XNMnTM1T62pryVCfT5uxubR9whQ9LS3w1AFPcQBPcRDKEyEZY46Dp46XphabheYVnrzz1yNpstplncm+t5oKPOkgJ8f4vwTwpAOe4gCe4gCe4gCe4gCe4gCe4gCeloHkPjSbJ9f7NqTE5ukXJ6S8YRhbAAA=
+   H4sIAAAAAAAAAO2cTU7DMBBGo/CzQcAZgAXnSCtxBPaUk5BsuAFrwkkoFyMDjeJOnWTGcdy4/p70qahxjDpPae1OIMvm52wgmnN8cu55vhTx7cQGPO2Tj8SGy/WnBZ7iAJ7iAJ7iAJ508Hq9Wp4L8XvBMFSvlyabXeBpmVC93pqUu1QZPPnkrllU38+UEKTiqWjquZohb/DklUJQ1zLvT9XjqLakxXaM56fJWuA6JU+8rlLa8dzVp6Xuzzd2H+8X9ucreNqj6KkrMeasHfvFPH0LrhdcTzoKVtenq2FPj9fdz2ZN+Xsfzbl1TDsfPHUUE+tqc+Qr8NQx13oPnvwCT3EwxZMEfg6tLcuBVCfuybUfN7enWjjOHF/B0wFL9PQFTwe4eKK1ucZTebG/L+Pwtb7rujwGZ6Gvp2+hp61Rd9vanx8z1/mn7Clnj2MJvY7QhDxR7TVZOlRz7WuiTPEk+ewJ7WnpyT16kgJP+qwcss72PY3tbXgknqTQfPx7d/JUOL62pWbjELqHwew/1craS8bWuS58n2vec3EKKR1C9zC0nnhvQ4LUk3QuitkjIU/mPRenENf3yz5P0kjrLw33dOzPkxCRrAHNvoZZLxdvH7f9LqVz8P2TZG9x7Dr78DSGuY7Q9qDG+raaubb5YS9Lss8N8TchPvHhySV9rnz0D+Gpw0f/iV+Hvnq8qXg6F5wXe58wNk+uTNnnzhFtnzA1T+0+l6jz40bTJ0zNU7sOtxHak6ZPmJqnoTU28XD5/9jn0mTMA/UFh45r+oSpeWpdbS0Z6vNpMzaXtk+YoqelBZ464CkO4CkOQnkiJGPMcfDU8dLUYrPQvMKTd/56JE1Wu6wz2fdWU4EnHeTkGP+XAJ50wFMcwFMcwFMcwFMcwFMcwFMcwNMykNyHZvPket+GlNg8/QJiMieSGFsAAA==
   </data>
  </layer>
  <layer name="Walkable" width="106" height="55">
