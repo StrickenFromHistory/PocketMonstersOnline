@@ -115,9 +115,9 @@ public class SoundManager extends Thread{
 					m_trackChanged = false;
 					System.out.println("Playing: " + m_trackName);
 					if(!m_mute) {
-						LoadingList.setDeferredLoading(true);
+						//LoadingList.setDeferredLoading(true);
 						m_files.get(m_trackName).playAsMusic(1, 20, true);
-						LoadingList.setDeferredLoading(false);
+						//LoadingList.setDeferredLoading(false);
 					} else {
 						m_files.clear();
 					}
