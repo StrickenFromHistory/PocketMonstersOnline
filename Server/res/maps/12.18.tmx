@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
-<map version="1.0" orientation="orthogonal" width="24" height="60" tilewidth="16" tileheight="16">
+<map version="1.0" orientation="orthogonal" width="39" height="60" tilewidth="16" tileheight="16">
  <properties>
   <property name="dayPokemonChances" value=""/>
   <property name="dayPokemonLevels" value=""/>
@@ -11,45 +11,45 @@
   <property name="waterPokemonChances" value="Tentacool,90;Tentacruel,10;"/>
   <property name="waterPokemonLevels" value="28-30;32-32;"/>
   <property name="wildProbability" value="10"/>
-  <property name="xOffsetModifier" value="-1088"/>
+  <property name="xOffsetModifier" value="-1568"/>
   <property name="yOffsetModifier" value="960"/>
  </properties>
  <tileset firstgid="1" source="normal1.tsx"/>
  <tileset firstgid="1025" source="normal18.tsx"/>
  <tileset firstgid="2049" source="normal3.tsx"/>
- <layer name="Walkable" width="24" height="60">
+ <layer name="Walkable" width="39" height="60">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3Q0QnAIAwA0UI26yju6l5FMFAkjURtoXgPgvhzEeWwncGxSB1LCg59f7IR+ur97e5yn+2Xxv39ukPPkX7bkIeJtpPT6hn594i/93s7Vnq7DwAAAAAAsKMLl4LcxYAWAAA=
+   H4sIAAAAAAAAAO3SQQqAIBRFUaGdtRT32r6igRNJ4quIxDkgUYPHLUqp39F4fgZPZHu0LQePtv+1XS9Du7RFtiNt9Ts/96Ntz8as71b6yrWnrd6Y0VafaFdu7Iy2fen5z1bR1m/ntmLnNgAAAAAAAGCdG/Tj7pGQJAAA
   </data>
  </layer>
- <layer name="Grass" width="24" height="60">
+ <layer name="Grass" width="39" height="60">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQlPoAAAAAAA4G/05LgQgBYAAA==
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQlPoAAAAAAAAAAAAD4GyxnY+pAkAAA=
   </data>
  </layer>
- <layer name="LedgesDown" width="24" height="60">
+ <layer name="LedgesDown" width="39" height="60">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3OsQkAIBAEweP7r8NS7MQ+bMDgEcRkBjbfhFujknVo1u+zHv8AAAAAwEsb2nohl4AWAAA=
+   H4sIAAAAAAAAAO3QsQkAIBRDwfD3n8NR3MQ9XMBCbFS4g/ThJbCnVTIW63X72dt0O6MbAAAAAAAAAPxpAmh+zBiQJAAA
   </data>
  </layer>
- <layer name="Water" width="24" height="60">
+ <layer name="Water" width="39" height="60">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3NsREAIAgEQQL7L9JK7AADMYG9mQ15IiT9aq/c6333/duPiv3sT+U+AAAAwEQHPGc0MYAWAAA=
+   H4sIAAAAAAAAAO3OywkAIAxEwRzsv0grsYMIgfiBWXhH40SYmdlPmyOv+z3bedvu/m1b9s8rtkpsbGxsbGxsbGxsbGxsbGySJEmSVGsBy7QVH5AkAAA=
   </data>
  </layer>
- <layer name="Collisions" width="24" height="60">
+ <layer name="Collisions" width="39" height="60">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO1XAQ7CIAxkuo9ofJz/0I85mQ8xuncICSQNaaGFos54SaNu9HpXCKDdGnNxMYO4uri54MIGjglE5LBfyn/4Mf6Hi3NH/inxAPljbc99crE08kMOG3h9jXt4PlfyQ44pcPhnTyQWwfqUcgyjMZuRzy8dv3Nj9x3Hf1r/UTi+Vc+7+s+pI9Ui1SXVDlHS1qLdo6RN0kdKGye3pkcxJ5fb2p8ST8vcYjzDmK+nUQfW06wFeeB37R5pcmKaW/tBeeesVw6ofKr/WujR/4g1a4/geqj1x/VQ4y/VpDEHuT1AYw6oswnTrnnGY9pr70vaWlM9GlpLyPVf0wv2W9NLrzM3ote+47Fm7R5//Xmsce1E3l7aOXdYLW+UB643TX1YTqqjpfda/2nTM446J6R3j9Rb+km95/ak9n3vPYaLFxbXRFOAFgAA
+   H4sIAAAAAAAAAO1YUU7DMAwNbBcZ4nC7B1yMQjkIYjsHqbRIVhS3sf2ceaJP8k+TPNvPbpomJT2+Dil9ZJuJfWb7Psg5JmJSjv8S2+seGyS232zvQWObKu1QsZWcl7jesl2NsfVy9MQ23+L7uXHOytgoxwSIbeG7NOwq4EVw9OLpmNLz0W++Bafs50XgSzrfgkfW7Sycj8Qj68bN947Rwu9dWwu/p25Wbk/dLH1T1nj3nCb/ssZLO1TOHtqhcqa9YYVXj5yAeS6IVlfKg65rFB6aI0I3KwenOSJfKwe3PlrfUkTrt4JdMz1GaKf1MUI7jQ9kn6D3SWSfIPdJb82i/M+0uKT8XudxBJ/XeTzCN6HWvVUHpIYFa7Uuz2vdW3VAalj8Uh+1HiPveCjW3rHW2Kj7Ho2fURreq1Y9GHkfJ8Wumw5RdYuo2b330zV43KlQoDg9tOvl3Pp2j0LLX52Dptc8zjzSOZx/TR7c+XrrOYfW2WjLd/2cO9dx45I6cmut3Ny45V3c+r8YtUf+AekfJKSQJAAA
   </data>
  </layer>
- <layer name="random" width="24" height="60">
+ <layer name="random" width="39" height="60">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3RQQqAMAwEwKKI2v9/UPAh4sFLwbRQRQ8zsLdmA01KwFv29T5Drs9vwfyZyNTQPza8+ap/zvU/6um/dkS36O0v95RZHuoHAAAA+KsDb8HJ5YAWAAA=
+   H4sIAAAAAAAAAO3SQQqAIBBA0Sii8v4XDDpIuHATpG5Ei/dgdg58GKcJgC+5jveZQ3n/zOzHaWWtaFsq3rQwctsWynft1RbFvtzf69mWpMbn7AO0AQAAAAAAwB/da+BrtZAkAAA=
   </data>
  </layer>
- <layer name="WalkBehind" width="24" height="60">
+ <layer name="WalkBehind" width="39" height="60">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQlPoAAAAAAA4G/05LgQgBYAAA==
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQlPoAAAAAAAAAAAAD4GyxnY+pAkAAA=
   </data>
  </layer>
 </map>

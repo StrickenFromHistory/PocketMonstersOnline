@@ -2,7 +2,7 @@
 Swimmer Richard
 right
 199
-10
+25
 9
 Tentacool,30,Shellder,30
 2
@@ -16,7 +16,7 @@ false
 Swimmer Reece
 left
 199
-15
+30
 10
 Goldeen,29,Horsea,29,Staryu,29
 3
@@ -30,7 +30,7 @@ false
 Swimmer Tony
 right
 200
-12
+27
 17
 Horsea,30,Horsea,30
 2
@@ -44,7 +44,7 @@ false
 Swimmer David
 left
 200
-16
+31
 23
 Goldeen,29,Shellder,29,Seaking,29
 3
@@ -58,7 +58,7 @@ false
 Swimmer Douglas
 right
 200
-8
+23
 25
 Horsea,27,Tentacool,27,Tentacool,27,Goldeen,27
 4
@@ -72,7 +72,7 @@ false
 Swimmer Matthew
 left
 200
-17
+32
 29
 Poliwag,30,Poliwhirl,30
 2
@@ -86,7 +86,7 @@ false
 Swimmer Connie
 down
 197
-12
+27
 48
 Staryu,29,Staryu,29,Staryu,29
 3
@@ -100,7 +100,7 @@ false
 Swimmer Alice
 right
 197
-14
+29
 47
 Goldeen,30,Seaking,30
 2
@@ -114,7 +114,7 @@ false
 Swimmer Anya
 left
 197
-9
+24
 47
 Poliwag,27,Goldeen,27,Seaking,27,Goldeen,27,Poliwag,27
 5
@@ -128,7 +128,7 @@ false
 Swimmer Axle
 up
 200
-6
+21
 46
 Tentacool,27,Tentacool,27,Tentacruel,27,Staryu,27,Horsea,27
 5
@@ -142,7 +142,7 @@ false
 Swimmer Luc
 down
 200
-9
+24
 41
 Goldeen,30
 1
@@ -156,7 +156,7 @@ false
 Swimmer Lia
 down
 197
-8
+23
 41
 Seaking,30
 1
@@ -170,7 +170,7 @@ false
 NULL
 down
 0
-13
+28
 12
 NULL
 0

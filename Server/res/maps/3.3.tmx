@@ -23,7 +23,7 @@
  <tileset firstgid="6145" source="normal15.tsx"/>
  <layer name="Layer 4" width="24" height="60">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3UMQqAMAyF4dCu9v6HcfYWruIhiqDSpdaaNmk23wdBh/gjFSR6WicSufdjIDpCus/na99KrSXpL/49lv2WVt9lw6ntuI7+qDnw/e06z92nq0Zs9Edpzqfne4z0JXr7knfW9LXKlmX7z/3yP8yNxXMAAAAAAAAAAJwTHFHzRIAWAAA=
+   H4sIAAAAAAAAAO3UQQqAIBBA0cG2ef/DtO4WbaNDRFDhxqzGHN31Hwy1sI9YJHI19VLkXL96kc2H+3je1rfy1Crpj919WvZzcn0XjeZpjfvQrzV4vT8f57l04WqxZvq1LOfz5X3U9DXW77Nkz5a+Vdpq2f5zP/0Pa9PiOQAAAAAAAM0OLuUJaYAWAAA=
   </data>
  </layer>
  <layer name="Walkable" width="24" height="60">
