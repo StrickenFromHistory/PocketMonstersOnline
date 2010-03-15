@@ -1,3 +1,11 @@
+15,17,Route 13
+15,16,Route 12
+15,15,Route 12
+14,17,Route 14
+13,17,Route 15
+12,18,Route 19
+12,17,Fuchsia City
+11,17,Route 18
 12,-2,Celadon City
 8,0,Route 12
 8,-2,Lavender Town
@@ -7,7 +15,7 @@
 7,-2,Route 8
 7,-4,Route 9
 7,-5,Route 25
-6,0,Vermillion City
+6,0,Vermilion City
 6,-1,Route 6
 6,-2,Saffron City
 6,-3,Route 5
@@ -16,6 +24,7 @@
 5,-2,Route 7
 5,-4,Route 4
 4,-3,Route 3
+3,3,Cinnabar Island
 3,2,Route 21
 3,1,Pallet Town
 3,0,Route 1
@@ -79,9 +88,12 @@
 -32,-40,Pokemon Center
 -33,-34,Pokemon Center
 -33,-38,Pokemon Center
+-44,-31,Pokemon Center
+-44,-39,Pokemon Center
 -45,-31,Pokemon Center
 -46,-30,Pokemon Center
 -46,-31,Pokemon Center
+-47,-30,Pokemon Center
 -47,-31,Pokemon Center
 -48,-30,Pokemon Center
 -48,-31,Pokemon Center
@@ -98,8 +110,10 @@
 -38,-38,Gym
 -45,-45,Gym
 -46,-46,Gym
+-47,-19,Gym
 -47,-25,Gym
 -48,-22,Gym
+-48,-25,Gym
 -49,-24,Gym
 -49,-28,Gym
 -49,-37,Gym
