@@ -145,7 +145,7 @@ down
 15
 11
 Alakazam,41,Mr.Mime,41,Hypno,41,Espeon,41,Exeggutor,41,Slowking,41
-1
+6
 5
 16,17,18,19
 false
