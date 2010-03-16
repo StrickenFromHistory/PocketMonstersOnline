@@ -1,3 +1,15 @@
+[trade]
+Cara
+down
+132
+5
+4
+Pidgey
+1
+NULL
+Aipom
+5
+[/trade]
 [warp]
 5
 8
