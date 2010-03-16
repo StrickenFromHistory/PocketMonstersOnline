@@ -108,6 +108,7 @@ public class GameClient extends BasicGame {
 	
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	private Image[] m_spriteImageArray = new Image[240]; /* WARNING: Replace with actual number of sprites */
+	protected boolean m_chatServerIsActive;
 	/**
 	 * Load options
 	 */
@@ -817,19 +818,23 @@ public class GameClient extends BasicGame {
 				try {
 					if(s.getSession() != null && s.getSession().isConnected()) {
 						m_packetGen.setChatSession(s.getSession());
+						m_chatServerIsActive = true;
 					} else {
-						messageDialog("Chat has been disabled.\n" +
-								"Could not connect to chat server.", getDisplay());
+//						messageDialog("Chat has been disabled.\n" +
+//								"Could not connect to chat server.", getDisplay());
+						m_chatServerIsActive = false;
 						m_packetGen.setChatSession(null);
 					}
 				}catch(RuntimeIoException e){ 
-					messageDialog("Chat has been disabled.\n" +
-							"Could not connect to chat server.", getDisplay());
+//					messageDialog("Chat has been disabled.\n" +
+//							"Could not connect to chat server.", getDisplay());
+					m_chatServerIsActive = false;
 					m_packetGen.setChatSession(null);
 				}catch (Exception e) {
 					e.printStackTrace();
-					messageDialog("Chat has been disabled.\n" +
-							"Could not connect to chat server.", getDisplay());
+//					messageDialog("Chat has been disabled.\n" +
+//							"Could not connect to chat server.", getDisplay());
+					m_chatServerIsActive = false;
 					m_packetGen.setChatSession(null);
 				}
 			}

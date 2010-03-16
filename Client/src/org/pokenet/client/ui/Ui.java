@@ -221,23 +221,24 @@ public class Ui extends Frame {
 			talkToNPC(result);
 			break;
 		//TODO: erase if no longer necessary
-		/*case 'l':
+		case 'l':
 			//Local Chat
 			//Local Chat
 			if(m.substring(1).toLowerCase().contains(GameClient.getInstance().getOurPlayer().getUsername().toLowerCase())&&!m.substring(1).contains("<"+GameClient.getInstance().getOurPlayer().getUsername()+">"))
-				m_chat.addChatLine("Local","!"+m.substring(1));
+				m_chat.addChatLine(0,"!"+m.substring(1));
 			else
-				m_chat.addChatLine("Local", m.substring(1));
+				m_chat.addChatLine(0, m.substring(1));
 			break;
 		case 'p':
 			//Private Chat
 			String [] details = m.substring(1).split(",");
-			m_chat.addChatLine(details[0], "<" + details[0] + "> " + details[1]);
+			m_chat.addChat(details[0], true);
+			m_chat.addWhisperLine(details[0], details[1]);
 			break;
 		case 's':
 			//Server Announcement
 			m_chat.addSystemMessage(m.substring(1));
-			break;*/
+			break;
 		}
 	}
 	
