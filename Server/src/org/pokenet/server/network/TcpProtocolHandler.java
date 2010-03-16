@@ -402,7 +402,9 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 							//Announce message to server
 							if(p.getAdminLevel() == 2) {
 								//TODO: add code?
-								//String mes = message.substring(3);
+								  String mes = message.substring(3);
+                                  GameServer.getServiceManager().getNetworkService().getChatManager().
+                                  queueLocalChatMessage("<SERVER> " + mes, p.getMapX(), p.getMapY(), p.getLanguage());
 							}
 							break;
 						}
@@ -493,7 +495,22 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				break;
 			case 'C':
 				//Chat/Interact
-				switch(message.charAt(1)) {
+                switch(message.charAt(1)) {
+                case 'l':
+                        //Local chat
+                        String mes = message.substring(2);
+                        if(!p.isMuted())
+                                GameServer.getServiceManager().getNetworkService().getChatManager().
+                                queueLocalChatMessage("<" + p.getName() + "> " + mes, p.getMapX(), p.getMapY(), p.getLanguage());
+                        break;
+                case 'p':
+                        //Private chat
+                        details = message.substring(2).split(",");
+                        if(m_players.containsKey(details[0])) {
+                                GameServer.getServiceManager().getNetworkService().getChatManager().
+                                queuePrivateMessage(details[1], m_players.get(details[0]).getTcpSession(), p.getName());
+                        }
+                        break;
 				case 't':
 					//Start talking
 					if(!p.isTalking() && !p.isBattling())

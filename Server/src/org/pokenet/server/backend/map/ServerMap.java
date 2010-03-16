@@ -11,6 +11,7 @@ import org.pokenet.server.backend.entity.Char;
 import org.pokenet.server.backend.entity.HMObject;
 import org.pokenet.server.backend.entity.NonPlayerChar;
 import org.pokenet.server.backend.entity.PlayerChar;
+import org.pokenet.server.backend.entity.PlayerChar.Language;
 import org.pokenet.server.backend.entity.Positionable.Direction;
 import org.pokenet.server.battle.DataService;
 import org.pokenet.server.battle.Pokemon;
@@ -18,7 +19,9 @@ import org.pokenet.server.battle.impl.NpcBattleLauncher;
 import org.pokenet.server.feature.TimeService;
 import org.pokenet.server.feature.TimeService.Weather;
 import org.pokenet.server.network.TcpProtocolHandler;
+import org.pokenet.server.network.message.ChatMessage;
 import org.pokenet.server.network.message.PokenetMessage;
+import org.pokenet.server.network.message.ChatMessage.ChatMessageType;
 
 import tiled.core.Map;
 import tiled.core.TileLayer;
@@ -278,6 +281,24 @@ public class ServerMap {
 			}
 		}
 	}
+	
+	/**
+     * Sends a chat message to everyone of the same language
+     * @param message
+     * @param l
+     */
+    public void sendChatMessage(String message, Language l) {
+            synchronized(m_players) {
+                    Collection<PlayerChar> list = m_players.values();
+                    for(PlayerChar p: list) {
+                            if(p.getLanguage() == l) {
+                                    TcpProtocolHandler.writeMessage(
+                                                    p.getTcpSession(),
+                                                    new ChatMessage(ChatMessageType.LOCAL, message));
+                            }
+                    }
+            }
+    }
 	
 	/**
 	 * Returns the pvp type of the map
