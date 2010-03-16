@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="36" height="34" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="dayPokemonChances" value="Raticate,30;Koffing,15;Grimer,15;Rattata,15;Growlithe,8;Vulpix,7;Weezing,3;Muk,2;Ponyta,5;"/>
+  <property name="dayPokemonLevels" value="40-40;35-35;35-35;32-34;35-35;35-35;40-42;40-42;32-34;"/>
+  <property name="fishPokemonChances" value=""/>
+  <property name="fishPokemonLevels" value=""/>
+  <property name="nightPokemonChances" value="Raticate,30;Koffing,15;Grimer,15;Rattata,15;Growlithe,8;Vulpix,7;Weezing,3;Muk,2;Ponyta,5;"/>
+  <property name="nightPokemonLevels" value="40-40;35-35;35-35;32-34;35-35;35-35;40-42;40-42;32-34;"/>
+  <property name="waterPokemonChances" value=""/>
+  <property name="waterPokemonLevels" value=""/>
+  <property name="wildProbability" value="10"/>
+  <property name="xOffsetModifier" value="0"/>
+  <property name="yOffsetModifier" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="normal1.tsx"/>
+ <tileset firstgid="1025" source="normal2.tsx"/>
+ <tileset firstgid="2049" source="normal3.tsx"/>
+ <tileset firstgid="3073" source="normal9.tsx"/>
+ <tileset firstgid="4097" source="normal8.tsx"/>
+ <tileset firstgid="5121" source="normal7.tsx"/>
+ <layer name="Walkable" width="36" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3OAQ0AAAgDoEewgP1rGkM3IQEJAAAAcFHX9gB+GJ5gmRUgEwAA
+  </data>
+ </layer>
+ <layer name="Grass" width="36" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAOWX0RHDIAiGWQAHyihklKzVbtLu0/QarsQSoxYjbbz7X4LKJ4hcAAAG9CEemo0W9eAhzNdQMLd0DY+x8Byl81NrLgHgGtbx6cUzzRy3WXcnPFv3p2b/X+fJUS0P4Wf9bNliu4f4pBjlt3/J19l4evjWYuCVh/Cl5/s9hfUcwrremNIez7iwcG+TTMwYc7aMD9u4t7XwX8MTx+ToOxXnS+Owype3fip9EOp9w6re4701nyXxsTy7Rb7kWXLUmufb+3M2HvkP4oFHvtMteQjfdb6XL+u+ZXF/LJnYh9azc3ksldOze9SXjHnM5LXePY0HQPo1jiATAAA=
+  </data>
+ </layer>
+ <layer name="Collisions" width="36" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAANWXQXLCMAxFnTUbFgzLkmt0AffgKBwlRwAWrDkC5QQ5SnbE09FUiG9Zctym/BnPkGArT46/5TQhhM+1vR0cfb1jmvDd9mt76xx9vWOIh9Sufn5vVs/36TrGzvWV92hMTpLHImtszxhit/K0Bbl6eEja+5oaG425OHlIx0UIp7GdF6//XYEvuJBvriCHDci9hKcHvuBCvumVHJDfpW4jx9fY7oBnMLwvmfug5KD5fW55eSzrfYrefX6iDgV+z6kV+6HHv11BPUX1FSlVTzlzjXqKYmg8HpXsz9YYiCfnob/mIaW4LDy5nFD9yPGkVGN+eP0gafXCw9OB2BSfe5KL1w9Sab2Qc92B2BQ/5yep1P6jtR7wRMkaGtdQK864Vh7P3iHru+VZWh+eR436JZ+FvOWdn5o8pX2i5uaRa1PjQedbJL6+U+fcFI9cm975QYzDBB6uj2X981jq3J3j2Y4sOweP9d1J0fcW4vF879TWb/mrdG/hfbS5ntvvUs0/bA8TsQ8KIBMAAA==
+  </data>
+ </layer>
+ <layer name="random" width="36" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoD54z4WgYWxKwCokM1biMQ+kDptafm4EDWNTAk4h2XESj3tA6rCp1edG0PpUcM8oGLrAgHPg7NbHYvdAumcUjIJRMApGwSigJaBGm5SaAF+bdNUAuBVfm/TUIAu7UTD8wF1xBoZ74gPtCgT4C3TLPxq55wI0P422u0fBKBh8AABNuiwuIBMAAA==
+  </data>
+ </layer>
+ <layer name="WalkBehind" width="36" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3XMREAAAjEsPe/YBkZHJAo6NoEdqjpAAAAgKP8Ft81IVKXlCATAAA=
+  </data>
+ </layer>
+</map>
