@@ -108,7 +108,7 @@ public class GameClient extends BasicGame {
 	
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	private Image[] m_spriteImageArray = new Image[240]; /* WARNING: Replace with actual number of sprites */
-	protected boolean m_chatServerIsActive;
+	public boolean m_chatServerIsActive;
 	/**
 	 * Load options
 	 */
