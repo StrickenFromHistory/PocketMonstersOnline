@@ -1,6 +1,8 @@
 package org.pokenet.server.backend.entity;
 
 import org.pokenet.server.battle.Pokemon;
+import org.pokenet.server.network.TcpProtocolHandler;
+import org.pokenet.server.network.message.TradeNpcSpeechMessage;
 
 /**
  * Represents an NPC that wants to trade Pokemon
@@ -10,6 +12,7 @@ import org.pokenet.server.battle.Pokemon;
 public class TradeChar extends NonPlayerChar implements Tradeable {
 	private Trade m_trade = null;
 	private boolean m_tradeAccepted = false;
+	private PlayerChar m_player;
 	/*
 	 * Requested Pokemon data
 	 */
@@ -51,14 +54,19 @@ public class TradeChar extends NonPlayerChar implements Tradeable {
 	
 	@Override
 	public void talkToPlayer(PlayerChar p) {
+		m_player = p;
 		if(m_trade == null) {
 			/* Can trade */
 			m_trade = new Trade(this, p);
 			p.setTrade(m_trade);
 			m_trade.setOffer(this, 0, 0);
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(),
+					new TradeNpcSpeechMessage("I'm looking for a " + m_requestedSpecies +
+							". Want to trade one for my " + m_party[0].getName() + "?"));
 		} else {
 			/* Can't trade */
-			//TODO: Send message to player saying they cannot trade right now
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(),
+					new TradeNpcSpeechMessage("I can't trade with you right now"));
 		}
 	}
 
@@ -75,6 +83,8 @@ public class TradeChar extends NonPlayerChar implements Tradeable {
 	public void finishTrading() {
 		m_trade = null;
 		m_tradeAccepted = false;
+		TcpProtocolHandler.writeMessage(m_player.getTcpSession(),
+				new TradeNpcSpeechMessage("Thanks! It's just what I was looking for!"));
 	}
 
 	public int getMoney() {
@@ -97,6 +107,11 @@ public class TradeChar extends NonPlayerChar implements Tradeable {
 		if(o[0].getInformation().equalsIgnoreCase(m_requestedSpecies)) {
 			//This is the Pokemon the TradeChar wanted
 			setTradeAccepted(true);
+		} else {
+			//This is the wrong Pokemon
+			TcpProtocolHandler.writeMessage(m_player.getTcpSession(),
+					new TradeNpcSpeechMessage("This is not what I'm looking for!\n" +
+					"Come back when you find the right Pokemon!"));
 		}
 	}
 

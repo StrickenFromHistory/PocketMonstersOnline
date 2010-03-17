@@ -193,7 +193,11 @@ public class Trade implements Runnable{
 	public void checkForExecution() {
 		Iterator<Tradeable> i = m_offers.keySet().iterator();
 		if(i.next().acceptedTradeOffer() && i.next().acceptedTradeOffer()) {
-			executeTrade();
+			try{
+				executeTrade();
+			} catch (Exception e){
+				e.printStackTrace();
+			}
 		}
 	}
 	

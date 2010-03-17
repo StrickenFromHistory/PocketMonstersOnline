@@ -220,6 +220,10 @@ public class Ui extends Frame {
 			}
 			talkToNPC(result);
 			break;
+		case 't':
+			//Trade npc speech
+			talkToNPC(m.substring(1));
+			break;
 		// The following is for in case the chat server is down...
 		case 'l':
 			//Local Chat
