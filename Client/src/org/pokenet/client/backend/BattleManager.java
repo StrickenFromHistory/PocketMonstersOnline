@@ -30,6 +30,7 @@ public class BattleManager {
 	private Map<Integer, String> m_ourStatuses = new HashMap<Integer, String>();
 	private static BattleManager m_instance;
 	private static boolean m_isBattling = false;
+	private String m_curTrack;
 	
 	/**
 	 * Default Constructor
@@ -125,6 +126,8 @@ public class BattleManager {
 		updateMoves();
 		updatePokePane();
 		m_timeLine.startBattle();
+        m_curTrack = GameClient.getSoundPlayer().m_trackName;
+        System.out.println("Before Battle Music Name:" + m_curTrack);
 		GameClient.getInstance().getDisplay().add(m_battle);
 		GameClient.changeTrack("pvnpc");
 	}
@@ -141,8 +144,10 @@ public class BattleManager {
 			GameClient.getInstance().getDisplay().remove(m_battle.m_bag);
 		GameClient.getInstance().getDisplay().remove(m_battle);
 		while (GameClient.getInstance().getDisplay().containsChild(m_battle));
-		GameClient.getSoundPlayer().setTrackByLocation(GameClient.getInstance().getMapMatrix()
-				.getCurrentMap().getName());
+		GameClient.getSoundPlayer().setTrackByLocation(GameClient.getInstance().getMapMatrix().getCurrentMap().getName());
+		if (GameClient.getSoundPlayer().m_trackName == "pvnpc") {
+			GameClient.getSoundPlayer().setTrack(m_curTrack);
+		}
 	}
 
 	/**

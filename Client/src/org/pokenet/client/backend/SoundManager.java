@@ -138,7 +138,7 @@ public class SoundManager extends Thread{
 	 * @param key
 	 */
 	public void setTrack(String key){
-		if (key != m_trackName){
+		if (key != m_trackName && key != null){
 			m_trackName = key;
 			m_trackChanged = true;
 		}
@@ -154,7 +154,7 @@ public class SoundManager extends Thread{
 		System.out.println(key.substring(0,5));
 		if (key.substring(0, 5).equalsIgnoreCase("Route"))
 			key = "Route";
-		if (m_locations.get(key) != m_trackName){
+		if (m_locations.get(key) != m_trackName && m_locations.get(key) != null){
 			m_trackName = m_locations.get(key);
 			m_trackChanged = true;
 		}

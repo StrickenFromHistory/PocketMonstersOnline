@@ -133,7 +133,7 @@ public class GameClient extends BasicGame {
 			m_soundPlayer = new SoundManager();
 			m_soundPlayer.mute(Boolean.parseBoolean(options.get("soundMuted")));
 			m_soundPlayer.start();
-			m_soundPlayer.setTrack("introandgym");
+			//m_soundPlayer.setTrack("introandgym");
 			m_disableMaps = Boolean.parseBoolean(options.get("disableMaps"));
 		} catch (Exception e) { 
 			e.printStackTrace();
@@ -142,7 +142,7 @@ public class GameClient extends BasicGame {
 			m_soundPlayer = new SoundManager();
 			m_soundPlayer.mute(false);
 			m_soundPlayer.start();
-			m_soundPlayer.setTrack("introandgym");
+			//m_soundPlayer.setTrack("introandgym");
 		}
 	}
 
@@ -228,7 +228,6 @@ public class GameClient extends BasicGame {
 		m_animator = new Animator(m_mapMatrix);
 
 		gc.getInput().enableKeyRepeat(50, 300);
-		
 //		LoadingList.setDeferredLoading(false);
 
 	}
@@ -289,6 +288,7 @@ public class GameClient extends BasicGame {
 		} else {
 			if (!m_started) {
 				m_started = true;
+				m_soundPlayer.setTrack("introandgym");
 //				music.loop();
 //				sound.play();
 				if(m_ui == null){
