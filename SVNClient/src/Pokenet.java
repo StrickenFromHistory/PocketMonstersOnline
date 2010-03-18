@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
 
@@ -24,6 +25,7 @@ public class Pokenet extends JFrame  implements Runnable {
 	public static final String FOLDER_NAME = "pokenet-release";
 	
 	JTextArea outText;
+	JScrollPane scrollPane;
 	
 	public Pokenet() {
 		super("PokeNet Game Launcher and Updater");
@@ -42,8 +44,10 @@ public class Pokenet extends JFrame  implements Runnable {
 		outText = new JTextArea();
 		outText.setEditable(false);
 		outText.append("Console Information:\n");
+		
+		scrollPane = new JScrollPane(outText);
 
-
+		
 		ImageIcon m_logo;
 		JLabel l = null;
 		System.out.println("5...");
@@ -58,7 +62,8 @@ public class Pokenet extends JFrame  implements Runnable {
 
 		
 		l.setBounds(0,0,740,190);
-		outText.setBounds(0, 190, 740, 450-190);
+		outText.setBounds(0, 190, 740, 440-190);
+		scrollPane.setBounds(0,190,740,450-190);
 		System.out.println("3...");
 
 //		Insets insets = this.getInsets();
@@ -71,7 +76,7 @@ public class Pokenet extends JFrame  implements Runnable {
 //		System.out.println("2...");
 
         this.add(l);
-		this.add(outText);
+		this.add(scrollPane);
 		System.out.println("Starting...");
 		this.setVisible(true);
 
@@ -140,7 +145,7 @@ public class Pokenet extends JFrame  implements Runnable {
 	
 	public void runPokenet() throws Exception {
 		Process p = Runtime.getRuntime().exec("java -Dres.path="+FOLDER_NAME+"/"
-				+ " -Djava.library.path=client/lib/native " +
+				+ " -Djava.library.path="+FOLDER_NAME+"/lib/native " +
 		"-Xmx512m -Xms512m -jar ./"+FOLDER_NAME+"/Pokenet.jar");
 		StreamReader r1 = new StreamReader(p.getInputStream(), "OUTPUT");
 		StreamReader r2 = new StreamReader(p.getErrorStream(), "ERROR");
