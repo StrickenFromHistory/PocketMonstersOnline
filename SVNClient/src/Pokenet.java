@@ -1,9 +1,14 @@
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -35,7 +40,17 @@ public class Pokenet extends JFrame  implements Runnable {
 		outText.append("Console Information...\n");
 		this.setVisible(true);
 		
+		
+		try {
+			ImageIcon m_logo = new ImageIcon(new URL("http://pokedev.org/forums/Themes/energyfinal/images/logo.gif"));
+			this.add(new JLabel(m_logo), BorderLayout.CENTER);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
 		new Thread(this).start();
+		
+		
 
 	}
 	
@@ -100,7 +115,7 @@ public class Pokenet extends JFrame  implements Runnable {
 	public void runPokenet() throws Exception {
 		Process p = Runtime.getRuntime().exec("java -Dres.path="+FOLDER_NAME+"/"
 				+ " -Djava.library.path=client/lib/native " +
-		"-Xmx512m -Xms512m -jar ./"+FOLDER_NAME+"/client.jar");
+		"-Xmx512m -Xms512m -jar ./"+FOLDER_NAME+"/Pokenet.jar");
 		StreamReader r1 = new StreamReader(p.getInputStream(), "OUTPUT");
 		StreamReader r2 = new StreamReader(p.getErrorStream(), "ERROR");
 		new Thread(r1).start();
