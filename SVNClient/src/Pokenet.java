@@ -53,47 +53,36 @@ public class Pokenet extends JFrame  implements Runnable {
 		 * make sure they have SVN...
 		 * if not, install it
 		 */
-		
+		Process svn;
+		Thread t = null;
+		String command;
 
 		boolean exists = (new File(FOLDER_NAME)).exists();
 		if(!exists) {
-			System.out.println("Installing...");
+			this.outText.append("Installing...\n Please be patient while PokeNet is downloaded...\n");
 
-			/*
-			 * first time
-			 *  svn co 
-			 */
-			try {
-				Process svn = Runtime.getRuntime().exec("svn co " + SVN_URL);
-				StreamReader sr = new StreamReader(svn.getInputStream(), "", outText);
-				Thread t = new Thread(sr);
-				t.start();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-						
+			command = "svn co " + SVN_URL;
 		} else {
-			System.out.println("Updating...");
-
-			/*
-			 * other
-			 * svn up
-			 */
-			try {
-				Process svn = Runtime.getRuntime().exec("svn up");
-				StreamReader sr = new StreamReader(svn.getInputStream(), "");
-				new Thread(sr).start();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-				
+			this.outText.append("Updating...\n");
+			
+			command = "svn up";
 		}
 		
+		try {
+			svn = Runtime.getRuntime().exec(command);
+			StreamReader sr = new StreamReader(svn.getInputStream(), "", outText);
+			t = new Thread(sr);
+			t.start();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 		
+		while (t.isAlive()) {
+			// TODO: progress
+			
+		}
 		
-		System.out.println("Launching...");
+		this.outText.append("Launching...\n");
 
 		/* Launch the game */
 		try {
