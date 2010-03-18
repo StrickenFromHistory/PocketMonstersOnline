@@ -12,7 +12,8 @@ import javax.swing.JTextArea;
 
 public class Pokenet extends JFrame  implements Runnable {
 	public static final String SVN_URL = "http://pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
-
+	public static final String FOLDER_NAME = "pokenet-release";
+	
 	JTextArea outText;
 	
 	public Pokenet() {
@@ -33,6 +34,9 @@ public class Pokenet extends JFrame  implements Runnable {
 		this.add(outText);
 		outText.append("Console Information...\n");
 		this.setVisible(true);
+		
+		new Thread(this).start();
+
 	}
 	
 	/**
@@ -50,30 +54,34 @@ public class Pokenet extends JFrame  implements Runnable {
 		 * if not, install it
 		 */
 		
-		System.out.println("Updating...");
 
-		boolean exists = (new File(".client/")).exists();
-		if(exists) {
+		boolean exists = (new File(FOLDER_NAME)).exists();
+		if(!exists) {
+			System.out.println("Installing...");
+
 			/*
 			 * first time
 			 *  svn co 
 			 */
 			try {
-				Process svn = Runtime.getRuntime().exec("svn co " + SVN_URL, null, new File("./client"));
+				Process svn = Runtime.getRuntime().exec("svn co " + SVN_URL);
 				StreamReader sr = new StreamReader(svn.getInputStream(), "", outText);
-				new Thread(sr).start();
+				Thread t = new Thread(sr);
+				t.start();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 						
 		} else {
+			System.out.println("Updating...");
+
 			/*
 			 * other
 			 * svn up
 			 */
 			try {
-				Process svn = Runtime.getRuntime().exec("svn up", null, new File("./client"));
+				Process svn = Runtime.getRuntime().exec("svn up");
 				StreamReader sr = new StreamReader(svn.getInputStream(), "");
 				new Thread(sr).start();
 			} catch (IOException e1) {
@@ -101,9 +109,9 @@ public class Pokenet extends JFrame  implements Runnable {
 	}
 	
 	public void runPokenet() throws Exception {
-		Process p = Runtime.getRuntime().exec("java -Dres.path=client/"
+		Process p = Runtime.getRuntime().exec("java -Dres.path="+FOLDER_NAME+"/"
 				+ " -Djava.library.path=client/lib/native " +
-		"-Xmx512m -Xms512m -jar ./client/client.jar");
+		"-Xmx512m -Xms512m -jar ./"+FOLDER_NAME+"/client.jar");
 		StreamReader r1 = new StreamReader(p.getInputStream(), "OUTPUT");
 		StreamReader r2 = new StreamReader(p.getErrorStream(), "ERROR");
 		new Thread(r1).start();
