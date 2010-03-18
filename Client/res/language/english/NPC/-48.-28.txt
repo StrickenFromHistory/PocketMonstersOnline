@@ -1,0 +1,27 @@
+It's a list of winning trainers.
+From now on you will encounter two paths with a sign in front of them.
+One path leads to a trainer and the other to the next sign.
+The sign will ask you a question and provide two possible answers.
+It will also tell you which path stands for which answer.
+Choose the right path/answer and you can proceed to the next sign.
+Pokemon Quiz! There are two poison-type gyms in total?
+Yes: left, No: right
+Pokemon Quiz! Magnemite evolves two times in total?
+Pokemon Quiz! Rock-type moves are not effective against rock-type Pokemon?
+Pokemon Quiz! Quiet nature decreases defense?
+Pokemon Quiz! Swim is a HM move?
+I was a thief, but I went straight as a trainer.
+Yo! Champ in the making!
+The hotheaded Blaine is a fire Pokemon pro.
+Douse his spirits with water!
+You'd better take some Burn Heals, too.
+Do you know how hot Pokemon fire breath can get?
+I've studied Pokemon thoroughly. You can't win!
+I like using fire-type Pokemon. I just do.
+I know why Blaine became a trainer.
+I've been to many gyms, but this one best suits my style.
+Fire is weak against H2O.
+Hah! I am Blaine, the red-hot leader of Cinnabar gym!
+My fiery Pokemon are all rough and ready with intense heat!
+They incinerate all challengers!
+Hah! You better have Burn Heal!
