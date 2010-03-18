@@ -1,16 +1,20 @@
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Insets;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.SpringLayout;
 
 
 
@@ -23,8 +27,7 @@ public class Pokenet extends JFrame  implements Runnable {
 	
 	public Pokenet() {
 		super("PokeNet Game Launcher and Updater");
-		this.setSize(500, 300);
-		this.setResizable(false);
+		
 		
 		/* Center the updater */
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -32,25 +35,47 @@ public class Pokenet extends JFrame  implements Runnable {
 		int y = (int) ((d.getHeight() / 2) - this.getHeight() / 2);
 		this.setLocation(x, y);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		this.setLayout(null);
+		this.setSize(740, 450);
+		this.setResizable(false);
 		
 		outText = new JTextArea();
 		outText.setEditable(false);
-		this.add(outText);
-		outText.append("Console Information...\n");
-		this.setVisible(true);
-		
-		
+		outText.append("Console Information:\n");
+
+
+		ImageIcon m_logo;
+		JLabel l = null;
+		System.out.println("5...");
+
 		try {
-			ImageIcon m_logo = new ImageIcon(new URL("http://pokedev.org/forums/Themes/energyfinal/images/logo.gif"));
-			this.add(new JLabel(m_logo), BorderLayout.CENTER);
+			m_logo = new ImageIcon(new URL("http://pokedev.org/header.png"));
+			l = new JLabel(m_logo);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
+		System.out.println("4...");
+
 		
+		l.setBounds(0,0,740,190);
+		outText.setBounds(0, 190, 740, 450-190);
+		System.out.println("3...");
+
+//		Insets insets = this.getInsets();
+//        Dimension size = l.getPreferredSize();
+//        l.setBounds(insets.left,insets.top,
+//                     size.width, size.height);
+//        size = outText.getPreferredSize();
+//        outText.setBounds(insets.left, 190 + insets.top,
+//                     size.width, size.height - 190);
+//		System.out.println("2...");
+
+        this.add(l);
+		this.add(outText);
+		System.out.println("Starting...");
+		this.setVisible(true);
+
 		new Thread(this).start();
-		
-		
 
 	}
 	
@@ -75,10 +100,11 @@ public class Pokenet extends JFrame  implements Runnable {
 		boolean exists = (new File(FOLDER_NAME)).exists();
 		if(!exists) {
 			this.outText.append("Installing...\n Please be patient while PokeNet is downloaded...\n");
-
+			System.out.println("Installing...");
 			command = "svn co " + SVN_URL;
 		} else {
 			this.outText.append("Updating...\n");
+			System.out.println("Updating...\n");
 			
 			command = "svn up";
 		}
