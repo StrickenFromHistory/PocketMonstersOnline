@@ -42,7 +42,8 @@ public class Pokenet extends JFrame {
 	
 	public Pokenet() {
 		super("PokeNet Game Launcher and Updater");
-		
+		this.setSize(740, 470);
+
 		/* Center the updater */
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		int x = (int) ((d.getWidth() / 2) - this.getWidth() / 2);
@@ -50,7 +51,6 @@ public class Pokenet extends JFrame {
 		this.setLocation(x, y);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
-		this.setSize(740, 470);
 		this.setResizable(false);
 		
 		outText = new JTextArea();
