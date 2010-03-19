@@ -51,6 +51,7 @@ public class Pokenet extends JFrame implements Runnable {
 		outText.append("Console Information:\n");
 		
 		scrollPane = new JScrollPane(outText);
+		scrollPane.setAutoscrolls(true);
 
 		new Thread(this).start();
 		
@@ -102,6 +103,7 @@ public class Pokenet extends JFrame implements Runnable {
 	    				SVNEventAction action = event.getAction();
 	    				if (action == SVNEventAction.ADD || action == SVNEventAction.UPDATE_ADD){
 	    					outText.append("Downloading " + event.getFile().getName() + '\n');
+	    					outText.setCaretPosition(outText.getDocument().getLength());
 	    					System.out.println("Downloading " + event.getFile().getName());
 	    				}
 	    			}
