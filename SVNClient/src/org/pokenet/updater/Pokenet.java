@@ -1,10 +1,16 @@
 package org.pokenet.updater;
+import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,6 +35,7 @@ public class Pokenet extends JFrame {
 	private static final long serialVersionUID = -6147249683774678347L;
 	public static final String SVN_URL = "pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
 	public static final String FOLDER_NAME = "pokenet-release";
+	private String HEADER_IMAGE_URL = "http://pokedev.org/header.png";;
 	
 	JTextArea outText;
 	JScrollPane scrollPane;
@@ -42,8 +49,8 @@ public class Pokenet extends JFrame {
 		int y = (int) ((d.getHeight() / 2) - this.getHeight() / 2);
 		this.setLocation(x, y);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setLayout(null);
-		this.setSize(740, 450);
+		this.setLayout(new BorderLayout());
+		this.setSize(740, 470);
 		this.setResizable(false);
 		
 		outText = new JTextArea();
@@ -52,24 +59,20 @@ public class Pokenet extends JFrame {
 		
 		scrollPane = new JScrollPane(outText);
 		scrollPane.setAutoscrolls(true);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
+		
 		ImageIcon m_logo;
 		JLabel l = null;
 
 		try {
-			m_logo = new ImageIcon(new URL("http://pokedev.org/header.png"));
+			m_logo = new ImageIcon(new URL(HEADER_IMAGE_URL ));
 			l = new JLabel(m_logo);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
-
-		
-		l.setBounds(0,0,740,190);
-		outText.setBounds(0, 190, 740, 440-190);
-		scrollPane.setBounds(0,190,740,450-190);
-
-        this.add(l);
-		this.add(scrollPane);
+		this.add(scrollPane, BorderLayout.CENTER);		
+        this.add(l, BorderLayout.PAGE_START);
 		this.setVisible(true);
 		
 		DAVRepositoryFactory.setup();
@@ -89,20 +92,29 @@ public class Pokenet extends JFrame {
 	    		new SVNEventAdapter(){
 	    			public void handleEvent(SVNEvent event, double progress){
 	    				SVNEventAction action = event.getAction();
-	    				if (action == SVNEventAction.ADD ||
-	    						action == SVNEventAction.UPDATE_ADD){
-	    					outText.append("Downloading " + event.getFile().getName() + '\n');
-	    					outText.setCaretPosition(outText.getDocument().getLength());
-	    					System.out.println("Downloading " + event.getFile().getName());
-	    				} if (action == SVNEventAction.STATUS_COMPLETED ||
-	    						action == SVNEventAction.UPDATE_COMPLETED){
-	    					outText.append("Download completed. Launching client!");
-	    					outText.setCaretPosition(outText.getDocument().getLength());
-	    					System.out.println("Download completed. Launching client!");
-	    				}
+	    				File curFile = event.getFile();
+	    				String curDir = System.getProperty("user.dir");
+	    				
+	    				String path = curFile.getAbsolutePath().substring(curDir.length());
+	    				
+						if (action == SVNEventAction.ADD ||
+								action == SVNEventAction.UPDATE_ADD){
+//		    					outText.append("Downloading " + event.getFile().getName() + '\n');
+								
+								outText.append("Downloading " + path + '\n');
+							
+							outText.setCaretPosition(outText.getDocument().getLength());
+							System.out.println("Downloading " + curFile.getName());
+						} if (action == SVNEventAction.STATUS_COMPLETED ||
+								action == SVNEventAction.UPDATE_COMPLETED){
+							outText.append("Download completed. Launching client!");
+							outText.setCaretPosition(outText.getDocument().getLength());
+							System.out.println("Download completed. Launching client!");
+						}
 	    			}
 	    		}
-	    );
+	    );	    	
+
 	    
 	    /* 
 	     * sets externals not to be ignored during the checkout 
@@ -178,6 +190,7 @@ public class Pokenet extends JFrame {
 	
 	public void runPokenet() throws Exception {
 		String curDir = System.getProperty("user.dir");
+		System.out.println(curDir);
 
 		Process p = Runtime.getRuntime().exec(
 				"java -Dres.path=" + curDir + "/" + FOLDER_NAME + "/"
