@@ -191,11 +191,11 @@ public class Pokenet extends JFrame {
 	public void runPokenet() throws Exception {
 		String curDir = System.getProperty("user.dir");
 		System.out.println(curDir);
-
-		Process p = Runtime.getRuntime().exec(
-				"java -Dres.path=" + curDir + "/" + FOLDER_NAME + "/"
-				+ " -Djava.library.path=" + "/" + FOLDER_NAME + "/lib/native " +
-		"-Xmx512m -Xms512m -jar ./" + curDir + "/" + FOLDER_NAME + "/Pokenet.jar");
+		String libraryPath = "-Djava.library.path=" + curDir + "/" + FOLDER_NAME + "/lib/native";
+		String resPath = "-Dres.path=" + curDir + "/" + FOLDER_NAME + "/";
+		String javaArg = "-Xmx512m -Xms512m -jar " + curDir + "/" + FOLDER_NAME + "/Pokenet.jar";
+		String execComm = "java " + libraryPath + " " + resPath + " " + javaArg;
+		Process p = Runtime.getRuntime().exec(execComm);
 		StreamReader r1 = new StreamReader(p.getInputStream(), "OUTPUT");
 		StreamReader r2 = new StreamReader(p.getErrorStream(), "ERROR");
 		new Thread(r1).start();
