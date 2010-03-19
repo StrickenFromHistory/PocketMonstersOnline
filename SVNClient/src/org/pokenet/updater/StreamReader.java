@@ -1,3 +1,4 @@
+package org.pokenet.updater;
 
 
 import java.io.BufferedReader;
