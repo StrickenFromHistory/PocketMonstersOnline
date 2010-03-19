@@ -16,7 +16,6 @@ import org.tmatesoft.svn.core.SVNDepth;
 import org.tmatesoft.svn.core.SVNException;
 import org.tmatesoft.svn.core.SVNURL;
 import org.tmatesoft.svn.core.internal.io.dav.DAVRepositoryFactory;
-import org.tmatesoft.svn.core.internal.wc.SVNEventFactory;
 import org.tmatesoft.svn.core.wc.ISVNOptions;
 import org.tmatesoft.svn.core.wc.SVNClientManager;
 import org.tmatesoft.svn.core.wc.SVNEvent;
@@ -27,6 +26,7 @@ import org.tmatesoft.svn.core.wc.SVNUpdateClient;
 import org.tmatesoft.svn.core.wc.SVNWCUtil;
 
 public class Pokenet extends JFrame implements Runnable {
+	private static final long serialVersionUID = -6147249683774678347L;
 	public static final String SVN_URL = "pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
 	public static final String FOLDER_NAME = "pokenet-release";
 	
@@ -128,7 +128,6 @@ public class Pokenet extends JFrame implements Runnable {
 		try {
 			url = SVNURL.parseURIDecoded("http://" + SVN_URL);
 		} catch (SVNException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		} 
 	    /* 
@@ -165,7 +164,6 @@ public class Pokenet extends JFrame implements Runnable {
 				updateClient.doUpdate(destPath, revision, SVNDepth.INFINITY, true, true);
 			}
 	    } catch (SVNException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} 
 		
