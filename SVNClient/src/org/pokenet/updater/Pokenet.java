@@ -25,7 +25,7 @@ import org.tmatesoft.svn.core.wc.SVNRevision;
 import org.tmatesoft.svn.core.wc.SVNUpdateClient;
 import org.tmatesoft.svn.core.wc.SVNWCUtil;
 
-public class Pokenet extends JFrame implements Runnable {
+public class Pokenet extends JFrame {
 	private static final long serialVersionUID = -6147249683774678347L;
 	public static final String SVN_URL = "pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
 	public static final String FOLDER_NAME = "pokenet-release";
@@ -53,8 +53,6 @@ public class Pokenet extends JFrame implements Runnable {
 		scrollPane = new JScrollPane(outText);
 		scrollPane.setAutoscrolls(true);
 
-		new Thread(this).start();
-		
 		ImageIcon m_logo;
 		JLabel l = null;
 
@@ -73,17 +71,7 @@ public class Pokenet extends JFrame implements Runnable {
         this.add(l);
 		this.add(scrollPane);
 		this.setVisible(true);
-	}
-	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		new Pokenet();
-	}
-
-	@Override
-	public void run() {
+		
 		DAVRepositoryFactory.setup();
 		ISVNOptions options = SVNWCUtil.createDefaultOptions(true);
 	
@@ -179,15 +167,22 @@ public class Pokenet extends JFrame implements Runnable {
 			JOptionPane.showMessageDialog(null, "An error occured while running the game.");
 			System.exit(0);
 		}
-		
+	}
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		new Pokenet();
 	}
 	
 	public void runPokenet() throws Exception {
 		String curDir = System.getProperty("user.dir");
 
-		Process p = Runtime.getRuntime().exec("java -Dres.path="+ curDir + FOLDER_NAME+"/"
-				+ " -Djava.library.path="+FOLDER_NAME+"/lib/native " +
-		"-Xmx512m -Xms512m -jar ./"+ curDir + FOLDER_NAME+"/Pokenet.jar");
+		Process p = Runtime.getRuntime().exec(
+				"java -Dres.path=" + curDir + "/" + FOLDER_NAME + "/"
+				+ " -Djava.library.path=" + "/" + FOLDER_NAME + "/lib/native " +
+		"-Xmx512m -Xms512m -jar ./" + curDir + "/" + FOLDER_NAME + "/Pokenet.jar");
 		StreamReader r1 = new StreamReader(p.getInputStream(), "OUTPUT");
 		StreamReader r2 = new StreamReader(p.getErrorStream(), "ERROR");
 		new Thread(r1).start();
