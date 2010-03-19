@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import org.tmatesoft.svn.core.SVNDepth;
 import org.tmatesoft.svn.core.SVNException;
 import org.tmatesoft.svn.core.SVNURL;
 import org.tmatesoft.svn.core.internal.io.dav.DAVRepositoryFactory;
@@ -21,16 +22,15 @@ import org.tmatesoft.svn.core.wc.SVNRevision;
 import org.tmatesoft.svn.core.wc.SVNUpdateClient;
 import org.tmatesoft.svn.core.wc.SVNWCUtil;
 
-public class Pokenet extends JFrame  implements Runnable {
+public class Pokenet extends JFrame implements Runnable {
 	public static final String SVN_URL = "pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
 	public static final String FOLDER_NAME = "pokenet-release";
-
+	
 	JTextArea outText;
 	JScrollPane scrollPane;
 	
 	public Pokenet() {
 		super("PokeNet Game Launcher and Updater");
-		
 		
 		/* Center the updater */
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -75,17 +75,11 @@ public class Pokenet extends JFrame  implements Runnable {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Pokenet c = new Pokenet();
+		new Pokenet();
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
-
-		Process svn;
-		Thread t = null;
-//		String command;
-		
 		DAVRepositoryFactory.setup();
 		ISVNOptions options = SVNWCUtil.createDefaultOptions(true);
 	
@@ -123,11 +117,6 @@ public class Pokenet extends JFrame  implements Runnable {
 	    SVNRevision pegRevision = SVNRevision.HEAD; 
 
 	    /* 
-	     * Set whether a checkout is recursive or not 
-	     */ 
-	    boolean isRecursive = true; 
-
-	    /* 
 	     * A local path where a Working Copy will be ckecked out 
 	     */ 
 	    File destPath = new File(FOLDER_NAME); 
@@ -139,15 +128,15 @@ public class Pokenet extends JFrame  implements Runnable {
 			
 			boolean exists = destPath.exists();
 			if(!exists) {
-				this.outText.append("Installing...\n Please be patient while PokeNet is downloaded...\n");
+				outText.append("Installing...\n Please be patient while PokeNet is downloaded...\n");
 				System.out.println("Installing...");
 				updateClient.doCheckout(url, destPath, pegRevision, 
-                        revision, isRecursive);
-
+                        revision, SVNDepth.INFINITY, true);
 			} else {
-				this.outText.append("Updating...\n");
+				ourClientManager.getWCClient().doCleanup(destPath);
+				outText.append("Updating...\n");
 				System.out.println("Updating...\n");
-				updateClient.doUpdate(destPath, revision, isRecursive);
+				updateClient.doUpdate(destPath, revision, SVNDepth.INFINITY, true, true);
 			}
 	    } catch (SVNException e1) {
 			// TODO Auto-generated catch block
@@ -165,10 +154,9 @@ public class Pokenet extends JFrame  implements Runnable {
 //			e1.printStackTrace();
 //		}
 //		
-		while (t.isAlive()) {
+//		while (t.isAlive()) {
 			// TODO: progress
-			
-		}
+//		}
 		
 		this.outText.append("Launching...\n");
 
