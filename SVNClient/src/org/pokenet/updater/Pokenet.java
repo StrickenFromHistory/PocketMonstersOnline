@@ -16,8 +16,12 @@ import org.tmatesoft.svn.core.SVNDepth;
 import org.tmatesoft.svn.core.SVNException;
 import org.tmatesoft.svn.core.SVNURL;
 import org.tmatesoft.svn.core.internal.io.dav.DAVRepositoryFactory;
+import org.tmatesoft.svn.core.internal.wc.SVNEventFactory;
 import org.tmatesoft.svn.core.wc.ISVNOptions;
 import org.tmatesoft.svn.core.wc.SVNClientManager;
+import org.tmatesoft.svn.core.wc.SVNEvent;
+import org.tmatesoft.svn.core.wc.SVNEventAction;
+import org.tmatesoft.svn.core.wc.SVNEventAdapter;
 import org.tmatesoft.svn.core.wc.SVNRevision;
 import org.tmatesoft.svn.core.wc.SVNUpdateClient;
 import org.tmatesoft.svn.core.wc.SVNWCUtil;
@@ -68,7 +72,6 @@ public class Pokenet extends JFrame implements Runnable {
         this.add(l);
 		this.add(scrollPane);
 		this.setVisible(true);
-
 	}
 	
 	/**
@@ -90,6 +93,21 @@ public class Pokenet extends JFrame implements Runnable {
 		SVNClientManager ourClientManager = SVNClientManager.newInstance(options); 
 	    SVNUpdateClient updateClient = ourClientManager.getUpdateClient(); 
 
+	    /*
+	     * Creates the event handler to display information
+	     */
+	    ourClientManager.setEventHandler(
+	    		new SVNEventAdapter(){
+	    			public void handleEvent(SVNEvent event, double progress){
+	    				SVNEventAction action = event.getAction();
+	    				if (action == SVNEventAction.ADD || action == SVNEventAction.UPDATE_ADD){
+	    					outText.append("Downloading " + event.getFile().getName() + '\n');
+	    					System.out.println("Downloading " + event.getFile().getName());
+	    				}
+	    			}
+	    		}
+	    );
+	    
 	    /* 
 	     * sets externals not to be ignored during the checkout 
 	     */ 
@@ -128,7 +146,7 @@ public class Pokenet extends JFrame implements Runnable {
 			
 			boolean exists = destPath.exists();
 			if(!exists) {
-				outText.append("Installing...\n Please be patient while PokeNet is downloaded...\n");
+				outText.append("Installing...\nPlease be patient while PokeNet is downloaded...\n");
 				System.out.println("Installing...");
 				updateClient.doCheckout(url, destPath, pegRevision, 
                         revision, SVNDepth.INFINITY, true);
@@ -142,21 +160,6 @@ public class Pokenet extends JFrame implements Runnable {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} 
-
-
-	
-//		try {
-//			svn = Runtime.getRuntime().exec(command);
-//			StreamReader sr = new StreamReader(svn.getInputStream(), "", outText);
-//			t = new Thread(sr);
-//			t.start();
-//		} catch (IOException e1) {
-//			e1.printStackTrace();
-//		}
-//		
-//		while (t.isAlive()) {
-			// TODO: progress
-//		}
 		
 		this.outText.append("Launching...\n");
 
