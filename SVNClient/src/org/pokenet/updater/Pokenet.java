@@ -101,10 +101,16 @@ public class Pokenet extends JFrame implements Runnable {
 	    		new SVNEventAdapter(){
 	    			public void handleEvent(SVNEvent event, double progress){
 	    				SVNEventAction action = event.getAction();
-	    				if (action == SVNEventAction.ADD || action == SVNEventAction.UPDATE_ADD){
+	    				if (action == SVNEventAction.ADD ||
+	    						action == SVNEventAction.UPDATE_ADD){
 	    					outText.append("Downloading " + event.getFile().getName() + '\n');
 	    					outText.setCaretPosition(outText.getDocument().getLength());
 	    					System.out.println("Downloading " + event.getFile().getName());
+	    				} if (action == SVNEventAction.STATUS_COMPLETED ||
+	    						action == SVNEventAction.UPDATE_COMPLETED){
+	    					outText.append("Download completed. Launching client!");
+	    					outText.setCaretPosition(outText.getDocument().getLength());
+	    					System.out.println("Download completed. Launching client!");
 	    				}
 	    			}
 	    		}
