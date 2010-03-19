@@ -1,29 +1,34 @@
-import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Insets;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.SpringLayout;
 
+import org.tmatesoft.svn.cli.SVNCommandUtil;
+import org.tmatesoft.svn.core.SVNException;
+import org.tmatesoft.svn.core.SVNURL;
+import org.tmatesoft.svn.core.internal.io.fs.FSRepositoryFactory;
+import org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryFactoryImpl;
+import org.tmatesoft.svn.core.wc.ISVNOptions;
+import org.tmatesoft.svn.core.wc.SVNClientManager;
+import org.tmatesoft.svn.core.wc.SVNRevision;
+import org.tmatesoft.svn.core.wc.SVNUpdateClient;
+import org.tmatesoft.svn.core.wc.SVNWCUtil;
 
 
 
 public class Pokenet extends JFrame  implements Runnable {
-	public static final String SVN_URL = "http://pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
+	public static final String SVN_URL = "pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
 	public static final String FOLDER_NAME = "pokenet-release";
-	
+
 	JTextArea outText;
 	JScrollPane scrollPane;
 	
@@ -79,7 +84,10 @@ public class Pokenet extends JFrame  implements Runnable {
 		this.add(scrollPane);
 		System.out.println("Starting...");
 		this.setVisible(true);
-
+		
+//		FSRepositoryFactory.setup(); // for local access (file protocol). 
+//		SVNRepositoryFactoryImpl.setup(); // for svn(+ssh) protocol 
+		
 		new Thread(this).start();
 
 	}
@@ -100,29 +108,97 @@ public class Pokenet extends JFrame  implements Runnable {
 		 */
 		Process svn;
 		Thread t = null;
-		String command;
+//		String command;
+		
+			ISVNOptions options = SVNWCUtil.createDefaultOptions(true);
+		
+			 /* 
+		     * Creates an instance of SVNClientManager providing authentication 
+		     * information (name, password) and an options driver 
+		     */ 
+			SVNClientManager ourClientManager = SVNClientManager.newInstance(options); 
+		    SVNUpdateClient updateClient = ourClientManager.getUpdateClient(); 
 
-		boolean exists = (new File(FOLDER_NAME)).exists();
-		if(!exists) {
-			this.outText.append("Installing...\n Please be patient while PokeNet is downloaded...\n");
-			System.out.println("Installing...");
-			command = "svn co " + SVN_URL;
-		} else {
-			this.outText.append("Updating...\n");
-			System.out.println("Updating...\n");
+		    /* 
+		     * sets externals not to be ignored during the checkout 
+		     */ 
+		    updateClient.setIgnoreExternals(false); 
 			
-			command = "svn up";
-		}
+		    /* 
+		     * A url of a repository to check out 
+		     */ 
+		    SVNURL url = null;
+			try {
+				url = SVNURL.parseURIDecoded("http://" + SVN_URL);
+			} catch (SVNException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} 
+		    /* 
+		     * A revision to check out 
+		     */ 
+		    SVNRevision revision = SVNRevision.HEAD; 
+
+		    /* 
+		     * A revision for which you're sure that the url you specify is 
+		     * exactly what you need 
+		     */ 
+		    SVNRevision pegRevision = SVNRevision.HEAD; 
+
+		    /* 
+		     * Set whether a checkout is recursive or not 
+		     */ 
+		    boolean isRecursive = true; 
+
+		    /* 
+		     * A local path where a Working Copy will be ckecked out 
+		     */ 
+		    File destPath = new File(FOLDER_NAME); 
+
+		    /* 
+		     * returns the number of the revision at which the working copy is 
+		     */ 
+		    try {
+				
+				boolean exists = destPath.exists();
+				if(!exists) {
+					this.outText.append("Installing...\n Please be patient while PokeNet is downloaded...\n");
+					System.out.println("Installing...");
+					updateClient.doCheckout(url, destPath, pegRevision, 
+                            revision, isRecursive);
+
+				} else {
+					this.outText.append("Updating...\n");
+					System.out.println("Updating...\n");
+					updateClient.doUpdate(destPath, revision, true);
+				}
+		    } catch (SVNException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+
+	        
+	        
+			
 		
-		try {
-			svn = Runtime.getRuntime().exec(command);
-			StreamReader sr = new StreamReader(svn.getInputStream(), "", outText);
-			t = new Thread(sr);
-			t.start();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
 		
+		  try { 
+
+		                
+		    } catch (Exception e) { 
+		        e.toString(); 
+		    }
+
+		
+//		try {
+//			svn = Runtime.getRuntime().exec(command);
+//			StreamReader sr = new StreamReader(svn.getInputStream(), "", outText);
+//			t = new Thread(sr);
+//			t.start();
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		}
+//		
 		while (t.isAlive()) {
 			// TODO: progress
 			
@@ -144,13 +220,15 @@ public class Pokenet extends JFrame  implements Runnable {
 	}
 	
 	public void runPokenet() throws Exception {
-		Process p = Runtime.getRuntime().exec("java -Dres.path="+FOLDER_NAME+"/"
+		String curDir = System.getProperty("user.dir");
+
+		Process p = Runtime.getRuntime().exec("java -Dres.path="+ curDir + FOLDER_NAME+"/"
 				+ " -Djava.library.path="+FOLDER_NAME+"/lib/native " +
-		"-Xmx512m -Xms512m -jar ./"+FOLDER_NAME+"/Pokenet.jar");
+		"-Xmx512m -Xms512m -jar ./"+ curDir + FOLDER_NAME+"/Pokenet.jar");
 		StreamReader r1 = new StreamReader(p.getInputStream(), "OUTPUT");
 		StreamReader r2 = new StreamReader(p.getErrorStream(), "ERROR");
 		new Thread(r1).start();
 		new Thread(r2).start();
 	}
-
+ 
 }
