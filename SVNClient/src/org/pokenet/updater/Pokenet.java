@@ -173,7 +173,6 @@ public class Pokenet extends JFrame {
 		try {
 			this.setVisible(false);
 			runPokenet();
-			this.wait(1000);
 			System.exit(0);
 		} catch (Exception e) {
 			e.printStackTrace();
