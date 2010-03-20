@@ -173,6 +173,7 @@ public class Pokenet extends JFrame {
 		try {
 			this.setVisible(false);
 			runPokenet();
+			this.wait(1000);
 			System.exit(0);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -191,15 +192,18 @@ public class Pokenet extends JFrame {
 	public void runPokenet() throws Exception {
 		String curDir = System.getProperty("user.dir");
 		System.out.println(curDir);
-		String libraryPath = "-Djava.library.path=" + curDir + "/" + FOLDER_NAME + "/lib/native";
+		String libraryPath = "-Djava.library.path=" + curDir + "/" + FOLDER_NAME + "/lib/native" ;
 		String resPath = "-Dres.path=" + curDir + "/" + FOLDER_NAME + "/";
 		String javaArg = "-Xmx512m -Xms512m -jar " + curDir + "/" + FOLDER_NAME + "/Pokenet.jar";
 		String execComm = "java " + libraryPath + " " + resPath + " " + javaArg;
+		System.out.println(execComm);
 		Process p = Runtime.getRuntime().exec(execComm);
 		StreamReader r1 = new StreamReader(p.getInputStream(), "OUTPUT");
 		StreamReader r2 = new StreamReader(p.getErrorStream(), "ERROR");
 		new Thread(r1).start();
 		new Thread(r2).start();
+		
+
 	}
  
 }
