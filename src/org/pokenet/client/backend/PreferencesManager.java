@@ -47,7 +47,7 @@ public class PreferencesManager {
 	public final String REMEMBER_ME_KEY_NAME = "saveLogin";
 
 	
-	private String m_prefsPath = System.getProperty("res.path");
+	private String m_prefsPath = "res/";
 
 	
 	
