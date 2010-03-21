@@ -1,16 +1,11 @@
 package org.pokenet.updater;
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.io.File;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -193,16 +188,17 @@ public class Pokenet extends JFrame {
 		System.out.println(curDir);
 		String libraryPath = "-Djava.library.path=" + curDir + "/" + FOLDER_NAME + "/lib/native" ;
 		String resPath = "-Dres.path=" + curDir + "/" + FOLDER_NAME + "/";
-		String javaArg = "-Xmx512m -Xms512m -jar " + curDir + "/" + FOLDER_NAME + "/Pokenet.jar";
-		String execComm = "java " + libraryPath + " " + resPath + " " + javaArg;
+		String specialArg ="-Xmx512m -Xms512m -jar"; 
+		String javaArg = curDir + "/" + FOLDER_NAME + "/Pokenet.jar";
+		libraryPath.replaceAll(" ", "\\ ");
+		resPath.replaceAll(" ", "\\ ");
+		javaArg.replaceAll(" ", "\\ ");
+		String execComm = "java " + libraryPath + " " + resPath + " " + specialArg + " " + javaArg;
 		System.out.println(execComm);
 		Process p = Runtime.getRuntime().exec(execComm);
 		StreamReader r1 = new StreamReader(p.getInputStream(), "OUTPUT");
 		StreamReader r2 = new StreamReader(p.getErrorStream(), "ERROR");
 		new Thread(r1).start();
 		new Thread(r2).start();
-		
-
 	}
- 
 }
