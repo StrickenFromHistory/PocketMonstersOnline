@@ -34,9 +34,7 @@ public class PreferencesManager {
 	private static PreferencesManager m_instance = null;
 	private HashMap<String, Object> m_prefs = new HashMap<String, Object>();
 	private static final String FILE_NAME = "org.pokedev.pokePrefs";
-	private static final String MAC_NAME = "Mac OS X";
-	private static final String WIN_NAME = "Windows";
-	
+
 	public final String USER_KEY_NAME = "userName";
 	public final String PASS_KEY_NAME = "password";
 	public final String PRIVATE_SERVERS_KEY_NAME = "recentPrivateServers";
@@ -49,7 +47,8 @@ public class PreferencesManager {
 	public final String REMEMBER_ME_KEY_NAME = "saveLogin";
 
 	
-	private String m_prefsPath = getPathForOS();
+	private String m_prefsPath = System.getProperty("res.path");
+
 	
 	
 	private Muffin m_muffin = new FileMuffin();
@@ -73,19 +72,6 @@ public class PreferencesManager {
 		}
 		
 		return m_instance;
-	}
-	
-	private String getPathForOS(){
-		Properties prop = System.getProperties();
-		String osString = prop.getProperty( "os.name" );
-		if (osString.equals(MAC_NAME)){
-			return System.getProperty("user.home") + "/Library/Preferences/";
-		}else if (osString.equals(WIN_NAME)){
-			return "";
-		}else {
-			// same directory as the application
-			return "";
-		}
 	}
 	
 //	options = new FileMuffin().loadFile("options.dat");
