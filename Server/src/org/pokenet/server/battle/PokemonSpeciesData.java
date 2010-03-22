@@ -110,6 +110,7 @@ public class PokemonSpeciesData {
                 int[] base = (int[])stream.readObject();
                 int genders = stream.readInt();
 				String[] ability = (String[])stream.readObject();
+				System.out.println(name + " " + Arrays.toString(ability));
  
                 m_database[i] = new PokemonSpecies(i, name, base, genders);
             } catch (ClassNotFoundException e) {
