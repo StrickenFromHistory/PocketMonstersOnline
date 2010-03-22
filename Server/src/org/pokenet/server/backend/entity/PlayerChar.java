@@ -609,7 +609,7 @@ public class PlayerChar extends Char implements Battleable, Tradeable {
 			Pokemon temp = m_pokemon[a];
 			m_pokemon[a] = m_pokemon[b];
 			m_pokemon[b] = temp;
-			m_tcpSession.write("bs" + a + "," + b);
+			m_tcpSession.write("ss" + a + "," + b);
 		}
 	}
 
