@@ -17,6 +17,8 @@
  <tileset firstgid="1" source="normal1.tsx"/>
  <tileset firstgid="1025" source="normal18.tsx"/>
  <tileset firstgid="2049" source="normal3.tsx"/>
+ <tileset firstgid="3073" source="normal2.tsx"/>
+ <tileset firstgid="4097" source="normal5.tsx"/>
  <layer name="Walkable" width="39" height="60">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO3SQQqAIBRFUaGdtRT32r6igRNJ4quIxDkgUYPHLUqp39F4fgZPZHu0LQePtv+1XS9Du7RFtiNt9Ts/96Ntz8as71b6yrWnrd6Y0VafaFdu7Iy2fen5z1bR1m/ntmLnNgAAAAAAAGCdG/Tj7pGQJAAA
@@ -34,12 +36,12 @@
  </layer>
  <layer name="Water" width="39" height="60">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3OywkAIAxEwRzsv0grsYMIgfiBWXhH40SYmdlPmyOv+z3bedvu/m1b9s8rtkpsbGxsbGxsbGxsbGxsbGySJEmSVGsBy7QVH5AkAAA=
+   H4sIAAAAAAAAAO3WXQqAIBBGUR/agO1/JxG1lrYRUUJEYTqFoWNwBz6k3znogxpDURRF/ammRk7u77GVtz39X9sm9anFlhJs2LBhw4YNGzZs2LBhw4YNm5zVpkfLZtrznc5d9/Y+5rZJvY77s8sSGHPbrr38eSlleBNpXkqt4xe3toMQQohOatijYv1r2KNC54/YHGrMpX/+iJ2V/Oe5XYPdM9q4VWu9N6jpt+SQJAAA
   </data>
  </layer>
  <layer name="Collisions" width="39" height="60">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO1Y0a3CMAwMDxbh6Q3HHrAYhb5BEDAHqUQkK4qbOD5XRvQk/zTJ2T6b1iGEfly3IZyjjcQu0f63co6BmJTjW2L7W2ODxHaPdnIa25Bph4ot5TzFdYz2VMbWytES2/iO7/bmHDtjoxwDILaJ71Gwp4AXwdGKzS6En53dfg320c+vwJd0vwafrNtBuB+JT9aN228do4bfurYafkvdtNyWumn6Jp2x7rme/NMZK+1QOVtoh8qZ9oYWVj2yB+Y5wVtdKQ+6rl54aI4I3bQcnOaIfLUc3HlvfUvhrd8SVs36sYR2vT6W0K7HB7JP0O9JZJ8g35PWmnm5z5S4pPxW8ziCz2oe9/BNyHUv1QGpYcJcrdPzXPdSHZAaJr/UR65Hi7+lvqlzfcnF4KHnJPFq4HkOWee3PnibQyi8zSEJHntN8j5tgZX2FtqhOC20a+WsfbtRqPGV1vMcenqt5W5X42vxN7eH8y+5283NdaX1/DmH0myUo8bNzXXcuqSO3FktN7eu+S3W7hdW/4PkeAHccK18kCQAAA==
+   H4sIAAAAAAAAAO1YUU7DMAwNrPxxiaEhuAkcZfeAi61QDoJg5yCVZsmy4q2On6NM9ElWpSV9fn7xVq8p1eNzk9Ihx8TiI8fXxs4xsrBy/Bdtu1UbRNtPjvdOtY3CO5Q2qnnW9Zbj6NS2lGOJtumk7/vEOVVq4xwjQNvM91uIo4EXwbEUN0NKt0Pcfg+2Oc+DIZd1vwfX7NveuB+Ja/ZN2x+t0cMffbYe/kjfvNyRvnn6hu6J7rma+umeKO9QNUd4h6qZ94YXUT2yBdY5o7dz5Tzoc+2Fh9eI8M3LoXmOqNfLod3fW99y9NZvhNWzerTwrjZHC+9qciD7BP07iewT5O9ktGe9/J8pcVn5o+ZxBF/UPN7rM0FyIT20YLhP6S7HU45ndkXPNQSqk+fSNO1yPOZ4yfHKrlGgOnku6QtpagmtN875onmLRk1vRJ8joeX7OCtavse0YvXNjh49I009ehbxToUDxRnh3VJOrYbWvVbKJ2uo6TXEM2pJvnN7tPyWZ5Scq6Vflz7XUJo/JLR1eR7yqq1bzlHOH3KWlOul2bIEbd3zXZSzpFZLNP4ADq1C6pAkAAA=
   </data>
  </layer>
  <layer name="random" width="39" height="60">
