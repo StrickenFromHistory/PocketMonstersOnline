@@ -31,7 +31,7 @@ public class Pokenet extends JFrame {
 	private static final long serialVersionUID = -6147249683774678347L;
 	public static final String SVN_URL = "pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
 	public static final String FOLDER_NAME = "pokenet-release";
-	private String HEADER_IMAGE_URL = "http://pokedev.org/header.png";;
+	private String HEADER_IMAGE_URL = "http://pokedev.org/header.png";
 	
 	JTextArea outText;
 	JScrollPane scrollPane;

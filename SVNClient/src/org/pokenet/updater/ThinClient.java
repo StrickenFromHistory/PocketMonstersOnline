@@ -24,6 +24,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.awt.Dimension;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -34,6 +36,12 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 
 	public static final String SVN_URL = "pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
 	public static final String FOLDER_NAME = "Pokenet";
+	private String HEADER_IMAGE_URL = "http://pokedev.org/header.png";
+	private static final int WIDTH = 740;
+	private static final int HEIGHT = 470;
+	private static final int OUTPUT_HEIGHT = 120;
+
+
 	private static JFrame m_masterFrame = new JFrame("Pokenet: Valiant Venonat");
 	private JProgressBar m_progressBar;
 	private JButton m_startButton;
@@ -75,11 +83,9 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 
 							String path = curFile.getAbsolutePath().substring(m_installpath.length()-1);
 
-							if (action == SVNEventAction.ADD ||
-									action == SVNEventAction.UPDATE_ADD){
-								//			    					outText.append("Downloading " + event.getFile().getName() + '\n');
+							if (action == SVNEventAction.ADD || action == SVNEventAction.UPDATE_ADD){
 								m_taskOutput.append("Downloading " + path + " \n");
-
+								
 								m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
 								System.out.println("Downloading " + curFile.getName());
 							} if (action == SVNEventAction.STATUS_COMPLETED ||
@@ -130,11 +136,18 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 			 */ 
 			try {
 
-				m_taskOutput.append("Installing...\nPlease be patient while PokeNet is downloaded...\nThe progress bar is not functional at the moment. Sorry. ");
-				System.out.println("Installing...");
-				updateClient.doCheckout(url, destPath, pegRevision, 
-						revision, SVNDepth.INFINITY, true);
-				
+				boolean exists = destPath.exists();
+				if(!exists) {
+					m_taskOutput.append("Installing...\nPlease be patient while PokeNet is downloaded...\n");
+					System.out.println("Installing...");
+					updateClient.doCheckout(url, destPath, pegRevision, 
+	                        revision, SVNDepth.INFINITY, true);
+				} else {
+					ourClientManager.getWCClient().doCleanup(destPath);
+					m_taskOutput.append("Updating...\n");
+					System.out.println("Updating...\n");
+					updateClient.doUpdate(destPath, revision, SVNDepth.INFINITY, true, true);
+				}
 			} catch (SVNException e1) {
 				// It's probably locked, lets cleanup and resume. 
 				try {
@@ -231,22 +244,22 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 			 * Update version.txt to latest. 
 			 */
 
-					int answer = JOptionPane.showConfirmDialog(
-					m_masterFrame,
-					"Your game has finished updating. \nWould you like to play?",
-					"Pokenet Update System",
-					JOptionPane.YES_NO_OPTION);
-			Toolkit.getDefaultToolkit().beep();
+//					int answer = JOptionPane.showConfirmDialog(
+//					m_masterFrame,
+//					"Your game has finished updating. \nWould you like to play?",
+//					"Pokenet Update System",
+//					JOptionPane.YES_NO_OPTION);
+//			Toolkit.getDefaultToolkit().beep();
 			//            startButton.setEnabled(true);
 			setCursor(null); //turn off the wait cursor
-			if(answer==0){
+//			if(answer==0){
 				/**
 				 *  Launch Jar
 				 */
 				LaunchPokenet();
-			}else{
-				System.exit(0);
-			}
+//			}else{
+//				System.exit(0);
+//			}
 			//            taskOutput.append("Done!\n");
 		}
 	}
@@ -281,58 +294,79 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 
 	public ThinClient() {
 		super(new BorderLayout());
-
-		//Create the demo's UI.
-		if(!m_isUpdate)
-			m_startButton = new JButton("Install Now!");
-		else
-			m_startButton = new JButton("Update Now!");
-		m_startButton.setActionCommand("update");
-		m_startButton.addActionListener(this);
+		JPanel panel = new JPanel();
+		JPanel container = new JPanel();
+		
+		panel.setSize(m_masterFrame.getWidth(), 40);
+		container.setSize(m_masterFrame.getWidth(), OUTPUT_HEIGHT + panel.getHeight());
+	
+		container.setLayout(new BorderLayout());
+		panel.setLayout(new BorderLayout());
+		
+//		//Create the demo's UI.
+//		if(!m_isUpdate)
+//			m_startButton = new JButton("Install Now!");
+//		else
+//			m_startButton = new JButton("Update Now!");
+//		m_startButton.setActionCommand("update");
+//		m_startButton.addActionListener(this);
+//		m_startButton.setSize(100, 30);
+//		panel.add(m_startButton);
+		
+		updatePokenet();
 
 		m_hideButton = new JButton("Hide Details...");
 		m_hideButton.setActionCommand("hide");
 		m_hideButton.addActionListener(this);
-		m_hideButton.setEnabled(false);
+		m_hideButton.setEnabled(true);
+		panel.add(m_hideButton, BorderLayout.LINE_END);
 
-		m_progressBar = new JProgressBar(0, 100);
+		m_progressBar = new JProgressBar(0, 5);
 		m_progressBar.setValue(0);
 		m_progressBar.setStringPainted(true);
+		m_progressBar.setSize(WIDTH, m_hideButton.getHeight());
 
-		m_taskOutput = new JTextArea(10, 40);
-		m_taskOutput.setMargin(new Insets(5,5,5,5));
+
+		m_taskOutput = new JTextArea();
+		m_taskOutput.setSize(m_masterFrame.getWidth(), OUTPUT_HEIGHT);
 		m_taskOutput.setEditable(false);
 		m_taskOutput.setAutoscrolls(true);
 		m_output = new JScrollPane(m_taskOutput);
-
-
-		JPanel panel = new JPanel();
-		panel.add(m_startButton);
-		panel.add(m_progressBar);
-
-		JPanel panel2 = new JPanel();
-		panel2.add(m_hideButton);
-
-		add(panel, BorderLayout.NORTH);
-		add(panel2, BorderLayout.CENTER);
-		add(m_output, BorderLayout.SOUTH);
-
-		setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+		
+		container.add(m_progressBar, BorderLayout.PAGE_END);		
+		container.add(m_taskOutput, BorderLayout.CENTER);
+		
+		ImageIcon m_logo;
+		JLabel l = null; 
+		l = new JLabel();
+		l.setSize(WIDTH, 190);
 
 		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-			SwingUtilities.updateComponentTreeUI(this);
-
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (UnsupportedLookAndFeelException e) {
+			m_logo = new ImageIcon(new URL(HEADER_IMAGE_URL ));
+			l = new JLabel(m_logo);
+		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
+		
+        add(l, BorderLayout.PAGE_START);
+		add(container, BorderLayout.CENTER); 
+		add(panel, BorderLayout.PAGE_END);
+
+
+//		try {
+//			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//
+//			SwingUtilities.updateComponentTreeUI(this);
+//
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (InstantiationException e) {
+//			e.printStackTrace();
+//		} catch (IllegalAccessException e) {
+//			e.printStackTrace();
+//		} catch (UnsupportedLookAndFeelException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	/**
@@ -340,26 +374,30 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 	 */
 	public void actionPerformed(ActionEvent evt) {
 		if(evt.getActionCommand().equals("update")){
-			m_startButton.setEnabled(false);
-			setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-			//Instances of javax.swing.SwingWorker are not reusuable, so
-			//we create new instances as needed.
-			m_task = new Task();
-			m_task.addPropertyChangeListener(this);
-			m_task.execute();
+			updatePokenet();
 		}else if(evt.getActionCommand().equals("hide")){
 			if(!m_showOutput){
 				m_output.setVisible(true);
 				m_hideButton.setText("Hide Details...");
-				m_masterFrame.setSize(new Dimension(400, 220));
+				m_masterFrame.setSize(WIDTH, HEIGHT - OUTPUT_HEIGHT);
 				m_showOutput=true;
 			}else{
 				m_output.setVisible(false);
 				m_hideButton.setText("Show Details...");
-				m_masterFrame.setSize(new Dimension(400, 130));
+				m_masterFrame.setSize(WIDTH, HEIGHT);
 				m_showOutput=false;
 			}
 		}
+	}
+
+	private void updatePokenet() {
+//		m_startButton.setEnabled(false);
+		setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+		//Instances of javax.swing.SwingWorker are not reusuable, so
+		//we create new instances as needed.
+		m_task = new Task();
+		m_task.addPropertyChangeListener(this);
+		m_task.execute();
 	}
 
 	/**
@@ -382,14 +420,14 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		//Create and set up the window.
 		m_masterFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		m_masterFrame.setSize(new Dimension(282, 242));
+		m_masterFrame.setSize(new Dimension(WIDTH, HEIGHT));
 		//Create and set up the content pane.
 		JComponent newContentPane = new ThinClient();
 		newContentPane.setOpaque(true); //content panes must be opaque
 		m_masterFrame.setContentPane(newContentPane);
 
 		//Display the window.
-		m_masterFrame.pack();
+//		m_masterFrame.pack();
 		centerTheGUIFrame(m_masterFrame);
 		m_masterFrame.setVisible(true);
 
@@ -473,81 +511,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 				 */
 				m_isUpdate = true;
 				createAndShowGUI();
-//				DAVRepositoryFactory.setup();
-//				ISVNOptions options = SVNWCUtil.createDefaultOptions(true);
-//			
-//				 /* 
-//			     * Creates an instance of SVNClientManager providing authentication 
-//			     * information (name, password) and an options driver 
-//			     */ 
-//				SVNClientManager ourClientManager = SVNClientManager.newInstance(options); 
-//			    SVNUpdateClient updateClient = ourClientManager.getUpdateClient(); 
-//
-//			    /*
-//			     * Creates the event handler to display information
-//			     */
-//			    ourClientManager.setEventHandler(
-//			    		new SVNEventAdapter(){
-//			    			public void handleEvent(SVNEvent event, double progress){
-//			    				SVNEventAction action = event.getAction();
-//			    				File curFile = event.getFile();
-//			    				String curDir = System.getProperty("user.dir");
-//			    				
-//			    				String path = curFile.getAbsolutePath().substring(curDir.length());
-//			    				
-//								if (action == SVNEventAction.ADD ||
-//										action == SVNEventAction.UPDATE_ADD){
-////				    					outText.append("Downloading " + event.getFile().getName() + '\n');
-//										
-//										outText.append("Downloading " + path + '\n');
-//									
-//									outText.setCaretPosition(outText.getDocument().getLength());
-//									System.out.println("Downloading " + curFile.getName());
-//								} if (action == SVNEventAction.STATUS_COMPLETED ||
-//										action == SVNEventAction.UPDATE_COMPLETED){
-//									outText.append("Download completed. Launching client!");
-//									outText.setCaretPosition(outText.getDocument().getLength());
-//									System.out.println("Download completed. Launching client!");
-//								}
-//			    			}
-//			    		}
-//			    );	    	
-//
-//			    
-//			    /* 
-//			     * sets externals not to be ignored during the checkout 
-//			     */ 
-//			    updateClient.setIgnoreExternals(false); 
-//				
-//			    /* 
-//			     * A url of a repository to check out 
-//			     */ 
-//			    SVNURL url = null;
-//				try {
-//					url = SVNURL.parseURIDecoded("http://" + SVN_URL);
-//				} catch (SVNException e2) {
-//					e2.printStackTrace();
-//				} 
-//			    /* 
-//			     * A revision to check out 
-//			     */ 
-//			    SVNRevision revision = SVNRevision.HEAD; 
-//
-//			    /* 
-//			     * A revision for which you're sure that the url you specify is 
-//			     * exactly what you need 
-//			     */ 
-//			    SVNRevision pegRevision = SVNRevision.HEAD; 
-//
-//			    /* 
-//			     * A local path where a Working Copy will be ckecked out 
-//			     */ 
-//			    File destPath = new File(FOLDER_NAME); 
-//
-//				ourClientManager.getWCClient().doCleanup(destPath);
-//				m_taskOutput.append("Updating...\n");
-//				System.out.println("Updating...\n");
-//				updateClient.doUpdate(destPath, revision, SVNDepth.INFINITY, true, true);
+
 			}
 		});
 	}
