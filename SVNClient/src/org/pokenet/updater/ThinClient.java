@@ -35,7 +35,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 	private static final long serialVersionUID = 2718141354198299420L;
 
 	public static final String SVN_URL = "pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
-	public static final String FOLDER_NAME = "Pokenet";
+	public static final String FOLDER_NAME = "pokenet-release";
 	private String HEADER_IMAGE_URL = "http://pokedev.org/header.png";
 	private static final int WIDTH = 740;
 	private static final int HEIGHT = 470;
@@ -129,7 +129,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 			/* 
 			 * A local path where a Working Copy will be ckecked out 
 			 */ 
-			File destPath = new File(m_installpath); 
+			File destPath = new File(m_installpath + FOLDER_NAME); 
 
 			/* 
 			 * returns the number of the revision at which the working copy is 
@@ -142,6 +142,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 					System.out.println("Installing...");
 					updateClient.doCheckout(url, destPath, pegRevision, 
 	                        revision, SVNDepth.INFINITY, true);
+					
 				} else {
 					ourClientManager.getWCClient().doCleanup(destPath);
 					m_taskOutput.append("Updating...\n");
@@ -150,6 +151,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 				}
 			} catch (SVNException e1) {
 				// It's probably locked, lets cleanup and resume. 
+				e1.printStackTrace();
 				try {
 					ourClientManager.getWCClient().doCleanup(destPath);
 					m_taskOutput.append("Resuming Download...\n");
@@ -391,7 +393,6 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 	}
 
 	private void updatePokenet() {
-//		m_startButton.setEnabled(false);
 		setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 		//Instances of javax.swing.SwingWorker are not reusuable, so
 		//we create new instances as needed.
@@ -441,18 +442,18 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
-				try {
-					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				} catch (InstantiationException e) {
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					e.printStackTrace();
-				} catch (UnsupportedLookAndFeelException e) {
-					e.printStackTrace();
-				}
+//				try {
+//					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//
+//				} catch (ClassNotFoundException e) {
+//					e.printStackTrace();
+//				} catch (InstantiationException e) {
+//					e.printStackTrace();
+//				} catch (IllegalAccessException e) {
+//					e.printStackTrace();
+//				} catch (UnsupportedLookAndFeelException e) {
+//					e.printStackTrace();
+//				}
 				String OS = System.getProperty("os.name");
 				String path = "";
 				if(OS.contains("Windows")){
@@ -469,13 +470,13 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 						br = new BufferedReader(new FileReader(path));
 						m_installpath = br.readLine();
 					}catch(Exception e){
-						int answer = JOptionPane.showConfirmDialog(
-								m_masterFrame,
-								"Would you like to install this game?",
-								"Pokenet Update System",
-								JOptionPane.YES_NO_OPTION);
-						Toolkit.getDefaultToolkit().beep();
-						if(answer==0){
+//						int answer = JOptionPane.showConfirmDialog(
+//								m_masterFrame,
+//								"Would you like to install this game?",
+//								"Pokenet Update System",
+//								JOptionPane.YES_NO_OPTION);
+//						Toolkit.getDefaultToolkit().beep();
+//						if(answer==0){
 							JFileChooser fc = new JFileChooser();
 							fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 							int returnVal = fc.showDialog(m_masterFrame, "Install here");
@@ -495,14 +496,14 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 										JOptionPane.INFORMATION_MESSAGE);
 								System.exit(0);
 							}
-						}else{
-							JOptionPane.showMessageDialog(
-									m_masterFrame,
-									"Thanks for choosing us!",
-									"Pokenet Install System",
-									JOptionPane.INFORMATION_MESSAGE);
-							System.exit(0);
-						}
+//						}else{
+//							JOptionPane.showMessageDialog(
+//									m_masterFrame,
+//									"Thanks for choosing us!",
+//									"Pokenet Install System",
+//									JOptionPane.INFORMATION_MESSAGE);
+//							System.exit(0);
+//						}
 
 					}
 				}
