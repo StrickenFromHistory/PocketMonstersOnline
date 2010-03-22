@@ -354,21 +354,21 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		add(container, BorderLayout.CENTER); 
 		add(panel, BorderLayout.PAGE_END);
 
+		// Makes everything really purty. 
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
-//		try {
-//			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//
-//			SwingUtilities.updateComponentTreeUI(this);
-//
-//		} catch (ClassNotFoundException e) {
-//			e.printStackTrace();
-//		} catch (InstantiationException e) {
-//			e.printStackTrace();
-//		} catch (IllegalAccessException e) {
-//			e.printStackTrace();
-//		} catch (UnsupportedLookAndFeelException e) {
-//			e.printStackTrace();
-//		}
+			SwingUtilities.updateComponentTreeUI(this);
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -442,18 +442,18 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
-//				try {
-//					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//
-//				} catch (ClassNotFoundException e) {
-//					e.printStackTrace();
-//				} catch (InstantiationException e) {
-//					e.printStackTrace();
-//				} catch (IllegalAccessException e) {
-//					e.printStackTrace();
-//				} catch (UnsupportedLookAndFeelException e) {
-//					e.printStackTrace();
-//				}
+				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (InstantiationException e) {
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					e.printStackTrace();
+				} catch (UnsupportedLookAndFeelException e) {
+					e.printStackTrace();
+				}
 				String OS = System.getProperty("os.name");
 				String path = "";
 				if(OS.contains("Windows")){
