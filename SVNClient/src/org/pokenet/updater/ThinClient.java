@@ -46,14 +46,12 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 
 	private static JFrame m_masterFrame = new JFrame("Pokenet: Valiant Venonat");
 	private JProgressBar m_progressBar;
-	private JButton m_startButton;
 	private JButton m_hideButton;
 	private JTextArea m_taskOutput;
 	private Task m_task;
 	private Component m_output;
 	private boolean m_showOutput = true;
 
-	private static boolean m_isUpdate = false;
 	private static float m_progressSize = 0;
 	private static String m_installpath = "";
 
@@ -85,7 +83,8 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 							SVNEventAction action = event.getAction();
 							File curFile = event.getFile();
 
-							String path = curFile.getAbsolutePath().substring(m_installpath.length()-1);
+							String path = curFile.getAbsolutePath();
+							path = path.substring(path.indexOf(FOLDER_NAME));
 
 							if (action == SVNEventAction.ADD || action == SVNEventAction.UPDATE_ADD){
 								m_taskOutput.append("Downloading " + path + " \n");
@@ -139,7 +138,8 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 			 * returns the number of the revision at which the working copy is 
 			 */ 
 			try {
-
+				System.out.println(m_installpath);
+				m_taskOutput.append("Game folder: " + m_installpath + "\n");
 				boolean exists = destPath.exists();
 				if(!exists) {
 					m_taskOutput.append("Installing...\nPlease be patient while PokeNet is downloaded...\n");
@@ -178,70 +178,50 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 				m_taskOutput.append("Download complete!");
 				m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
 			}
-
-			if(!m_installpath.equals("")){
-				m_taskOutput.append("Setting up the install directory...");
-				m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
-
-				if(OS.contains("Windows")){
-					try {
-						File f = new File(System.getenv("APPDATA")+"/.pokenet");
+			try {
+				if(!m_installpath.equals("")){
+					m_taskOutput.append("Setting up the install directory...");
+					m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
+					File f = new File(getPathForOS());
+					if(OS.contains("Windows")){
+							if(f.exists())
+								f.delete();
+							PrintWriter pw = new PrintWriter(f);
+							pw.println(m_installpath);
+							pw.flush();
+							pw.close();
+	
+					}else if(OS.contains("Linux")){
 						if(f.exists())
 							f.delete();
 						PrintWriter pw = new PrintWriter(f);
 						pw.println(m_installpath);
 						pw.flush();
 						pw.close();
-					}catch(Exception e){
-						e.printStackTrace();
-						JOptionPane.showInternalMessageDialog(
-								m_masterFrame,
-								SAD_INSTALL_MESSAGE,
-								TITLE,
-								JOptionPane.WARNING_MESSAGE);
-					}
 
-				}else if(OS.contains("Linux")){
-					try {
-						File f = new File(System.getenv("HOME")+"/.pokenet");
-					if(f.exists())
-						f.delete();
-					PrintWriter pw = new PrintWriter(f);
-					pw.println(m_installpath);
-					pw.flush();
-					pw.close();
-					}catch(Exception e){
-						e.printStackTrace();
+					}else if(OS.contains("Mac")){ // Probably?
+						if(f.exists())
+							f.delete();
+						PrintWriter pw = new PrintWriter(f);
+						pw.println(m_installpath);
+						pw.flush();
+						pw.close();
+					}else{
 						JOptionPane.showInternalMessageDialog(
 								m_masterFrame,
 								SAD_INSTALL_MESSAGE,
 								TITLE,
 								JOptionPane.WARNING_MESSAGE);
 					}
-				}else if(OS.contains("Mac")){ // Probably?
-					try {
-						File f = new File(System.getenv("user.home")+"/Library/Preferences/org.pokenet.updaterPrefs"); //Maybe. I don't know. 
-					if(f.exists())
-						f.delete();
-					PrintWriter pw = new PrintWriter(f);
-					pw.println(m_installpath);
-					pw.flush();
-					pw.close();
-					}catch(Exception e){
-						e.printStackTrace();
-						JOptionPane.showInternalMessageDialog(
-								m_masterFrame,
-								SAD_INSTALL_MESSAGE,
-								TITLE,
-								JOptionPane.WARNING_MESSAGE);
-					}
-				}else{
-					JOptionPane.showInternalMessageDialog(
-							m_masterFrame,
-							SAD_INSTALL_MESSAGE,
-							TITLE,
-							JOptionPane.WARNING_MESSAGE);
 				}
+			}catch(Exception e){
+				e.printStackTrace();
+				JOptionPane.showInternalMessageDialog(
+						m_masterFrame,
+						SAD_INSTALL_MESSAGE,
+						TITLE,
+						JOptionPane.WARNING_MESSAGE);
+			
 
 
 			}
@@ -276,7 +256,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 			JOptionPane.showInternalMessageDialog(
 					m_masterFrame,
 					"Ouch! Something happened and we couldn't run the game. \nMaybe it didn't install properly?\nError: "+e.getLocalizedMessage(),
-					"Pokenet Install System",
+					TITLE,
 					JOptionPane.WARNING_MESSAGE);
 		}
 		System.exit(0);
@@ -292,16 +272,6 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 	
 		container.setLayout(new BorderLayout());
 		panel.setLayout(new BorderLayout());
-		
-//		//Create the demo's UI.
-//		if(!m_isUpdate)
-//			m_startButton = new JButton("Install Now!");
-//		else
-//			m_startButton = new JButton("Update Now!");
-//		m_startButton.setActionCommand("update");
-//		m_startButton.addActionListener(this);
-//		m_startButton.setSize(100, 30);
-//		panel.add(m_startButton);
 		
 		updatePokenet();
 
@@ -400,7 +370,6 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		m_masterFrame.setContentPane(newContentPane);
 
 		//Display the window.
-//		m_masterFrame.pack();
 		centerTheGUIFrame(m_masterFrame);
 		m_masterFrame.setVisible(true);
 
@@ -428,20 +397,15 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 
 			public void run() {
 				
-				String path = "";
-				if(OS.contains("Windows")){
-					path = System.getenv("APPDATA")+"\\.pokenet";
-				}else if(OS.contains("Linux")){
-					path =  System.getenv("HOME")+"/.pokenet";
-				}else if(OS.contains("Mac")){ // Probably?
-						path = System.getenv("user.home")+"/Library/Preferences/org.pokenet.updaterPrefs"; //Maybe. I don't know. 
-				}
+				String path = getPathForOS();
+				
 				if(!path.equals("")){
 					BufferedReader br = null;
 					try
 					{
 						br = new BufferedReader(new FileReader(path));
 						m_installpath = br.readLine();
+						createAndShowGUI();
 					}catch(Exception e){
 						JFileChooser fc = new JFileChooser();
 						fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -459,21 +423,34 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 							JOptionPane.showMessageDialog(
 									m_masterFrame,
 									"Thanks for choosing us!",
-									"Pokenet Install System",
+									TITLE,
 									JOptionPane.INFORMATION_MESSAGE);
 							System.exit(0);
 						}
 					}
+				}else{
+					/**
+					 *  Check Updates
+					 */
+					createAndShowGUI();
 				}
-				/**
-				 *  Check Updates
-				 */
-				m_isUpdate = true;
-				createAndShowGUI();
+				
 
 			}
 		});
 	}
+	protected static String getPathForOS() {
+		String path = "";
+		if(OS.contains("Windows")){
+			path = System.getenv("APPDATA")+"\\.pokenet";
+		}else if(OS.contains("Linux")){
+			path =  System.getenv("HOME")+"/.pokenet";
+		}else if(OS.contains("Mac")){ // Probably?
+				path = System.getenv("user.home")+"/Library/Preferences/org.pokenet.updaterPrefs"; //Maybe. I don't know. 
+		}
+		return path;
+	}
+
 	/**
 	 * This method is used to center the GUI
 	 * @param frame - Frame that needs to be centered.
