@@ -298,6 +298,7 @@ public class DataService {
                 abilities[0] = temp[0].trim();
                 abilities[1] = temp[1].trim();
             } else {
+            	abilities = new String[1];
             	abilities[0] = s.get("Abilities").trim();
             }
             species.setAbilities(abilities);
