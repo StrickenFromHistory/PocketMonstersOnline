@@ -168,8 +168,6 @@ public class PartyInfoDialog extends Frame {
 						public void actionPerformed(ActionEvent e) {
 							GameClient.getInstance().getPacketGenerator().writeTcpMessage("s" + String.valueOf(j)
 									+ ","+String.valueOf(j - 1));
-							//swap pokemon on client
-							GameClient.getInstance().getOurPlayer().swapPokemon(j, j-1);
 							//reinitialize the gui
 							getContentPane().removeAll();
 							allocateVariables();
@@ -188,8 +186,6 @@ public class PartyInfoDialog extends Frame {
 						public void actionPerformed(ActionEvent e) {
 							GameClient.getInstance().getPacketGenerator().writeTcpMessage("s" + String.valueOf(j)
 									+ ","+String.valueOf(j + 1));
-							//swap pokemon on client
-							GameClient.getInstance().getOurPlayer().swapPokemon(j, j+1);
 							//reinitialize the gui
 							getContentPane().removeAll();
 							allocateVariables();

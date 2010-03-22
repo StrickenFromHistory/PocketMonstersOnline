@@ -577,7 +577,6 @@ public class GameClient extends BasicGame {
 			if ((key == (Input.KEY_SPACE) || key == (Input.KEY_E)) && !m_login.isVisible() &&
 					!m_ui.getChat().isActive() && !getDisplay().containsChild(MoveLearningManager.getInstance()
 							.getMoveLearning()) && !getDisplay().containsChild(getUi().getShop())) {
-				System.out.println("Space Bar hit!");
 				if(m_ui.getNPCSpeech() == null && !getDisplay().containsChild(BattleManager.getInstance()
 						.getBattleWindow()) ){
 					m_packetGen.writeTcpMessage("Ct");
