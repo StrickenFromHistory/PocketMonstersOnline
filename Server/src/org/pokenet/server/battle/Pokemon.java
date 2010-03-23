@@ -771,7 +771,8 @@ public class Pokemon extends PokemonSpecies {
 		/*
 		 * Get all possible abilities
 		 */
-		String[] abilities = ps.getAbilities();
+		String[] abilities = PokemonSpecies.getDefaultData().getPokemonByName(
+				species).getAbilities();
 		/* First select an ability randomly */
 		String ab = abilities[random.nextInt(abilities.length)];
 		/*
