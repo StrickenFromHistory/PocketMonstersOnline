@@ -4,13 +4,13 @@
  <properties>
   <property name="dayPokemonChances" value="Caterpie,30;Metapod,15;Weedle,5;Kakuna,10;Pidgey,10;Ledyba,20;Hoppip,5;Bellsprout,5;"/>
   <property name="dayPokemonLevels" value="4-5;5-6;4-5;5-6;3-5;4-4;5-5;3-5;"/>
+  <property name="fishPokemonChances" value="Poliwag,70;Magikarp,20;Poliwhirl,10;"/>
+  <property name="fishPokemonLevels" value="10-40;10-40;40-40;"/>
   <property name="nightPokemonChances" value="Rattata,35;Zubat,5;Poliwag,20;Hoothoot,10;Spinarak,20;Gastly,5;Bellsprout,5;"/>
   <property name="nightPokemonLevels" value="4-5;4-4;4-4;3-5;4-4;5-5;3-5;"/>
   <property name="waterPokemonChances" value="Poliwag,90;Poliwhirl,10;"/>
   <property name="waterPokemonLevels" value="15-24;20-24;"/>
   <property name="wildProbability" value="10"/>
-  <property name="fishPokemonLevels" value="10-40;10-40;40-40;"/>
-  <property name="fishPokemonChances" value="Poliwag,70;Magikarp,20;Poliwhirl,10;"/>
   <property name="xOffsetModifier" value="-320"/>
   <property name="yOffsetModifier" value="0"/>
  </properties>
@@ -20,7 +20,7 @@
  <tileset firstgid="3073" source="normal4.tsx"/>
  <layer name="Walkable" width="70" height="70">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3XW07DMBCFYavJG5vgBZVtAA+wDWAlgFgKG2FFLIFYxNJ0iOPJRb60/yeNTJsqjY8nbjg6526HOl7IaPU41NMFjVal149+qWO0Kr1+9Esdo1Xp9aNf6hitSq+fHrtE5eqX2vi5f3fTlcrMUq0KuWjkUlcu/VCHcezHcxzEe504NlXhc2u+V1Zr95HMRuala8159Xp411f/z5fzPrjfUA/u79rv1GuZYUqs73z99Ptkv8bLhnodr/NZvZZzSwmf9aPPIdaHMqMc/Hy+hnpfUR/uNJdPN99XS0ruZ7pvcgjzS5F9rtc05JLqq7n9O7Wvy70nB7lX95G/567HH3tztr5akoM+nvv5Y+v3yRwtpXstpsReK+2dS2DNKabU/bM3/Vwns9L9tOT3KpyrNdY+kc84U/0151xz8f0hn3HC/xjW+baUS+y+6NT7IQOdy7n2y5JnNC+Wy03Wq65PS2sOAAAAAAAAAAAAAAAAAAAAAEBrfgHrs9TXkEwAAA==
+   H4sIAAAAAAAAAO3X3U3DMBDAcSvJG0vwgto1gAdYA5iEIkZhESZiBGIRS9cjji8fsp32/5NOpk2U2Oezaw7OuWMfhytprZ76eL6i1qr0/FEvdbRWpeePeqmjtSo9f9RLHa1V6fnTbZuIXPVSGz/273Y8UjmzxF6FvGjkpa68dH00Q9sNz2jEd624NhbhviXvlVHbOpoas+xzyEETuWfJe/V8eLc3/5+Xcx08rIhH99f3e/VZ5jAlVnc+frptcr/E64p4G/r5oj7LsaWEe33r8xCrQ5mjHPx4vvo4LYgPd56XTzddV3NC7me6bnKQ47PE2N4S8pKqq6n9O7Wvy70nB7lXd5G/p/rjr707W13NyYO+nvv8sfZ9Mo/WerOsiRJ7rbR1XgJrnmJKrZ+t6XOdzJWupzm/V+FZe2OtE3nGGauvKZeaF18f8owT/sewjndPeYmti1Z9H3Kg83Kp9TLnjObF8nKXtdf12dOcAwAAAAAAAAAAAAAAAAAAAACwN7+kYJ2IkEwAAA==
   </data>
  </layer>
  <layer name="Water" width="70" height="70">
