@@ -518,8 +518,9 @@ public class GameClient extends BasicGame {
 			}
 			if(m_ui.getNPCSpeech() == null && !m_ui.getChat().isActive() && !m_login.isVisible()
 					&& !getDisplay().containsChild(m_playerDialog) && !BattleManager.isBattling()){
-				if(m_ourPlayer != null && !m_isNewMap
+				if(m_ourPlayer != null && !m_isNewMap 
 						/*&& m_loading != null && !m_loading.isVisible()*/
+						 && !BattleManager.isBattling()
 						&& m_ourPlayer.canMove()) {
 					if (key == (Input.KEY_DOWN) || key == (Input.KEY_S)) {
 						if(!m_mapMatrix.getCurrentMap().isColliding(m_ourPlayer, Direction.Down)) {
