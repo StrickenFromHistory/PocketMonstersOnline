@@ -38,7 +38,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 	public static final String FOLDER_NAME = "pokenet-release";
 	private String HEADER_IMAGE_URL = "http://pokedev.org/header.png";
 	private static final String OS = System.getProperty("os.name");
-	public static final String SAD_INSTALL_MESSAGE = "Hmm. Game installed, but we couldn't save the location.\nThis means that next time you run, you'll have to select the same installation directory.\nTry running this as admin?";
+	public static final String SAD_INSTALL_MESSAGE = "Hmm. Game installed, but we couldn't save the location.\nThis means that next time you run, you'll have to select the same installation directory.";
 	public static final String TITLE = "Pokenet Installer and Updater";
 
 	private static final int WIDTH = 740;
@@ -282,9 +282,8 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		m_hideButton.setEnabled(true);
 		panel.add(m_hideButton, BorderLayout.LINE_END);
 
-		m_progressBar = new JProgressBar(0, 100);
+		m_progressBar = new JProgressBar();
 		m_progressBar.setIndeterminate(true);
-		m_progressBar.setValue(0);
 		m_progressBar.setStringPainted(true);
 		m_progressBar.setSize(WIDTH, m_hideButton.getHeight());
 
@@ -444,11 +443,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		} else if (m_isLinux) {
 			path = System.getenv("HOME") + "/.pokenet";
 		} else if (m_isMac) { // Probably?
-			path = System.getenv("user.home")
-					+ "/Library/Preferences/org.pokenet.updaterPrefs"; // Maybe.
-																		// I
-																		// don't
-																		// know.
+			path = System.getProperty("user.home") + "/Library/Preferences/org.pokenet.updaterPrefs"; // Maybe.
 		}
 		return path;
 	}
