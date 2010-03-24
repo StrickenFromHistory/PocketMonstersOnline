@@ -30,7 +30,7 @@ import java.awt.Dimension;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class ThinClient extends JPanel implements ActionListener,
+public class PokenetUpdater extends JPanel implements ActionListener,
 		PropertyChangeListener {
 
 	private static final long serialVersionUID = 5427544579927859151L;
@@ -52,6 +52,11 @@ public class ThinClient extends JPanel implements ActionListener,
 	private Task m_task;
 	private Component m_output;
 	private boolean m_showOutput = true;
+	
+	static boolean m_isWindows = OS.contains("Windows");
+	static boolean m_isLinux = OS.contains("Linux");
+	static boolean m_isMac = OS.contains("Mac");
+	
 
 	private static float m_progressSize = 0;
 	private static String m_installpath = "";
@@ -190,23 +195,7 @@ public class ThinClient extends JPanel implements ActionListener,
 					m_taskOutput.setCaretPosition(m_taskOutput.getDocument()
 							.getLength());
 					File f = new File(getPathForOS());
-					if (OS.contains("Windows")) {
-						if (f.exists())
-							f.delete();
-						PrintWriter pw = new PrintWriter(f);
-						pw.println(m_installpath);
-						pw.flush();
-						pw.close();
-
-					} else if (OS.contains("Linux")) {
-						if (f.exists())
-							f.delete();
-						PrintWriter pw = new PrintWriter(f);
-						pw.println(m_installpath);
-						pw.flush();
-						pw.close();
-
-					} else if (OS.contains("Mac")) { // Probably?
+					if (m_isLinux || m_isMac || m_isWindows) {
 						if (f.exists())
 							f.delete();
 						PrintWriter pw = new PrintWriter(f);
@@ -240,7 +229,7 @@ public class ThinClient extends JPanel implements ActionListener,
 		m_masterFrame.setVisible(false);
 		try {
 			String s;
-			String m_runPath = m_installpath;
+			String m_runPath = (m_isWindows ? "\"" + m_installpath + "\"" : m_installpath);
 			if (m_runPath.charAt(m_runPath.length() - 1) != '/') {
 				m_runPath = m_runPath + '/';
 			}
@@ -273,7 +262,7 @@ public class ThinClient extends JPanel implements ActionListener,
 		System.exit(0);
 	}
 
-	public ThinClient() {
+	public PokenetUpdater() {
 		super(new BorderLayout());
 		JPanel panel = new JPanel();
 		JPanel container = new JPanel();
@@ -329,18 +318,16 @@ public class ThinClient extends JPanel implements ActionListener,
 	 * Invoked when the user presses the start button.
 	 */
 	public void actionPerformed(ActionEvent evt) {
-		if (evt.getActionCommand().equals("update")) {
-			updatePokenet();
-		} else if (evt.getActionCommand().equals("hide")) {
+		if (evt.getActionCommand().equals("hide")) {
 			if (!m_showOutput) {
-				m_output.setVisible(true);
+//				m_output.setVisible(true);
 				m_hideButton.setText("Hide Details...");
-				m_masterFrame.setSize(WIDTH, HEIGHT - m_taskOutput.getHeight());
+				m_masterFrame.setSize(WIDTH, HEIGHT);
 				m_showOutput = true;
 			} else {
-				m_output.setVisible(false);
+//				m_output.setVisible(false);
 				m_hideButton.setText("Show Details...");
-				m_masterFrame.setSize(WIDTH, HEIGHT);
+				m_masterFrame.setSize(WIDTH, HEIGHT - m_output.getHeight());
 				m_showOutput = false;
 			}
 		}
@@ -377,7 +364,7 @@ public class ThinClient extends JPanel implements ActionListener,
 
 		m_masterFrame.setSize(new Dimension(WIDTH, HEIGHT));
 		// Create and set up the content pane.
-		JComponent newContentPane = new ThinClient();
+		JComponent newContentPane = new PokenetUpdater();
 		newContentPane.setOpaque(true); // content panes must be opaque
 		m_masterFrame.setContentPane(newContentPane);
 
@@ -452,11 +439,11 @@ public class ThinClient extends JPanel implements ActionListener,
 
 	protected static String getPathForOS() {
 		String path = "";
-		if (OS.contains("Windows")) {
+		if (m_isWindows) {
 			path = System.getenv("APPDATA") + "\\.pokenet";
-		} else if (OS.contains("Linux")) {
+		} else if (m_isLinux) {
 			path = System.getenv("HOME") + "/.pokenet";
-		} else if (OS.contains("Mac")) { // Probably?
+		} else if (m_isMac) { // Probably?
 			path = System.getenv("user.home")
 					+ "/Library/Preferences/org.pokenet.updaterPrefs"; // Maybe.
 																		// I
