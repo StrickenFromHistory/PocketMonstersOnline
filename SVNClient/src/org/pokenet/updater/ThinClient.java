@@ -293,7 +293,8 @@ public class ThinClient extends JPanel implements ActionListener,
 		m_hideButton.setEnabled(true);
 		panel.add(m_hideButton, BorderLayout.LINE_END);
 
-		m_progressBar = new JProgressBar(0, 5);
+		m_progressBar = new JProgressBar(0, 100);
+		m_progressBar.setIndeterminate(true);
 		m_progressBar.setValue(0);
 		m_progressBar.setStringPainted(true);
 		m_progressBar.setSize(WIDTH, m_hideButton.getHeight());
