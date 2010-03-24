@@ -229,7 +229,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		m_masterFrame.setVisible(false);
 		try {
 			String s;
-			String m_runPath = (m_isWindows ? "\"" + m_installpath + "\"" : m_installpath);
+			String m_runPath = m_installpath;
 			if (m_runPath.charAt(m_runPath.length() - 1) != '/') {
 				m_runPath = m_runPath + '/';
 			}
