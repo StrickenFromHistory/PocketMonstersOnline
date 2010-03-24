@@ -30,7 +30,8 @@ import java.awt.Dimension;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class ThinClient extends JPanel implements ActionListener, PropertyChangeListener {
+public class ThinClient extends JPanel implements ActionListener,
+		PropertyChangeListener {
 
 	private static final long serialVersionUID = 5427544579927859151L;
 	public static final String SVN_URL = "pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
@@ -39,11 +40,10 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 	private static final String OS = System.getProperty("os.name");
 	public static final String SAD_INSTALL_MESSAGE = "Hmm. Game installed, but we couldn't save the location.\nThis means that next time you run, you'll have to select the same installation directory.\nTry running this as admin?";
 	public static final String TITLE = "Pokenet Installer and Updater";
-	
+
 	private static final int WIDTH = 740;
 	private static final int HEIGHT = 470;
 	private static final int OUTPUT_HEIGHT = 120;
-
 
 	private static JFrame m_masterFrame = new JFrame("Pokenet: Valiant Venonat");
 	private JProgressBar m_progressBar;
@@ -56,116 +56,120 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 	private static float m_progressSize = 0;
 	private static String m_installpath = "";
 
-
 	class Task extends SwingWorker<Void, Void> {
 		/*
 		 * Main task. Executed in background thread.
 		 */
 		@Override
 		public Void doInBackground() {
-			//Initialize progress property.
+			// Initialize progress property.
 			setProgress(0);
 			DAVRepositoryFactory.setup();
 			ISVNOptions options = SVNWCUtil.createDefaultOptions(true);
 
-			/* 
-			 * Creates an instance of SVNClientManager providing authentication 
-			 * information (name, password) and an options driver 
-			 */ 
-			SVNClientManager ourClientManager = SVNClientManager.newInstance(options); 
-			SVNUpdateClient updateClient = ourClientManager.getUpdateClient(); 
+			/*
+			 * Creates an instance of SVNClientManager providing authentication
+			 * information (name, password) and an options driver
+			 */
+			SVNClientManager ourClientManager = SVNClientManager
+					.newInstance(options);
+			SVNUpdateClient updateClient = ourClientManager.getUpdateClient();
 
 			/*
 			 * Creates the event handler to display information
 			 */
-			ourClientManager.setEventHandler(
-					new SVNEventAdapter(){
-						public void handleEvent(SVNEvent event, double progress){
-							SVNEventAction action = event.getAction();
-							File curFile = event.getFile();
+			ourClientManager.setEventHandler(new SVNEventAdapter() {
+				public void handleEvent(SVNEvent event, double progress) {
+					SVNEventAction action = event.getAction();
+					File curFile = event.getFile();
 
-							String path = curFile.getAbsolutePath();
-							path = path.substring(path.indexOf(FOLDER_NAME));
+					String path = curFile.getAbsolutePath();
+					path = path.substring(path.indexOf(FOLDER_NAME));
 
-							if (action == SVNEventAction.ADD || action == SVNEventAction.UPDATE_ADD){
-								m_taskOutput.append("Downloading " + path + " \n");
-								
-								m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
-								System.out.println("Downloading " + curFile.getName());
-							} if (action == SVNEventAction.STATUS_COMPLETED ||
-									action == SVNEventAction.UPDATE_COMPLETED){
-								setProgress(100);
-								m_taskOutput.append("Download completed. ");
-								m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
-								System.out.println("Download completed. ");
+					if (action == SVNEventAction.ADD
+							|| action == SVNEventAction.UPDATE_ADD) {
+						m_taskOutput.append("Downloading " + path + " \n");
 
-							}
-						}
+						m_taskOutput.setCaretPosition(m_taskOutput
+								.getDocument().getLength());
+						System.out.println("Downloading " + curFile.getName());
 					}
-			);	    	
+					if (action == SVNEventAction.STATUS_COMPLETED
+							|| action == SVNEventAction.UPDATE_COMPLETED) {
+						setProgress(100);
+						m_taskOutput.append("Download completed. ");
+						m_taskOutput.setCaretPosition(m_taskOutput
+								.getDocument().getLength());
+						System.out.println("Download completed. ");
 
+					}
+				}
+			});
 
-			/* 
-			 * sets externals not to be ignored during the checkout 
-			 */ 
-			updateClient.setIgnoreExternals(false); 
+			/*
+			 * sets externals not to be ignored during the checkout
+			 */
+			updateClient.setIgnoreExternals(false);
 
-			/* 
-			 * A url of a repository to check out 
-			 */ 
+			/*
+			 * A url of a repository to check out
+			 */
 			SVNURL url = null;
 			try {
 				url = SVNURL.parseURIDecoded("http://" + SVN_URL);
 			} catch (SVNException e2) {
 				e2.printStackTrace();
-			} 
-			/* 
-			 * A revision to check out 
-			 */ 
-			SVNRevision revision = SVNRevision.HEAD; 
+			}
+			/*
+			 * A revision to check out
+			 */
+			SVNRevision revision = SVNRevision.HEAD;
 
-			/* 
-			 * A revision for which you're sure that the url you specify is 
-			 * exactly what you need 
-			 */ 
-			SVNRevision pegRevision = SVNRevision.HEAD; 
+			/*
+			 * A revision for which you're sure that the url you specify is
+			 * exactly what you need
+			 */
+			SVNRevision pegRevision = SVNRevision.HEAD;
 
-			/* 
-			 * A local path where a Working Copy will be ckecked out 
-			 */ 
-			File destPath = new File(m_installpath); 
+			/*
+			 * A local path where a Working Copy will be ckecked out
+			 */
+			File destPath = new File(m_installpath);
 
-			/* 
-			 * returns the number of the revision at which the working copy is 
-			 */ 
+			/*
+			 * returns the number of the revision at which the working copy is
+			 */
 			try {
 				System.out.println(m_installpath);
 				m_taskOutput.append("Game folder: " + m_installpath + "\n");
 				boolean exists = destPath.exists();
-				if(!exists) {
-					m_taskOutput.append("Installing...\nPlease be patient while PokeNet is downloaded...\n");
+				if (!exists) {
+					m_taskOutput
+							.append("Installing...\nPlease be patient while PokeNet is downloaded...\n");
 					System.out.println("Installing...");
-					updateClient.doCheckout(url, destPath, pegRevision, 
-	                        revision, SVNDepth.INFINITY, true);
-					
+					updateClient.doCheckout(url, destPath, pegRevision,
+							revision, SVNDepth.INFINITY, true);
+
 				} else {
 					ourClientManager.getWCClient().doCleanup(destPath);
 					m_taskOutput.append("Updating...\n");
 					System.out.println("Updating...\n");
-					updateClient.doUpdate(destPath, revision, SVNDepth.INFINITY, true, true);
+					updateClient.doUpdate(destPath, revision,
+							SVNDepth.INFINITY, true, true);
 				}
 			} catch (SVNException e1) {
-				// It's probably locked, lets cleanup and resume. 
+				// It's probably locked, lets cleanup and resume.
 				e1.printStackTrace();
 				try {
 					ourClientManager.getWCClient().doCleanup(destPath);
 					m_taskOutput.append("Resuming Download...\n");
 					System.out.println("Resuming Download...\n");
-					updateClient.doUpdate(destPath, revision, SVNDepth.INFINITY, true, true);
+					updateClient.doUpdate(destPath, revision,
+							SVNDepth.INFINITY, true, true);
 				} catch (SVNException e) {
 					e.printStackTrace();
 				}
-			} 
+			}
 			return null;
 		}
 
@@ -174,98 +178,98 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		 */
 		@Override
 		public void done() {
-			if(getProgress()<100){
+			if (getProgress() < 100) {
 				setProgress(100);
 				m_taskOutput.append("Download complete!");
-				m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
+				m_taskOutput.setCaretPosition(m_taskOutput.getDocument()
+						.getLength());
 			}
 			try {
-				if(!m_installpath.equals("")){
+				if (!m_installpath.equals("")) {
 					m_taskOutput.append("Setting up the install directory...");
-					m_taskOutput.setCaretPosition(m_taskOutput.getDocument().getLength());
+					m_taskOutput.setCaretPosition(m_taskOutput.getDocument()
+							.getLength());
 					File f = new File(getPathForOS());
-					if(OS.contains("Windows")){
-							if(f.exists())
-								f.delete();
-							PrintWriter pw = new PrintWriter(f);
-							pw.println(m_installpath);
-							pw.flush();
-							pw.close();
-	
-					}else if(OS.contains("Linux")){
-						if(f.exists())
+					if (OS.contains("Windows")) {
+						if (f.exists())
 							f.delete();
 						PrintWriter pw = new PrintWriter(f);
 						pw.println(m_installpath);
 						pw.flush();
 						pw.close();
 
-					}else if(OS.contains("Mac")){ // Probably?
-						if(f.exists())
+					} else if (OS.contains("Linux")) {
+						if (f.exists())
 							f.delete();
 						PrintWriter pw = new PrintWriter(f);
 						pw.println(m_installpath);
 						pw.flush();
 						pw.close();
-					}else{
-						JOptionPane.showInternalMessageDialog(
-								m_masterFrame,
-								SAD_INSTALL_MESSAGE,
-								TITLE,
+
+					} else if (OS.contains("Mac")) { // Probably?
+						if (f.exists())
+							f.delete();
+						PrintWriter pw = new PrintWriter(f);
+						pw.println(m_installpath);
+						pw.flush();
+						pw.close();
+					} else {
+						JOptionPane.showInternalMessageDialog(m_masterFrame,
+								SAD_INSTALL_MESSAGE, TITLE,
 								JOptionPane.WARNING_MESSAGE);
 					}
 				}
-			}catch(Exception e){
+			} catch (Exception e) {
 				e.printStackTrace();
-				JOptionPane.showInternalMessageDialog(
-						m_masterFrame,
-						SAD_INSTALL_MESSAGE,
-						TITLE,
-						JOptionPane.WARNING_MESSAGE);
-			
-
+				JOptionPane
+						.showInternalMessageDialog(m_masterFrame,
+								SAD_INSTALL_MESSAGE, TITLE,
+								JOptionPane.WARNING_MESSAGE);
 
 			}
 
-			setCursor(null); //turn off the wait cursor
+			setCursor(null); // turn off the wait cursor
 			/*
-			 *  Launch Jar
+			 * Launch Jar
 			 */
 			LaunchPokenet();
 		}
 	}
 
-	public static void LaunchPokenet(){
+	public static void LaunchPokenet() {
 		m_masterFrame.setVisible(false);
 		try {
 			String s;
 			String m_runPath = m_installpath;
-			if (m_runPath.charAt(m_runPath.length() - 1) != '/'){
+			if (m_runPath.charAt(m_runPath.length() - 1) != '/') {
 				m_runPath = m_runPath + '/';
 			}
-			String m_launchCommand = "java -Dres.path=\"" + m_runPath + "\" -Djava.library.path=\"" + m_runPath + "lib/native\" -jar \"" + m_runPath + "Pokenet.jar\"";
+			String m_launchCommand = "java -Dres.path=\"" + m_runPath
+					+ "\" -Djava.library.path=\"" + m_runPath
+					+ "lib/native\" -jar \"" + m_runPath + "Pokenet.jar\"";
 
 			System.out.println(m_launchCommand);
 			Process p = Runtime.getRuntime().exec(m_launchCommand);
-			BufferedReader stdInput = new BufferedReader(new 
-					InputStreamReader(p.getInputStream()));
-			BufferedReader stdError = new BufferedReader(new 
-					InputStreamReader(p.getErrorStream()));
-			//Read the output from the command
+			BufferedReader stdInput = new BufferedReader(new InputStreamReader(
+					p.getInputStream()));
+			BufferedReader stdError = new BufferedReader(new InputStreamReader(
+					p.getErrorStream()));
+			// Read the output from the command
 
 			while ((s = stdInput.readLine()) != null) {
 				System.out.println(s);
 			}
 			while ((s = stdError.readLine()) != null) {
-				System.out.println("Error: "+s);
+				System.out.println("Error: " + s);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-			JOptionPane.showInternalMessageDialog(
-					m_masterFrame,
-					"Ouch! Something happened and we couldn't run the game. \nMaybe it didn't install properly?\nError: "+e.getLocalizedMessage(),
-					TITLE,
-					JOptionPane.WARNING_MESSAGE);
+			JOptionPane
+					.showInternalMessageDialog(
+							m_masterFrame,
+							"Ouch! Something happened and we couldn't run the game. \nMaybe it didn't install properly?\nError: "
+									+ e.getLocalizedMessage(), TITLE,
+							JOptionPane.WARNING_MESSAGE);
 		}
 		System.exit(0);
 	}
@@ -274,13 +278,14 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		super(new BorderLayout());
 		JPanel panel = new JPanel();
 		JPanel container = new JPanel();
-		
+
 		panel.setSize(m_masterFrame.getWidth(), 40);
-		container.setSize(m_masterFrame.getWidth(), OUTPUT_HEIGHT + panel.getHeight());
-	
+		container.setSize(m_masterFrame.getWidth(), OUTPUT_HEIGHT
+				+ panel.getHeight());
+
 		container.setLayout(new BorderLayout());
 		panel.setLayout(new BorderLayout());
-		
+
 		updatePokenet();
 
 		m_hideButton = new JButton("Hide Details...");
@@ -294,30 +299,29 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		m_progressBar.setStringPainted(true);
 		m_progressBar.setSize(WIDTH, m_hideButton.getHeight());
 
-
 		m_taskOutput = new JTextArea();
 		m_taskOutput.setSize(m_masterFrame.getWidth(), OUTPUT_HEIGHT);
 		m_taskOutput.setEditable(false);
 		m_taskOutput.setAutoscrolls(true);
 		m_output = new JScrollPane(m_taskOutput);
-		
-		container.add(m_progressBar, BorderLayout.PAGE_END);		
+
+		container.add(m_progressBar, BorderLayout.PAGE_END);
 		container.add(m_output, BorderLayout.CENTER);
-		
+
 		ImageIcon m_logo;
-		JLabel l = null; 
+		JLabel l = null;
 		l = new JLabel();
 		l.setSize(WIDTH, 190);
 
 		try {
-			m_logo = new ImageIcon(new URL(HEADER_IMAGE_URL ));
+			m_logo = new ImageIcon(new URL(HEADER_IMAGE_URL));
 			l = new JLabel(m_logo);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
-		
-        add(l, BorderLayout.PAGE_START);
-		add(container, BorderLayout.CENTER); 
+
+		add(l, BorderLayout.PAGE_START);
+		add(container, BorderLayout.CENTER);
 		add(panel, BorderLayout.PAGE_END);
 	}
 
@@ -325,27 +329,27 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 	 * Invoked when the user presses the start button.
 	 */
 	public void actionPerformed(ActionEvent evt) {
-		if(evt.getActionCommand().equals("update")){
+		if (evt.getActionCommand().equals("update")) {
 			updatePokenet();
-		}else if(evt.getActionCommand().equals("hide")){
-			if(!m_showOutput){
+		} else if (evt.getActionCommand().equals("hide")) {
+			if (!m_showOutput) {
 				m_output.setVisible(true);
 				m_hideButton.setText("Hide Details...");
 				m_masterFrame.setSize(WIDTH, HEIGHT - m_taskOutput.getHeight());
-				m_showOutput=true;
-			}else{
+				m_showOutput = true;
+			} else {
 				m_output.setVisible(false);
 				m_hideButton.setText("Show Details...");
 				m_masterFrame.setSize(WIDTH, HEIGHT);
-				m_showOutput=false;
+				m_showOutput = false;
 			}
 		}
 	}
 
 	private void updatePokenet() {
 		setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-		//Instances of javax.swing.SwingWorker are not reusuable, so
-		//we create new instances as needed.
+		// Instances of javax.swing.SwingWorker are not reusuable, so
+		// we create new instances as needed.
 		m_task = new Task();
 		m_task.addPropertyChangeListener(this);
 		m_task.execute();
@@ -358,26 +362,26 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		if ("progress" == evt.getPropertyName()) {
 			int progress = (Integer) evt.getNewValue();
 			m_progressBar.setValue(progress);
-		} 
+		}
 	}
 
-
 	/**
-	 * Create the GUI and show it. As with all GUI code, this must run
-	 * on the event-dispatching thread.
-	 * @param mProgressSize 
+	 * Create the GUI and show it. As with all GUI code, this must run on the
+	 * event-dispatching thread.
+	 * 
+	 * @param mProgressSize
 	 */
 	private static void createAndShowGUI() {
-		//Create and set up the window.
+		// Create and set up the window.
 		m_masterFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		m_masterFrame.setSize(new Dimension(WIDTH, HEIGHT));
-		//Create and set up the content pane.
+		// Create and set up the content pane.
 		JComponent newContentPane = new ThinClient();
-		newContentPane.setOpaque(true); //content panes must be opaque
+		newContentPane.setOpaque(true); // content panes must be opaque
 		m_masterFrame.setContentPane(newContentPane);
 
-		//Display the window.
+		// Display the window.
 		centerTheGUIFrame(m_masterFrame);
 		m_masterFrame.setVisible(true);
 
@@ -396,72 +400,77 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		
+
 		runApp();
 	}
 
-	public static void runApp(){
+	public static void runApp() {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
-				
+
 				String path = getPathForOS();
-				
-				if(!path.equals("")){
+
+				if (!path.equals("")) {
 					BufferedReader br = null;
-					try
-					{
+					try {
 						br = new BufferedReader(new FileReader(path));
 						m_installpath = br.readLine();
 						createAndShowGUI();
-					}catch(Exception e){
+					} catch (Exception e) {
 						JFileChooser fc = new JFileChooser();
 						fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-						
-						int returnVal = fc.showDialog(m_masterFrame, "Choose Install Location...");
+
+						int returnVal = fc.showDialog(m_masterFrame,
+								"Choose Install Location...");
 						if (returnVal == JFileChooser.APPROVE_OPTION) {
 							File file = fc.getSelectedFile();
 							try {
-								m_installpath = file.getCanonicalPath() + "/" + FOLDER_NAME;
+								m_installpath = file.getCanonicalPath() + "/"
+										+ FOLDER_NAME;
 								createAndShowGUI();
 							} catch (IOException e1) {
 								e1.printStackTrace();
 							}
-						}else{
-							JOptionPane.showMessageDialog(
-									m_masterFrame,
-									"Thanks for choosing us!",
-									TITLE,
+						} else {
+							JOptionPane.showMessageDialog(m_masterFrame,
+									"Thanks for choosing us!", TITLE,
 									JOptionPane.INFORMATION_MESSAGE);
 							System.exit(0);
 						}
 					}
-				}else{
+				} else {
 					/**
-					 *  Check Updates
+					 * Check Updates
 					 */
 					createAndShowGUI();
 				}
-				
 
 			}
 		});
 	}
+
 	protected static String getPathForOS() {
 		String path = "";
-		if(OS.contains("Windows")){
-			path = System.getenv("APPDATA")+"\\.pokenet";
-		}else if(OS.contains("Linux")){
-			path =  System.getenv("HOME")+"/.pokenet";
-		}else if(OS.contains("Mac")){ // Probably?
-				path = System.getenv("user.home")+"/Library/Preferences/org.pokenet.updaterPrefs"; //Maybe. I don't know. 
+		if (OS.contains("Windows")) {
+			path = System.getenv("APPDATA") + "\\.pokenet";
+		} else if (OS.contains("Linux")) {
+			path = System.getenv("HOME") + "/.pokenet";
+		} else if (OS.contains("Mac")) { // Probably?
+			path = System.getenv("user.home")
+					+ "/Library/Preferences/org.pokenet.updaterPrefs"; // Maybe.
+																		// I
+																		// don't
+																		// know.
 		}
 		return path;
 	}
 
 	/**
 	 * This method is used to center the GUI
-	 * @param frame - Frame that needs to be centered.
+	 * 
+	 * @param frame
+	 *            - Frame that needs to be centered.
 	 */
 	public static void centerTheGUIFrame(JFrame frame) {
 		int widthWindow = frame.getWidth();
