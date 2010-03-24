@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+  spec="1.5+"
+  codebase="http://pokedev.org/game"
+  href="http://pokedev.org/game/alpha.jnlp">
+  <information>
+    <title>PokeNet</title>
+    <vendor>PokeNet Team</vendor>
+    <homepage href="http://pokedev.org"/>
+    <description>The Pokemon MMO.</description>
+    <description kind="short">The Pokemon MMO.</description>
+    <icon href="http://pokedev.org/game/pokeballu.gif"/> 
+    <shortcut online="true">
+<desktop/>
+<menu submenu="PokeNet"/>
+</shortcut> 
+  </information> 
+  <security>
+<all-permissions/>
+</security>
+  <resources>
+    <j2se href="http://java.sun.com/products/autodl/j2se" version="1.5+" initial-heap-size="256m" max-heap-size="512m"/>
+    <jar href="SVNClient.jar"/>
+<jar href="lib/svnkit.jar"/>  
+	<jar href="lib/svnkit-cli.jar"/>  
+    </resources>  
+
+
+  <application-desc main-class="org.pokenet.updater.PokenetUpdater"/>
+
+</jnlp>
