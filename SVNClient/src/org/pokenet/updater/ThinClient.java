@@ -32,6 +32,7 @@ import java.beans.PropertyChangeListener;
 
 public class ThinClient extends JPanel implements ActionListener, PropertyChangeListener {
 
+	private static final long serialVersionUID = 5427544579927859151L;
 	public static final String SVN_URL = "pokenet-release.svn.sourceforge.net/svnroot/pokenet-release";
 	public static final String FOLDER_NAME = "pokenet-release";
 	private String HEADER_IMAGE_URL = "http://pokedev.org/header.png";
@@ -238,12 +239,19 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		m_masterFrame.setVisible(false);
 		try {
 			String s;
-			Process p = Runtime.getRuntime().exec("java -Dres.path="+m_installpath+" -Djava.library.path="+m_installpath+"lib/native -jar "+m_installpath+"Pokenet.jar");
+			String m_runPath = m_installpath;
+			if (m_runPath.charAt(m_runPath.length() - 1) != '/'){
+				m_runPath = m_runPath + '/';
+			}
+			String m_launchCommand = "java -Dres.path=\"" + m_runPath + "\" -Djava.library.path=\"" + m_runPath + "lib/native\" -jar \"" + m_runPath + "Pokenet.jar\"";
+
+			System.out.println(m_launchCommand);
+			Process p = Runtime.getRuntime().exec(m_launchCommand);
 			BufferedReader stdInput = new BufferedReader(new 
 					InputStreamReader(p.getInputStream()));
 			BufferedReader stdError = new BufferedReader(new 
 					InputStreamReader(p.getErrorStream()));
-			// read the output from the command
+			//Read the output from the command
 
 			while ((s = stdInput.readLine()) != null) {
 				System.out.println(s);
@@ -294,7 +302,7 @@ public class ThinClient extends JPanel implements ActionListener, PropertyChange
 		m_output = new JScrollPane(m_taskOutput);
 		
 		container.add(m_progressBar, BorderLayout.PAGE_END);		
-		container.add(m_taskOutput, BorderLayout.CENTER);
+		container.add(m_output, BorderLayout.CENTER);
 		
 		ImageIcon m_logo;
 		JLabel l = null; 
