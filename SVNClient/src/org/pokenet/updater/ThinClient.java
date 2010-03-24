@@ -244,12 +244,11 @@ public class ThinClient extends JPanel implements ActionListener,
 			if (m_runPath.charAt(m_runPath.length() - 1) != '/') {
 				m_runPath = m_runPath + '/';
 			}
-			String m_launchCommand = "java -Dres.path=\"" + m_runPath
-					+ "\" -Djava.library.path=\"" + m_runPath
-					+ "lib/native\" -jar \"" + m_runPath + "Pokenet.jar\"";
+			
+			String m_launchCommand = "java -Djava.library.path=lib/native -jar Pokenet.jar";
 
 			System.out.println(m_launchCommand);
-			Process p = Runtime.getRuntime().exec(m_launchCommand);
+			Process p = Runtime.getRuntime().exec(m_launchCommand, null, new File(m_runPath));
 			BufferedReader stdInput = new BufferedReader(new InputStreamReader(
 					p.getInputStream()));
 			BufferedReader stdError = new BufferedReader(new InputStreamReader(
