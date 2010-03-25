@@ -5,6 +5,7 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+import org.tmatesoft.svn.cli.svn.SVNListCommand;
 import org.tmatesoft.svn.core.SVNDepth;
 import org.tmatesoft.svn.core.SVNException;
 import org.tmatesoft.svn.core.SVNURL;
@@ -284,7 +285,8 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 
 		m_progressBar = new JProgressBar();
 		m_progressBar.setIndeterminate(true);
-		m_progressBar.setStringPainted(true);
+		m_progressBar.setStringPainted(false);
+		m_progressBar.setToolTipText("Click on Show Details to see the progress");
 		m_progressBar.setSize(WIDTH, m_hideButton.getHeight());
 
 		m_taskOutput = new JTextArea();
