@@ -114,7 +114,7 @@ public class SoundManager extends Thread{
 				try{
 					m_trackChanged = false;
 					System.out.println("Playing: " + m_trackName);
-					if(!m_mute) {
+					if(!m_mute && m_trackName != null) {
 						//LoadingList.setDeferredLoading(true);
 						m_files.get(m_trackName).playAsMusic(1, 20, true);
 						//LoadingList.setDeferredLoading(false);
@@ -149,14 +149,16 @@ public class SoundManager extends Thread{
 	 * @param key
 	 */
 	public void setTrackByLocation(String track){
-		String key = track;
-		System.out.println(key);
-		System.out.println(key.substring(0,5));
-		if (key.substring(0, 5).equalsIgnoreCase("Route"))
-			key = "Route";
-		if (m_locations.get(key) != m_trackName && m_locations.get(key) != null){
-			m_trackName = m_locations.get(key);
-			m_trackChanged = true;
+		if (track != null) {
+			String key = track;
+			System.out.println(key);
+			System.out.println(key.substring(0,5));
+			if (key.substring(0, 5).equalsIgnoreCase("Route"))
+				key = "Route";
+			if (m_locations.get(key) != m_trackName && m_locations.get(key) != null){
+				m_trackName = m_locations.get(key);
+				m_trackChanged = true;
+			}
 		}
 	}
 	
