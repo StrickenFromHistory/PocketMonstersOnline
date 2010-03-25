@@ -246,10 +246,10 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		try {
 			String s;
 			
-			String m_launchCommand = "java -Dres.path="+m_installpath+" -Djava.library.path="+m_installpath+"lib/native -jar "+m_installpath+"Pokenet.jar";
+			String m_launchCommand = "java -Dres.path="+m_installpath+"/ -Djava.library.path="+m_installpath+"/lib/native -jar "+m_installpath+"/Pokenet.jar";
 
 			System.out.println(m_launchCommand);
-			Process p = Runtime.getRuntime().exec("java -Dres.path="+m_installpath+" -Djava.library.path="+m_installpath+"lib/native -jar "+m_installpath+"Pokenet.jar");
+			Process p = Runtime.getRuntime().exec(m_launchCommand);
 			BufferedReader stdInput = new BufferedReader(new InputStreamReader(
 					p.getInputStream()));
 			BufferedReader stdError = new BufferedReader(new InputStreamReader(
