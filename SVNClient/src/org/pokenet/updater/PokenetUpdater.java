@@ -215,6 +215,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 						if (f.exists())
 							f.delete();
 						PrintWriter pw = new PrintWriter(f);
+						pw.write(m_installpath);
 						pw.flush();
 						pw.close();
 					} else {
