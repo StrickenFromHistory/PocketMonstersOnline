@@ -215,7 +215,10 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 						if (f.exists())
 							f.delete();
 						PrintWriter pw = new PrintWriter(f);
-						pw.println(m_installpath);
+						if(m_isWindows)
+							pw.println("\""+m_installpath+"\"");
+						else
+							pw.println(m_installpath);
 						pw.flush();
 						pw.close();
 					} else {
@@ -246,7 +249,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		try {
 			String s;
 			
-			String m_launchCommand = "java -Djava.library.path=lib/native -jar Pokenet.jar";
+			String m_launchCommand = "java java -Dres.path="+m_installpath+" -Djava.library.path=lib/native -jar Pokenet.jar";
 
 			System.out.println(m_launchCommand);
 			Process p = Runtime.getRuntime().exec(m_launchCommand, null, new File(m_installpath));
