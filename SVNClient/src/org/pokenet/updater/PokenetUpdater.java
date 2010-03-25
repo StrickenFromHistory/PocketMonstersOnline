@@ -215,10 +215,6 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 						if (f.exists())
 							f.delete();
 						PrintWriter pw = new PrintWriter(f);
-						if(m_isWindows)
-							pw.println("\""+m_installpath+"\"");
-						else
-							pw.println(m_installpath);
 						pw.flush();
 						pw.close();
 					} else {
