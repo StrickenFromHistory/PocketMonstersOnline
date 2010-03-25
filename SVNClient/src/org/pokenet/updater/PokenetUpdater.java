@@ -244,7 +244,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 	public static void LaunchPokenet() {
 		m_masterFrame.setVisible(false);
 		try {
-			String s;
+			//String s;
 			String m_launchCommand = "";
 			if(m_isWindows)
 				m_launchCommand = "java -Dres.path="+m_installpath+"\\ -Djava.library.path="+m_installpath+"\\lib\\native -jar "+m_installpath+"\\Pokenet.jar";
@@ -253,18 +253,18 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 			
 			System.out.println(m_launchCommand);
 			Process p = Runtime.getRuntime().exec(m_launchCommand);
-			BufferedReader stdInput = new BufferedReader(new InputStreamReader(
+			/*BufferedReader stdInput = new BufferedReader(new InputStreamReader(
 					p.getInputStream()));
 			BufferedReader stdError = new BufferedReader(new InputStreamReader(
-					p.getErrorStream()));
+					p.getErrorStream()));*/
 			// Read the output from the command
 
-			while ((s = stdInput.readLine()) != null) {
+			/*while ((s = stdInput.readLine()) != null) {
 				System.out.println(s);
 			}
 			while ((s = stdError.readLine()) != null) {
 				System.out.println("Error: " + s);
-			}
+			}*/
 		} catch (IOException e) {
 			e.printStackTrace();
 			JOptionPane
