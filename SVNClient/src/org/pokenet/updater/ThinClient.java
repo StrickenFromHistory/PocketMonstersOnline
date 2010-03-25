@@ -1,37 +1,9 @@
 package org.pokenet.updater;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.awt.*;
+import java.awt.event.*;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingWorker;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.*;
 
 import org.tmatesoft.svn.core.SVNDepth;
 import org.tmatesoft.svn.core.SVNException;
@@ -46,7 +18,19 @@ import org.tmatesoft.svn.core.wc.SVNRevision;
 import org.tmatesoft.svn.core.wc.SVNUpdateClient;
 import org.tmatesoft.svn.core.wc.SVNWCUtil;
 
-public class PokenetUpdater extends JPanel implements ActionListener,
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.awt.Dimension;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class ThinClient extends JPanel implements ActionListener,
 		PropertyChangeListener {
 
 	private static final long serialVersionUID = 5427544579927859151L;
@@ -54,7 +38,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 	public static final String FOLDER_NAME = "pokenet-release";
 	private String HEADER_IMAGE_URL = "http://pokedev.org/header.png";
 	private static final String OS = System.getProperty("os.name");
-	public static final String SAD_INSTALL_MESSAGE = "Hmm. Game installed, but we couldn't save the location.\nThis means that next time you run, you'll have to select the same installation directory.";
+	public static final String SAD_INSTALL_MESSAGE = "Hmm. Game installed, but we couldn't save the location.\nThis means that next time you run, you'll have to select the same installation directory.\nTry running this as admin?";
 	public static final String TITLE = "Pokenet Installer and Updater";
 
 	private static final int WIDTH = 740;
@@ -68,11 +52,6 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 	private Task m_task;
 	private Component m_output;
 	private boolean m_showOutput = true;
-	
-	static boolean m_isWindows = OS.contains("Windows");
-	static boolean m_isLinux = OS.contains("Linux");
-	static boolean m_isMac = OS.contains("Mac");
-	
 
 	private static float m_progressSize = 0;
 	private static String m_installpath = "";
@@ -157,6 +136,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 			 */
 			File destPath = new File(m_installpath);
 
+
 			/*
 			 * returns the number of the revision at which the working copy is
 			 */
@@ -211,7 +191,23 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 					m_taskOutput.setCaretPosition(m_taskOutput.getDocument()
 							.getLength());
 					File f = new File(getPathForOS());
-					if (m_isLinux || m_isMac || m_isWindows) {
+					if (OS.contains("Windows")) {
+						if (f.exists())
+							f.delete();
+						PrintWriter pw = new PrintWriter(f);
+						pw.println(m_installpath);
+						pw.flush();
+						pw.close();
+
+					} else if (OS.contains("Linux")) {
+						if (f.exists())
+							f.delete();
+						PrintWriter pw = new PrintWriter(f);
+						pw.println(m_installpath);
+						pw.flush();
+						pw.close();
+
+					} else if (OS.contains("Mac")) { // Probably?
 						if (f.exists())
 							f.delete();
 						PrintWriter pw = new PrintWriter(f);
@@ -245,7 +241,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		m_masterFrame.setVisible(false);
 		try {
 			String s;
-			
+
 			String m_launchCommand = "java -Djava.library.path=lib/native -jar Pokenet.jar";
 
 			System.out.println(m_launchCommand);
@@ -274,7 +270,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		System.exit(0);
 	}
 
-	public PokenetUpdater() {
+	public ThinClient() {
 		super(new BorderLayout());
 		JPanel panel = new JPanel();
 		JPanel container = new JPanel();
@@ -294,10 +290,9 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		m_hideButton.setEnabled(true);
 		panel.add(m_hideButton, BorderLayout.LINE_END);
 
-		m_progressBar = new JProgressBar();
-		m_progressBar.setIndeterminate(true);
-		m_progressBar.setStringPainted(false);
-		m_progressBar.setToolTipText("Click on Show Details to see the progress");
+		m_progressBar = new JProgressBar(0, 5);
+		m_progressBar.setValue(0);
+		m_progressBar.setStringPainted(true);
 		m_progressBar.setSize(WIDTH, m_hideButton.getHeight());
 
 		m_taskOutput = new JTextArea();
@@ -330,16 +325,18 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 	 * Invoked when the user presses the start button.
 	 */
 	public void actionPerformed(ActionEvent evt) {
-		if (evt.getActionCommand().equals("hide")) {
+		if (evt.getActionCommand().equals("update")) {
+			updatePokenet();
+		} else if (evt.getActionCommand().equals("hide")) {
 			if (!m_showOutput) {
-//				m_output.setVisible(true);
+				m_output.setVisible(true);
 				m_hideButton.setText("Hide Details...");
-				m_masterFrame.setSize(WIDTH, HEIGHT);
+				m_masterFrame.setSize(WIDTH, HEIGHT - m_taskOutput.getHeight());
 				m_showOutput = true;
 			} else {
-//				m_output.setVisible(false);
+				m_output.setVisible(false);
 				m_hideButton.setText("Show Details...");
-				m_masterFrame.setSize(WIDTH, HEIGHT - m_output.getHeight());
+				m_masterFrame.setSize(WIDTH, HEIGHT);
 				m_showOutput = false;
 			}
 		}
@@ -376,7 +373,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 
 		m_masterFrame.setSize(new Dimension(WIDTH, HEIGHT));
 		// Create and set up the content pane.
-		JComponent newContentPane = new PokenetUpdater();
+		JComponent newContentPane = new ThinClient();
 		newContentPane.setOpaque(true); // content panes must be opaque
 		m_masterFrame.setContentPane(newContentPane);
 
@@ -451,12 +448,16 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 
 	protected static String getPathForOS() {
 		String path = "";
-		if (m_isWindows) {
+		if (OS.contains("Windows")) {
 			path = System.getenv("APPDATA") + "\\.pokenet";
-		} else if (m_isLinux) {
+		} else if (OS.contains("Linux")) {
 			path = System.getenv("HOME") + "/.pokenet";
-		} else if (m_isMac) { // Probably?
-			path = System.getProperty("user.home") + "/Library/Preferences/org.pokenet.updaterPrefs"; // Maybe.
+		} else if (OS.contains("Mac")) { // Probably?
+			path = System.getenv("user.home")
+					+ "/Library/Preferences/org.pokenet.updaterPrefs"; // Maybe.
+																		// I
+																		// don't
+																		// know.
 		}
 		return path;
 	}
