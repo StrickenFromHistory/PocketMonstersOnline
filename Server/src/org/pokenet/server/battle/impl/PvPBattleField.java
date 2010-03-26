@@ -214,7 +214,8 @@ public class PvPBattleField extends BattleField {
 		if(m_finished)
 			return;
 		if (poke != null && m_players != null) {
-			if (poke.compareTo(getActivePokemon()[0]) == 0) {
+			if (poke.compareTo(getActivePokemon()[0]) == 0 &&
+					!getActivePokemon()[0].isFainted()) {
 				TcpProtocolHandler.writeMessage(m_players[0].getTcpSession(), 
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 
@@ -223,7 +224,8 @@ public class PvPBattleField extends BattleField {
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 
 								eff.getName(), true));
-			} else if(poke.compareTo(getActivePokemon()[1]) == 0) {
+			} else if(poke.compareTo(getActivePokemon()[1]) == 0 &&
+					!getActivePokemon()[1].isFainted()) {
 				TcpProtocolHandler.writeMessage(m_players[0].getTcpSession(), 
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 

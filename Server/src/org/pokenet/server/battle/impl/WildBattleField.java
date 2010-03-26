@@ -173,10 +173,10 @@ public class WildBattleField extends BattleField {
 	public void informStatusRemoved(Pokemon poke, StatusEffect eff) {
 		if (m_finished) return;
 		if (m_player != null) {
-			if (poke != m_wildPoke) TcpProtocolHandler.writeMessage(m_player
+			if (poke != m_wildPoke && !poke.isFainted()) TcpProtocolHandler.writeMessage(m_player
 					.getTcpSession(), new StatusChangeMessage(0, poke.getSpeciesName(), eff
 							.getName(), true));
-			else if (poke == m_wildPoke)
+			else if (poke == m_wildPoke && !poke.isFainted())
 				TcpProtocolHandler
 				.writeMessage(m_player.getTcpSession(), new StatusChangeMessage(1,
 						poke.getSpeciesName(), eff.getName(), true));

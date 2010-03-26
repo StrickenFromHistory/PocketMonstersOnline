@@ -175,12 +175,14 @@ public class NpcBattleField extends BattleField {
 		if(m_finished)
 			return;
 		if (m_player != null) {
-			if (getActivePokemon()[0].compareTo(poke) == 0)
+			if (getActivePokemon()[0].compareTo(poke) == 0 &&
+					!getActivePokemon()[0].isFainted())
 				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new StatusChangeMessage(0, 
 								poke.getSpeciesName(), 
 								eff.getName(), true));
-			else if(poke.compareTo(getActivePokemon()[1]) == 0)
+			else if(poke.compareTo(getActivePokemon()[1]) == 0 &&
+					!getActivePokemon()[1].isFainted())
 				TcpProtocolHandler.writeMessage(m_player.getTcpSession(), 
 						new StatusChangeMessage(1, 
 								poke.getSpeciesName(), 
