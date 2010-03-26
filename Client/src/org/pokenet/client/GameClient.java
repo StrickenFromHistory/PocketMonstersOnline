@@ -268,6 +268,7 @@ public class GameClient extends BasicGame {
 	/**
 	 * Updates the game window
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
 		if (m_nextResource != null) {
@@ -517,7 +518,8 @@ public class GameClient extends BasicGame {
 				}
 			}
 			if(m_ui.getNPCSpeech() == null && !m_ui.getChat().isActive() && !m_login.isVisible()
-					&& !getDisplay().containsChild(m_playerDialog) && !BattleManager.isBattling()){
+					&& !getDisplay().containsChild(m_playerDialog) && !BattleManager.isBattling()
+					&& !m_isNewMap){
 				if(m_ourPlayer != null && !m_isNewMap 
 						/*&& m_loading != null && !m_loading.isVisible()*/
 						 && !BattleManager.isBattling()

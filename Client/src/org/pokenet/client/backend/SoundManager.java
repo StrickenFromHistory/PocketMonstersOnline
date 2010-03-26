@@ -3,7 +3,6 @@ package org.pokenet.client.backend;
 import java.io.BufferedReader;
 import java.util.HashMap;
 
-import org.newdawn.slick.loading.LoadingList;
 import org.newdawn.slick.openal.Audio;
 import org.newdawn.slick.openal.AudioImpl;
 import org.newdawn.slick.openal.AudioLoader;
@@ -110,7 +109,7 @@ public class SoundManager extends Thread{
 					loadFiles();
 				}
 			}
-			if (m_trackChanged){
+			if (m_trackChanged && m_trackName != null){
 				try{
 					m_trackChanged = false;
 					System.out.println("Playing: " + m_trackName);
