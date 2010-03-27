@@ -2,6 +2,7 @@ package org.pokenet.client.ui;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -181,28 +182,39 @@ public class LoginScreen extends Window {
 	 */
 	private void setClientRevision() {
 		String path = System.getProperty("res.path");
-		if(path == null || path.equalsIgnoreCase("NULL")) {
+		if (path == null || path.equalsIgnoreCase("NULL")) {
 			path = "./";
 		}
-		File f = new File(path + "rev.txt");
-		if(f.exists()) {
-			try {
+		File f = new File(path + "/.svn/entries");
+		try {
+			if (f.exists()) {
 				Scanner s = new Scanner(f);
+				s.nextLine();
+				s.nextLine();
+				s.nextLine();
+
+				m_clientRev = new Label("Client Version: svn:" + s.nextLine());
+				m_clientRev.setFont(GameClient.getFontSmall());
+				m_clientRev.setForeground(new Color(255, 255, 255));
+				m_clientRev.pack();
+				m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
+				this.add(m_clientRev);
+
+			} else {
+				f = new File(path + "rev.txt");
+				Scanner s;
+				s = new Scanner(f);
+
 				m_clientRev = new Label("Client Version: r" + s.nextLine());
 				m_clientRev.setFont(GameClient.getFontSmall());
 				m_clientRev.setForeground(new Color(255, 255, 255));
 				m_clientRev.pack();
 				m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
 				this.add(m_clientRev);
-			} catch (Exception e) {
-				m_clientRev = new Label("Client Version: ?");
-				m_clientRev.setFont(GameClient.getFontSmall());
-				m_clientRev.setForeground(new Color(255, 255, 255));
-				m_clientRev.pack();
-				m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
-				this.add(m_clientRev);
+
 			}
-		} else {
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			m_clientRev = new Label("Client Version: ?");
 			m_clientRev.setFont(GameClient.getFontSmall());
 			m_clientRev.setForeground(new Color(255, 255, 255));
@@ -210,8 +222,9 @@ public class LoginScreen extends Window {
 			m_clientRev.setLocation(4, 600 - m_clientRev.getHeight() - 8);
 			this.add(m_clientRev);
 		}
+
 	}
-	
+
 	/**
 	 * Shows the login dialog
 	 */
