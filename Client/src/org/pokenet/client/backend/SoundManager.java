@@ -109,15 +109,15 @@ public class SoundManager extends Thread{
 					loadFiles();
 				}
 			}
-			if (m_trackChanged && m_trackName != null){
+			if (m_trackChanged){
 				try{
 					m_trackChanged = false;
-					System.out.println("Playing: " + m_trackName);
 					if(!m_mute && m_trackName != null) {
+						System.out.println("Playing: " + m_trackName);
 						//LoadingList.setDeferredLoading(true);
 						m_files.get(m_trackName).playAsMusic(1, 20, true);
 						//LoadingList.setDeferredLoading(false);
-					} else {
+					} else if (m_mute && m_trackName != null) {
 						m_files.clear();
 					}
 				} catch (Exception e){
