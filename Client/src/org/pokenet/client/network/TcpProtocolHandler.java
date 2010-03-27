@@ -367,12 +367,14 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				//Stats update
 				details = message.substring(3).split(",");
 				m_game.getOurPlayer().updatePokemon(Integer.parseInt(String.valueOf(message.charAt(2))), details);
-				m_game.getUi().refreshParty();
+				if (m_game.getUi().isActive())
+					m_game.getUi().refreshParty();
 				break;
 			case 'N':
 				//A pokemon left the party
 				m_game.getOurPlayer().setPokemon(Integer.parseInt(String.valueOf(message.charAt(2))), null);
-				m_game.getUi().refreshParty();
+				if (m_game.getUi().isActive())
+					m_game.getUi().refreshParty();
 				break;
 			case 'i':
 				//Initialise a pokemon
@@ -396,14 +398,16 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				m_game.getOurPlayer().getPokemon()[Integer.parseInt(String.valueOf(message.charAt(2)))]
 				                                   .setMoves(Integer.parseInt(String.valueOf(message.charAt(3)))
 				                                		   , message.substring(4));
-				GameClient.getInstance().getUi().update(false);
+				if (m_game.getUi().isActive())
+					m_game.getUi().update(false);
 				break;
 			case 'e':
 				//EXP gain
 				int p1 = Integer.parseInt(String.valueOf(message.charAt(2)));
 				int exp = m_game.getOurPlayer().getPokemon()[p1].getExp() + Integer.parseInt(message.substring(3));
 				m_game.getOurPlayer().getPokemon()[p1].setExp(exp);
-				m_game.getUi().update(false);
+				if (m_game.getUi().isActive())
+					m_game.getUi().update(false);
 				break;
 			case 'E':
 				/*
@@ -420,13 +424,15 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 				String[] levelData = message.substring(2).split(",");
 				m_game.getOurPlayer().getPokemon()[Integer.parseInt(levelData[0])].setLevel(
 						Integer.parseInt(levelData[1]));
-				m_game.getUi().update(false);
+				if (m_game.getUi().isActive())
+					m_game.getUi().update(false);
 				break;
 			case 'h':
 				//HP Change - through item usage
 				m_game.getOurPlayer().getPokemon()[Integer.parseInt(String.valueOf(message.charAt(2)))]
 				                                   .setCurHP(Integer.parseInt(message.substring(3)));
-				GameClient.getInstance().getUi().update(false);
+				if (m_game.getUi().isActive())
+					m_game.getUi().update(false);
 				break;
 			case 'p':
 				//PP data - Pp POKEINDEX MOVEINDEX CURRENTPP , MAXPP
@@ -569,7 +575,8 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 						}
 					}
 				}
-				GameClient.getInstance().getUi().update(false);
+				if (m_game.getUi().isActive())
+					m_game.getUi().update(false);
 				break;
 			case 'D':
 				//Facing down
