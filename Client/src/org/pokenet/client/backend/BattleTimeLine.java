@@ -54,7 +54,6 @@ public class BattleTimeLine {
    */
   public void informFaintedPoke(String poke) {
     m_pokeName = poke;
-    addSpeech(poke + " fainted.");
     for (int i = 0; i < GameClient.getInstance().getOurPlayer().getPokemon().length; i++) {
       int counter = 0;
       if (GameClient.getInstance().getOurPlayer().getPokemon()[i] != null &&
