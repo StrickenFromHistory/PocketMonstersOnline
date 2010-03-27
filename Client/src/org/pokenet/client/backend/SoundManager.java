@@ -151,8 +151,8 @@ public class SoundManager extends Thread{
 		if (track != null) {
 			String key = track;
 			System.out.println(key);
-			System.out.println(key.substring(0,5));
-			if (key.substring(0, 5).equalsIgnoreCase("Route"))
+			//if (key.substring(0, 5).equalsIgnoreCase("Route"))
+			if (key.contains("Route"))
 				key = "Route";
 			if (m_locations.get(key) != m_trackName && m_locations.get(key) != null){
 				m_trackName = m_locations.get(key);

@@ -468,5 +468,6 @@ class TeamForBox extends Frame {
 		GameClient.getInstance().getPacketGenerator().writeTcpMessage("Bs" + (boxNum - 1) + "," + boxIndex + ","
 				+ teamIndex);
 		GameClient.getInstance().getPacketGenerator().writeTcpMessage("Bf");
+		GameClient.getInstance().getUi().update(false);
 	}
 }
