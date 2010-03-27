@@ -2,7 +2,6 @@ package org.pokenet.client.ui;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -182,8 +181,6 @@ public class LoginScreen extends Window {
 	 */
 	private void setClientRevision() {
 		String path = System.getProperty("res.path");
-		String gCode = "pokenetonline.googlecode.com/svn";
-		String SG = "";
 		if (path == null || path.equalsIgnoreCase("NULL")) {
 			path = "./";
 		}
