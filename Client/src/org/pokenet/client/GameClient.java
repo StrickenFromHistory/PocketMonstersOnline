@@ -109,6 +109,8 @@ public class GameClient extends BasicGame {
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	private Image[] m_spriteImageArray = new Image[240]; /* WARNING: Replace with actual number of sprites */
 	public boolean m_chatServerIsActive;
+	private	Image m_loadImage;
+
 	/**
 	 * Load options
 	 */
@@ -144,6 +146,7 @@ public class GameClient extends BasicGame {
 			m_soundPlayer.start();
 			//m_soundPlayer.setTrack("introandgym");
 		}
+
 	}
 
 	/**
@@ -152,6 +155,7 @@ public class GameClient extends BasicGame {
 	 */
 	public GameClient(String title) {
 		super(title);
+
 	}
 
 	/**
@@ -160,7 +164,9 @@ public class GameClient extends BasicGame {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void init(GameContainer gc) throws SlickException {
-	
+//		gc.getGraphics().setBackground(Color.white);
+		m_loadImage = new Image("res/ui/pokeball.png");
+
 		LoadingList.setDeferredLoading(true);
 		
 		
@@ -390,25 +396,23 @@ public class GameClient extends BasicGame {
 	public void render(GameContainer gc, Graphics g) throws SlickException {
 		if (m_nextResource != null) {
 			g.setColor(Color.white);
-			g.drawString("Loading: "+m_nextResource.getDescription(), 10, 100);
+			g.drawString("Loading: "+m_nextResource.getDescription(), 10, gc.getHeight() - 90);
 		}
 		
 		int total = LoadingList.get().getTotalResources();
 		int maxWidth = gc.getWidth() - 20;
 		int loaded = LoadingList.get().getTotalResources() - LoadingList.get().getRemainingResources();
 		if(!m_started){
+			g.drawImage(m_loadImage, gc.getWidth() / 2 - m_loadImage.getWidth() / 2, gc.getHeight() / 2 - m_loadImage.getHeight());
+
 			float bar = loaded / (float) total;
 			
 			// non-imagy loading bar
 			g.setColor(m_loadGreen);
 			g.setAntiAlias(true);
-			g.fillRoundRect(15, 154, bar*(maxWidth - 10), 20, 10);
+			g.fillRoundRect(15, gc.getHeight() - 120, bar*(maxWidth - 10), 20, 10);
 			g.setColor(Color.gray);
-			g.drawRoundRect(10 ,150, maxWidth, 28, 15);	
-		
-		
-			
-	
+			g.drawRoundRect(10 ,gc.getHeight() - 124, maxWidth, 28, 15);	
 		}
 		
 		if (m_started){
@@ -872,6 +876,7 @@ public class GameClient extends BasicGame {
 					800, 600, fullscreen);
 			gc.setTargetFrameRate(50);
 			gc.start();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
