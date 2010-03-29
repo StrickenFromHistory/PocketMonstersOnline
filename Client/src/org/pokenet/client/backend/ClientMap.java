@@ -227,11 +227,16 @@ public class ClientMap extends TiledMap {
 		}
 		
 		int collisionLayer = 0;
+		int waterLayer = 0;
 		int ledgeLayer = 0;
 		for (int i = 0; i < getLayerCount(); i++){
 			//Test for collisions
 			if (getLayer(i).name.equals("Collisions") && collisionLayer == 0){
 				collisionLayer = getLayer(i).getTileID(newX / 32,
+						(newY + 8) / 32);
+			} else if (getLayer(i).name.equals("Water") && waterLayer == 0
+					&& GameClient.getInstance().getOurPlayer().getTrainerLevel() < 25){
+				waterLayer = getLayer(i).getTileID(newX / 32,
 						(newY + 8) / 32);
 			} else { //Test for ledges
 				if (p.getDirection() != Direction.Left
@@ -253,7 +258,7 @@ public class ClientMap extends TiledMap {
 				}
 			}
 		}
-		if (ledgeLayer + collisionLayer != 0)
+		if (ledgeLayer + collisionLayer + waterLayer != 0)
 			return true;
 		/* Check NPCs */
 		for(int i = 0; i < m_mapMatrix.getPlayers().size(); i++) {
