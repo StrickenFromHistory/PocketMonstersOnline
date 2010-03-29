@@ -68,6 +68,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 	private Task m_task;
 	private Component m_output;
 	private boolean m_showOutput = true;
+	private JButton m_resetLocation;
 	
 	static boolean m_isWindows = OS.contains("Windows");
 	static boolean m_isLinux = OS.contains("Linux");
@@ -76,6 +77,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 
 	private static float m_progressSize = 0;
 	private static String m_installpath = "";
+	private static String path;
 
 	class Task extends SwingWorker<Void, Void> {
 		/*
@@ -210,7 +212,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 					m_taskOutput.append("Setting up the install directory...");
 					m_taskOutput.setCaretPosition(m_taskOutput.getDocument()
 							.getLength());
-					File f = new File(getPathForOS());
+					File f = new File(path);
 					if (m_isLinux || m_isMac || m_isWindows) {
 						if (f.exists())
 							f.delete();
@@ -243,28 +245,42 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 
 	public static void LaunchPokenet() {
 		m_masterFrame.setVisible(false);
+		String[] args = new String[4];
 		try {
 			//String s;
 			String m_launchCommand = "";
-			if(m_isWindows)
-				m_launchCommand = "java -Dres.path="+m_installpath+"\\ -Djava.library.path="+m_installpath+"\\lib\\native -jar "+m_installpath+"\\Pokenet.jar";
-			else
-				m_launchCommand = "java -Dres.path="+m_installpath+"/ -Djava.library.path="+m_installpath+"/lib/native -jar "+m_installpath+"/Pokenet.jar";
+			String sep = File.separator;
 			
-			System.out.println(m_launchCommand);
-			Process p = Runtime.getRuntime().exec(m_launchCommand);
-			/*BufferedReader stdInput = new BufferedReader(new InputStreamReader(
-					p.getInputStream()));
-			BufferedReader stdError = new BufferedReader(new InputStreamReader(
-					p.getErrorStream()));*/
-			// Read the output from the command
+			args[0] = "java ";
+			args[1] = "-Dres.path=" + m_installpath + sep;
+			args[2] = "-Djava.library.path=" + m_installpath + sep + "lib" + sep + "native";
+			args[3] = "-jar " + m_installpath + sep + "Pokenet.jar";
+			
+//			if(m_isWindows) {
+//				m_launchCommand = "java -Dres.path=\""+m_installpath+
+//				"\\\" -Djava.library.path=\""+
+//				m_installpath+"\\lib\\native\" -jar \""+
+//				m_installpath+"\\Pokenet.jar\"";
+//			}
 
-			/*while ((s = stdInput.readLine()) != null) {
-				System.out.println(s);
-			}
-			while ((s = stdError.readLine()) != null) {
-				System.out.println("Error: " + s);
-			}*/
+			
+			for(String s: args) System.out.print(s + " ");
+			Process p = Runtime.getRuntime().exec(args);
+//			
+//			BufferedReader stdInput = new BufferedReader(new InputStreamReader(
+//					p.getInputStream()));
+//			BufferedReader stdError = new BufferedReader(new InputStreamReader(
+//					p.getErrorStream()));
+//			// Read the output from the command
+//
+//			String s;
+//			while ((s = stdInput.readLine()) != null) {
+//				System.out.println(s);
+//			}
+//			while ((s = stdError.readLine()) != null) {
+//				System.out.println("Error: " + s);
+//			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
 			JOptionPane
@@ -290,7 +306,13 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		panel.setLayout(new BorderLayout());
 
 		updatePokenet();
-
+//		
+//		m_resetLocation = new JButton("Reset Game Location");
+//		m_hideButton.setActionCommand("reset");
+//		m_hideButton.addActionListener(this);
+//		m_hideButton.setEnabled(true);
+//		panel.add(m_resetLocation, BorderLayout.LINE_START);
+		
 		m_hideButton = new JButton("Hide Details...");
 		m_hideButton.setActionCommand("hide");
 		m_hideButton.addActionListener(this);
@@ -345,6 +367,10 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 				m_masterFrame.setSize(WIDTH, HEIGHT - m_output.getHeight());
 				m_showOutput = false;
 			}
+		} else if (evt.getActionCommand().equals("reset")) {
+			File f = new File(path);
+			f.delete();
+			runApp();
 		}
 	}
 
@@ -402,17 +428,16 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-
+		
+		setPathForOS();
 		runApp();
 	}
 
 	public static void runApp() {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-
+		
 			public void run() {
-
-				String path = getPathForOS();
-
+				System.out.println("Path path : " + path);
 				if (!path.equals("")) {
 					BufferedReader br = null;
 					try {
@@ -428,7 +453,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 						if (returnVal == JFileChooser.APPROVE_OPTION) {
 							File file = fc.getSelectedFile();
 							try {
-								m_installpath = file.getCanonicalPath() + "/"
+								m_installpath = file.getCanonicalPath() + (m_isWindows ? "\\" : "/")
 										+ FOLDER_NAME;
 								createAndShowGUI();
 							} catch (IOException e1) {
@@ -452,8 +477,7 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		});
 	}
 
-	protected static String getPathForOS() {
-		String path = "";
+	protected static void setPathForOS() {
 		if (m_isWindows) {
 			path = System.getenv("APPDATA") + "\\.pokenet";
 		} else if (m_isLinux) {
@@ -461,7 +485,6 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 		} else if (m_isMac) { // Probably?
 			path = System.getProperty("user.home") + "/Library/Preferences/org.pokenet.updaterPrefs"; // Maybe.
 		}
-		return path;
 	}
 
 	/**
