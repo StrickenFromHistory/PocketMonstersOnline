@@ -84,7 +84,9 @@ public class TcpProtocolHandler extends IoHandlerAdapter {
 	public void messageReceived(IoSession session, Object msg) throws Exception {
 		String message = (String) msg;
 		String [] details;
-		System.out.println(message);
+		if (!message.equals("L") && !message.equals("R") && !message.equals("D") && !message.equals("U")) {
+			System.out.println(message);
+		}
 		if(session.getAttribute("player") == null) {
 			/*
 			 * The player hasn't been logged in, only allow login and registration packets
