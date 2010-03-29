@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Display;
+import mdes.slick.sui.Label;
 import mdes.slick.sui.event.ActionEvent;
 import mdes.slick.sui.event.ActionListener;
 
@@ -22,6 +23,7 @@ import org.apache.mina.transport.socket.nio.NioSocketConnector;
 import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
+import org.newdawn.slick.BigImage;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Font;
 import org.newdawn.slick.GameContainer;
@@ -101,10 +103,10 @@ public class GameClient extends BasicGame {
 	private static boolean m_disableMaps = false;
 	public static String UDPCODE = "";
 
-	 public static DeferredResource m_nextResource;
-		private boolean m_started;
+	public static DeferredResource m_nextResource;
+	private boolean m_started;
 		
-		Color m_loadGreen = new Color(132,185,0);
+	Color m_loadColor = new Color(70,70,255);
 	
 	private boolean m_close = false; //Used to tell the game to close or not. 
 	private Image[] m_spriteImageArray = new Image[240]; /* WARNING: Replace with actual number of sprites */
@@ -165,7 +167,10 @@ public class GameClient extends BasicGame {
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 //		gc.getGraphics().setBackground(Color.white);
-		m_loadImage = new Image("res/ui/pokeball.png");
+		m_loadImage = new Image("res/load.jpg");
+//		m_loadImage = m_loadImage.getScaledCopy(gc.getWidth() / m_loadImage.getWidth());
+		m_loadImage = m_loadImage.getScaledCopy(800.0f / m_loadImage.getWidth());
+
 
 		LoadingList.setDeferredLoading(true);
 		
@@ -174,6 +179,8 @@ public class GameClient extends BasicGame {
 		gc.getGraphics().setWorldClip(-32, -32, 832, 832);
 		gc.setShowFPS(false);
 		m_display = new Display(gc);
+		
+
 
 		/*
 		 * Setup variables
@@ -394,7 +401,9 @@ public class GameClient extends BasicGame {
 	 * Renders to the game window
 	 */
 	public void render(GameContainer gc, Graphics g) throws SlickException {
-		if (m_nextResource != null) {
+		g.drawImage(m_loadImage, 0, 0);
+		
+		 if (m_nextResource != null) {
 			g.setColor(Color.white);
 			g.drawString("Loading: "+m_nextResource.getDescription(), 10, gc.getHeight() - 90);
 		}
@@ -403,12 +412,11 @@ public class GameClient extends BasicGame {
 		int maxWidth = gc.getWidth() - 20;
 		int loaded = LoadingList.get().getTotalResources() - LoadingList.get().getRemainingResources();
 		if(!m_started){
-			g.drawImage(m_loadImage, gc.getWidth() / 2 - m_loadImage.getWidth() / 2, gc.getHeight() / 2 - m_loadImage.getHeight());
-
+			
 			float bar = loaded / (float) total;
 			
 			// non-imagy loading bar
-			g.setColor(m_loadGreen);
+			g.setColor(m_loadColor);
 			g.setAntiAlias(true);
 			g.fillRoundRect(15, gc.getHeight() - 120, bar*(maxWidth - 10), 20, 10);
 			g.setColor(Color.gray);
