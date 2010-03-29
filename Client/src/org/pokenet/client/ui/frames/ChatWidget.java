@@ -129,17 +129,17 @@ class ChatWidget extends Container{
     			// Make system messages red
     			if (m_wrappedText.get(m_scrollIndex + i).charAt(0) == '*'){
     				m_shownChat.get(i).setForeground(Color.red);
-    //				m_wrappedText.set(m_scrollIndex + i, m_wrappedText.get(m_scrollIndex + i).replaceFirst("*",""));
+    				m_wrappedText.set(m_scrollIndex + i, m_wrappedText.get(m_scrollIndex + i).substring(1));
     			}
     			// Make announcements yellow
     			if (m_wrappedText.get(m_scrollIndex + i).charAt(0) == '%'){
     				m_shownChat.get(i).setForeground(Color.yellow);
-    //				m_wrappedText.set(m_scrollIndex + i, m_wrappedText.get(m_scrollIndex + i).replaceFirst("%",""));
+    				m_wrappedText.set(m_scrollIndex + i, m_wrappedText.get(m_scrollIndex + i).substring(1));
     			}
     			// Highlight chat when named. 
     			if (m_wrappedText.get(m_scrollIndex + i).charAt(0) == '!'){
     				m_shownChat.get(i).setForeground(Color.green);
-    //				m_wrappedText.set(m_scrollIndex + i, m_wrappedText.get(m_scrollIndex + i).replaceFirst("!",""));
+    				m_wrappedText.set(m_scrollIndex + i, m_wrappedText.get(m_scrollIndex + i).substring(1));
     			}
     			m_shownChat.get(i).setText(m_wrappedText.get(m_scrollIndex + i));
     		} catch (Exception e) {} 
@@ -202,7 +202,13 @@ class ChatWidget extends Container{
 						char messageType = '\u0000';
 						if (loopLine.charAt(0) == '*')
 							messageType = '*';
-						else if (loopLine.charAt(0) == '!')
+						else if (loopLine.charAt(0) == '%')
+							messageType = '%';
+						else if (loopLine.charAt(0) == '!' || (!loopLine.contains(
+								'<' + GameClient.getInstance().getOurPlayer()
+								.getUsername() + '>') && loopLine
+								.contains(GameClient.getInstance().getOurPlayer()
+								.getUsername())))
 							messageType = '!';
 						while (GameClient.getFontSmall().getWidth(loopLine) > getWidth()){
 							int linesToDrop = 1;
@@ -220,7 +226,7 @@ class ChatWidget extends Container{
 									loopList.size() - 1).length());
 							loopList.add(loopLine);
 						}
-						m_wrappedText.add(loopLine);
+						m_wrappedText.add(messageType + loopLine);
 					}
 				} catch (IndexOutOfBoundsException e) {}
 				catch (Exception e) {e.printStackTrace();}
