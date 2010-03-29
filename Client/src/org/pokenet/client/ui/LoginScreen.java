@@ -196,7 +196,7 @@ public class LoginScreen extends Window {
 				m_clientRev = new Label("Client Version: svn:" + s.nextLine());
 				f = new File(path + "rev.txt");
 				s = new Scanner(f);
-				m_clientRev.setText(m_clientRev.getText() + " // s" + s.nextLine());
+				m_clientRev.setText(m_clientRev.getText() + " // rev:" + s.nextLine());
 				
 			} else {
 				f = new File(path + "rev.txt");
