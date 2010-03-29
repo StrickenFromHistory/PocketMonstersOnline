@@ -112,6 +112,7 @@ public class GameClient extends BasicGame {
 	private Image[] m_spriteImageArray = new Image[240]; /* WARNING: Replace with actual number of sprites */
 	public boolean m_chatServerIsActive;
 	private	Image m_loadImage;
+	private Image m_loadBarLeft, m_loadBarRight, m_loadBarMiddle;
 
 	/**
 	 * Load options
@@ -171,7 +172,10 @@ public class GameClient extends BasicGame {
 //		m_loadImage = m_loadImage.getScaledCopy(gc.getWidth() / m_loadImage.getWidth());
 		m_loadImage = m_loadImage.getScaledCopy(800.0f / m_loadImage.getWidth());
 
-
+		m_loadBarLeft = new Image("res/ui/loadbar/left.png");
+		m_loadBarRight = new Image("res/ui/loadbar/right.png");
+		m_loadBarMiddle = new Image("res/ui/loadbar/middle.png");
+		
 		LoadingList.setDeferredLoading(true);
 		
 		
@@ -413,14 +417,24 @@ public class GameClient extends BasicGame {
 		int loaded = LoadingList.get().getTotalResources() - LoadingList.get().getRemainingResources();
 		if(!m_started){
 			
+			g.setColor(Color.white);
+			g.drawRoundRect(10 ,gc.getHeight() - 122, maxWidth - 9, 24, 14);	
+			
 			float bar = loaded / (float) total;
+			g.drawImage(m_loadBarLeft, 13, gc.getHeight() - 120);
+			g.drawImage(m_loadBarMiddle, 11 + m_loadBarLeft.getWidth(), gc.getHeight() - 120, 
+					 bar*(maxWidth - 13), gc.getHeight() - 120 + m_loadBarMiddle.getHeight(), 
+					 0, 0, m_loadBarMiddle.getWidth(), m_loadBarMiddle.getHeight());
+			g.drawImage(m_loadBarRight,  bar*(maxWidth - 13), gc.getHeight() - 120);
+			
+			
+			
 			
 			// non-imagy loading bar
-			g.setColor(m_loadColor);
-			g.setAntiAlias(true);
-			g.fillRoundRect(15, gc.getHeight() - 120, bar*(maxWidth - 10), 20, 10);
-			g.setColor(Color.gray);
-			g.drawRoundRect(10 ,gc.getHeight() - 124, maxWidth, 28, 15);	
+//			g.setColor(m_loadColor);
+//			g.setAntiAlias(true);
+//			g.fillRoundRect(15, gc.getHeight() - 120, bar*(maxWidth - 10), 20, 10);
+	
 		}
 		
 		if (m_started){
