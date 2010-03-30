@@ -1,1 +1,1 @@
-java -Djava.library.path=lib/native -jar Pokenet.jar
+java -Djava.library.path=lib/native -jar Pokenet.jar > pokenet.log
