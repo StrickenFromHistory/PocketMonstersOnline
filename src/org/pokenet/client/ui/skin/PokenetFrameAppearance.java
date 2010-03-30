@@ -26,6 +26,8 @@ import org.newdawn.slick.geom.RoundedRectangle;
 import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.opengl.SlickCallable;
 
+import com.sun.org.apache.bcel.internal.generic.LMUL;
+
 /**
  * How the frame looks
  *
@@ -68,6 +70,26 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
                 rect.setHeight(rect.getHeight()-h+1);
             }
             
+            
+            if(!win.isActive()){
+            	s.lM_frame.setAlpha(.70f);
+            	s.rM_frame.setAlpha(.70f);
+            	s.tL_frame.setAlpha(.70f);
+            	s.tM_frame.setAlpha(.70f);
+            	s.tM_frame.setColor(0, 50, 50, 50, 1f);
+            	s.tR_frame.setAlpha(.70f);
+            	s.bL_frame.setAlpha(.70f);
+            	s.bR_frame.setAlpha(.70f);
+            	s.bM_frame.setAlpha(.70f);
+            }else{
+            	s.lM_frame.setAlpha(1f);
+            	s.rM_frame.setAlpha(1f);
+            	s.tL_frame.setAlpha(1f);
+            	s.tM_frame.setAlpha(1f);
+            	s.tR_frame.setAlpha(1f);
+            	s.bL_frame.setAlpha(1f);
+            	s.bR_frame.setAlpha(1f);
+            	s.bM_frame.setAlpha(1f);            }
 
 //            float mid = rect.getWidth()/2f;
 //
