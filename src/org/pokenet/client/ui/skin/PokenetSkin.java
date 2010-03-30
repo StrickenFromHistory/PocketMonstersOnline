@@ -5,7 +5,6 @@ import mdes.slick.sui.CheckBox;
 import mdes.slick.sui.Container;
 import mdes.slick.sui.Frame;
 import mdes.slick.sui.Label;
-import mdes.slick.sui.List;
 import mdes.slick.sui.ScrollBar;
 import mdes.slick.sui.ScrollPane;
 import mdes.slick.sui.Skin;
@@ -42,6 +41,7 @@ import org.newdawn.slick.util.Log;
  * @author lprestonsegoiii.
  *         Created Mar 2, 2010.
  */
+@SuppressWarnings("unused")
 public class PokenetSkin implements Skin {
 	private static final String skinImageLocations = "res/ui/skin/";
     

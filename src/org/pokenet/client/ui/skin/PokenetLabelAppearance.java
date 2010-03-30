@@ -1,14 +1,13 @@
 package org.pokenet.client.ui.skin;
 
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.gui.GUIContext;
-
 import mdes.slick.sui.Component;
 import mdes.slick.sui.Label;
 import mdes.slick.sui.Skin;
 import mdes.slick.sui.Theme;
-import mdes.slick.sui.skin.ComponentAppearance;
 import mdes.slick.sui.skin.SkinUtil;
+
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.gui.GUIContext;
 
 /**
  * TODO Put here a description of what this class does.

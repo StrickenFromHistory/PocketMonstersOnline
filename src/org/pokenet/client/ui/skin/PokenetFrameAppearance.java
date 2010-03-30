@@ -7,26 +7,19 @@ import mdes.slick.sui.Label;
 import mdes.slick.sui.Skin;
 import mdes.slick.sui.Sui;
 import mdes.slick.sui.Theme;
-import mdes.slick.sui.Frame.CloseButton;
 import mdes.slick.sui.skin.ComponentAppearance;
 import mdes.slick.sui.skin.FrameAppearance;
 import mdes.slick.sui.skin.SkinUtil;
-import mdes.slick.sui.skin.ImageUIResource;
-
-
 
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
 import org.newdawn.slick.fills.GradientFill;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.RoundedRectangle;
 import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.opengl.SlickCallable;
-
-import com.sun.org.apache.bcel.internal.generic.LMUL;
 
 /**
  * How the frame looks
@@ -34,6 +27,7 @@ import com.sun.org.apache.bcel.internal.generic.LMUL;
  * @author lprestonsegoiii.
  *         Created Mar 2, 2010.
  */
+@SuppressWarnings("unused")
 public class PokenetFrameAppearance extends PokenetContainerAppearance implements FrameAppearance {
         
     private static GradientFill grad = new GradientFill(0f,0f,Color.white,0f,0f,Color.white);
@@ -240,7 +234,6 @@ public class PokenetFrameAppearance extends PokenetContainerAppearance implement
             
         }
        
-        @SuppressWarnings("static-access")
 		@Override
 		public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
             Rectangle rect = comp.getAbsoluteBounds();

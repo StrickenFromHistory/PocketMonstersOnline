@@ -5,10 +5,7 @@ import mdes.slick.sui.CheckBox;
 import mdes.slick.sui.Component;
 import mdes.slick.sui.Skin;
 import mdes.slick.sui.Theme;
-import mdes.slick.sui.skin.ComponentAppearance;
 import mdes.slick.sui.skin.SkinUtil;
-import mdes.slick.sui.skin.simple.SimpleButtonAppearance;
-import mdes.slick.sui.skin.simple.SimpleSkin;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
@@ -51,7 +48,8 @@ public class PokenetCheckBoxAppearance extends PokenetButtonAppearance {
     protected RoundedRectangle createRoundedBoxBounds() {
         return new RoundedRectangle(0f,0f,0f,0f,3f,50);
     }
-        
+    
+    @SuppressWarnings("unused")
     public void render(GUIContext ctx, Graphics g, Component comp, Skin skin, Theme theme) {
         //makes sure it's the same as what we're attached to
         checkComponent(comp);
@@ -77,7 +75,7 @@ public class PokenetCheckBoxAppearance extends PokenetButtonAppearance {
             
             Color oldCol = g.getColor();
             boolean oldAA = g.isAntiAlias();
-            Color back;
+			Color back;
 
             if (check.getState()!=Button.UP) //hover
                 back = theme.getPrimary1();

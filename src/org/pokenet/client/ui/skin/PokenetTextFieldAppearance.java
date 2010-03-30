@@ -4,9 +4,9 @@ import mdes.slick.sui.Component;
 import mdes.slick.sui.Padding;
 import mdes.slick.sui.Skin;
 import mdes.slick.sui.TextComponent;
-import mdes.slick.sui.TextComponent.SelectionRange;
 import mdes.slick.sui.TextField;
 import mdes.slick.sui.Theme;
+import mdes.slick.sui.TextComponent.SelectionRange;
 import mdes.slick.sui.skin.SkinUtil;
 
 import org.newdawn.slick.Color;
@@ -23,6 +23,7 @@ import org.newdawn.slick.gui.GUIContext;
  * @author lprestonsegoiii.
  *         Created Mar 3, 2010.
  */
+@SuppressWarnings("unused")
 public class PokenetTextFieldAppearance extends PokenetTextComponentAppearance {
     
     protected GradientFill grad;

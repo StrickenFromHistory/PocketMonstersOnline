@@ -1,8 +1,5 @@
 package org.pokenet.client.ui.skin;
 
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.gui.GUIContext;
-
 import mdes.slick.sui.Button;
 import mdes.slick.sui.Component;
 import mdes.slick.sui.ScrollBar;

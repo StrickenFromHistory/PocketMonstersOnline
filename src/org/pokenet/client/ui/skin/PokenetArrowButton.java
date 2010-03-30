@@ -1,7 +1,6 @@
 package org.pokenet.client.ui.skin;
 
 import mdes.slick.sui.Button;
-import mdes.slick.sui.Padding;
 import mdes.slick.sui.ScrollBar;
 import mdes.slick.sui.ScrollConstants;
 import mdes.slick.sui.Sui;
@@ -73,7 +72,7 @@ public class PokenetArrowButton extends Button {
         float w = getWidth();
         float h = getHeight();
         
-        Padding pad = getPadding();
+        //Padding pad = getPadding();
         
         arrow.setLocation(x+w/2-size,y+h/2-size);
         g.setColor(Sui.getTheme().getForeground());

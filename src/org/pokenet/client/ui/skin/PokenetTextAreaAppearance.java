@@ -18,6 +18,7 @@ import org.newdawn.slick.gui.GUIContext;
  * @author lprestonsegoiii.
  *         Created Mar 2, 2010.
  */
+@SuppressWarnings("unused")
 public class PokenetTextAreaAppearance extends PokenetTextComponentAppearance {
     
     public void install(Component comp, Skin skin, Theme theme) {

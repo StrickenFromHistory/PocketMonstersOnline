@@ -5,7 +5,6 @@ import mdes.slick.sui.Component;
 import mdes.slick.sui.Skin;
 import mdes.slick.sui.Theme;
 import mdes.slick.sui.ToggleButton;
-import mdes.slick.sui.skin.ComponentAppearance;
 import mdes.slick.sui.skin.SkinUtil;
 
 import org.newdawn.slick.Color;
@@ -23,7 +22,7 @@ import org.newdawn.slick.gui.GUIContext;
  */
 public class PokenetButtonAppearance extends PokenetComponentAppearance {
     
-    private static final Color TRANSPARENT_COLOR = new Color(1f,1f,1f,0f);
+    //private static final Color TRANSPARENT_COLOR = new Color(1f,1f,1f,0f);
     
     protected GradientFill grad;
     protected RoundedRectangle roundBounds;
@@ -116,9 +115,11 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
         int state = btn.getState();
         float x = (int)aRect.getX();//btn.getAbsoluteX();
         float bottom, y = (int)aRect.getY();//btn.getAbsoluteY();
-        GradientFill top, midd, bot;
+        @SuppressWarnings("unused")
+		GradientFill top, midd, bot;
         
-        Color lightTop, lightBot, borderLight, borderDark, base;
+        @SuppressWarnings("unused")
+		Color lightTop, lightBot, borderLight, borderDark, base;
         
         borderLight = theme.getPrimaryBorder1();
         borderDark = theme.getPrimaryBorder2();
@@ -174,7 +175,7 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
 //        g.fill(rect, grad);
         
         boolean enabled = btn.isEnabled();
-        Color disabledColor = theme.getDisabledMask();
+//        Color disabledColor = theme.getDisabledMask();
 //        grad.setStartColor(enabled ? TRANSPARENT_COLOR : disabledColor);
 //        grad.setEndColor(enabled ? lightBot : disabledColor);
 //        grad.setStart(0, 0);
@@ -189,19 +190,21 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
             grad.setStart(0, -mid);
             grad.setEnd(0, mid); 
             g.draw(rect, grad);
-//        }
+//		}
         
         g.setAntiAlias(oldAA); 
         
-        //top 
+        //Top 
         g.drawImage(s.tL_button, x, y);
         g.drawImage(s.tR_button, -1 + x + aRect.getWidth() - s.tR_button.getWidth(), y);
-        g.drawImage(s.tM_button, x + s.tL_button.getWidth(), y,
-        		0 + x + aRect.getWidth() - s.tR_button.getWidth(),
-        		y + s.tM_button.getHeight(),
-        		1,1,s.tM_button.getWidth() - 1 ,s.tM_button.getHeight());
-        
-//        middle - only draw if we need too
+        //Upper and bottom center pieces - Render only when needed
+        if(aRect.getWidth() > s.tL_button.getWidth() + s.tR_button.getWidth()){
+        	g.drawImage(s.tM_button, x + s.tL_button.getWidth(), y,
+        			0 + x + aRect.getWidth() - s.tR_button.getWidth(),
+        			y + s.tM_button.getHeight(),
+        			1,1,s.tM_button.getWidth() - 1 ,s.tM_button.getHeight());
+        }
+        //Left and right center pieces - Render only when needed
         if(aRect.getHeight() > s.tM_button.getHeight() + s.bM_button.getHeight()){
         	y += s.tL_button.getHeight();
         	bottom = y + aRect.getHeight() - s.tL_button.getHeight() - s.bL_button.getHeight();
@@ -218,9 +221,7 @@ public class PokenetButtonAppearance extends PokenetComponentAppearance {
 	        		bottom,
 	        		1,1,s.c_button.getWidth() - 1,s.c_button.getHeight() - 1);
         }
-        
-        
-        //bottom
+        //Bottom
         y = btn.getAbsoluteY() + aRect.getHeight() - s.bL_button.getHeight() - 1;
         g.drawImage(s.bL_button, x, y);
         g.drawImage(s.bR_button, -1 + x + aRect.getWidth() - s.bR_button.getWidth(), y);
