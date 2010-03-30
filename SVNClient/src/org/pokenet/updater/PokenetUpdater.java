@@ -252,20 +252,19 @@ public class PokenetUpdater extends JPanel implements ActionListener,
 			String sep = File.separator;
 			
 			if(m_isWindows) { // added " to path
-				args[0] = "java ";
-				args[1] = "-Dres.path= \"" + m_installpath + sep + "\"";
-				args[2] = "-Djava.library.path=\"" + m_installpath + sep + "lib" + sep + "native" + "\"";
-				args[3] = "-jar \"" + m_installpath + sep + "Pokenet.jar" + "\"";
+				m_launchCommand = "\"" + m_installpath + "\\pokenet.bat\"";
+				File dir = new File(m_installpath);
+				Process p = Runtime.getRuntime().exec("cmd /c" + m_launchCommand, null, dir);
 			} else {
 				args[0] = "java ";
 				args[1] = "-Dres.path=" + m_installpath + sep;
 				args[2] = "-Djava.library.path=" + m_installpath + sep + "lib" + sep + "native";
 				args[3] = "-jar " + m_installpath + sep + "Pokenet.jar";
+				Process p = Runtime.getRuntime().exec(args);
 			}
 
 			
 			for(String s: args) System.out.print(s + " ");
-			Process p = Runtime.getRuntime().exec(args);
 //			
 //			BufferedReader stdInput = new BufferedReader(new InputStreamReader(
 //					p.getInputStream()));
